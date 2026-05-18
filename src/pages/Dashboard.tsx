@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, BrainCircuit, Target, Calculator } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LESSONS } from "@/data/lessons";
 import { QUESTIONS } from "@/data/questions";
 
@@ -11,7 +9,7 @@ export function Dashboard() {
 
   return (
     <div className="p-8 max-w-6xl mx-auto flex flex-col gap-8 flex-1 w-full">
-      <header className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch h-auto lg:h-[360px]">
+      <header className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch h-auto lg:h-90">
         <div className="col-span-1 border-b border-[#1A1A1A] pb-4 md:col-span-8 bg-white border md:border-[#1A1A1A] p-10 flex flex-col relative overflow-hidden h-full min-h-[300px]">
           <div className="absolute top-0 left-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase font-bold tracking-widest">Platform Overview</div>
           <div className="mt-4 z-10 flex flex-col justify-center h-full">
@@ -21,7 +19,7 @@ export function Dashboard() {
               Focusing on Mechanics and Statistics, bringing you exact theory, exam technique, and targeted past-paper practice.
             </p>
           </div>
-          <div className="absolute right-[-20px] bottom-[-20px] w-64 h-64 border-[0.5px] border-[#1A1A1A]/20 rounded-full flex items-center justify-center pointer-events-none hidden md:flex">
+          <div className="absolute -right-5 -bottom-5 w-64 h-64 border-[0.5px] border-[#1A1A1A]/20 rounded-full flex items-center justify-center pointer-events-none hidden md:flex">
              <div className="w-48 h-48 border border-[#1A1A1A]/40 rounded-full flex items-center justify-center">
                 <div className="w-px h-full bg-[#1A1A1A]/10 rotate-45"></div>
                 <div className="w-full h-px bg-[#1A1A1A]/10 rotate-12"></div>

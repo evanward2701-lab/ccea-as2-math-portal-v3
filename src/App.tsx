@@ -12,7 +12,7 @@ export default function App() {
       <nav className="h-16 border-b border-[#1A1A1A] flex items-center justify-between px-8 bg-white z-10 shrink-0">
         <div className="flex items-center gap-8">
           <span className="font-serif italic text-2xl font-bold tracking-tighter">AS2 Mathematics</span>
-          <div className="h-4 w-[1px] bg-[#1A1A1A]/20"></div>
+          <div className="h-4 w-1px bg-[#1A1A1A]/20"></div>
           <span className="text-[10px] uppercase tracking-widest font-semibold text-[#1A1A1A]/60">CCEA Specification / Revision Portal</span>
         </div>
       </nav>
