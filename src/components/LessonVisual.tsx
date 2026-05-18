@@ -5,19 +5,19 @@ import React from "react";
 // ==========================================
 
 // M1 Imports
-import { FMaBridge } from "./Visuals/M1/Mermaid";
+import { FMaBridge } from "./Visuals/M1/M1-Mermaid";
 import { 
   ScalarVectorSVG, 
   ModellingAssumptionsSVG, 
   TowingModelSVG 
-} from "./Visuals/M1/SVG";
+} from "./Visuals/M1/M1-SVG";
 
 // M2 Imports 
 import {
   VTSshapesSVG,
   TrafficLightTriangleSVG,
   VerticalSignConventionSVG
-} from "./Visuals/M2/SVG";
+} from "./Visuals/M2/M2-SVG";
 
 // M3 Imports
 import {
@@ -25,7 +25,7 @@ import {
   PulleySystemSVG,
   InclinedPlaneSVG,
   LiftSystemSVG
-} from "./Visuals/M3/SVG";
+} from "./Visuals/M3/M3-SVG";
 
 
 // ==========================================
@@ -33,25 +33,25 @@ import {
 // ==========================================
 
 // S1 Imports
-import { DataTypeTree } from "./Visuals/S1/Mermaid";
-import { SamplingTableSVG } from "./Visuals/S1/SVG";
+import { DataTypeTree } from "./Visuals/S1/S1-Mermaid";
+import { SamplingTableSVG } from "./Visuals/S1/S1-SVG";
 
 // S2 Imports
-import { StdDevDecisionTree } from "./Visuals/S2/Mermaid";
+import { StdDevDecisionTree } from "./Visuals/S2/S2-Mermaid";
 import {
   HistogramDensitySVG,
   PMCCPanelSVG,
   ScatterClustersSVG,
   InterpolationLineSVG
-} from "./Visuals/S2/SVG";
+} from "./Visuals/S2/S2-SVG";
 
 // S3 Imports
-import { ProbabilityTree } from "./Visuals/S3/Mermaid";
-import { VennMutExSVG, TwoWayTableSVG } from "./Visuals/S3/SVG";
+import { ProbabilityTree } from "./Visuals/S3/S3-Mermaid";
+import { VennMutExSVG, TwoWayTableSVG } from "./Visuals/S3/S3-SVG";
 
 // S4 Imports
-import { BinomialTree } from "./Visuals/S4/Mermaid";
-import { InequalityPanelSVG, NormalDistributionSVG } from "./Visuals/S4/SVG";
+import { BinomialTree } from "./Visuals/S4/S4-Mermaid";
+import { InequalityPanelSVG, NormalDistributionSVG } from "./Visuals/S4/S4-SVG";
 
 
 // ==========================================

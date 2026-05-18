@@ -10,7 +10,7 @@ export function Dashboard() {
   return (
     <div className="p-8 max-w-6xl mx-auto flex flex-col gap-8 flex-1 w-full">
       <header className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch h-auto lg:h-90">
-        <div className="col-span-1 border-b border-[#1A1A1A] pb-4 md:col-span-8 bg-white border md:border-[#1A1A1A] p-10 flex flex-col relative overflow-hidden h-full min-h-[300px]">
+        <div className="col-span-1 border-b border-[#1A1A1A] pb-4 md:col-span-8 bg-white border md:border-[#1A1A1A] p-10 flex flex-col relative overflow-hidden h-full min-h-75">
           <div className="absolute top-0 left-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase font-bold tracking-widest">Platform Overview</div>
           <div className="mt-4 z-10 flex flex-col justify-center h-full">
             <h1 className="font-serif text-5xl font-light leading-tight mb-4 tracking-tight">AS2 Applied<br/><span className="italic font-serif">Mathematics</span></h1>
