@@ -2,84 +2,58 @@ import React from 'react';
 import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
 
 export const BinomialTree: React.FC = () => {
-  // CRITICAL: The string must begin perfectly flush-left to feed character 0 directly to the parser.
-  const chart = `graph LR
-  Start((Start))
-  
-  subgraph T1["Trial 1"]
-    S1((S))
-    F1((F))
-  end
-  
-  subgraph T2["Trial 2"]
-    S2((S))
-    F2((F))
-    S3((S))
-    F3((F))
-  end
-  
-  subgraph T3["Trial 3 / Outcomes"]
-    SSS((S))
-    SSF((F))
-    SFS((S))
-    SFF((F))
-    FSS((S))
-    FSF((F))
-    FFS((S))
-    FFF((F))
-  end
+  const chart = `
+    graph LR
+    Start((Start)) -->|p| S1((S))
+    Start -->|1-p| F1((F))
+    
+    S1 -->|p| S2((S))
+    S1 -->|1-p| F2((F))
+    
+    F1 -->|p| S3((S))
+    F1 -->|1-p| F3((F))
+    
+    S2 -->|p| SSS((S))
+    S2 -->|1-p| SSF((F))
+    
+    F2 -->|p| SFS((S))
+    F2 -->|1-p| SFF((F))
+    
+    S3 -->|p| FSS((S))
+    S3 -->|1-p| FSF((F))
+    
+    F3 -->|p| FFS((S))
+    F3 -->|1-p| FFF((F))
 
-  Start -->|p| S1
-  Start -->|1-p| F1
+    SSF -.-> Result["3C2 × p²(1-p)¹"]
+    SFS -.-> Result
+    FSS -.-> Result
 
-  S1 -->|p| S2
-  S1 -->|1-p| F2
-  F1 -->|p| S3
-  F1 -->|1-p| F3
-
-  S2 -->|p| SSS
-  S2 -->|1-p| SSF
-  F2 -->|p| SFS
-  F2 -->|1-p| SFF
-  S3 -->|p| FSS
-  S3 -->|1-p| FSF
-  F3 -->|p| FFS
-  F3 -->|1-p| FFF
-
-  SSF -.-> Result["³C₂ × p²(1-p)¹"]
-  SFS -.-> Result
-  FSS -.-> Result
-
-  style Start fill:#FAF9F6,stroke:#1A1A1A,stroke-width:2px,color:#1A1A1A
-  
-  style S1 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style F1 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style S2 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style F2 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style S3 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style F3 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style SSS fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style SFF fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style FSF fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style FFS fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-  style FFF fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A
-
-  style SSF fill:#1A1A1A,color:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,font-weight:bold
-  style SFS fill:#1A1A1A,color:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,font-weight:bold
-  style FSS fill:#1A1A1A,color:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,font-weight:bold
-  
-  style Result fill:#F1EFE9,stroke:#1A1A1A,stroke-width:2px,font-weight:bold,color:#1A1A1A
-  
-  style T1 fill:none,stroke:#1A1A1A,stroke-width:1px,stroke-dasharray: 5 5,color:#1A1A1A
-  style T2 fill:none,stroke:#1A1A1A,stroke-width:1px,stroke-dasharray: 5 5,color:#1A1A1A
-  style T3 fill:none,stroke:#1A1A1A,stroke-width:1px,stroke-dasharray: 5 5,color:#1A1A1A
-
-  linkStyle 0,1,2,3,4,5,6,7,8,9,10,11,12,13 stroke:#1A1A1A,stroke-width:1.5px
-  linkStyle 14,15,16 stroke:#1A1A1A,stroke-width:2px,stroke-dasharray: 3 3`;
+    style Start fill:#1E293B,stroke:#475569,stroke-width:1px,color:#FFF
+    style S1 fill:#022C22,stroke:#059669,stroke-width:1px,color:#34D399
+    style F1 fill:#451A03,stroke:#D97706,stroke-width:1px,color:#FBBF24
+    style S2 fill:#022C22,stroke:#059669,stroke-width:1px,color:#34D399
+    style F2 fill:#451A03,stroke:#D97706,stroke-width:1px,color:#FBBF24
+    style S3 fill:#022C22,stroke:#059669,stroke-width:1px,color:#34D399
+    style F3 fill:#451A03,stroke:#D97706,stroke-width:1px,color:#FBBF24
+    
+    style SSS fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
+    style SSF fill:#020617,stroke:#38BDF8,stroke-width:2px,color:#38BDF8
+    style SFS fill:#020617,stroke:#38BDF8,stroke-width:2px,color:#38BDF8
+    style SFF fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
+    style FSS fill:#020617,stroke:#38BDF8,stroke-width:2px,color:#38BDF8
+    style FSF fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
+    style FFS fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
+    style FFF fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
+    
+    style Result fill:#0F172A,stroke:#34D399,stroke-width:2px,color:#34D399,font-weight:bold
+    
+    classDef default fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8;
+  `;
 
   return (
-    <div className="w-full flex flex-col items-center py-8 mb-12 border border-[#1A1A1A] bg-white relative shadow-[8px_8px_0px_#1A1A1A]">
-      <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+    <div className="w-full flex flex-col items-center py-6 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
+      <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">
         Fig 1. Binomial Tree (n=3)
       </div>
       
@@ -87,13 +61,10 @@ export const BinomialTree: React.FC = () => {
         <Mermaid chart={chart} />
       </div>
       
-      <p className="text-[11px] font-sans text-[#1A1A1A]/70 text-center mt-2 px-6 italic max-w-prose">
-        {"The binomial coefficient $\\binom{n}{x}$ counts the number of successful branch pathways on a tree diagram, avoiding the need to draw massive trees for large values of $n$."}
+      <p className="text-[11px] font-sans text-slate-400 text-center px-4 italic leading-relaxed">
+        The binomial coefficient <span className="text-emerald-400 font-mono font-semibold not-italic">ⁿCₓ</span> physically counts the number of successful branch pathways on a tree diagram. 
         <br />
-        <strong className="text-red-600 not-italic uppercase text-[10px] block mt-1">
-          Exam Misconception:
-        </strong>{" "}
-        This physically demonstrates why you must include the $^nC_x$ multiplier prefix. Forgetting it assumes there is only one path configuration (e.g., assuming ordering is fixed as $SSF$), when there are actually 3 unique structural arrangements that yield 2 successes.
+        <span className="text-amber-400 font-mono font-bold uppercase tracking-wider text-[10px]">Exam Tip:</span> Use the formula directly so you do not have to draw extensive, non-scannable trees for large values of <span className="font-mono text-slate-200">n</span>!
       </p>
     </div>
   );

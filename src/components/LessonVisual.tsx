@@ -54,8 +54,11 @@ import { VennMutExSVG, TwoWayTableSVG, BayesResolutionSVG } from "./Visuals/S3/S
 
 // S4 Imports
 import { BinomialTree } from "./Visuals/S4/S4-Mermaid";
-import { InequalityPanelSVG, NormalDistributionSVG } from "./Visuals/S4/S4-SVG";
-
+import { 
+  InequalityPanelSVG, 
+  NormalDistributionSVG, 
+  BinomialConditionsChecklistSVG 
+} from "./Visuals/S4/S4-SVG";
 
 // ==========================================
 // ROUTER COMPONENT
@@ -137,7 +140,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "S4-Binomial": return <BinomialTree />;
     case "S4-Inequality": return <InequalityPanelSVG />;
     case "S4-Normal": return <NormalDistributionSVG />;
-
+    case "S4-BinomialConditions": return <BinomialConditionsChecklistSVG />;
     // ------------------------------------------
     // FALLBACK
     // ------------------------------------------
