@@ -63,7 +63,7 @@ Mathematical models simplify complex real-world situations. In mechanics, specif
 ![visual:M1-Modelling]()
 
 ### Tension and Towing Models
-When objects are connected by a light towbar or inextensible string, the tension is an internal force for the whole system but an external force on each separate object. Use a whole-system equation to find the common acceleration, then isolate one object to find the tension.
+ When objects are connected by a light towbar or inextensible string, the tension is an internal force for the whole system but an external force on each separate object. Use a whole-system equation to find the common acceleration, then isolate one object to find the tension.
 
 ![visual:M1-Towing]()
 
@@ -95,11 +95,6 @@ Speed $= \\sqrt{36 + 64} = \\sqrt{100} = 10 \\text{ m s}^{-1}$
 * **Confusing mass and weight:** Always use $W = mg$ to find the force downwards. Do not label a force diagram with just "5 kg"; it must be "$5g$".
 * **Using the wrong sign in 1D vectors:** Left and Down are generally negative. Forgetting to assign negative signs to opposite vectors will ruin magnitude and displacement equations.
 * **Hedging your bets:** Leaving two distinct mathematical methods on the page because you aren't sure which one is correct. Examiners are forced to penalize this.
-
-### CCEA Scoring Integrity Constraints
-Before submitting your exam canvas answers, ensure all draft iterations are fully scrubbed or crossed out.
-
-![visual:M1-Trap]()
 
 ## 8. Exam Technique
 * **Rounding:** Where rounding is required, your final answer should be given to 3 significant figures. To guarantee final accuracy, you must keep more than 3 significant figures during the intermediate stages of a multi-part question.
@@ -135,10 +130,7 @@ export const M2_CONTENT = `
 Kinematics is the study of motion. Distance and speed are scalar quantities, meaning they have magnitude but no direction. Displacement and velocity are vectors, meaning they have both magnitude and direction. For example, if a cyclist travels 5 km away and 5 km back, her total distance is 10 km, but her final displacement is 0 km.
 
 ### Motion Graphs
-This structural anchor invokes both the constant velocity velocity-time shapes and the asymmetrical peak traffic light profile validation model natively on the dark canvas view tier:
-
 ![visual:M2-VTS]()
-
 * **Displacement-time graphs:** The gradient tells us how quickly displacement is changing. Therefore, the gradient gives the velocity. A flat horizontal line means the object is stationary. A straight sloping line means constant velocity.
 * **Velocity-time graphs:** The gradient gives the acceleration. A flat horizontal line above the axis means the object is moving at a constant velocity (zero acceleration). The area under a velocity-time graph gives the displacement (and distance, provided the velocity remains positive).
 * **Exam-Style Note:** When asked to describe the motion of an athlete or particle between two times from a graph, ensure you give enough detail (such as explicitly stating "constant acceleration" or calculating the exact acceleration value) to gain the mark.
@@ -156,14 +148,10 @@ You must define a positive direction before substituting values. If a particle i
 ### Vertical Motion Under Gravity
 Vertical motion is a standard constant acceleration topic. If we ignore air resistance, an object in freefall accelerates downwards at $g = 9.8 \\text{ m s}^{-2}$ regardless of its mass. You must pick a positive direction. If upwards is positive, $a = -9.8$. If downwards is positive, $a = 9.8$. At the maximum height of a vertical projection, the particle is instantaneously at rest, meaning $v = 0$.
 
-This target marker renders the exact upward versus downward coordinate maps, verifying compliance with CCEA grading metrics against the "Rule of the Poorest Attempt":
-
 ![visual:M2-Gravity]()
 
 ### Constant Acceleration in Two Dimensions (Vectors)
 In 2D kinematics, displacement ($\\mathbf{s}$), initial velocity ($\\mathbf{u}$), final velocity ($\\mathbf{v}$), and acceleration ($\\mathbf{a}$) become vectors, while time ($t$) remains a scalar. You apply the SUVAT formulae component-by-component. For example, the equation $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ applies to the $\\mathbf{i}$ components and the $\\mathbf{j}$ components simultaneously.
-
-This high-yield diagnostic addition acts as a terminal safeguard showing exactly how vector output properties resolve to scalar distance magnitudes using Pythagoras' theorem:
 
 ![visual:M2-Traffic]()
 
@@ -173,7 +161,7 @@ This high-yield diagnostic addition acts as a terminal safeguard showing exactly
    * $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$
    * $\\mathbf{s} = \\frac{1}{2}(\\mathbf{u} + \\mathbf{v})t$
    * $\\mathbf{s} = \\mathbf{u}t + \\frac{1}{2}\\mathbf{a}t^2$
-   * $\\mathbf{s} = \\mathbf{v}t - \\frac{1}{2}\\mathbf{a}t^2$
+   * $\\mathbf{s} = \\mathbf{v}t - \\frac{1}{2}\\mathbf{a}t^2$ (This is perfectly acceptable to use in CCEA exams)
    * $v^2 = u^2 + 2as$ (1D scalar motion only)
 3. Position Vector: $\\mathbf{r} = \\mathbf{r}_0 + \\mathbf{u}t + \\frac{1}{2}\\mathbf{a}t^2$
 4. Speed: $|\\mathbf{v}| = \\sqrt{v_x^2 + v_y^2}$
@@ -210,7 +198,7 @@ $\\mathbf{v} = 13\\mathbf{i} + 19\\mathbf{j} \\text{ m s}^{-1}$
 
 export const M3_CONTENT = `
 ## 1. Lesson Title
-**M3: Dynamics and Forces - Newton's Laws & Connected Particles**
+**M3: Forces, Newton's Laws and Connected Particles**
 
 ## 2. Specification Focus
 * Demonstrate understanding of and use Newton’s First Law and the concept of a force.
@@ -238,127 +226,107 @@ If an object has zero acceleration ($a=0$), the resultant force is zero. The for
 
 ### Newton's Second Law ($F=ma$)
 When forces are unbalanced, the object accelerates in the direction of the resultant force.
-$$\\text{Resultant Force } (F) = \\text{mass } (m) \\times \\text{acceleration } (a)$$
-*Note: $F$ represents the net vector sum of all forces along the axis of acceleration, not just a single scalar weight or driving force.*
+$\\text{Resultant Force } (F) = \\text{mass } (m) \\times \\text{acceleration } (a)$
+*Note: $F$ represents the resultant force, not just any single applied force.*
 
 ### Resolving Forces and Inclined Planes
-For a particle placed on a rigid inclined plane tilted at an angle $\\theta$ relative to the horizontal datum line:
-* The component of weight acting **parallel to the plane (down the slope)** is $mg \\sin \\theta$.
-* The component of weight acting **perpendicularly into the plane** is $mg \\cos \\theta$.
-
-The Normal Reaction ($R$) acts strictly perpendicular to the surface. It only balances out to $mg \\cos \\theta$ if there are no external secondary pulling strings or anchoring tension ropes angled away from or into the face of the slope.
-
-![visual:M3-Incline]()
+![visual:M3-Inclined]()
+For a particle on an inclined plane at angle $\\theta$ to the horizontal:
+* The component of weight acting **down the slope** is $mg \\sin \\theta$.
+* The component of weight acting **perpendicularly into the slope** is $mg \\cos \\theta$.
+The Normal Reaction ($R$) acts perpendicular to the surface. It only equals $mg \\cos \\theta$ if there are no other angled forces pulling away from or pushing into the slope.
 
 ### The Friction Model
-Rough surfaces generate a variable resistive contact friction vector opposing active or impending displacement paths.
-$$F \\le \\mu R$$
-Friction only builds up to its maximum limiting value ($F = \\mu R$) when the object is on the absolute precipice of slipping, or is in an active state of dynamic sliding.
+Rough surfaces generate friction opposing motion or impending motion. 
+$F \\leq \\mu R$
+Friction only reaches its maximum limiting value ($F = \\mu R$) when the object is on the point of slipping, or is actively sliding.
 
 ### Connected Particles
-Particles joined by a taut, inextensible line share a uniform magnitude of acceleration ($a$).
-* **Towbars and Trailers:** Treat the layout as a single consolidated mass to isolate common system acceleration. To uncover internal coupling forces (Tension/Thrust), isolate one single body.
-* **Pulleys:** Because masses traversing vertical pulleys change displacement directions, write a distinct $F=ma$ system equation for each body, using its explicit direction of motion as the positive reference axis. A smooth pulley setup ensures string tension ($T$) remains perfectly uniform across both sides.
-
 ![visual:M3-Rough]()
+
+Particles joined by a taut, inextensible string share the exact same magnitude of acceleration.
+* **Towbars and Trailers:** Treat the entire system as a single particle to find the common acceleration. To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
+* **Pulleys:** Because particles on a pulley move in different directions, you must write a separate $F=ma$ equation for each mass (using the direction of motion as positive for each) and solve them simultaneously. A "smooth pulley" guarantees the tension $T$ is equal on both sides.
 
 ![visual:M3-Pulley]()
 
 ### Dynamics of Lift Problems
-* **To find the Cable Tension ($T$):** Analyze the macro system. Combine the masses ($M_{\\text{lift}} + m_{\\text{passenger}}$) to cancel out internal reaction forces.
-* **To find the Normal Floor Reaction ($R$):** Isolate the passenger silhouette individually. The reaction force represents the structural force the floor exerts upward against the traveler's feet.
+* **To find the Cable Tension ($T$):** Zoom out. Treat the lift and the passenger as one single combined mass ($M_{\\text{lift}} + m_{\\text{person}}$). The internal forces cancel out.
+* **To find the Normal Reaction ($R$):** Zoom in. Treat the passenger as a single isolated particle. The Normal Reaction is the force the floor pushes up on them.
 
 ![visual:M3-Lift]()
 
-### Advanced Connected Boundary Modeling
-When particles are coupled over a pulley across an inclined wedge, you must combine your systems carefully:
-1. Resolve mass components on the slope parallel and perpendicular to the incline face.
-2. Determine the path of impending system motion to correctly orient the friction force vector ($F$).
-3. Formulate simultaneous equations for both masses to eliminate Tension ($T$) and extract acceleration ($a$).
-
-![visual:M3-Connected]()
-
 ## 5. Worked Examples
 
-### Example 1: Horizontal Motion with Resistance
+### Example 1: Worked Example Targeted Practice
 A body of mass $5 \\text{ kg}$ is pulled along a rough horizontal table by a horizontal force of $20 \\text{ N}$ against a constant friction force of $4 \\text{ N}$. It starts from rest. Find the distance travelled in the first 4 seconds.
 
-**Step 1:** Apply $F=ma$ to establish system acceleration.
-$$\\text{Net Resultant Force} = 20 - 4 = 16 \\text{ N}$$
-$$16 = 5a \\implies a = 3.2 \\text{ m s}^{-2}$$
+**Step 1:** Use $F=ma$ to find acceleration.
+Resultant force = $20 - 4 = 16 \\text{ N}$
+$16 = 5a \\Rightarrow a = 3.2 \\text{ m s}^{-2}$
 
-**Step 2:** Execute constant acceleration equations (SUVAT).
-$$u = 0, \\quad a = 3.2, \\quad t = 4, \\quad s = ?$$
-$$s = ut + \\frac{1}{2}at^2$$
-$$s = 0(4) + \\frac{1}{2}(3.2)(4^2) = 1.6 \\times 16 = 25.6 \\text{ m}$$
+**Step 2:** Apply SUVAT.
+$u = 0, a = 3.2, t = 4, s = ?$
+$s = ut + \\frac{1}{2}at^2$
+$s = 0(4) + \\frac{1}{2}(3.2)(4^2)$
+$s = 1.6 \\times 16 = 25.6 \\text{ m}$
 
-### Example 2: Lift Dynamics
-A lift of mass $500 \\text{ kg}$ contains a passenger of mass $80 \\text{ kg}$. The lift is moving upwards and accelerates at $2 \\text{ m s}^{-2}$. Find the tension in the cable and the normal reaction force exerted by the floor on the passenger.
+### Example 2: Lift Dynamics Exam-Style Question
+A lift of mass $500 \\text{ kg}$ contains a passenger of mass $80 \\text{ kg}$. The lift is moving upwards and accelerates at $2 \\text{ m s}^{-2}$. Find the tension in the cable and the normal reaction force exerted by the floor on the passenger. (Take Upwards as Positive)
 
-**System Tension ($T$):** Total combined system mass = $580 \\text{ kg}$.
-$$T - 580g = 580a$$
-$$T - 580(9.8) = 580(2)$$
-$$T - 5684 = 1160 \\implies T = 6844 \\text{ N}$$
+**System Tension ($T$):** Total mass = $580 \\text{ kg}$.
+$T - 580g = 580a$
+$T - 580(9.8) = 580(2)$
+$T - 5684 = 1160 \\Rightarrow T = 6844 \\text{ N}$
 
-**Reaction on Passenger ($R$):** Isolate passenger mass = $80 \\text{ kg}$.
-$$R - 80g = 80a$$
-$$R - 80(9.8) = 80(2)$$
-$$R - 784 = 160 \\implies R = 944 \\text{ N}$$
+**Reaction on Passenger ($R$):** Mass = $80 \\text{ kg}$.
+$R - 80g = 80a$
+$R - 80(9.8) = 80(2)$
+$R - 784 = 160 \\Rightarrow R = 944 \\text{ N}$
 `;
 
 export const S1_CONTENT = `
 ## 1. Lesson Title
-**S1: Data Types & Proportional Sampling Foundations**
+**S1: Statistical Sampling, Data Types and Inference**
 
 ## 2. Specification Focus
-* Distinguish clearly between qualitative (categorical) data and quantitative (numerical) parameters.
-* Classify quantitative data into discrete (counted items) or continuous (measured scales).
-* Critically evaluate operational trade-offs between a full census and sampling methodologies.
-* Understand the properties, benefits, and constraints of Simple Random Sampling and Stratified Sampling.
-* Mathematically allocate proportional sample strata sizes across a multi-layered target population.
+* Demonstrate understanding of and use the terms population and sample.
+* Use samples to make informal inferences about the population.
+* Demonstrate understanding of and use sampling techniques, including simple random sampling and stratified sampling.
+* Distinguish between qualitative, quantitative, discrete, and continuous data.
 
 ## 3. Key Vocabulary
-* **Qualitative Data:** Non-numerical attributes or descriptors that fall into distinct categories.
-* **Quantitative Data:** Numerical values representing specific counts or absolute physical measurements.
-* **Discrete Variable:** A numerical quantity that can only take specific, isolated values (typically integer counts).
-* **Continuous Variable:** A numerical quantity that can take any fractional value within a continuous scale or interval.
-* **Sampling Frame:** A complete physical or database list containing every single target item in a population.
-* **Stratum (Plural Strata):** A mutually exclusive, distinct sub-population layer sharing a common trait.
+* **Population:** The whole group of individuals or items being investigated.
+* **Sample:** A smaller group taken from the population to estimate its characteristics.
+* **Census:** Data collected from every single member of the population.
+* **Sampling Frame:** A complete numbered list of all members of the population used to draw a sample.
+* **Simple Random Sample:** A sample where every member of the population has an equal chance of being selected.
+* **Stratified Sample:** A sample that divides the population into distinct groups (strata) and selects a random sample proportionally.
+* **Discrete Data:** Quantitative data that can only take specific, usually counted, values.
+* **Continuous Data:** Quantitative data that can take any value within a range, usually measured.
+* **Bias:** A systematic unfairness in the way data is collected, meaning the sample is not representative of the population.
 
-## 4. Full Theory Explanation
+## 4. Sampling Methods
+1. **Simple Random Sampling:** Requires a complete sampling frame. Every item has an equal chance of selection. This removes human bias but does not guarantee the sample will perfectly mirror the population structure.
+2. **Stratified Sampling:** The population is divided into distinct, non-overlapping groups. A random sample is then drawn from each stratum in exact proportion to the size of that group in the population.
 
-### Classification of Data Vectors
-Data must be accurately classified into qualitative structures or numerical quantitative parameters before applying standard statistical modeling tools. 
-![visual:S1-Tree]()
+**Formula:**
+$\\text{Stratum sample size} = \\frac{\\text{Stratum population size}}{\\text{Total population size}} \\times \\text{Overall sample size}$
 
-### Sampling Methodologies & Operational Constraints
-When designing a research framework, choosing between an absolute census or a targeted sample requires a deliberate optimization of precision vs resource boundaries.
 ![visual:S1-Sampling]()
 
-### Proportional Stratified Selection Mechanics
-To extract a truly representative stratified sample that honors the underlying structural proportions of a population, candidates use a strict allocation formula to determine each layer size:
+## 5. Worked Example
 
-$$\\text{Stratum Sample Size} = \\frac{\\text{Strata Subgroup Size}}{\\text{Total Population Size } (N)} \\times \\text{Total Desired Sample } (n)}$$
+### Example 1: Stratified Sampling Targeted Practice
+A college has 300 students: 180 study Mathematics and 120 do not. A sample of 40 students is needed, stratified by whether they study Mathematics. Find how many of each group should be selected.
 
-Consider an institution with a total population framework ($N = 300$) split into three explicit academic tiers (Strata):
-* Year 12 Strata Size = **120**
-* Year 13 Strata Size = **100**
-* Year 14 Strata Size = **80**
+**Step 1:** Identify totals. Total population = 300. Target sample = 40.
 
-If an investigator demands an optimized sample sizing of $n = 60$, the mathematically bound selection vectors are solved systematically:
+**Step 2:** Calculate for Mathematics students.
+$\\text{Maths sample} = \\frac{180}{300} \\times 40 = 0.6 \\times 40 = 24$
 
-![visual:S1-Stratified]()
-
-* **Year 12 Sample Size Allocation:**
-  $$\\frac{120}{300} \\times 60 = 0.4 \\times 60 = 24 \\text{ elements}$$
-* **Year 13 Sample Size Allocation:**
-  $$\\frac{100}{300} \\times 60 = \\frac{1}{3} \\times 60 = 20 \\text{ elements}$$
-* **Year 14 Sample Size Allocation:**
-  $$\\frac{80}{300} \\times 60 = \\frac{4}{15} \\times 60 = 16 \\text{ elements}$$
-
-$$\\text{Check Total Vector Convergence: } 24 + 20 + 16 = 60$$
-
-> ⚠️ **CCEA Exam Warning:** On examination matrices where division returns rational fractions, candidates must round each individual stratum to the nearest whole integer while validating that the aggregated total exactly equals $n$.
+**Step 3:** Calculate for non-Mathematics students.
+$\\text{Non-Maths sample} = \\frac{120}{300} \\times 40 = 0.4 \\times 40 = 16$
 `;
 
 export const S2_CONTENT = `
@@ -377,8 +345,6 @@ export const S2_CONTENT = `
 ### Histograms and Frequency Density
 In a histogram, **area represents frequency**.
 $\\text{Frequency Density} = \\frac{\\text{Frequency}}{\\text{Class Width}}$
-
-![visual:S2-Histogram]()
 
 ### Variance and Standard Deviation
 * **Population ($\\sigma_n$):** Divisor is exactly $n$. Used when data is the entire population or not inferring about a wider group.
@@ -399,108 +365,43 @@ $-1 \\leq r \\leq 1$. Remember correlation does not imply causation.
 
 ![visual:S2-Scatter]()
 
-### Model Validation via Residuals
-To confirm if a linear regression model is appropriate for a data set, examiners expect you to understand how to analyze residuals ($y - \\hat{y}$). A reliable model shows completely random plot scatter, whereas a clear parabolic pattern invalidates the linear fit.
-
-![visual:S2-Residual]()
-
 ## 4. Worked Example: PMCC
 $r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{\\left(n\\sum x^{2} - (\\sum x)^{2}\\right)\\left(n\\sum y^{2} - (\\sum y)^{2}\\right)}}$
 `;
 
 export const S3_CONTENT = `
 ## 1. Lesson Title
-**S3: Probability Foundations, Conditional Frameworks, and Bayes' Theorem**
+**S3: Probability Laws, Venn Diagrams, Two-Way Tables and Trees**
 
-## 2. Specification Focus
-* Understand and use the language of probability, sample spaces, and Venn configurations.
-* Work fluently with Mutually Exclusive and Independent events.
-* Apply the General Addition Law: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$.
-* Understand, calculate, and manipulate Conditional Probabilities using the multiplication rule: $P(A \\cap B) = P(A) \\times P(B|A)$.
-* Use alternative probability structures: Two-Way Contingency Tables and Sequential Probability Trees.
-* Master the Law of Total Probability and use Bayes' Theorem to find reversed conditional dependencies.
+## 2. Formulae & Concepts
+![visual:S3-Tree]()
+* **Addition Law:** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
+* **Mutually Exclusive:** Cannot happen at the same time. $P(A \\cap B) = 0$.
+* **Exhaustive Events:** Cover all possible outcomes. $P(A \\cup B) = 1$.
+* **Independent Events:** One outcome doesn't affect the other. Tested mathematically by: $P(A \\cap B) = P(A) \\times P(B)$.
 
-## 3. Key Vocabulary & Modelling Rules
-* **Sample Space ($E$ or $\\Omega$):** The set containing all possible outcomes of a probabilistic experiment.
-* **Mutually Exclusive:** Events that cannot happen at the same time. If $A$ and $B$ are mutually exclusive, then $P(A \\cap B) = 0$.
-* **Independent Events:** The occurrence of one event does not affect the probability of the other. If $A$ and $B$ are independent, then $P(A \\cap B) = P(A) \\times P(B)$, and $P(B|A) = P(B)$.
-* **Intersection ($A \\cap B$):** The event containing outcomes that belong to *both* event $A$ and event $B$.
-* **Union ($A \\cup B$):** The event containing outcomes that belong to event $A$, event $B$, or both.
-* **Conditional Probability ($P(A|B)$):** The probability of event $A$ occurring given that event $B$ has already occurred. This restricts the active sample space down to the boundary of $B$.
-
----
-
-## 4. Venn Diagrams & Set Operations
-
-Venn diagrams represent geometric configurations of set operations within a universal sample space $E$. The absolute configuration depends heavily on whether events share overlapping sample elements.
+*(Note: Conditional probability formula methods are explicitly excluded from AS2 requirements by CCEA).*
 
 ![visual:S3-Venn]()
 
-### The General Addition Law
-For any two events $A$ and $B$, the global union is calculated by adding their individual circles and subtracting the intersection area so it isn't counted twice:
-$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$
-
-### CCEA Exam Trap: The Independence Misconception
-Never confuse **Mutually Exclusive** with **Independent**:
-1. If events are *mutually exclusive*, they cannot happen together ($P(A \\cap B) = 0$). They are highly dependent; if $A$ happens, the probability of $B$ immediately drops to zero.
-2. If events are *independent*, they can happen together. The calculation is explicitly driven by multiplication ($P(A \\cap B) = P(A) \\times P(B)$).
-
----
-
-## 5. Structured Data Spaces: Two-Way Tables
-
-When handling multi-characteristic probability datasets, using plain formulas can easily lead to mistakes. A **Two-Way Contingency Table** helps by organizing single events into outer categories and overlapping intersections into interior cells.
+### Two-Way Tables
+Two-way tables are useful when probabilities are grouped by two categories. Always complete missing row totals, column totals, and the grand total before finding a probability.
 
 ![visual:S3-Table]()
 
-### Reading the Table Structures
-* **Interior Core Elements:** The four interior cells represent the pure intersections ($P(A \\cap B)$, $P(A' \\cap B)$, $P(A \\cap B')$, and $P(A' \\cap B')$).
-* **Marginal Totals:** The bottom row and right-hand column display the isolated total probabilities for a single event ($P(A)$, $P(A')$, $P(B)$, $P(B')$). Adding across any interior cross-row or column sums directly to these outer cells.
-* **Grand Total Boundary:** The bottom-right cell sums up the complete sample distribution space, which must always equal exactly $1.0$.
-
-### Extracting Conditionals Natively
-Two-way tables allow you to bypass complex formula manipulations by visually narrowing your focus to a specific row or column. For example, if you need to evaluate $P(A|B)$, you restrict your entire calculation pool strictly to the **Event B row**:
-$$P(A|B) = \\frac{\\text{Interior Element } P(A \\cap B)}{\\text{Marginal Row Total } P(B)}$$
-
----
-
-## 6. Sequential Timelines: Probability Trees
-
-When an experiment involves consecutive stages or sequential timelines, independent or conditional outcomes are best visualized using a **Probability Tree Diagram**.
-
-![visual:S3-Tree]()
-
-### Mathematical Operations Along Trees
-1. **Multiplying Along Consecutive Branches:** To find the probability of a combined intersection outcome path, multiply the probabilities along those connected branches. This implements the product rule: $P(A \\cap B) = P(A) \\times P(B|A)$.
-2. **Adding Across Terminal Columns:** The final outcomes listed on the far right represent non-overlapping paths. To find a global total state, add up all the distinct terminal paths that contain your target event.
-3. **Branch Balancing Constraints:** At any given split point, all branches coming out of a single node must add up to exactly $1.0$ ($P(A) + P(A') = 1$ and $P(B|A) + P(B'|A) = 1$).
-
----
-
-## 7. Inverse Frameworks: Bayes' Theorem
-
-In many advanced exam problems, you are given a set of forward conditional probabilities but need to calculate a reversed relationship. This is where you apply the **Law of Total Probability** and **Bayes' Theorem**.
+### Multi-Stage Conditional Space
+When modeling complex, multi-stage sequential sample boundaries across independent paths, look to a segmented conditional probability framework.
 
 ![visual:S3-Bayes]()
 
-### The Law of Total Probability
-If a sample space is split into non-overlapping partitions ($A_1, A_2, A_3$) that completely fill the sample universe, any general event $B$ can be calculated by summing its intersections with each individual partition:
-$$P(B) = P(A_1 \\cap B) + P(A_2 \\cap B) + P(A_3 \\cap B)$$
-$$P(B) = P(A_1)P(B|A_1) + P(A_2)P(B|A_2) + P(A_3)P(B|A_3)$$
+## 3. Worked Example: Exhaustive Events
+Events $A$ and $B$ are exhaustive events such that $P(A) = 0.65$ and $P(B) = 0.42$. Find $P(A \\cap B)$ and determine if the events are mutually exclusive.
 
-### Reversing the Path (Bayes' Theorem)
-Once the global probability base $P(B)$ is established, finding the probability that a specific partition $A_1$ caused event $B$ requires calculating the ratio of that single path to the entire pool:
-$$P(A_1|B) = \\frac{P(A_1 \\cap B)}{P(B)} = \\frac{P(A_1)P(B|A_1)}{P(B)}$$
-
----
-
-## 8. CCEA Method Guide: Core Formula Reference
-Keep these essential mathematical identities ready for your revision:
-
-* **General Addition Law:** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
-* **Conditional Definition:** $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$
-* **Mutual Exclusivity Test:** Check if $P(A \\cap B) = 0$
-* **Independence Test:** Check if $P(A \\cap B) = P(A) \\times P(B)$ or check if $P(A|B) = P(A)$
+**Step 1:** Since $A$ and $B$ are exhaustive, $P(A \\cup B) = 1$.
+**Step 2:** Apply Addition Law.
+$1 = 0.65 + 0.42 - P(A \\cap B)$
+$1 = 1.07 - P(A \\cap B) \\Rightarrow P(A \\cap B) = 0.07$
+**Conclusion:** Because $P(A \\cap B) = 0.07 \\neq 0$, they are not mutually exclusive.
 `;
 
 export const S4_CONTENT = `
@@ -508,7 +409,7 @@ export const S4_CONTENT = `
 **S4: Statistical Distributions (Discrete Probability and the Binomial Model)**
 
 ## 2. The Binomial Model Conditions
-![visual:S4-Binomial]()
+![visual:S4-BinomialTree]()
 
 You can only use the binomial model if the situation satisfies four strict conditions:
 1. There is a **fixed number of trials** ($n$).
@@ -517,6 +418,11 @@ You can only use the binomial model if the situation satisfies four strict condi
 4. The trials are **completely independent** of each other.
 
 Notation: $X \\sim B(n, p)$
+
+### Model Suitability Verification
+Before assigning distribution formulas to physical word problems, you must explicitly confirm all criteria are met.
+
+![visual:S4-BinomialConditions]()
 
 ## 3. Exact Probabilities Formula
 $P(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}$
@@ -553,7 +459,7 @@ export const LESSONS: CourseModule[] = [
   {
     id: "M2-Lesson",
     title: "Constant Acceleration",
-    visualId: "M2-VTS", // Keeps the master collection dashboard view sync bound to your switch routing
+    visualId: "M2-VTS",
     type: "Mechanics",
     content: M2_CONTENT,
   },
@@ -580,15 +486,15 @@ export const LESSONS: CourseModule[] = [
   },
   {
     id: "S3-Lesson",
-    title: "Probability Foundations & Bayes' Theorem", // Updated to match the deeper scope of your refactored content
-    visualId: "S3-Bayes", // Updated route token to leverage the advanced partitioning visual on the portal dashboard
+    title: "Probability",
+    visualId: "S3-Tree",
     type: "Statistics",
     content: S3_CONTENT,
   },
   {
     id: "S4-Lesson",
     title: "Distributions",
-    visualId: "S4-Binomial",
+    visualId: "S4-BinomialTree",
     type: "Statistics",
     content: S4_CONTENT,
   },

@@ -7,50 +7,63 @@ export function Dashboard() {
   const statisticsLessons = LESSONS.filter(l => l.type === "Statistics");
 
   return (
-    <div className="p-8 max-w-6xl mx-auto flex flex-col gap-8 flex-1 w-full">
+    <div className="p-8 max-w-6xl mx-auto flex flex-col gap-8 flex-1 w-full bg-slate-950 text-slate-100 min-h-screen">
       <header className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch h-auto lg:h-90">
-        <div className="col-span-1 border-b border-[#1A1A1A] pb-4 md:col-span-8 bg-white border md:border-[#1A1A1A] p-10 flex flex-col relative overflow-hidden h-full min-h-75">
-          <div className="absolute top-0 left-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase font-bold tracking-widest">Platform Overview</div>
+        <div className="col-span-1 border border-slate-800 pb-4 md:col-span-8 bg-slate-900/60 p-10 flex flex-col relative overflow-hidden h-full min-h-75 rounded-2xl shadow-2xl backdrop-blur-sm">
+          <div className="absolute top-0 left-0 bg-slate-800 border-r border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
+            Platform Overview
+          </div>
           <div className="mt-4 z-10 flex flex-col justify-center h-full">
-            <h1 className="font-serif text-5xl font-light leading-tight mb-4 tracking-tight">AS2 Applied<br/><span className="italic font-serif">Mathematics</span></h1>
-            <p className="text-sm text-[#1A1A1A]/70 max-w-lg leading-relaxed mb-6">
-              Welcome to your digital study companion. This interactive portal maps out your applied mechanics pipelines and statistical verification tools, optimized directly for current CCEA specification criteria.
+            <h1 className="font-serif text-5xl font-light leading-tight mb-4 tracking-tight text-slate-100">
+              AS2 Applied<br/>
+              <span className="italic text-emerald-400 font-serif">Mathematics</span>
+            </h1>
+            <p className="text-sm text-slate-400 max-w-lg leading-relaxed mb-6">
+              Welcome to the digital study companion optimized for the CCEA A-Level Mathematics specification. Track core kinematic models, balance force systems, and parse structural probability trees with real-time vector analytics.
             </p>
           </div>
         </div>
 
-        <div className="col-span-1 md:col-span-4 bg-[#1A1A1A] text-white p-8 flex flex-col justify-between relative min-h-60">
-          <div className="absolute top-0 right-0 bg-white text-[#1A1A1A] px-2 py-1 text-[9px] uppercase font-bold tracking-widest">Status</div>
-          <div>
-            <h2 className="font-mono text-xs uppercase tracking-widest text-white/50 mb-2">Active Tracker</h2>
-            <div className="text-4xl font-serif mb-4 italic">{LESSONS.length} <span className="text-xs font-sans not-italic text-white/60">Modules Loaded</span></div>
-            <div className="text-4xl font-serif italic">{QUESTIONS.length} <span className="text-xs font-sans not-italic text-white/60">Practice Items</span></div>
+        <div className="col-span-1 border border-slate-800 md:col-span-4 bg-slate-900/40 p-10 flex flex-col justify-between relative h-full min-h-60 rounded-2xl shadow-2xl backdrop-blur-sm">
+          <div className="absolute top-0 left-0 bg-slate-800 border-r border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
+            Performance Index
           </div>
-          <Link to="/practice" className="mt-6 border border-white text-white text-xs font-bold uppercase tracking-wider py-3 px-4 text-center hover:bg-white hover:text-[#1A1A1A] transition-colors duration-200">
-            Open Practice Bank
+          <div className="mt-4 flex flex-col justify-center flex-1">
+            <div className="text-6xl font-serif italic text-emerald-400 mb-2">
+              {QUESTIONS.length}
+            </div>
+            <div className="text-xs uppercase font-mono tracking-wider text-slate-400 font-bold">
+              Active Exam Sandbox Tasks
+            </div>
+          </div>
+          <Link
+            to="/practice"
+            className="w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-xl text-center text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md mt-4"
+          >
+            Launch Sandbox &rarr;
           </Link>
         </div>
       </header>
 
-      <main className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-        {/* ==========================================
-            SECTION A: MECHANICS CARD
-           ========================================== */}
-        <div className="flex flex-col border border-[#1A1A1A] bg-white relative hover:shadow-[4px_4px_0px_#1A1A1A] transition-shadow duration-300">
-          <div className="absolute top-0 right-0 bg-white border-l border-b border-[#1A1A1A] text-[#1A1A1A] px-2 py-1 text-[9px] uppercase font-bold tracking-widest">Section A</div>
+      <main className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="flex flex-col border border-slate-800 bg-slate-900/50 relative rounded-2xl shadow-2xl hover:border-slate-700/80 transition-all duration-300 backdrop-blur-sm">
+          <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-amber-400 px-3 py-1 text-[9px] uppercase font-mono font-bold tracking-widest">
+            Section A
+          </div>
           <div className="p-8">
-            <h3 className="font-serif text-3xl mb-4 italic border-b border-[#1A1A1A]/10 pb-4 text-[#1A1A1A]">Mechanics</h3>
-            <p className="text-xs text-[#1A1A1A]/60 mb-6 font-sans leading-relaxed">
-              Master fundamental physical parameters, constant acceleration structures, and advanced multi-body particle systems.
-            </p>
-            <ul className="space-y-6">
+            <h3 className="font-serif text-3xl mb-8 italic border-b border-slate-800/80 pb-4 text-slate-100">
+              Mechanics
+            </h3>
+            <ul className="space-y-4">
               {mechanicsLessons.map(lesson => (
                 <li key={lesson.id} className="group">
-                  <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-2">
+                  <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1.5 p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-950/40 transition-all">
                     <div className="flex items-center w-full">
-                      <span className="text-[10px] border border-[#1A1A1A] text-[#1A1A1A] px-1.5 py-0.5 font-bold uppercase">{lesson.id}</span>
+                      <span className="text-[9px] border border-slate-700 text-slate-400 px-1.5 py-0.5 font-mono font-bold uppercase rounded bg-slate-800">
+                        {lesson.id.replace("-Lesson", "")}
+                      </span>
                     </div>
-                    <span className="text-sm font-serif leading-snug group-hover:underline text-[#1A1A1A]">
+                    <span className="text-sm font-serif leading-snug text-slate-300 group-hover:text-sky-400 transition-colors">
                       {lesson.title}
                     </span>
                   </Link>
@@ -60,24 +73,24 @@ export function Dashboard() {
           </div>
         </div>
 
-        {/* ==========================================
-            SECTION B: STATISTICS CARD (UPDATED)
-           ========================================== */}
-        <div className="flex flex-col border border-[#1A1A1A] bg-white relative hover:shadow-[4px_4px_0px_#1A1A1A] transition-shadow duration-300">
-          <div className="absolute top-0 right-0 bg-white border-l border-b border-[#1A1A1A] text-[#1A1A1A] px-2 py-1 text-[9px] uppercase font-bold tracking-widest">Section B</div>
+        <div className="flex flex-col border border-slate-800 bg-slate-900/50 relative rounded-2xl shadow-2xl hover:border-slate-700/80 transition-all duration-300 backdrop-blur-sm">
+          <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-sky-400 px-3 py-1 text-[9px] uppercase font-mono font-bold tracking-widest">
+            Section B
+          </div>
           <div className="p-8">
-            <h3 className="font-serif text-3xl mb-4 italic border-b border-[#1A1A1A]/10 pb-4 text-[#1A1A1A]">Statistics</h3>
-            <p className="text-xs text-[#1A1A1A]/60 mb-6 font-sans leading-relaxed">
-              Explore data types, sampling models, probability structures, and partition sets using Bayes' Theorem.
-            </p>
-            <ul className="space-y-6">
+            <h3 className="font-serif text-3xl mb-8 italic border-b border-slate-800/80 pb-4 text-slate-100">
+              Statistics
+            </h3>
+            <ul className="space-y-4">
               {statisticsLessons.map(lesson => (
                 <li key={lesson.id} className="group">
-                  <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-2">
+                  <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1.5 p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-950/40 transition-all">
                     <div className="flex items-center w-full">
-                      <span className="text-[10px] border border-[#1A1A1A] text-[#1A1A1A] px-1.5 py-0.5 font-bold uppercase">{lesson.id}</span>
+                      <span className="text-[9px] border border-slate-700 text-slate-400 px-1.5 py-0.5 font-mono font-bold uppercase rounded bg-slate-800">
+                        {lesson.id.replace("-Lesson", "")}
+                      </span>
                     </div>
-                    <span className="text-sm font-serif leading-snug group-hover:underline text-[#1A1A1A]">
+                    <span className="text-sm font-serif leading-snug text-slate-300 group-hover:text-sky-400 transition-colors">
                       {lesson.title}
                     </span>
                   </Link>

@@ -33,133 +33,135 @@ export function PracticeBank() {
     return true;
   });
 
-  const getButtonClass = (isActive: boolean) => 
-    `px-3 py-1 text-[10px] uppercase font-bold tracking-widest border transition-colors ${isActive ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]' : 'bg-transparent text-[#1A1A1A] border-[#1A1A1A]/20 hover:border-[#1A1A1A]'}`;
-
   return (
-    <div className="flex-1 flex flex-col p-8 md:p-12 pb-32 bg-[#FAF9F6] max-w-5xl mx-auto w-full">
-      <header className="mb-10 border-b border-[#1A1A1A] pb-6">
-        <h1 className="font-serif text-4xl italic text-[#1A1A1A] mb-3">Questions & Solutions Practice Bank</h1>
-        <p className="text-sm font-semibold text-[#1A1A1A]/80">
-          Targeted practice and exam-style questions for CCEA AS2 Applied Mathematics.
-        </p>
-      </header>
-
-      {/* Filters */}
-      <div className="flex flex-col gap-6 mb-12">
-        <div className="flex flex-wrap items-start md:items-center gap-4">
-          <span className="text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A]/60 w-20 pt-1 md:pt-0">Module</span>
-          <div className="flex flex-wrap gap-2 flex-1">
-            <button 
-              onClick={() => updateFilter("module", "All")}
-              className={getButtonClass(selectedModule === "All")}
+    <div className="p-8 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 bg-slate-950 text-slate-100 min-h-screen">
+      {/* Configuration Filter Sidebar */}
+      <aside className="w-full lg:w-64 border border-slate-800 bg-slate-900/40 p-6 h-fit sticky top-24 rounded-2xl shadow-xl backdrop-blur-sm">
+        <h2 className="text-xs uppercase tracking-widest text-slate-500 font-mono font-bold mb-6">Filter Matrix</h2>
+        
+        <div className="flex flex-col gap-5">
+          <div>
+            <label className="block text-[10px] uppercase font-mono tracking-wider font-bold text-slate-400 mb-2">Module Topic</label>
+            <select 
+              value={searchParams.get("module") || "All"} 
+              onChange={(e) => updateFilter("module", e.target.value)}
+              className="w-full text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 rounded-xl p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
             >
-              All
-            </button>
-            {LESSONS.map(l => (
-              <button 
-                key={l.id}
-                onClick={() => updateFilter("module", getModuleCode(l.id))}
-                className={getButtonClass(selectedModule === getModuleCode(l.id))}
-              >
-                {getModuleCode(l.id)}: {l.title.split(":")[0]}
-              </button>
-            ))}
+              <option value="All">All Modules</option>
+              {LESSONS.map(l => (
+                <option key={l.id} value={l.id}>{getModuleCode(l.id)}: {l.title}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-[10px] uppercase font-mono tracking-wider font-bold text-slate-400 mb-2">Syllabus Type</label>
+            <select 
+              value={selectedType} 
+              onChange={(e) => updateFilter("type", e.target.value)}
+              className="w-full text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 rounded-xl p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
+            >
+              <option value="All">All Categories</option>
+              <option value="Mechanics">Mechanics</option>
+              <option value="Statistics">Statistics</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-[10px] uppercase font-mono tracking-wider font-bold text-slate-400 mb-2">Mark Allocation</label>
+            <div className="flex flex-col gap-1.5 mt-1">
+              {["All", "1-3", "4-6", "7+"].map((tier) => (
+                <button
+                  key={tier}
+                  onClick={() => updateFilter("marks", tier)}
+                  className={`text-left text-xs font-mono px-3 py-2 rounded-xl transition-all border ${
+                    selectedMarks === tier
+                      ? "bg-slate-800 border-slate-700 text-emerald-400 font-bold shadow-inner"
+                      : "text-slate-400 border-transparent hover:bg-slate-950/60 hover:text-slate-200"
+                  }`}
+                >
+                  {tier === "All" ? "Clear Tariff Bounds" : `${tier} Tariff Marks`}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      {/* Task List Grid Stream */}
+      <main className="flex-1 flex flex-col gap-8">
+        <div className="flex items-center justify-between border-b border-slate-900 pb-4">
+          <div className="text-xs font-mono text-slate-500">
+            Yield Output: <span className="text-slate-300 font-bold">{filteredQuestions.length}</span> items matching criteria
           </div>
         </div>
 
-        <div className="flex flex-wrap items-start md:items-center gap-4">
-          <span className="text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A]/60 w-20 pt-1 md:pt-0">Type</span>
-          <div className="flex flex-wrap gap-2 flex-1">
-            {["All", "Exam-Style", "Targeted Practice"].map(type => (
-              <button 
-                key={type}
-                onClick={() => updateFilter("type", type)}
-                className={getButtonClass(selectedType === type)}
-              >
-                {type}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-start md:items-center gap-4">
-          <span className="text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A]/60 w-20 pt-1 md:pt-0">Marks</span>
-          <div className="flex flex-wrap gap-2 flex-1">
-            {[
-              { label: "All", value: "All" },
-              { label: "1-3 Marks", value: "1-3" },
-              { label: "4-6 Marks", value: "4-6" },
-              { label: "7+ Marks", value: "7+" }
-            ].map(markFilter => (
-              <button 
-                key={markFilter.value}
-                onClick={() => updateFilter("marks", markFilter.value)}
-                className={getButtonClass(selectedMarks === markFilter.value)}
-              >
-                {markFilter.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-8">
         {filteredQuestions.length === 0 ? (
-          <div className="text-center py-20 bg-white border border-dashed border-[#1A1A1A]/30">
-            <h3 className="font-serif text-xl text-[#1A1A1A] italic mb-2">No questions found</h3>
-            <p className="text-sm font-semibold text-[#1A1A1A]/60">Adjust your filters to see more questions.</p>
+          <div className="p-12 text-center border border-dashed border-slate-800 rounded-2xl text-slate-500 font-serif italic text-sm bg-slate-900/10">
+            No active sandboxes match the chosen criteria matrix.
           </div>
         ) : (
-          filteredQuestions.map((q, index) => (
-            <div key={q.id} className="rounded-none border border-[#1A1A1A] bg-white shadow-none relative mb-8">
-              <div className="bg-white border-b border-[#1A1A1A] p-6 lg:p-8">
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] bg-black text-white px-2 py-0.5 font-bold uppercase">{q.moduleId}</span>
-                    <span className="text-[9px] border border-[#1A1A1A] px-2 py-0.5 uppercase font-bold tracking-widest text-[#1A1A1A]">{q.type}</span>
-                    <span className="text-[10px] font-bold uppercase tracking-tight opacity-60 text-[#1A1A1A]">{q.topic}</span>
-                  </div>
-                  <div className="text-[10px] uppercase font-bold tracking-widest opacity-80 text-[#1A1A1A]">
-                    [{q.marks} Marks]
+          filteredQuestions.map((q) => (
+            <div key={q.id} className="border border-slate-800 bg-slate-900/30 rounded-2xl shadow-xl overflow-hidden backdrop-blur-sm">
+              
+              {/* Question Meta Header Block */}
+              <div className="bg-slate-900/80 px-6 py-4 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] font-mono font-bold bg-slate-900 border border-slate-700 text-slate-400 px-2 py-0.5 rounded">
+                    {q.moduleId}
+                  </span>
+                  <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+                    Task ID: #{q.id}
+                  </span>
+                </div>
+                <div className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+                  {q.marks} Tariff Marks
+                </div>
+              </div>
+
+              {/* Task Question Core Body */}
+              <div className="p-6 border-b border-slate-800/40">
+                <div className="font-serif leading-relaxed text-slate-200 text-base">
+                  <MathText content={q.questionMarkdown} />
+                </div>
+              </div>
+
+              {/* Mark Scheme Grid Module */}
+              <div className="p-6 bg-slate-950/40">
+                <div className="flex items-center gap-2 text-[10px] uppercase font-mono tracking-widest font-bold text-slate-400 mb-3">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  Official Marking Guide Criteria
+                </div>
+                <div className="font-serif leading-relaxed text-slate-300 bg-slate-950/80 border border-slate-900 p-4 rounded-xl shadow-inner">
+                  <MathText content={q.markSchemeMarkdown} />
+                </div>
+                
+                {/* Taxonomy Badge Key Footer */}
+                <div className="mt-6 pt-5 border-t border-slate-900/60">
+                  <h4 className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-3">
+                    Taxonomy Mark Scheme Guide
+                  </h4>
+                  <div className="flex flex-wrap gap-4 text-[10px] text-slate-400 font-medium">
+                    <span className="flex items-center">
+                      <code className="font-mono bg-slate-900 border border-slate-800 px-1.5 py-0.5 mr-2 text-amber-400 rounded">[M1]</code> Method mark
+                    </span>
+                    <span className="flex items-center">
+                      <code className="font-mono bg-slate-900 border border-slate-800 px-1.5 py-0.5 mr-2 text-sky-400 rounded">[W1]</code> Working mark
+                    </span>
+                    <span className="flex items-center">
+                      <code className="font-mono bg-slate-900 border border-slate-800 px-1.5 py-0.5 mr-2 text-emerald-400 rounded">[A1]</code> Accuracy mark
+                    </span>
+                    <span className="flex items-center">
+                      <code className="font-mono bg-slate-900 border border-slate-800 px-1.5 py-0.5 mr-2 text-purple-400 rounded">[MW1]</code> Combined Method/Working
+                    </span>
                   </div>
                 </div>
               </div>
-              <div className="p-6 lg:p-8 font-serif leading-relaxed text-[#1A1A1A]">
-                <MathText content={q.questionMarkdown} />
-              </div>
-              <div className="bg-[#FAF9F6] border-t border-[#1A1A1A] p-0">
-                <details className="w-full relative group marker:content-none [&>summary::-webkit-details-marker]:hidden">
-                  <summary className="px-6 lg:px-8 py-4 hover:bg-white transition-colors cursor-pointer list-none select-none flex items-center justify-between outline-none focus-visible:ring-2 focus-visible:ring-black">
-                    <div className="flex items-center text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A]">
-                      <CheckCircle2 className="w-4 h-4 mr-2 opacity-50 group-hover:opacity-100 transition-opacity group-open:opacity-100" />
-                      View Mark Scheme
-                    </div>
-                  </summary>
-                  <div className="px-6 lg:px-8 pb-8 pt-4 bg-white border-t border-[#1A1A1A]/10">
-                    <div className="bg-white p-8 border border-[#1A1A1A] relative shadow-[4px_4px_0px_#1A1A1A]">
-                      <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-2 py-1 text-[9px] uppercase font-bold tracking-widest">Mark Scheme</div>
-                      <div className="font-serif leading-relaxed text-[#1A1A1A] mt-2">
-                        <MathText content={q.markSchemeMarkdown} />
-                      </div>
-                      
-                      <div className="mt-8 pt-6 border-t border-[#1A1A1A]/10">
-                        <h4 className="text-[9px] font-bold text-[#1A1A1A]/50 uppercase tracking-widest mb-4">Mark Badge Key</h4>
-                        <div className="flex flex-wrap gap-6 text-[10px] text-[#1A1A1A] font-medium">
-                          <span className="flex items-center"><code className="font-mono bg-[#F1EFE9] border border-[#1A1A1A]/20 px-1 py-0.5 mr-2">[M1]</code> Method mark</span>
-                          <span className="flex items-center"><code className="font-mono bg-[#F1EFE9] border border-[#1A1A1A]/20 px-1 py-0.5 mr-2">[W1]</code> Working mark</span>
-                          <span className="flex items-center"><code className="font-mono bg-[#F1EFE9] border border-[#1A1A1A]/20 px-1 py-0.5 mr-2">[A1]</code> Accuracy mark</span>
-                          <span className="flex items-center"><code className="font-mono bg-[#F1EFE9] border border-[#1A1A1A]/20 px-1 py-0.5 mr-2">[MW1]</code> Combined Method/Working</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </details>
-              </div>
+
             </div>
           ))
         )}
-      </div>
+      </main>
     </div>
   );
 }
