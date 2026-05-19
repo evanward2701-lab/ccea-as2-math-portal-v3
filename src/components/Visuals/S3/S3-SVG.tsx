@@ -1,86 +1,167 @@
 import React from 'react';
+import { MathText } from '../../MathText'; // Path adjusted to match project folder structures
 
-// Diagram 1: Venn Diagram - Mutually Exclusive vs Intersecting
 export const VennMutExSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 mb-12 border border-[#1A1A1A] bg-[#FAF9F6] relative shadow-[8px_8px_0px_#1A1A1A]">
-    <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">Fig 1. Venn Configurations</div>
+  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#020617]">
+    <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold font-sans">
+      Fig 1. Venn Configurations
+    </div>
     
-    <svg width="600" height="250" viewBox="0 0 600 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="600" height="260" viewBox="0 0 600 260" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
       {/* Left Side: Mutually Exclusive */}
-      <rect x="20" y="40" width="260" height="150" stroke="#1A1A1A" strokeWidth="2" fill="white" />
-      <text x="35" y="60" fill="#1A1A1A" fontSize="16" fontFamily="serif" fontStyle="italic">E</text>
+      <rect x="20" y="40" width="260" height="150" stroke="#334155" strokeWidth="2" fill="#0f172a" rx="4" />
+      <text x="35" y="65" fill="#94a3b8" fontSize="16" fontFamily="serif" fontStyle="italic">E</text>
       
-      <circle cx="100" cy="115" r="45" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <text x="100" y="120" textAnchor="middle" fill="#1A1A1A" fontSize="18" fontFamily="serif">A</text>
+      <circle cx="100" cy="115" r="42" stroke="#10b981" strokeWidth="2" fill="#10b981" fillOpacity="0.05" className="hover:fill-opacity-10 transition-all duration-200" />
+      <foreignObject x="85" y="100" width="30" height="30">
+        <div className="text-emerald-400 text-center font-serif text-base"><MathText math="A" /></div>
+      </foreignObject>
       
-      <circle cx="200" cy="115" r="45" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <text x="200" y="120" textAnchor="middle" fill="#1A1A1A" fontSize="18" fontFamily="serif">B</text>
+      <circle cx="200" cy="115" r="42" stroke="#3b82f6" strokeWidth="2" fill="#3b82f6" fillOpacity="0.05" className="hover:fill-opacity-10 transition-all duration-200" />
+      <foreignObject x="185" y="100" width="30" height="30">
+        <div className="text-blue-400 text-center font-serif text-base"><MathText math="B" /></div>
+      </foreignObject>
       
-      <text x="150" y="215" textAnchor="middle" fill="#1A1A1A" fontSize="12" fontFamily="sans-serif" fontWeight="bold">Mutually Exclusive: P(A ∩ B) = 0</text>
+      <foreignObject x="20" y="205" width="260" height="40">
+        <div className="text-center font-sans text-xs font-semibold text-emerald-400">
+          <MathText math="P(A \cap B) = 0" />
+          <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Mutually Exclusive (No Overlap)</span>
+        </div>
+      </foreignObject>
 
       {/* Right Side: Intersecting */}
-      <rect x="320" y="40" width="260" height="150" stroke="#1A1A1A" strokeWidth="2" fill="white" />
-      <text x="335" y="60" fill="#1A1A1A" fontSize="16" fontFamily="serif" fontStyle="italic">E</text>
+      <rect x="320" y="40" width="260" height="150" stroke="#334155" strokeWidth="2" fill="#0f172a" rx="4" />
+      <text x="335" y="65" fill="#94a3b8" fontSize="16" fontFamily="serif" fontStyle="italic">E</text>
       
-      <circle cx="410" cy="115" r="45" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <circle cx="490" cy="115" r="45" stroke="#1A1A1A" strokeWidth="2" fill="none" />
+      <circle cx="410" cy="115" r="42" stroke="#10b981" strokeWidth="2" fill="#10b981" fillOpacity="0.05" />
+      <circle cx="470" cy="115" r="42" stroke="#3b82f6" strokeWidth="2" fill="#3b82f6" fillOpacity="0.05" />
       
-      {/* Shaded Intersection */}
-      <path d="M450 85 A 45 45 0 0 0 450 145 A 45 45 0 0 0 450 85" fill="#1A1A1A" opacity="0.2" />
+      {/* Shaded Intersection (Rose Semantic Highlighting Violation Guard) */}
+      <path d="M441 87 A 42 42 0 0 0 439 143 A 42 42 0 0 0 441 87" fill="#f43f5e" fillOpacity="0.25" className="hover:fill-opacity-40 transition-all duration-100 cursor-help" />
       
-      <text x="390" y="120" textAnchor="middle" fill="#1A1A1A" fontSize="18" fontFamily="serif">A</text>
-      <text x="510" y="120" textAnchor="middle" fill="#1A1A1A" fontSize="18" fontFamily="serif">B</text>
-      <text x="450" y="215" textAnchor="middle" fill="#1A1A1A" fontSize="12" fontFamily="sans-serif" fontWeight="bold">Intersecting: P(A ∩ B) ≠ 0</text>
+      <foreignObject x="380" y="100" width="30" height="30">
+        <div className="text-emerald-400 text-center font-serif text-base"><MathText math="A" /></div>
+      </foreignObject>
+      <foreignObject x="490" y="100" width="30" height="30">
+        <div className="text-blue-400 text-center font-serif text-base"><MathText math="B" /></div>
+      </foreignObject>
+      
+      <foreignObject x="320" y="205" width="260" height="40">
+        <div className="text-center font-sans text-xs font-semibold text-rose-400">
+          <MathText math="P(A \cap B) \neq 0" />
+          <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Intersecting (General Case)</span>
+        </div>
+      </foreignObject>
     </svg>
 
-    <p className="text-[11px] font-sans text-[#1A1A1A]/70 text-center mt-4 px-6 italic">
-      If events are mutually exclusive, the subtraction part of the Addition Law simply becomes zero.
-      <br/><strong className="text-red-600 not-italic uppercase text-[10px]">Exam Misconception:</strong> Stop automatically writing P(A ∪ B) = P(A) + P(B). This is ONLY true if they do not overlap!
-    </p>
+    <div className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 max-w-prose border-t border-slate-900 pt-4 w-full">
+      If events are mutually exclusive, the subtraction component of the General Addition Law eliminates to zero.
+      <div className="mt-2 text-rose-500 font-semibold tracking-wide uppercase text-[10px] bg-rose-950/40 border border-rose-900/50 py-1.5 px-3 rounded">
+        CCEA Exam Trap: Never assume <MathText math="P(A \cup B) = P(A) + P(B)" /> unless explicitly stated that the events are mutually exclusive!
+      </div>
+    </div>
   </div>
 );
 
-// Diagram 2: Anatomy of a Two-Way Table
+
 export const TwoWayTableSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-10 mb-12 border border-[#1A1A1A] bg-white relative shadow-[8px_8px_0px_#1A1A1A]">
-    <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">Fig 2. Two-Way Table</div>
+  <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#020617]">
+    <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold font-sans">
+      Fig 2. Two-Way Probability Table
+    </div>
     
     <div className="w-full px-6 mt-6 overflow-x-auto">
-      <table className="w-full border-collapse border-2 border-[#1A1A1A] text-sm font-sans bg-white text-center">
+      <table className="w-full border-collapse border border-slate-800 text-sm font-sans bg-slate-900 text-slate-300 text-center">
         <thead>
-          <tr className="bg-[#FAF9F6]">
-            <th className="p-3 border border-[#1A1A1A]"></th>
-            <th className="p-3 border border-[#1A1A1A] font-bold">Event A</th>
-            <th className="p-3 border border-[#1A1A1A] font-bold">Event A' (Not A)</th>
-            <th className="p-3 border border-[#1A1A1A] font-bold bg-neutral-100">Total</th>
+          <tr className="bg-slate-950 text-slate-400 border-b border-slate-800">
+            <th className="p-3 border-r border-slate-800"></th>
+            <th className="p-3 border-r border-slate-800 font-bold text-emerald-400">Event <MathText math="A" /></th>
+            <th className="p-3 border-r border-slate-800 font-bold text-amber-500">Event <MathText math="A'" /> (Not A)</th>
+            <th className="p-3 font-bold bg-slate-800/40 text-slate-200">Marginal Total</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th className="p-3 border border-[#1A1A1A] font-bold bg-[#FAF9F6]">Event B</th>
-            <td className="p-3 border border-[#1A1A1A] italic">A ∩ B</td>
-            <td className="p-3 border border-[#1A1A1A] italic">A' ∩ B</td>
-            <td className="p-3 border border-[#1A1A1A] font-bold bg-neutral-100">P(B)</td>
+          <tr className="border-b border-slate-800/50">
+            <th className="p-3 border-r border-slate-800 font-bold bg-slate-950 text-emerald-400 text-left pl-4">Event <MathText math="B" /></th>
+            <td className="p-3 border-r border-slate-800/50 italic bg-slate-900/20 hover:bg-slate-800/30 transition-colors"><MathText math="P(A \cap B)" /></td>
+            <td className="p-3 border-r border-slate-800/50 italic bg-slate-900/20 hover:bg-slate-800/30 transition-colors"><MathText math="P(A' \cap B)" /></td>
+            <td className="p-3 font-semibold bg-slate-800/20 text-slate-300"><MathText math="P(B)" /></td>
           </tr>
-          <tr>
-            <th className="p-3 border border-[#1A1A1A] font-bold bg-[#FAF9F6]">Event B'</th>
-            <td className="p-3 border border-[#1A1A1A] italic">A ∩ B'</td>
-            <td className="p-3 border border-[#1A1A1A] italic">A' ∩ B'</td>
-            <td className="p-3 border border-[#1A1A1A] font-bold bg-neutral-100">P(B')</td>
+          <tr className="border-b border-slate-800">
+            <th className="p-3 border-r border-slate-800 font-bold bg-slate-950 text-amber-500 text-left pl-4">Event <MathText math="B'" /></th>
+            <td className="p-3 border-r border-slate-800/50 italic bg-slate-900/20 hover:bg-slate-800/30 transition-colors"><MathText math="P(A \cap B')" /></td>
+            <td className="p-3 border-r border-slate-800/50 italic bg-slate-900/20 hover:bg-slate-800/30 transition-colors"><MathText math="P(A' \cap B')" /></td>
+            <td className="p-3 font-semibold bg-slate-800/20 text-slate-300"><MathText math="P(B')" /></td>
           </tr>
-          <tr>
-            <th className="p-3 border border-[#1A1A1A] font-bold bg-neutral-100">Total</th>
-            <td className="p-3 border border-[#1A1A1A] font-bold bg-neutral-100">P(A)</td>
-            <td className="p-3 border border-[#1A1A1A] font-bold bg-neutral-100">P(A')</td>
-            <td className="p-3 border-2 border-[#1A1A1A] font-bold bg-[#1A1A1A] text-white">Grand Total (1)</td>
+          <tr className="bg-slate-950/60">
+            <th className="p-3 border-r border-slate-800 font-bold text-slate-400 text-left pl-4">Marginal Total</th>
+            <td className="p-3 border-r border-slate-800/50 font-semibold bg-slate-800/10 text-slate-300"><MathText math="P(A)" /></td>
+            <td className="p-3 border-r border-slate-800/50 font-semibold bg-slate-800/10 text-slate-300"><MathText math="P(A')" /></td>
+            <td className="p-3 font-bold bg-emerald-500 text-slate-950 shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]">
+              <MathText math="1.0" />
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p className="text-[11px] font-sans text-[#1A1A1A]/70 text-center mt-6 px-6 italic">
-      Margin totals give single-event probabilities. Interior cells give intersection (AND) probabilities.
-      <br/><strong className="text-red-600 not-italic uppercase text-[10px]">Exam Misconception:</strong> Prevents students from using a row total as the numerator for an intersection question.
-    </p>
+    <div className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic max-w-prose">
+      <span className="text-emerald-400 font-medium">Marginal cells</span> contain single-event probabilities. <span className="text-slate-300 font-medium">Interior elements</span> dictate intersections (<MathText math="\cap" />).
+      <div className="mt-2 text-amber-400 font-semibold uppercase text-[10px] bg-amber-950/30 border border-amber-900/40 py-1 px-3 rounded">
+        CCEA Method Tip: Interior cross-cells ensure you do not use wrong row/column totals as conditional numerators.
+      </div>
+    </div>
+  </div>
+);
+
+
+export const BayesResolutionSVG: React.FC = () => (
+  <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#020617]">
+    <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold font-sans">
+      Fig 4. Conditional Partition Asset
+    </div>
+    
+    <svg width="600" height="180" viewBox="0 0 600 180" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+      {/* Sample Universe Block */}
+      <rect x="40" y="30" width="520" height="100" stroke="#475569" strokeWidth="2" fill="#0f172a" rx="4"/>
+      
+      {/* Partitions */}
+      <line x1="220" y1="30" x2="220" y2="130" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+      <line x1="400" y1="30" x2="400" y2="130" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+      
+      {/* Set Labels */}
+      <text x="55" y="55" fill="#64748b" fontSize="12" fontFamily="sans-serif">Partition A₁</text>
+      <text x="235" y="55" fill="#64748b" fontSize="12" fontFamily="sans-serif">Partition A₂</text>
+      <text x="415" y="55" fill="#64748b" fontSize="12" fontFamily="sans-serif">Partition A₃</text>
+      
+      {/* Overlapping Target Event B */}
+      <ellipse cx="300" cy="85" rx="160" ry="35" stroke="#f59e0b" strokeWidth="2" fill="#f59e0b" fillOpacity="0.08" />
+      
+      <foreignObject x="270" y="70" width="60" height="30">
+        <div className="text-amber-400 text-center font-bold text-sm"><MathText math="Event B" /></div>
+      </foreignObject>
+      
+      {/* Mathematical Intersections */}
+      <foreignObject x="80" y="90" width="100" height="30">
+        <div className="text-slate-400 text-center text-xs italic"><MathText math="A_1 \cap B" /></div>
+      </foreignObject>
+      <foreignObject x="250" y="105" width="100" height="30">
+        <div className="text-slate-400 text-center text-xs italic"><MathText math="A_2 \cap B" /></div>
+      </foreignObject>
+      <foreignObject x="430" y="90" width="100" height="30">
+        <div className="text-slate-400 text-center text-xs italic"><MathText math="A_3 \cap B" /></div>
+      </foreignObject>
+    </svg>
+
+    <div className="text-[11px] font-sans text-slate-400 text-center px-6 w-full max-w-prose border-t border-slate-900 pt-4">
+      <span className="text-amber-400 font-semibold">Total Probability Law Framework:</span> 
+      <div className="my-2 bg-slate-900 p-2 rounded font-mono text-slate-300 text-xs">
+        <MathText math="P(B) = P(A_1 \cap B) + P(A_2 \cap B) + P(A_3 \cap B)" />
+      </div>
+      To isolate a conditional reverse path (Bayes' Theorem), compute the path ratio:
+      <div className="mt-1 font-mono text-emerald-400 text-xs">
+        <MathText math="P(A_1 | B) = \frac{P(A_1 \cap B)}{P(B)}" />
+      </div>
+    </div>
   </div>
 );
