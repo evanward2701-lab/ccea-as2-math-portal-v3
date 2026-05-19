@@ -23,7 +23,7 @@ export const InequalityPanelSVG: React.FC = () => (
             <td className="p-3 font-mono text-amber-400">P(X &lt; 4)</td>
             <td className="p-3 text-right pr-6">
               <div className="inline-flex justify-end text-sky-400 font-bold">
-                <MathText text="P(X \le 3)" />
+                <MathText content="P(X \le 3)" />
               </div>
             </td>
           </tr>
@@ -32,7 +32,7 @@ export const InequalityPanelSVG: React.FC = () => (
             <td className="p-3 font-mono text-emerald-400">P(X \le 4)</td>
             <td className="p-3 text-right pr-6">
               <div className="inline-flex justify-end text-emerald-400 font-bold">
-                <MathText text="P(X \le 4)" />
+                <MathText content="P(X \le 4)" />
               </div>
             </td>
           </tr>
@@ -41,7 +41,7 @@ export const InequalityPanelSVG: React.FC = () => (
             <td className="p-3 font-mono text-rose-400">P(X \ge 4)</td>
             <td className="p-3 text-right pr-6">
               <div className="inline-flex justify-end text-rose-400 font-bold">
-                <MathText text="1 - P(X \le 3)" />
+                <MathText content="1 - P(X \le 3)" />
               </div>
             </td>
           </tr>
@@ -50,7 +50,7 @@ export const InequalityPanelSVG: React.FC = () => (
             <td className="p-3 font-mono text-amber-400">P(X &gt; 4)</td>
             <td className="p-3 text-right pr-6">
               <div className="inline-flex justify-end text-rose-400 font-bold">
-                <MathText text="1 - P(X \le 4)" />
+                <MathText content="1 - P(X \le 4)" />
               </div>
             </td>
           </tr>
@@ -61,13 +61,13 @@ export const InequalityPanelSVG: React.FC = () => (
     <div className="mt-4 px-4 py-3 bg-slate-950/60 border border-slate-800 rounded-lg w-full">
       <p className="text-[11px] font-sans text-slate-400 leading-relaxed">
         <span className="text-rose-400 font-mono font-bold uppercase tracking-wider block mb-1">⚠️ Exam Misconception Warning:</span>
-        Because binomial data is strictly discrete, strict inequalities (<MathText text="<" />, <MathText text=">" />) must be carefully converted into inclusive inequalities (<MathText text="\le" />, <MathText text="\ge" />). Do not accidentally calculate <MathText text="1 - P(X \le 4)" /> when asked for "at least 4".
+        Because binomial data is strictly discrete, strict inequalities (<MathText content="<" />, <MathText content=">" />) must be carefully converted into inclusive inequalities (<MathText content="\le" />, <MathText content="\ge" />). Do not accidentally calculate <MathText content="1 - P(X \le 4)" /> when asked for "at least 4".
       </p>
     </div>
   </div>
 );
 
-// Diagram 3: True Discrete Binomial Distribution Graph (Correct Canonical Classes Applied)
+// Diagram 3: True Discrete Binomial Distribution Graph (Correct Canonical Classes and Content Property Applied)
 export const NormalDistributionSVG: React.FC = () => (
   <div className="w-full flex flex-col items-center py-8 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
     <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">
@@ -119,7 +119,7 @@ export const NormalDistributionSVG: React.FC = () => (
 
         <foreignObject x="260" y="35" width="110" height="30">
           <div className="text-right text-xs font-mono text-slate-400">
-            <MathText text="X \sim B(n, p)" />
+            <MathText content="X \sim B(n, p)" />
           </div>
         </foreignObject>
       </svg>
