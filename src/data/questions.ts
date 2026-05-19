@@ -57,7 +57,7 @@ $a = 0.0875 \\text{ m s}^{-2}$ [A1]
     questionMarkdown: `
 A woman travels in a lift. The mass of the woman is $50 \\text{ kg}$ and the mass of the lift is $950 \\text{ kg}$. The lift is being raised vertically by a vertical cable attached to the top of the lift. The lift is moving upwards and has a constant deceleration of $2 \\text{ m s}^{-2}$.
 
-![visual:M3-LiftSystem]()
+![visual:M3-Lift]()
 
 By modelling the cable as being light and inextensible:
 (a) Find the tension in the cable.

@@ -1,7 +1,7 @@
 import React from 'react';
 import Mermaid from 'react-mermaid2';
 
-export const MermaidDiagram: React.FC<{ chart: string, caption: string }> = ({ chart, caption }) => {
+const MermaidDiagram: React.FC<{ chart: string, caption: string }> = ({ chart, caption }) => {
   return (
     <div className="flex flex-col items-center p-6 border border-[#1A1A1A] bg-[#FAF9F6] shadow-[4px_4px_0px_#1A1A1A] my-8">
       <div className="w-full mb-4">

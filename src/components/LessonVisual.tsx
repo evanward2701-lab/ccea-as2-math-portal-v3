@@ -63,8 +63,18 @@ interface LessonVisualProps {
   visualId: string;
 }
 
+const VISUAL_ID_ALIASES: Record<string, string> = {
+  M1: "M1-Bridge",
+  "M3-RoughPlane": "M3-Rough",
+  "M3-LiftSystem": "M3-Lift",
+  "S1-DataTree": "S1-Tree",
+  "S4-BinomialTree": "S4-Binomial",
+};
+
 export function LessonVisual({ visualId }: LessonVisualProps) {
-  switch (visualId) {
+  const canonicalVisualId = normalizeVisualId(visualId);
+
+  switch (canonicalVisualId) {
     // ------------------------------------------
     // MECHANICS M1
     // ------------------------------------------
@@ -125,4 +135,8 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
       console.warn(`Visual ID "${visualId}" not found in LessonVisual.tsx router.`);
       return null;
   }
+}
+
+function normalizeVisualId(visualId: string) {
+  return VISUAL_ID_ALIASES[visualId] ?? visualId;
 }

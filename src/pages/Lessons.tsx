@@ -2,6 +2,9 @@ import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { LESSONS } from "@/data/lessons";
 import { MathText } from "@/components/MathText";
+import { LessonVisual } from "@/components/LessonVisual";
+
+const visualTagPattern = /!\[visual:[^\]]+\]\([^)]*\)/g;
 
 export function Lessons() {
   const { id } = useParams();
@@ -71,7 +74,13 @@ export function Lessons() {
             </span>
           </div>
 
-          <MathText content={lesson.content} />
+          {lesson.visualId && (
+            <div className="mb-8">
+              <LessonVisual visualId={lesson.visualId} />
+            </div>
+          )}
+
+          <MathText content={lesson.visualId ? lesson.content.replace(visualTagPattern, "") : lesson.content} />
           
           <div className="mt-16 pt-8 border-t border-[#1A1A1A]">
             <div className="bg-[#F1EFE9] border border-[#1A1A1A] p-8 flex flex-col items-start gap-4">

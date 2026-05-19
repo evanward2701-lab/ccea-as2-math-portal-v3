@@ -216,7 +216,7 @@ $\\text{Resultant Force } (F) = \\text{mass } (m) \\times \\text{acceleration } 
 *Note: $F$ represents the resultant force, not just any single applied force.*
 
 ### Resolving Forces and Inclined Planes
-![visual:M1]()
+![visual:M3-Inclined]()
 For a particle on an inclined plane at angle $\\theta$ to the horizontal:
 * The component of weight acting **down the slope** is $mg \\sin \\theta$.
 * The component of weight acting **perpendicularly into the slope** is $mg \\cos \\theta$.
@@ -228,7 +228,7 @@ $F \\leq \\mu R$
 Friction only reaches its maximum limiting value ($F = \\mu R$) when the object is on the point of slipping, or is actively sliding.
 
 ### Connected Particles
-![visual:M3-RoughPlane]()
+![visual:M3-Rough]()
 
 Particles joined by a taut, inextensible string share the exact same magnitude of acceleration.
 * **Towbars and Trailers:** Treat the entire system as a single particle to find the common acceleration. To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
@@ -334,7 +334,7 @@ $\\text{Frequency Density} = \\frac{\\text{Frequency}}{\\text{Class Width}}$
 To estimate values within a grouped frequency class, assume data is evenly distributed across the class width.
 
 ### PMCC ($r$)
-![visual:S1-DataTree]()
+![visual:S2-PMCC]()
 
 Measures the strength and direction of **linear correlation**.
 $-1 \\leq r \\leq 1$. Remember correlation does not imply causation.
@@ -371,7 +371,7 @@ export const S4_CONTENT = `
 **S4: Statistical Distributions (Discrete Probability and the Binomial Model)**
 
 ## 2. The Binomial Model Conditions
-![visual:S4-BinomialTree]()
+![visual:S4-Binomial]()
 
 You can only use the binomial model if the situation satisfies four strict conditions:
 1. There is a **fixed number of trials** ($n$).
