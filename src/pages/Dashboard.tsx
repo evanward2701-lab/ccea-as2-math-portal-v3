@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { LESSONS } from "@/data/lessons";
 import { QUESTIONS } from "@/data/questions";

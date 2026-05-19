@@ -1,8 +1,7 @@
-import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { QUESTIONS } from "@/data/questions";
 import { LESSONS } from "@/data/lessons";
-import { MathText } from "@/components/MathText";
+import { MathText } from "../components/MathText";
 import { CheckCircle2 } from "lucide-react";
 
 const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");

@@ -1,8 +1,7 @@
-import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { LESSONS } from "@/data/lessons";
-import { MathText } from "@/components/MathText";
-import { LessonVisual } from "@/components/LessonVisual";
+import { LESSONS } from "../data/lessons";
+import { MathText } from "../components/MathText";
+import { LessonVisual } from "../components/LessonVisual";
 
 const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
 const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
