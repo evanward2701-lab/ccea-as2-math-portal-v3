@@ -1,5 +1,5 @@
 import React from 'react';
-import MathText from '../../MathText';
+import { MathText } from '../../MathText';
 
 // Diagram 2: Cumulative Binomial Inequality Interactive Matrix Panel
 export const InequalityPanelSVG: React.FC = () => (
@@ -67,14 +67,14 @@ export const InequalityPanelSVG: React.FC = () => (
   </div>
 );
 
-// Diagram 3: True Discrete Binomial Distribution Graph (Replaces Continuous Normal Curve)
+// Diagram 3: True Discrete Binomial Distribution Graph (Correct Canonical Classes Applied)
 export const NormalDistributionSVG: React.FC = () => (
   <div className="w-full flex flex-col items-center py-8 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
     <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">
       Fig 3. Binomial pmf vs Continuous Curves
     </div>
 
-    <div className="w-full max-w-[440px] h-[220px] mt-6 flex flex-col items-center justify-center">
+    <div className="w-full max-w-110 h-55 mt-6 flex flex-col items-center justify-center">
       <svg width="100%" height="100%" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'geometricPrecision' }}>
         {/* Grid Floor Line & Horizontal Ticks */}
         <line x1="40" y1="30" x2="370" y2="30" stroke="#1E293B" strokeWidth="1" strokeDasharray="4 4" />
@@ -85,7 +85,7 @@ export const NormalDistributionSVG: React.FC = () => (
         <line x1="30" y1="180" x2="380" y2="180" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" />
         <line x1="40" y1="20" x2="40" y2="190" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" />
 
-        {/* Discrete PMF Spikes - Emphasizing structural gaps over continuous shapes */}
+        {/* Discrete PMF Spikes */}
         <line x1="80" y1="180" x2="80" y2="160" stroke="#475569" strokeWidth="6" strokeLinecap="round" className="hover:stroke-slate-400 transition-all cursor-pointer" />
         <line x1="135" y1="180" x2="135" y2="110" stroke="#38BDF8" strokeWidth="6" strokeLinecap="round" className="hover:stroke-sky-400 transition-all cursor-pointer" />
         <line x1="190" y1="180" x2="190" y2="45" stroke="#34D399" strokeWidth="6" strokeLinecap="round" className="hover:stroke-emerald-400 transition-all cursor-pointer" />
@@ -93,7 +93,7 @@ export const NormalDistributionSVG: React.FC = () => (
         <line x1="300" y1="180" x2="300" y2="145" stroke="#475569" strokeWidth="6" strokeLinecap="round" className="hover:stroke-slate-400 transition-all cursor-pointer" />
         <line x1="355" y1="180" x2="355" y2="170" stroke="#475569" strokeWidth="6" strokeLinecap="round" className="hover:stroke-slate-400 transition-all cursor-pointer" />
 
-        {/* Labels wrapped inside standard foreignObjects for layout scannability */}
+        {/* Labels */}
         <foreignObject x="70" y="188" width="20" height="25">
           <div className="text-[11px] text-slate-500 text-center font-mono">0</div>
         </foreignObject>
@@ -132,7 +132,7 @@ export const NormalDistributionSVG: React.FC = () => (
   </div>
 );
 
-// Diagnostic Expansion Component: Four Strict Conditions Validator Block
+// Model Validation Requirements
 export const BinomialConditionsChecklistSVG: React.FC = () => (
   <div className="w-full flex flex-col items-center py-6 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
     <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">

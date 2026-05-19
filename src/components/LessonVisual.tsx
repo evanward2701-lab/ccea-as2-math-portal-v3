@@ -48,11 +48,11 @@ import {
   ResidualAnalysisSVG 
 } from "./Visuals/S2/S2-SVG";
 
-// S3 Imports (BayesResolutionSVG appended)
+// S3 Imports
 import { ProbabilityTree } from "./Visuals/S3/S3-Mermaid";
 import { VennMutExSVG, TwoWayTableSVG, BayesResolutionSVG } from "./Visuals/S3/S3-SVG";
 
-// S4 Imports
+// S4 Imports 
 import { BinomialTree } from "./Visuals/S4/S4-Mermaid";
 import { 
   InequalityPanelSVG, 
@@ -134,13 +134,14 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "S3-Table": return <TwoWayTableSVG />;
     case "S3-BayesResolution": return <BayesResolutionSVG />;
 
-    // ------------------------------------------
+// ------------------------------------------
     // STATISTICS S4
     // ------------------------------------------
     case "S4-Binomial": return <BinomialTree />;
     case "S4-Inequality": return <InequalityPanelSVG />;
     case "S4-Normal": return <NormalDistributionSVG />;
     case "S4-BinomialConditions": return <BinomialConditionsChecklistSVG />;
+
     // ------------------------------------------
     // FALLBACK
     // ------------------------------------------
