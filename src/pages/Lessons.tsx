@@ -5,6 +5,7 @@ import { MathText } from "@/components/MathText";
 import { LessonVisual } from "@/components/LessonVisual";
 
 const visualTagPattern = /!\[visual:[^\]]+\]\([^)]*\)/g;
+const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
 
 export function Lessons() {
   const { id } = useParams();
@@ -89,7 +90,7 @@ export function Lessons() {
                 <h3 className="font-serif text-2xl mb-2 italic text-[#1A1A1A]">Ready to test your knowledge?</h3>
                 <p className="text-sm font-semibold text-[#1A1A1A]/80">Go to the practice bank to find targeted questions and exam-style problems for {lesson.id}.</p>
               </div>
-              <Link to={`/practice?module=${lesson.id}`} className="inline-flex items-center justify-center px-6 py-3 bg-[#1A1A1A] text-white text-[10px] uppercase font-bold tracking-widest transition-colors hover:bg-black mt-2">
+              <Link to={`/practice?module=${getModuleCode(lesson.id)}`} className="inline-flex items-center justify-center px-6 py-3 bg-[#1A1A1A] text-white text-[10px] uppercase font-bold tracking-widest transition-colors hover:bg-black mt-2">
                 Practice {lesson.id} Questions &rarr;
               </Link>
             </div>

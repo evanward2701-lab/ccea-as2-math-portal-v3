@@ -1,5 +1,5 @@
 import React from 'react';
-import Mermaid from 'react-mermaid2';
+import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
 
 const MermaidDiagram: React.FC<{ chart: string, caption: string }> = ({ chart, caption }) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import Mermaid from 'react-mermaid2';
+import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
 
 export const BinomialTree: React.FC = () => {
   const chart = `

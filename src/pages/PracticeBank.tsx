@@ -5,9 +5,11 @@ import { LESSONS } from "@/data/lessons";
 import { MathText } from "@/components/MathText";
 import { CheckCircle2 } from "lucide-react";
 
+const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
+
 export function PracticeBank() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const selectedModule = searchParams.get("module") || "All";
+  const selectedModule = getModuleCode(searchParams.get("module") || "All");
   const selectedType = searchParams.get("type") || "All";
   const selectedMarks = searchParams.get("marks") || "All";
 
@@ -58,10 +60,10 @@ export function PracticeBank() {
             {LESSONS.map(l => (
               <button 
                 key={l.id}
-                onClick={() => updateFilter("module", l.id)}
-                className={getButtonClass(selectedModule === l.id)}
+                onClick={() => updateFilter("module", getModuleCode(l.id))}
+                className={getButtonClass(selectedModule === getModuleCode(l.id))}
               >
-                {l.id}: {l.title.split(":")[0]}
+                {getModuleCode(l.id)}: {l.title.split(":")[0]}
               </button>
             ))}
           </div>
