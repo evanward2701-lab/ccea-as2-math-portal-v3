@@ -4,6 +4,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { cn } from "@/lib/utils";
 import { LessonVisual } from "@/components/LessonVisual";
+import type { Components } from "react-markdown";
 
 interface MathTextProps {
   content: string;
@@ -43,7 +44,7 @@ function splitVisualSegments(content: string): ContentSegment[] {
 
 export function MathText({ content, className }: MathTextProps) {
   const segments = splitVisualSegments(content);
-  const markdownComponents = {
+  const markdownComponents: Components = {
     h1: ({ node, ...props }) => <h1 className="font-serif text-4xl mb-6 italic tracking-tight text-[#1A1A1A]" {...props} />,
     h2: ({ node, ...props }) => <h2 className="font-serif text-3xl mb-4 mt-12 border-b border-[#1A1A1A]/20 pb-2 text-[#1A1A1A]" {...props} />,
     h3: ({ node, ...props }) => <h3 className="font-serif text-xl mb-3 mt-8 italic text-[#1A1A1A]" {...props} />,
