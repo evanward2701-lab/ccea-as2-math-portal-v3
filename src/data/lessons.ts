@@ -308,46 +308,57 @@ $$R - 784 = 160 \\implies R = 944 \\text{ N}$$
 
 export const S1_CONTENT = `
 ## 1. Lesson Title
-**S1: Statistical Sampling, Data Types and Inference**
+**S1: Data Types & Proportional Sampling Foundations**
 
 ## 2. Specification Focus
-* Demonstrate understanding of and use the terms population and sample.
-* Use samples to make informal inferences about the population.
-* Demonstrate understanding of and use sampling techniques, including simple random sampling and stratified sampling.
-* Distinguish between qualitative, quantitative, discrete, and continuous data.
+* Distinguish clearly between qualitative (categorical) data and quantitative (numerical) parameters.
+* Classify quantitative data into discrete (counted items) or continuous (measured scales).
+* Critically evaluate operational trade-offs between a full census and sampling methodologies.
+* Understand the properties, benefits, and constraints of Simple Random Sampling and Stratified Sampling.
+* Mathematically allocate proportional sample strata sizes across a multi-layered target population.
 
 ## 3. Key Vocabulary
-* **Population:** The whole group of individuals or items being investigated.
-* **Sample:** A smaller group taken from the population to estimate its characteristics.
-* **Census:** Data collected from every single member of the population.
-* **Sampling Frame:** A complete numbered list of all members of the population used to draw a sample.
-* **Simple Random Sample:** A sample where every member of the population has an equal chance of being selected.
-* **Stratified Sample:** A sample that divides the population into distinct groups (strata) and selects a random sample proportionally.
-* **Discrete Data:** Quantitative data that can only take specific, usually counted, values.
-* **Continuous Data:** Quantitative data that can take any value within a range, usually measured.
-* **Bias:** A systematic unfairness in the way data is collected, meaning the sample is not representative of the population.
+* **Qualitative Data:** Non-numerical attributes or descriptors that fall into distinct categories.
+* **Quantitative Data:** Numerical values representing specific counts or absolute physical measurements.
+* **Discrete Variable:** A numerical quantity that can only take specific, isolated values (typically integer counts).
+* **Continuous Variable:** A numerical quantity that can take any fractional value within a continuous scale or interval.
+* **Sampling Frame:** A complete physical or database list containing every single target item in a population.
+* **Stratum (Plural Strata):** A mutually exclusive, distinct sub-population layer sharing a common trait.
 
-## 4. Sampling Methods
-1. **Simple Random Sampling:** Requires a complete sampling frame. Every item has an equal chance of selection. This removes human bias but does not guarantee the sample will perfectly mirror the population structure.
-2. **Stratified Sampling:** The population is divided into distinct, non-overlapping groups. A random sample is then drawn from each stratum in exact proportion to the size of that group in the population.
+## 4. Full Theory Explanation
 
-**Formula:**
-$\\text{Stratum sample size} = \\frac{\\text{Stratum population size}}{\\text{Total population size}} \\times \\text{Overall sample size}$
+### Classification of Data Vectors
+Data must be accurately classified into qualitative structures or numerical quantitative parameters before applying standard statistical modeling tools. 
+![visual:S1-Tree]()
 
+### Sampling Methodologies & Operational Constraints
+When designing a research framework, choosing between an absolute census or a targeted sample requires a deliberate optimization of precision vs resource boundaries.
 ![visual:S1-Sampling]()
 
-## 5. Worked Example
+### Proportional Stratified Selection Mechanics
+To extract a truly representative stratified sample that honors the underlying structural proportions of a population, candidates use a strict allocation formula to determine each layer size:
 
-### Example 1: Stratified Sampling Targeted Practice
-A college has 300 students: 180 study Mathematics and 120 do not. A sample of 40 students is needed, stratified by whether they study Mathematics. Find how many of each group should be selected.
+$$\\text{Stratum Sample Size} = \\frac{\\text{Strata Subgroup Size}}{\\text{Total Population Size } (N)} \\times \\text{Total Desired Sample } (n)}$$
 
-**Step 1:** Identify totals. Total population = 300. Target sample = 40.
+Consider an institution with a total population framework ($N = 300$) split into three explicit academic tiers (Strata):
+* Year 12 Strata Size = **120**
+* Year 13 Strata Size = **100**
+* Year 14 Strata Size = **80**
 
-**Step 2:** Calculate for Mathematics students.
-$\\text{Maths sample} = \\frac{180}{300} \\times 40 = 0.6 \\times 40 = 24$
+If an investigator demands an optimized sample sizing of $n = 60$, the mathematically bound selection vectors are solved systematically:
 
-**Step 3:** Calculate for non-Mathematics students.
-$\\text{Non-Maths sample} = \\frac{120}{300} \\times 40 = 0.4 \\times 40 = 16$
+![visual:S1-Stratified]()
+
+* **Year 12 Sample Size Allocation:**
+  $$\\frac{120}{300} \\times 60 = 0.4 \\times 60 = 24 \\text{ elements}$$
+* **Year 13 Sample Size Allocation:**
+  $$\\frac{100}{300} \\times 60 = \\frac{1}{3} \\times 60 = 20 \\text{ elements}$$
+* **Year 14 Sample Size Allocation:**
+  $$\\frac{80}{300} \\times 60 = \\frac{4}{15} \\times 60 = 16 \\text{ elements}$$
+
+$$\\text{Check Total Vector Convergence: } 24 + 20 + 16 = 60$$
+
+> ⚠️ **CCEA Exam Warning:** On examination matrices where division returns rational fractions, candidates must round each individual stratum to the nearest whole integer while validating that the aggregated total exactly equals $n$.
 `;
 
 export const S2_CONTENT = `

@@ -87,6 +87,8 @@ $R - 490 = -100 \\Rightarrow R = 390 \\text{ N}$ [A1]
     questionMarkdown: `
 (a) Explain the exact difference between a census and a sample.
 (b) Give one disadvantage of using a census.
+
+![visual:S1-Sampling]() 
 `,
     markSchemeMarkdown: `
 (a) A census collects data from every single member of the population [MW1], whereas a sample collects data from only a selected smaller group (or subset) of the population [MW1].

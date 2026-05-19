@@ -36,7 +36,7 @@ import {
 
 // S1 Imports
 import { DataTypeTree } from "./Visuals/S1/S1-Mermaid";
-import { SamplingTableSVG } from "./Visuals/S1/S1-SVG";
+import { SamplingTableSVG, StratifiedProportionVisual } from "./Visuals/S1/S1-SVG"; // <-- Add StratifiedProportionVisual
 
 // S2 Imports
 import { StdDevDecisionTree } from "./Visuals/S2/S2-Mermaid";
@@ -109,6 +109,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     // ------------------------------------------
     case "S1-Tree": return <DataTypeTree />;
     case "S1-Sampling": return <SamplingTableSVG />;
+    case "S1-Stratified": return <StratifiedProportionVisual />; // <-- ADD THIS CASE LINK
 
     // ------------------------------------------
     // STATISTICS S2

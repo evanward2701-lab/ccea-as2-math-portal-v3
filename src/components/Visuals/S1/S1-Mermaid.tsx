@@ -1,48 +1,50 @@
 import React from 'react';
 import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
 
-// Diagram 1: Data Type Classification Tree
 export const DataTypeTree: React.FC = () => {
-  // CRITICAL: Text string must sit flush against the left boundary.
-  const chart = `graph TD
-Data[Data] --> Qual["Qualitative<br/>(Categories)"]
-Data --> Quant["Quantitative<br/>(Numbers)"]
+  const chart = `
+    graph TD
+    Data[Data Stream] --> Qual["Qualitative<br/>(Categorical Attributes)"]
+    Data --> Quant["Quantitative<br/>(Numerical Quantities)"]
+    
+    Qual -.-> QualEx[e.g., Hair Colour / Car Brand]
+    
+    Quant --> Disc["Discrete<br/>(Counted / Specific Values)"]
+    Quant --> Cont["Continuous<br/>(Measured on continuous scale)"]
+    
+    Disc -.-> DiscEx["e.g., Shoe Size / Number of Cars<br/><span style='color:#f43f5e;font-size:10px;font-weight:bold;'>⚠️ CCEA TRAP: Counted values are NOT qualitative!</span>"]
+    Cont -.-> ContEx[e.g., Running Time / Height]
 
-Qual -.-> QualEx[e.g., Hair colour]
+    %% Dark Canvas Style Mapping
+    style Data fill:#0f172a,color:#38bdf8,stroke:#0284c7,stroke-width:2px,font-weight:bold
+    style Qual fill:#1e293b,stroke:#475569,stroke-width:2px,color:#e2e8f0
+    style Quant fill:#1e293b,stroke:#475569,stroke-width:2px,color:#e2e8f0
+    style Disc fill:#0f172a,stroke:#34d399,stroke-width:2px,color:#f8fafc
+    style Cont fill:#0f172a,stroke:#fbbf24,stroke-width:2px,color:#f8fafc
+    
+    style QualEx fill:#111827,stroke:#374151,color:#9ca3af,font-style:italic
+    style DiscEx fill:#111827,stroke:#f43f5e,color:#e2e8f0,font-style:italic
+    style ContEx fill:#111827,stroke:#374151,color:#9ca3af,font-style:italic
 
-Quant --> Disc["Discrete<br/>(Counted)"]
-Quant --> Cont["Continuous<br/>(Measured)"]
-
-Disc -.-> DiscEx[e.g., Shoe size]
-Cont -.-> ContEx[e.g., Height]
-
-style Data fill:#1A1A1A,color:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,font-weight:bold
-style Qual fill:#FAF9F6,stroke:#1A1A1A,stroke-width:2px,color:#1A1A1A
-style Quant fill:#FAF9F6,stroke:#1A1A1A,stroke-width:2px,color:#1A1A1A
-style Disc fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,color:#1A1A1A
-style Cont fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,color:#1A1A1A
-
-style QualEx fill:none,stroke:none,color:#1A1A1A,font-style:italic
-style DiscEx fill:none,stroke:none,color:#1A1A1A,font-style:italic
-style ContEx fill:none,stroke:none,color:#1A1A1A,font-style:italic
-
-linkStyle 0,1,3,4 stroke:#1A1A1A,stroke-width:2px
-linkStyle 2,5,6 stroke:#1A1A1A,stroke-width:1px,stroke-dasharray: 3 3`;
+    classDef default color:#e2e8f0,font-family:sans-serif;
+  `;
 
   return (
-    <div className="w-full flex flex-col items-center py-8 mb-12 border border-[#1A1A1A] bg-white relative shadow-[8px_8px_0px_#1A1A1A]">
-      <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-        Fig 1. Data Classification
+    <div className="w-full flex flex-col items-center py-8 mb-12 border border-slate-800 bg-slate-900 relative shadow-[8px_8px_0px_#020617] rounded-lg">
+      <div className="absolute top-0 right-0 bg-sky-600 text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold rounded-tr-lg">
+        Fig 1. Data Classification Schema
       </div>
       
-      <div className="w-full px-4 my-6 flex justify-center overflow-x-auto">
+      <div className="w-full px-4 my-6 flex justify-center dark-mermaid-theme">
         <Mermaid chart={chart} />
       </div>
       
-      <p className="text-[11px] font-sans text-[#1A1A1A]/70 text-center mt-2 px-6 italic max-w-prose">
+      <p className="text-[12px] font-sans text-slate-400 text-center mt-2 px-6 italic leading-relaxed">
         Always check if numerical data is measured or counted before classifying it as continuous or discrete.
-        <br />
-        <strong className="text-red-600 not-italic uppercase text-[10px] block mt-1">Exam Misconception:</strong> Stop confusing discrete numerical categories (like shoe size) with qualitative data. If it represents a quantity, it is quantitative.
+        <br/>
+        <strong className="text-rose-400 not-italic uppercase text-[10px] font-bold tracking-wider">
+          Exam Misconception:
+        </strong> Stop confusing discrete numerical categories (like shoe size) with qualitative data. If it represents a numeric quantity, it is quantitative.
       </p>
     </div>
   );
