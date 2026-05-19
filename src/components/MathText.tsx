@@ -24,7 +24,16 @@ export function MathText({ content, className }: MathTextProps) {
           h1: ({ node, ...props }) => <h1 className="font-serif text-4xl mb-6 italic tracking-tight text-[#1A1A1A]" {...props} />,
           h2: ({ node, ...props }) => <h2 className="font-serif text-3xl mb-4 mt-12 border-b border-[#1A1A1A]/20 pb-2 text-[#1A1A1A]" {...props} />,
           h3: ({ node, ...props }) => <h3 className="font-serif text-xl mb-3 mt-8 italic text-[#1A1A1A]" {...props} />,
-          p: ({ node, ...props }) => <p className="leading-relaxed mb-6 text-sm" {...props} />,
+          p: ({ node, children, ...props }) => {
+            const onlyChild = Array.isArray(node?.children) && node.children.length === 1 ? node.children[0] : null;
+            const alt = onlyChild?.type === "element" && onlyChild.tagName === "img" ? onlyChild.properties?.alt : null;
+
+            if (typeof alt === "string" && alt.startsWith("visual:")) {
+              return <>{children}</>;
+            }
+
+            return <p className="leading-relaxed mb-6 text-sm" {...props}>{children}</p>;
+          },
           ul: ({ node, ...props }) => <ul className="list-none mb-6 space-y-3" {...props} />,
           ol: ({ node, ...props }) => <ol className="list-decimal list-outside ml-6 mb-6 space-y-3 text-sm font-serif" {...props} />,
           li: ({ node, ...props }) => <li className="relative pl-6 text-sm before:content-[''] before:absolute before:left-0 before:top-2 before:w-3 before:h-px before:bg-[#1A1A1A]" {...props} />,

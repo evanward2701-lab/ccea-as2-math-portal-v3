@@ -41,10 +41,14 @@ Derived units are created by combining these base units:
 ### Mass versus Weight
 Mass is a scalar measure of the amount of matter in an object, measured in kg. Weight is a force caused by the pull of gravity acting vertically downwards on that mass. Because it is a force, weight is measured in newtons and is calculated using $W = mg$, where $g = 9.8 \\text{ m s}^{-2}$.
 
+![visual:M1-Lift]()
+
 ### Scalars and Vectors
 In mechanics, quantities are grouped into two categories:
 * **Scalars** have magnitude (size) only. Examples include distance, speed, time, and mass.
 * **Vectors** have both magnitude and direction. Examples include displacement, velocity, acceleration, and force.
+
+![visual:M1-ScalarVector]()
 
 ### Modelling Assumptions
 Mathematical models simplify complex real-world situations. In mechanics, specific words in an exam question act as strict mathematical rules:
@@ -55,6 +59,13 @@ Mathematical models simplify complex real-world situations. In mechanics, specif
 * **Inextensible string:** The string does not stretch. If two objects are connected by it, they will share the exact same magnitude of acceleration.
 * **Smooth pulley:** There is no friction in the pulley, ensuring tension is the same on both sides of the string.
 * **Rod:** The object is rigid and does not bend or buckle.
+
+![visual:M1-Modelling]()
+
+### Tension and Towing Models
+When objects are connected by a light towbar or inextensible string, the tension is an internal force for the whole system but an external force on each separate object. Use a whole-system equation to find the common acceleration, then isolate one object to find the tension.
+
+![visual:M1-Towing]()
 
 ## 5. Formulae and Notation
 * **Weight:** $W = mg$ (using $g = 9.8 \\text{ m s}^{-2}$ unless otherwise stated).
@@ -138,8 +149,12 @@ You must define a positive direction before substituting values. If a particle i
 ### Vertical Motion Under Gravity
 Vertical motion is a standard constant acceleration topic. If we ignore air resistance, an object in freefall accelerates downwards at $g = 9.8 \\text{ m s}^{-2}$ regardless of its mass. You must pick a positive direction. If upwards is positive, $a = -9.8$. If downwards is positive, $a = 9.8$. At the maximum height of a vertical projection, the particle is instantaneously at rest, meaning $v = 0$.
 
+![visual:M2-Gravity]()
+
 ### Constant Acceleration in Two Dimensions (Vectors)
 In 2D kinematics, displacement ($\\mathbf{s}$), initial velocity ($\\mathbf{u}$), final velocity ($\\mathbf{v}$), and acceleration ($\\mathbf{a}$) become vectors, while time ($t$) remains a scalar. You apply the SUVAT formulae component-by-component. For example, the equation $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ applies to the $\\mathbf{i}$ components and the $\\mathbf{j}$ components simultaneously.
+
+![visual:M2-Traffic]()
 
 ## 5. Formulae and Notation
 1. Area of a trapezium: $A = \\frac{1}{2}(a+b)h$
@@ -234,9 +249,13 @@ Particles joined by a taut, inextensible string share the exact same magnitude o
 * **Towbars and Trailers:** Treat the entire system as a single particle to find the common acceleration. To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
 * **Pulleys:** Because particles on a pulley move in different directions, you must write a separate $F=ma$ equation for each mass (using the direction of motion as positive for each) and solve them simultaneously. A "smooth pulley" guarantees the tension $T$ is equal on both sides.
 
+![visual:M3-Pulley]()
+
 ### Dynamics of Lift Problems
 * **To find the Cable Tension ($T$):** Zoom out. Treat the lift and the passenger as one single combined mass ($M_{\\text{lift}} + m_{\\text{person}}$). The internal forces cancel out.
 * **To find the Normal Reaction ($R$):** Zoom in. Treat the passenger as a single isolated particle. The Normal Reaction is the force the floor pushes up on them.
+
+![visual:M3-Lift]()
 
 ## 5. Worked Examples
 
@@ -295,6 +314,8 @@ export const S1_CONTENT = `
 **Formula:**
 $\\text{Stratum sample size} = \\frac{\\text{Stratum population size}}{\\text{Total population size}} \\times \\text{Overall sample size}$
 
+![visual:S1-Sampling]()
+
 ## 5. Worked Example
 
 ### Example 1: Stratified Sampling Targeted Practice
@@ -330,14 +351,20 @@ $\\text{Frequency Density} = \\frac{\\text{Frequency}}{\\text{Class Width}}$
 * **Population ($\\sigma_n$):** Divisor is exactly $n$. Used when data is the entire population or not inferring about a wider group.
 * **Sample ($\\sigma_{n-1}$):** Divisor is $n-1$ (Bessel's Correction). Used when estimating the whole population's spread from a sample.
 
+![visual:S2-StdDev]()
+
 ### Interpolation for Median
 To estimate values within a grouped frequency class, assume data is evenly distributed across the class width.
+
+![visual:S2-Interpolate]()
 
 ### PMCC ($r$)
 ![visual:S2-PMCC]()
 
 Measures the strength and direction of **linear correlation**.
 $-1 \\leq r \\leq 1$. Remember correlation does not imply causation.
+
+![visual:S2-Scatter]()
 
 ## 4. Worked Example: PMCC
 $r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{\\left(n\\sum x^{2} - (\\sum x)^{2}\\right)\\left(n\\sum y^{2} - (\\sum y)^{2}\\right)}}$
@@ -355,6 +382,13 @@ export const S3_CONTENT = `
 * **Independent Events:** One outcome doesn't affect the other. Tested mathematically by: $P(A \\cap B) = P(A) \\times P(B)$.
 
 *(Note: Conditional probability formula methods are explicitly excluded from AS2 requirements by CCEA).*
+
+![visual:S3-Venn]()
+
+### Two-Way Tables
+Two-way tables are useful when probabilities are grouped by two categories. Always complete missing row totals, column totals, and the grand total before finding a probability.
+
+![visual:S3-Table]()
 
 ## 3. Worked Example: Exhaustive Events
 Events $A$ and $B$ are exhaustive events such that $P(A) = 0.65$ and $P(B) = 0.42$. Find $P(A \\cap B)$ and determine if the events are mutually exclusive.
@@ -383,6 +417,13 @@ Notation: $X \\sim B(n, p)$
 
 ## 3. Exact Probabilities Formula
 $P(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}$
+
+![visual:S4-Inequality]()
+
+### Normal Distribution Contrast
+The binomial model is discrete, while the normal distribution is continuous. Keep this contrast clear when deciding which model a question is asking for.
+
+![visual:S4-Normal]()
 
 ## 4. Worked Example
 A factory makes frames. 20% are faulty. Sample of 8 frames. Let $X$ be number of faulty frames.

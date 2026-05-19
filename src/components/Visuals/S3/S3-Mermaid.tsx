@@ -5,19 +5,19 @@ import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
 export const ProbabilityTree: React.FC = () => {
   const chart = `
     graph LR
-    Start((Start)) -->|P(A)| A((A))
-    Start -->|P(A')| ANot((A'))
+    Start((Start)) -->|"P(A)"| ANode((A))
+    Start -->|"P(not A)"| ANot((not A))
     
-    A -->|P(B\|A)| B1((B))
-    A -->|P(B'\|A)| BNot1((B'))
+    ANode -->|"P(B given A)"| B1((B))
+    ANode -->|"P(not B given A)"| BNot1((not B))
     
-    ANot -->|P(B\|A')| B2((B))
-    ANot -->|P(B'\|A')| BNot2((B'))
+    ANot -->|"P(B given not A)"| B2((B))
+    ANot -->|"P(not B given not A)"| BNot2((not B))
 
-    B1 -.->|Multiply branches: P(A) × P(B\|A)| Out1[P(A ∩ B)]
+    B1 -.->|"Multiply branches"| Out1["P(A and B)"]
     
     style Start fill:#1A1A1A,color:#FFFFFF,stroke:#1A1A1A,stroke-width:2px
-    style A fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px
+    style ANode fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px
     style ANot fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px
     style B1 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px
     style BNot1 fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px

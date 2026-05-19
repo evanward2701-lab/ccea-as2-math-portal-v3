@@ -4,8 +4,16 @@ import { LESSONS } from "@/data/lessons";
 import { MathText } from "@/components/MathText";
 import { LessonVisual } from "@/components/LessonVisual";
 
-const visualTagPattern = /!\[visual:[^\]]+\]\([^)]*\)/g;
+const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
 const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
+
+const stripDuplicateLeadVisual = (content: string, visualId?: string) => {
+  if (!visualId) return content;
+
+  return content.replace(visualTagPattern, (match, inlineVisualId) => (
+    inlineVisualId === visualId ? "" : match
+  ));
+};
 
 export function Lessons() {
   const { id } = useParams();
@@ -81,7 +89,7 @@ export function Lessons() {
             </div>
           )}
 
-          <MathText content={lesson.visualId ? lesson.content.replace(visualTagPattern, "") : lesson.content} />
+          <MathText content={stripDuplicateLeadVisual(lesson.content, lesson.visualId)} />
           
           <div className="mt-16 pt-8 border-t border-[#1A1A1A]">
             <div className="bg-[#F1EFE9] border border-[#1A1A1A] p-8 flex flex-col items-start gap-4">
