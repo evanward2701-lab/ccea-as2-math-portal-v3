@@ -378,6 +378,8 @@ export const S2_CONTENT = `
 In a histogram, **area represents frequency**.
 $\\text{Frequency Density} = \\frac{\\text{Frequency}}{\\text{Class Width}}$
 
+![visual:S2-Histogram]()
+
 ### Variance and Standard Deviation
 * **Population ($\\sigma_n$):** Divisor is exactly $n$. Used when data is the entire population or not inferring about a wider group.
 * **Sample ($\\sigma_{n-1}$):** Divisor is $n-1$ (Bessel's Correction). Used when estimating the whole population's spread from a sample.
@@ -396,6 +398,11 @@ Measures the strength and direction of **linear correlation**.
 $-1 \\leq r \\leq 1$. Remember correlation does not imply causation.
 
 ![visual:S2-Scatter]()
+
+### Model Validation via Residuals
+To confirm if a linear regression model is appropriate for a data set, examiners expect you to understand how to analyze residuals ($y - \\hat{y}$). A reliable model shows completely random plot scatter, whereas a clear parabolic pattern invalidates the linear fit.
+
+![visual:S2-Residual]()
 
 ## 4. Worked Example: PMCC
 $r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{\\left(n\\sum x^{2} - (\\sum x)^{2}\\right)\\left(n\\sum y^{2} - (\\sum y)^{2}\\right)}}$

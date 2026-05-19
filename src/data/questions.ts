@@ -97,6 +97,34 @@ $R - 490 = -100 \\Rightarrow R = 390 \\text{ N}$ [A1]
 `
   },
   {
+    id: "S2-Q1",
+    moduleId: "S2",
+    topic: "Data Presentation & PMCC",
+    type: "Exam-Style",
+    marks: 7, // Increased marks to accommodate the residual evaluation part
+    questionMarkdown: `
+A researcher calculates the Product-Moment Correlation Coefficient (PMCC) for a data set of 12 paired observations and obtains a value of $r = 0.78$. 
+
+![visual:S2-PMCC]()
+
+(a) Explain what this $r$ value indicates about the linear correlation of the data.
+
+(b) To validate the model, the researcher plots the residuals ($e = y - \\hat{y}$) against the independent variable $x$, yielding the diagnostic diagram below:
+
+![visual:S2-Residual]()
+
+State, with a reason, whether a linear regression model is appropriate for this data set.
+`,
+    markSchemeMarkdown: `
+**(a)**
+The value $r = 0.78$ indicates a **strong positive linear correlation** between the variables [W1].
+
+**(b)**
+A linear regression model is **not appropriate** for this data set [W1]. 
+**Reason:** The residual plot displays a distinct, non-random **parabolic pattern/curve** rather than a random scatter around the zero line [W1]. This indicates that a non-linear relationship exists, which invalidates the linear model fit [W1].
+`
+  },
+  {
     id: "S4-Q1",
     moduleId: "S4",
     topic: "Binomial Distribution",

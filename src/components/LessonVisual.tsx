@@ -44,7 +44,8 @@ import {
   HistogramDensitySVG,
   PMCCPanelSVG,
   ScatterClustersSVG,
-  InterpolationLineSVG
+  InterpolationLineSVG,
+  ResidualAnalysisSVG // <-- ADD THIS IMPORT HERE
 } from "./Visuals/S2/S2-SVG";
 
 // S3 Imports
@@ -119,7 +120,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "S2-PMCC": return <PMCCPanelSVG />;
     case "S2-Scatter": return <ScatterClustersSVG />;
     case "S2-Interpolate": return <InterpolationLineSVG />;
-
+    case "S2-Residual": return <ResidualAnalysisSVG />;
     // ------------------------------------------
     // STATISTICS S3
     // ------------------------------------------
