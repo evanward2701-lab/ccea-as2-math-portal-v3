@@ -36,7 +36,7 @@ import {
 
 // S1 Imports
 import { DataTypeTree } from "./Visuals/S1/S1-Mermaid";
-import { SamplingTableSVG, StratifiedProportionVisual } from "./Visuals/S1/S1-SVG"; // <-- Add StratifiedProportionVisual
+import { SamplingTableSVG, StratifiedProportionVisual } from "./Visuals/S1/S1-SVG"; 
 
 // S2 Imports
 import { StdDevDecisionTree } from "./Visuals/S2/S2-Mermaid";
@@ -45,12 +45,12 @@ import {
   PMCCPanelSVG,
   ScatterClustersSVG,
   InterpolationLineSVG,
-  ResidualAnalysisSVG // <-- ADD THIS IMPORT HERE
+  ResidualAnalysisSVG 
 } from "./Visuals/S2/S2-SVG";
 
-// S3 Imports
+// S3 Imports (BayesResolutionSVG appended)
 import { ProbabilityTree } from "./Visuals/S3/S3-Mermaid";
-import { VennMutExSVG, TwoWayTableSVG } from "./Visuals/S3/S3-SVG";
+import { VennMutExSVG, TwoWayTableSVG, BayesResolutionSVG } from "./Visuals/S3/S3-SVG";
 
 // S4 Imports
 import { BinomialTree } from "./Visuals/S4/S4-Mermaid";
@@ -72,6 +72,7 @@ const VISUAL_ID_ALIASES: Record<string, string> = {
   "M3-LiftSystem": "M3-Lift",
   "S1-DataTree": "S1-Tree",
   "S4-BinomialTree": "S4-Binomial",
+  "S3-Bayes": "S3-BayesResolution",
 };
 
 export function LessonVisual({ visualId }: LessonVisualProps) {
@@ -89,7 +90,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M1-ExamTrap": return <M1ExamTrapSVG />;
 
     // ------------------------------------------
-    // MECHANICS M2 - UPDATED ROUTING ENTRIES
+    // MECHANICS M2 
     // ------------------------------------------
     case "M2-VTS": return <M2KinematicsMaster />;
     case "M2-Traffic": return <M2VectorMagnitudeTrap />;
@@ -110,7 +111,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     // ------------------------------------------
     case "S1-Tree": return <DataTypeTree />;
     case "S1-Sampling": return <SamplingTableSVG />;
-    case "S1-Stratified": return <StratifiedProportionVisual />; // <-- ADD THIS CASE LINK
+    case "S1-Stratified": return <StratifiedProportionVisual />; 
 
     // ------------------------------------------
     // STATISTICS S2
@@ -121,12 +122,14 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "S2-Scatter": return <ScatterClustersSVG />;
     case "S2-Interpolate": return <InterpolationLineSVG />;
     case "S2-Residual": return <ResidualAnalysisSVG />;
+
     // ------------------------------------------
     // STATISTICS S3
     // ------------------------------------------
     case "S3-Tree": return <ProbabilityTree />;
     case "S3-Venn": return <VennMutExSVG />;
     case "S3-Table": return <TwoWayTableSVG />;
+    case "S3-BayesResolution": return <BayesResolutionSVG />;
 
     // ------------------------------------------
     // STATISTICS S4

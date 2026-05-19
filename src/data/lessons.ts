@@ -410,32 +410,97 @@ $r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{\\left(n\\sum x^{2} - (\\sum x)^
 
 export const S3_CONTENT = `
 ## 1. Lesson Title
-**S3: Probability Laws, Venn Diagrams, Two-Way Tables and Trees**
+**S3: Probability Foundations, Conditional Frameworks, and Bayes' Theorem**
 
-## 2. Formulae & Concepts
-![visual:S3-Tree]()
-* **Addition Law:** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
-* **Mutually Exclusive:** Cannot happen at the same time. $P(A \\cap B) = 0$.
-* **Exhaustive Events:** Cover all possible outcomes. $P(A \\cup B) = 1$.
-* **Independent Events:** One outcome doesn't affect the other. Tested mathematically by: $P(A \\cap B) = P(A) \\times P(B)$.
+## 2. Specification Focus
+* Understand and use the language of probability, sample spaces, and Venn configurations.
+* Work fluently with Mutually Exclusive and Independent events.
+* Apply the General Addition Law: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$.
+* Understand, calculate, and manipulate Conditional Probabilities using the multiplication rule: $P(A \\cap B) = P(A) \\times P(B|A)$.
+* Use alternative probability structures: Two-Way Contingency Tables and Sequential Probability Trees.
+* Master the Law of Total Probability and use Bayes' Theorem to find reversed conditional dependencies.
 
-*(Note: Conditional probability formula methods are explicitly excluded from AS2 requirements by CCEA).*
+## 3. Key Vocabulary & Modelling Rules
+* **Sample Space ($E$ or $\\Omega$):** The set containing all possible outcomes of a probabilistic experiment.
+* **Mutually Exclusive:** Events that cannot happen at the same time. If $A$ and $B$ are mutually exclusive, then $P(A \\cap B) = 0$.
+* **Independent Events:** The occurrence of one event does not affect the probability of the other. If $A$ and $B$ are independent, then $P(A \\cap B) = P(A) \\times P(B)$, and $P(B|A) = P(B)$.
+* **Intersection ($A \\cap B$):** The event containing outcomes that belong to *both* event $A$ and event $B$.
+* **Union ($A \\cup B$):** The event containing outcomes that belong to event $A$, event $B$, or both.
+* **Conditional Probability ($P(A|B)$):** The probability of event $A$ occurring given that event $B$ has already occurred. This restricts the active sample space down to the boundary of $B$.
+
+---
+
+## 4. Venn Diagrams & Set Operations
+
+Venn diagrams represent geometric configurations of set operations within a universal sample space $E$. The absolute configuration depends heavily on whether events share overlapping sample elements.
 
 ![visual:S3-Venn]()
 
-### Two-Way Tables
-Two-way tables are useful when probabilities are grouped by two categories. Always complete missing row totals, column totals, and the grand total before finding a probability.
+### The General Addition Law
+For any two events $A$ and $B$, the global union is calculated by adding their individual circles and subtracting the intersection area so it isn't counted twice:
+$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$
+
+### CCEA Exam Trap: The Independence Misconception
+Never confuse **Mutually Exclusive** with **Independent**:
+1. If events are *mutually exclusive*, they cannot happen together ($P(A \\cap B) = 0$). They are highly dependent; if $A$ happens, the probability of $B$ immediately drops to zero.
+2. If events are *independent*, they can happen together. The calculation is explicitly driven by multiplication ($P(A \\cap B) = P(A) \\times P(B)$).
+
+---
+
+## 5. Structured Data Spaces: Two-Way Tables
+
+When handling multi-characteristic probability datasets, using plain formulas can easily lead to mistakes. A **Two-Way Contingency Table** helps by organizing single events into outer categories and overlapping intersections into interior cells.
 
 ![visual:S3-Table]()
 
-## 3. Worked Example: Exhaustive Events
-Events $A$ and $B$ are exhaustive events such that $P(A) = 0.65$ and $P(B) = 0.42$. Find $P(A \\cap B)$ and determine if the events are mutually exclusive.
+### Reading the Table Structures
+* **Interior Core Elements:** The four interior cells represent the pure intersections ($P(A \\cap B)$, $P(A' \\cap B)$, $P(A \\cap B')$, and $P(A' \\cap B')$).
+* **Marginal Totals:** The bottom row and right-hand column display the isolated total probabilities for a single event ($P(A)$, $P(A')$, $P(B)$, $P(B')$). Adding across any interior cross-row or column sums directly to these outer cells.
+* **Grand Total Boundary:** The bottom-right cell sums up the complete sample distribution space, which must always equal exactly $1.0$.
 
-**Step 1:** Since $A$ and $B$ are exhaustive, $P(A \\cup B) = 1$.
-**Step 2:** Apply Addition Law.
-$1 = 0.65 + 0.42 - P(A \\cap B)$
-$1 = 1.07 - P(A \\cap B) \\Rightarrow P(A \\cap B) = 0.07$
-**Conclusion:** Because $P(A \\cap B) = 0.07 \\neq 0$, they are not mutually exclusive.
+### Extracting Conditionals Natively
+Two-way tables allow you to bypass complex formula manipulations by visually narrowing your focus to a specific row or column. For example, if you need to evaluate $P(A|B)$, you restrict your entire calculation pool strictly to the **Event B row**:
+$$P(A|B) = \\frac{\\text{Interior Element } P(A \\cap B)}{\\text{Marginal Row Total } P(B)}$$
+
+---
+
+## 6. Sequential Timelines: Probability Trees
+
+When an experiment involves consecutive stages or sequential timelines, independent or conditional outcomes are best visualized using a **Probability Tree Diagram**.
+
+![visual:S3-Tree]()
+
+### Mathematical Operations Along Trees
+1. **Multiplying Along Consecutive Branches:** To find the probability of a combined intersection outcome path, multiply the probabilities along those connected branches. This implements the product rule: $P(A \\cap B) = P(A) \\times P(B|A)$.
+2. **Adding Across Terminal Columns:** The final outcomes listed on the far right represent non-overlapping paths. To find a global total state, add up all the distinct terminal paths that contain your target event.
+3. **Branch Balancing Constraints:** At any given split point, all branches coming out of a single node must add up to exactly $1.0$ ($P(A) + P(A') = 1$ and $P(B|A) + P(B'|A) = 1$).
+
+---
+
+## 7. Inverse Frameworks: Bayes' Theorem
+
+In many advanced exam problems, you are given a set of forward conditional probabilities but need to calculate a reversed relationship. This is where you apply the **Law of Total Probability** and **Bayes' Theorem**.
+
+![visual:S3-Bayes]()
+
+### The Law of Total Probability
+If a sample space is split into non-overlapping partitions ($A_1, A_2, A_3$) that completely fill the sample universe, any general event $B$ can be calculated by summing its intersections with each individual partition:
+$$P(B) = P(A_1 \\cap B) + P(A_2 \\cap B) + P(A_3 \\cap B)$$
+$$P(B) = P(A_1)P(B|A_1) + P(A_2)P(B|A_2) + P(A_3)P(B|A_3)$$
+
+### Reversing the Path (Bayes' Theorem)
+Once the global probability base $P(B)$ is established, finding the probability that a specific partition $A_1$ caused event $B$ requires calculating the ratio of that single path to the entire pool:
+$$P(A_1|B) = \\frac{P(A_1 \\cap B)}{P(B)} = \\frac{P(A_1)P(B|A_1)}{P(B)}$$
+
+---
+
+## 8. CCEA Method Guide: Core Formula Reference
+Keep these essential mathematical identities ready for your revision:
+
+* **General Addition Law:** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
+* **Conditional Definition:** $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$
+* **Mutual Exclusivity Test:** Check if $P(A \\cap B) = 0$
+* **Independence Test:** Check if $P(A \\cap B) = P(A) \\times P(B)$ or check if $P(A|B) = P(A)$
 `;
 
 export const S4_CONTENT = `
@@ -515,8 +580,8 @@ export const LESSONS: CourseModule[] = [
   },
   {
     id: "S3-Lesson",
-    title: "Probability",
-    visualId: "S3-Tree",
+    title: "Probability Foundations & Bayes' Theorem", // Updated to match the deeper scope of your refactored content
+    visualId: "S3-Bayes", // Updated route token to leverage the advanced partitioning visual on the portal dashboard
     type: "Statistics",
     content: S3_CONTENT,
   },
