@@ -20,12 +20,14 @@ import {
 } from "./Visuals/M2/M2-SVG";
 
 // M3 Imports
-import {
-  RoughHorizontalPlaneSVG,
-  PulleySystemSVG,
-  InclinedPlaneSVG,
-  LiftSystemSVG
-} from "./Visuals/M3/M3-SVG";
+import { M3ConnectedParticlesMermaid } from './Visuals/M3/M3-Mermaid';
+import { 
+  RoughHorizontalPlaneSVG, 
+  PulleySystemSVG, 
+  InclinedPlaneSVG, 
+  LiftSystemSVG,
+  ConnectedInclinedPulleySVG 
+} from './Visuals/M3/M3-SVG';
 
 
 // ==========================================
@@ -85,11 +87,11 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M1-Lift": return <LiftPhysicsSVG />;
     case "M1-ExamTrap": return <M1ExamTrapSVG />;
 
-// ------------------------------------------
+    // ------------------------------------------
     // MECHANICS M2 - UPDATED ROUTING ENTRIES
     // ------------------------------------------
     case "M2-VTS": return <M2KinematicsMaster />;
-    case "M2-Traffic": return <M2VectorMagnitudeTrap />; // Maps to the vector magnitude target trap
+    case "M2-Traffic": return <M2VectorMagnitudeTrap />;
     case "M2-Gravity": return <M2GravitySignConvention />;
     
     // ------------------------------------------
@@ -97,8 +99,10 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     // ------------------------------------------
     case "M3-Rough": return <RoughHorizontalPlaneSVG />;
     case "M3-Pulley": return <PulleySystemSVG />;
-    case "M3-Inclined": return <InclinedPlaneSVG />;
+    case "M3-Incline": return <InclinedPlaneSVG />;
     case "M3-Lift": return <LiftSystemSVG />;
+    case "M3-Connected": return <ConnectedInclinedPulleySVG />;
+    case "M3-Flow": return <M3ConnectedParticlesMermaid />;
 
     // ------------------------------------------
     // STATISTICS S1

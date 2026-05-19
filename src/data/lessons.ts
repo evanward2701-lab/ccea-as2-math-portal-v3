@@ -208,11 +208,19 @@ $\\mathbf{v} = 3\\mathbf{i} - \\mathbf{j} + 10\\mathbf{i} + 20\\mathbf{j}$
 $\\mathbf{v} = 13\\mathbf{i} + 19\\mathbf{j} \\text{ m s}^{-1}$
 `;
 
-export const M3_CONTENT = `
-## 1. Lesson Title
-**M3: Forces, Newton's Laws and Connected Particles**
-
-## 2. Specification Focus
+export const lessons: Lesson[] = [
+  {
+    id: "m3",
+    title: "Forces, Newton's Laws and Connected Particles",
+    description: "Master Newton's three laws of motion, force resolution on planes, friction thresholds, and connected bodies like pulleys and lift systems.",
+    subject: "Mechanics",
+    level: "AS",
+    duration: "45 mins",
+    sections: [
+      {
+        id: "m3-s1",
+        title: "1. Specification Focus & Vocabulary",
+        content: `### Specification Focus
 * Demonstrate understanding of and use Newton’s First Law and the concept of a force.
 * Resolve forces in two dimensions and find the resultant of a system of forces.
 * Demonstrate understanding of and use Newton’s Second Law ($F=ma$), including forces given as 2D vectors.
@@ -220,82 +228,106 @@ export const M3_CONTENT = `
 * Solve problems involving equilibrium of forces on a particle.
 * Demonstrate understanding of and use the $F \\leq \\mu R$ model of friction and the coefficient of friction.
 
-## 3. Key Vocabulary
+### Key Vocabulary
 * **Resultant Force:** The single overall force acting on an object, obtained by adding all individual force vectors.
 * **Equilibrium:** A state where the resultant force is zero. The particle remains at rest or moves with constant velocity.
 * **Weight ($W$):** The gravitational force on a mass, acting vertically downwards ($W = mg$).
 * **Normal Reaction ($R$ or $N$):** The contact force from a surface, acting strictly perpendicular to that surface.
 * **Tension ($T$):** A pulling force transmitted through a taut string, cable, or towbar.
 * **Friction ($F$):** A resistive contact force that opposes actual or impending motion.
-* **Coefficient of Friction ($\\mu$):** A dimensionless constant measuring the roughness between two surfaces.
-
-## 4. Full Theory Explanation
-
-### Newton's First Law and Equilibrium
+* **Coefficient of Friction ($\\mu$):** A dimensionless constant measuring the roughness between two surfaces.`,
+        visualId: "M3-Flow"
+      },
+      {
+        id: "m3-s2",
+        title: "2. Newton's Laws & Horizontal Planes",
+        content: `### Newton's First Law and Equilibrium
 If an object has zero acceleration ($a=0$), the resultant force is zero. The forces are in equilibrium:
 * Sum of upward forces = sum of downward forces.
 * Sum of leftward forces = sum of rightward forces.
 
 ### Newton's Second Law ($F=ma$)
 When forces are unbalanced, the object accelerates in the direction of the resultant force.
-$\\text{Resultant Force } (F) = \\text{mass } (m) \\times \\text{acceleration } (a)$
-*Note: $F$ represents the resultant force, not just any single applied force.*
+$$\\text{Resultant Force } (F) = \\text{mass } (m) \\times \\text{acceleration } (a)$$
 
-### Resolving Forces and Inclined Planes
-![visual:M3-Inclined]()
-For a particle on an inclined plane at angle $\\theta$ to the horizontal:
-* The component of weight acting **down the slope** is $mg \\sin \\theta$.
-* The component of weight acting **perpendicularly into the slope** is $mg \\cos \\theta$.
-The Normal Reaction ($R$) acts perpendicular to the surface. It only equals $mg \\cos \\theta$ if there are no other angled forces pulling away from or pushing into the slope.
+*Note: $F$ represents the net vector sum of all forces along the axis of acceleration, not just a single scalar weight or driving force.*`,
+        visualId: "M3-Rough"
+      },
+      {
+        id: "m3-s3",
+        title: "3. Resolving Forces on Inclined Planes",
+        content: `### Splitting Vectors on Inclined Boundaries
+For a particle placed on a rigid inclined plane tilted at an angle $\\theta$ relative to the horizontal datum line:
+* The component of weight acting **parallel to the plane (down the slope)** is $mg \\sin \\theta$.
+* The component of weight acting **perpendicularly into the plane** is $mg \\cos \\theta$.
 
-### The Friction Model
-Rough surfaces generate friction opposing motion or impending motion. 
-$F \\leq \\mu R$
-Friction only reaches its maximum limiting value ($F = \\mu R$) when the object is on the point of slipping, or is actively sliding.
+The Normal Reaction ($R$) acts strictly perpendicular to the surface. It only balances out to $mg \\cos \\theta$ if there are no external secondary pulling strings or anchoring tension ropes angled away from or into the face of the slope.`,
+        visualId: "M3-Incline"
+      },
+      {
+        id: "m3-s4",
+        title: "4. Friction & Connected Systems",
+        content: `### The Friction Model
+Rough surfaces generate a variable resistive contact friction vector opposing active or impending displacement paths.
+$$F \\le \\mu R$$
 
-### Connected Particles
-![visual:M3-Rough]()
+Friction only builds up to its maximum limiting value ($F = \\mu R$) when the object is on the absolute precipice of slipping, or is in an active state of dynamic sliding.
 
-Particles joined by a taut, inextensible string share the exact same magnitude of acceleration.
-* **Towbars and Trailers:** Treat the entire system as a single particle to find the common acceleration. To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
-* **Pulleys:** Because particles on a pulley move in different directions, you must write a separate $F=ma$ equation for each mass (using the direction of motion as positive for each) and solve them simultaneously. A "smooth pulley" guarantees the tension $T$ is equal on both sides.
-
-![visual:M3-Pulley]()
-
-### Dynamics of Lift Problems
-* **To find the Cable Tension ($T$):** Zoom out. Treat the lift and the passenger as one single combined mass ($M_{\\text{lift}} + m_{\\text{person}}$). The internal forces cancel out.
-* **To find the Normal Reaction ($R$):** Zoom in. Treat the passenger as a single isolated particle. The Normal Reaction is the force the floor pushes up on them.
-
-![visual:M3-Lift]()
-
-## 5. Worked Examples
-
-### Example 1: Worked Example Targeted Practice
+### Connected Particle Systems
+Particles joined by a taut, inextensible line share a uniform magnitude of acceleration ($a$).
+* **Towbars and Trailers:** Treat the layout as a single consolidated mass to isolate common system acceleration. To uncover internal coupling forces (Tension/Thrust), isolate one single body.
+* **Pulleys:** Because masses traversing vertical pulleys change displacement directions, write a distinct $F=ma$ system equation for each body, using its explicit direction of motion as the positive reference axis. A smooth pulley setup ensures string tension ($T$) remains perfectly uniform across both sides.`,
+        visualId: "M3-Pulley"
+      },
+      {
+        id: "m3-s5",
+        title: "5. Lift Systems & Internal Reaction Forces",
+        content: `### Structural Isolation in Lifts
+* **To find the Cable Tension ($T$):** Analyze the macro system. Combine the masses ($M_{\\text{lift}} + m_{\\text{passenger}}$) to cancel out internal reaction forces.
+* **To find the Normal Floor Reaction ($R$):** Isolate the passenger silhouette individually. The reaction force represents the structural force the floor exerts upward against the traveler's feet.`,
+        visualId: "M3-Lift"
+      },
+      {
+        id: "m3-s6",
+        title: "6. Advanced Connected Boundary Modeling",
+        content: `### Connected Particles on Inclines
+When particles are coupled over a pulley across an inclined wedge, you must combine your systems carefully:
+1. Resolve mass components on the slope parallel and perpendicular to the incline face.
+2. Determine the path of impending system motion to correctly orient the friction force vector ($F$).
+3. Formulate simultaneous equations for both masses to eliminate Tension ($T$) and extract acceleration ($a$).`,
+        visualId: "M3-Connected"
+      },
+      {
+        id: "m3-s7",
+        title: "7. Worked Examples & Exam Practice",
+        content: `### Example 1: Horizontal Motion with Resistance
 A body of mass $5 \\text{ kg}$ is pulled along a rough horizontal table by a horizontal force of $20 \\text{ N}$ against a constant friction force of $4 \\text{ N}$. It starts from rest. Find the distance travelled in the first 4 seconds.
 
-**Step 1:** Use $F=ma$ to find acceleration.
-Resultant force = $20 - 4 = 16 \\text{ N}$
-$16 = 5a \\Rightarrow a = 3.2 \\text{ m s}^{-2}$
+**Step 1:** Apply $F=ma$ to establish system acceleration.
+$$\\text{Net Resultant Force} = 20 - 4 = 16 \\text{ N}$$
+$$16 = 5a \\implies a = 3.2 \\text{ m s}^{-2}$$
 
-**Step 2:** Apply SUVAT.
-$u = 0, a = 3.2, t = 4, s = ?$
-$s = ut + \\frac{1}{2}at^2$
-$s = 0(4) + \\frac{1}{2}(3.2)(4^2)$
-$s = 1.6 \\times 16 = 25.6 \\text{ m}$
+**Step 2:** Execute constant acceleration equations (SUVAT).
+$$u = 0, \\quad a = 3.2, \\quad t = 4, \\quad s = ?$$
+$$s = ut + \\frac{1}{2}at^2$$
+$$s = 0(4) + \\frac{1}{2}(3.2)(4^2) = 1.6 \\times 16 = 25.6 \\text{ m}$$
 
-### Example 2: Lift Dynamics Exam-Style Question
-A lift of mass $500 \\text{ kg}$ contains a passenger of mass $80 \\text{ kg}$. The lift is moving upwards and accelerates at $2 \\text{ m s}^{-2}$. Find the tension in the cable and the normal reaction force exerted by the floor on the passenger. (Take Upwards as Positive)
+### Example 2: Lift Dynamics
+A lift of mass $500 \\text{ kg}$ contains a passenger of mass $80 \\text{ kg}$. The lift is moving upwards and accelerates at $2 \\text{ m s}^{-2}$. Find the tension in the cable and the normal reaction force exerted by the floor on the passenger.
 
-**System Tension ($T$):** Total mass = $580 \\text{ kg}$.
-$T - 580g = 580a$
-$T - 580(9.8) = 580(2)$
-$T - 5684 = 1160 \\Rightarrow T = 6844 \\text{ N}$
+**System Tension ($T$):** Total combined system mass = $580 \\text{ kg}$.
+$$T - 580g = 580a$$
+$$T - 580(9.8) = 580(2)$$
+$$T - 5684 = 1160 \\implies T = 6844 \\text{ N}$$
 
-**Reaction on Passenger ($R$):** Mass = $80 \\text{ kg}$.
-$R - 80g = 80a$
-$R - 80(9.8) = 80(2)$
-$R - 784 = 160 \\Rightarrow R = 944 \\text{ N}$
-`;
+**Reaction on Passenger ($R$):** Isolate passenger mass = $80 \\text{ kg}$.
+$$R - 80g = 80a$$
+$$R - 80(9.8) = 80(2)$$
+$$R - 784 = 160 \\implies R = 944 \\text{ N}$$`
+      }
+    ]
+  }
+];
 
 export const S1_CONTENT = `
 ## 1. Lesson Title
