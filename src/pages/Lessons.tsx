@@ -18,7 +18,6 @@ export function Lessons() {
   const { id } = useParams();
   
   if (!id) {
-    // Redirect to first lesson
     return <Navigate to={`/lessons/${LESSONS[0].id}`} replace />;
   }
 
@@ -28,42 +27,50 @@ export function Lessons() {
   const nextLesson = currentIndex < LESSONS.length - 1 ? LESSONS[currentIndex + 1] : null;
 
   if (!lesson) {
-    return <div className="p-8">Lesson not found.</div>;
+    return <div className="p-8 text-slate-400 bg-slate-950 h-full">Lesson not found.</div>;
   }
 
   return (
-    <div className="flex h-full bg-[#FAF9F6]">
+    <div className="flex h-full bg-slate-950 text-slate-100">
       {/* Lesson Navigation Table of Contents */}
-      <div className="w-64 border-r border-[#1A1A1A] bg-white z-10 hidden md:block shrink-0 h-full overflow-y-auto">
+      <div className="w-64 border-r border-slate-900 bg-slate-900/40 backdrop-blur-md z-10 hidden md:block shrink-0 h-full overflow-y-auto">
           <div className="p-6 space-y-8">
             <div>
-              <h4 className="text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A]/60 mb-4">Mechanics</h4>
+              <h4 className="text-[10px] uppercase font-bold tracking-widest text-slate-500 mb-4">Mechanics</h4>
               <ul className="space-y-1">
                 {LESSONS.filter(l => l.type === "Mechanics").map(l => (
                   <li key={l.id}>
                     <Link 
                       to={`/lessons/${l.id}`}
-                      className={`block px-3 py-2 text-xs rounded-none border transition-colors ${l.id === id ? 'bg-[#1A1A1A] text-white border-[#1A1A1A] font-bold' : 'bg-transparent text-[#1A1A1A] border-transparent hover:border-[#1A1A1A]/30'}`}
+                      className={`block px-3 py-2 text-xs rounded-lg border font-medium transition-all ${
+                        l.id === id 
+                          ? 'bg-slate-800 text-sky-400 border-slate-700 font-bold shadow-lg shadow-sky-950/20' 
+                          : 'bg-transparent text-slate-400 border-transparent hover:text-slate-200 hover:border-slate-800 hover:bg-slate-900/50'
+                      }`}
                     >
-                      {l.id}: {l.title}
+                      {l.title}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="h-px bg-[#1A1A1A]/10 w-full" />
+            <div className="h-px bg-slate-850 w-full" />
 
             <div>
-              <h4 className="text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A]/60 mb-4">Statistics</h4>
+              <h4 className="text-[10px] uppercase font-bold tracking-widest text-slate-500 mb-4">Statistics</h4>
               <ul className="space-y-1">
                 {LESSONS.filter(l => l.type === "Statistics").map(l => (
                   <li key={l.id}>
                     <Link 
                       to={`/lessons/${l.id}`}
-                      className={`block px-3 py-2 text-xs rounded-none border transition-colors ${l.id === id ? 'bg-[#1A1A1A] text-white border-[#1A1A1A] font-bold' : 'bg-transparent text-[#1A1A1A] border-transparent hover:border-[#1A1A1A]/30'}`}
+                      className={`block px-3 py-2 text-xs rounded-lg border font-medium transition-all ${
+                        l.id === id 
+                          ? 'bg-slate-800 text-amber-400 border-slate-700 font-bold shadow-lg shadow-amber-950/20' 
+                          : 'bg-transparent text-slate-400 border-transparent hover:text-slate-200 hover:border-slate-800 hover:bg-slate-900/50'
+                      }`}
                     >
-                      {l.id}: {l.title}
+                      {l.title}
                     </Link>
                   </li>
                 ))}
@@ -73,51 +80,66 @@ export function Lessons() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 bg-white overflow-y-auto w-full">
+      <div className="flex-1 bg-slate-950 overflow-y-auto w-full border-l border-slate-900">
         <div className="max-w-3xl mx-auto p-8 md:p-12 pb-32">
           {/* Section badge */}
           <div className="mb-8">
-            <span className={`inline-flex items-center px-3 py-1 border border-[#1A1A1A] text-[9px] uppercase font-bold tracking-widest bg-[#FAF9F6] text-[#1A1A1A]`}>
-              {lesson.id} / {lesson.type}
+            <span className="inline-flex items-center px-2.5 py-1 rounded border border-slate-800 text-[10px] uppercase font-bold tracking-widest bg-slate-900 text-slate-400">
+              {lesson.id} &middot; {lesson.type}
             </span>
           </div>
 
           {lesson.visualId && (
-            <div className="mb-8">
+            <div className="mb-10">
               <LessonVisual visualId={lesson.visualId} />
             </div>
           )}
 
-          <MathText content={stripDuplicateLeadVisual(lesson.content, lesson.visualId)} />
+          <div className="prose prose-invert max-w-none">
+            <MathText content={stripDuplicateLeadVisual(lesson.content, lesson.visualId)} />
+          </div>
           
-          <div className="mt-16 pt-8 border-t border-[#1A1A1A]">
-            <div className="bg-[#F1EFE9] border border-[#1A1A1A] p-8 flex flex-col items-start gap-4">
-              <div>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A]/60 mb-2 block">Knowledge Test</span>
-                <h3 className="font-serif text-2xl mb-2 italic text-[#1A1A1A]">Ready to test your knowledge?</h3>
-                <p className="text-sm font-semibold text-[#1A1A1A]/80">Go to the practice bank to find targeted questions and exam-style problems for {lesson.id}.</p>
+          {/* Knowledge Test CTA Panel */}
+          <div className="mt-16 pt-8 border-t border-slate-900">
+            <div className="bg-linear-to-br from-slate-900 to-slate-950 border border-slate-800 p-8 rounded-xl flex flex-col items-start gap-4 shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-all duration-500" />
+              <div className="z-10">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500 mb-2 block">Knowledge Test</span>
+                <h3 className="font-serif text-2xl mb-2 italic text-slate-100">Ready to test your knowledge?</h3>
+                <p className="text-sm text-slate-400">
+                  Head over to the practice bank to work through targeted questions and interactive CCEA exam-style problems optimized for <span className="text-slate-200 font-semibold">{lesson.id}</span>.
+                </p>
               </div>
-              <Link to={`/practice?module=${getModuleCode(lesson.id)}`} className="inline-flex items-center justify-center px-6 py-3 bg-[#1A1A1A] text-white text-[10px] uppercase font-bold tracking-widest transition-colors hover:bg-black mt-2">
-                Practice {lesson.id} Questions &rarr;
+              <Link 
+                to={`/practice?module=${getModuleCode(lesson.id)}`} 
+                className="z-10 inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-slate-950 text-xs uppercase font-bold tracking-widest rounded-lg transition-all hover:bg-emerald-500 active:scale-98 font-sans shadow-lg shadow-emerald-950/40"
+              >
+                Practice Questions &rarr;
               </Link>
             </div>
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="mt-12 pt-8 border-t border-[#1A1A1A]/20 flex justify-between items-center gap-4">
+          {/* Navigation Module Buttons */}
+          <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-4">
             {previousLesson ? (
-              <Link to={`/lessons/${previousLesson.id}`} className="flex-1 flex flex-col items-start group p-6 border border-[#1A1A1A]/20 hover:border-[#1A1A1A] transition-colors bg-[#FAF9F6] hover:bg-white">
-                <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]/50 mb-2 group-hover:text-[#1A1A1A]">← Previous Module</span>
-                <span className="font-serif text-lg leading-tight text-[#1A1A1A] italic group-hover:underline">{previousLesson.id}: {previousLesson.title}</span>
+              <Link 
+                to={`/lessons/${previousLesson.id}`} 
+                className="w-full sm:flex-1 flex flex-col items-start group p-5 border border-slate-900 rounded-xl hover:border-slate-800 transition-all bg-slate-900/30 hover:bg-slate-900/60"
+              >
+                <span className="text-[9px] uppercase font-bold tracking-widest text-slate-500 mb-1 group-hover:text-slate-400">&larr; Previous Module</span>
+                <span className="font-serif text-base leading-tight text-slate-300 italic group-hover:text-sky-400">{previousLesson.title}</span>
               </Link>
-            ) : <div className="flex-1" />}
+            ) : <div className="hidden sm:block flex-1" />}
             
             {nextLesson ? (
-              <Link to={`/lessons/${nextLesson.id}`} className="flex-1 flex flex-col items-end text-right group p-6 border border-[#1A1A1A]/20 hover:border-[#1A1A1A] transition-colors bg-[#FAF9F6] hover:bg-white">
-                <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]/50 mb-2 group-hover:text-[#1A1A1A]">Next Module →</span>
-                <span className="font-serif text-lg leading-tight text-[#1A1A1A] italic group-hover:underline">{nextLesson.id}: {nextLesson.title}</span>
+              <Link 
+                to={`/lessons/${nextLesson.id}`} 
+                className="w-full sm:flex-1 flex flex-col items-end text-right group p-5 border border-slate-900 rounded-xl hover:border-slate-800 transition-all bg-slate-900/30 hover:bg-slate-900/60"
+              >
+                <span className="text-[9px] uppercase font-bold tracking-widest text-slate-500 mb-1 group-hover:text-slate-400">Next Module &rarr;</span>
+                <span className="font-serif text-base leading-tight text-slate-300 italic group-hover:text-sky-400">{nextLesson.title}</span>
               </Link>
-            ) : <div className="flex-1" />}
+            ) : <div className="hidden sm:block flex-1" />}
           </div>
 
         </div>

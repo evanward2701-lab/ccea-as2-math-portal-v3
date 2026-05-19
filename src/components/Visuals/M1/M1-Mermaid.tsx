@@ -1,43 +1,39 @@
 import React from 'react';
 import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
+import { MathText } from "@/components/MathText"; // <-- ADD THIS IMPORT
 
-// Consistent wrapper matching your study portal's editorial design
 const MermaidDiagram: React.FC<{ chart: string, caption: string }> = ({ chart, caption }) => {
   return (
-    <div className="w-full flex flex-col items-center py-8 mb-12 border border-[#1A1A1A] bg-white relative shadow-[8px_8px_0px_#1A1A1A]">
-      <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-        Fig 1. The F=ma Bridge
-      </div>
-      
-      <div className="w-full px-4 my-6 flex justify-center overflow-x-auto">
+    <div className="flex flex-col items-center p-6 border border-slate-800 bg-slate-900 rounded-xl shadow-2xl my-8">
+      <div className="w-full mb-4">
         <Mermaid chart={chart} />
       </div>
-      
-      <p className="text-[11px] font-sans text-[#1A1A1A]/70 text-center mt-2 px-6 italic max-w-prose">
-        {caption}
-        <br />
-        <strong className="text-red-600 not-italic uppercase text-[10px]">Core Concept:</strong> Prevents treating force resolution and constant acceleration kinematics as isolated, disconnected topics.
-      </p>
+      <p className="text-[11px] font-sans text-slate-400 text-center italic">{caption}</p>
     </div>
   );
 };
 
 export const FMaBridge: React.FC = () => {
-  // CRITICAL: Template string is flush to the left margin to guarantee parsing safety.
-  const chart = `graph LR
-F["Forces<br/>(Vector magnitude/direction)"] <--> B["F = ma<br/>(Newton's 2nd Law)"]
-B <--> M["Motion<br/>(Acceleration a linking to<br/>velocity/displacement)"]
-
-style F fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,color:#1A1A1A
-style B fill:#F1EFE9,stroke:#1A1A1A,stroke-width:2px,stroke-dasharray: 5 5,color:#1A1A1A,font-weight:bold
-style M fill:#FFFFFF,stroke:#1A1A1A,stroke-width:2px,color:#1A1A1A
-
-linkStyle 0,1 stroke:#1A1A1A,stroke-width:5px`;
+  const chartConfig = `
+    graph TD
+    F["Forces Field<br/>(Vector Sum: &Sigma;F)"] --> B["Newtonian Bridge<br/>F = ma"]
+    M["Kinematics Suite<br/>(s, u, v, a, t)"] --> B
+    B --> C["Resultant System Acceleration<br/>(Common Variant Link)"]
+    
+    style F fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style M fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
+    style B fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#34d399
+    style C fill:#0f172a,stroke:#f43f5e,stroke-width:2px,color:#f8fafc
+  `;
 
   return (
-    <MermaidDiagram 
-      caption="Newton's Second Law links the forces acting on a particle to its resulting acceleration."
-      chart={chart}
-    />
+    <div className="flex flex-col items-center p-6 border border-slate-800 bg-slate-900 rounded-xl shadow-2xl my-8">
+      <div className="w-full mb-4">
+        <Mermaid chart={chartConfig} />
+      </div>
+      <p className="text-[11px] font-sans text-slate-400 text-center italic">
+        Newton's Second Law (<MathText content="F=ma" />) acts as the operational interface linking dynamic vector systems directly to directional kinematics.
+      </p>
+    </div>
   );
 };

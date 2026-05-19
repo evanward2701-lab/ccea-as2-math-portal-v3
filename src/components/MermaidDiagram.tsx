@@ -4,7 +4,13 @@ import mermaid from "mermaid";
 mermaid.initialize({
   startOnLoad: false,
   securityLevel: "loose",
-  theme: "base",
+  theme: "dark", // <-- Switch from 'base' to 'dark'
+  themeVariables: {
+    background: "#020617",       // Matches Slate-950
+    primaryColor: "#1e293b",     // Matches Slate-800
+    primaryTextColor: "#f8fafc", // Slate-50
+    lineColor: "#475569",        // Slate-600 lines
+  }
 });
 
 interface MermaidDiagramProps {

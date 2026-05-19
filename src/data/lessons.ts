@@ -96,13 +96,17 @@ Speed $= \\sqrt{36 + 64} = \\sqrt{100} = 10 \\text{ m s}^{-1}$
 * **Using the wrong sign in 1D vectors:** Left and Down are generally negative. Forgetting to assign negative signs to opposite vectors will ruin magnitude and displacement equations.
 * **Hedging your bets:** Leaving two distinct mathematical methods on the page because you aren't sure which one is correct. Examiners are forced to penalize this.
 
+### CCEA Scoring Integrity Constraints
+Before submitting your exam canvas answers, ensure all draft iterations are fully scrubbed or crossed out.
+
+![visual:M1-Trap]()
+
 ## 8. Exam Technique
 * **Rounding:** Where rounding is required, your final answer should be given to 3 significant figures. To guarantee final accuracy, you must keep more than 3 significant figures during the intermediate stages of a multi-part question.
 * **Multiple Responses:** If you are unsure of a sign (e.g., gravity direction) and offer two solutions on the page without crossing one out, the examiner will award marks for the poorest solution. You must make a clear choice.
 * **Units:** Every final answer in a mechanics question must include its correct SI unit.
 
-> ⚠️ **EXAM WARNING: THE "MULTIPLE RESPONSES" RULE**  
-> If you are unsure of how to tackle a problem and you provide two different methods or answers on your page in the hope that the examiner will select the correct one, you will be heavily penalised. Official CCEA examiner guidance dictates that if a candidate provides multiple responses clearly trying to cover all options without crossing one out, the examiner will mark all attempts and award the marks for the **POOREST** solution. If you restart a question or change your mind about a mathematical model, you must decisively cross out the incorrect attempt with a single diagonal line so that only your intended, final solution remains active.
+> ⚠️ **EXAM WARNING: THE "MULTIPLE RESPONSES" RULE** > If you are unsure of how to tackle a problem and you provide two different methods or answers on your page in the hope that the examiner will select the correct one, you will be heavily penalised. Official CCEA examiner guidance dictates that if a candidate provides multiple responses clearly trying to cover all options without crossing one out, the examiner will mark all attempts and award the marks for the **POOREST** solution. If you restart a question or change your mind about a mathematical model, you must decisively cross out the incorrect attempt with a single diagonal line so that only your intended, final solution remains active.
 `;
 
 export const M2_CONTENT = `
@@ -131,7 +135,10 @@ export const M2_CONTENT = `
 Kinematics is the study of motion. Distance and speed are scalar quantities, meaning they have magnitude but no direction. Displacement and velocity are vectors, meaning they have both magnitude and direction. For example, if a cyclist travels 5 km away and 5 km back, her total distance is 10 km, but her final displacement is 0 km.
 
 ### Motion Graphs
+This structural anchor invokes both the constant velocity velocity-time shapes and the asymmetrical peak traffic light profile validation model natively on the dark canvas view tier:
+
 ![visual:M2-VTS]()
+
 * **Displacement-time graphs:** The gradient tells us how quickly displacement is changing. Therefore, the gradient gives the velocity. A flat horizontal line means the object is stationary. A straight sloping line means constant velocity.
 * **Velocity-time graphs:** The gradient gives the acceleration. A flat horizontal line above the axis means the object is moving at a constant velocity (zero acceleration). The area under a velocity-time graph gives the displacement (and distance, provided the velocity remains positive).
 * **Exam-Style Note:** When asked to describe the motion of an athlete or particle between two times from a graph, ensure you give enough detail (such as explicitly stating "constant acceleration" or calculating the exact acceleration value) to gain the mark.
@@ -149,10 +156,14 @@ You must define a positive direction before substituting values. If a particle i
 ### Vertical Motion Under Gravity
 Vertical motion is a standard constant acceleration topic. If we ignore air resistance, an object in freefall accelerates downwards at $g = 9.8 \\text{ m s}^{-2}$ regardless of its mass. You must pick a positive direction. If upwards is positive, $a = -9.8$. If downwards is positive, $a = 9.8$. At the maximum height of a vertical projection, the particle is instantaneously at rest, meaning $v = 0$.
 
+This target marker renders the exact upward versus downward coordinate maps, verifying compliance with CCEA grading metrics against the "Rule of the Poorest Attempt":
+
 ![visual:M2-Gravity]()
 
 ### Constant Acceleration in Two Dimensions (Vectors)
 In 2D kinematics, displacement ($\\mathbf{s}$), initial velocity ($\\mathbf{u}$), final velocity ($\\mathbf{v}$), and acceleration ($\\mathbf{a}$) become vectors, while time ($t$) remains a scalar. You apply the SUVAT formulae component-by-component. For example, the equation $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ applies to the $\\mathbf{i}$ components and the $\\mathbf{j}$ components simultaneously.
+
+This high-yield diagnostic addition acts as a terminal safeguard showing exactly how vector output properties resolve to scalar distance magnitudes using Pythagoras' theorem:
 
 ![visual:M2-Traffic]()
 
@@ -162,7 +173,7 @@ In 2D kinematics, displacement ($\\mathbf{s}$), initial velocity ($\\mathbf{u}$)
    * $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$
    * $\\mathbf{s} = \\frac{1}{2}(\\mathbf{u} + \\mathbf{v})t$
    * $\\mathbf{s} = \\mathbf{u}t + \\frac{1}{2}\\mathbf{a}t^2$
-   * $\\mathbf{s} = \\mathbf{v}t - \\frac{1}{2}\\mathbf{a}t^2$ (This is perfectly acceptable to use in CCEA exams)
+   * $\\mathbf{s} = \\mathbf{v}t - \\frac{1}{2}\\mathbf{a}t^2$
    * $v^2 = u^2 + 2as$ (1D scalar motion only)
 3. Position Vector: $\\mathbf{r} = \\mathbf{r}_0 + \\mathbf{u}t + \\frac{1}{2}\\mathbf{a}t^2$
 4. Speed: $|\\mathbf{v}| = \\sqrt{v_x^2 + v_y^2}$
@@ -450,7 +461,7 @@ export const LESSONS: CourseModule[] = [
   {
     id: "M2-Lesson",
     title: "Constant Acceleration",
-    visualId: "M2-VTS",
+    visualId: "M2-VTS", // Keeps the master collection dashboard view sync bound to your switch routing
     type: "Mechanics",
     content: M2_CONTENT,
   },

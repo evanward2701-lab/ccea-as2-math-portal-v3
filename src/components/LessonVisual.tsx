@@ -8,14 +8,15 @@ import {
   ScalarVectorSVG, 
   ModellingAssumptionsSVG, 
   TowingModelSVG, 
-  LiftPhysicsSVG 
+  LiftPhysicsSVG,
+  M1ExamTrapSVG
 } from "./Visuals/M1/M1-SVG";
 
-// M2 Imports 
+// M2 Imports - UPDATED TO MATCH REFACTORED COMPONENT NAMES
 import {
-  VTSshapesSVG,
-  TrafficLightTriangleSVG,
-  VerticalSignConventionSVG
+  M2KinematicsMaster,
+  M2GravitySignConvention,
+  M2VectorMagnitudeTrap
 } from "./Visuals/M2/M2-SVG";
 
 // M3 Imports
@@ -63,6 +64,7 @@ interface LessonVisualProps {
 
 const VISUAL_ID_ALIASES: Record<string, string> = {
   M1: "M1-Bridge",
+  "M1-Trap": "M1-ExamTrap", 
   "M3-RoughPlane": "M3-Rough",
   "M3-LiftSystem": "M3-Lift",
   "S1-DataTree": "S1-Tree",
@@ -81,14 +83,15 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M1-Modelling": return <ModellingAssumptionsSVG />;
     case "M1-Towing": return <TowingModelSVG />;
     case "M1-Lift": return <LiftPhysicsSVG />;
+    case "M1-ExamTrap": return <M1ExamTrapSVG />;
 
+// ------------------------------------------
+    // MECHANICS M2 - UPDATED ROUTING ENTRIES
     // ------------------------------------------
-    // MECHANICS M2
-    // ------------------------------------------
-    case "M2-VTS": return <VTSshapesSVG />;
-    case "M2-Traffic": return <TrafficLightTriangleSVG />;
-    case "M2-Gravity": return <VerticalSignConventionSVG />;
-
+    case "M2-VTS": return <M2KinematicsMaster />;
+    case "M2-Traffic": return <M2VectorMagnitudeTrap />; // Maps to the vector magnitude target trap
+    case "M2-Gravity": return <M2GravitySignConvention />;
+    
     // ------------------------------------------
     // MECHANICS M3
     // ------------------------------------------

@@ -1,88 +1,391 @@
 import React from 'react';
+import { MathText } from '../../MathText';
 
 // Diagram 2: Scalar vs Vector Distance and Displacement
-export const ScalarVectorSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center p-6 border border-[#1A1A1A] bg-white shadow-[4px_4px_0px_#1A1A1A] my-8">
-    <svg width="100%" height="150" viewBox="0 0 600 150">
-      {/* Axis */}
-      <line x1="50" y1="80" x2="550" y2="80" stroke="#1A1A1A" strokeWidth="2" />
-      <line x1="300" y1="70" x2="300" y2="90" stroke="#1A1A1A" strokeWidth="2" />
-      <text x="300" y="110" textAnchor="middle" className="font-bold text-[10px]">Start</text>
-      <circle cx="150" cy="80" r="6" fill="#1A1A1A" />
-      <text x="150" y="110" textAnchor="middle" className="font-serif italic text-xs">Finish</text>
-      
-      {/* Labels */}
-      <text x="225" y="40" textAnchor="middle" className="font-serif italic text-sm">Displacement: -3m</text>
-      <text x="225" y="55" textAnchor="middle" className="font-serif italic text-sm">Distance: 3m</text>
-      
-      {/* Direction Arrow */}
-      <path d="M 450 30 L 550 30" stroke="#1A1A1A" strokeWidth="2" markerEnd="url(#arrow)" />
-      <text x="500" y="20" textAnchor="middle" className="text-[10px] font-bold">Positive Direction</text>
-      
-      <defs>
-        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#1A1A1A" />
-        </marker>
-      </defs>
-    </svg>
-    <p className="text-[11px] text-center italic text-[#1A1A1A]/70">
-      Displacement includes direction, making it a vector. Distance is a scalar and is always positive.
-    </p>
-  </div>
-);
+export const ScalarVectorSVG: React.FC = () => {
+  return (
+    <div className="w-full flex flex-col items-center p-6 border border-slate-800 bg-slate-900 rounded-xl shadow-2xl my-8 transition-all hover:border-slate-700">
+      <div className="w-full text-center mb-4">
+        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Kinematic Vector Foundations</span>
+      </div>
+      <svg 
+        width="100%" 
+        height="180" 
+        viewBox="0 0 600 180" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        shapeRendering="geometricPrecision"
+      >
+        <defs>
+          <marker id="arrow-positive" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
+          </marker>
+          <marker id="arrow-displacement" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M 10 1.5 L 2 5 L 10 8.5 z" fill="#f43f5e" />
+          </marker>
+        </defs>
+
+        {/* Coordinate Axis Line */}
+        <line x1="50" y1="100" x2="550" y2="100" stroke="#334155" strokeWidth="2" strokeDasharray="4 4" />
+        
+        {/* Reference Origin (Start Point) */}
+        <circle cx="350" cy="100" r="5" fill="#e2e8f0" />
+        <line x1="350" y1="90" x2="350" y2="110" stroke="#475569" strokeWidth="2" />
+        <foreignObject x="320" y="115" width="60" height="30">
+          <div className="text-center text-xs font-bold text-slate-200">Start (O)</div>
+        </foreignObject>
+
+        {/* End Position (Finish Point) */}
+        <circle cx="150" cy="100" r="5" fill="#f43f5e" />
+        <line x1="150" y1="90" x2="150" y2="110" stroke="#f43f5e" strokeWidth="2" />
+        <foreignObject x="120" y="115" width="60" height="30">
+          <div className="text-center text-xs font-bold text-rose-400">Finish</div>
+        </foreignObject>
+
+        {/* Positive Coordinate Reference Axis Indicator */}
+        <path d="M 430 35 L 530 35" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-positive)" />
+        <foreignObject x="410" y="10" width="140" height="25">
+          <div className="text-center text-[10px] uppercase font-bold text-sky-400 tracking-wider">
+            +ve Direction
+          </div>
+        </foreignObject>
+
+        {/* Displacement Vector */}
+        <path d="M 345 80 L 155 80" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#arrow-displacement)" />
+        <foreignObject x="180" y="48" width="150" height="30">
+          <div className="text-center">
+            <MathText content="\text{Displacement } \mathbf{s} = -3\text{ m}" />
+          </div>
+        </foreignObject>
+
+        {/* Distance Arc Path */}
+        <path d="M 350 100 C 300 160, 200 160, 150 100" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" />
+        <foreignObject x="190" y="150" width="150" height="30">
+          <div className="text-center">
+            <MathText content="\text{Distance } d = 3\text{ m}" />
+          </div>
+        </foreignObject>
+      </svg>
+      <div className="mt-2 bg-slate-950 p-3 border border-slate-800 rounded-lg w-full text-center">
+        <p className="text-[11px] leading-relaxed text-slate-400 italic">
+          <strong className="text-rose-400">Displacement</strong> is a vector quantity denoting directional change in position relative to origin <MathText content="O" />. <strong className="text-amber-500">Distance</strong> is a pure scalar measuring total absolute path integration.
+        </p>
+      </div>
+    </div>
+  );
+};
 
 // Diagram 3: Mechanics Modelling Assumptions
-export const ModellingAssumptionsSVG: React.FC = () => (
-  <div className="grid grid-cols-2 gap-4 my-8">
-    {[
-      { title: "Particle", label: "Mass concentrated at a point" },
-      { title: "Smooth Pulley", label: "Equal tension T" },
-      { title: "Rough Surface", label: "Friction opposes motion" },
-      { title: "Inextensible String", label: "Equal acceleration a" }
-    ].map((item, i) => (
-      <div key={i} className="border border-[#1A1A1A] p-4 bg-white flex flex-col items-center">
-        <span className="font-bold text-[10px] uppercase tracking-wider mb-2">{item.title}</span>
-        <div className="h-16 w-full flex items-center justify-center border-t border-neutral-100">
-           {/* Placeholder for specific SVG iconography if needed */}
-           <span className="text-[9px] italic">{item.label}</span>
-        </div>
+export const ModellingAssumptionsSVG: React.FC = () => {
+  return (
+    <div className="w-full flex flex-col my-8">
+      <div className="w-full text-center mb-4">
+        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          CCEA Core Modeling Criteria Matrix
+        </span>
       </div>
-    ))}
-  </div>
-);
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        {/* Card 1: Particle */}
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+          <span className="font-bold text-xs text-sky-400 uppercase tracking-wider mb-2">Particle</span>
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+            <circle cx="50" cy="30" r="4" fill="#38bdf8" />
+            <line x1="10" y1="30" x2="40" y2="30" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="90" y1="30" x2="60" y2="30" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
+            <text x="50" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">Mass at single point</text>
+          </svg>
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
+            Dimensions negligible. Rotational effects and air resistance are ignored.
+          </div>
+        </div>
+
+        {/* Card 2: Smooth Pulley */}
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+          <span className="font-bold text-xs text-emerald-400 uppercase tracking-wider mb-2">Smooth Pulley</span>
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+            <circle cx="50" cy="25" r="12" stroke="#475569" strokeWidth="2" />
+            <circle cx="50" cy="25" r="2" fill="#475569" />
+            <path d="M 38 60 L 38 25 A 12 12 0 0 1 62 25 L 62 60" stroke="#10b981" strokeWidth="1.5" />
+            <text x="26" y="45" fill="#10b981" fontSize="9" textAnchor="middle">T</text>
+            <text x="74" y="45" fill="#10b981" fontSize="9" textAnchor="middle">T</text>
+          </svg>
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
+            No friction. Tension <MathText content="T" /> remains completely uniform across both sides of the string.
+          </div>
+        </div>
+
+        {/* Card 3: Rough Surface */}
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+          <span className="font-bold text-xs text-amber-500 uppercase tracking-wider mb-2">Rough Surface</span>
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+            <line x1="10" y1="45" x2="90" y2="45" stroke="#64748b" strokeWidth="2" />
+            {Array.from({ length: 9 }).map((_, idx) => (
+              <line key={idx} x1={15 + idx * 8} y1="45" x2={10 + idx * 8} y2="52" stroke="#475569" strokeWidth="1" />
+            ))}
+            <rect x="35" y="25" width="30" height="20" stroke="#e2e8f0" strokeWidth="1.5" fill="#1e293b" />
+            <text x="20" y="32" fill="#f59e0b" fontSize="8" textAnchor="middle">Friction</text>
+          </svg>
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
+            Frictional resistance opposes motion. Governed by the law <MathText content="F \leq \mu R" />.
+          </div>
+        </div>
+
+        {/* Card 4: Inextensible String */}
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+          <span className="font-bold text-xs text-rose-400 uppercase tracking-wider mb-2">Inextensible String</span>
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+            <rect x="15" y="25" width="20" height="15" stroke="#64748b" strokeWidth="1.5" />
+            <rect x="65" y="25" width="20" height="15" stroke="#64748b" strokeWidth="1.5" />
+            <line x1="35" y1="32" x2="65" y2="32" stroke="#f43f5e" strokeWidth="2" />
+            <text x="25" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">accel = a</text>
+            <text x="75" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">accel = a</text>
+          </svg>
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
+            String does not stretch. Connected items experience identical acceleration magnitude (<MathText content="a" />).
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
 
 // Diagram 4: Towing Model
-export const TowingModelSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 my-6 border border-[#1A1A1A] bg-[#FAF9F6] relative shadow-[4px_4px_0px_#1A1A1A]">
-    <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-2 py-1 text-[9px] uppercase tracking-widest font-bold">Fig. Towing Model</div>
-    <svg width="300" height="120" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 100 L280 100" stroke="#1A1A1A" strokeWidth="2" strokeDasharray="4 4" />
-      <rect x="180" y="60" width="60" height="30" stroke="#1A1A1A" strokeWidth="2" fill="white" />
-      <circle cx="195" cy="95" r="8" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <circle cx="225" cy="95" r="8" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <rect x="60" y="70" width="40" height="20" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <circle cx="70" cy="95" r="6" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <circle cx="90" cy="95" r="6" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <path d="M100 80 L180 80" stroke="#1A1A1A" strokeWidth="2" />
-      <text x="140" y="70" fill="#1A1A1A" fontSize="10" fontFamily="sans-serif" fontStyle="italic" textAnchor="middle">Tow bar</text>
-      <text x="210" y="50" fill="#1A1A1A" fontSize="10" fontFamily="sans-serif" textAnchor="middle">Rescue Vehicle</text>
-      <text x="80" y="60" fill="#1A1A1A" fontSize="10" fontFamily="sans-serif" textAnchor="middle">Car</text>
-    </svg>
-  </div>
-);
+export const TowingModelSVG: React.FC = () => {
+  return (
+    <div className="w-full flex flex-col items-center py-8 px-4 my-6 border border-slate-800 bg-slate-900 relative rounded-xl shadow-2xl">
+      <div className="absolute top-0 right-0 bg-slate-800 text-slate-300 px-3 py-1 text-[9px] uppercase tracking-widest font-bold border-l border-b border-slate-700 rounded-tr-xl rounded-bl-xl">
+        Fig. Towing Dynamics
+      </div>
+      
+      <svg 
+        width="100%" 
+        height="180" 
+        viewBox="0 0 500 180" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        shapeRendering="geometricPrecision"
+      >
+        <defs>
+          <marker id="force-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+          </marker>
+          <marker id="force-rose" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f43f5e" />
+          </marker>
+          <marker id="force-amber" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" />
+          </marker>
+        </defs>
+
+        {/* Level Ground Plane */}
+        <line x1="20" y1="130" x2="480" y2="130" stroke="#475569" strokeWidth="2" />
+        {Array.from({ length: 23 }).map((_, idx) => (
+          <line key={idx} x1={20 + idx * 20} y1="130" x2={15 + idx * 20} y2="138" stroke="#334155" strokeWidth="1" />
+        ))}
+
+        {/* Trailer / Car Block */}
+        <rect x="70" y="80" width="70" height="35" stroke="#e2e8f0" strokeWidth="2" fill="#1e293b" rx="4" />
+        <circle cx="85" cy="120" r="8" stroke="#e2e8f0" strokeWidth="1.5" fill="#0f172a" />
+        <circle cx="125" cy="120" r="8" stroke="#e2e8f0" strokeWidth="1.5" fill="#0f172a" />
+        <foreignObject x="75" y="87" width="60" height="20">
+          <div className="text-center text-xs font-bold text-slate-300"><MathText content="m_1" /></div>
+        </foreignObject>
+
+        {/* Rigid Tow Bar Link */}
+        <line x1="140" y1="98" x2="240" y2="98" stroke="#cbd5e1" strokeWidth="3" />
+        <foreignObject x="160" y="73" width="70" height="20">
+          <div className="text-center text-[10px] text-slate-400 font-medium">Light Bar</div>
+        </foreignObject>
+
+        {/* Rescue Truck Block */}
+        <rect x="240" y="65" width="100" height="50" stroke="#e2e8f0" strokeWidth="2" fill="#1e293b" rx="4" />
+        <circle cx="260" cy="120" r="10" stroke="#e2e8f0" strokeWidth="1.5" fill="#0f172a" />
+        <circle cx="320" cy="120" r="10" stroke="#e2e8f0" strokeWidth="1.5" fill="#0f172a" />
+        <foreignObject x="260" y="78" width="60" height="20">
+          <div className="text-center text-xs font-bold text-slate-300"><MathText content="m_2" /></div>
+        </foreignObject>
+
+        {/* Global Acceleration Vector Header */}
+        <path d="M 180 25 L 260 25" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#force-green)" strokeDasharray="3 1" />
+        <foreignObject x="200" y="5" width="40" height="20">
+          <div className="text-center text-xs font-bold text-sky-400"><MathText content="a" /></div>
+        </foreignObject>
+
+        {/* Tension Force Vector Pairs */}
+        <path d="M 145 98 L 175 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
+        <text x="160" y="112" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
+
+        <path d="M 235 98 L 205 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
+        <text x="220" y="112" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
+
+        {/* Truck Main Driving Force Vector */}
+        <path d="M 340 90 L 390 90" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#force-amber)" />
+        <foreignObject x="395" y="78" width="20" height="20">
+          <div className="text-left text-xs font-bold text-amber-500"><MathText content="D" /></div>
+        </foreignObject>
+
+        {/* Friction/Resistive Vectors */}
+        <path d="M 70 105 L 35 105" stroke="#f43f5e" strokeWidth="1.5" markerEnd="url(#force-rose)" />
+        <foreignObject x="10" y="93" width="25" height="20">
+          <div className="text-right text-[10px] font-bold text-rose-400"><MathText content="R_1" /></div>
+        </foreignObject>
+
+        <path d="M 240 105 L 205 105" stroke="#f43f5e" strokeWidth="1.5" markerEnd="url(#force-rose)" />
+        <foreignObject x="180" y="108" width="25" height="20">
+          <div className="text-right text-[10px] font-bold text-rose-400"><MathText content="R_2" /></div>
+        </foreignObject>
+      </svg>
+
+      <div className="mt-2 bg-slate-950 p-3 border border-slate-800 rounded-lg w-full text-left space-y-1">
+        <p className="text-[11px] text-slate-300">
+          <span className="text-amber-500 font-bold">Whole System Equation:</span> <MathText content="D - R_1 - R_2 = (m_1 + m_2)a" />
+        </p>
+        <p className="text-[11px] text-slate-300">
+          <span className="text-emerald-400 font-bold">Isolated Trailed Mass Equation:</span> <MathText content="T - R_1 = m_1a" />
+        </p>
+      </div>
+    </div>
+  );
+};
 
 // Diagram 5: Lift Physics
-export const LiftPhysicsSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 my-6 border border-[#1A1A1A] bg-white relative shadow-[4px_4px_0px_#1A1A1A]">
-    <div className="absolute top-0 right-0 bg-[#1A1A1A] text-white px-2 py-1 text-[9px] uppercase tracking-widest font-bold">Fig. Lift Physics</div>
-    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 20 L100 60" stroke="#1A1A1A" strokeWidth="2" />
-      <rect x="50" y="60" width="100" height="120" stroke="#1A1A1A" strokeWidth="2" fill="none" />
-      <rect x="85" y="130" width="30" height="50" stroke="#1A1A1A" strokeWidth="2" fill="#FAF9F6" />
-      <text x="100" y="160" fill="#1A1A1A" fontSize="14" fontFamily="serif" textAnchor="middle">W</text>
-      <path d="M40 80 L40 60 L35 65 M40 60 L45 65" stroke="#1A1A1A" strokeWidth="1.5" />
-      <text x="30" y="70" fill="#1A1A1A" fontSize="12" fontFamily="serif" textAnchor="end">a</text>
-      <text x="120" y="45" fill="#1A1A1A" fontSize="14" fontFamily="serif" fontStyle="italic">T</text>
-    </svg>
-  </div>
-);
+export const LiftPhysicsSVG: React.FC = () => {
+  return (
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 p-6 border border-slate-800 bg-slate-900 rounded-xl shadow-2xl my-6">
+      
+      {/* Box 1: Whole System Isolation */}
+      <div className="bg-slate-950 p-4 rounded-lg border border-slate-850 flex flex-col items-center">
+        <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-3">
+          Isolation Mode A: Cable Tension
+        </span>
+        <svg width="160" height="220" viewBox="0 0 160 220" fill="none" shapeRendering="geometricPrecision">
+          <defs>
+            <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+            </marker>
+            <marker id="arrow-rose" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f43f5e" />
+            </marker>
+          </defs>
+          
+          <line x1="80" y1="5" x2="80" y2="45" stroke="#e2e8f0" strokeWidth="2" />
+          <rect x="30" y="45" width="100" height="120" stroke="#64748b" strokeWidth="2.5" fill="#1e293b" />
+          
+          <circle cx="80" cy="100" r="12" stroke="#475569" strokeWidth="1.5" fill="#334155" />
+          <line x1="80" y1="112" x2="80" y2="145" stroke="#475569" strokeWidth="2" />
+          <line x1="65" y1="155" x2="80" y2="145" stroke="#475569" strokeWidth="2" />
+          <line x1="95" y1="155" x2="80" y2="145" stroke="#475569" strokeWidth="2" />
+
+          <path d="M 80 40 L 80 10" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-green)" />
+          <foreignObject x="92" y="10" width="20" height="20">
+            <div className="text-xs font-bold text-emerald-400"><MathText content="T" /></div>
+          </foreignObject>
+
+          <path d="M 80 130 L 80 195" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrow-rose)" />
+          <foreignObject x="92" y="175" width="60" height="25">
+            <div className="text-xs font-bold text-rose-400"><MathText content="(M+m)g" /></div>
+          </foreignObject>
+
+          <path d="M 15 110 L 15 70" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-green)" />
+          <foreignObject x="5" y="80" width="10" height="20">
+            <div className="text-xs font-bold text-sky-400"><MathText content="a" /></div>
+          </foreignObject>
+        </svg>
+        <div className="text-[10px] text-slate-400 text-center mt-2 font-serif italic">
+          <MathText content="T - (M+m)g = (M+m)a" />
+        </div>
+      </div>
+
+      {/* Box 2: Passenger Isolation */}
+      <div className="bg-slate-950 p-4 rounded-lg border border-slate-850 flex flex-col items-center">
+        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-3">
+          Isolation Mode B: Floor Reaction
+        </span>
+        <svg width="160" height="220" viewBox="0 0 160 220" fill="none" shapeRendering="geometricPrecision">
+          <line x1="20" y1="155" x2="140" y2="155" stroke="#475569" strokeWidth="3" />
+          
+          <circle cx="80" cy="80" r="16" stroke="#e2e8f0" strokeWidth="2" fill="#1e293b" />
+          <line x1="80" y1="96" x2="80" y2="145" stroke="#e2e8f0" strokeWidth="2" />
+          <line x1="60" y1="155" x2="80" y2="145" stroke="#e2e8f0" strokeWidth="2" />
+          <line x1="100" y1="155" x2="80" y2="145" stroke="#e2e8f0" strokeWidth="2" />
+
+          <path d="M 80 155 L 80 105" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-green)" />
+          <foreignObject x="92" y="115" width="20" height="20">
+            <div className="text-xs font-bold text-emerald-400"><MathText content="R" /></div>
+          </foreignObject>
+
+          <path d="M 80 110 L 80 190" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrow-rose)" />
+          <foreignObject x="92" y="170" width="30" height="20">
+            <div className="text-xs font-bold text-rose-400"><MathText content="mg" /></div>
+          </foreignObject>
+
+          <path d="M 15 100 L 15 60" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-green)" />
+          <foreignObject x="5" y="70" width="10" height="20">
+            <div className="text-xs font-bold text-sky-400"><MathText content="a" /></div>
+          </foreignObject>
+        </svg>
+        <div className="text-[10px] text-slate-400 text-center mt-2 font-serif italic">
+          <MathText content="R - mg = ma" />
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+// Diagram 6: CCEA Examiner Warning Trap (Colocated)
+export const M1ExamTrapSVG: React.FC = () => {
+  return (
+    <div className="w-full border border-rose-500/40 bg-slate-900 p-5 rounded-xl my-8 relative overflow-hidden shadow-2xl">
+      <div className="absolute top-0 right-0 bg-rose-500 text-slate-950 text-[9px] uppercase tracking-widest font-black px-3 py-1 font-sans">
+        CCEA Examiner Warning
+      </div>
+      <h4 className="text-rose-400 font-bold text-sm mb-2 uppercase tracking-wider">
+        The Multiple Responses Penalty Rule
+      </h4>
+      <p className="text-xs text-slate-300 leading-relaxed mb-4">
+        If you are unsure of a sign convention or mathematical method and present two competing solutions on your sheet without clearly crossing one out, 
+        <strong className="text-rose-300"> CCEA examiners are required to mark all attempts and award marks based on the POOREST solution.</strong>
+      </p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        {/* Penalized Choice Column */}
+        <div className="border border-rose-950/60 bg-rose-950/20 p-3 rounded-lg relative opacity-50">
+          <div className="absolute top-2 right-2 text-rose-500 font-bold text-[9px] uppercase tracking-wider">Penalized</div>
+          <span className="block font-bold text-slate-400 mb-1">Attempt 1: Upwards Positive</span>
+          <code className="text-slate-400 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide mb-2">
+            0 = 21 - 9.8t &rArr; t = 2.14s
+          </code>
+          <span className="block font-bold text-slate-400 mb-1">Attempt 2: Downwards Positive</span>
+          <code className="text-slate-400 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide">
+            0 = 21 + 9.8t &rArr; t = -2.14s
+          </code>
+          <p className="text-[10px] text-rose-400/80 italic mt-2 leading-tight">
+            Result: Both versions are scanned. Marks are restricted exclusively to the flawed calculation.
+          </p>
+        </div>
+
+        {/* Correct Practice Column */}
+        <div className="border border-emerald-900/60 bg-emerald-950/20 p-3 rounded-lg relative">
+          <div className="absolute top-2 right-2 text-emerald-400 font-bold text-[9px] uppercase tracking-wider">Correct Practice</div>
+          <span className="block font-bold text-slate-200 mb-1">Discarded Attempt</span>
+          <div className="relative inline-block w-full">
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-rose-500/50 to-transparent h-0.5 top-1/2 transform -rotate-3" />
+            <code className="text-slate-500 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide line-through decoration-rose-500/80">
+              0 = 21 + 9.8t &rArr; t = -2.14s
+            </code>
+          </div>
+          <span className="block font-bold text-slate-200 mt-2 mb-1">Active Clean Solution</span>
+          <code className="text-emerald-400 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide font-bold">
+            0 = 21 - 9.8t &rArr; t = 2.14s &nbsp;&checkmark;
+          </code>
+          <p className="text-[10px] text-emerald-400/80 italic mt-2 leading-tight">
+            Result: Cross out flawed models with a single line to ensure only your intended work remains active.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
