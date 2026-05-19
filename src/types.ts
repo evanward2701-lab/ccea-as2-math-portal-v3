@@ -3,6 +3,7 @@ export interface CourseModule {
   title: string;
   type: "Mechanics" | "Statistics";
   content: string;
+  visualId?: string;
 }
 
 export interface PracticeQuestion {

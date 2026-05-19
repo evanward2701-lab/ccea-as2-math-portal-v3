@@ -9,7 +9,8 @@ import { FMaBridge } from "./Visuals/M1/M1-Mermaid";
 import { 
   ScalarVectorSVG, 
   ModellingAssumptionsSVG, 
-  TowingModelSVG 
+  TowingModelSVG, 
+  LiftPhysicsSVG 
 } from "./Visuals/M1/M1-SVG";
 
 // M2 Imports 
@@ -64,58 +65,58 @@ interface LessonVisualProps {
 
 export function LessonVisual({ visualId }: LessonVisualProps) {
   switch (visualId) {
-    
     // ------------------------------------------
     // MECHANICS M1
     // ------------------------------------------
-    case "M1": return <FMaBridge />;
-    case "M2-1": return <ScalarVectorSVG />; 
-    case "M3-1": return <ModellingAssumptionsSVG />;
-    case "Q-M1-tow": return <TowingModelSVG />;
+    case "M1-Bridge": return <FMaBridge />;
+    case "M1-ScalarVector": return <ScalarVectorSVG />;
+    case "M1-Modelling": return <ModellingAssumptionsSVG />;
+    case "M1-Towing": return <TowingModelSVG />;
+    case "M1-Lift": return <LiftPhysicsSVG />;
 
     // ------------------------------------------
-    // MECHANICS M2 (Kinematics) 
+    // MECHANICS M2
     // ------------------------------------------
     case "M2-VTS": return <VTSshapesSVG />;
     case "M2-Traffic": return <TrafficLightTriangleSVG />;
     case "M2-Gravity": return <VerticalSignConventionSVG />;
 
     // ------------------------------------------
-    // MECHANICS M3 (Dynamics)
+    // MECHANICS M3
     // ------------------------------------------
-    case "M3-RoughPlane": return <RoughHorizontalPlaneSVG />;
+    case "M3-Rough": return <RoughHorizontalPlaneSVG />;
     case "M3-Pulley": return <PulleySystemSVG />;
-    case "M3-InclinedPlane": return <InclinedPlaneSVG />;
-    case "M3-LiftSystem": return <LiftSystemSVG />;
+    case "M3-Inclined": return <InclinedPlaneSVG />;
+    case "M3-Lift": return <LiftSystemSVG />;
 
     // ------------------------------------------
-    // STATISTICS S1 (Data & Sampling)
+    // STATISTICS S1
     // ------------------------------------------
-    case "S1-DataTree": return <DataTypeTree />;
+    case "S1-Tree": return <DataTypeTree />;
     case "S1-Sampling": return <SamplingTableSVG />;
 
     // ------------------------------------------
-    // STATISTICS S2 (Data Presentation)
+    // STATISTICS S2
     // ------------------------------------------
+    case "S2-StdDev": return <StdDevDecisionTree />;
     case "S2-Histogram": return <HistogramDensitySVG />;
     case "S2-PMCC": return <PMCCPanelSVG />;
     case "S2-Scatter": return <ScatterClustersSVG />;
-    case "S2-StdDev": return <StdDevDecisionTree />;
     case "S2-Interpolate": return <InterpolationLineSVG />;
 
     // ------------------------------------------
-    // STATISTICS S3 (Probability)
+    // STATISTICS S3
     // ------------------------------------------
+    case "S3-Tree": return <ProbabilityTree />;
     case "S3-Venn": return <VennMutExSVG />;
     case "S3-Table": return <TwoWayTableSVG />;
-    case "S3-Tree": return <ProbabilityTree />;
 
     // ------------------------------------------
-    // STATISTICS S4 (Distributions)
+    // STATISTICS S4
     // ------------------------------------------
-    case "S4-BinomialTree": return <BinomialTree />;
+    case "S4-Binomial": return <BinomialTree />;
     case "S4-Inequality": return <InequalityPanelSVG />;
-    case "S4-NormalCurve": return <NormalDistributionSVG />;
+    case "S4-Normal": return <NormalDistributionSVG />;
 
     // ------------------------------------------
     // FALLBACK

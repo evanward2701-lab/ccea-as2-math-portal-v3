@@ -10,7 +10,7 @@ export const QUESTIONS: PracticeQuestion[] = [
     questionMarkdown: `
 A rescue vehicle is towing a broken-down car along a straight horizontal road. They are joined by a rigid tow bar.
 
-![visual:Q-M1-tow]()
+![visual:M1-Towing]()
 
 (a) State the SI base unit of mass.
 (b) Explain what the modelling assumptions "rigid" and "light" imply about the tow bar.
@@ -30,6 +30,8 @@ A rescue vehicle is towing a broken-down car along a straight horizontal road. T
     marks: 6,
     questionMarkdown: `
 A cyclist accelerates at a constant rate from a velocity of $4 \\text{ m s}^{-1}$ to $7.5 \\text{ m s}^{-1}$ in 40 seconds.
+
+![visual:M2-VTS]()
 
 (a) Find the distance she travels in these 40 seconds.
 (b) Find her acceleration in these 40 seconds.
@@ -55,7 +57,7 @@ $a = 0.0875 \\text{ m s}^{-2}$ [A1]
     questionMarkdown: `
 A woman travels in a lift. The mass of the woman is $50 \\text{ kg}$ and the mass of the lift is $950 \\text{ kg}$. The lift is being raised vertically by a vertical cable attached to the top of the lift. The lift is moving upwards and has a constant deceleration of $2 \\text{ m s}^{-2}$.
 
-![visual:Q-M3-lift]()
+![visual:M3-LiftSystem]()
 
 By modelling the cable as being light and inextensible:
 (a) Find the tension in the cable.

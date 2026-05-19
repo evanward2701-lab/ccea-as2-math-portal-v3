@@ -120,7 +120,7 @@ export const M2_CONTENT = `
 Kinematics is the study of motion. Distance and speed are scalar quantities, meaning they have magnitude but no direction. Displacement and velocity are vectors, meaning they have both magnitude and direction. For example, if a cyclist travels 5 km away and 5 km back, her total distance is 10 km, but her final displacement is 0 km.
 
 ### Motion Graphs
-![visual:M2]()
+![visual:M2-VTS]()
 * **Displacement-time graphs:** The gradient tells us how quickly displacement is changing. Therefore, the gradient gives the velocity. A flat horizontal line means the object is stationary. A straight sloping line means constant velocity.
 * **Velocity-time graphs:** The gradient gives the acceleration. A flat horizontal line above the axis means the object is moving at a constant velocity (zero acceleration). The area under a velocity-time graph gives the displacement (and distance, provided the velocity remains positive).
 * **Exam-Style Note:** When asked to describe the motion of an athlete or particle between two times from a graph, ensure you give enough detail (such as explicitly stating "constant acceleration" or calculating the exact acceleration value) to gain the mark.
@@ -216,7 +216,7 @@ $\\text{Resultant Force } (F) = \\text{mass } (m) \\times \\text{acceleration } 
 *Note: $F$ represents the resultant force, not just any single applied force.*
 
 ### Resolving Forces and Inclined Planes
-![visual:M1-forces]()
+![visual:M1]()
 For a particle on an inclined plane at angle $\\theta$ to the horizontal:
 * The component of weight acting **down the slope** is $mg \\sin \\theta$.
 * The component of weight acting **perpendicularly into the slope** is $mg \\cos \\theta$.
@@ -228,7 +228,7 @@ $F \\leq \\mu R$
 Friction only reaches its maximum limiting value ($F = \\mu R$) when the object is on the point of slipping, or is actively sliding.
 
 ### Connected Particles
-![visual:M3]()
+![visual:M3-RoughPlane]()
 
 Particles joined by a taut, inextensible string share the exact same magnitude of acceleration.
 * **Towbars and Trailers:** Treat the entire system as a single particle to find the common acceleration. To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
@@ -334,7 +334,7 @@ $\\text{Frequency Density} = \\frac{\\text{Frequency}}{\\text{Class Width}}$
 To estimate values within a grouped frequency class, assume data is evenly distributed across the class width.
 
 ### PMCC ($r$)
-![visual:S1]()
+![visual:S1-DataTree]()
 
 Measures the strength and direction of **linear correlation**.
 $-1 \\leq r \\leq 1$. Remember correlation does not imply causation.
@@ -348,7 +348,7 @@ export const S3_CONTENT = `
 **S3: Probability Laws, Venn Diagrams, Two-Way Tables and Trees**
 
 ## 2. Formulae & Concepts
-![visual:S3]()
+![visual:S3-Tree]()
 * **Addition Law:** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
 * **Mutually Exclusive:** Cannot happen at the same time. $P(A \\cap B) = 0$.
 * **Exhaustive Events:** Cover all possible outcomes. $P(A \\cup B) = 1$.
@@ -371,7 +371,7 @@ export const S4_CONTENT = `
 **S4: Statistical Distributions (Discrete Probability and the Binomial Model)**
 
 ## 2. The Binomial Model Conditions
-![visual:S4]()
+![visual:S4-BinomialTree]()
 
 You can only use the binomial model if the situation satisfies four strict conditions:
 1. There is a **fixed number of trials** ($n$).
@@ -399,11 +399,53 @@ $P(X \\leq 2) = 0.168 + 0.336 + 0.294 = 0.797$ (to 3 s.f.)
 `;
 
 export const LESSONS: CourseModule[] = [
-  { id: "M1", title: "Quantities, Units and Modelling Foundations", type: "Mechanics", content: M1_CONTENT },
-  { id: "M2", title: "Kinematics - Constant Acceleration, Graphs and SUVAT", type: "Mechanics", content: M2_CONTENT },
-  { id: "M3", title: "Forces, Newton's Laws and Connected Particles", type: "Mechanics", content: M3_CONTENT },
-  { id: "S1", title: "Statistical Sampling, Data Types and Inference", type: "Statistics", content: S1_CONTENT },
-  { id: "S2", title: "Data Presentation and Interpretation", type: "Statistics", content: S2_CONTENT },
-  { id: "S3", title: "Probability Laws, Venn Diagrams, Two-Way Tables and Trees", type: "Statistics", content: S3_CONTENT },
-  { id: "S4", title: "Statistical Distributions (Discrete Probability and the Binomial Model)", type: "Statistics", content: S4_CONTENT },
+  {
+    id: "M1-Lesson",
+    title: "Quantities, Units and Modelling Foundations",
+    visualId: "M1-Bridge",
+    type: "Mechanics",
+    content: M1_CONTENT,
+  },
+  {
+    id: "M2-Lesson",
+    title: "Constant Acceleration",
+    visualId: "M2-VTS",
+    type: "Mechanics",
+    content: M2_CONTENT,
+  },
+  {
+    id: "M3-Lesson",
+    title: "Dynamics and Forces",
+    visualId: "M3-Rough",
+    type: "Mechanics",
+    content: M3_CONTENT,
+  },
+  {
+    id: "S1-Lesson",
+    title: "Data Classification",
+    visualId: "S1-Tree",
+    type: "Statistics",
+    content: S1_CONTENT,
+  },
+  {
+    id: "S2-Lesson",
+    title: "Data Presentation",
+    visualId: "S2-Histogram",
+    type: "Statistics",
+    content: S2_CONTENT,
+  },
+  {
+    id: "S3-Lesson",
+    title: "Probability",
+    visualId: "S3-Tree",
+    type: "Statistics",
+    content: S3_CONTENT,
+  },
+  {
+    id: "S4-Lesson",
+    title: "Distributions",
+    visualId: "S4-Binomial",
+    type: "Statistics",
+    content: S4_CONTENT,
+  },
 ];
