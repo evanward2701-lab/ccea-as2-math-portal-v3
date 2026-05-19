@@ -88,7 +88,7 @@ export const BinomialTree: React.FC = () => {
       </div>
       
       <p className="text-[11px] font-sans text-[#1A1A1A]/70 text-center mt-2 px-6 italic max-w-prose">
-        The binomial coefficient $\binom{n}{x}$ counts the number of successful branch pathways on a tree diagram, avoiding the need to draw massive trees for large values of $n$.
+        {"The binomial coefficient $\\binom{n}{x}$ counts the number of successful branch pathways on a tree diagram, avoiding the need to draw massive trees for large values of $n$."}
         <br />
         <strong className="text-red-600 not-italic uppercase text-[10px] block mt-1">
           Exam Misconception:
