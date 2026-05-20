@@ -162,7 +162,7 @@ export const M2GravitySignConvention: React.FC = () => {
         </div>
 
         <div className="w-full md:w-3/5 flex justify-center bg-slate-950 p-4 rounded-lg border border-slate-900 shadow-inner">
-          <svg viewBox="0 0 500 180" className="w-full max-w-[500px] h-auto select-none" shapeRendering="geometricPrecision">
+          <svg viewBox="0 0 500 180" className="w-full max-w-125 h-auto select-none" shapeRendering="geometricPrecision">
             {/* PHYSICS DIRECTIVE */}
             <g transform="translate(20, 10)">
               <text x="0" y="20" fill="#64748b" className="text-[10px] font-bold uppercase tracking-wider">Physical Direction</text>
@@ -212,7 +212,7 @@ export const M2GravitySignConvention: React.FC = () => {
 // ==========================================
 export const M2VectorMagnitudeTrap: React.FC = () => {
   return (
-    <div className="w-full bg-slate-900 border border-amber-500/20 bg-gradient-to-b from-slate-900 to-slate-950 p-5 rounded-xl shadow-xl my-4">
+    <div className="w-full bg-slate-900 border border-amber-500/20 bg-linear-to-b from-slate-900 to-slate-950 p-5 rounded-xl shadow-xl my-4">
       <div className="flex flex-col lg:flex-row items-center gap-6">
         <div className="w-full lg:w-1/2 space-y-3">
           <div className="inline-flex items-center bg-amber-500/10 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">
@@ -275,7 +275,7 @@ export const M2InitialVelocityTrap: React.FC = () => {
     <div className="w-full bg-rose-950/20 p-5 rounded-xl border border-rose-900/40 my-4">
       <h4 className="text-sm font-bold text-rose-400 uppercase tracking-wide mb-4">Exam Trap: "Assuming Starts from Rest"</h4>
       <div className="flex items-center justify-center bg-slate-950 p-4 rounded border border-slate-900">
-        <svg viewBox="0 0 500 150" className="w-full max-w-[400px] h-auto select-none">
+        <svg viewBox="0 0 500 150" className="w-full max-w-100 h-auto select-none">
           <line x1="30" y1="120" x2="350" y2="120" stroke="#475569" strokeWidth="2" />
           <line x1="50" y1="20" x2="50" y2="140" stroke="#475569" strokeWidth="2" />
           {/* Wrong Assumption */}
