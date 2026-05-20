@@ -1,9 +1,19 @@
 import React from 'react';
-import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
+import { MermaidDiagram } from '../../MermaidDiagram';
 
-export const BinomialTree: React.FC = () => {
-  const chart = `
-    graph LR
+export const S4_BINOMIAL_TREE_MERMAID = `%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'background': '#020617',
+    'primaryColor': '#0f172a',
+    'primaryTextColor': '#f8fafc',
+    'primaryBorderColor': '#334155',
+    'lineColor': '#64748b',
+    'secondaryColor': '#1e293b',
+    'tertiaryColor': '#020617'
+  }
+}}%%
+graph LR
     Start((Start)) -->|p| S1((S))
     Start -->|1-p| F1((F))
     
@@ -29,42 +39,32 @@ export const BinomialTree: React.FC = () => {
     SFS -.-> Result
     FSS -.-> Result
 
-    style Start fill:#1E293B,stroke:#475569,stroke-width:1px,color:#FFF
-    style S1 fill:#022C22,stroke:#059669,stroke-width:1px,color:#34D399
-    style F1 fill:#451A03,stroke:#D97706,stroke-width:1px,color:#FBBF24
-    style S2 fill:#022C22,stroke:#059669,stroke-width:1px,color:#34D399
-    style F2 fill:#451A03,stroke:#D97706,stroke-width:1px,color:#FBBF24
-    style S3 fill:#022C22,stroke:#059669,stroke-width:1px,color:#34D399
-    style F3 fill:#451A03,stroke:#D97706,stroke-width:1px,color:#FBBF24
-    
-    style SSS fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
-    style SSF fill:#020617,stroke:#38BDF8,stroke-width:2px,color:#38BDF8
-    style SFS fill:#020617,stroke:#38BDF8,stroke-width:2px,color:#38BDF8
-    style SFF fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
-    style FSS fill:#020617,stroke:#38BDF8,stroke-width:2px,color:#38BDF8
-    style FSF fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
-    style FFS fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
-    style FFF fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8
-    
-    style Result fill:#0F172A,stroke:#34D399,stroke-width:2px,color:#34D399,font-weight:bold
-    
-    classDef default fill:#0F172A,stroke:#334155,stroke-width:1px,color:#94A3B8;
-  `;
+    classDef default fill:#0f172a,stroke:#334155,stroke-width:1px,color:#cbd5e1;
+    classDef startNode fill:#020617,stroke:#64748b,stroke-width:2px,color:#f8fafc;
+    classDef success fill:#022c22,stroke:#10b981,stroke-width:2px,color:#34d399;
+    classDef fail fill:#451a03,stroke:#f59e0b,stroke-width:2px,color:#fbbf24;
+    classDef result fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#38bdf8,stroke-dasharray: 4 4;
 
+    class Start startNode;
+    class S1,S2,S3,SSS,SSF,SFS,FSS success;
+    class F1,F2,F3,FFF,FFS,FSF,SFF fail;
+    class Result result;
+`;
+
+export const BinomialTree: React.FC = () => {
   return (
-    <div className="w-full flex flex-col items-center py-6 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
-      <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">
+    <div className="w-full flex flex-col items-center py-8 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+      <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
         Fig 1. Binomial Tree (n=3)
       </div>
       
       <div className="w-full px-4 my-6 flex justify-center overflow-x-auto">
-        <Mermaid chart={chart} />
+        <MermaidDiagram chart={S4_BINOMIAL_TREE_MERMAID} />
       </div>
       
-      <p className="text-[11px] font-sans text-slate-400 text-center px-4 italic leading-relaxed">
-        The binomial coefficient <span className="text-emerald-400 font-mono font-semibold not-italic">ⁿCₓ</span> physically counts the number of successful branch pathways on a tree diagram. 
-        <br />
-        <span className="text-amber-400 font-mono font-bold uppercase tracking-wider text-[10px]">Exam Tip:</span> Use the formula directly so you do not have to draw extensive, non-scannable trees for large values of <span className="font-mono text-slate-200">n</span>!
+      <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic max-w-prose">
+        A binomial distribution models multiple independent binary trials. Notice how different branches result in the exact same combination of successes.
+        <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Never manually calculate tree branches for $n > 3$. Use the binomial formula to save critical time in the exam.
       </p>
     </div>
   );

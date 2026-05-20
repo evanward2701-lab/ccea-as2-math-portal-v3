@@ -1,160 +1,136 @@
 import React from 'react';
 import { MathText } from '../../MathText';
 
-// Diagram 2: Cumulative Binomial Inequality Interactive Matrix Panel
+// ==========================================
+// Fig 2. Cumulative Binomial Inequality Matrix
+// ==========================================
 export const InequalityPanelSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-8 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">
+  <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+    <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
       Fig 2. Binomial Inequalities
     </div>
     
-    <div className="w-full mt-4 overflow-x-auto">
-      <table className="w-full border-collapse border border-slate-800 text-sm font-sans bg-slate-950 text-center rounded-lg overflow-hidden">
+    <div className="w-full px-6 mt-6 overflow-x-auto">
+      <table className="w-full border-collapse border border-slate-800 text-sm font-sans bg-slate-900 text-center">
         <thead>
-          <tr className="bg-slate-800/80 text-slate-200 border-b border-slate-700">
-            <th className="p-3 uppercase font-mono tracking-wider text-[11px] text-left pl-6">English Phrase</th>
-            <th className="p-3 uppercase font-mono tracking-wider text-[11px]">Raw Inequality</th>
-            <th className="p-3 uppercase font-mono tracking-wider text-[11px] text-right pr-6">Calculate via Calculator</th>
+          <tr className="bg-slate-950 text-slate-400 border-b border-slate-800 uppercase font-mono tracking-wider text-[10px]">
+            <th className="p-4 border-r border-slate-800 text-left pl-6">English Phrase</th>
+            <th className="p-4 border-r border-slate-800">Raw Inequality</th>
+            <th className="p-4 text-emerald-400">Calculator Format <MathText content="(\leq)" className="inline" /></th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+        <tbody className="divide-y divide-slate-800/50">
           <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-3 text-left pl-6 font-semibold text-slate-200">Fewer than 4</td>
-            <td className="p-3 font-mono text-amber-400">P(X &lt; 4)</td>
-            <td className="p-3 text-right pr-6">
-              <div className="inline-flex justify-end text-sky-400 font-bold">
-                <MathText content="P(X \le 3)" />
-              </div>
-            </td>
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"More than 5"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X > 5)" /></td>
+            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="1 - P(X \leq 5)" /></td>
           </tr>
           <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-3 text-left pl-6 font-semibold text-slate-200">At most 4</td>
-            <td className="p-3 font-mono text-emerald-400">P(X \le 4)</td>
-            <td className="p-3 text-right pr-6">
-              <div className="inline-flex justify-end text-emerald-400 font-bold">
-                <MathText content="P(X \le 4)" />
-              </div>
-            </td>
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At least 5" / "5 or more"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \geq 5)" /></td>
+            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="1 - P(X \leq 4)" /></td>
           </tr>
           <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-3 text-left pl-6 font-semibold text-slate-200">At least 4</td>
-            <td className="p-3 font-mono text-rose-400">P(X \ge 4)</td>
-            <td className="p-3 text-right pr-6">
-              <div className="inline-flex justify-end text-rose-400 font-bold">
-                <MathText content="1 - P(X \le 3)" />
-              </div>
-            </td>
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"Fewer than 5"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X < 5)" /></td>
+            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="P(X \leq 4)" /></td>
           </tr>
           <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-3 text-left pl-6 font-semibold text-slate-200">More than 4</td>
-            <td className="p-3 font-mono text-amber-400">P(X &gt; 4)</td>
-            <td className="p-3 text-right pr-6">
-              <div className="inline-flex justify-end text-rose-400 font-bold">
-                <MathText content="1 - P(X \le 4)" />
-              </div>
-            </td>
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At most 5" / "No more than 5"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \leq 5)" /></td>
+            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="P(X \leq 5)" /></td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <div className="mt-4 px-4 py-3 bg-slate-950/60 border border-slate-800 rounded-lg w-full">
-      <p className="text-[11px] font-sans text-slate-400 leading-relaxed">
-        <span className="text-rose-400 font-mono font-bold uppercase tracking-wider block mb-1">⚠️ Exam Misconception Warning:</span>
-        Because binomial data is strictly discrete, strict inequalities (<MathText content="<" />, <MathText content=">" />) must be carefully converted into inclusive inequalities (<MathText content="\le" />, <MathText content="\ge" />). Do not accidentally calculate <MathText content="1 - P(X \le 4)" /> when asked for "at least 4".
-      </p>
-    </div>
-  </div>
-);
-
-// Diagram 3: True Discrete Binomial Distribution Graph (Correct Canonical Classes and Content Property Applied)
-export const NormalDistributionSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-8 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">
-      Fig 3. Binomial pmf vs Continuous Curves
-    </div>
-
-    <div className="w-full max-w-110 h-55 mt-6 flex flex-col items-center justify-center">
-      <svg width="100%" height="100%" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'geometricPrecision' }}>
-        {/* Grid Floor Line & Horizontal Ticks */}
-        <line x1="40" y1="30" x2="370" y2="30" stroke="#1E293B" strokeWidth="1" strokeDasharray="4 4" />
-        <line x1="40" y1="80" x2="370" y2="80" stroke="#1E293B" strokeWidth="1" strokeDasharray="4 4" />
-        <line x1="40" y1="130" x2="370" y2="130" stroke="#1E293B" strokeWidth="1" strokeDasharray="4 4" />
-        
-        {/* Axes */}
-        <line x1="30" y1="180" x2="380" y2="180" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="40" y1="20" x2="40" y2="190" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" />
-
-        {/* Discrete PMF Spikes */}
-        <line x1="80" y1="180" x2="80" y2="160" stroke="#475569" strokeWidth="6" strokeLinecap="round" className="hover:stroke-slate-400 transition-all cursor-pointer" />
-        <line x1="135" y1="180" x2="135" y2="110" stroke="#38BDF8" strokeWidth="6" strokeLinecap="round" className="hover:stroke-sky-400 transition-all cursor-pointer" />
-        <line x1="190" y1="180" x2="190" y2="45" stroke="#34D399" strokeWidth="6" strokeLinecap="round" className="hover:stroke-emerald-400 transition-all cursor-pointer" />
-        <line x1="245" y1="180" x2="245" y2="95" stroke="#38BDF8" strokeWidth="6" strokeLinecap="round" className="hover:stroke-sky-400 transition-all cursor-pointer" />
-        <line x1="300" y1="180" x2="300" y2="145" stroke="#475569" strokeWidth="6" strokeLinecap="round" className="hover:stroke-slate-400 transition-all cursor-pointer" />
-        <line x1="355" y1="180" x2="355" y2="170" stroke="#475569" strokeWidth="6" strokeLinecap="round" className="hover:stroke-slate-400 transition-all cursor-pointer" />
-
-        {/* Labels */}
-        <foreignObject x="70" y="188" width="20" height="25">
-          <div className="text-[11px] text-slate-500 text-center font-mono">0</div>
-        </foreignObject>
-        <foreignObject x="125" y="188" width="20" height="25">
-          <div className="text-[11px] text-slate-400 text-center font-mono">1</div>
-        </foreignObject>
-        <foreignObject x="180" y="188" width="20" height="25">
-          <div className="text-[11px] text-emerald-400 font-bold text-center font-mono">2</div>
-        </foreignObject>
-        <foreignObject x="235" y="188" width="20" height="25">
-          <div className="text-[11px] text-slate-400 text-center font-mono">3</div>
-        </foreignObject>
-        <foreignObject x="290" y="188" width="20" height="25">
-          <div className="text-[11px] text-slate-400 text-center font-mono">4</div>
-        </foreignObject>
-        <foreignObject x="345" y="188" width="20" height="25">
-          <div className="text-[11px] text-slate-500 text-center font-mono">5</div>
-        </foreignObject>
-
-        <foreignObject x="2" y="75" width="35" height="40">
-          <div className="text-[10px] text-slate-500 font-mono text-right pr-1">P(X=x)</div>
-        </foreignObject>
-
-        <foreignObject x="260" y="35" width="110" height="30">
-          <div className="text-right text-xs font-mono text-slate-400">
-            <MathText content="X \sim B(n, p)" />
-          </div>
-        </foreignObject>
-      </svg>
-    </div>
-    
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-4 italic leading-relaxed">
-      <span className="text-rose-400 not-italic font-mono font-bold uppercase tracking-wider block mb-1">⚠️ AS2 Warning Node</span>
-      Normal Distribution calculations are completely excluded from AS2 Mathematics. Do not apply continuous curves to discrete data structures.
+    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic max-w-prose mb-2">
+      <strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities ($<, >$) and upwards inequalities ($\ge$) into a format utilizing $P(X \le x)$.
     </p>
   </div>
 );
 
-// Model Validation Requirements
+// ==========================================
+// Fig 3. Standard Normal Distribution Gaussian Curve
+// ==========================================
+export const NormalDistributionSVG: React.FC = () => (
+  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+    <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+      Fig 3. Normal Distribution
+    </div>
+    
+    <svg width="500" height="260" viewBox="0 0 500 260" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+      {/* Background shading for standard deviations */}
+      <path d="M 183 200 L 183 118 C 210 50, 230 40, 250 40 C 270 40, 290 50, 317 118 L 317 200 Z" fill="#38bdf8" fillOpacity="0.1" />
+      <path d="M 117 200 L 117 185 C 130 150, 150 120, 183 118 L 183 200 Z" fill="#3b82f6" fillOpacity="0.05" />
+      <path d="M 383 200 L 383 185 C 370 150, 350 120, 317 118 L 317 200 Z" fill="#3b82f6" fillOpacity="0.05" />
+
+      {/* Axis and Curve */}
+      <line x1="30" y1="200" x2="470" y2="200" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
+      <path d="M 30 200 C 130 200, 170 40, 250 40 C 330 40, 370 200, 470 200" stroke="#38bdf8" strokeWidth="2.5" fill="none" />
+      
+      {/* Center Mean Line */}
+      <line x1="250" y1="40" x2="250" y2="200" stroke="#10b981" strokeWidth="2" strokeDasharray="4 4" />
+      <foreignObject x="240" y="210" width="20" height="25">
+        <MathText content="\mu" className="text-emerald-400 text-center font-bold" />
+      </foreignObject>
+
+      {/* Std Dev Markers */}
+      <line x1="183" y1="200" x2="183" y2="205" stroke="#64748b" strokeWidth="2" />
+      <line x1="117" y1="200" x2="117" y2="205" stroke="#64748b" strokeWidth="2" />
+      <line x1="317" y1="200" x2="317" y2="205" stroke="#64748b" strokeWidth="2" />
+      <line x1="383" y1="200" x2="383" y2="205" stroke="#64748b" strokeWidth="2" />
+
+      <foreignObject x="145" y="210" width="80" height="30">
+        <MathText content="\mu - \sigma" className="text-slate-400 text-center text-[10px]" />
+      </foreignObject>
+      <foreignObject x="275" y="210" width="80" height="30">
+        <MathText content="\mu + \sigma" className="text-slate-400 text-center text-[10px]" />
+      </foreignObject>
+      <foreignObject x="220" y="100" width="60" height="30">
+        <MathText content="\approx 68\%" className="text-sky-300 text-center font-bold text-xs" />
+      </foreignObject>
+    </svg>
+
+    <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic mb-4">
+      The Normal Distribution is perfectly symmetrical about the mean ($\mu$). 
+      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Always standardize your values using $Z = \frac{X - \mu}{\sigma}$. Note that $\sigma$ is the standard deviation, but exam questions frequently try to trick you by providing the variance ($\sigma^2$) instead!
+    </p>
+  </div>
+);
+
+// ==========================================
+// Fig 4. Validation Matrix
+// ==========================================
 export const BinomialConditionsChecklistSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-6 px-4 mb-8 border border-slate-800 bg-slate-900 rounded-xl relative shadow-2xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-800 border-l border-b border-slate-700 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold">
+  <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+    <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
       Fig 4. Model Validation Requirements
     </div>
-    <div className="w-full mt-4 space-y-2.5">
+    
+    <div className="w-full px-6 mt-8 space-y-3 mb-4">
       {[
         { id: 1, title: "Fixed Number of Trials (n)", desc: "The experiment must run for a strict, predefined finite series of trials." },
         { id: 2, title: "Binary Outcome Matrix", desc: "Every trial yields exactly two clear states: defined strictly as Success or Failure." },
         { id: 3, title: "Constant Probability (p)", desc: "The underlying chance of success must remain completely uniform across all steps." },
         { id: 4, title: "Mutual Independence", desc: "The outcome of any isolated trial cannot modify or influence the probability vector of another." }
       ].map((cond) => (
-        <div key={cond.id} className="flex items-start gap-3 p-3 bg-slate-950/50 border border-slate-800/80 rounded-lg hover:border-emerald-500/30 transition-all group">
-          <div className="w-5 h-5 rounded border border-emerald-500/30 bg-emerald-950/40 flex items-center justify-center text-emerald-400 font-mono text-xs font-bold shadow-inner group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
+        <div key={cond.id} className="flex items-start gap-4 p-4 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-emerald-500/50 transition-all group shadow-sm">
+          <div className="w-6 h-6 shrink-0 rounded border border-emerald-500/30 bg-emerald-950/40 flex items-center justify-center text-emerald-400 font-mono text-xs font-bold shadow-inner group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
             {cond.id}
           </div>
           <div className="flex-1">
-            <h4 className="text-xs font-mono uppercase tracking-wide text-slate-200 font-bold">{cond.title}</h4>
-            <p className="text-[11px] text-slate-400 mt-0.5">{cond.desc}</p>
+            <h4 className="text-xs font-mono uppercase tracking-wide text-emerald-400 font-bold mb-1">
+              {cond.title}
+            </h4>
+            <p className="text-slate-400 text-xs leading-relaxed">
+              {cond.desc}
+            </p>
           </div>
         </div>
       ))}
     </div>
+    <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic max-w-prose">
+      <strong className="text-sky-400 not-italic uppercase text-[10px]">CCEA Theory Tip:</strong> You must memorize these four exact conditions. They are frequently tested as a 1-2 mark word-response question immediately before a large calculation block.
+    </p>
   </div>
 );

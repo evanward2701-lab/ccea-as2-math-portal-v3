@@ -1,36 +1,47 @@
 import React from 'react';
-import { MermaidDiagram as Mermaid } from "@/components/MermaidDiagram";
+import { MermaidDiagram } from '../../MermaidDiagram';
+
+export const S2_STD_DEV_MERMAID = `%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'background': '#020617',
+    'primaryColor': '#0f172a',
+    'primaryTextColor': '#f8fafc',
+    'primaryBorderColor': '#334155',
+    'lineColor': '#64748b',
+    'secondaryColor': '#1e293b',
+    'tertiaryColor': '#020617'
+  }
+}}%%
+graph TD
+    Q{"Is the data the whole population<br/>or a sample used to estimate?"}
+    Q -->|Whole Population / Standalone Data| N["Population Std Dev: σ_n<br/>(Divisor: n)"]
+    Q -->|Sample estimating a Population| N1["Sample Std Dev: σ_{n-1}<br/>(Divisor: n-1)"]
+
+    classDef default fill:#0f172a,stroke:#334155,stroke-width:1px,color:#cbd5e1;
+    classDef decision fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#38bdf8;
+    classDef pop fill:#022c22,stroke:#059669,stroke-width:2px,color:#34d399;
+    classDef samp fill:#1e1b4b,stroke:#4f46e5,stroke-width:2px,color:#818cf8,stroke-dasharray: 4 4;
+    
+    class Q decision;
+    class N pop;
+    class N1 samp;`;
 
 export const StdDevDecisionTree: React.FC = () => {
-  // Escaped the template configuration literal explicitly using string concatenation 
-  // to avoid confusing the compiler with variable resolution hooks.
-  const chart = `
-    graph TD
-    Q{"Is the data the whole population<br/>or a sample used to estimate?"}
-    Q -->|Whole Population / Standalone Data| N["σ_n<br/>(Divisor: n)"]
-    Q -->|Sample estimating a Population| N1["σ_n-1<br/>(Divisor: n-1)"]
-
-    style Q fill:#0F172A,color:#F8FAFC,stroke:#334155,stroke-width:2px,font-weight:bold
-    style N fill:#022C22,color:#34D399,stroke:#059669,stroke-width:2px
-    style N1 fill:#1E1B4B,color:#818CF8,stroke:#4F46E5,stroke-width:2px,stroke-dasharray: 4 4
-  `;
-
   return (
-    <div className="w-full flex flex-col items-center py-8 mb-12 border border-slate-800 bg-slate-900 relative rounded-xl shadow-[2px_4px_16px_rgba(0,0,0,0.4)]">
-      <div className="absolute top-0 right-0 bg-slate-800 text-slate-400 border-b border-l border-slate-700 px-3 py-1 text-[10px] uppercase tracking-widest font-mono font-bold rounded-tr-xl rounded-bl-md">
+    <div className="w-full flex flex-col items-center py-8 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+      <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-b border-l border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
         Fig 4. Standard Deviation Selector
       </div>
       
-      <div className="w-full px-4 my-6 flex justify-center dark-mermaid-override">
-        <Mermaid chart={chart} />
+      <div className="w-full px-4 my-6 flex justify-center">
+        <MermaidDiagram chart={S2_STD_DEV_MERMAID} />
       </div>
       
-      <div className="text-[12px] font-sans text-slate-400 text-center mt-2 px-6 max-w-md leading-relaxed">
+      <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic">
         Always check the wording of the question before choosing your standard deviation formula.
-        <div className="mt-3 text-rose-400 text-[11px] font-mono uppercase tracking-wide border border-rose-950 bg-rose-950/30 px-3 py-1.5 rounded-md">
-          <span className="font-bold">🚨 Exam Misconception:</span> Calculators output both versions. Using the wrong one will lose you method and accuracy marks instantly.
-        </div>
-      </div>
+        <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Calculators output both versions ($S_x$ and $\sigma_x$). Using the wrong one will lose you method and accuracy marks instantly.
+      </p>
     </div>
   );
 };
