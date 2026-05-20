@@ -3,8 +3,7 @@ import { LESSONS } from "../data/lessons";
 import { MathText } from "../components/MathText";
 import { LessonVisual } from "../components/LessonVisual";
 
-const visualTagPattern = /!\[visual:([^\\]]+)\\]\\([^)]*\\)/g;
-const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
+const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
 
 const stripDuplicateLeadVisual = (content: string, visualId?: string) => {
   if (!visualId) return content;
@@ -30,39 +29,9 @@ export function Lessons() {
   }
 
   return (
-    <div className="flex h-full bg-slate-950 text-slate-100">
-      {/* Lesson Navigation Table of Contents */}
-      <aside className="w-64 border-r border-slate-800 shrink-0 hidden md:flex flex-col bg-slate-900/30 h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
-        <div className="p-6 border-b border-slate-800">
-          <h2 className="text-xs uppercase tracking-widest text-slate-500 font-mono font-bold">Module Index</h2>
-        </div>
-        <nav className="flex-1 p-4 space-y-1">
-          {LESSONS.map((l) => {
-            const isActive = l.id === id;
-            return (
-              <Link
-                key={l.id}
-                to={`/lessons/${l.id}`}
-                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-mono transition-all ${
-                  isActive
-                    ? "bg-slate-800 text-emerald-400 border border-slate-700 shadow-inner font-bold"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/50 border border-transparent"
-                }`}
-              >
-                <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold ${
-                  isActive ? "bg-emerald-950 text-emerald-400" : "bg-slate-800 text-slate-400"
-                }`}>
-                  {getModuleCode(l.id)}
-                </span>
-                <span className="truncate">{l.title}</span>
-              </Link>
-            );
-          })}
-        </nav>
-      </aside>
-
+    <div className="h-full bg-slate-950 text-slate-100">
       {/* Main Content Workspace Layout */}
-      <main className="flex-1 min-w-0 overflow-y-auto h-[calc(100vh-4rem)] px-8 py-12 md:px-16 lg:px-24 bg-slate-950">
+      <main className="px-8 py-12 md:px-16 lg:px-24 bg-slate-950">
         <div className="max-w-3xl mx-auto flex flex-col gap-10 pb-24">
           
           {/* Status Header: System Active */}

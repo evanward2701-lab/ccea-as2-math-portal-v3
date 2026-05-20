@@ -8,8 +8,7 @@ import {
   ScalarVectorSVG, 
   ModellingAssumptionsSVG, 
   TowingModelSVG, 
-  LiftPhysicsSVG,
-  M1ExamTrapSVG
+  LiftPhysicsSVG
 } from "./Visuals/M1/M1-SVG";
 
 // M2 Imports - UPDATED TO MATCH REFACTORED COMPONENT NAMES
@@ -70,10 +69,10 @@ interface LessonVisualProps {
 
 const VISUAL_ID_ALIASES: Record<string, string> = {
   M1: "M1-Bridge",
-  "M1-Trap": "M1-ExamTrap", 
   "M3-RoughPlane": "M3-Rough",
   "M3-LiftSystem": "M3-Lift",
   "S1-DataTree": "S1-Tree",
+  "M3-Inclined": "M3-Incline",
   "S4-BinomialTree": "S4-Binomial",
   "S3-Bayes": "S3-BayesResolution",
 };
@@ -90,7 +89,6 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M1-Modelling": return <ModellingAssumptionsSVG />;
     case "M1-Towing": return <TowingModelSVG />;
     case "M1-Lift": return <LiftPhysicsSVG />;
-    case "M1-ExamTrap": return <M1ExamTrapSVG />;
 
     // ------------------------------------------
     // MECHANICS M2 
