@@ -355,7 +355,7 @@ export const M1ExamTrapSVG: React.FC = () => (
         <div className="absolute top-2 right-2 text-emerald-400 font-bold text-[9px] uppercase tracking-wider">Correct Practice</div>
         <span className="block font-bold text-slate-200 mb-2">Discarded Attempt</span>
         <div className="relative inline-block w-full mb-3">
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-rose-500/50 to-transparent h-0.5 top-1/2 transform -rotate-2" />
+          <div className="absolute inset-0 bg-linear-to-tr from-transparent via-rose-500/50 to-transparent h-0.5 top-1/2 transform -rotate-2" />
           <code className="text-slate-500 block font-mono text-[10px] bg-slate-950 p-2 rounded tracking-wide line-through decoration-rose-500/80 border border-slate-800">
             0 = 21 + 9.8t ⇒ t = -2.14s
           </code>

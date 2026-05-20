@@ -8,7 +8,6 @@ const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
 
 const stripDuplicateLeadVisual = (content: string, visualId?: string) => {
   if (!visualId) return content;
-
   return content.replace(visualTagPattern, (match, inlineVisualId) => (
     inlineVisualId === visualId ? "" : match
   ));
@@ -63,9 +62,20 @@ export function Lessons() {
       </aside>
 
       {/* Main Content Workspace Layout */}
-      <main className="flex-1 min-w-0 overflow-y-auto h-[calc(100vh-4rem)] p-8 lg:p-12">
+      <main className="flex-1 min-w-0 overflow-y-auto h-[calc(100vh-4rem)] px-8 py-12 md:px-16 lg:px-24 bg-slate-950">
         <div className="max-w-3xl mx-auto flex flex-col gap-10 pb-24">
           
+          {/* Status Header: System Active */}
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400">
+              System Active
+            </span>
+          </div>
+
           {/* Main Visual Display Block */}
           {lesson.visualId && (
             <div className="w-full">
@@ -74,7 +84,8 @@ export function Lessons() {
           )}
 
           {/* Processed Mathematical Markdown Text */}
-          <article className="prose prose-slate prose-invert max-w-none">
+          {/* Note: min-h-[60vh] ensures layout stability during KaTeX rendering */}
+          <article className="prose prose-slate prose-invert max-w-none text-slate-200 min-h-[60vh]">
             <MathText content={stripDuplicateLeadVisual(lesson.content, lesson.visualId)} />
           </article>
 
