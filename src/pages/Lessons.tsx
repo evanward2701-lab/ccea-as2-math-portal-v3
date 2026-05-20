@@ -31,8 +31,8 @@ export function Lessons() {
   return (
     <div className="h-full bg-slate-950 text-slate-100">
       {/* Main Content Workspace Layout */}
-      <main className="px-8 py-12 md:px-16 lg:px-24 bg-slate-950">
-        <div className="max-w-3xl mx-auto flex flex-col gap-10 pb-24">
+      <main className="px-8 py-12 bg-slate-950">
+        <div className="max-w-[1400px] mx-auto flex flex-col gap-10 pb-24">
           
           {/* Status Header: System Active */}
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">

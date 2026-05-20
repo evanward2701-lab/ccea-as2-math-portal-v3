@@ -10,6 +10,8 @@ interface MathTextProps {
   className?: string;
 }
 
+const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
+
 export function MathText({ content, className }: MathTextProps) {
   // SMART WRAPPER: If content has no '$' delimiters and is a single line, assume it's pure math from an SVG component
   const isPureMathNode = !content.includes('$') && !content.includes('\n');
@@ -30,15 +32,29 @@ export function MathText({ content, className }: MathTextProps) {
     },
   };
   
+  const parts = processedContent.split(visualTagPattern);
+
   return (
     <div className={cn("markdown-body max-w-none", className)}>
-      <ReactMarkdown 
-        remarkPlugins={[remarkMath]} 
-        rehypePlugins={[rehypeKatex]} 
-        components={markdownComponents}
-      >
-        {processedContent}
-      </ReactMarkdown>
+      {parts.map((part, index) => {
+        // Even indices are text, odd are visualIds from the capture group
+        if (index % 2 === 0) {
+          if (!part) return null; // Don't render empty text parts
+          return (
+            <ReactMarkdown
+              key={index}
+              remarkPlugins={[remarkMath]}
+              rehypePlugins={[rehypeKatex]}
+              components={markdownComponents}
+            >
+              {part}
+            </ReactMarkdown>
+          );
+        } else {
+          // This is a visualId
+          return <LessonVisual key={index} visualId={part} />;
+        }
+      })}
     </div>
   );
 }

@@ -34,18 +34,18 @@ export function PracticeBank() {
   });
 
   return (
-    <div className="p-8 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 bg-slate-950 text-slate-100 min-h-screen">
+    <div className="p-8 max-w-[1400px] mx-auto w-full flex flex-col gap-8 bg-slate-950 text-slate-100">
       {/* Configuration Filter Sidebar */}
-      <aside className="w-full lg:w-64 border border-slate-800 bg-slate-900/40 p-6 h-fit sticky top-24 rounded-2xl shadow-xl backdrop-blur-sm">
+      <aside className="w-full border border-slate-800 bg-slate-900/40 p-6 rounded-2xl shadow-xl backdrop-blur-sm">
         <h2 className="text-xs uppercase tracking-widest text-slate-500 font-mono font-bold mb-6">Filter Matrix</h2>
         
-        <div className="flex flex-col gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <label className="block text-[10px] uppercase font-mono tracking-wider font-bold text-slate-400 mb-2">Module Topic</label>
             <select 
               value={searchParams.get("module") || "All"} 
               onChange={(e) => updateFilter("module", e.target.value)}
-              className="w-full text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 rounded-xl p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
+              className="w-full text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 rounded-lg p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
             >
               <option value="All">All Modules</option>
               {LESSONS.map(l => (
@@ -59,7 +59,7 @@ export function PracticeBank() {
             <select 
               value={selectedType} 
               onChange={(e) => updateFilter("type", e.target.value)}
-              className="w-full text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 rounded-xl p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
+              className="w-full text-xs font-mono bg-slate-950 border border-slate-800 text-slate-300 rounded-lg p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
             >
               <option value="All">All Categories</option>
               <option value="Mechanics">Mechanics</option>
@@ -74,7 +74,7 @@ export function PracticeBank() {
                 <button
                   key={tier}
                   onClick={() => updateFilter("marks", tier)}
-                  className={`text-left text-xs font-mono px-3 py-2 rounded-xl transition-all border ${
+                  className={`w-full text-left text-xs font-mono px-3 py-2 rounded-lg transition-all border ${
                     selectedMarks === tier
                       ? "bg-slate-800 border-slate-700 text-emerald-400 font-bold shadow-inner"
                       : "text-slate-400 border-transparent hover:bg-slate-950/60 hover:text-slate-200"

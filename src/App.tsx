@@ -11,9 +11,6 @@ const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
 export default function App() {
   const location = useLocation();
 
-  const mechanicsLessons = LESSONS.filter(l => l.type === "Mechanics");
-  const statisticsLessons = LESSONS.filter(l => l.type === "Statistics");
-
   const mainLinks = [
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
     { name: "Course Modules", path: "/lessons", icon: BookOpen },
@@ -47,46 +44,18 @@ export default function App() {
               
               if (isCourseModules) {
                 return (
-                  <div key={link.path} className="space-y-2">
-                    <Link
-                      to={link.path}
-                      className={cn(
-                        "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200",
-                        isActive 
-                          ? "bg-slate-800 text-sky-400 border-slate-700 shadow-md" 
-                          : "bg-transparent text-slate-400 border-transparent hover:bg-slate-800/50 hover:text-slate-200 hover:border-slate-700/50"
-                      )}
-                    >
+                  <details key={link.path} className="group" open={isActive}>
+                    <summary className={cn(
+                      "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200 cursor-pointer list-none",
+                      isActive 
+                        ? "bg-slate-800 text-sky-400 border-slate-700 shadow-md" 
+                        : "bg-transparent text-slate-400 border-transparent hover:bg-slate-800/50 hover:text-slate-200 hover:border-slate-700/50"
+                    )}>
                       <Icon className="h-4 w-4 shrink-0" />
-                      {link.name}
-                    </Link>
+                      <span>{link.name}</span>
+                    </summary>
                     <div className="pl-5 pt-2 space-y-1 border-l-2 border-slate-800 ml-6">
-                      <div className="px-4 pt-3 pb-1 text-[10px] font-mono uppercase tracking-widest text-amber-400/60 font-bold">Mechanics</div>
-                      {mechanicsLessons.map(lesson => {
-                        const lessonIsActive = location.pathname === `/lessons/${lesson.id}`;
-                        return (
-                          <Link
-                            key={lesson.id}
-                            to={`/lessons/${lesson.id}`}
-                            className={cn(
-                              "flex items-center gap-3 px-4 py-2 rounded-xl text-xs font-mono transition-all",
-                              lessonIsActive
-                                ? "bg-slate-800 text-emerald-400 border border-slate-700 shadow-inner font-bold"
-                                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/50 border border-transparent"
-                            )}
-                          >
-                            <span className={cn(
-                              "w-8 text-center px-1.5 py-0.5 rounded text-[9px] font-bold",
-                              lessonIsActive ? "bg-emerald-950 text-emerald-400" : "bg-slate-800 text-slate-400"
-                            )}>
-                              {getModuleCode(lesson.id)}
-                            </span>
-                            <span className="truncate">{lesson.title}</span>
-                          </Link>
-                        );
-                      })}
-                      <div className="px-4 pt-4 pb-1 text-[10px] font-mono uppercase tracking-widest text-sky-400/60 font-bold">Statistics</div>
-                      {statisticsLessons.map(lesson => {
+                      {LESSONS.map(lesson => {
                         const lessonIsActive = location.pathname === `/lessons/${lesson.id}`;
                         return (
                           <Link
@@ -110,7 +79,7 @@ export default function App() {
                         );
                       })}
                     </div>
-                  </div>
+                  </details>
                 );
               }
 
@@ -146,7 +115,7 @@ export default function App() {
         </aside>
 
         {/* Dynamic Route Viewport */}
-        <main className="flex-1 overflow-auto flex flex-col relative bg-slate-950">
+        <main className="flex-1 overflow-y-scroll flex flex-col relative bg-slate-950">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/lessons" element={<Lessons />} />

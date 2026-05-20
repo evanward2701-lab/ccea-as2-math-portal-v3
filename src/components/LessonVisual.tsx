@@ -8,7 +8,8 @@ import {
   ScalarVectorSVG, 
   ModellingAssumptionsSVG, 
   TowingModelSVG, 
-  LiftPhysicsSVG
+  LiftPhysicsSVG,
+  M1ExamTrapSVG
 } from "./Visuals/M1/M1-SVG";
 
 // M2 Imports - UPDATED TO MATCH REFACTORED COMPONENT NAMES
@@ -89,6 +90,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M1-Modelling": return <ModellingAssumptionsSVG />;
     case "M1-Towing": return <TowingModelSVG />;
     case "M1-Lift": return <LiftPhysicsSVG />;
+    case "M1-ExamTrap": return <M1ExamTrapSVG />;
 
     // ------------------------------------------
     // MECHANICS M2 
@@ -145,7 +147,11 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     // ------------------------------------------
     default:
       console.warn(`Visual ID "${visualId}" not found in LessonVisual.tsx router.`);
-      return null;
+      return (
+        <div className="border border-dashed border-slate-700 bg-slate-900/50 p-4 rounded-lg text-xs text-slate-500 text-center">
+          Diagram unavailable: {visualId}
+        </div>
+      );
   }
 }
 
