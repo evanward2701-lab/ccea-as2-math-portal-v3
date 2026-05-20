@@ -5,6 +5,7 @@ export const S3_PROBABILITY_TREE_MERMAID = `%%{init: {
   'theme': 'base',
   'themeVariables': {
     'background': '#020617',
+    'fontSize': '16px',
     'primaryColor': '#0f172a',
     'primaryTextColor': '#f8fafc',
     'primaryBorderColor': '#334155',
@@ -32,7 +33,7 @@ graph LR
     classDef default fill:#0f172a,stroke:#334155,stroke-width:1px,color:#cbd5e1;
     classDef startNode fill:#020617,stroke:#64748b,stroke-width:2px,color:#f8fafc;
     classDef success fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#34d399;
-    classDef fail fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#60a5fa;
+    classDef fail fill:#0f172a,stroke:#f43f5e,stroke-width:2px,color:#f43f5e;
     classDef endSuccess fill:#020617,stroke:#10b981,stroke-dasharray: 3 3,color:#34d399;
     classDef endFail fill:#020617,stroke:#f43f5e,stroke-dasharray: 3 3,color:#f43f5e;
     classDef endNeutral fill:#020617,stroke:#64748b,stroke-dasharray: 3 3,color:#94a3b8;
@@ -56,10 +57,15 @@ export const ProbabilityTree: React.FC = () => {
         <MermaidDiagram chart={S3_PROBABILITY_TREE_MERMAID} />
       </div>
       
-      <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic max-w-prose">
-        Branches represent sequences of conditional dependent execution timelines.
-        <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Multiply along consecutive branches to obtain intersections. Add across matching individual column outcomes for total global states.
-      </p>
+      <div className="w-full px-6 mt-4 space-y-4 text-center">
+        <p className="text-sm text-slate-400 italic">
+          Branches represent sequences of conditional dependent execution timelines.
+        </p>
+        <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300">
+          <strong className="block text-sky-400 not-italic uppercase text-[10px] mb-2">Key Operations:</strong>
+          Multiply along consecutive branches to find an intersection (<MathText content="\cap" className="inline"/>). Add across separate final outcomes to find a union (<MathText content="\cup" className="inline"/>) or total probability.
+        </div>
+      </div>
     </div>
   );
 };

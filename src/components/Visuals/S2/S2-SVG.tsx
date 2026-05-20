@@ -10,7 +10,7 @@ export const HistogramDensitySVG: React.FC = () => (
       Fig 1. Histogram Geometry
     </div>
     
-    <svg width="500" height="260" viewBox="0 0 500 260" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+    <svg width="500" height="260" viewBox="-10 -10 520 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
       {/* Grid Lines */}
       <line x1="50" y1="60" x2="450" y2="60" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
       <line x1="50" y1="100" x2="450" y2="100" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
@@ -20,8 +20,8 @@ export const HistogramDensitySVG: React.FC = () => (
       <path d="M50 25 L50 200 L460 200" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
       
       {/* Y-Axis Label */}
-      <foreignObject x="0" y="45" width="40" height="120">
-        <div className="w-full h-full flex items-center justify-center -rotate-90 text-xs text-slate-400 font-sans whitespace-nowrap">
+      <foreignObject x="-25" y="45" width="60" height="120">
+        <div className="w-full h-full flex items-center justify-center -rotate-90 text-sm text-slate-400 font-sans whitespace-nowrap">
           <MathText content="\text{Frequency Density}" />
         </div>
       </foreignObject>
@@ -50,10 +50,12 @@ export const HistogramDensitySVG: React.FC = () => (
       </foreignObject>
     </svg>
 
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic">
-      In a histogram, the area of the bar represents the frequency. 
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Do not read the height as the frequency when classes have unequal widths!
-    </p>
+    <div className="w-full px-6 mt-6">
+      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
+        In a histogram, the area of the bar represents the frequency.
+        <strong className="block mt-2 text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Do not read the height as the frequency when classes have unequal widths!
+      </div>
+    </div>
   </div>
 );
 
@@ -66,12 +68,12 @@ export const PMCCPanelSVG: React.FC = () => (
       Fig 2. PMCC Core Formula
     </div>
     
-    <div className="my-8 flex flex-col items-center bg-slate-900/50 border border-slate-800 p-8 rounded-xl shadow-inner max-w-md w-11/12">
-      <div className="mb-6 flex justify-center items-center h-16 w-full border-b border-slate-800 pb-4 text-xl text-emerald-400">
+    <div className="my-8 flex flex-col items-center bg-slate-900/50 border border-slate-800 p-8 rounded-xl shadow-inner max-w-lg w-11/12">
+      <div className="mb-6 flex justify-center items-center h-16 w-full border-b border-slate-800 pb-4 text-2xl text-emerald-400">
         <MathText content="r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}" />
       </div>
       
-      <div className="w-full space-y-3 pt-2 text-sm text-slate-300 font-mono">
+      <div className="w-full space-y-4 pt-4 text-lg text-slate-300 font-mono">
         <div className="flex justify-center items-center bg-slate-950 p-3 rounded border border-slate-800/60 shadow-sm">
           <MathText content="S_{xx} = \sum x^2 - \frac{(\sum x)^2}{n}" />
         </div>
@@ -84,14 +86,19 @@ export const PMCCPanelSVG: React.FC = () => (
       </div>
     </div>
 
-    <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-6 py-2 font-mono font-bold tracking-widest rounded-full text-sm mb-4">
+    <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-6 py-2 font-mono font-bold tracking-widest rounded-full text-base mb-4">
       <MathText content="-1 \leq r \leq 1" />
     </div>
 
-    <p className="text-[11px] font-sans text-slate-400 text-center px-6 italic">
-      The PMCC formula combines summary statistics to measure linear correlation.
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Always verify your result. Accepting an impossible value like <MathText content="r = 1.2" className="inline" /> proves to the examiner you do not understand the metric.
-    </p>
+    <div className="w-full px-6 mt-4">
+      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
+        The PMCC formula combines summary statistics to measure linear correlation.
+        <div className="mt-3 p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
+          <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+          Always verify your result. Accepting an impossible value like <MathText content="r = 1.2" className="inline" /> proves to the examiner you do not understand the metric.
+        </div>
+      </div>
+    </div>
   </div>
 );
 
@@ -104,7 +111,7 @@ export const ScatterClustersSVG: React.FC = () => (
       Fig 3. Subgroups in Data
     </div>
     
-    <svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+    <svg width="500" height="300" viewBox="20 0 480 310" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
       {/* Axes */}
       <path d="M50 30 L50 250 L470 250" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
       
@@ -143,10 +150,12 @@ export const ScatterClustersSVG: React.FC = () => (
       </foreignObject>
     </svg>
 
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic">
-      An overall regression line can be highly misleading if the population contains distinct sections or subgroups.
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Do not blindly trust a single PMCC value without looking at the visual scatter structure first.
-    </p>
+    <div className="w-full px-6 mt-6">
+      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
+        An overall regression line can be highly misleading if the population contains distinct sections or subgroups.
+        <strong className="block mt-2 text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Do not blindly trust a single PMCC value without looking at the visual scatter structure first.
+      </div>
+    </div>
   </div>
 );
 
@@ -159,7 +168,7 @@ export const InterpolationLineSVG: React.FC = () => (
       Fig 5. Linear Interpolation Setup
     </div>
     
-    <svg width="500" height="180" viewBox="0 0 500 180" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+    <svg width="500" height="180" viewBox="-10 -10 520 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
       {/* Top Line: Cumulative Frequency */}
       <foreignObject x="0" y="30" width="75" height="30">
         <div className="text-right text-[10px] text-slate-400 font-sans pr-2 font-medium leading-tight">Cum. Freq<br/>(y)</div>
@@ -203,12 +212,12 @@ export const InterpolationLineSVG: React.FC = () => (
       </foreignObject>
     </svg>
 
-    <div className="w-full px-8 border-t border-slate-800/60 pt-6 bg-slate-900/40">
-      <p className="text-[11px] text-slate-300 leading-relaxed italic text-center mb-4">
+    <div className="w-full px-8 border-t border-slate-800/60 pt-6 bg-slate-900/40 text-center">
+      <p className="text-sm text-slate-300 leading-relaxed italic mb-4">
         Interpolation maps the fraction of the frequency directly onto the fraction of the class width:
       </p>
       <div className="flex justify-center mb-4">
-        <div className="text-emerald-400 font-mono text-sm bg-slate-950 py-3 px-6 rounded-lg border border-slate-800 shadow-md">
+        <div className="text-emerald-400 font-mono text-lg bg-slate-950 py-3 px-6 rounded-lg border border-slate-800 shadow-md">
           <MathText content="\frac{Q_2 - 10}{20 - 10} = \frac{10 - 5}{17 - 5}" />
         </div>
       </div>
@@ -225,7 +234,7 @@ export const ResidualAnalysisSVG: React.FC = () => (
       Fig 6. Diagnostic Residual Analysis
     </div>
     
-    <svg width="500" height="200" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+    <svg width="500" height="200" viewBox="10 0 480 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
       {/* Zero Residual Reference Line */}
       <line x1="50" y1="100" x2="450" y2="100" stroke="#34d399" strokeWidth="1.5" strokeDasharray="4 4" />
       
@@ -250,9 +259,11 @@ export const ResidualAnalysisSVG: React.FC = () => (
       ))}
     </svg>
 
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic">
-      A completely random dispersion of residual plots validates the reliability of a linear model fit.
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Clear parabolic patterns like the one above indicate that a non-linear relationship exists, proving that a linear PMCC calculation is an invalid metric.
-    </p>
+    <div className="w-full px-6 mt-6">
+      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
+        A completely random dispersion of residual plots validates the reliability of a linear model fit.
+        <strong className="block mt-2 text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Clear parabolic patterns like the one above indicate that a non-linear relationship exists, proving that a linear PMCC calculation is an invalid metric.
+      </div>
+    </div>
   </div>
 );

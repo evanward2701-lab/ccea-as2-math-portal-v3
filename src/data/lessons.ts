@@ -85,9 +85,14 @@ $W = 34300 \\text{ N}$
 ### Example 2: Vector Magnitude
 A particle's velocity is modelled by the vector $\\mathbf{v} = 6\\mathbf{i} - 8\\mathbf{j} \\text{ m s}^{-1}$. Find its speed.
 **Step 1:** Recognise speed is the scalar magnitude of velocity.
-Speed $= \\sqrt{6^2 + (-8)^2}$
-**Step 2:** Calculate.
-Speed $= \\sqrt{36 + 64} = \\sqrt{100} = 10 \\text{ m s}^{-1}$
+$$
+\\begin{aligned}
+\\text{Speed} &= \\sqrt{6^2 + (-8)^2} \\\\
+&= \\sqrt{36 + 64} \\\\
+&= \\sqrt{100} \\\\
+&= 10 \\text{ m s}^{-1}
+\\end{aligned}
+$$
 
 ## 7. Common Traps
 * **Leaving answers as surds:** Unlike pure mathematics, mechanics heavily relies on decimal answers in context. Leave answers to 3 significant figures unless an exact surd is cleaner or specified.
@@ -268,21 +273,36 @@ $16 = 5a \\Rightarrow a = 3.2 \\text{ m s}^{-2}$
 **Step 2:** Apply SUVAT.
 $u = 0, a = 3.2, t = 4, s = ?$
 $s = ut + \\frac{1}{2}at^2$
-$s = 0(4) + \\frac{1}{2}(3.2)(4^2)$
-$s = 1.6 \\times 16 = 25.6 \\text{ m}$
+$$
+\\begin{aligned}
+s &= 0(4) + \\frac{1}{2}(3.2)(4^2) \\\\
+&= 1.6 \\times 16 \\\\
+&= 25.6 \\text{ m}
+\\end{aligned}
+$$
 
 ### Example 2: Lift Dynamics Exam-Style Question
 A lift of mass $500 \\text{ kg}$ contains a passenger of mass $80 \\text{ kg}$. The lift is moving upwards and accelerates at $2 \\text{ m s}^{-2}$. Find the tension in the cable and the normal reaction force exerted by the floor on the passenger. (Take Upwards as Positive)
 
 **System Tension ($T$):** Total mass = $580 \\text{ kg}$.
 $T - 580g = 580a$
-$T - 580(9.8) = 580(2)$
-$T - 5684 = 1160 \\Rightarrow T = 6844 \\text{ N}$
+$$
+\\begin{aligned}
+T - 580(9.8) &= 580(2) \\\\
+T - 5684 &= 1160 \\\\
+T &= 6844 \\text{ N}
+\\end{aligned}
+$$
 
 **Reaction on Passenger ($R$):** Mass = $80 \\text{ kg}$.
 $R - 80g = 80a$
-$R - 80(9.8) = 80(2)$
-$R - 784 = 160 \\Rightarrow R = 944 \\text{ N}$
+$$
+\\begin{aligned}
+R - 80(9.8) &= 80(2) \\\\
+R - 784 &= 160 \\\\
+R &= 944 \\text{ N}
+\\end{aligned}
+$$
 `;
 
 export const S1_CONTENT = `
@@ -323,10 +343,22 @@ A college has 300 students: 180 study Mathematics and 120 do not. A sample of 40
 **Step 1:** Identify totals. Total population = 300. Target sample = 40.
 
 **Step 2:** Calculate for Mathematics students.
-$\\text{Maths sample} = \\frac{180}{300} \\times 40 = 0.6 \\times 40 = 24$
+$$
+\\begin{aligned}
+\\text{Maths sample} &= \\frac{180}{300} \\times 40 \\\\
+&= 0.6 \\times 40 \\\\
+&= 24
+\\end{aligned}
+$$
 
 **Step 3:** Calculate for non-Mathematics students.
-$\\text{Non-Maths sample} = \\frac{120}{300} \\times 40 = 0.4 \\times 40 = 16$
+$$
+\\begin{aligned}
+\\text{Non-Maths sample} &= \\frac{120}{300} \\times 40 \\\\
+&= 0.4 \\times 40 \\\\
+&= 16
+\\end{aligned}
+$$
 `;
 
 export const S2_CONTENT = `
@@ -399,8 +431,13 @@ Events $A$ and $B$ are exhaustive events such that $P(A) = 0.65$ and $P(B) = 0.4
 
 **Step 1:** Since $A$ and $B$ are exhaustive, $P(A \\cup B) = 1$.
 **Step 2:** Apply Addition Law.
-$1 = 0.65 + 0.42 - P(A \\cap B)$
-$1 = 1.07 - P(A \\cap B) \\Rightarrow P(A \\cap B) = 0.07$
+$$
+\\begin{aligned}
+1 &= 0.65 + 0.42 - P(A \\cap B) \\\\
+1 &= 1.07 - P(A \\cap B) \\\\
+P(A \\cap B) &= 0.07
+\\end{aligned}
+$$
 **Conclusion:** Because $P(A \\cap B) = 0.07 \\neq 0$, they are not mutually exclusive.
 `;
 
@@ -439,12 +476,27 @@ A factory makes frames. 20% are faulty. Sample of 8 frames. Let $X$ be number of
 $X \\sim B(8, 0.2)$
 
 **Find probability that none are faulty ($x=0$):**
-$P(X=0) = \\binom{8}{0}(0.2)^0(0.8)^8 = 0.168$
+$$
+\\begin{aligned}
+P(X=0) &= \\binom{8}{0}(0.2)^0(0.8)^8 \\\\
+&= 0.168
+\\end{aligned}
+$$
 
 **Find probability that at most two are faulty ($X \\leq 2$):**
 $P(X \\leq 2) = P(X=0) + P(X=1) + P(X=2)$
-$P(X=1) = \\binom{8}{1}(0.2)^1(0.8)^7 = 0.336$
-$P(X=2) = \\binom{8}{2}(0.2)^2(0.8)^6 = 0.294$
+$$
+\\begin{aligned}
+P(X=1) &= \\binom{8}{1}(0.2)^1(0.8)^7 \\\\
+&= 0.336
+\\end{aligned}
+$$
+$$
+\\begin{aligned}
+P(X=2) &= \\binom{8}{2}(0.2)^2(0.8)^6 \\\\
+&= 0.294
+\\end{aligned}
+$$
 $P(X \\leq 2) = 0.168 + 0.336 + 0.294 = 0.797$ (to 3 s.f.)
 `;
 

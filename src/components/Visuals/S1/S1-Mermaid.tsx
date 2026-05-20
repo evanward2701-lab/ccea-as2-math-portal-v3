@@ -47,7 +47,7 @@ export const DataTypeTree: React.FC = () => {
         <MermaidDiagram chart={S1_DATA_TYPE_MERMAID} />
       </div>
       
-      <p className="text-[11px] font-sans text-slate-400 text-center px-6 italic">
+      <p className="text-sm font-sans text-slate-400 text-center px-6 italic max-w-prose mx-auto">
         Always trace the data back to its origin: was it counted (Discrete) or measured using a continuous instrument (Continuous)?
         <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> "Age" is continuous (time flows continuously), even if it is stated as a discrete integer. "Shoe size" is discrete because intermediate values like 7.34 do not exist.
       </p>

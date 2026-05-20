@@ -40,11 +40,13 @@ graph TD
 
 export const M3ConnectedParticlesMermaid: React.FC = () => {
   return (
-    <div className="w-full bg-slate-950 p-6 rounded-xl border border-slate-900 shadow-xl">
-      <div className="text-xs text-slate-500 font-mono mb-4 uppercase tracking-wider">
-        M3 Connected System Resolution Workflow
+    <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+      <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-l border-b border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+        Fig 6. M3 Connected System Workflow
       </div>
-      <MermaidDiagram chart={M3_CONNECTED_PARTICLES_MERMAID} />
+      <div className="w-full mt-8">
+        <MermaidDiagram chart={M3_CONNECTED_PARTICLES_MERMAID} />
+      </div>
     </div>
   );
 };

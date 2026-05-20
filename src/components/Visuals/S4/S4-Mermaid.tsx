@@ -5,6 +5,7 @@ import { MathText } from '../../MathText';
 export const S4_BINOMIAL_TREE_MERMAID = `%%{init: {
   'theme': 'base',
   'themeVariables': {
+    'fontSize': '16px',
     'background': '#020617',
     'primaryColor': '#0f172a',
     'primaryTextColor': '#f8fafc',
@@ -63,10 +64,15 @@ export const BinomialTree: React.FC = () => {
         <MermaidDiagram chart={S4_BINOMIAL_TREE_MERMAID} />
       </div>
       
-      <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic max-w-prose">
-        A binomial distribution models multiple independent binary trials. Notice how different branches result in the exact same combination of successes.
-        <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Never manually calculate tree branches for <MathText content="n > 3" className="inline" />. Use the binomial formula to save critical time in the exam.
-      </p>
+      <div className="w-full px-6 mt-4 space-y-4 text-center max-w-prose">
+        <p className="text-sm text-slate-400 italic">
+          A binomial distribution models multiple independent binary trials. Notice how different branches can result in the exact same combination of successes.
+        </p>
+        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
+          <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+          Never manually calculate tree branches for <MathText content="n > 3" className="inline" />. Use the binomial formula <MathText content="P(X=x) = \binom{n}{x}p^x(1-p)^{n-x}" className="inline" /> to save critical time.
+        </div>
+      </div>
     </div>
   );
 };

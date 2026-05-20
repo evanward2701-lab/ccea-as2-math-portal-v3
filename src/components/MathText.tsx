@@ -18,11 +18,13 @@ export function MathText({ content, className }: MathTextProps) {
   const processedContent = isPureMathNode ? `$${content}$` : content;
 
   const markdownComponents: Components = {
-    p: ({ node, ...props }) => <p className="mb-3 text-sm font-serif text-slate-300" {...props} />,
-    li: ({ node, ...props }) => <li className="relative pl-6 text-sm before:content-[''] before:absolute before:left-0 before:top-2 before:w-3 before:h-px before:bg-slate-700 text-slate-300" {...props} />,
-    blockquote: ({ node, ...props }) => <blockquote className="border-l-2 border-emerald-500 bg-slate-900/60 p-6 italic text-slate-300 my-8 text-sm rounded-r-lg" {...props} />,
+    p: ({ node, ...props }) => <p className="mb-6 text-[16px] leading-relaxed text-slate-300 font-sans tracking-wide" {...props} />,
+    h2: ({ node, ...props }) => <h2 className="mt-12 mb-6 text-2xl font-serif text-emerald-400 border-l-4 border-emerald-500 pl-4" {...props} />,
+    h3: ({ node, ...props }) => <h3 className="mt-8 mb-4 text-lg font-bold text-slate-100 uppercase tracking-widest text-[11px]" {...props} />,
+    li: ({ node, ...props }) => <li className="relative pl-6 mb-2 text-[16px] leading-relaxed font-sans tracking-wide text-slate-300 before:content-[''] before:absolute before:left-0 before:top-3 before:w-3 before:h-px before:bg-slate-700" {...props} />,
+    blockquote: ({ node, ...props }) => <blockquote className="my-10 p-8 border border-slate-800 bg-slate-900/40 rounded-2xl shadow-xl backdrop-blur-md" {...props} />,
     strong: ({ node, ...props }) => <strong className="font-bold underline decoration-slate-700 underline-offset-4 text-slate-100" {...props} />,
-    code: ({ node, ...props }) => <code className="font-mono text-[10px] bg-slate-900 text-amber-400 px-1.5 py-0.5 uppercase tracking-widest rounded border border-slate-800" {...props} />,
+    code: ({ node, ...props }) => <code className="font-mono text-[11px] bg-slate-950 text-sky-300 px-2 py-0.5 rounded border border-slate-800/50" {...props} />,
     img: ({ node, src, alt, ...props }) => {
       if (alt?.startsWith("visual:")) {
         const visualId = alt.replace("visual:", "");

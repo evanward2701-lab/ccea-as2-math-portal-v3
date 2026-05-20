@@ -16,11 +16,14 @@ export const FMaBridge: React.FC = () => {
   `;
 
   return (
-    <div className="flex flex-col items-center p-6 border border-slate-800 bg-slate-900 rounded-xl shadow-2xl my-8">
-      <div className="w-full mb-4">
+    <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+      <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-l border-b border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+        Fig 1. The F=ma Bridge
+      </div>
+      <div className="w-full mb-4 mt-8">
         <Mermaid chart={chartConfig} />
       </div>
-      <div className="text-[11px] font-sans text-slate-400 text-center italic">
+      <div className="text-[11px] font-sans text-slate-400 text-center italic px-6 mt-2">
         Newton's Second Law (<MathText content="F=ma" />) acts as the operational interface linking dynamic vector systems directly to directional kinematics.
       </div>
     </div>

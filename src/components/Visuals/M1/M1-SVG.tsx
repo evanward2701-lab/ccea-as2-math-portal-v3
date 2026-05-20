@@ -10,7 +10,7 @@ export const ScalarVectorSVG: React.FC = () => (
       Kinematic Vector Foundations
     </div>
     
-    <svg width="100%" height="180" viewBox="0 0 600 180" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="mt-4">
+    <svg width="100%" height="160" viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="mt-4" overflow="visible">
       <defs>
         <marker id="arrow-positive" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
@@ -37,27 +37,19 @@ export const ScalarVectorSVG: React.FC = () => (
         <div className="text-center text-xs font-bold text-rose-400">Finish</div>
       </foreignObject>
 
-      {/* Positive Coordinate Reference Axis Indicator */}
-      <path d="M 430 35 L 530 35" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-positive)" />
-      <foreignObject x="410" y="10" width="140" height="25">
-        <div className="text-center text-[10px] uppercase font-bold text-sky-400 tracking-wider">
-          +ve Direction
-        </div>
-      </foreignObject>
-
       {/* Displacement Vector */}
-      <path d="M 345 80 L 155 80" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#arrow-displacement)" />
-      <foreignObject x="180" y="48" width="150" height="30">
+      <path d="M 345 100 L 155 100" stroke="#f43f5e" strokeWidth="3" markerEnd="url(#arrow-displacement)" />
+      <foreignObject x="180" y="70" width="150" height="30">
         <div className="text-center text-rose-400 text-xs">
-          <MathText content="\text{Displacement } \mathbf{s} = -3\text{ m}" />
+          <span className="font-bold">Displacement</span> <MathText content="\mathbf{s} = -3\text{ m}" />
         </div>
       </foreignObject>
 
       {/* Distance Arc Path */}
-      <path d="M 350 100 C 300 160, 200 160, 150 100" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" />
-      <foreignObject x="190" y="150" width="150" height="30">
+      <path d="M 150 100 C 200 40, 300 40, 350 100" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" fill="none" />
+      <foreignObject x="190" y="15" width="150" height="30">
         <div className="text-center text-amber-500 text-xs">
-          <MathText content="\text{Distance } d = 3\text{ m}" />
+          <span className="font-bold">Distance</span> <MathText content="d = 3\text{ m}" />
         </div>
       </foreignObject>
     </svg>
@@ -86,7 +78,7 @@ export const ModellingAssumptionsSVG: React.FC = () => (
           <circle cx="50" cy="30" r="4" fill="#38bdf8" />
           <line x1="10" y1="30" x2="40" y2="30" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
           <line x1="90" y1="30" x2="60" y2="30" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
-          <text x="50" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">Mass at single point</text>
+          {/* Text removed: "Mass at single point" */}
         </svg>
         <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
           Dimensions negligible. Rotational effects and air resistance are ignored.
@@ -100,8 +92,8 @@ export const ModellingAssumptionsSVG: React.FC = () => (
           <circle cx="50" cy="25" r="12" stroke="#475569" strokeWidth="2" />
           <circle cx="50" cy="25" r="2" fill="#475569" />
           <path d="M 38 60 L 38 25 A 12 12 0 0 1 62 25 L 62 60" stroke="#10b981" strokeWidth="1.5" />
-          <text x="26" y="45" fill="#10b981" fontSize="9" textAnchor="middle">T</text>
-          <text x="74" y="45" fill="#10b981" fontSize="9" textAnchor="middle">T</text>
+          {/* Text removed: "T" */}
+          {/* Text removed: "T" */}
         </svg>
         <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
           No friction. Tension <MathText content="T" className="inline text-emerald-400" /> remains uniform across both sides of the string.
@@ -117,7 +109,7 @@ export const ModellingAssumptionsSVG: React.FC = () => (
             <line key={idx} x1={15 + idx * 8} y1="45" x2={10 + idx * 8} y2="52" stroke="#475569" strokeWidth="1" />
           ))}
           <rect x="35" y="25" width="30" height="20" stroke="#e2e8f0" strokeWidth="1.5" fill="#1e293b" />
-          <text x="20" y="32" fill="#f59e0b" fontSize="8" textAnchor="middle">Friction</text>
+          {/* Text removed: "Friction" */}
         </svg>
         <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
           Frictional resistance opposes motion. Governed by <MathText content="F \leq \mu R" className="inline text-amber-500" />.
@@ -131,8 +123,8 @@ export const ModellingAssumptionsSVG: React.FC = () => (
           <rect x="15" y="25" width="20" height="15" stroke="#64748b" strokeWidth="1.5" />
           <rect x="65" y="25" width="20" height="15" stroke="#64748b" strokeWidth="1.5" />
           <line x1="35" y1="32" x2="65" y2="32" stroke="#f43f5e" strokeWidth="2" />
-          <text x="25" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">accel = a</text>
-          <text x="75" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">accel = a</text>
+          {/* Text removed: "accel = a" */}
+          {/* Text removed: "accel = a" */}
         </svg>
         <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
           String does not stretch. Connected items experience identical acceleration magnitude <MathText content="a" className="inline text-rose-400" />.
@@ -151,7 +143,7 @@ export const TowingModelSVG: React.FC = () => (
       Fig. Towing Dynamics
     </div>
     
-    <svg width="100%" height="180" viewBox="0 0 500 180" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="mt-4">
+    <svg width="100%" height="180" viewBox="0 -10 500 190" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="mt-4" overflow="visible">
       <defs>
         <marker id="force-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
@@ -180,9 +172,6 @@ export const TowingModelSVG: React.FC = () => (
 
       {/* Rigid Tow Bar Link */}
       <line x1="140" y1="98" x2="240" y2="98" stroke="#cbd5e1" strokeWidth="3" />
-      <foreignObject x="160" y="73" width="70" height="20">
-        <div className="text-center text-[10px] text-slate-400 font-medium">Light Bar</div>
-      </foreignObject>
 
       {/* Rescue Truck Block */}
       <rect x="240" y="65" width="100" height="50" stroke="#e2e8f0" strokeWidth="2" fill="#1e293b" rx="4" />
@@ -193,27 +182,27 @@ export const TowingModelSVG: React.FC = () => (
       </foreignObject>
 
       {/* Global Acceleration Vector Header */}
-      <path d="M 180 25 L 260 25" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#force-green)" strokeDasharray="3 1" />
-      <foreignObject x="200" y="5" width="40" height="20">
+      <path d="M 180 25 L 260 25" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#force-green)" />
+      <foreignObject x="270" y="15" width="20" height="20">
         <div className="text-center text-xs font-bold text-sky-400"><MathText content="a" /></div>
       </foreignObject>
 
       {/* Tension Force Vector Pairs */}
-      <path d="M 145 98 L 175 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
-      <text x="160" y="112" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
+      <path d="M 140 98 L 180 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
+      <text x="160" y="90" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
 
-      <path d="M 235 98 L 205 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
-      <text x="220" y="112" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
+      <path d="M 240 98 L 200 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
+      <text x="220" y="90" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
 
       {/* Truck Main Driving Force Vector */}
-      <path d="M 340 90 L 390 90" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#force-amber)" />
-      <foreignObject x="395" y="78" width="20" height="20">
+      <path d="M 340 98 L 390 98" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#force-amber)" />
+      <foreignObject x="395" y="86" width="20" height="20">
         <div className="text-left text-xs font-bold text-amber-500"><MathText content="D" /></div>
       </foreignObject>
 
       {/* Friction/Resistive Vectors */}
       <path d="M 70 105 L 35 105" stroke="#f43f5e" strokeWidth="1.5" markerEnd="url(#force-rose)" />
-      <foreignObject x="10" y="93" width="25" height="20">
+      <foreignObject x="10" y="108" width="25" height="20">
         <div className="text-right text-[10px] font-bold text-rose-400"><MathText content="R_1" /></div>
       </foreignObject>
 
@@ -244,7 +233,7 @@ export const LiftPhysicsSVG: React.FC = () => (
       <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-3 text-center">
         Isolation Mode A:<br/>Cable Tension
       </span>
-      <svg width="160" height="220" viewBox="0 0 160 220" fill="none" shapeRendering="geometricPrecision">
+      <svg width="160" height="220" viewBox="-10 -10 180 240" fill="none" shapeRendering="geometricPrecision" overflow="visible">
         <defs>
           <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
             <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
@@ -254,21 +243,21 @@ export const LiftPhysicsSVG: React.FC = () => (
           </marker>
         </defs>
         
-        <line x1="80" y1="5" x2="80" y2="45" stroke="#e2e8f0" strokeWidth="2" />
-        <rect x="30" y="45" width="100" height="120" stroke="#64748b" strokeWidth="2.5" fill="#1e293b" />
+        <line x1="80" y1="5" x2="80" y2="55" stroke="#e2e8f0" strokeWidth="2" />
+        <rect x="30" y="55" width="100" height="120" stroke="#64748b" strokeWidth="2.5" fill="#1e293b" />
         
-        <circle cx="80" cy="100" r="12" stroke="#475569" strokeWidth="1.5" fill="#334155" />
-        <line x1="80" y1="112" x2="80" y2="145" stroke="#475569" strokeWidth="2" />
-        <line x1="65" y1="155" x2="80" y2="145" stroke="#475569" strokeWidth="2" />
-        <line x1="95" y1="155" x2="80" y2="145" stroke="#475569" strokeWidth="2" />
+        <circle cx="80" cy="110" r="12" stroke="#475569" strokeWidth="1.5" fill="#334155" />
+        <line x1="80" y1="122" x2="80" y2="155" stroke="#475569" strokeWidth="2" />
+        <line x1="65" y1="165" x2="80" y2="155" stroke="#475569" strokeWidth="2" />
+        <line x1="95" y1="165" x2="80" y2="155" stroke="#475569" strokeWidth="2" />
 
-        <path d="M 80 40 L 80 10" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-green)" />
+        <path d="M 80 55 L 80 10" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-green)" />
         <foreignObject x="92" y="10" width="20" height="20">
           <div className="text-xs font-bold text-emerald-400"><MathText content="T" /></div>
         </foreignObject>
 
-        <path d="M 80 130 L 80 195" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrow-rose)" />
-        <foreignObject x="92" y="175" width="60" height="25">
+        <path d="M 80 175 L 80 215" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrow-rose)" />
+        <foreignObject x="92" y="195" width="60" height="25">
           <div className="text-xs font-bold text-rose-400"><MathText content="(M+m)g" /></div>
         </foreignObject>
 
@@ -287,20 +276,20 @@ export const LiftPhysicsSVG: React.FC = () => (
       <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-3 text-center">
         Isolation Mode B:<br/>Floor Reaction
       </span>
-      <svg width="160" height="220" viewBox="0 0 160 220" fill="none" shapeRendering="geometricPrecision">
+      <svg width="160" height="220" viewBox="-10 -10 180 240" fill="none" shapeRendering="geometricPrecision" overflow="visible">
         <line x1="20" y1="155" x2="140" y2="155" stroke="#475569" strokeWidth="3" />
         
-        <circle cx="80" cy="80" r="16" stroke="#e2e8f0" strokeWidth="2" fill="#1e293b" />
-        <line x1="80" y1="96" x2="80" y2="145" stroke="#e2e8f0" strokeWidth="2" />
+        <circle cx="80" cy="90" r="16" stroke="#e2e8f0" strokeWidth="2" fill="#1e293b" />
+        <line x1="80" y1="106" x2="80" y2="145" stroke="#e2e8f0" strokeWidth="2" />
         <line x1="60" y1="155" x2="80" y2="145" stroke="#e2e8f0" strokeWidth="2" />
         <line x1="100" y1="155" x2="80" y2="145" stroke="#e2e8f0" strokeWidth="2" />
 
-        <path d="M 80 155 L 80 105" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-green)" />
-        <foreignObject x="92" y="115" width="20" height="20">
+        <path d="M 80 155 L 80 110" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-green)" />
+        <foreignObject x="92" y="120" width="20" height="20">
           <div className="text-xs font-bold text-emerald-400"><MathText content="R" /></div>
         </foreignObject>
 
-        <path d="M 80 110 L 80 190" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrow-rose)" />
+        <path d="M 80 118 L 80 190" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrow-rose)" />
         <foreignObject x="92" y="170" width="30" height="20">
           <div className="text-xs font-bold text-rose-400"><MathText content="mg" /></div>
         </foreignObject>

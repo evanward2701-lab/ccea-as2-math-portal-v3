@@ -69,10 +69,6 @@ interface LessonVisualProps {
 }
 
 const VISUAL_ID_ALIASES: Record<string, string> = {
-  M1: "M1-Bridge",
-  "M3-RoughPlane": "M3-Rough",
-  "M3-LiftSystem": "M3-Lift",
-  "S1-DataTree": "S1-Tree",
   "M3-Inclined": "M3-Incline",
   "S4-BinomialTree": "S4-Binomial",
   "S3-Bayes": "S3-BayesResolution",
@@ -148,7 +144,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     default:
       console.warn(`Visual ID "${visualId}" not found in LessonVisual.tsx router.`);
       return (
-        <div className="border border-dashed border-slate-700 bg-slate-900/50 p-4 rounded-lg text-xs text-slate-500 text-center">
+        <div className="my-8 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-400">
           Diagram unavailable: {visualId}
         </div>
       );

@@ -1,13 +1,14 @@
 import React from 'react';
-import { MathText } from '../../MathText'; 
+import { MathText } from '../../MathText';
+import { DiagramPanel } from '@/components/DiagramPanel';
 
 export const VennMutExSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
+  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden px-4">
     <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
       Fig 1. Venn Configurations
     </div>
     
-    <svg width="600" height="260" viewBox="0 0 600 260" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+    <svg width="600" height="160" viewBox="10 30 580 170" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
       {/* Left Side: Mutually Exclusive */}
       <rect x="20" y="40" width="260" height="150" stroke="#334155" strokeWidth="2" fill="#0f172a" rx="4" />
       <text x="35" y="65" fill="#94a3b8" fontSize="16" fontFamily="serif" fontStyle="italic">E</text>
@@ -20,13 +21,6 @@ export const VennMutExSVG: React.FC = () => (
       <circle cx="200" cy="115" r="42" stroke="#38bdf8" strokeWidth="2" fill="#38bdf8" fillOpacity="0.05" className="hover:fill-opacity-10 transition-all duration-200" />
       <foreignObject x="185" y="100" width="30" height="30">
         <MathText content="B" className="text-sky-400 text-center font-serif text-base" />
-      </foreignObject>
-      
-      <foreignObject x="20" y="205" width="260" height="40">
-        <div className="text-center font-sans text-xs font-semibold text-emerald-400">
-          <MathText content="P(A \cap B) = 0" />
-          <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Mutually Exclusive (No Overlap)</span>
-        </div>
       </foreignObject>
 
       {/* Right Side: Intersecting */}
@@ -45,19 +39,28 @@ export const VennMutExSVG: React.FC = () => (
       <foreignObject x="490" y="100" width="30" height="30">
         <MathText content="B" className="text-sky-400 text-center font-serif text-base" />
       </foreignObject>
-      
-      <foreignObject x="320" y="205" width="260" height="40">
-        <div className="text-center font-sans text-xs font-semibold text-rose-400">
-          <MathText content="P(A \cap B) \neq 0" />
-          <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Intersecting (General Case)</span>
-        </div>
-      </foreignObject>
     </svg>
 
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 max-w-prose border-t border-slate-900 pt-4 w-full italic">
-      If events are mutually exclusive, the subtraction component of the General Addition Law eliminates to zero.
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Never assume <MathText content="P(A \cup B) = P(A) + P(B)" className="inline" /> unless explicitly stated that the events are mutually exclusive!
-    </p>
+    <div className="flex justify-around w-full max-w-lg mt-4">
+      <div className="text-center font-sans text-xs font-semibold text-emerald-400">
+        <MathText content="P(A \cap B) = 0" />
+        <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Mutually Exclusive (No Overlap)</span>
+      </div>
+      <div className="text-center font-sans text-xs font-semibold text-rose-400">
+        <MathText content="P(A \cap B) \neq 0" />
+        <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Intersecting (General Case)</span>
+      </div>
+    </div>
+
+    <div className="w-full max-w-prose mt-6 border-t border-slate-800 pt-4 text-center">
+      <p className="text-sm text-slate-400 italic mb-4">
+        If events are mutually exclusive, the subtraction component of the General Addition Law eliminates to zero.
+      </p>
+      <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
+        <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+        Never assume <MathText content="P(A \cup B) = P(A) + P(B)" className="inline" /> unless explicitly stated that the events are mutually exclusive!
+      </div>
+    </div>
   </div>
 );
 export const TwoWayTableSVG: React.FC = () => (
@@ -101,30 +104,48 @@ export const TwoWayTableSVG: React.FC = () => (
       </table>
     </div>
 
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic max-w-prose">
-      <span className="text-emerald-400 font-medium">Marginal cells</span> contain single-event probabilities. <span className="text-slate-300 font-medium">Interior elements</span> dictate intersections (<MathText content="\cap" className="inline" />).
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Interior cross-cells ensure you do not use wrong row/column totals as conditional numerators.
-    </p>
+    <div className="w-full px-6 mt-6 max-w-prose">
+      <p className="text-sm text-slate-400 text-center italic mb-4">
+        <span className="text-emerald-400 font-medium">Marginal cells</span> contain single-event probabilities. <span className="text-slate-300 font-medium">Interior elements</span> dictate intersections (<MathText content="\cap" className="inline" />).
+      </p>
+      <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300 text-center">
+        <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong> Interior cross-cells ensure you do not use wrong row/column totals as conditional numerators.
+      </div>
+    </div>
   </div>
 );
 export const BayesResolutionSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-900 border-b border-l border-slate-800 text-slate-400 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-      Fig 4. Conditional Partition Asset
-    </div>
-    
-    <svg width="600" height="180" viewBox="0 0 600 180" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+  <DiagramPanel
+    title="Fig 4. Conditional Partition Asset"
+    analysis={
+      <div className="space-y-4">
+        <p className="text-sm text-slate-400 italic">
+          The sample space is divided into mutually exclusive partitions (<MathText content="A_1, A_2, A_3" className="inline"/>).
+        </p>
+        <div className="p-4 bg-slate-950 rounded-lg border border-slate-800">
+          <span className="text-sky-400 font-bold uppercase tracking-wider block mb-2 text-[10px]">Total Probability Law:</span>
+          <div className="font-mono text-slate-300 text-sm">
+            <MathText content="P(B) = P(A_1 \cap B) + P(A_2 \cap B) + P(A_3 \cap B)" />
+          </div>
+        </div>
+        <p className="text-sm text-slate-400 italic">
+          To isolate a conditional reverse path (Bayes' Theorem), compute the path ratio:
+        </p>
+        <div className="p-4 bg-slate-950 rounded-lg border border-emerald-900">
+          <div className="font-mono text-emerald-400 text-base">
+            <MathText content="P(A_1 | B) = \frac{P(A_1 \cap B)}{P(B)}" />
+          </div>
+        </div>
+      </div>
+    }
+  >
+    <svg width="600" height="120" viewBox="30 20 540 120" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
       {/* Sample Universe Block */}
       <rect x="40" y="30" width="520" height="100" stroke="#475569" strokeWidth="2" fill="#0f172a" rx="4"/>
       
       {/* Partitions */}
       <line x1="220" y1="30" x2="220" y2="130" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
       <line x1="400" y1="30" x2="400" y2="130" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
-      
-      {/* Set Labels */}
-      <text x="55" y="55" fill="#94a3b8" fontSize="12" fontFamily="sans-serif">Partition A₁</text>
-      <text x="235" y="55" fill="#94a3b8" fontSize="12" fontFamily="sans-serif">Partition A₂</text>
-      <text x="415" y="55" fill="#94a3b8" fontSize="12" fontFamily="sans-serif">Partition A₃</text>
       
       {/* Overlapping Target Event B */}
       <ellipse cx="300" cy="85" rx="160" ry="35" stroke="#f59e0b" strokeWidth="2" fill="#f59e0b" fillOpacity="0.08" />
@@ -144,18 +165,5 @@ export const BayesResolutionSVG: React.FC = () => (
         <MathText content="A_3 \cap B" className="text-slate-400 text-center text-xs italic" />
       </foreignObject>
     </svg>
-
-    <div className="w-full px-8 border-t border-slate-800/60 pt-6 bg-slate-900/40 text-[12px] flex flex-col items-center">
-      <span className="text-sky-400 font-bold uppercase tracking-wider block mb-3 text-[10px]">Total Probability Law Framework:</span>
-      <div className="my-2 bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-slate-300 text-sm shadow-sm">
-        <MathText content="P(B) = P(A_1 \cap B) + P(A_2 \cap B) + P(A_3 \cap B)" />
-      </div>
-      <p className="text-slate-400 leading-relaxed mb-4 italic text-center mt-2">
-        To isolate a conditional reverse path (Bayes' Theorem), compute the path ratio:
-      </p>
-      <div className="bg-slate-950 p-4 rounded-lg border border-emerald-900 font-mono text-emerald-400 text-base shadow-sm">
-        <MathText content="P(A_1 | B) = \frac{P(A_1 \cap B)}{P(B)}" />
-      </div>
-    </div>
-  </div>
+  </DiagramPanel>
 );

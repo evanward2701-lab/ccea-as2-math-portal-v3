@@ -12,6 +12,15 @@ const stripDuplicateLeadVisual = (content: string, visualId?: string) => {
   ));
 };
 
+const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
+
+const cleanContent = (content: string) => {
+  return content
+    .replace(/^\s*##\s*\d+\.\s*Lesson Title\s*\n+\*\*.*?\*\*\s*/m, "")
+    .replace(/^\s*\d+\.\s*Lesson Title.*$/m, "")
+    .trim();
+};
+
 export function Lessons() {
   const { id } = useParams();
   
@@ -29,33 +38,34 @@ export function Lessons() {
   }
 
   return (
-    <div className="h-full bg-slate-950 text-slate-100">
-      {/* Main Content Workspace Layout */}
-      <main className="px-8 py-12 bg-slate-950">
-        <div className="max-w-[1400px] mx-auto flex flex-col gap-10 pb-24">
-          
-          {/* Status Header: System Active */}
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400">
-              System Active
-            </span>
+    // The main scrollable container for lesson content, with wide padding.
+    // It's nested inside the main layout's scroll area from App.tsx.
+    <div className="flex-1 min-w-0 p-12 lg:p-20">
+      {/* Inner content wrapper for max-width and vertical spacing. */}
+      <div className="max-w-4xl mx-auto flex flex-col gap-16 pb-32">
+          <div>
+            <header className="border-b border-slate-800 pb-8 mb-4">
+              <h1 className="text-4xl font-serif text-slate-100 tracking-tight">
+                {lesson.title}
+              </h1>
+              <p className="text-emerald-500 font-mono text-[10px] uppercase tracking-widest mt-3">
+                CCEA Specification Module: {getModuleCode(lesson.id)}
+              </p>
+            </header>
+
+            {/* Main Visual Display Block */}
+            {lesson.visualId && (
+              <div className="w-full bg-slate-900/40 p-6 rounded-2xl border border-slate-800 shadow-xl">
+                <LessonVisual visualId={lesson.visualId} />
+              </div>
+            )}
           </div>
 
-          {/* Main Visual Display Block */}
-          {lesson.visualId && (
-            <div className="w-full">
-              <LessonVisual visualId={lesson.visualId} />
-            </div>
-          )}
-
           {/* Processed Mathematical Markdown Text */}
-          {/* Note: min-h-[60vh] ensures layout stability during KaTeX rendering */}
-          <article className="prose prose-slate prose-invert max-w-none text-slate-200 min-h-[60vh]">
-            <MathText content={stripDuplicateLeadVisual(lesson.content, lesson.visualId)} />
+          <article className="prose prose-slate prose-invert max-w-none">
+            <MathText
+              content={stripDuplicateLeadVisual(cleanContent(lesson.content), lesson.visualId)}
+            />
           </article>
 
           {/* Step Sequencer Action Footer */}
@@ -82,7 +92,6 @@ export function Lessons() {
           </footer>
 
         </div>
-      </main>
     </div>
   );
 }

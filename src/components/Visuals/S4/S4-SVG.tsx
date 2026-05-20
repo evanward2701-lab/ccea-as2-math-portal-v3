@@ -43,9 +43,12 @@ export const InequalityPanelSVG: React.FC = () => (
         </tbody>
       </table>
     </div>
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic max-w-prose mb-2">
-      <strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline" />) and upwards inequalities (<MathText content="\ge" className="inline" />) into a format utilizing <MathText content="P(X \le x)" className="inline" />.
-    </p>
+    <div className="w-full px-6 mt-6 max-w-prose">
+      <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300 text-center">
+        <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+        Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline" />) and upwards inequalities (<MathText content="\ge" className="inline" />) into a format utilizing <MathText content="P(X \le x)" className="inline" />.
+      </div>
+    </div>
   </div>
 );
 
@@ -58,7 +61,7 @@ export const NormalDistributionSVG: React.FC = () => (
       Fig 3. Normal Distribution
     </div>
     
-    <svg width="500" height="260" viewBox="0 0 500 260" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+    <svg width="500" height="260" viewBox="20 20 460 240" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
       {/* Background shading for standard deviations */}
       <path d="M 183 200 L 183 118 C 210 50, 230 40, 250 40 C 270 40, 290 50, 317 118 L 317 200 Z" fill="#38bdf8" fillOpacity="0.1" />
       <path d="M 117 200 L 117 185 C 130 150, 150 120, 183 118 L 183 200 Z" fill="#3b82f6" fillOpacity="0.05" />
@@ -81,20 +84,29 @@ export const NormalDistributionSVG: React.FC = () => (
       <line x1="383" y1="200" x2="383" y2="205" stroke="#64748b" strokeWidth="2" />
 
       <foreignObject x="145" y="210" width="80" height="30">
-        <MathText content="\mu - \sigma" className="text-slate-400 text-center text-[10px]" />
+        <MathText content="\mu - \sigma" className="text-slate-400 text-center text-xs" />
       </foreignObject>
       <foreignObject x="275" y="210" width="80" height="30">
-        <MathText content="\mu + \sigma" className="text-slate-400 text-center text-[10px]" />
+        <MathText content="\mu + \sigma" className="text-slate-400 text-center text-xs" />
       </foreignObject>
       <foreignObject x="220" y="100" width="60" height="30">
         <MathText content="\approx 68\%" className="text-sky-300 text-center font-bold text-xs" />
       </foreignObject>
     </svg>
 
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic mb-4">
-      The Normal Distribution is perfectly symmetrical about the mean (<MathText content="\mu" className="inline" />). 
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Always standardize your values using <MathText content="Z = \frac{X - \mu}{\sigma}" className="inline" />. Note that <MathText content="\sigma" className="inline" /> is the standard deviation, but exam questions frequently try to trick you by providing the variance (<MathText content="\sigma^2" className="inline" />) instead!
-    </p>
+    <div className="w-full px-6 mt-6 space-y-4 text-center max-w-prose">
+      <p className="text-sm text-slate-400 italic">
+        The Normal Distribution is perfectly symmetrical about the mean (<MathText content="\mu" className="inline" />).
+      </p>
+      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg">
+        <span className="text-sky-400 font-bold uppercase tracking-wider block mb-2 text-[10px]">Standardisation Formula:</span>
+        <div className="font-mono text-emerald-400 text-lg"><MathText content="Z = \frac{X - \mu}{\sigma}" /></div>
+      </div>
+      <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
+        <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+        Note that <MathText content="\sigma" className="inline" /> is the standard deviation, but exam questions frequently try to trick you by providing the variance (<MathText content="\sigma^2" className="inline" />) instead!
+      </div>
+    </div>
   </div>
 );
 
@@ -119,18 +131,21 @@ export const BinomialConditionsChecklistSVG: React.FC = () => (
             {cond.id}
           </div>
           <div className="flex-1">
-            <h4 className="text-xs font-mono uppercase tracking-wide text-emerald-400 font-bold mb-1">
+            <h4 className="text-sm font-mono uppercase tracking-wide text-emerald-400 font-bold mb-1">
               {cond.title}
             </h4>
-            <p className="text-slate-400 text-xs leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {cond.desc}
             </p>
           </div>
         </div>
       ))}
     </div>
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic max-w-prose mb-2">
-      <strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline" />) and upwards inequalities (<MathText content="\ge" className="inline" />) into a format utilizing <MathText content="P(X \le x)" className="inline" />.
-    </p>
+    <div className="w-full px-6 mt-4 max-w-prose">
+      <div className="p-4 bg-sky-950/30 border border-sky-900/40 rounded-lg text-sm text-sky-300 text-center">
+        <strong className="block text-sky-400 not-italic uppercase text-[10px] mb-1">Modelling Notation:</strong>
+        If all four conditions are met, the scenario can be modelled by a Binomial Distribution, written as <MathText content="X \sim B(n, p)" className="inline" />.
+      </div>
+    </div>
   </div>
 );

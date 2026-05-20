@@ -5,6 +5,7 @@ export const S2_STD_DEV_MERMAID = `%%{init: {
   'theme': 'base',
   'themeVariables': {
     'background': '#020617',
+    'fontSize': '14px',
     'primaryColor': '#0f172a',
     'primaryTextColor': '#f8fafc',
     'primaryBorderColor': '#334155',
@@ -34,14 +35,16 @@ export const StdDevDecisionTree: React.FC = () => {
         Fig 4. Standard Deviation Selector
       </div>
       
-      <div className="w-full px-4 my-6 flex justify-center">
+      <div className="w-full px-4 my-8 flex justify-center">
         <MermaidDiagram chart={S2_STD_DEV_MERMAID} />
       </div>
       
-      <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic">
-        Always check the wording of the question before choosing your standard deviation formula.
-        <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Calculators output both versions ($S_x$ and $\sigma_x$). Using the wrong one will lose you method and accuracy marks instantly.
-      </p>
+      <div className="w-full px-6 mt-2">
+        <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300 text-center">
+          <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+          Calculators output both versions (<MathText content="S_x" className="inline"/> and <MathText content="\sigma_x" className="inline"/>). Using the wrong one will lose you method and accuracy marks instantly.
+        </div>
+      </div>
     </div>
   );
 };
