@@ -8,14 +8,7 @@ export const ScalarVectorSVG: React.FC = () => {
       <div className="w-full text-center mb-4">
         <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Kinematic Vector Foundations</span>
       </div>
-      <svg 
-        width="100%" 
-        height="180" 
-        viewBox="0 0 600 180" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        shapeRendering="geometricPrecision"
-      >
+      <svg width="100%" height="180" viewBox="0 0 600 180" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
         <defs>
           <marker id="arrow-positive" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
             <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
@@ -45,32 +38,21 @@ export const ScalarVectorSVG: React.FC = () => {
         {/* Positive Coordinate Reference Axis Indicator */}
         <path d="M 430 35 L 530 35" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-positive)" />
         <foreignObject x="410" y="10" width="140" height="25">
-          <div className="text-center text-[10px] uppercase font-bold text-sky-400 tracking-wider">
-            +ve Direction
-          </div>
+          <div className="text-center text-[10px] uppercase font-bold text-sky-400 tracking-wider">+ve Direction</div>
         </foreignObject>
 
         {/* Displacement Vector */}
         <path d="M 345 80 L 155 80" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#arrow-displacement)" />
         <foreignObject x="180" y="48" width="150" height="30">
-          <div className="text-center">
-            <MathText content="\text{Displacement } \mathbf{s} = -3\text{ m}" />
-          </div>
+          <div className="text-center"><MathText content="\text{Displacement } \mathbf{s} = -3\text{ m}" /></div>
         </foreignObject>
 
         {/* Distance Arc Path */}
         <path d="M 350 100 C 300 160, 200 160, 150 100" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" />
         <foreignObject x="190" y="150" width="150" height="30">
-          <div className="text-center">
-            <MathText content="\text{Distance } d = 3\text{ m}" />
-          </div>
+          <div className="text-center"><MathText content="\text{Distance } d = 3\text{ m}" /></div>
         </foreignObject>
       </svg>
-      <div className="mt-2 bg-slate-950 p-3 border border-slate-800 rounded-lg w-full text-center">
-        <p className="text-[11px] leading-relaxed text-slate-400 italic">
-          <strong className="text-rose-400">Displacement</strong> is a vector quantity denoting directional change in position relative to origin <MathText content="O" />. <strong className="text-amber-500">Distance</strong> is a pure scalar measuring total absolute path integration.
-        </p>
-      </div>
     </div>
   );
 };
@@ -80,69 +62,78 @@ export const ModellingAssumptionsSVG: React.FC = () => {
   return (
     <div className="w-full flex flex-col my-8">
       <div className="w-full text-center mb-4">
-        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-          CCEA Core Modeling Criteria Matrix
-        </span>
+        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">CCEA Core Modeling Criteria Matrix</span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         
-        {/* Card 1: Particle */}
-        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between hover:border-slate-700 transition-all">
           <span className="font-bold text-xs text-sky-400 uppercase tracking-wider mb-2">Particle</span>
-          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2" shapeRendering="geometricPrecision">
             <circle cx="50" cy="30" r="4" fill="#38bdf8" />
             <line x1="10" y1="30" x2="40" y2="30" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
             <line x1="90" y1="30" x2="60" y2="30" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
-            <text x="50" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">Mass at single point</text>
+            <foreignObject x="10" y="40" width="80" height="20">
+              <div className="text-center text-[8px] text-slate-400">Mass at point</div>
+            </foreignObject>
           </svg>
-          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
-            Dimensions negligible. Rotational effects and air resistance are ignored.
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
+            Dimensions negligible. Rotational effects ignored.
           </div>
         </div>
 
-        {/* Card 2: Smooth Pulley */}
-        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between hover:border-slate-700 transition-all">
           <span className="font-bold text-xs text-emerald-400 uppercase tracking-wider mb-2">Smooth Pulley</span>
-          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2" shapeRendering="geometricPrecision">
             <circle cx="50" cy="25" r="12" stroke="#475569" strokeWidth="2" />
             <circle cx="50" cy="25" r="2" fill="#475569" />
             <path d="M 38 60 L 38 25 A 12 12 0 0 1 62 25 L 62 60" stroke="#10b981" strokeWidth="1.5" />
-            <text x="26" y="45" fill="#10b981" fontSize="9" textAnchor="middle">T</text>
-            <text x="74" y="45" fill="#10b981" fontSize="9" textAnchor="middle">T</text>
+            {/* Replaced raw <text> with <foreignObject> */}
+            <foreignObject x="20" y="35" width="20" height="20">
+              <div className="text-center text-[10px] font-bold text-emerald-400"><MathText content="T" /></div>
+            </foreignObject>
+            <foreignObject x="60" y="35" width="20" height="20">
+              <div className="text-center text-[10px] font-bold text-emerald-400"><MathText content="T" /></div>
+            </foreignObject>
           </svg>
-          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
-            No friction. Tension <MathText content="T" /> remains completely uniform across both sides of the string.
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
+            No friction. Tension <MathText content="T" /> is uniform across string.
           </div>
         </div>
 
-        {/* Card 3: Rough Surface */}
-        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between hover:border-slate-700 transition-all">
           <span className="font-bold text-xs text-amber-500 uppercase tracking-wider mb-2">Rough Surface</span>
-          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2" shapeRendering="geometricPrecision">
             <line x1="10" y1="45" x2="90" y2="45" stroke="#64748b" strokeWidth="2" />
             {Array.from({ length: 9 }).map((_, idx) => (
               <line key={idx} x1={15 + idx * 8} y1="45" x2={10 + idx * 8} y2="52" stroke="#475569" strokeWidth="1" />
             ))}
             <rect x="35" y="25" width="30" height="20" stroke="#e2e8f0" strokeWidth="1.5" fill="#1e293b" />
-            <text x="20" y="32" fill="#f59e0b" fontSize="8" textAnchor="middle">Friction</text>
+            {/* Replaced raw <text> */}
+            <foreignObject x="10" y="22" width="40" height="20">
+              <div className="text-center text-[9px] font-bold text-amber-500">Friction</div>
+            </foreignObject>
           </svg>
-          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
-            Frictional resistance opposes motion. Governed by the law <MathText content="F \leq \mu R" />.
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
+            Friction opposes motion. <MathText content="F \leq \mu R" />.
           </div>
         </div>
 
-        {/* Card 4: Inextensible String */}
-        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between">
+        <div className="border border-slate-800 bg-slate-900 p-4 rounded-xl flex flex-col items-center justify-between hover:border-slate-700 transition-all">
           <span className="font-bold text-xs text-rose-400 uppercase tracking-wider mb-2">Inextensible String</span>
-          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2">
+          <svg width="100" height="60" viewBox="0 0 100 60" fill="none" className="my-2" shapeRendering="geometricPrecision">
             <rect x="15" y="25" width="20" height="15" stroke="#64748b" strokeWidth="1.5" />
             <rect x="65" y="25" width="20" height="15" stroke="#64748b" strokeWidth="1.5" />
             <line x1="35" y1="32" x2="65" y2="32" stroke="#f43f5e" strokeWidth="2" />
-            <text x="25" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">accel = a</text>
-            <text x="75" y="52" fill="#94a3b8" fontSize="8" textAnchor="middle">accel = a</text>
+            {/* Replaced raw <text> */}
+            <foreignObject x="5" y="42" width="40" height="20">
+              <div className="text-center text-[9px] text-slate-400">accel <MathText content="a" /></div>
+            </foreignObject>
+            <foreignObject x="55" y="42" width="40" height="20">
+              <div className="text-center text-[9px] text-slate-400">accel <MathText content="a" /></div>
+            </foreignObject>
           </svg>
-          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-850">
-            String does not stretch. Connected items experience identical acceleration magnitude (<MathText content="a" />).
+          <div className="text-[11px] text-slate-400 text-center bg-slate-950 p-2 rounded w-full border border-slate-800">
+            String does not stretch. Acceleration magnitude (<MathText content="a" />) is identical.
           </div>
         </div>
 
@@ -151,22 +142,25 @@ export const ModellingAssumptionsSVG: React.FC = () => {
   );
 };
 
-// Diagram 4: Towing Model
+
+// Diagram 4: Towing Model (Expanded with Positive Convention Badge)
 export const TowingModelSVG: React.FC = () => {
   return (
     <div className="w-full flex flex-col items-center py-8 px-4 my-6 border border-slate-800 bg-slate-900 relative rounded-xl shadow-2xl">
       <div className="absolute top-0 right-0 bg-slate-800 text-slate-300 px-3 py-1 text-[9px] uppercase tracking-widest font-bold border-l border-b border-slate-700 rounded-tr-xl rounded-bl-xl">
         Fig. Towing Dynamics
       </div>
+
+      {/* NEW: Diagnostic Direction Badge */}
+      <div className="absolute top-4 left-4 flex items-center gap-2 bg-emerald-950/40 border border-emerald-900/50 px-2 py-1 rounded-md shadow-sm">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M2 8H12M12 8L8 4M12 8L8 12" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">+ve Motion</span>
+        <span className="text-emerald-400 text-[10px] font-bold">&checkmark;</span>
+      </div>
       
-      <svg 
-        width="100%" 
-        height="180" 
-        viewBox="0 0 500 180" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        shapeRendering="geometricPrecision"
-      >
+      <svg width="100%" height="180" viewBox="0 0 500 180" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
         <defs>
           <marker id="force-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
             <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
@@ -215,10 +209,14 @@ export const TowingModelSVG: React.FC = () => {
 
         {/* Tension Force Vector Pairs */}
         <path d="M 145 98 L 175 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
-        <text x="160" y="112" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
+        <foreignObject x="150" y="102" width="20" height="20">
+            <div className="text-center text-[10px] font-bold text-emerald-400"><MathText content="T" /></div>
+        </foreignObject>
 
         <path d="M 235 98 L 205 98" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#force-green)" />
-        <text x="220" y="112" fill="#10b981" fontSize="10" fontWeight="bold" textAnchor="middle">T</text>
+        <foreignObject x="210" y="102" width="20" height="20">
+            <div className="text-center text-[10px] font-bold text-emerald-400"><MathText content="T" /></div>
+        </foreignObject>
 
         {/* Truck Main Driving Force Vector */}
         <path d="M 340 90 L 390 90" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#force-amber)" />
@@ -250,16 +248,25 @@ export const TowingModelSVG: React.FC = () => {
   );
 };
 
-// Diagram 5: Lift Physics
+// Diagram 5: Lift Physics (Expanded with Positive Convention Badge)
 export const LiftPhysicsSVG: React.FC = () => {
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 p-6 border border-slate-800 bg-slate-900 rounded-xl shadow-2xl my-6">
       
       {/* Box 1: Whole System Isolation */}
-      <div className="bg-slate-950 p-4 rounded-lg border border-slate-850 flex flex-col items-center">
-        <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-3">
-          Isolation Mode A: Cable Tension
+      <div className="bg-slate-950 p-4 rounded-lg border border-slate-850 flex flex-col items-center relative">
+        <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-3 text-center">
+          Isolation Mode A:<br/>Cable Tension
         </span>
+
+        {/* NEW: Diagnostic Direction Badge (Upwards) */}
+        <div className="absolute top-2 left-2 flex flex-col items-center gap-1 bg-emerald-950/40 border border-emerald-900/50 p-1.5 rounded-md shadow-sm">
+          <svg width="10" height="14" viewBox="0 0 10 16" fill="none">
+            <path d="M5 14L5 2M5 2L1 6M5 2L9 6" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span className="text-[8px] font-bold text-emerald-400 uppercase tracking-widest">+ve</span>
+        </div>
+
         <svg width="160" height="220" viewBox="0 0 160 220" fill="none" shapeRendering="geometricPrecision">
           <defs>
             <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -293,16 +300,25 @@ export const LiftPhysicsSVG: React.FC = () => {
             <div className="text-xs font-bold text-sky-400"><MathText content="a" /></div>
           </foreignObject>
         </svg>
-        <div className="text-[10px] text-slate-400 text-center mt-2 font-serif italic">
+        <div className="text-[10px] text-slate-400 text-center mt-2 font-serif italic border-t border-slate-800 pt-2 w-full">
           <MathText content="T - (M+m)g = (M+m)a" />
         </div>
       </div>
 
       {/* Box 2: Passenger Isolation */}
-      <div className="bg-slate-950 p-4 rounded-lg border border-slate-850 flex flex-col items-center">
-        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-3">
-          Isolation Mode B: Floor Reaction
+      <div className="bg-slate-950 p-4 rounded-lg border border-slate-850 flex flex-col items-center relative">
+        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-3 text-center">
+          Isolation Mode B:<br/>Floor Reaction
         </span>
+
+        {/* NEW: Diagnostic Direction Badge (Upwards) */}
+        <div className="absolute top-2 left-2 flex flex-col items-center gap-1 bg-emerald-950/40 border border-emerald-900/50 p-1.5 rounded-md shadow-sm">
+          <svg width="10" height="14" viewBox="0 0 10 16" fill="none">
+            <path d="M5 14L5 2M5 2L1 6M5 2L9 6" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span className="text-[8px] font-bold text-emerald-400 uppercase tracking-widest">+ve</span>
+        </div>
+
         <svg width="160" height="220" viewBox="0 0 160 220" fill="none" shapeRendering="geometricPrecision">
           <line x1="20" y1="155" x2="140" y2="155" stroke="#475569" strokeWidth="3" />
           
@@ -326,66 +342,11 @@ export const LiftPhysicsSVG: React.FC = () => {
             <div className="text-xs font-bold text-sky-400"><MathText content="a" /></div>
           </foreignObject>
         </svg>
-        <div className="text-[10px] text-slate-400 text-center mt-2 font-serif italic">
+        <div className="text-[10px] text-slate-400 text-center mt-2 font-serif italic border-t border-slate-800 pt-2 w-full">
           <MathText content="R - mg = ma" />
         </div>
       </div>
 
-    </div>
-  );
-};
-
-// Diagram 6: CCEA Examiner Warning Trap (Colocated)
-export const M1ExamTrapSVG: React.FC = () => {
-  return (
-    <div className="w-full border border-rose-500/40 bg-slate-900 p-5 rounded-xl my-8 relative overflow-hidden shadow-2xl">
-      <div className="absolute top-0 right-0 bg-rose-500 text-slate-950 text-[9px] uppercase tracking-widest font-black px-3 py-1 font-sans">
-        CCEA Examiner Warning
-      </div>
-      <h4 className="text-rose-400 font-bold text-sm mb-2 uppercase tracking-wider">
-        The Multiple Responses Penalty Rule
-      </h4>
-      <p className="text-xs text-slate-300 leading-relaxed mb-4">
-        If you are unsure of a sign convention or mathematical method and present two competing solutions on your sheet without clearly crossing one out, 
-        <strong className="text-rose-300"> CCEA examiners are required to mark all attempts and award marks based on the POOREST solution.</strong>
-      </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-        {/* Penalized Choice Column */}
-        <div className="border border-rose-950/60 bg-rose-950/20 p-3 rounded-lg relative opacity-50">
-          <div className="absolute top-2 right-2 text-rose-500 font-bold text-[9px] uppercase tracking-wider">Penalized</div>
-          <span className="block font-bold text-slate-400 mb-1">Attempt 1: Upwards Positive</span>
-          <code className="text-slate-400 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide mb-2">
-            0 = 21 - 9.8t &rArr; t = 2.14s
-          </code>
-          <span className="block font-bold text-slate-400 mb-1">Attempt 2: Downwards Positive</span>
-          <code className="text-slate-400 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide">
-            0 = 21 + 9.8t &rArr; t = -2.14s
-          </code>
-          <p className="text-[10px] text-rose-400/80 italic mt-2 leading-tight">
-            Result: Both versions are scanned. Marks are restricted exclusively to the flawed calculation.
-          </p>
-        </div>
-
-        {/* Correct Practice Column */}
-        <div className="border border-emerald-900/60 bg-emerald-950/20 p-3 rounded-lg relative">
-          <div className="absolute top-2 right-2 text-emerald-400 font-bold text-[9px] uppercase tracking-wider">Correct Practice</div>
-          <span className="block font-bold text-slate-200 mb-1">Discarded Attempt</span>
-          <div className="relative inline-block w-full">
-            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-rose-500/50 to-transparent h-0.5 top-1/2 transform -rotate-3" />
-            <code className="text-slate-500 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide line-through decoration-rose-500/80">
-              0 = 21 + 9.8t &rArr; t = -2.14s
-            </code>
-          </div>
-          <span className="block font-bold text-slate-200 mt-2 mb-1">Active Clean Solution</span>
-          <code className="text-emerald-400 block font-mono text-[10px] bg-slate-950 p-1.5 rounded tracking-wide font-bold">
-            0 = 21 - 9.8t &rArr; t = 2.14s &nbsp;&checkmark;
-          </code>
-          <p className="text-[10px] text-emerald-400/80 italic mt-2 leading-tight">
-            Result: Cross out flawed models with a single line to ensure only your intended work remains active.
-          </p>
-        </div>
-      </div>
     </div>
   );
 };
