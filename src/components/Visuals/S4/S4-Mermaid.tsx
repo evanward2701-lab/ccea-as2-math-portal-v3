@@ -1,5 +1,6 @@
 import React from 'react';
 import { MermaidDiagram } from '../../MermaidDiagram';
+import { MathText } from '../../MathText';
 
 export const S4_BINOMIAL_TREE_MERMAID = `%%{init: {
   'theme': 'base',
@@ -64,7 +65,7 @@ export const BinomialTree: React.FC = () => {
       
       <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic max-w-prose">
         A binomial distribution models multiple independent binary trials. Notice how different branches result in the exact same combination of successes.
-        <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Never manually calculate tree branches for $n > 3$. Use the binomial formula to save critical time in the exam.
+        <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Never manually calculate tree branches for <MathText content="n > 3" className="inline" />. Use the binomial formula to save critical time in the exam.
       </p>
     </div>
   );

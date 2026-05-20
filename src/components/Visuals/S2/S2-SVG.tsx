@@ -90,7 +90,7 @@ export const PMCCPanelSVG: React.FC = () => (
 
     <p className="text-[11px] font-sans text-slate-400 text-center px-6 italic">
       The PMCC formula combines summary statistics to measure linear correlation.
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Always verify your result. Accepting an impossible value like $r = 1.2$ proves to the examiner you do not understand the metric.
+      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Always verify your result. Accepting an impossible value like <MathText content="r = 1.2" className="inline" /> proves to the examiner you do not understand the metric.
     </p>
   </div>
 );

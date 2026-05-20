@@ -320,7 +320,7 @@ $$P(A_3|B) = \\frac{P(A_3 \\cap B)}{P(B)} = \\frac{P(A_3)P(B|A_3)}{P(B)}$$
 $$P(A_3|B) = \\frac{0.10 \\times 0.22}{0.058} = \\frac{0.022}{0.058}$$ [A1]
 $$P(A_3|B) = \\frac{22}{58} = \\frac{11}{29} \\approx 0.379 \\text{ (to 3 s.f.)}$$ [W1]
 `
-  }
+  },
   {
     id: "S4-Q1",
     moduleId: "S4",

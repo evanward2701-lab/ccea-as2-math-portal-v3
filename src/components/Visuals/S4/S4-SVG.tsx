@@ -44,7 +44,7 @@ export const InequalityPanelSVG: React.FC = () => (
       </table>
     </div>
     <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic max-w-prose mb-2">
-      <strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities ($<, >$) and upwards inequalities ($\ge$) into a format utilizing $P(X \le x)$.
+      <strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline" />) and upwards inequalities (<MathText content="\ge" className="inline" />) into a format utilizing <MathText content="P(X \le x)" className="inline" />.
     </p>
   </div>
 );
@@ -92,8 +92,8 @@ export const NormalDistributionSVG: React.FC = () => (
     </svg>
 
     <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic mb-4">
-      The Normal Distribution is perfectly symmetrical about the mean ($\mu$). 
-      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Always standardize your values using $Z = \frac{X - \mu}{\sigma}$. Note that $\sigma$ is the standard deviation, but exam questions frequently try to trick you by providing the variance ($\sigma^2$) instead!
+      The Normal Distribution is perfectly symmetrical about the mean (<MathText content="\mu" className="inline" />). 
+      <br/><strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Always standardize your values using <MathText content="Z = \frac{X - \mu}{\sigma}" className="inline" />. Note that <MathText content="\sigma" className="inline" /> is the standard deviation, but exam questions frequently try to trick you by providing the variance (<MathText content="\sigma^2" className="inline" />) instead!
     </p>
   </div>
 );
@@ -129,8 +129,8 @@ export const BinomialConditionsChecklistSVG: React.FC = () => (
         </div>
       ))}
     </div>
-    <p className="text-[11px] font-sans text-slate-400 text-center mt-2 px-6 italic max-w-prose">
-      <strong className="text-sky-400 not-italic uppercase text-[10px]">CCEA Theory Tip:</strong> You must memorize these four exact conditions. They are frequently tested as a 1-2 mark word-response question immediately before a large calculation block.
+    <p className="text-[11px] font-sans text-slate-400 text-center mt-4 px-6 italic max-w-prose mb-2">
+      <strong className="text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline" />) and upwards inequalities (<MathText content="\ge" className="inline" />) into a format utilizing <MathText content="P(X \le x)" className="inline" />.
     </p>
   </div>
 );
