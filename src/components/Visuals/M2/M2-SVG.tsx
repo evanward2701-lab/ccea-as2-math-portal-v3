@@ -1,7 +1,6 @@
 import React from 'react';
 import { MathText } from "../../MathText";
-import { DiagramPanel } from '@/components/DiagramPanel';
-
+import { DiagramPanel } from "../../DiagramPanel";
 // ==========================================
 // ASSET 1: M2 KINEMATICS MASTER VISUALS
 // ==========================================
