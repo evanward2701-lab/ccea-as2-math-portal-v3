@@ -84,3 +84,4 @@ export const ProbabilityTree: React.FC = () => {
     </div>
   );
 };
+

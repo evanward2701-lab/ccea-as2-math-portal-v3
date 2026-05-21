@@ -25,7 +25,6 @@ import {
 import { M2VelocityTimeGraphEngine } from "./Visuals/M2/M2-VelocityTimeGraph";
 import { M2SuvatMatrix } from "./Visuals/M2/M2-SuvatMatrix";
 import { M2KinematicTrack } from "./Visuals/M2/M2-KinematicTrack";
-} from "./Visuals/M2/M2-SVG";
 
 // M3 Imports
 import { M3ConnectedParticlesMermaid } from './Visuals/M3/M3-Mermaid';
