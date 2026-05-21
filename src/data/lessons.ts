@@ -9,133 +9,179 @@ export const M1_CONTENT = `
 * Demonstrate understanding of and use derived quantities and units: velocity, acceleration, force, and weight.
 * Demonstrate understanding of and use the language of kinematics: position, displacement, distance travelled, velocity, speed, and acceleration.
 * Understand and use modelling assumptions to simplify real-world mechanics problems.
+* Use vectors and scalar magnitudes correctly in the mechanics context.
 
-## 3. Key Vocabulary
-* **Fundamental Quantity:** A base physical measurement (e.g., mass, time, length).
-* **Derived Quantity:** A measurement built from base units (e.g., acceleration, force).
-* **Scalar:** A quantity with magnitude (size) only.
+## 3. Learning Outcomes
+By the end of this lesson, you should be able to:
+* Identify and convert quantities into standard SI units.
+* Distinguish clearly between mass as a scalar and weight as a force.
+* Classify mechanical quantities as either scalars or vectors.
+* Convert a 2D vector quantity into a scalar magnitude.
+* Define and apply standard modelling assumptions such as particle, smooth surface, rough surface, light string, inextensible string, smooth pulley, and rigid rod.
+* Explain why modelling assumptions make a real situation easier to handle mathematically.
+
+## 4. Key Vocabulary
+* **Fundamental Quantity:** A base physical measurement, such as mass, time, or length.
+* **Derived Quantity:** A measurement built from base units, such as velocity, acceleration, or force.
+* **Scalar:** A quantity with magnitude only.
 * **Vector:** A quantity with both magnitude and direction.
 * **Particle:** A modelling assumption where an object's dimensions are negligible and its mass is concentrated at a single point.
+* **Light:** A modelling assumption meaning the object has negligible mass.
 * **Inextensible:** A string or cable that does not stretch under load.
-* **Tension:** A pulling force transmitted through a string or cable.
+* **Tension:** A pulling force transmitted through a string, cable, or light towbar.
 * **Normal Reaction:** A contact force acting perpendicular to a surface.
+* **Weight:** The force due to gravity acting vertically downwards.
 
-## 4. Full Theory Explanation
+## 5. Prior Knowledge
+* Rearranging basic algebraic equations.
+* Right-angled trigonometry and Pythagoras' theorem.
+* Basic 2D vector notation, such as column vectors or $\\mathbf{i}, \\mathbf{j}$ notation.
+* GCSE-level understanding of forces and motion.
+
+## 6. Full Theory Explanation
 
 ### MECHANICS OVERVIEW
-Mechanics focuses on two main ideas: Forces and Motion. These two branches are permanently linked by Newton’s Second Law ($F=ma$), meaning that a resultant force acting on a mass causes it to accelerate.
+Mechanics links forces and motion. Kinematics describes motion without investigating its cause. Dynamics connects motion to forces using Newton's laws, especially Newton's Second Law, $F=ma$.
 
 ### SI UNITS AND DERIVED UNITS
-To standardise calculations, mechanics relies on the Système International (SI) units. You must convert measurements into SI base units before beginning any calculation.
+Mechanics calculations should normally use SI units before substitution into formulae.
 
-* **Mass** is measured in kilograms (kg).
-* **Length/Displacement** is measured in metres (m).
-* **Time** is measured in seconds (s).
+* **Mass** is measured in kilograms, kg.
+* **Length, distance, and displacement** are measured in metres, m.
+* **Time** is measured in seconds, s.
 
-Derived units are created by combining these base units:
+Derived units are created by combining base units:
 
-* **Velocity** is measured in metres per second ($m \\, s^{-1}$).
-* **Acceleration** measures the change in velocity per second, giving metres per second squared ($m \\, s^{-2}$). The notation $\\text{ms}^{-2}$ is perfectly acceptable in exams.
-* **Force** is measured in newtons (N). Because $F = ma$, one newton is equal to one kilogram multiplied by one metre per second squared ($1 \\text{ N} = 1 \\text{ kg m s}^{-2}$).
+* **Velocity** is measured in metres per second, $\\text{m}\\,\\text{s}^{-1}$.
+* **Acceleration** is measured in metres per second squared, $\\text{m}\\,\\text{s}^{-2}$.
+* **Force** is measured in newtons, N. Since $F=ma$, $1\\text{ N}=1\\text{ kg}\\,\\text{m}\\,\\text{s}^{-2}$.
 
-> **Exam Context:** CCEA examiners often test unit conversion natively by embedding non-SI units into standard questions, such as providing mass in tonnes in an $F=ma$ exercise. This requires immediate conversion before formula substitution.
+> **Exam Context:** The evidence questions often test unit conversion inside a larger mechanics problem. If mass is given in tonnes, convert to kilograms before using $W=mg$ or $F=ma$.
 
 ### MASS VERSUS WEIGHT
-Mass is a scalar measure of the amount of matter in an object, measured in kg. Weight is a force caused by the pull of gravity acting vertically downwards on that mass. Because it is a force, weight is measured in newtons and is calculated using $W = mg$, where $g = 9.8 \\text{ m s}^{-2}$.
+Mass is the amount of matter in an object and is measured in kg. Weight is the gravitational force on that mass and is measured in newtons. Weight acts vertically downwards and is calculated using:
+$$
+W=mg
+$$
+where $g=9.8\\text{ m}\\,\\text{s}^{-2}$ unless the question gives a different value.
 
 ![visual:M1-Lift]()
 
 ### SCALARS AND VECTORS
-In mechanics, quantities are grouped into two categories:
+In mechanics, scalar quantities have magnitude only. Vector quantities have magnitude and direction.
 
-* **Scalars** have magnitude (size) only. Examples include distance, speed, time, and mass.
-* **Vectors** have both magnitude and direction. Examples include displacement, velocity, acceleration, and force.
+* **Scalars:** distance, speed, time, mass, energy.
+* **Vectors:** displacement, velocity, acceleration, force, weight, tension.
+
+The speed of a particle is the magnitude of its velocity vector.
 
 ![visual:M1-ScalarVector]()
 
 ### MODELLING ASSUMPTIONS
-Mathematical models simplify complex real-world situations. In mechanics, specific words in an exam question act as strict mathematical rules:
+Mathematical models simplify real motion and force systems. Specific words in CCEA mechanics questions have precise meanings:
 
-* **Particle:** The object's dimensions are negligible. Its mass acts at a single point, and rotational effects or air resistance can be ignored.
-* **Smooth surface:** There is no friction present.
-* **Rough surface:** Friction is present and will oppose any attempted motion.
-* **Light string/pulley:** The string or pulley has no mass. For strings, this means tension is equal throughout.
-* **Inextensible string:** The string does not stretch. If two objects are connected by it, they will share the exact same magnitude of acceleration.
-* **Smooth pulley:** There is no friction in the pulley, ensuring tension is the same on both sides of the string.
-* **Rod:** The object is rigid and does not bend or buckle.
+* **Particle:** Dimensions are negligible. Rotational effects are ignored.
+* **Smooth surface:** Friction is absent.
+* **Rough surface:** Friction is present.
+* **Light string or pulley:** Mass is negligible.
+* **Inextensible string:** The string does not stretch, so connected particles have the same magnitude of acceleration.
+* **Smooth pulley:** The tension is the same on both sides of the string.
+* **Rigid rod or towbar:** The object does not bend or buckle.
 
 ![visual:M1-Modelling]()
 
 ### TENSION AND TOWING MODELS
- When objects are connected by a light towbar or inextensible string, the tension is an internal force for the whole system but an external force on each separate object. Use a whole-system equation to find the common acceleration, then isolate one object to find the tension.
+When objects are connected by a light towbar or inextensible string, the connecting force is internal to the whole system but external to each separate object. Use a whole-system equation to find the common acceleration, then isolate one object to find the tension or thrust.
 
 ![visual:M1-Towing]()
 
-## 5. Formulae and Notation
-* **Weight:** $W = mg$ (using $g = 9.8 \\text{ m s}^{-2}$ unless otherwise stated).
-* **Force Unit Derivation:** $1 \\text{ N} \\equiv 1 \\text{ kg m s}^{-2}$
-* **Magnitude of a 2D Vector:** For a vector $\\mathbf{v} = x\\mathbf{i} + y\\mathbf{j}$ or $\\mathbf{v} = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$, the magnitude is $|\\mathbf{v}| = \\sqrt{x^2 + y^2}$.
+> **Visual placeholder:** Add a compact table comparing modelling words, what they mean physically, and what they allow mathematically.
 
-## 6. Worked Examples
+## 7. Formulae and Notation
+* **Weight:** $W=mg$.
+* **Force unit:** $1\\text{ N}=1\\text{ kg}\\,\\text{m}\\,\\text{s}^{-2}$.
+* **Magnitude of a 2D vector:** If $\\mathbf{v}=x\\mathbf{i}+y\\mathbf{j}$, then $|\\mathbf{v}|=\\sqrt{x^2+y^2}$.
+* **Tonnes to kilograms:** $1\\text{ tonne}=1000\\text{ kg}$.
 
-### Example 1: Unit Conversion
+## 8. Step-by-Step Methods
+
+### Method: Converting Units
+1. Identify the quantity and its given unit.
+2. Convert to SI units before using any mechanics formula.
+3. Substitute into the formula.
+4. Give the final answer with the correct SI unit.
+
+### Method: Converting a Vector into a Scalar Magnitude
+1. Identify the horizontal and vertical components.
+2. Square both components.
+3. Add the squares and take the square root.
+4. Attach the correct unit.
+
+### Method: Interpreting Modelling Assumptions
+1. Highlight the modelling words in the question.
+2. Translate each word into a mathematical effect.
+3. Use the effect in equations, diagrams, or explanations.
+
+## 9. Worked Examples
+
+### Example 1: Unit Conversion and Weight
 
 **Question:**
 A machine has a mass of $3.5$ tonnes. Calculate its weight.
 
 **Solution:**
 
-**Step 1: Convert Mass to SI Units**
+Convert the mass into kg:
 $$
-\\text{Mass} = 3.5 \\times 1000 = 3500 \\text{ kg}
+3.5\\times1000=3500\\text{ kg}
 $$
-
-**Step 2: Apply the Weight Formula**
+Then use $W=mg$:
 $$
-\\begin{aligned}
-W &= mg \\\\
-W &= 3500 \\times 9.8 \\\\
-&= 34300 \\text{ N}
-\\end{aligned}
+W=3500\\times9.8=34300\\text{ N}
 $$
 
-> **Final Answer:** The weight of the machine is $34300 \\text{ N}$.
+> **Final Answer:** The weight of the machine is $34300\\text{ N}$.
 
 ### Example 2: Vector Speed
 
 **Question:**
-A particle's velocity is modelled by the vector $\\mathbf{v} = 6\\mathbf{i} - 8\\mathbf{j} \\text{ m s}^{-1}$. Find its speed.
+A particle has velocity $\\mathbf{v}=6\\mathbf{i}-8\\mathbf{j}\\text{ m}\\,\\text{s}^{-1}$. Find its speed.
 
 **Solution:**
-
-**Step 1: Recognise Speed as the Magnitude of Velocity**
-Speed is a scalar quantity, so we find the magnitude of the velocity vector using Pythagoras' theorem.
 $$
-\\begin{aligned}
-\\text{Speed} &= \\sqrt{6^2 + (-8)^2} \\\\
-&= \\sqrt{36 + 64} \\\\
-&= \\sqrt{100} \\\\
-&= 10 \\text{ m s}^{-1}
-\\end{aligned}
+|\\mathbf{v}|=\\sqrt{6^2+(-8)^2}=\\sqrt{100}=10
 $$
 
-> **Final Answer:** The speed of the particle is $10 \\text{ m s}^{-1}$.
+> **Final Answer:** The speed is $10\\text{ m}\\,\\text{s}^{-1}$.
 
-## 7. Common Traps
+## 10. Common Traps
+* **Forgetting to convert tonnes to kg:** Always convert before using $W=mg$ or $F=ma$.
+* **Confusing mass and weight:** Mass is measured in kg. Weight is a force measured in N.
+* **Calling velocity a speed:** Speed is scalar. Velocity includes direction.
+* **Missing the direction of a vector:** A vector answer without direction may lose marks.
+* **Treating modelling words as decoration:** Words like light, smooth, rigid, and inextensible are mathematical instructions.
 
-* **Leaving answers as surds:** Unlike pure mathematics, mechanics heavily relies on decimal answers in context. Leave answers to 3 significant figures unless an exact surd is cleaner or specified.
-* **Forgetting to convert mass:** The exam frequently tests units by giving mass in tonnes. You must convert to kilograms before using $F=ma$ or $W=mg$.
-* **Confusing mass and weight:** Always use $W = mg$ to find the force downwards. Do not label a force diagram with just "5 kg"; it must be "$5g$".
-* **Using the wrong sign in 1D vectors:** Left and Down are generally negative. Forgetting to assign negative signs to opposite vectors will ruin magnitude and displacement equations.
-* **Hedging your bets:** Leaving two distinct mathematical methods on the page because you aren't sure which one is correct. Examiners are forced to penalize this.
+## 11. Exam Technique
+* Mechanics final answers usually need units.
+* Unless told otherwise, give decimal answers to 3 significant figures where appropriate.
+* If you restart a solution, clearly cross out the version you do not want marked.
+* For explanation questions, link each modelling assumption to the specific context.
 
-## 8. Exam Technique
+## 12. Quick Recall Checklist
+* Can I state the SI units for mass, length, and time?
+* Can I convert tonnes to kilograms?
+* Can I explain the difference between mass and weight?
+* Can I classify displacement, velocity, acceleration, and force as vectors?
+* Can I find the magnitude of a 2D vector?
+* Can I define particle, light, smooth, rough, inextensible, and rigid?
 
-* **Rounding:** Where rounding is required, your final answer should be given to 3 significant figures. To guarantee final accuracy, you must keep more than 3 significant figures during the intermediate stages of a multi-part question.
-* **Multiple Responses:** If you are unsure of a sign (e.g., gravity direction) and offer two solutions on the page without crossing one out, the examiner will award marks for the poorest solution. You must make a clear choice.
-* **Units:** Every final answer in a mechanics question must include its correct SI unit.
+## 13. End-of-Lesson Summary
+This foundation lesson establishes the language of AS2 mechanics. Before applying SUVAT or Newton's laws, values must be in the correct units, vectors and scalars must be distinguished, and modelling assumptions must be interpreted accurately.
 
-> ⚠️ **EXAM WARNING: THE "MULTIPLE RESPONSES" RULE** > If you are unsure of how to tackle a problem and you provide two different methods or answers on your page in the hope that the examiner will select the correct one, you will be heavily penalised. Official CCEA examiner guidance dictates that if a candidate provides multiple responses clearly trying to cover all options without crossing one out, the examiner will mark all attempts and award the marks for the **POOREST** solution. If you restart a question or change your mind about a mathematical model, you must decisively cross out the incorrect attempt with a single diagonal line so that only your intended, final solution remains active.
+## 14. Source Gaps or Caution Notes
+> **Caution - Variable acceleration:** The evidence base mentions calculus-based motion in some places, but AS2 constant acceleration questions should not use differentiation or integration.
+
+> **Caution - Modelling:** Do not over-explain real-world complications unless the question asks for limitations of a model.
 `;
 
 export const M2_CONTENT = `
@@ -144,146 +190,199 @@ export const M2_CONTENT = `
 
 ## 2. Specification Focus
 * Demonstrate understanding of and use the language of kinematics: position, displacement, distance travelled, velocity, speed, and acceleration.
-* Demonstrate understanding of, use and interpret graphs in kinematics for motion in a straight line (displacement-time and velocity-time graphs).
-* Demonstrate understanding of and use the formulae for constant acceleration (SUVAT) for motion in a straight line.
-* Demonstrate understanding of and use weight and motion in a straight line under gravity.
-* Demonstrate understanding of and use the constant acceleration formulae in two dimensions using vectors.
+* Use and interpret displacement-time and velocity-time graphs for motion in a straight line.
+* Use the constant acceleration formulae for motion in a straight line.
+* Use weight and motion in a straight line under gravity.
+* Use constant acceleration formulae in two dimensions using vectors.
 
-## 3. Key Vocabulary
-* **Position Vector:** Location of a particle relative to a fixed origin.
-* **Displacement:** Directed change in position from a starting point (vector).
-* **Distance:** Total length of the path travelled (scalar).
-* **Velocity:** Rate of change of displacement (vector).
-* **Speed:** Rate of change of distance, or the magnitude of velocity (scalar).
-* **Acceleration:** Rate of change of velocity (vector).
-* **Deceleration:** A negative acceleration relative to the direction of motion, indicating the object is slowing down.
+## 3. Learning Outcomes
+By the end of this lesson, you should be able to:
+* Distinguish between distance and displacement, and between speed and velocity.
+* Interpret gradients on displacement-time and velocity-time graphs.
+* Calculate displacement or distance from the area under a velocity-time graph.
+* Select and apply SUVAT formulae in horizontal and vertical motion.
+* Use $g=9.8\\text{ m}\\,\\text{s}^{-2}$ with a clear sign convention.
+* Apply SUVAT component-by-component in 2D vector problems.
 
-## 4. Full Theory Explanation
+## 4. Key Vocabulary
+* **Position:** Location relative to a fixed origin.
+* **Displacement:** Directed change in position from a starting point.
+* **Distance:** Total length of the path travelled.
+* **Velocity:** Rate of change of displacement.
+* **Speed:** Rate of change of distance, or the magnitude of velocity.
+* **Acceleration:** Rate of change of velocity.
+* **Deceleration:** Acceleration acting opposite to the direction of motion.
+* **Uniform acceleration:** Constant acceleration.
+
+## 5. Prior Knowledge
+* Rearranging formulae and solving quadratics.
+* Areas of rectangles, triangles, and trapezia.
+* Basic vector arithmetic.
+* Pythagoras' theorem.
+
+## 6. Full Theory Explanation
 
 ### LANGUAGE OF KINEMATICS
-Kinematics is the study of motion. Distance and speed are scalar quantities, meaning they have magnitude but no direction. Displacement and velocity are vectors, meaning they have both magnitude and direction. For example, if a cyclist travels 5 km away and 5 km back, her total distance is 10 km, but her final displacement is 0 km.
+Kinematics is the study of motion. Distance and speed are scalar quantities. Displacement, velocity, and acceleration are vector quantities.
+
+For example, if a cyclist travels 5 km east and then 5 km west, the total distance is 10 km but the final displacement is 0 km.
 
 ### MOTION GRAPHS
 ![visual:M2-VTS]()
 
-* **Displacement-time graphs:** The gradient tells us how quickly displacement is changing. Therefore, the gradient gives the velocity. A flat horizontal line means the object is stationary. A straight sloping line means constant velocity.
-* **Velocity-time graphs:** The gradient gives the acceleration. A flat horizontal line above the axis means the object is moving at a constant velocity (zero acceleration). The area under a velocity-time graph gives the displacement (and distance, provided the velocity remains positive).
+* On a **displacement-time graph**, the gradient gives velocity.
+* On a **velocity-time graph**, the gradient gives acceleration.
+* On a **velocity-time graph**, the area between the graph and the time axis gives displacement.
+* If the velocity is always positive, the area also gives distance travelled.
+* If velocity changes sign, distance travelled requires adding the magnitudes of separate areas.
 
-* **Exam-Style Note:** When asked to describe the motion of an athlete or particle between two times from a graph, ensure you give enough detail (such as explicitly stating "constant acceleration" or calculating the exact acceleration value) to gain the mark.
+> **Visual placeholder:** Add a velocity-time graph that crosses the time axis, showing displacement as signed area and distance as total area.
 
-### CONSTANT ACCELERATION (SUVAT)
-When an object is moving in a straight line with constant acceleration, its motion is governed by the five SUVAT equations. The variables are:
+### CONSTANT ACCELERATION
+The SUVAT equations apply only when acceleration is constant. The variables are:
 
-* $s = \\text{displacement}$
-* $u = \\text{initial velocity}$
-* $v = \\text{final velocity}$
-* $a = \\text{acceleration}$
-* $t = \\text{time}$
+* $s$ = displacement
+* $u$ = initial velocity
+* $v$ = final velocity
+* $a$ = acceleration
+* $t$ = time
 
-You must define a positive direction before substituting values.
-
-If a particle is decelerating while moving in the positive direction, its acceleration $a$ will be negative.
+Always define the positive direction before substitution.
 
 ### VERTICAL MOTION UNDER GRAVITY
-Vertical motion is a standard constant acceleration topic. If we ignore air resistance, an object in freefall accelerates downwards at $g = 9.8 \\text{ m s}^{-2}$ regardless of its mass. You must pick a positive direction. If upwards is positive, $a = -9.8$. If downwards is positive, $a = 9.8$. At the maximum height of a vertical projection, the particle is instantaneously at rest, meaning $v = 0$.
+If air resistance is ignored, vertical motion has constant acceleration $g=9.8\\text{ m}\\,\\text{s}^{-2}$ downwards. If upwards is positive, $a=-9.8$. If downwards is positive, $a=9.8$.
+
+At the greatest height of a vertical projection, the instantaneous velocity is $v=0$.
 
 ![visual:M2-Gravity]()
 
-### CONSTANT ACCELERATION IN TWO DIMENSIONS (VECTORS)
-In 2D kinematics, displacement ($\\mathbf{s}$), initial velocity ($\\mathbf{u}$), final velocity ($\\mathbf{v}$), and acceleration ($\\mathbf{a}$) become vectors, while time ($t$) remains a scalar. You apply the SUVAT formulae component-by-component. For example, the equation $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ applies to the $\\mathbf{i}$ components and the $\\mathbf{j}$ components simultaneously.
+### CONSTANT ACCELERATION IN TWO DIMENSIONS
+In 2D kinematics, displacement, velocity, and acceleration are vectors, but time is still a scalar. Apply SUVAT separately to the $\\mathbf{i}$ and $\\mathbf{j}$ components.
 
 ![visual:M2-Traffic]()
 
-## 5. Formulae and Notation
-1. Area of a trapezium: $A = \\frac{1}{2}(a+b)h$
-2. SUVAT Equations (1D & 2D Vectors):
-   * $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$
-   * $\\mathbf{s} = \\frac{1}{2}(\\mathbf{u} + \\mathbf{v})t$
-   * $\\mathbf{s} = \\mathbf{u}t + \\frac{1}{2}\\mathbf{a}t^2$
-   * $\\mathbf{s} = \\mathbf{v}t - \\frac{1}{2}\\mathbf{a}t^2$ (This is perfectly acceptable to use in CCEA exams)
-   * $v^2 = u^2 + 2as$ (1D scalar motion only)
-3. Position Vector: $\\mathbf{r} = \\mathbf{r}_0 + \\mathbf{u}t + \\frac{1}{2}\\mathbf{a}t^2$
-4. Speed: $|\\mathbf{v}| = \\sqrt{v_x^2 + v_y^2}$
+## 7. Formulae and Notation
+* $v=u+at$
+* $s=\\frac{1}{2}(u+v)t$
+* $s=ut+\\frac{1}{2}at^2$
+* $s=vt-\\frac{1}{2}at^2$
+* $v^2=u^2+2as$
+* Vector form: $\\mathbf{v}=\\mathbf{u}+\\mathbf{a}t$
+* Vector form: $\\mathbf{s}=\\mathbf{u}t+\\frac{1}{2}\\mathbf{a}t^2$
+* Position vector: $\\mathbf{r}=\\mathbf{r}_0+\\mathbf{u}t+\\frac{1}{2}\\mathbf{a}t^2$
+* Speed from vector velocity: $|\\mathbf{v}|=\\sqrt{v_x^2+v_y^2}$
 
-## 6. Worked Examples
+## 8. Step-by-Step Methods
+
+### Method A: Velocity-Time Graphs
+1. Mark the known times and velocities.
+2. Split the graph into simple shapes.
+3. Use gradient for acceleration.
+4. Use area for displacement or distance.
+5. Watch for negative velocity if asked for total distance.
+
+### Method B: 1D SUVAT
+1. Define the positive direction.
+2. List $s,u,v,a,t$.
+3. Fill in the known values.
+4. Choose the equation containing the required unknown.
+5. Substitute, solve, and include units.
+
+### Method C: 2D Vector SUVAT
+1. Write all vector quantities in component form.
+2. Choose the vector SUVAT equation.
+3. Substitute time as a scalar.
+4. Add $\\mathbf{i}$ and $\\mathbf{j}$ components separately.
+5. Use Pythagoras only when asked for a scalar magnitude.
+
+## 9. Worked Examples
 
 ### Example 1: Vertical Motion
 
 **Question:**
-A ball is projected vertically upwards from a point 7 m above the ground with an initial speed of $21 \\text{ m s}^{-1}$. Find the greatest height above the ground reached by the ball.
+A ball is projected vertically upwards from a point 7 m above the ground with initial speed $21\\text{ m}\\,\\text{s}^{-1}$. Find the greatest height above the ground.
 
 **Solution:**
-
-**Step 1: Define Parameters & Sign Convention**
-
-Choose downwards as the positive direction. The initial velocity is upwards, and the velocity at the greatest height is zero.
-
+Take downwards as positive:
 $$
-u = -21
+u=-21,\\quad a=9.8,\\quad v=0
 $$
-
+Use $v^2=u^2+2as$:
 $$
-a = 9.8
-$$
-
-$$
-v = 0
-$$
-
-**Step 2: Select SUVAT Equation and Solve for Displacement (s)**
-$$
-\\begin{aligned}
-v^2 &= u^2 + 2as \\\\
-0^2 &= (-21)^2 + 2(9.8)s \\\\
-0 &= 441 + 19.6s \\\\
--19.6s &= 441 \\\\
-s &= -22.5 \\text{ m}
-\\end{aligned}
-$$
-
-**Step 3: Interpret Result and Find Final Height**
-
-The negative displacement confirms the ball travelled 22.5 m upwards from its starting point.
-
-The question asks for the height above the ground.
-
-$$
-\\text{Height} = 7 + 22.5
+0=(-21)^2+2(9.8)s
 $$
 $$
-= 29.5\\text{ m}
+s=-22.5\\text{ m}
+$$
+The ball rises 22.5 m above the release point, so the greatest height above the ground is:
+$$
+7+22.5=29.5\\text{ m}
 $$
 
-> **Final Answer:** The greatest height reached is $29.5 \\text{ m}$.
+> **Final Answer:** $29.5\\text{ m}$.
 
-### Example 2: 2D Vector Velocity
+### Example 2: Vector Velocity
 
 **Question:**
-A particle has initial velocity $\\mathbf{u} = 3\\mathbf{i} - \\mathbf{j} \\text{ m s}^{-1}$ and constant acceleration $\\mathbf{a} = 2\\mathbf{i} + 4\\mathbf{j} \\text{ m s}^{-2}$. Find its velocity after 5 seconds.
+A particle has initial velocity $3\\mathbf{i}-\\mathbf{j}$ and acceleration $2\\mathbf{i}+4\\mathbf{j}$. Find its velocity after 5 seconds.
 
 **Solution:**
-
-**Step 1: Select the Vector SUVAT Equation**
 $$
-\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t
+\\mathbf{v}=\\mathbf{u}+\\mathbf{a}t
 $$
-
-**Step 2: Substitute the Vectors and Time**
 $$
-\\mathbf{v} = (3\\mathbf{i} - \\mathbf{j}) + (2\\mathbf{i} + 4\\mathbf{j})(5)
+\\mathbf{v}=(3\\mathbf{i}-\\mathbf{j})+(2\\mathbf{i}+4\\mathbf{j})(5)
 $$
-
-**Step 3: Scale the Acceleration Vector**
 $$
-\\mathbf{v} = 3\\mathbf{i} - \\mathbf{j} + 10\\mathbf{i} + 20\\mathbf{j}
+\\mathbf{v}=13\\mathbf{i}+19\\mathbf{j}
 $$
 
-**Step 4: Group Components to Find Final Velocity**
+> **Final Answer:** $13\\mathbf{i}+19\\mathbf{j}\\text{ m}\\,\\text{s}^{-1}$.
+
+### Example 3: Velocity-Time Graph Area
+
+**Question:**
+A car travels 1500 m in 120 s. It accelerates uniformly from rest to speed $V$, then decelerates uniformly to rest. Find $V$.
+
+**Solution:**
+The velocity-time graph is a triangle:
 $$
-\\mathbf{v} = (3+10)\\mathbf{i} + (-1+20)\\mathbf{j}
+1500=\\frac{1}{2}\\times120\\times V
+$$
+$$
+V=25
 $$
 
-> **Final Answer:** $\\mathbf{v} = 13\\mathbf{i} + 19\\mathbf{j} \\text{ m s}^{-1}$
+> **Final Answer:** $25\\text{ m}\\,\\text{s}^{-1}$.
+
+## 10. Common Traps
+* **Using SUVAT when acceleration is not constant:** SUVAT only works for uniform acceleration.
+* **Mixing distance and displacement:** Distance is total path length. Displacement is directed change in position.
+* **Forgetting sign conventions:** Gravity may be positive or negative depending on your chosen direction.
+* **Using $v^2=u^2+2as$ on vectors:** This equation is for 1D scalar motion only.
+* **Saying impact speed is zero:** The object stops after impact, but the strike speed is just before impact.
+
+## 11. Exam Technique
+* Use a clear sign convention line before vertical motion.
+* Keep extra accuracy during working and round final answers appropriately.
+* State units on final mechanics answers.
+* For graph description questions, use exact words such as constant velocity, uniform acceleration, stationary, and deceleration.
+
+## 12. Quick Recall Checklist
+* Does gradient on a displacement-time graph give velocity?
+* Does gradient on a velocity-time graph give acceleration?
+* Does area under a velocity-time graph give displacement?
+* Can I recall all five SUVAT equations?
+* Can I use $g=9.8$ with the correct sign?
+* Can I apply SUVAT to vector components?
+
+## 13. End-of-Lesson Summary
+Kinematics connects graphs, equations, and vectors. Motion graphs show rates of change and accumulated displacement visually, while SUVAT gives a structured algebraic method whenever acceleration is constant.
+
+## 14. Source Gaps or Caution Notes
+> **Caution - Variable acceleration:** If displacement or velocity is given as a function of time, do not force SUVAT onto the problem.
+
+> **Caution - Projectiles:** Do not extend this lesson into full projectile range and trajectory formulae unless your teacher explicitly asks for extension material.
 `;
 
 export const M3_CONTENT = `
@@ -291,147 +390,213 @@ export const M3_CONTENT = `
 **M3: Forces, Newton's Laws and Connected Particles**
 
 ## 2. Specification Focus
-* Demonstrate understanding of and use Newton’s First Law and the concept of a force.
-* Resolve forces in two dimensions and find the resultant of a system of forces.
-* Demonstrate understanding of and use Newton’s Second Law ($F=ma$), including forces given as 2D vectors.
-* Apply Newton's laws to solve problems involving connected particles (horizontal, vertical, and pulleys).
-* Solve problems involving equilibrium of forces on a particle.
-* Demonstrate understanding of and use the $F \\leq \\mu R$ model of friction and the coefficient of friction.
+* Understand and use Newton's First Law and the concept of force.
+* Resolve forces in two dimensions and find resultants.
+* Use Newton's Second Law, $F=ma$, including vector force problems.
+* Apply Newton's laws to connected particles, including horizontal motion, vertical motion, lifts, and pulleys.
+* Solve equilibrium problems for particles.
+* Use the friction model $F\\leq \\mu R$ and the coefficient of friction.
 
-## 3. Key Vocabulary
-* **Resultant Force:** The single overall force acting on an object, obtained by adding all individual force vectors.
-* **Equilibrium:** A state where the resultant force is zero. The particle remains at rest or moves with constant velocity.
-* **Weight ($W$):** The gravitational force on a mass, acting vertically downwards ($W = mg$).
-* **Normal Reaction ($R$ or $N$):** The contact force from a surface, acting strictly perpendicular to that surface.
-* **Tension ($T$):** A pulling force transmitted through a taut string, cable, or towbar.
-* **Friction ($F$):** A resistive contact force that opposes actual or impending motion.
-* **Coefficient of Friction ($\\mu$):** A dimensionless constant measuring the roughness between two surfaces.
+## 3. Learning Outcomes
+By the end of this lesson, you should be able to:
+* Draw force diagrams for particles on horizontal and inclined planes.
+* Resolve forces parallel and perpendicular to a plane.
+* Apply $F=ma$ in 1D, 2D, and vector contexts.
+* Form and solve simultaneous equations for connected particles.
+* Use whole-system and isolated-particle methods correctly.
+* Apply limiting friction when an object is on the point of slipping or sliding.
 
-## 4. Full Theory Explanation
+## 4. Key Vocabulary
+* **Resultant Force:** The single overall force obtained by adding all forces.
+* **Equilibrium:** A state where the resultant force is zero.
+* **Weight:** The gravitational force $mg$ acting vertically downwards.
+* **Normal Reaction:** A contact force acting perpendicular to a surface.
+* **Tension:** A pulling force through a taut string, cable, or towbar.
+* **Thrust:** A pushing force through a rigid rod or towbar.
+* **Friction:** A resistive force opposing actual or impending motion.
+* **Limiting Friction:** Maximum friction, where $F=\\mu R$.
+* **Coefficient of Friction:** The constant $\\mu$ measuring surface roughness.
+
+## 5. Prior Knowledge
+* Rearranging algebraic equations and solving simultaneous equations.
+* SOH CAH TOA and Pythagoras.
+* SUVAT for straight-line motion.
+* Adding vectors in $\\mathbf{i},\\mathbf{j}$ form.
+
+## 6. Full Theory Explanation
 
 ### NEWTON'S FIRST LAW AND EQUILIBRIUM
-If an object has zero acceleration ($a=0$), the resultant force is zero. The forces are in equilibrium:
+If the resultant force on a particle is zero, the particle remains at rest or continues moving with constant velocity. For equilibrium:
 
 * Sum of upward forces = sum of downward forces.
-* Sum of leftward forces = sum of rightward forces.
+* Sum of rightward forces = sum of leftward forces.
 
-### NEWTON'S SECOND LAW ($F=ma$)
-When forces are unbalanced, the object accelerates in the direction of the resultant force.
+### NEWTON'S SECOND LAW
+When forces are unbalanced, the resultant force causes acceleration:
 $$
-\\text{Resultant Force} = \\text{mass} \\times \\text{acceleration}
+F=ma
 $$
+Here $F$ means resultant force, not just one individual force.
+
+In vector form:
 $$
-F = ma
+\\mathbf{F}_{\\text{resultant}}=m\\mathbf{a}
 $$
-*Note: $F$ represents the **resultant** force, not just any single applied force.*
+
+### NEWTON'S THIRD LAW
+For every action there is an equal and opposite reaction. The paired forces act on different bodies, so they should not be cancelled in the same force diagram.
 
 ### RESOLVING FORCES AND INCLINED PLANES
-![visual:M3-Inclined]()
-For a particle on an inclined plane at angle $\\theta$ to the horizontal:
+![visual:M3-Incline]()
 
-* The component of weight acting **down the slope** is $mg \\sin \\theta$.
-* The component of weight acting **perpendicularly into the slope** is $mg \\cos \\theta$.
-* The Normal Reaction ($R$) acts perpendicular to the surface.
-* $R$ only equals $mg \\cos \\theta$ if there are no other angled forces pulling away from or pushing into the slope.
+For a particle on a plane inclined at angle $\\theta$ to the horizontal:
+
+* Component of weight down the plane: $mg\\sin\\theta$.
+* Component of weight perpendicular to the plane: $mg\\cos\\theta$.
+* The normal reaction acts perpendicular to the plane.
+* Friction acts along the plane, opposing actual or impending motion.
+
+> **Visual placeholder:** Add a labelled inclined-plane force diagram showing $mg\\sin\\theta$, $mg\\cos\\theta$, $R$, friction, and applied force.
 
 ### THE FRICTION MODEL
-Rough surfaces generate friction that opposes motion or impending motion.
+Friction satisfies:
 $$
-F \\leq \\mu R
+F\\leq\\mu R
 $$
-Friction reaches its maximum limiting value, $F = \\mu R$, only when:
-
-* the object is on the point of slipping, or
-* the object is actively sliding.
+Use $F=\\mu R$ only when the particle is sliding or on the point of slipping. If the particle is simply at rest and not limiting, friction may be less than $\\mu R$.
 
 ### CONNECTED PARTICLES
-![visual:M3-Rough]()
+![visual:M3-Connected]()
 
-Particles joined by a taut, inextensible string share the exact same magnitude of acceleration.
+Particles connected by a taut inextensible string have the same magnitude of acceleration. A light smooth pulley means the tension is the same on both sides of the string.
 
-**Towbars and Trailers:**
-* Treat the entire system as one particle to find the common acceleration.
-* To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
+For connected systems:
 
-**Pulleys:**
-* Particles on a pulley may move in different directions.
-* Write a separate $F=ma$ equation for each mass.
-* Use the direction of motion as positive for each.
-* Solve the equations simultaneously.
-* A "smooth pulley" guarantees the tension $T$ is equal on both sides.
+* Use the whole system to find the common acceleration.
+* Isolate one particle to find tension or thrust.
+* Choose the direction of motion as positive for each particle.
 
 ![visual:M3-Pulley]()
 
-### DYNAMICS OF LIFT PROBLEMS
-* **To find the Cable Tension ($T$):** Zoom out. Treat the lift and the passenger as one single combined mass ($M_{\\text{lift}} + m_{\\text{person}}$). The internal forces cancel out.
-* **To find the Normal Reaction ($R$):** Zoom in. Treat the passenger as a single isolated particle. The Normal Reaction is the force the floor pushes up on them.
+### LIFTS
+For lift problems:
+
+* To find cable tension, treat the lift and passengers as one combined system.
+* To find the force of the floor on a person, isolate the person.
+* Moving upwards and slowing down means acceleration is downwards.
+* Moving downwards and slowing down means acceleration is upwards.
 
 ![visual:M3-Lift]()
 
-## 5. Worked Examples
+## 7. Formulae and Notation
+* $F=ma$
+* $W=mg$
+* $F\\leq\\mu R$
+* Limiting friction: $F=\\mu R$
+* Inclined plane components: $mg\\sin\\theta$ down the plane and $mg\\cos\\theta$ into the plane.
+* Vector dynamics: $\\sum\\mathbf{F}=m\\mathbf{a}$
+
+## 8. Step-by-Step Methods
+
+### Method A: Force Diagrams
+1. Model the object as a particle.
+2. Add weight vertically downwards.
+3. Add contact forces, tensions, applied forces, and friction.
+4. Resolve forces in sensible perpendicular directions.
+5. Apply either equilibrium or $F=ma$.
+
+### Method B: Connected Particles
+1. Decide the likely direction of motion.
+2. Use a whole-system equation to find acceleration if possible.
+3. Isolate one particle to find tension.
+4. Check that tension directions are pulling away from the particle.
+
+### Method C: Friction
+1. Find the normal reaction first.
+2. Decide whether the friction is limiting.
+3. Use $F=\\mu R$ only if limiting or sliding.
+4. Resolve parallel to the surface.
+
+## 9. Worked Examples
 
 ### Example 1: Horizontal Motion
 
 **Question:**
-A body of mass $5 \\text{ kg}$ is pulled along a rough horizontal table by a horizontal force of $20 \\text{ N}$ against a constant friction force of $4 \\text{ N}$. It starts from rest. Find the distance travelled in the first 4 seconds.
+A body of mass $5\\text{ kg}$ is pulled along a rough horizontal table by a horizontal force of $20\\text{ N}$ against a friction force of $4\\text{ N}$. It starts from rest. Find the distance travelled in the first 4 seconds.
 
 **Solution:**
-
-**Step 1: Use $F=ma$ to Find Acceleration**
-The resultant force is the driving force minus the resistive friction.
+The resultant force is:
 $$
-\\begin{aligned}
-F &= 20 - 4 = 16 \\text{ N} \\\\
-16 &= 5a \\\\
-a &= 3.2 \\text{ m s}^{-2}
-\\end{aligned}
+20-4=16\\text{ N}
 $$
-
-**Step 2: Apply SUVAT to Find Displacement**
-We have $u=0$, $a=3.2$, and $t=4$. We need to find $s$.
+Using $F=ma$:
 $$
-\\begin{aligned}
-s &= ut + \\frac{1}{2}at^2 \\\\
-s &= 0(4) + \\frac{1}{2}(3.2)(4^2) \\\\
-&= 1.6 \\times 16 \\\\
-&= 25.6 \\text{ m}
-\\end{aligned}
+16=5a
+$$
+$$
+a=3.2\\text{ m}\\,\\text{s}^{-2}
+$$
+Now use SUVAT:
+$$
+s=ut+\\frac{1}{2}at^2
+$$
+$$
+s=0+\\frac{1}{2}(3.2)(4^2)=25.6
 $$
 
-> **Final Answer:** The body travels $25.6 \\text{ m}$.
+> **Final Answer:** $25.6\\text{ m}$.
 
 ### Example 2: Lift Dynamics
 
 **Question:**
-A lift of mass $500 \\text{ kg}$ contains a passenger of mass $80 \\text{ kg}$. The lift is moving upwards and accelerates at $2 \\text{ m s}^{-2}$. Find the tension in the cable and the normal reaction force exerted by the floor on the passenger. (Take Upwards as Positive)
+A lift of mass $500\\text{ kg}$ contains a passenger of mass $80\\text{ kg}$. It accelerates upwards at $2\\text{ m}\\,\\text{s}^{-2}$. Find the cable tension and the normal reaction on the passenger.
 
 **Solution:**
-
-**Step 1: Find Cable Tension (T) by Isolating the Whole System**
-Total mass = $500 + 80 = 580 \\text{ kg}$.
+For the whole system:
 $$
-\\begin{aligned}
-F &= ma \\\\
-T - 580g &= 580a \\\\
-T - 580(9.8) &= 580(2) \\\\
-T - 5684 &= 1160 \\\\
-T &= 6844 \\text{ N}
-\\end{aligned}
+T-580g=580(2)
 $$
-
-**Step 2: Find Normal Reaction (R) by Isolating the Passenger**
-Consider only the forces acting on the passenger (mass = $80 \\text{ kg}$).
 $$
-\\begin{aligned}
-F &= ma \\\\
-R - 80g &= 80a \\\\
-R - 80(9.8) &= 80(2) \\\\
-R - 784 &= 160 \\\\
-R &= 944 \\text{ N}
-\\end{aligned}
+T=6844\\text{ N}
+$$
+For the passenger:
+$$
+R-80g=80(2)
+$$
+$$
+R=944\\text{ N}
 $$
 
-> **Final Answer:** Tension $T = 6844 \\text{ N}$, Reaction $R = 944 \\text{ N}$.
+> **Final Answer:** $T=6844\\text{ N}$ and $R=944\\text{ N}$.
+
+## 10. Common Traps
+* **Forgetting resultant force:** In $F=ma$, $F$ is the overall force.
+* **Cancelling Newton's Third Law pairs on one object:** Action-reaction pairs act on different bodies.
+* **Using $F=\\mu R$ too early:** Friction is not always limiting.
+* **Resolving weight incorrectly:** On an inclined plane, $mg\\sin\\theta$ is down the slope and $mg\\cos\\theta$ is into the slope.
+* **Forgetting acceleration direction in lifts:** Deceleration means acceleration is opposite to motion.
+
+## 11. Exam Technique
+* Draw a clear force diagram before writing equations.
+* State the positive direction when using $F=ma$.
+* Use whole-system equations to avoid unnecessary tension terms.
+* Keep all forces in newtons and masses in kilograms.
+
+## 12. Quick Recall Checklist
+* Can I draw a complete force diagram?
+* Can I resolve weight on an inclined plane?
+* Can I tell when a particle is in equilibrium?
+* Can I apply $F=ma$ to vectors?
+* Can I solve connected particle problems using whole-system and isolated equations?
+* Can I use $F\\leq\\mu R$ correctly?
+
+## 13. End-of-Lesson Summary
+Dynamics explains motion through resultant forces. Force diagrams, resolving, and Newton's laws give a repeatable method for horizontal motion, lifts, pulleys, inclined planes, connected particles, and friction.
+
+## 14. Source Gaps or Caution Notes
+> **Caution - Moments:** This lesson focuses on particles. Rotational effects and moments are not part of this lesson block.
+
+> **Caution - Friction:** Do not automatically set friction equal to $\\mu R$ unless the wording supports limiting friction or sliding.
 `;
 
 export const S1_CONTENT = `
@@ -439,61 +604,152 @@ export const S1_CONTENT = `
 **S1: Statistical Sampling, Data Types and Inference**
 
 ## 2. Specification Focus
-* Demonstrate understanding of and use the terms population and sample.
-* Use samples to make informal inferences about the population.
-* Demonstrate understanding of and use sampling techniques, including simple random sampling and stratified sampling.
+* Understand and use the terms population and sample.
+* Use samples to make informal inferences about populations.
+* Understand sampling techniques, including simple random sampling and stratified sampling.
+* Select or critique sampling techniques in context.
 * Distinguish between qualitative, quantitative, discrete, and continuous data.
 
-## 3. Key Vocabulary
-* **Population:** The whole group of individuals or items being investigated.
-* **Sample:** A smaller group taken from the population to estimate its characteristics.
-* **Census:** Data collected from every single member of the population.
-* **Sampling Frame:** A complete numbered list of all members of the population used to draw a sample.
-* **Simple Random Sample:** A sample where every member of the population has an equal chance of being selected.
-* **Stratified Sample:** A sample that divides the population into distinct groups (strata) and selects a random sample proportionally.
-* **Discrete Data:** Quantitative data that can only take specific, usually counted, values.
-* **Continuous Data:** Quantitative data that can take any value within a range, usually measured.
-* **Bias:** A systematic unfairness in the way data is collected, meaning the sample is not representative of the population.
+## 3. Learning Outcomes
+By the end of this lesson, you should be able to:
+* Define population, sample, census, and sampling frame.
+* Explain why a sample may be used instead of a census.
+* Describe how to take a simple random sample.
+* Calculate proportional stratified sample sizes.
+* Classify data as qualitative, quantitative discrete, or quantitative continuous.
+* Explain sampling bias using context from the question.
 
-## 4. SAMPLING METHODS
+## 4. Key Vocabulary
+* **Population:** The whole group being investigated.
+* **Sample:** A smaller group selected from the population.
+* **Census:** Data collected from every member of the population.
+* **Sampling Frame:** A complete list of all members of the population.
+* **Simple Random Sample:** A sample where every member has an equal chance of being selected.
+* **Stratified Sample:** A sample formed by splitting the population into groups and sampling proportionally from each.
+* **Qualitative Data:** Non-numerical category data.
+* **Quantitative Data:** Numerical data.
+* **Discrete Data:** Counted values.
+* **Continuous Data:** Measured values that can take any value in a range.
+* **Bias:** Systematic unfairness in data collection.
 
-1. **Simple Random Sampling:** Requires a complete sampling frame. Every item has an equal chance of selection. This removes human bias but does not guarantee the sample will perfectly mirror the population structure.
-2. **Stratified Sampling:** The population is divided into distinct, non-overlapping groups. A random sample is then drawn from each stratum in exact proportion to the size of that group in the population.
+## 5. Prior Knowledge
+* Fractions, ratios, and percentages.
+* Rounding to whole numbers.
+* Interpreting worded contexts.
 
-**Formula:**
-$\\text{Stratum sample size} = \\frac{\\text{Stratum population size}}{\\text{Total population size}} \\times \\text{Overall sample size}$
+## 6. Full Theory Explanation
+
+### POPULATIONS, SAMPLES, AND CENSUSES
+A statistical investigation begins with a population. A census collects data from every member of the population, while a sample collects data from only part of it.
+
+A census can be accurate, but it is often slow, expensive, or impractical. A sample is faster, but it must be selected carefully to avoid bias.
+
+### INFORMAL INFERENCE
+A sample can be used to make an informal inference about a population. For example, if 30% of a representative sample prefer option A, it may be reasonable to estimate that about 30% of the population prefer option A.
+
+Different samples can give different results because of sampling variation.
+
+### DATA TYPES
+![visual:S1-Tree]()
+
+* **Qualitative:** category data, such as favourite subject.
+* **Quantitative discrete:** counted numerical data, such as number of siblings.
+* **Quantitative continuous:** measured numerical data, such as time, height, or mass.
+
+### SIMPLE RANDOM SAMPLING
+A simple random sample needs a complete sampling frame. Number each member and use random numbers to select the sample.
+
+### STRATIFIED SAMPLING
+Stratified sampling preserves the structure of the population by sampling proportionally from each group.
+
+![visual:S1-Stratified]()
+
+### BIAS AND CRITIQUE
+Bias occurs when the sample is not representative. To explain bias well, name who is missing, who is over-represented, or why the selected group might behave differently from the target population.
 
 ![visual:S1-Sampling]()
 
-## 5. Worked Example
+> **Visual placeholder:** Add a before-and-after diagram comparing a biased convenience sample with a proportional stratified sample.
+
+## 7. Formulae and Notation
+* Stratified sample size:
+$$
+\\text{Group sample size}=\\frac{\\text{Group population size}}{\\text{Total population size}}\\times\\text{Overall sample size}
+$$
+
+## 8. Step-by-Step Methods
+
+### Method A: Simple Random Sample
+1. Define the population.
+2. Obtain a complete sampling frame.
+3. Number all members from 1 to $N$.
+4. Generate random numbers.
+5. Select the corresponding members, ignoring repeats or invalid numbers.
+
+### Method B: Stratified Sampling
+1. Identify each stratum and its size.
+2. Identify the total population and required sample size.
+3. Apply the stratified sample formula to each group.
+4. Round carefully if necessary.
+5. Check that the group samples add to the required total.
+
+### Method C: Critiquing a Sample
+1. Identify the target population.
+2. Identify the actual group sampled.
+3. State who is excluded or over-represented.
+4. Link the bias to the variable being measured.
+
+## 9. Worked Examples
 
 ### Example 1: Stratified Sampling
 
 **Question:**
-A college has 300 students: 180 study Mathematics and 120 do not. A sample of 40 students is needed, stratified by whether they study Mathematics. Find how many of each group should be selected.
+A college has 300 students: 180 study Mathematics and 120 do not. A sample of 40 students is needed, stratified by whether they study Mathematics.
 
 **Solution:**
-
-**Step 1: Calculate Sample Size for Mathematics Students**
-Total population = 300. Target sample = 40.
+Mathematics:
 $$
-\\begin{aligned}
-\\text{Maths sample} &= \\frac{180}{300} \\times 40 \\\\
-&= 0.6 \\times 40 \\\\
-&= 24
-\\end{aligned}
+\\frac{180}{300}\\times40=24
+$$
+Non-Mathematics:
+$$
+\\frac{120}{300}\\times40=16
 $$
 
-**Step 2: Calculate Sample Size for Non-Mathematics Students**
-$$
-\\begin{aligned}
-\\text{Non-Maths sample} &= \\frac{120}{300} \\times 40 \\\\
-&= 0.4 \\times 40 \\\\
-&= 16
-\\end{aligned}
-$$
+> **Final Answer:** 24 Mathematics students and 16 non-Mathematics students.
 
-> **Final Answer:** The sample should contain 24 Mathematics students and 16 non-Mathematics students.
+### Example 2: Data Types and Bias
+
+**Question:**
+A school wants to estimate the mean number of hours its sixth-form students spend on independent study. It surveys 30 students at an after-school study club.
+
+**Solution:**
+Hours of study is quantitative continuous data. The sample is biased because study-club students are likely to study more than the general sixth-form population.
+
+## 10. Common Traps
+* **Saying a census means asking lots of people:** It means every member of the population.
+* **Giving generic bias answers:** Always link bias to the context.
+* **Confusing discrete and continuous data:** Counted values are discrete. Measured values are continuous.
+* **Forgetting sampling frame:** A simple random sample needs a complete list.
+
+## 11. Exam Technique
+* When asked to criticise a sample, write in full sentences.
+* Use the words population, sample, representative, and bias accurately.
+* In stratified sampling, show the formula substitution.
+* If rounding causes totals not to match, adjust sensibly and explain.
+
+## 12. Quick Recall Checklist
+* Can I define population, sample, census, and sampling frame?
+* Can I describe a simple random sample?
+* Can I calculate a stratified sample size?
+* Can I classify data types?
+* Can I explain bias in context?
+
+## 13. End-of-Lesson Summary
+Sampling is the foundation of statistical investigation. A good sample can support informal inference, but a biased or badly selected sample can lead to misleading conclusions.
+
+## 14. Source Gaps or Caution Notes
+> **Caution - Formal hypothesis testing:** Hypothesis testing, p-values, critical regions, and significance levels are not part of this AS2 lesson block.
 `;
 
 export const S2_CONTENT = `
@@ -501,168 +757,535 @@ export const S2_CONTENT = `
 **S2: Data Presentation and Interpretation**
 
 ## 2. Specification Focus
-* Interpret diagrams for single-variable data (e.g. histograms where area represents frequency).
-* Interpret measures of central tendency and variation, including standard deviation and variance of a population or sample.
-* Clean data, recognise/interpret outliers.
-* Interpret scatter diagrams and regression lines, including distinct sections of the population.
-* Calculate and interpret the product-moment correlation coefficient (PMCC).
+* Interpret diagrams for single-variable data, including histograms where area represents frequency.
+* Interpret measures of central tendency and variation.
+* Use standard deviation and variance for populations and samples.
+* Clean data and recognise or interpret outliers.
+* Interpret scatter diagrams and regression lines.
+* Calculate and interpret the product-moment correlation coefficient, PMCC.
+* Understand when a linear model is not appropriate.
 
-## 3. Explanations
+## 3. Learning Outcomes
+By the end of this lesson, you should be able to:
+* Interpret and complete histograms using frequency density.
+* Estimate values from grouped data using interpolation.
+* Compare centre and spread using mean, median, quartiles, range, interquartile range, variance, and standard deviation.
+* Identify outliers using a stated rule.
+* Interpret scatter diagrams, regression lines, PMCC, and residual plots.
+* Explain why correlation does not imply causation.
 
-### Histograms and Frequency Density
-In a histogram, **area represents frequency**.
-$\\text{Frequency Density} = \\frac{\\text{Frequency}}{\\text{Class Width}}$
+## 4. Key Vocabulary
+* **Frequency Density:** Frequency divided by class width.
+* **Histogram:** A diagram where area represents frequency.
+* **Median:** The middle value.
+* **Quartiles:** Values splitting ordered data into quarters.
+* **Interquartile Range:** $Q_3-Q_1$.
+* **Outlier:** A value that appears unusually far from the rest of the data, according to a stated rule.
+* **Variance:** A measure of average squared spread.
+* **Standard Deviation:** A measure of typical spread from the mean.
+* **PMCC:** A measure of strength and direction of linear correlation.
+* **Residual:** The difference between an observed value and the value predicted by a regression line.
 
-### Variance and Standard Deviation
-* **Population ($\\sigma_n$):** Divisor is exactly $n$. Used when data is the entire population or not inferring about a wider group.
-* **Sample ($\\sigma_{n-1}$):** Divisor is $n-1$ (Bessel's Correction). Used when estimating the whole population's spread from a sample.
+## 5. Prior Knowledge
+* Averages and spread from GCSE statistics.
+* Drawing and interpreting graphs.
+* Substitution into formulae.
+* Using calculator statistical functions where allowed by the teacher.
 
-![visual:S2-StdDev]()
+## 6. Full Theory Explanation
 
-### Interpolation for Median
-To estimate values within a grouped frequency class, assume data is evenly distributed across the class width.
+### HISTOGRAMS
+In a histogram, area represents frequency. The vertical axis is frequency density:
+$$
+\\text{Frequency Density}=\\frac{\\text{Frequency}}{\\text{Class Width}}
+$$
+So:
+$$
+\\text{Frequency}=\\text{Class Width}\\times\\text{Frequency Density}
+$$
+
+![visual:S2-Histogram]()
+
+### INTERPOLATION IN GROUPED DATA
+When estimating a median, quartile, or percentile from grouped data, assume the data is evenly distributed within the class interval.
 
 ![visual:S2-Interpolate]()
 
-### PMCC ($r$)
+> **Visual placeholder:** Add a grouped cumulative-frequency style interpolation strip showing lower boundary, upper boundary, class width, and target position.
+
+### VARIANCE AND STANDARD DEVIATION
+Standard deviation measures spread. A larger standard deviation means the data values are more spread out.
+
+* Use the population version when the data is the whole population.
+* Use the sample version when the data is being used to estimate a wider population.
+
+![visual:S2-StdDev]()
+
+### OUTLIERS AND CLEANING DATA
+Outliers may be genuine extreme values, recording errors, or values from a different population. If an outlier rule is stated, apply that rule exactly.
+
+Common rule:
+$$
+\\text{Outlier below}=Q_1-1.5\\times\\text{IQR}
+$$
+$$
+\\text{Outlier above}=Q_3+1.5\\times\\text{IQR}
+$$
+
+Cleaning data means correcting errors, removing impossible values, or deciding whether an outlier should be retained.
+
+### SCATTER DIAGRAMS, REGRESSION, AND PMCC
+A scatter diagram shows the relationship between two variables. PMCC, $r$, measures the strength and direction of linear correlation:
+$$
+-1\\leq r\\leq1
+$$
+
+* $r$ close to 1: strong positive linear correlation.
+* $r$ close to -1: strong negative linear correlation.
+* $r$ close to 0: weak or no linear correlation.
+
 ![visual:S2-PMCC]()
 
-Measures the strength and direction of **linear correlation**.
-$-1 \\leq r \\leq 1$. Remember correlation does not imply causation.
+Correlation does not imply causation. A strong correlation may be caused by a hidden third variable or by coincidence.
 
 ![visual:S2-Scatter]()
 
-## 4. Worked Example: PMCC
-$r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{\\left(n\\sum x^{2} - (\\sum x)^{2}\\right)\\left(n\\sum y^{2} - (\\sum y)^{2}\\right)}}$
+### RESIDUALS
+Residuals help check whether a linear regression model is appropriate. A random scatter of residuals around zero supports a linear model. A curved pattern suggests a non-linear model would be better.
+
+![visual:S2-Residual]()
+
+## 7. Formulae and Notation
+* $\\text{Frequency Density}=\\frac{\\text{Frequency}}{\\text{Class Width}}$
+* $\\text{Frequency}=\\text{Class Width}\\times\\text{Frequency Density}$
+* $\\text{IQR}=Q_3-Q_1$
+* Outlier limits: $Q_1-1.5\\text{IQR}$ and $Q_3+1.5\\text{IQR}$
+* PMCC:
+$$
+r=\\frac{n\\sum xy-\\sum x\\sum y}{\\sqrt{\\left(n\\sum x^2-(\\sum x)^2\\right)\\left(n\\sum y^2-(\\sum y)^2\\right)}}
+$$
+
+## 8. Step-by-Step Methods
+
+### Method A: Histograms
+1. Find each class width.
+2. Use frequency density = frequency divided by class width.
+3. Draw bars with widths matching the class intervals.
+4. Use area to recover missing frequencies.
+
+### Method B: Outliers
+1. Find $Q_1$ and $Q_3$.
+2. Calculate IQR.
+3. Calculate lower and upper outlier limits.
+4. Compare data values with the limits.
+5. Interpret any outliers in context.
+
+### Method C: PMCC Interpretation
+1. Check the sign of $r$ for direction.
+2. Check the size of $|r|$ for strength.
+3. State that it measures linear correlation.
+4. Avoid claiming causation unless the context justifies it.
+
+## 9. Worked Examples
+
+### Example 1: Histogram Frequency
+
+**Question:**
+A histogram class has interval $20<x\\leq35$ and frequency density 4. Find the frequency.
+
+**Solution:**
+Class width is $35-20=15$:
+$$
+\\text{Frequency}=15\\times4=60
+$$
+
+> **Final Answer:** 60.
+
+### Example 2: PMCC
+
+**Question:**
+A data set has $r=-0.86$. Interpret this value.
+
+**Solution:**
+The value is close to -1, so it shows a strong negative linear correlation. As one variable increases, the other tends to decrease.
+
+## 10. Common Traps
+* **Using bar chart logic on histograms:** Histogram area, not height alone, represents frequency.
+* **Ignoring class width:** Unequal classes need frequency density.
+* **Calling correlation causation:** PMCC does not prove cause.
+* **Using a regression line outside the data range:** Extrapolation is unreliable.
+* **Ignoring residual patterns:** A high PMCC can still hide a non-linear relationship.
+
+## 11. Exam Technique
+* Use the exact outlier rule given in the question.
+* When interpreting PMCC, include strength, direction, and linear.
+* For regression, mention whether interpolation or extrapolation is being used.
+* In histogram questions, label frequency density clearly.
+
+## 12. Quick Recall Checklist
+* Can I find frequency density?
+* Can I recover frequency from histogram area?
+* Can I calculate IQR and outlier limits?
+* Can I interpret standard deviation?
+* Can I interpret PMCC?
+* Can I explain a residual plot?
+
+## 13. End-of-Lesson Summary
+Data presentation is about choosing and interpreting the right statistical summary. Histograms handle grouped continuous data, measures of spread compare variation, and PMCC/regression analyse linear relationships while reminding us not to overclaim causation.
+
+## 14. Source Gaps or Caution Notes
+> **Caution - Calculator dependence:** This portal should teach interpretation and method. It should not become a calculator-button guide.
 `;
 
 export const S3_CONTENT = `
 ## 1. Lesson Title
 **S3: Probability Laws, Venn Diagrams, Two-Way Tables and Trees**
 
-## 2. Formulae & Concepts
-![visual:S3-Tree]()
+## 2. Specification Focus
+* Use the language of probability, including event, complement, union, and intersection.
+* Use Venn diagrams and two-way tables.
+* Understand mutually exclusive and exhaustive events.
+* Understand independent events.
+* Use addition and multiplication laws for probability.
+* Use tree diagrams for combined probabilities.
 
-* **Addition Law:** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
-* **Mutually Exclusive:** Cannot happen at the same time. $P(A \\cap B) = 0$.
-* **Exhaustive Events:** Cover all possible outcomes. $P(A \\cup B) = 1$.
-* **Independent Events:** One outcome doesn't affect the other. Tested mathematically by: $P(A \\cap B) = P(A) \\times P(B)$.
+## 3. Learning Outcomes
+By the end of this lesson, you should be able to:
+* Use notation such as $A'$, $A\\cup B$, and $A\\cap B$.
+* Complete and interpret Venn diagrams and two-way tables.
+* Apply the addition law for two events.
+* Test whether events are mutually exclusive or independent.
+* Use tree diagrams to calculate combined probabilities.
+* Recognise when events are exhaustive.
 
-*(Note: Conditional probability formula methods are explicitly excluded from AS2 requirements by CCEA).*
+## 4. Key Vocabulary
+* **Event:** A set of outcomes.
+* **Complement:** The event not occurring, written $A'$.
+* **Union:** $A\\cup B$, meaning A or B or both.
+* **Intersection:** $A\\cap B$, meaning both A and B.
+* **Mutually Exclusive:** Events that cannot happen at the same time.
+* **Exhaustive:** Events that cover all possible outcomes.
+* **Independent:** One event does not affect the probability of the other.
+* **Tree Diagram:** A branching diagram for multi-stage probability.
 
-### VENN DIAGRAMS
+## 5. Prior Knowledge
+* Fractions, decimals, and percentages.
+* Reading tables.
+* Basic set notation.
+
+## 6. Full Theory Explanation
+
+### BASIC PROBABILITY RULES
+Probabilities lie between 0 and 1:
+$$
+0\\leq P(A)\\leq1
+$$
+For a complement:
+$$
+P(A')=1-P(A)
+$$
+
+### ADDITION LAW
+For two events:
+$$
+P(A\\cup B)=P(A)+P(B)-P(A\\cap B)
+$$
+If events are mutually exclusive, $P(A\\cap B)=0$, so:
+$$
+P(A\\cup B)=P(A)+P(B)
+$$
+
 ![visual:S3-Venn]()
 
+### EXHAUSTIVE EVENTS
+If events are exhaustive, their union covers the whole sample space:
+$$
+P(A\\cup B)=1
+$$
+
+### INDEPENDENCE
+Events A and B are independent if:
+$$
+P(A\\cap B)=P(A)P(B)
+$$
+This test is often the cleanest way to prove whether two events are independent.
+
 ### TWO-WAY TABLES
-Two-way tables are useful when probabilities are grouped by two categories. Always complete missing row totals, column totals, and the grand total before finding a probability.
+Two-way tables organise probabilities or frequencies by two categories. Complete missing row totals, column totals, and the grand total before answering probability questions.
 
 ![visual:S3-Table]()
 
-### MULTI-STAGE CONDITIONAL SPACE
-When modeling complex, multi-stage sequential sample boundaries across independent paths, look to a segmented conditional probability framework.
+### TREE DIAGRAMS
+Tree diagrams show stages of an experiment. Multiply along branches and add separate successful paths.
 
-![visual:S3-Bayes]()
+![visual:S3-Tree]()
 
-## 3. WORKED EXAMPLE: EXHAUSTIVE EVENTS
+> **Visual placeholder:** Add a two-stage tree showing multiply-along-branches and add-endpoints colour coding.
+
+## 7. Formulae and Notation
+* $P(A')=1-P(A)$
+* $P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$
+* Mutually exclusive: $P(A\\cap B)=0$
+* Exhaustive: $P(A\\cup B)=1$
+* Independent: $P(A\\cap B)=P(A)P(B)$
+* Tree diagrams: multiply along branches and add separate paths.
+
+## 8. Step-by-Step Methods
+
+### Method A: Venn Diagrams
+1. Put the intersection into the overlap first.
+2. Subtract the overlap from each event total.
+3. Fill the outside region using the total probability of 1.
+4. Answer from the completed diagram.
+
+### Method B: Two-Way Tables
+1. Fill the given cell values.
+2. Use row totals and column totals to complete missing cells.
+3. Check the grand total.
+4. Use the relevant cell or total for the probability required.
+
+### Method C: Tree Diagrams
+1. Fill probabilities on each branch.
+2. Use complements where probabilities are missing.
+3. Multiply along each route.
+4. Add routes that satisfy the event required.
+
+## 9. Worked Examples
+
+### Example 1: Exhaustive Events
 
 **Question:**
-Events $A$ and $B$ are exhaustive events such that $P(A) = 0.65$ and $P(B) = 0.42$. Find $P(A \\cap B)$ and determine if the events are mutually exclusive.
+Events A and B are exhaustive. $P(A)=0.65$ and $P(B)=0.42$. Find $P(A\\cap B)$.
 
 **Solution:**
-
-**Step 1: Use the Exhaustive Property and Addition Law**
-Since $A$ and $B$ are exhaustive, $P(A \\cup B) = 1$.
+Since A and B are exhaustive, $P(A\\cup B)=1$.
 $$
-\\begin{aligned}
-P(A \\cup B) &= P(A) + P(B) - P(A \\cap B) \\\\
-1 &= 0.65 + 0.42 - P(A \\cap B) \\\\
-1 &= 1.07 - P(A \\cap B) \\\\
-P(A \\cap B) &= 0.07
-\\end{aligned}
+1=0.65+0.42-P(A\\cap B)
+$$
+$$
+P(A\\cap B)=0.07
 $$
 
-**Step 2: Conclusion**
-Because $P(A \\cap B) = 0.07 \\neq 0$, the events are **not** mutually exclusive.
+> **Final Answer:** $0.07$.
 
-> **Final Answer:** $P(A \\cap B) = 0.07$. Not mutually exclusive.
+### Example 2: Independence Test
+
+**Question:**
+$P(A)=0.4$, $P(B)=0.5$, and $P(A\\cap B)=0.2$. Are A and B independent?
+
+**Solution:**
+$$
+P(A)P(B)=0.4\\times0.5=0.2
+$$
+This equals $P(A\\cap B)$, so the events are independent.
+
+## 10. Common Traps
+* **Adding overlapping probabilities twice:** Use the addition law.
+* **Confusing mutually exclusive and independent:** Mutually exclusive events cannot happen together. Independent events can happen together without affecting each other's probability.
+* **Forgetting complements:** If $P(A)=0.7$, then $P(A')=0.3$.
+* **Leaving two-way tables incomplete:** Complete the structure before calculating.
+
+## 11. Exam Technique
+* Quote the rule you are using before substituting numbers.
+* For independence, show both $P(A\\cap B)$ and $P(A)P(B)$.
+* For tree diagrams, write endpoint products clearly.
+* Use exact fractions where possible unless decimals are clearly easier.
+
+## 12. Quick Recall Checklist
+* Can I use $A'$, $A\\cup B$, and $A\\cap B$?
+* Can I apply the addition law?
+* Can I test for independence?
+* Can I complete a Venn diagram?
+* Can I complete a two-way table?
+* Can I use a tree diagram to multiply paths and add outcomes?
+
+## 13. End-of-Lesson Summary
+Probability questions often become straightforward once the structure is represented clearly. Venn diagrams, two-way tables, and tree diagrams organise the sample space so that addition, multiplication, complements, and independence tests can be applied accurately.
+
+## 14. Source Gaps or Caution Notes
+> **Caution - Conditional probability and Bayes:** The evidence references flag formal conditional probability formula methods and Bayes-style reverse probability as beyond the intended AS2 core. Keep the core lesson focused on addition laws, independence, Venn diagrams, two-way tables, and tree diagrams.
 `;
 
 export const S4_CONTENT = `
 ## 1. Lesson Title
-**S4: Statistical Distributions (Discrete Probability and the Binomial Model)**
+**S4: Statistical Distributions - Discrete Probability and the Binomial Model**
 
-## 2. The Binomial Model Conditions
+## 2. Specification Focus
+* Understand discrete probability distributions.
+* Use probability distribution tables.
+* Recognise and use the binomial distribution.
+* Calculate exact and cumulative binomial probabilities.
+* Interpret inequalities such as at most, fewer than, at least, and more than.
+* Check whether a binomial model is appropriate.
 
-![visual:S4-BinomialTree]()
+## 3. Learning Outcomes
+By the end of this lesson, you should be able to:
+* Identify a discrete random variable.
+* Complete and interpret a probability distribution.
+* State the four conditions for a binomial distribution.
+* Use notation $X\\sim B(n,p)$.
+* Calculate exact probabilities using the binomial formula.
+* Calculate cumulative probabilities by summing exact probabilities.
+* Translate wording into probability inequalities.
 
-You can only use the binomial model if the situation satisfies four strict conditions:
+## 4. Key Vocabulary
+* **Random Variable:** A variable whose value depends on chance.
+* **Discrete Random Variable:** A random variable taking separate countable values.
+* **Probability Distribution:** A table or rule giving probabilities for each possible value.
+* **Binomial Distribution:** A model for the number of successes in a fixed number of independent trials.
+* **Trial:** One repetition of an experiment.
+* **Success:** The outcome being counted.
+* **Failure:** The outcome not being counted.
+* **Cumulative Probability:** Probability of a range of values.
 
-1. There is a **fixed number of trials** ($n$).
-2. There are exactly **two possible outcomes** for each trial ("success" and "failure").
-3. The **probability of success** ($p$) is constant for every trial.
-4. The trials are **completely independent** of each other.
+## 5. Prior Knowledge
+* Basic probability.
+* Combinations notation $\\binom{n}{x}$.
+* Powers and calculator arithmetic.
+* Inequality language.
 
-The notation for a binomial distribution is:
-$$
-X \\sim B(n, p)
-$$
+## 6. Full Theory Explanation
 
-### MODEL SUITABILITY VERIFICATION
-Before assigning distribution formulas to physical word problems, you must explicitly confirm all criteria are met.
+### DISCRETE PROBABILITY DISTRIBUTIONS
+A discrete probability distribution lists possible values of a random variable and their probabilities. The probabilities must add to 1.
+
+### THE BINOMIAL MODEL
+A binomial model is suitable only if all four conditions are met:
+
+1. There is a fixed number of trials, $n$.
+2. Each trial has exactly two outcomes: success or failure.
+3. The probability of success, $p$, is constant.
+4. The trials are independent.
 
 ![visual:S4-BinomialConditions]()
 
-## 3. Exact Probabilities Formula
+Use notation:
+$$
+X\\sim B(n,p)
+$$
 
-To find the probability of exactly $x$ successes in $n$ trials:
+![visual:S4-BinomialTree]()
+
+### EXACT BINOMIAL PROBABILITIES
+For $X\\sim B(n,p)$:
 $$
-$P(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}$
+P(X=x)=\\binom{n}{x}p^x(1-p)^{n-x}
 $$
+
+### CUMULATIVE PROBABILITIES AND INEQUALITIES
+Translate wording carefully:
+
+* **At most 2:** $X\\leq2$
+* **Fewer than 2:** $X<2$, so $X\\leq1$
+* **At least 2:** $X\\geq2$
+* **More than 2:** $X>2$, so $X\\geq3$
 
 ![visual:S4-Inequality]()
 
-### NORMAL DISTRIBUTION CONTRAST
-The binomial model is discrete, while the normal distribution is continuous. Keep this contrast clear when deciding which model a question is asking for.
+For cumulative probabilities, add the relevant exact probabilities.
+
+### MODEL SUITABILITY
+Before using the binomial distribution, check the context. If trials affect one another, if $p$ changes, or if there are more than two outcomes, the binomial model may not be appropriate.
+
+> **Visual placeholder:** Add a decision-flow table: fixed trials, two outcomes, constant probability, independent trials, then use binomial.
+
+### DISCRETE VERSUS CONTINUOUS MODELS
+The binomial model is discrete because it counts successes. A normal distribution is continuous and should not be used unless specifically part of a later or extension topic.
 
 ![visual:S4-Normal]()
 
-## 4. Worked Example
+## 7. Formulae and Notation
+* $X\\sim B(n,p)$
+* $P(X=x)=\\binom{n}{x}p^x(1-p)^{n-x}$
+* $P(X\\leq r)=P(X=0)+P(X=1)+\\cdots+P(X=r)$
+* $P(X\\geq r)=1-P(X\\leq r-1)$
+
+## 8. Step-by-Step Methods
+
+### Method A: Checking the Binomial Model
+1. Identify the trial.
+2. Check that the number of trials is fixed.
+3. Check that there are only two outcomes.
+4. Check that $p$ is constant.
+5. Check that trials are independent.
+6. Write $X\\sim B(n,p)$.
+
+### Method B: Exact Probability
+1. Identify $n$, $p$, and $x$.
+2. Substitute into the binomial formula.
+3. Calculate carefully.
+4. Round appropriately.
+
+### Method C: Cumulative Probability
+1. Translate the wording into an inequality.
+2. List the exact values required.
+3. Add the relevant exact probabilities.
+4. Consider using the complement if it is shorter.
+
+## 9. Worked Examples
+
+### Example 1: Faulty Frames
 
 **Question:**
-A factory makes frames. 20% are faulty. Sample of 8 frames. Let $X$ be number of faulty frames.
+A factory makes frames. 20% are faulty. A random sample of 8 frames is taken. Let $X$ be the number of faulty frames.
 
-(a) Find the probability that none are faulty.
-(b) Find the probability that at most two are faulty.
+(a) Find the probability none are faulty.
+(b) Find the probability at most two are faulty.
 
 **Solution:**
-
-The scenario can be modelled as $X \\sim B(8, 0.2)$.
-
-**(a) Probability of zero faulty frames ($P(X=0)$)**
 $$
-\\begin{aligned}
-P(X=0) &= \\binom{8}{0}(0.2)^0(0.8)^8 \\\\
-&= 0.168 \\text{ (3 s.f.)}
-\\end{aligned}
+X\\sim B(8,0.2)
 $$
 
-**(b) Probability of at most two faulty frames ($P(X \\leq 2)$)**
-$P(X \\leq 2) = P(X=0) + P(X=1) + P(X=2)$
+(a)
 $$
-\\begin{aligned}
-P(X=1) &= \\binom{8}{1}(0.2)^1(0.8)^7 \\\\
-&= 0.3355...
-\\end{aligned}
+P(X=0)=\\binom{8}{0}(0.2)^0(0.8)^8=0.168
 $$
-$$
-\\begin{aligned}
-P(X=2) &= \\binom{8}{2}(0.2)^2(0.8)^6 \\\\
-&= 0.2936...
-\\end{aligned}
-$$
-$P(X \\leq 2) = 0.1677... + 0.3355... + 0.2936... = 0.7969...$
 
-> **Final Answer:** (a) $0.168$, (b) $0.797$ (to 3 s.f.)
+(b)
+$$
+P(X\\leq2)=P(X=0)+P(X=1)+P(X=2)
+$$
+$$
+=0.1677...+0.3355...+0.2936...=0.7969...
+$$
+
+> **Final Answer:** (a) $0.168$, (b) $0.797$.
+
+### Example 2: Model Suitability
+
+**Question:**
+A card is drawn from a pack, not replaced, and then another card is drawn. Is a binomial model suitable for counting red cards?
+
+**Solution:**
+No. Although there are two outcomes and a fixed number of trials, the probability of success changes after the first draw because the card is not replaced. The trials are not independent.
+
+## 10. Common Traps
+* **Misreading inequalities:** At most, fewer than, at least, and more than mean different things.
+* **Forgetting the complement method:** $P(X\\geq1)=1-P(X=0)$.
+* **Using binomial when trials are dependent:** Without replacement usually changes probabilities.
+* **Not defining success:** State what $X$ counts.
+* **Rounding too early:** Keep more accuracy during cumulative sums.
+
+## 11. Exam Technique
+* Always state the distribution, such as $X\\sim B(8,0.2)$.
+* Show the inequality translation before calculating cumulative probabilities.
+* Mention model conditions when the question asks whether a binomial model is appropriate.
+* Use 3 significant figures unless otherwise instructed.
+
+## 12. Quick Recall Checklist
+* Can I state the four binomial conditions?
+* Can I write $X\\sim B(n,p)$?
+* Can I use the binomial formula?
+* Can I translate at most, fewer than, at least, and more than?
+* Can I use complements for shorter calculations?
+* Can I explain why a binomial model may not fit?
+
+## 13. End-of-Lesson Summary
+The binomial distribution models the number of successes in a fixed number of independent trials with constant probability. The main exam skills are checking suitability, translating wording into inequalities, and calculating exact or cumulative probabilities accurately.
+
+## 14. Source Gaps or Caution Notes
+> **Caution - Hypothesis testing and normal approximation:** These should not be built into this AS2 lesson unless deliberately added as extension material.
 `;
 
 export const LESSONS: CourseModule[] = [
@@ -689,8 +1312,8 @@ export const LESSONS: CourseModule[] = [
   },
   {
     id: "S1-Lesson",
-    title: "Data Classification",
-    visualId: "S1-Tree",
+    title: "Statistical Sampling, Data Types and Inference",
+    visualId: "S1-Sampling",
     type: "Statistics",
     content: S1_CONTENT,
   },
