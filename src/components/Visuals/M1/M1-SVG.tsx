@@ -138,6 +138,67 @@ export const ScalarVectorSVG: React.FC = () => (
 );
 
 // ==========================================
+// Diagram: Scalar vs Vector Spatial Map
+// ==========================================
+export const ScalarVectorSpatialMapSVG: React.FC = () => (
+  <DiagramPanel
+    title="Fig. Distance vs. Displacement"
+    analysis={
+      <div className="grid md:grid-cols-2 gap-4 w-full max-w-xl">
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-amber-400 mb-2">Speed (Scalar)</h4>
+          <p className="text-sm text-slate-300 leading-relaxed mb-2">Based on the total path length travelled.</p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <MathText content="\text{Speed} = \frac{\text{Distance}}{\text{Time}}" />
+          </div>
+        </div>
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-2">Velocity (Vector)</h4>
+          <p className="text-sm text-slate-300 leading-relaxed mb-2">Based on the direct change in position.</p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <MathText content="\text{Velocity} = \frac{\text{Displacement}}{\text{Time}}" />
+          </div>
+        </div>
+      </div>
+    }
+  >
+    <svg width="100%" viewBox="0 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="max-w-lg" overflow="visible">
+      <defs>
+        <marker id="arrow-displacement-map" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+        </marker>
+      </defs>
+
+      {/* Points A and B */}
+      <circle cx="80" cy="150" r="8" fill="#38bdf8" />
+      <text x="76" y="155" className="font-bold text-slate-950 fill-current">A</text>
+      <text x="70" y="175" className="text-xs text-slate-300 fill-current">Start</text>
+
+      <circle cx="420" cy="50" r="8" fill="#38bdf8" />
+      <text x="416" y="55" className="font-bold text-slate-950 fill-current">B</text>
+      <text x="410" y="35" className="text-xs text-slate-300 fill-current">Finish</text>
+
+      {/* Distance Path (Winding) */}
+      <path d="M 85 145 C 150 80, 250 200, 350 120 C 450 40, 415 55, 415 55" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="5 5" fill="none" />
+      <foreignObject x="200" y="140" width="120" height="30">
+        <div className="text-center text-amber-400 text-sm font-bold">
+          Distance Travelled
+        </div>
+      </foreignObject>
+
+      {/* Displacement Vector (Straight) */}
+      <line x1="88" y1="146" x2="412" y2="54" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrow-displacement-map)" />
+      <foreignObject x="200" y="60" width="140" height="30">
+        <div className="text-center text-emerald-400 text-sm font-bold">
+          Displacement Vector
+        </div>
+      </foreignObject>
+
+    </svg>
+  </DiagramPanel>
+);
+
+// ==========================================
 // Diagram 3: Mechanics Modelling Assumptions
 // ==========================================
 export const ModellingAssumptionsSVG: React.FC = () => (

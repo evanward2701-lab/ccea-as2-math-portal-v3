@@ -35,3 +35,48 @@ export const FMaBridge: React.FC = () => {
     </DiagramPanel>
   );
 };
+
+// ==========================================
+// Fig. SI Unit Derivation Tree
+// ==========================================
+export const SIUnitDerivationTree: React.FC = () => {
+  const chartConfig = `
+    graph TD
+      subgraph Base SI Units
+          L[("Length (m)")]
+          M[("Mass (kg)")]
+          T[("Time (s)")]
+      end
+
+      subgraph Derived Units
+          V["Velocity<br/>m s⁻¹"]
+          A["Acceleration<br/>m s⁻²"]
+          F["<div class='font-bold text-lg'>Force (Newton)</div><br/>N = kg m s⁻²"]
+          W["Weight<br/>W = mg"]
+      end
+
+      L -- m --> V
+      T -- s --> V
+      V -- "m s⁻¹" --> A
+      T -- s --> A
+      M -- kg --> F
+      A -- "m s⁻²" --> F
+      M -- kg --> W
+      
+      style L fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+      style M fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+      style T fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+      
+      style V fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
+      style A fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
+      style W fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#f8fafc
+
+      style F fill:#064e3b,stroke:#34d399,stroke-width:3px,color:#f8fafc
+  `;
+
+  return (
+    <DiagramPanel title="Fig. SI Unit Derivation Tree" analysis={<p className="text-sm text-slate-400 italic text-center">Base SI units for length, mass, and time combine to form the derived units used in mechanics.</p>}>
+      <Mermaid chart={chartConfig} />
+    </DiagramPanel>
+  );
+};
