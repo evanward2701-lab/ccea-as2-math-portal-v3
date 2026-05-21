@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { MathText } from '../../MathText';
+import { DiagramPanel } from '../../DiagramPanel';
+import { cn } from '@/lib/utils';
 
 export const SamplingTableSVG: React.FC = () => (
   <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
@@ -114,9 +116,6 @@ export const StratifiedProportionVisual: React.FC = () => (
   </div>
 );
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 const data = [
   { limitL: 10, limitU: 14, freq: 5, boundL: 9.5, boundU: 14.5 },
@@ -226,9 +225,6 @@ export const S1HistogramBoundaryMorph: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 const POPULATION = { A: 50, B: 30, C: 20, total: 100 };
 
@@ -332,9 +328,6 @@ const StratumRow: React.FC<StratumRowProps> = ({ name, popSize, sampleSize, tota
   );
 };
 
-import React, { useState, useMemo } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { cn } from '@/lib/utils';
 
 type DataKind = 'qualitative' | 'quantitative-discrete' | 'quantitative-continuous';
 type Decision = 'numerical' | 'categorical' | 'counted' | 'measured';

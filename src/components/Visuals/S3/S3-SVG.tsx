@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
+import { cn } from '@/lib/utils';
 
 export const VennMutExSVG: React.FC = () => (
   <DiagramPanel
@@ -165,10 +166,6 @@ export const BayesResolutionSVG: React.FC = () => (
   </DiagramPanel>
 );
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 export const S3ProbabilityTreeEngine: React.FC = () => {
   const [independent, setIndependent] = useState(true);
@@ -334,10 +331,6 @@ export const S3ProbabilityTreeEngine: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 type Mode = 'full' | 'artGivenMale' | 'techGivenFemale' | 'independence';
 
@@ -485,10 +478,6 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 export const S3DynamicVennSpaceEngine: React.FC = () => {
   const [separation, setSeparation] = useState(45); // 0 (concentric) to 80 (separate)

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
+import { cn } from '@/lib/utils';
 
 // Constants for label offsets
 const LABEL_OFFSET_X = 15;
@@ -381,9 +382,6 @@ export const ConnectedInclinedPulleySVG: React.FC = () => (
   </DiagramPanel>
 );
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 export const M3ConnectedParticlesEngine: React.FC = () => {
   const [massA, setMassA] = useState(7);
@@ -500,10 +498,6 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
     </DiagramPanel>
   );
 };
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 export const M3FrictionSimulator: React.FC = () => {
   const [appliedForce, setAppliedForce] = useState(30);
@@ -613,9 +607,6 @@ export const M3FrictionSimulator: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 export const M3InclinedPlaneResolver: React.FC = () => {
   const [angle, setAngle] = useState(30);

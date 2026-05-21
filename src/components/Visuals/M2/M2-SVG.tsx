@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MathText } from "../../MathText";
 import { DiagramPanel } from "../../DiagramPanel";
+import { cn } from '@/lib/utils';
 // ==========================================
 // ASSET 1: M2 KINEMATICS MASTER VISUALS
 // ==========================================
@@ -306,7 +307,14 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
 // ==========================================
 export const M2InitialVelocityTrap: React.FC = () => {
   return (
-    <DiagramPanel title='Exam Trap: "Assuming Starts from Rest"'>
+    <DiagramPanel
+      title='Exam Trap: "Assuming Starts from Rest"'
+      analysis={
+        <p className="text-sm text-slate-400 italic text-center max-w-md mx-auto">
+          A velocity-time graph does not have to begin at zero. Read the initial velocity from the vertical intercept before choosing a SUVAT setup.
+        </p>
+      }
+    >
       <svg viewBox="0 0 500 150" className="w-full max-w-xl h-auto select-none" overflow="visible">
         <line x1="30" y1="120" x2="350" y2="120" stroke="#475569" strokeWidth="2" />
         <line x1="50" y1="20" x2="50" y2="140" stroke="#475569" strokeWidth="2" />
@@ -343,9 +351,6 @@ export const M2VisualsCollector: React.FC = () => {
 
 export default M2VisualsCollector;
 
-import React from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 export const M2KinematicTrack: React.FC = () => {
   const width = 600;
@@ -425,9 +430,6 @@ export const M2KinematicTrack: React.FC = () => {
   );
 };
 
-import React from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 export const M2SignConventionSplit: React.FC = () => {
   return (
@@ -515,10 +517,6 @@ export const M2SignConventionSplit: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 type SuvatVariable = 's' | 'u' | 'v' | 'a' | 't';
 
@@ -649,9 +647,6 @@ export const M2SuvatMatrix: React.FC = () => {
   );
 };
 
-import React from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 interface VTGraphProps {
   u: number;

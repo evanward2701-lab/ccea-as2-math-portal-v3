@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
+import { cn } from '@/lib/utils';
 
 // ==========================================
 // Fig 2. Cumulative Binomial Inequality Matrix
@@ -150,10 +151,6 @@ export const BinomialConditionsChecklistSVG: React.FC = () => (
   </DiagramPanel>
 );
 
-import React, { useState, useMemo } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 const factorial = (n: number): number => (n <= 1 ? 1 : n * factorial(n - 1));
 const choose = (n: number, k: number): number => (k < 0 || k > n) ? 0 : factorial(n) / (factorial(k) * factorial(n - k));
@@ -269,10 +266,6 @@ export const S4BinomialMorphEngine: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 type Inequality = 'gte' | 'gt' | 'lte' | 'lt';
 
@@ -389,10 +382,6 @@ export const S4ContinuityCorrectionLens: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 type InequalityPhrase = 'at most' | 'fewer than' | 'at least' | 'more than';
 
@@ -500,9 +489,6 @@ export const S4InequalityTranslator: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 const pdf = (z: number) => Math.exp(-(z * z) / 2) / Math.sqrt(2 * Math.PI);
 

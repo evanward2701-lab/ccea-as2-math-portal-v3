@@ -58,7 +58,7 @@ Derived units are created by combining base units:
 
 > **Exam Context:** The evidence questions often test unit conversion inside a larger mechanics problem. If mass is given in tonnes, convert to kilograms before using $W=mg$ or $F=ma$.
 
-!visual:M1-SIUnits
+![visual:M1-SIUnits]()
 
 ### MASS VERSUS WEIGHT
 Mass is the amount of matter in an object and is measured in kg. Weight is the gravitational force on that mass and is measured in newtons. Weight acts vertically downwards and is calculated using:
@@ -77,7 +77,7 @@ In mechanics, scalar quantities have magnitude only. Vector quantities have magn
 
 The speed of a particle is the magnitude of its velocity vector.
 
-!visual:M1-ScalarVectorMap
+![visual:M1-ScalarVectorMap]()
 
 ![visual:M1-ScalarVector]()
 
@@ -94,7 +94,7 @@ Mathematical models simplify real motion and force systems. Specific words in CC
 
 ![visual:M1-Modelling]()
 
-!visual:M1-ModellingSandbox
+![visual:M1-ModellingSandbox]()
 
 ### TENSION AND TOWING MODELS
 When objects are connected by a light towbar or inextensible string, the connecting force is internal to the whole system but external to each separate object. Use a whole-system equation to find the common acceleration, then isolate one object to find the tension or thrust.
@@ -106,7 +106,7 @@ When objects are connected by a light towbar or inextensible string, the connect
 ## 7. Formulae and Notation
 * **Weight:** $W=mg$.
 
-!visual:M1-Notation
+![visual:M1-Notation]()
 * **Force unit:** $1\\text{ N}=1\\text{ kg}\\,\\text{m}\\,\\text{s}^{-2}$.
 * **Magnitude of a 2D vector:** If $\\mathbf{v}=x\\mathbf{i}+y\\mathbf{j}$, then $|\\mathbf{v}|=\\sqrt{x^2+y^2}$.
 * **Tonnes to kilograms:** $1\\text{ tonne}=1000\\text{ kg}$.
@@ -115,7 +115,7 @@ When objects are connected by a light towbar or inextensible string, the connect
 
 ### Method: Converting Units
 
-!visual:M1-FreeBody
+![visual:M1-FreeBody]()
 1. Identify the quantity and its given unit.
 2. Convert to SI units before using any mechanics formula.
 3. Substitute into the formula.
@@ -246,7 +246,7 @@ For example, if a cyclist travels 5 km east and then 5 km west, the total distan
 * If the velocity is always positive, the area also gives distance travelled.
 * If velocity changes sign, distance travelled requires adding the magnitudes of separate areas.
 
-!visual:M2-VTGraphEngine
+![visual:M2-VTGraphEngine]()
 
 > **Visual placeholder:** Add a velocity-time graph that crosses the time axis, showing displacement as signed area and distance as total area.
 
@@ -261,7 +261,7 @@ The SUVAT equations apply only when acceleration is constant. The variables are:
 
 Always define the positive direction before substitution.
 
-!visual:M2-SUVATMatrix
+![visual:M2-SUVATMatrix]()
 
 ### VERTICAL MOTION UNDER GRAVITY
 If air resistance is ignored, vertical motion has constant acceleration $g=9.8\\text{ m}\\,\\text{s}^{-2}$ downwards. If upwards is positive, $a=-9.8$. If downwards is positive, $a=9.8$.
@@ -270,7 +270,7 @@ At the greatest height of a vertical projection, the instantaneous velocity is $
 
 ![visual:M2-Gravity]()
 
-!visual:M2-SignConventionSplit
+![visual:M2-SignConventionSplit]()
 
 ### CONSTANT ACCELERATION IN TWO DIMENSIONS
 In 2D kinematics, displacement, velocity, and acceleration are vectors, but time is still a scalar. Apply SUVAT separately to the $\\mathbf{i}$ and $\\mathbf{j}$ components.
@@ -474,7 +474,7 @@ For a particle on a plane inclined at angle $\\theta$ to the horizontal:
 
 > **Visual placeholder:** Add a labelled inclined-plane force diagram showing $mg\\sin\\theta$, $mg\\cos\\theta$, $R$, friction, and applied force.
 
-!visual:M3-InclineResolver
+![visual:M3-InclineResolver]()
 
 ### THE FRICTION MODEL
 Friction satisfies:
@@ -483,7 +483,7 @@ F\\leq\\mu R
 $$
 Use $F=\\mu R$ only when the particle is sliding or on the point of slipping. If the particle is simply at rest and not limiting, friction may be less than $\\mu R$.
 
-!visual:M3-FrictionSimulator
+![visual:M3-FrictionSimulator]()
 
 ### CONNECTED PARTICLES
 ![visual:M3-Connected]()
@@ -496,7 +496,7 @@ For connected systems:
 * Isolate one particle to find tension or thrust.
 * Choose the direction of motion as positive for each particle.
 
-!visual:M3-PulleyEngine
+![visual:M3-PulleyEngine]()
 
 ![visual:M3-Pulley]()
 
@@ -674,7 +674,7 @@ Different samples can give different results because of sampling variation.
 ### DATA TYPES
 ![visual:S1-Tree]()
 
-!visual:S1-TaxonomyDecision
+![visual:S1-TaxonomyDecision]()
 
 * **Qualitative:** category data, such as favourite subject.
 * **Quantitative discrete:** counted numerical data, such as number of siblings.
@@ -686,7 +686,7 @@ A simple random sample needs a complete sampling frame. Number each member and u
 ### STRATIFIED SAMPLING
 Stratified sampling preserves the structure of the population by sampling proportionally from each group.
 
-!visual:S1-StratifiedSampler
+![visual:S1-StratifiedSampler]()
 
 ![visual:S1-Stratified]()
 
@@ -1021,7 +1021,7 @@ $$
 P(A\\cup B)=P(A)+P(B)
 $$
 
-!visual:S3-DynamicVenn
+![visual:S3-DynamicVenn]()
 
 ![visual:S3-Venn]()
 
@@ -1050,7 +1050,7 @@ Tree diagrams show stages of an experiment. Multiply along branches and add sepa
 
 ![visual:S3-Tree]()
 
-!visual:S3-TreeEngine
+![visual:S3-TreeEngine]()
 
 > **Visual placeholder:** Add a two-stage tree showing multiply-along-branches and add-endpoints colour coding.
 
@@ -1191,7 +1191,7 @@ A binomial model is suitable only if all four conditions are met:
 
 ![visual:S4-BinomialConditions]()
 
-!visual:S4-BinomialEngine
+![visual:S4-BinomialEngine]()
 
 Use notation:
 $$
@@ -1218,7 +1218,7 @@ Translate wording carefully:
 
 ![visual:S4-Inequality]()
 
-!visual:S4-InequalityTranslator
+![visual:S4-InequalityTranslator]()
 
 For cumulative probabilities, add the relevant exact probabilities.
 

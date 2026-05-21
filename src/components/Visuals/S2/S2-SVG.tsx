@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
+import { cn } from '@/lib/utils';
 
 // ==========================================
 // Fig 1. Histogram Area/Density
@@ -340,10 +341,6 @@ export const ResidualAnalysisSVG: React.FC = () => (
   </DiagramPanel>
 );
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 export const S2CumulativeBoxPlotProjector: React.FC = () => {
   const [projectQuartiles, setProjectQuartiles] = useState(false);
@@ -481,10 +478,6 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 export const S2FrequencyDensityAreaEngine: React.FC = () => {
   const [isMerged, setIsMerged] = useState(false);
@@ -641,10 +634,6 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
   );
 };
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
-import { cn } from '@/lib/utils';
 
 export const S2OutlierThresholdSandbox: React.FC = () => {
   const [candidateValue, setCandidateValue] = useState(50);
@@ -787,9 +776,6 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
   );
 };
 
-import React from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 export const S2ResidualPatternClassifier: React.FC = () => {
   const svgWidth = 500;

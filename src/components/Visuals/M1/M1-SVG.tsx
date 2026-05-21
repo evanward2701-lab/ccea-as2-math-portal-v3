@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
 
@@ -538,9 +538,6 @@ export const M1ExamTrapSVG: React.FC = () => (
   </div>
 );
 
-import React from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 export const M1KinematicNotationPanel: React.FC = () => {
   return (
@@ -592,9 +589,6 @@ const notation = [
   { symbol: 't', name: 'Time', color: 'text-slate-300' },
 ];
 
-import React, { useState } from 'react';
-import { DiagramPanel } from '../../DiagramPanel';
-import { MathText } from '../../MathText';
 
 type Force = 'weight' | 'reaction' | 'friction' | 'tension' | 'applied';
 

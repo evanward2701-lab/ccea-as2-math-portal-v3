@@ -10,21 +10,21 @@ import {
   TowingModelSVG, 
   LiftPhysicsSVG,
   M1ExamTrapSVG,
-  ScalarVectorSpatialMapSVG
+  ScalarVectorSpatialMapSVG,
+  M1FreeBodyDiagram,
+  M1KinematicNotationPanel
 } from "./Visuals/M1/M1-SVG";
-import { ModellingAssumptionsSandbox } from "./Visuals/M1/M1-ModellingOverlay";
-import { M1FreeBodyDiagram } from "./Visuals/M1/M1-FreeBody";
-import { M1KinematicNotationPanel } from "./Visuals/M1/M1-NotationPanel";
 
 // M2 Imports - UPDATED TO MATCH REFACTORED COMPONENT NAMES
 import {
   M2KinematicsMaster,
   M2GravitySignConvention,
-  M2VectorMagnitudeTrap
+  M2VectorMagnitudeTrap,
+  M2VelocityTimeGraphEngine,
+  M2SuvatMatrix,
+  M2KinematicTrack,
+  M2SignConventionSplit
 } from "./Visuals/M2/M2-SVG";
-import { M2VelocityTimeGraphEngine } from "./Visuals/M2/M2-VelocityTimeGraph";
-import { M2SuvatMatrix } from "./Visuals/M2/M2-SuvatMatrix";
-import { M2KinematicTrack } from "./Visuals/M2/M2-KinematicTrack";
 
 // M3 Imports
 import { M3ConnectedParticlesMermaid } from './Visuals/M3/M3-Mermaid';
@@ -33,11 +33,11 @@ import {
   PulleySystemSVG, 
   InclinedPlaneSVG, 
   LiftSystemSVG, 
-  ConnectedInclinedPulleySVG
+  ConnectedInclinedPulleySVG,
+  M3InclinedPlaneResolver,
+  M3ConnectedParticlesEngine,
+  M3FrictionSimulator
 } from './Visuals/M3/M3-SVG';
-import { M3InclinedPlaneResolver } from './Visuals/M3/M3-InclinedPlane';
-import { M3ConnectedParticlesEngine } from './Visuals/M3/M3-ConnectedParticles';
-import { M3FrictionSimulator } from './Visuals/M3/M3-FrictionSimulator';
 
 
 // ==========================================
@@ -46,7 +46,13 @@ import { M3FrictionSimulator } from './Visuals/M3/M3-FrictionSimulator';
 
 // S1 Imports
 import { DataTypeTree } from "./Visuals/S1/S1-Mermaid";
-import { SamplingTableSVG, StratifiedProportionVisual } from "./Visuals/S1/S1-SVG"; 
+import {
+  SamplingTableSVG,
+  StratifiedProportionVisual,
+  S1TaxonomyDecisionTree,
+  S1HistogramBoundaryMorph,
+  S1StratifiedSamplingSimulator
+} from "./Visuals/S1/S1-SVG"; 
 
 // S2 Imports
 import { StdDevDecisionTree } from "./Visuals/S2/S2-Mermaid";
@@ -55,23 +61,35 @@ import {
   PMCCPanelSVG,
   ScatterClustersSVG,
   InterpolationLineSVG,
-  ResidualAnalysisSVG 
+  ResidualAnalysisSVG,
+  S2FrequencyDensityAreaEngine,
+  S2CumulativeBoxPlotProjector,
+  S2OutlierThresholdSandbox,
+  S2ResidualPatternClassifier
 } from "./Visuals/S2/S2-SVG";
 
 // S3 Imports
 import { ProbabilityTree } from "./Visuals/S3/S3-Mermaid";
-import { VennMutExSVG, TwoWayTableSVG, BayesResolutionSVG } from "./Visuals/S3/S3-SVG";
-import { S3DynamicVennSpaceEngine } from "./Visuals/S3/S3-Venn"; // New S3-Venn
-import { S3ConditionalMatrixReducer } from "./Visuals/S3/S3-TwoWayTable"; // New S3-TwoWayTable
-import { S3ProbabilityTreeEngine } from "./Visuals/S3/S3-TreeDiagram"; // New S3-TreeDiagram
+import {
+  VennMutExSVG,
+  TwoWayTableSVG,
+  BayesResolutionSVG,
+  S3DynamicVennSpaceEngine,
+  S3ConditionalMatrixReducer,
+  S3ProbabilityTreeEngine
+} from "./Visuals/S3/S3-SVG";
 
 // S4 Imports 
 import { BinomialTree } from "./Visuals/S4/S4-Mermaid";
-import { InequalityPanelSVG, NormalDistributionSVG, BinomialConditionsChecklistSVG } from "./Visuals/S4/S4-SVG";
-import { S4BinomialMorphEngine } from "./Visuals/S4/S4-BinomialEngine";
-import { S4ContinuityCorrectionLens } from "./Visuals/S4/S4-ContinuityCorrection";
-import { S4NormalStandardizer } from "./Visuals/S4/S4-NormalStandardizer";
-import { S4InequalityTranslator } from "./Visuals/S4/S4-InequalityTranslator";
+import {
+  InequalityPanelSVG,
+  NormalDistributionSVG,
+  BinomialConditionsChecklistSVG,
+  S4BinomialMorphEngine,
+  S4ContinuityCorrectionLens,
+  S4NormalStandardizer,
+  S4InequalityTranslator
+} from "./Visuals/S4/S4-SVG";
 
 
 // ==========================================
@@ -103,7 +121,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M1-ExamTrap": return <M1ExamTrapSVG />;
     case "M1-SIUnits": return <SIUnitDerivationTree />;
     case "M1-ScalarVectorMap": return <ScalarVectorSpatialMapSVG />;
-    case "M1-ModellingSandbox": return <ModellingAssumptionsSandbox />;
+    case "M1-ModellingSandbox": return <ModellingAssumptionsSVG />;
     case "M1-FreeBody": return <M1FreeBodyDiagram />;
     case "M2-VTGraphEngine": return <M2VelocityTimeGraphEngine />;
     case "M2-SUVATMatrix": return <M2SuvatMatrix />;
@@ -116,6 +134,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M2-VTS": return <M2KinematicsMaster />;
     case "M2-Traffic": return <M2VectorMagnitudeTrap />;
     case "M2-Gravity": return <M2GravitySignConvention />;
+    case "M2-SignConventionSplit": return <M2SignConventionSplit />;
     
     // ------------------------------------------
     // MECHANICS M3
