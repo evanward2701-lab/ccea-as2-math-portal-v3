@@ -6,25 +6,23 @@ export const VennMutExSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 1. Venn Configurations"
     analysis={
-      <>
-        <div className="flex justify-around w-full max-w-lg">
-          <div className="text-center font-sans text-xs font-semibold text-emerald-400">
-            <MathText content="P(A \cap B) = 0" />
-            <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Mutually Exclusive (No Overlap)</span>
+      <div className="space-y-3">
+        <div className="flex justify-around w-full max-w-md">
+          <div className="text-center font-sans text-sm font-semibold text-emerald-400">
+            Mutually Exclusive: <MathText content="P(A \cap B) = 0" className="inline [&_p]:inline [&_p]:m-0" />
           </div>
-          <div className="text-center font-sans text-xs font-semibold text-rose-400">
-            <MathText content="P(A \cap B) \neq 0" />
-            <span className="block text-[10px] text-slate-500 font-normal mt-0.5">Intersecting (General Case)</span>
+          <div className="text-center font-sans text-sm font-semibold text-rose-400">
+            Intersecting: <MathText content="P(A \cap B) \neq 0" className="inline [&_p]:inline [&_p]:m-0" />
           </div>
         </div>
-        <p className="text-sm text-slate-400 italic my-4">
-          If events are mutually exclusive, the subtraction component of the General Addition Law eliminates to zero.
-        </p>
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg text-sm text-slate-300 leading-relaxed">
+          If events are mutually exclusive, the subtraction component of the General Addition Law (<MathText content="- P(A \cap B)" className="inline [&_p]:inline [&_p]:m-0" />) becomes zero.
+        </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
           <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
-          Never assume <MathText content="P(A \cup B) = P(A) + P(B)" className="inline" /> unless explicitly stated that the events are mutually exclusive!
+          Never assume <MathText content="P(A \cup B) = P(A) + P(B)" className="inline [&_p]:inline [&_p]:m-0" /> unless the events are explicitly stated to be mutually exclusive.
         </div>
-      </>
+      </div>
     }
   >
     <svg width="600" height="200" viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
@@ -66,8 +64,8 @@ export const TwoWayTableSVG: React.FC = () => (
     title="Fig 2. Two-Way Probability Table"
     analysis={
       <>
-        <p className="text-sm text-slate-400 text-center italic mb-4">
-          <span className="text-emerald-400 font-medium">Marginal cells</span> contain single-event probabilities. <span className="text-slate-300 font-medium">Interior elements</span> dictate intersections (<MathText content="\cap" className="inline" />).
+        <p className="text-sm text-slate-400 text-center italic mb-4 max-w-md mx-auto">
+          Margin totals give single-event probabilities. Interior cells give intersection (AND) probabilities.
         </p>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300 text-center">
           <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong> Interior cross-cells ensure you do not use wrong row/column totals as conditional numerators.
@@ -111,6 +109,8 @@ export const TwoWayTableSVG: React.FC = () => (
     </div>
   </DiagramPanel>
 );
+
+// Banked for later Bayes / total probability section. Do not render in current probability lesson.
 export const BayesResolutionSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 4. Conditional Partition Asset"

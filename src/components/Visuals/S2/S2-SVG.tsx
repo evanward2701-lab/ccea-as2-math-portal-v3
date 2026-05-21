@@ -10,16 +10,24 @@ export const HistogramDensitySVG: React.FC = () => (
     title="Fig 1. Histogram Geometry"
     analysis={
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">In a histogram, the **area** of each bar represents the frequency, not the height.</p>
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <p className="text-sm text-slate-300 leading-relaxed">
+            In a histogram, the <strong className="font-semibold text-emerald-400">area</strong> of each bar represents the <strong className="font-semibold text-emerald-400">frequency</strong>, not the height.
+          </p>
         </div>
-        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not read the height as the frequency when class widths are unequal. You must use <MathText content="\text{Area} = \text{Width} \times \text{Height}" className="inline" />.
+        <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg">
+          <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider">CCEA Exam Pitfall</h4>
+          <p className="text-sm text-rose-300 leading-relaxed mb-3">
+            Do not read the bar height as the frequency when class widths are unequal.
+          </p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <MathText content="\text{Area} = \text{Width} \times \text{Height}" />
+          </div>
         </div>
       </div>
     }
   >
-    <svg width="500" height="260" viewBox="-10 -10 520 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
+    <svg width="500" height="260" viewBox="-60 -10 570 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
       {/* Grid Lines */}
       <line x1="50" y1="60" x2="450" y2="60" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
       <line x1="50" y1="100" x2="450" y2="100" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
@@ -29,15 +37,26 @@ export const HistogramDensitySVG: React.FC = () => (
       <path d="M50 25 L50 200 L460 200" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
       
       {/* Y-Axis Label */}
-      <foreignObject x="-25" y="45" width="60" height="120">
-        <div className="w-full h-full flex items-center justify-center -rotate-90 text-sm text-slate-400 font-sans whitespace-nowrap">
-          <MathText content="\text{Frequency Density}" />
-        </div>
-      </foreignObject>
+      <text
+        transform="rotate(-90 -30 112.5)"
+        x="-30"
+        y="112.5"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fill="#94a3b8"
+        className="text-sm font-sans"
+      >
+        Frequency Density
+      </text>
+
+      {/* Class Width Labels */}
+      <text x="100" y="212" textAnchor="middle" fill="#64748b" className="text-[10px] font-sans">width = 10</text>
+      <text x="200" y="212" textAnchor="middle" fill="#64748b" className="text-[10px] font-sans">width = 10</text>
+      <text x="350" y="212" textAnchor="middle" fill="#64748b" className="text-[10px] font-sans">width = 20</text>
 
       {/* X-Axis Label */}
-      <foreignObject x="220" y="205" width="60" height="30">
-        <div className="w-full text-center text-xs text-slate-400 font-sans">
+      <foreignObject x="200" y="225" width="100" height="30">
+        <div className="w-full text-center text-sm text-slate-400 font-sans">
           <MathText content="\text{Time } (t)" />
         </div>
       </foreignObject>
@@ -69,23 +88,45 @@ export const PMCCPanelSVG: React.FC = () => (
     title="Fig 2. PMCC Core Formula"
     analysis={
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
           <p className="text-sm text-slate-300 leading-relaxed">
-            The PMCC formula combines summary statistics to measure the strength and direction of **linear** correlation.
+            The PMCC formula combines summary statistics to measure the strength and direction of <strong className="font-semibold text-emerald-400">linear</strong> correlation.
           </p>
         </div>
-        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Always verify your result. An impossible value like <MathText content="r = 1.2" className="inline" /> proves to the examiner you do not understand the metric's bounds.
+        <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg">
+          <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider text-center">CCEA Exam Pitfall</h4>
+          <p className="text-sm text-rose-300 leading-relaxed mb-3 text-center">
+            Always verify your result is between -1 and 1.
+          </p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <MathText content="r = 1.2" />
+          </div>
+          <p className="text-xs text-rose-300/80 italic mt-3 text-center">
+            This is impossible, so the substitution or arithmetic must be checked.
+          </p>
         </div>
       </div>
     }
   >
-    <div className="flex flex-col items-center bg-slate-900/50 border border-slate-800 p-8 rounded-xl shadow-inner max-w-lg w-11/12">
-      <div className="mb-6 flex justify-center items-center h-16 w-full border-b border-slate-800 pb-4 text-2xl text-emerald-400">
+    <div className="flex flex-col items-center bg-slate-900/50 border border-slate-800 p-6 rounded-xl shadow-inner max-w-2xl w-full">
+      <div className="relative w-full mb-6 flex justify-center items-center h-16 border-b border-slate-800 pb-4 text-2xl text-emerald-400">
         <MathText content="r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}" />
+        <div className="absolute top-0 right-0 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3 py-1 font-mono font-bold tracking-widest rounded-lg text-xs">
+          <MathText content="-1 \leq r \leq 1" />
+        </div>
       </div>
-      
-      <div className="w-full space-y-4 pt-4 text-lg text-slate-300 font-mono">
+
+      <div className="w-full border-b border-slate-800 mb-6 pb-6">
+        <h5 className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-3 text-center">Summary Statistics Needed</h5>
+        <div className="grid grid-cols-4 sm:grid-cols-7 gap-2 text-center font-mono text-sm">
+          {['r', 'n', '\\sum x', '\\sum y', '\\sum x^2', '\\sum y^2', '\\sum xy'].map(stat => (
+            <div key={stat} className="bg-slate-950 p-2 rounded border border-slate-800/60">
+              <MathText content={stat} />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="w-full space-y-4 text-lg text-slate-300 font-mono">
         <div className="flex justify-center items-center bg-slate-950 p-3 rounded border border-slate-800/60 shadow-sm">
           <MathText content="S_{xx} = \sum x^2 - \frac{(\sum x)^2}{n}" />
         </div>
@@ -96,9 +137,6 @@ export const PMCCPanelSVG: React.FC = () => (
           <MathText content="S_{xy} = \sum xy - \frac{\sum x \sum y}{n}" />
         </div>
       </div>
-    </div>
-    <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-6 py-2 font-mono font-bold tracking-widest rounded-full text-base mt-8">
-      <MathText content="-1 \leq r \leq 1" />
     </div>
   </DiagramPanel>
 );
@@ -112,10 +150,10 @@ export const ScatterClustersSVG: React.FC = () => (
     analysis={
       <div className="space-y-3">
         <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">An overall regression line can be misleading if the population contains distinct subgroups.</p>
+          <p className="text-sm text-slate-300 leading-relaxed">An overall regression line can be highly misleading if the population contains distinct sections or subgroups.</p>
         </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not blindly trust a single PMCC value without looking at the visual scatter structure first.
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not blindly trust a single PMCC value or line of best fit. Check the scatter structure first.
         </div>
       </div>
     }
@@ -153,8 +191,11 @@ export const ScatterClustersSVG: React.FC = () => (
       <line x1="80" y1="230" x2="420" y2="50" stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="6 4" />
       
       <foreignObject x="145" y="110" width="220" height="30" transform="rotate(-28 250 130)">
-        <div className="text-center text-rose-400 text-[10px] font-mono font-bold tracking-widest uppercase bg-slate-950/90 border border-slate-800 px-3 py-1 rounded shadow-lg backdrop-blur-sm">
-          Misleading Overall Trend
+        <div className="flex items-center justify-center gap-2 text-center text-rose-400 text-[10px] font-mono font-bold tracking-widest uppercase bg-slate-950/90 border border-slate-800 px-3 py-1 rounded shadow-lg backdrop-blur-sm">
+          <div className="w-3 h-3 rounded-full bg-rose-500 text-white flex items-center justify-center text-[9px] font-black shrink-0">!</div>
+          <span>
+            Misleading overall trend
+          </span>
         </div>
       </foreignObject>
     </svg>
@@ -168,59 +209,88 @@ export const InterpolationLineSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 5. Linear Interpolation Setup"
     analysis={
-      <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-        <p className="text-sm text-slate-300 leading-relaxed">
-          Interpolation assumes data is evenly distributed, mapping the fraction of the frequency gap to the same fraction of the class width.
-        </p>
+      <div className="space-y-3">
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Assumption</h4>
+          <p className="text-sm text-slate-300 leading-relaxed">
+            Interpolation assumes values are evenly distributed across the class interval. It maps the fraction of the frequency gap directly onto the same fraction of the class width.
+          </p>
+        </div>
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Frequency Fraction</h4>
+          <p className="text-sm text-slate-300 leading-relaxed mb-3">
+            Move 5 out of the total 12 cumulative-frequency gap.
+          </p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <MathText content="\frac{10 - 5}{17 - 5} = \frac{5}{12}" />
+          </div>
+        </div>
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Class-width Fraction</h4>
+          <p className="text-sm text-slate-300 leading-relaxed mb-3">
+            Apply the same fraction across the class width from 10 to 20.
+          </p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <MathText content="Q_2 = 10 + \frac{5}{12}(20 - 10)" />
+          </div>
+        </div>
       </div>
     }
   >
-    <svg width="500" height="180" viewBox="-10 -10 520 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
-      {/* Top Line: Cumulative Frequency */}
-      <foreignObject x="0" y="30" width="75" height="30">
-        <div className="text-right text-[10px] text-slate-400 font-sans pr-2 font-medium leading-tight">Cum. Freq<br/>(y)</div>
-      </foreignObject>
-      <line x1="80" y1="40" x2="420" y2="40" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="80" cy="40" r="4" fill="#64748b" />
-      <circle cx="220" cy="40" r="5" fill="#38bdf8" /> 
-      <circle cx="420" cy="40" r="4" fill="#64748b" />
-      
-      <foreignObject x="65" y="10" width="30" height="20"><MathText content="5" className="text-center text-xs text-slate-300" /></foreignObject>
-      <foreignObject x="205" y="10" width="30" height="20"><MathText content="10" className="text-center text-xs font-bold text-sky-400" /></foreignObject>
-      <foreignObject x="405" y="10" width="30" height="20"><MathText content="17" className="text-center text-xs text-slate-300" /></foreignObject>
+    <div className="flex flex-col items-center space-y-4">
+      <svg width="500" height="180" viewBox="-10 -10 520 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
+        {/* Top Line: Cumulative Frequency */}
+        <foreignObject x="0" y="30" width="75" height="30">
+          <div className="text-right text-[10px] text-slate-400 font-sans pr-2 font-medium leading-tight">Cumulative<br/>Frequency</div>
+        </foreignObject>
+        <line x1="80" y1="40" x2="420" y2="40" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="80" cy="40" r="4" fill="#64748b" />
+        <circle cx="220" cy="40" r="5" fill="#38bdf8" /> 
+        <circle cx="420" cy="40" r="4" fill="#64748b" />
+        
+        <foreignObject x="65" y="10" width="30" height="20"><MathText content="5" className="text-center text-xs text-slate-300" /></foreignObject>
+        <foreignObject x="205" y="10" width="30" height="20"><MathText content="10" className="text-center text-xs font-bold text-sky-400" /></foreignObject>
+        <foreignObject x="405" y="10" width="30" height="20"><MathText content="17" className="text-center text-xs text-slate-300" /></foreignObject>
 
-      {/* Connection Dashed Lines */}
-      <line x1="80" y1="40" x2="80" y2="120" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
-      <line x1="220" y1="40" x2="220" y2="120" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4 4" />
-      <line x1="420" y1="40" x2="420" y2="120" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+        {/* Visual Gap Brackets */}
+        <path d="M 80 50 L 80 55 L 220 55 L 220 50" fill="none" stroke="#475569" strokeWidth="1" />
+        <foreignObject x="140" y="58" width="60" height="20">
+          <div className="text-center text-[10px] text-slate-400">gap = 5</div>
+        </foreignObject>
+        
+        <path d="M 80 70 L 80 75 L 420 75 L 420 70" fill="none" stroke="#475569" strokeWidth="1" />
+        <foreignObject x="240" y="78" width="60" height="20">
+          <div className="text-center text-[10px] text-slate-400">total = 12</div>
+        </foreignObject>
 
-      {/* Bottom Line: Class Boundaries (x) */}
-      <foreignObject x="0" y="110" width="75" height="30">
-        <div className="text-right text-[10px] text-slate-400 font-sans pr-2 font-medium leading-tight">Boundary<br/>(x)</div>
-      </foreignObject>
-      <line x1="80" y1="120" x2="420" y2="120" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="80" cy="120" r="4" fill="#64748b" />
-      <circle cx="220" cy="120" r="5" fill="#34d399" /> 
-      <circle cx="420" cy="120" r="4" fill="#64748b" />
-      
-      <foreignObject x="65" y="135" width="30" height="20"><MathText content="10" className="text-center text-xs text-slate-300" /></foreignObject>
-      <foreignObject x="205" y="135" width="30" height="25"><MathText content="Q_2" className="text-center text-sm font-bold text-emerald-400" /></foreignObject>
-      <foreignObject x="405" y="135" width="30" height="20"><MathText content="20" className="text-center text-xs text-slate-300" /></foreignObject>
+        {/* Connection Dashed Lines */}
+        <line x1="80" y1="40" x2="80" y2="120" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+        <line x1="220" y1="40" x2="220" y2="120" stroke="#38bdf8" strokeWidth="2.5" strokeDasharray="4 4" />
+        <line x1="420" y1="40" x2="420" y2="120" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
 
-      {/* Visual Gap Brackets */}
-      <path d="M 80 58 L 80 68 L 220 68 L 220 58" fill="none" stroke="#334155" strokeWidth="1" />
-      <foreignObject x="110" y="72" width="80" height="20">
-        <MathText content="\text{Gap} = 5" className="text-center text-[10px] text-slate-400" />
-      </foreignObject>
-      
-      <path d="M 80 102 L 80 92 L 420 92 L 420 102" fill="none" stroke="#334155" strokeWidth="1" />
-      <foreignObject x="210" y="72" width="80" height="20">
-        <MathText content="\text{Total} = 12" className="text-center text-[10px] text-slate-400" />
-      </foreignObject>
-    </svg>
-    <div className="flex justify-center mt-4">
-      <div className="text-emerald-400 font-mono text-lg bg-slate-950 py-3 px-6 rounded-lg border border-slate-800 shadow-md">
-        <MathText content="\frac{Q_2 - 10}{20 - 10} = \frac{10 - 5}{17 - 5}" />
+        {/* Bottom Line: Class Boundaries (x) */}
+        <foreignObject x="0" y="110" width="75" height="30">
+          <div className="text-right text-[10px] text-slate-400 font-sans pr-2 font-medium leading-tight">Class<br/>Boundary</div>
+        </foreignObject>
+        <line x1="80" y1="120" x2="420" y2="120" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="80" cy="120" r="4" fill="#64748b" />
+        <circle cx="220" cy="120" r="5" fill="#34d399" /> 
+        <circle cx="420" cy="120" r="4" fill="#64748b" />
+        
+        <foreignObject x="65" y="135" width="30" height="20"><MathText content="10" className="text-center text-xs text-slate-300" /></foreignObject>
+        <foreignObject x="205" y="135" width="30" height="25"><MathText content="Q_2" className="text-center text-sm font-bold text-emerald-400" /></foreignObject>
+        <foreignObject x="405" y="135" width="30" height="20"><MathText content="20" className="text-center text-xs text-slate-300" /></foreignObject>
+      </svg>
+      <div className="w-full max-w-md">
+        <div className="p-3 bg-slate-950 border border-slate-800 rounded-lg text-center">
+          <h5 className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-2">Interpolation Ratio</h5>
+          <div className="text-emerald-400 font-mono text-lg">
+            <MathText content="\frac{Q_2 - 10}{20 - 10} = \frac{10 - 5}{17 - 5}" />
+          </div>
+          <div className="text-sky-400 font-mono text-base mt-2">
+            <MathText content="\frac{Q_2 - 10}{10} = \frac{5}{12}" />
+          </div>
+        </div>
       </div>
     </div>
   </DiagramPanel>

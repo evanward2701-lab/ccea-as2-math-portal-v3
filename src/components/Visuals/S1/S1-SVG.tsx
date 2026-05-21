@@ -11,52 +11,35 @@ export const SamplingTableSVG: React.FC = () => (
       <table className="w-full border-collapse font-sans bg-slate-950 text-slate-300">
         <thead>
           <tr className="bg-slate-900 text-slate-400 uppercase tracking-wider text-[10px] font-mono border-b-2 border-slate-700">
-            <th className="p-4 text-left font-bold w-[15%] min-w-25">Method</th>
-            <th className="p-4 text-left font-bold w-[10%] min-w-20">Random Base?</th>
-            <th className="p-4 text-left font-bold w-[37.5%] min-w-37.5">Primary Advantage</th>
-            <th className="p-4 text-left font-bold w-[37.5%] min-w-37.5">Primary Disadvantage</th>
+            <th className="p-4 text-left font-bold w-1/3 min-w-[100px]">Method</th>
+            <th className="p-4 text-left font-bold w-1/3 min-w-[150px]">Advantage</th>
+            <th className="p-4 text-left font-bold w-1/3 min-w-[150px]">Disadvantage</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-800">
           <tr className="hover:bg-slate-900/50 transition-colors">
-            <td className="p-4 font-bold text-sky-400">Simple Random</td>
-            <td className="p-4"><span className="text-emerald-400 font-mono text-[10px] border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 rounded">YES</span></td>
-            <td className="p-4 text-sm leading-relaxed">Free of bias. Easy and cheap for small populations.</td>
-            <td className="p-4 text-sm leading-relaxed">Requires a full sampling frame. Not suitable for large populations.</td>
+            <td className="p-4 font-bold text-sky-400">Census</td>
+            <td className="p-4 text-sm leading-relaxed">100% accurate</td>
+            <td className="p-4 text-sm leading-relaxed">Time-consuming / expensive</td>
           </tr>
           <tr className="hover:bg-slate-900/50 transition-colors">
-            <td className="p-4 font-bold text-sky-400">Systematic</td>
-            <td className="p-4"><span className="text-emerald-400 font-mono text-[10px] border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 rounded">YES</span></td>
-            <td className="p-4 text-sm leading-relaxed">Simple and quick to use. Suitable for large samples.</td>
-            <td className="p-4 text-sm leading-relaxed">A sampling frame is still needed. Can introduce bias if the frame has periodic traits.</td>
+            <td className="p-4 font-bold text-sky-400">Simple Random Sample</td>
+            <td className="p-4 text-sm leading-relaxed">Free from human bias</td>
+            <td className="p-4 text-sm leading-relaxed">Needs a full sampling frame;<br/>may not represent minority subgroups</td>
           </tr>
           <tr className="hover:bg-slate-900/50 transition-colors">
             <td className="p-4 font-bold text-sky-400">Stratified</td>
-            <td className="p-4"><span className="text-emerald-400 font-mono text-[10px] border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 rounded">YES</span></td>
-            <td className="p-4 text-sm leading-relaxed">Accurately reflects population structure. Guarantees proportional representation.</td>
-            <td className="p-4 text-sm leading-relaxed">Population must be naturally divisible into distinct strata.</td>
-          </tr>
-          <tr className="hover:bg-slate-900/50 transition-colors bg-slate-900/20">
-            <td className="p-4 font-bold text-amber-500">Quota</td>
-            <td className="p-4"><span className="text-rose-400 font-mono text-[10px] border border-rose-500/30 bg-rose-500/10 px-2 py-1 rounded">NO</span></td>
-            <td className="p-4 text-sm leading-relaxed">Allows a small sample to be representative. No sampling frame required.</td>
-            <td className="p-4 text-sm leading-relaxed">Can introduce interviewer bias. Non-random selection negates advanced statistical tests.</td>
-          </tr>
-          <tr className="hover:bg-slate-900/50 transition-colors bg-slate-900/20">
-            <td className="p-4 font-bold text-amber-500">Opportunity / Convenience</td>
-            <td className="p-4"><span className="text-rose-400 font-mono text-[10px] border border-rose-500/30 bg-rose-500/10 px-2 py-1 rounded">NO</span></td>
-            <td className="p-4 text-sm leading-relaxed">Easy to carry out. Inexpensive.</td>
-            <td className="p-4 text-sm leading-relaxed">Highly unlikely to provide a representative sample. Highly dependent on researcher bias.</td>
+            <td className="p-4 text-sm leading-relaxed">Highly representative of population structure</td>
+            <td className="p-4 text-sm leading-relaxed">Requires detailed prior knowledge<br/>of population strata sizes</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div className="w-full px-6 mt-6">
-      <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
-        <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
-        Do not confuse Stratified and Quota sampling. Stratified sampling selects elements *randomly* within each strata (requiring a sampling frame). Quota sampling does not use random selection.
-      </div>
+      <p className="text-sm text-slate-300 leading-relaxed text-center">
+        Selecting a sampling technique requires balancing accuracy with cost and practicality.
+      </p>
     </div>
   </div>
 );

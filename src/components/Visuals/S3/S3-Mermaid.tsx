@@ -4,9 +4,13 @@ import { MathText } from '../../MathText';
 
 export const S3_PROBABILITY_TREE_MERMAID = `%%{init: {
   'theme': 'base',
+  'flowchart': {
+    'nodeSpacing': 70,
+    'rankSpacing': 70
+  },
   'themeVariables': {
     'background': '#020617',
-    'fontSize': '16px',
+    'fontSize': '18px',
     'primaryColor': '#0f172a',
     'primaryTextColor': '#f8fafc',
     'primaryBorderColor': '#334155',
@@ -16,20 +20,19 @@ export const S3_PROBABILITY_TREE_MERMAID = `%%{init: {
   }
 }}%%
 graph LR
-    %% Node Generation
-    Start((Start)) -->|P_A| ANode((A))
-    Start -->|P_not_A| ANot((not A))
+    Start((Start)) -->|P(A)| ANode((A))
+    Start -->|P(A')| ANot((A'))
 
-    ANode -->|P_B_given_A| B1((B))
-    ANode -->|P_not_B_given_A| BNot1((not B))
+    ANode -->|P(B|A)| B1((B))
+    ANode -->|P(B'|A)| BNot1((B'))
 
-    ANot -->|P_B_given_not_A| B2((B))
-    ANot -->|P_not_B_given_not_A| BNot2((not B))
+    ANot -->|P(B|A')| B2((B))
+    ANot -->|P(B'|A')| BNot2((B'))
 
-    B1 -.-> Out1["P(A ∩ B) = P(A) × P(B|A)"]
-    BNot1 -.-> Out2["P(A ∩ B') = P(A) × P(B'|A)"]
-    B2 -.-> Out3["P(A' ∩ B) = P(A') × P(B|A')"]
-    BNot2 -.-> Out4["P(A' ∩ B') = P(A') × P(B'|A')"]
+    B1 -.-> Out1["P(A ∩ B)"]
+    BNot1 -.-> Out2["P(A ∩ B')"]
+    B2 -.-> Out3["P(A' ∩ B)"]
+    BNot2 -.-> Out4["P(A' ∩ B')"]
 
     classDef default fill:#0f172a,stroke:#334155,stroke-width:1px,color:#cbd5e1;
     classDef startNode fill:#020617,stroke:#64748b,stroke-width:2px,color:#f8fafc;
@@ -58,13 +61,24 @@ export const ProbabilityTree: React.FC = () => {
         <MermaidDiagram chart={S3_PROBABILITY_TREE_MERMAID} />
       </div>
       
-      <div className="w-full px-6 mt-4 space-y-4 text-center">
-        <p className="text-sm text-slate-400 italic">
-          Branches represent sequences of conditional dependent execution timelines.
+      <div className="w-full px-6 mt-4 space-y-4">
+        <p className="text-sm text-slate-400 italic text-center">
+          Tree diagrams efficiently map out repeated events.
         </p>
-        <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300">
-          <strong className="block text-sky-400 not-italic uppercase text-[10px] mb-2">Key Operations:</strong>
-          Multiply along consecutive branches to find an intersection (<MathText content="\cap" className="inline"/>). Add across separate final outcomes to find a union (<MathText content="\cup" className="inline"/>) or total probability.
+        <div className="space-y-3">
+            <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <p className="text-sm text-slate-300 leading-relaxed">
+                    <strong className="text-sky-400">1. Multiply along branches</strong> to find an intersection (<MathText content="P(A \cap B)" className="inline [&_p]:inline [&_p]:m-0"/>).
+                </p>
+            </div>
+            <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <p className="text-sm text-slate-300 leading-relaxed">
+                    <strong className="text-sky-400">2. Add across separate final paths</strong> to find a union or total probability.
+                </p>
+            </div>
+        </div>
+        <div className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-center font-bold text-slate-300 text-sm">
+          Multiply along branches, Add across separate paths.
         </div>
       </div>
     </div>

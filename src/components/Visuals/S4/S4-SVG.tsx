@@ -9,9 +9,11 @@ export const InequalityPanelSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 2. Binomial Inequalities"
     analysis={
-      <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300 text-center">
+      <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
         <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
-        Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline" />) and upwards inequalities (<MathText content="\ge" className="inline" />) into a format utilizing <MathText content="P(X \le x)" className="inline" />.
+        <p className="leading-relaxed">
+          Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline [&_p]:inline [&_p]:m-0" />) and upwards inequalities (<MathText content="\ge" className="inline [&_p]:inline [&_p]:m-0" />) into a format utilizing <MathText content="P(X \le x)" className="inline [&_p]:inline [&_p]:m-0" />.
+        </p>
       </div>
     }
   >
@@ -21,29 +23,29 @@ export const InequalityPanelSVG: React.FC = () => (
           <tr className="bg-slate-950 text-slate-400 border-b border-slate-800 uppercase font-mono tracking-wider text-[10px]">
             <th className="p-4 border-r border-slate-800 text-left pl-6">English Phrase</th>
             <th className="p-4 border-r border-slate-800">Raw Inequality</th>
-            <th className="p-4 text-emerald-400">Calculator Format <MathText content="(\leq)" className="inline" /></th>
+            <th className="p-4 text-emerald-400">Calculator Format <MathText content="P(X \le x)" className="inline [&_p]:inline [&_p]:m-0" /></th>
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-800/50">
           <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"More than 5"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X > 5)" /></td>
-            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="1 - P(X \leq 5)" /></td>
-          </tr>
-          <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At least 5" / "5 or more"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \geq 5)" /></td>
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"More than 4"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X > 4)" /></td>
             <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="1 - P(X \leq 4)" /></td>
           </tr>
           <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"Fewer than 5"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X < 5)" /></td>
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At least 4" / "4 or more"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \geq 4)" /></td>
+            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="1 - P(X \leq 4)" /></td>
+          </tr>
+          <tr className="hover:bg-slate-800/30 transition-colors">
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"Fewer than 4"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X < 4)" /></td>
             <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="P(X \leq 4)" /></td>
           </tr>
           <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At most 5" / "No more than 5"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \leq 5)" /></td>
-            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="P(X \leq 5)" /></td>
+            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At most 4" / "No more than 4"</td>
+            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \leq 4)" /></td>
+            <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="P(X \leq 4)" /></td>
           </tr>
         </tbody>
       </table>
@@ -51,6 +53,7 @@ export const InequalityPanelSVG: React.FC = () => (
   </DiagramPanel>
 );
 
+// Banked for later Normal Distribution section. Do not render in current binomial section.
 // ==========================================
 // Fig 3. Standard Normal Distribution Gaussian Curve
 // ==========================================
@@ -60,8 +63,7 @@ export const NormalDistributionSVG: React.FC = () => (
     analysis={
       <div className="space-y-3">
         <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">
-            The Normal Distribution is a continuous, symmetrical bell-shaped curve defined by its mean <MathText content="\mu" className="inline" /> and standard deviation <MathText content="\sigma" className="inline" />.
+          <p className="text-sm text-slate-300 leading-relaxed">The Normal Distribution is a continuous, symmetrical bell-shaped curve defined by its mean <MathText content="\mu" className="inline [&_p]:inline [&_p]:m-0" /> and standard deviation <MathText content="\sigma" className="inline [&_p]:inline [&_p]:m-0" />.
           </p>
         </div>
         <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-center">
@@ -69,7 +71,7 @@ export const NormalDistributionSVG: React.FC = () => (
           <div className="font-mono text-emerald-400 text-lg"><MathText content="Z = \frac{X - \mu}{\sigma}" /></div>
         </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The formula uses standard deviation (<MathText content="\sigma" className="inline" />), but exam questions often provide the variance (<MathText content="\sigma^2" className="inline" />). You must square root it first!
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The formula uses standard deviation (<MathText content="\sigma" className="inline [&_p]:inline [&_p]:m-0" />), but exam questions often provide the variance (<MathText content="\sigma^2" className="inline [&_p]:inline [&_p]:m-0" />). You must square root it first!
         </div>
       </div>
     }
@@ -109,6 +111,7 @@ export const NormalDistributionSVG: React.FC = () => (
   </DiagramPanel>
 );
 
+// Banked for later Binomial Conditions / Model Validation section. Do not render in current binomial tree/inequalities section.
 // ==========================================
 // Fig 4. Validation Matrix
 // ==========================================
@@ -118,7 +121,7 @@ export const BinomialConditionsChecklistSVG: React.FC = () => (
     analysis={
       <div className="p-4 bg-sky-950/30 border border-sky-900/40 rounded-lg text-sm text-sky-300 text-center">
         <strong className="block text-sky-400 not-italic uppercase text-[10px] mb-1">Modelling Notation:</strong>
-        If all four conditions are met, the scenario can be modelled by a Binomial Distribution, written as <MathText content="X \sim B(n, p)" className="inline" />.
+        If all four conditions are met, the scenario can be modelled by a Binomial Distribution, written as <MathText content="X \sim B(n, p)" className="inline [&_p]:inline [&_p]:m-0" />.
       </div>
     }
   >

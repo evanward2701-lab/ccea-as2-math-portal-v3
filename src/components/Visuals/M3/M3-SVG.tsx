@@ -13,16 +13,9 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
     title="Fig 1. Single Particle Resolving"
     analysis={
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <div className="w-5 h-5 shrink-0 mt-0.5 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-mono text-xs font-bold">1</div>
-          <p className="text-sm text-slate-300 leading-relaxed">
-            Draw a full force diagram before attempting to resolve forces.
-          </p>
-        </div>
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <div className="w-5 h-5 shrink-0 mt-0.5 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-mono text-xs font-bold">2</div>
-          <p className="text-sm text-slate-300 leading-relaxed">
-            The direction of acceleration defines the positive axis for your equations of motion.
+        <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <p className="text-sm text-slate-300 leading-relaxed text-center italic">
+            Always draw a comprehensive force diagram before resolving. Acceleration dictates the positive direction.
           </p>
         </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
@@ -71,14 +64,14 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
 
       {/* Driving Force P */}
       <line x1="350" y1="130" x2="445" y2="130" stroke="#34d399" strokeWidth="2.5" markerEnd="url(#arrow-emerald)" />
-      <foreignObject x={445 + LABEL_OFFSET_X} y={130 + LABEL_OFFSET_Y_ABOVE} width="30" height="30">
-        <MathText content="P" />
+      <foreignObject x={450} y={100} width="110" height="30">
+        <div className="text-emerald-400 text-xs font-semibold">Driving Force (<MathText content="P" className="inline [&_p]:inline"/>)</div>
       </foreignObject>
 
       {/* Friction Resistance Vector F_r */}
       <line x1="250" y1="140" x2="165" y2="140" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#arrow-rose)" />
-      <foreignObject x={165 - 50 - LABEL_OFFSET_X} y={140 + LABEL_OFFSET_Y_ABOVE} width="50" height="30">
-        <MathText content="F_{r}" />
+      <foreignObject x={80} y={110} width="80" height="30">
+        <div className="text-rose-400 text-xs font-semibold">Friction (<MathText content="F" className="inline [&_p]:inline"/>)</div>
       </foreignObject>
 
       {/* Acceleration Vector */}
@@ -95,16 +88,23 @@ export const PulleySystemSVG: React.FC = () => (
     title="Fig 2. Connected Particles"
     analysis={
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">
-            A "smooth pulley" ensures tension (<MathText content="T" className="inline" />) is equal on both sides. An "inextensible string" ensures both masses share the same acceleration magnitude (<MathText content="a" className="inline" />).
-          </p>
+        <p className="text-sm text-slate-400 italic text-center">
+          A smooth pulley ensures tension T is equal on both sides. The inextensible string ensures acceleration a is equal in magnitude.
+        </p>
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-emerald-400 mb-2 text-sm">Smooth Pulley</h4>
+          <p className="text-sm text-slate-300 leading-relaxed mb-2">Tension is equal on both sides of the string.</p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60 text-sm text-slate-300">T is equal on both sides</div>
+        </div>
+        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <h4 className="font-bold text-amber-400 mb-2 text-sm">Inextensible String</h4>
+          <p className="text-sm text-slate-300 leading-relaxed mb-2">Both connected masses share the same acceleration magnitude.</p>
+          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60 text-sm text-slate-300">a is common to both masses</div>
         </div>
       </div>
     }
   >
     <svg width="300" height="350" viewBox="80 20 300 330" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-      {/* ... [Keep existing defs markers] ... */}
       <defs>
         <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399" /></marker>
         <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b" /></marker>
@@ -112,8 +112,8 @@ export const PulleySystemSVG: React.FC = () => (
       </defs>
 
       {/* Mass Body 1 */}
-      <rect x="155" y="200" width="40" height="50" fill="#1e293b" stroke="#475569" strokeWidth="2" className="hover:stroke-emerald-400 transition-all" />
-      <foreignObject x="155" y="200" width="40" height="50">
+      <rect x="150" y="200" width="50" height="60" fill="#1e293b" stroke="#475569" strokeWidth="2" className="hover:stroke-emerald-400 transition-all" />
+      <foreignObject x="150" y="200" width="50" height="60">
         <div className="flex items-center justify-center h-full text-slate-300"><MathText content="m_1" /></div>
       </foreignObject>
       
@@ -131,7 +131,7 @@ export const PulleySystemSVG: React.FC = () => (
       <circle cx="200" cy="75" r="4" fill="#64748b" />
 
       {/* Cables */}
-      <line x1="175" y1="75" x2="175" y2="200" stroke="#64748b" strokeWidth="1.5" />
+      <line x1="175" y1="75" x2="175" y2="200" stroke="#64748b" strokeWidth="1.5" /> {/* m1 cable */}
       <line x1="225" y1="75" x2="225" y2="150" stroke="#64748b" strokeWidth="1.5" />
 
       {/* Tensions */}
@@ -144,17 +144,17 @@ export const PulleySystemSVG: React.FC = () => (
 
       {/* Gravity */}
       {/* m1g */}
-      <line x1="175" y1="250" x2="175" y2="310" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow-amber)" /> {/* Starts at bottom of m1 */}
+      <line x1="175" y1="260" x2="175" y2="320" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow-amber)" /> {/* Starts at bottom of m1 */}
       <foreignObject x={175 + LABEL_OFFSET_X_RIGHT} y={310 + LABEL_OFFSET_Y_BELOW} width="55" height="25"><MathText content="m_1g" /></foreignObject>
       {/* m2g */}
       <line x1="225" y1="185" x2="225" y2="235" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow-amber)" /> {/* Starts at bottom of m2 */}
       <foreignObject x={225 + LABEL_OFFSET_X_RIGHT} y={235 + LABEL_OFFSET_Y_BELOW} width="55" height="25"><MathText content="m_2g" /></foreignObject>
 
       {/* Acceleration */}
-      <line x1="130" y1="200" x2="130" y2="240" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#accel-sky)" />
-      <foreignObject x={130 - LABEL_OFFSET_X - 20} y={240 + LABEL_OFFSET_Y_BELOW} width="20" height="25"><MathText content="a" /></foreignObject>
+      <line x1="130" y1="220" x2="130" y2="260" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#accel-sky)" />
+      <foreignObject x="105" y="230" width="20" height="25"><MathText content="a" /></foreignObject>
       <line x1="270" y1="180" x2="270" y2="140" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#accel-sky)" />
-      <foreignObject x={270 + LABEL_OFFSET_X_RIGHT} y={140 + LABEL_OFFSET_Y_ABOVE} width="20" height="25"><MathText content="a" /></foreignObject>
+      <foreignObject x="245" y="150" width="20" height="25"><MathText content="a" /></foreignObject>
     </svg>
   </DiagramPanel>
 );
@@ -210,20 +210,20 @@ export const InclinedPlaneSVG: React.FC = () => (
 
       {/* Weight Components (Dashed) */}
       <line x1="250" y1="180" x2="185" y2="206" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4 4" markerEnd="url(#arrow-sky)" />
-      <foreignObject x="145" y="215" width="80" height="30" transform="rotate(-21.8 185 230)">
+      <foreignObject x="135" y="220" width="80" height="30" transform="rotate(-21.8 185 230)">
         <MathText content="mg \sin \theta" />
       </foreignObject>
 
       <line x1="250" y1="180" x2="278" y2="250" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4 4" markerEnd="url(#arrow-sky)" />
-      <foreignObject x="290" y="240" width="85" height="30">
+      <foreignObject x="285" y="250" width="85" height="30">
         <MathText content="mg \cos \theta" />
       </foreignObject>
 
       {/* Angle Theta between mg and perpendicular component */}
       <path d="M 250 200 A 20 20 0 0 1 257.4 198.6" fill="none" stroke="#94a3b8" strokeWidth="1" />
       {/* Leader line for theta */}
-      <line x1="275" y1="215" x2="256" y2="199" stroke="#64748b" strokeWidth="1" strokeDasharray="2 2" />
-      <foreignObject x="275" y="205" width="20" height="20"><MathText content="\theta" className="text-[10px]" /></foreignObject>
+      <line x1="280" y1="210" x2="258" y2="199" stroke="#64748b" strokeWidth="1" strokeDasharray="2 2" />
+      <foreignObject x="280" y="200" width="20" height="20"><MathText content="\theta" className="text-[10px]" /></foreignObject>
     </svg>
   </DiagramPanel>
 );
