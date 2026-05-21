@@ -1,5 +1,6 @@
 import React from 'react';
 import { MermaidDiagram } from '../../MermaidDiagram';
+import { MathText } from '../../MathText';
 
 export const S2_STD_DEV_MERMAID = `%%{init: {
   'theme': 'base',
