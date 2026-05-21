@@ -1,16 +1,25 @@
 import React from 'react';
 import { MathText } from '../../MathText';
+import { DiagramPanel } from '../../DiagramPanel';
 
 // ==========================================
 // Fig 1. Histogram Area/Density
 // ==========================================
 export const HistogramDensitySVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-b border-l border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-      Fig 1. Histogram Geometry
-    </div>
-    
-    <svg width="500" height="260" viewBox="-10 -10 520 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
+  <DiagramPanel
+    title="Fig 1. Histogram Geometry"
+    analysis={
+      <div className="space-y-3">
+        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <p className="text-sm text-slate-300 leading-relaxed">In a histogram, the **area** of each bar represents the frequency, not the height.</p>
+        </div>
+        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not read the height as the frequency when class widths are unequal. You must use <MathText content="\text{Area} = \text{Width} \times \text{Height}" className="inline" />.
+        </div>
+      </div>
+    }
+  >
+    <svg width="500" height="260" viewBox="-10 -10 520 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
       {/* Grid Lines */}
       <line x1="50" y1="60" x2="450" y2="60" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
       <line x1="50" y1="100" x2="450" y2="100" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
@@ -49,26 +58,29 @@ export const HistogramDensitySVG: React.FC = () => (
         </div>
       </foreignObject>
     </svg>
-
-    <div className="w-full px-6 mt-6">
-      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
-        In a histogram, the area of the bar represents the frequency.
-        <strong className="block mt-2 text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Do not read the height as the frequency when classes have unequal widths!
-      </div>
-    </div>
-  </div>
+  </DiagramPanel>
 );
 
 // ==========================================
 // Fig 2. PMCC Formula Panel
 // ==========================================
 export const PMCCPanelSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-b border-l border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-      Fig 2. PMCC Core Formula
-    </div>
-    
-    <div className="my-8 flex flex-col items-center bg-slate-900/50 border border-slate-800 p-8 rounded-xl shadow-inner max-w-lg w-11/12">
+  <DiagramPanel
+    title="Fig 2. PMCC Core Formula"
+    analysis={
+      <div className="space-y-3">
+        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <p className="text-sm text-slate-300 leading-relaxed">
+            The PMCC formula combines summary statistics to measure the strength and direction of **linear** correlation.
+          </p>
+        </div>
+        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Always verify your result. An impossible value like <MathText content="r = 1.2" className="inline" /> proves to the examiner you do not understand the metric's bounds.
+        </div>
+      </div>
+    }
+  >
+    <div className="flex flex-col items-center bg-slate-900/50 border border-slate-800 p-8 rounded-xl shadow-inner max-w-lg w-11/12">
       <div className="mb-6 flex justify-center items-center h-16 w-full border-b border-slate-800 pb-4 text-2xl text-emerald-400">
         <MathText content="r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}" />
       </div>
@@ -85,33 +97,30 @@ export const PMCCPanelSVG: React.FC = () => (
         </div>
       </div>
     </div>
-
-    <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-6 py-2 font-mono font-bold tracking-widest rounded-full text-base mb-4">
+    <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-6 py-2 font-mono font-bold tracking-widest rounded-full text-base mt-8">
       <MathText content="-1 \leq r \leq 1" />
     </div>
-
-    <div className="w-full px-6 mt-4">
-      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
-        The PMCC formula combines summary statistics to measure linear correlation.
-        <div className="mt-3 p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
-          <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
-          Always verify your result. Accepting an impossible value like <MathText content="r = 1.2" className="inline" /> proves to the examiner you do not understand the metric.
-        </div>
-      </div>
-    </div>
-  </div>
+  </DiagramPanel>
 );
 
 // ==========================================
 // Fig 3. Scatter Diagram with Distinct Clusters
 // ==========================================
 export const ScatterClustersSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-b border-l border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-      Fig 3. Subgroups in Data
-    </div>
-    
-    <svg width="500" height="300" viewBox="20 0 480 310" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
+  <DiagramPanel
+    title="Fig 3. Subgroups in Data"
+    analysis={
+      <div className="space-y-3">
+        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <p className="text-sm text-slate-300 leading-relaxed">An overall regression line can be misleading if the population contains distinct subgroups.</p>
+        </div>
+        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not blindly trust a single PMCC value without looking at the visual scatter structure first.
+        </div>
+      </div>
+    }
+  >
+    <svg width="500" height="300" viewBox="20 0 480 310" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
       {/* Axes */}
       <path d="M50 30 L50 250 L470 250" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
       
@@ -149,26 +158,24 @@ export const ScatterClustersSVG: React.FC = () => (
         </div>
       </foreignObject>
     </svg>
-
-    <div className="w-full px-6 mt-6">
-      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
-        An overall regression line can be highly misleading if the population contains distinct sections or subgroups.
-        <strong className="block mt-2 text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Do not blindly trust a single PMCC value without looking at the visual scatter structure first.
-      </div>
-    </div>
-  </div>
+  </DiagramPanel>
 );
 
 // ==========================================
 // Fig 5. Linear Interpolation Double Number Line
 // ==========================================
 export const InterpolationLineSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-b border-l border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-      Fig 5. Linear Interpolation Setup
-    </div>
-    
-    <svg width="500" height="180" viewBox="-10 -10 520 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
+  <DiagramPanel
+    title="Fig 5. Linear Interpolation Setup"
+    analysis={
+      <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+        <p className="text-sm text-slate-300 leading-relaxed">
+          Interpolation assumes data is evenly distributed, mapping the fraction of the frequency gap to the same fraction of the class width.
+        </p>
+      </div>
+    }
+  >
+    <svg width="500" height="180" viewBox="-10 -10 520 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
       {/* Top Line: Cumulative Frequency */}
       <foreignObject x="0" y="30" width="75" height="30">
         <div className="text-right text-[10px] text-slate-400 font-sans pr-2 font-medium leading-tight">Cum. Freq<br/>(y)</div>
@@ -211,30 +218,32 @@ export const InterpolationLineSVG: React.FC = () => (
         <MathText content="\text{Total} = 12" className="text-center text-[10px] text-slate-400" />
       </foreignObject>
     </svg>
-
-    <div className="w-full px-8 border-t border-slate-800/60 pt-6 bg-slate-900/40 text-center">
-      <p className="text-sm text-slate-300 leading-relaxed italic mb-4">
-        Interpolation maps the fraction of the frequency directly onto the fraction of the class width:
-      </p>
-      <div className="flex justify-center mb-4">
-        <div className="text-emerald-400 font-mono text-lg bg-slate-950 py-3 px-6 rounded-lg border border-slate-800 shadow-md">
-          <MathText content="\frac{Q_2 - 10}{20 - 10} = \frac{10 - 5}{17 - 5}" />
-        </div>
+    <div className="flex justify-center mt-4">
+      <div className="text-emerald-400 font-mono text-lg bg-slate-950 py-3 px-6 rounded-lg border border-slate-800 shadow-md">
+        <MathText content="\frac{Q_2 - 10}{20 - 10} = \frac{10 - 5}{17 - 5}" />
       </div>
     </div>
-  </div>
+  </DiagramPanel>
 );
 
 // ==========================================
 // Fig 6. Diagnostic Residual Analysis
 // ==========================================
 export const ResidualAnalysisSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-12 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-b border-l border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
-      Fig 6. Diagnostic Residual Analysis
-    </div>
-    
-    <svg width="500" height="200" viewBox="10 0 480 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
+  <DiagramPanel
+    title="Fig 6. Diagnostic Residual Analysis"
+    analysis={
+      <div className="space-y-3">
+        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <p className="text-sm text-slate-300 leading-relaxed">A random dispersion of residual plots validates a linear model. A clear pattern suggests a non-linear model is more appropriate.</p>
+        </div>
+        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> A clear pattern in the residuals (like the curve above) invalidates a linear regression model, even if the PMCC is strong.
+        </div>
+      </div>
+    }
+  >
+    <svg width="500" height="200" viewBox="10 0 480 200" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible" className="max-w-lg">
       {/* Zero Residual Reference Line */}
       <line x1="50" y1="100" x2="450" y2="100" stroke="#34d399" strokeWidth="1.5" strokeDasharray="4 4" />
       
@@ -258,12 +267,5 @@ export const ResidualAnalysisSVG: React.FC = () => (
         <circle key={'res'+i} cx={cx} cy={cy} r="5" fill="#f43f5e" className="transition-all duration-300 hover:scale-150 cursor-pointer" />
       ))}
     </svg>
-
-    <div className="w-full px-6 mt-6">
-      <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-lg text-sm text-slate-300 text-center">
-        A completely random dispersion of residual plots validates the reliability of a linear model fit.
-        <strong className="block mt-2 text-rose-400 not-italic uppercase text-[10px]">CCEA Exam Pitfall:</strong> Clear parabolic patterns like the one above indicate that a non-linear relationship exists, proving that a linear PMCC calculation is an invalid metric.
-      </div>
-    </div>
-  </div>
+  </DiagramPanel>
 );

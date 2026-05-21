@@ -22,36 +22,40 @@ export const M1_CONTENT = `
 
 ## 4. Full Theory Explanation
 
-### Mechanics Overview
+### MECHANICS OVERVIEW
 Mechanics focuses on two main ideas: Forces and Motion. These two branches are permanently linked by Newton’s Second Law ($F=ma$), meaning that a resultant force acting on a mass causes it to accelerate.
 
-### SI Units and Derived Units
+### SI UNITS AND DERIVED UNITS
 To standardise calculations, mechanics relies on the Système International (SI) units. You must convert measurements into SI base units before beginning any calculation.
+
 * **Mass** is measured in kilograms (kg).
 * **Length/Displacement** is measured in metres (m).
 * **Time** is measured in seconds (s).
 
 Derived units are created by combining these base units:
+
 * **Velocity** is measured in metres per second ($m \\, s^{-1}$).
 * **Acceleration** measures the change in velocity per second, giving metres per second squared ($m \\, s^{-2}$). The notation $\\text{ms}^{-2}$ is perfectly acceptable in exams.
 * **Force** is measured in newtons (N). Because $F = ma$, one newton is equal to one kilogram multiplied by one metre per second squared ($1 \\text{ N} = 1 \\text{ kg m s}^{-2}$).
 
 > **Exam Context:** CCEA examiners often test unit conversion natively by embedding non-SI units into standard questions, such as providing mass in tonnes in an $F=ma$ exercise. This requires immediate conversion before formula substitution.
 
-### Mass versus Weight
+### MASS VERSUS WEIGHT
 Mass is a scalar measure of the amount of matter in an object, measured in kg. Weight is a force caused by the pull of gravity acting vertically downwards on that mass. Because it is a force, weight is measured in newtons and is calculated using $W = mg$, where $g = 9.8 \\text{ m s}^{-2}$.
 
 ![visual:M1-Lift]()
 
-### Scalars and Vectors
+### SCALARS AND VECTORS
 In mechanics, quantities are grouped into two categories:
+
 * **Scalars** have magnitude (size) only. Examples include distance, speed, time, and mass.
 * **Vectors** have both magnitude and direction. Examples include displacement, velocity, acceleration, and force.
 
 ![visual:M1-ScalarVector]()
 
-### Modelling Assumptions
+### MODELLING ASSUMPTIONS
 Mathematical models simplify complex real-world situations. In mechanics, specific words in an exam question act as strict mathematical rules:
+
 * **Particle:** The object's dimensions are negligible. Its mass acts at a single point, and rotational effects or air resistance can be ignored.
 * **Smooth surface:** There is no friction present.
 * **Rough surface:** Friction is present and will oppose any attempted motion.
@@ -62,7 +66,7 @@ Mathematical models simplify complex real-world situations. In mechanics, specif
 
 ![visual:M1-Modelling]()
 
-### Tension and Towing Models
+### TENSION AND TOWING MODELS
  When objects are connected by a light towbar or inextensible string, the tension is an internal force for the whole system but an external force on each separate object. Use a whole-system equation to find the common acceleration, then isolate one object to find the tension.
 
 ![visual:M1-Towing]()
@@ -74,17 +78,38 @@ Mathematical models simplify complex real-world situations. In mechanics, specif
 
 ## 6. Worked Examples
 
-### Example 1: Unit Conversion and Weight
-A machine has a mass of $3.5$ tonnes. Calculate its weight.
-**Step 1:** Convert to SI units. Mass $= 3.5 \\times 1000 = 3500 \\text{ kg}$
-**Step 2:** Apply the weight formula.
-$W = mg$
-$W = 3500 \\times 9.8$
-$W = 34300 \\text{ N}$
+### Example 1: Unit Conversion
 
-### Example 2: Vector Magnitude
+**Question:**
+A machine has a mass of $3.5$ tonnes. Calculate its weight.
+
+**Solution:**
+
+**Step 1: Convert Mass to SI Units**
+$$
+\\text{Mass} = 3.5 \\times 1000 = 3500 \\text{ kg}
+$$
+
+**Step 2: Apply the Weight Formula**
+$$
+\\begin{aligned}
+W &= mg \\\\
+W &= 3500 \\times 9.8 \\\\
+&= 34300 \\text{ N}
+\\end{aligned}
+$$
+
+> **Final Answer:** The weight of the machine is $34300 \\text{ N}$.
+
+### Example 2: Vector Speed
+
+**Question:**
 A particle's velocity is modelled by the vector $\\mathbf{v} = 6\\mathbf{i} - 8\\mathbf{j} \\text{ m s}^{-1}$. Find its speed.
-**Step 1:** Recognise speed is the scalar magnitude of velocity.
+
+**Solution:**
+
+**Step 1: Recognise Speed as the Magnitude of Velocity**
+Speed is a scalar quantity, so we find the magnitude of the velocity vector using Pythagoras' theorem.
 $$
 \\begin{aligned}
 \\text{Speed} &= \\sqrt{6^2 + (-8)^2} \\\\
@@ -94,7 +119,10 @@ $$
 \\end{aligned}
 $$
 
+> **Final Answer:** The speed of the particle is $10 \\text{ m s}^{-1}$.
+
 ## 7. Common Traps
+
 * **Leaving answers as surds:** Unlike pure mathematics, mechanics heavily relies on decimal answers in context. Leave answers to 3 significant figures unless an exact surd is cleaner or specified.
 * **Forgetting to convert mass:** The exam frequently tests units by giving mass in tonnes. You must convert to kilograms before using $F=ma$ or $W=mg$.
 * **Confusing mass and weight:** Always use $W = mg$ to find the force downwards. Do not label a force diagram with just "5 kg"; it must be "$5g$".
@@ -102,6 +130,7 @@ $$
 * **Hedging your bets:** Leaving two distinct mathematical methods on the page because you aren't sure which one is correct. Examiners are forced to penalize this.
 
 ## 8. Exam Technique
+
 * **Rounding:** Where rounding is required, your final answer should be given to 3 significant figures. To guarantee final accuracy, you must keep more than 3 significant figures during the intermediate stages of a multi-part question.
 * **Multiple Responses:** If you are unsure of a sign (e.g., gravity direction) and offer two solutions on the page without crossing one out, the examiner will award marks for the poorest solution. You must make a clear choice.
 * **Units:** Every final answer in a mechanics question must include its correct SI unit.
@@ -131,31 +160,36 @@ export const M2_CONTENT = `
 
 ## 4. Full Theory Explanation
 
-### Language of Kinematics
+### LANGUAGE OF KINEMATICS
 Kinematics is the study of motion. Distance and speed are scalar quantities, meaning they have magnitude but no direction. Displacement and velocity are vectors, meaning they have both magnitude and direction. For example, if a cyclist travels 5 km away and 5 km back, her total distance is 10 km, but her final displacement is 0 km.
 
-### Motion Graphs
+### MOTION GRAPHS
 ![visual:M2-VTS]()
+
 * **Displacement-time graphs:** The gradient tells us how quickly displacement is changing. Therefore, the gradient gives the velocity. A flat horizontal line means the object is stationary. A straight sloping line means constant velocity.
 * **Velocity-time graphs:** The gradient gives the acceleration. A flat horizontal line above the axis means the object is moving at a constant velocity (zero acceleration). The area under a velocity-time graph gives the displacement (and distance, provided the velocity remains positive).
+
 * **Exam-Style Note:** When asked to describe the motion of an athlete or particle between two times from a graph, ensure you give enough detail (such as explicitly stating "constant acceleration" or calculating the exact acceleration value) to gain the mark.
 
-### Constant Acceleration (SUVAT)
+### CONSTANT ACCELERATION (SUVAT)
 When an object is moving in a straight line with constant acceleration, its motion is governed by the five SUVAT equations. The variables are:
+
 * $s = \\text{displacement}$
 * $u = \\text{initial velocity}$
 * $v = \\text{final velocity}$
 * $a = \\text{acceleration}$
 * $t = \\text{time}$
 
-You must define a positive direction before substituting values. If a particle is decelerating while moving in the positive direction, its acceleration $a$ will be negative.
+You must define a positive direction before substituting values.
 
-### Vertical Motion Under Gravity
+If a particle is decelerating while moving in the positive direction, its acceleration $a$ will be negative.
+
+### VERTICAL MOTION UNDER GRAVITY
 Vertical motion is a standard constant acceleration topic. If we ignore air resistance, an object in freefall accelerates downwards at $g = 9.8 \\text{ m s}^{-2}$ regardless of its mass. You must pick a positive direction. If upwards is positive, $a = -9.8$. If downwards is positive, $a = 9.8$. At the maximum height of a vertical projection, the particle is instantaneously at rest, meaning $v = 0$.
 
 ![visual:M2-Gravity]()
 
-### Constant Acceleration in Two Dimensions (Vectors)
+### CONSTANT ACCELERATION IN TWO DIMENSIONS (VECTORS)
 In 2D kinematics, displacement ($\\mathbf{s}$), initial velocity ($\\mathbf{u}$), final velocity ($\\mathbf{v}$), and acceleration ($\\mathbf{a}$) become vectors, while time ($t$) remains a scalar. You apply the SUVAT formulae component-by-component. For example, the equation $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ applies to the $\\mathbf{i}$ components and the $\\mathbf{j}$ components simultaneously.
 
 ![visual:M2-Traffic]()
@@ -173,32 +207,83 @@ In 2D kinematics, displacement ($\\mathbf{s}$), initial velocity ($\\mathbf{u}$)
 
 ## 6. Worked Examples
 
-### Example 1: Vertical Motion Exam-Style
+### Example 1: Vertical Motion
+
+**Question:**
 A ball is projected vertically upwards from a point 7 m above the ground with an initial speed of $21 \\text{ m s}^{-1}$. Find the greatest height above the ground reached by the ball.
 
-**Step 1:** Choose downwards as positive
-$u = -21$ (because it moves up)
-$a = 9.8$
-$v = 0$ (at greatest height)
+**Solution:**
 
-**Step 2:** Choose formula. We want $s$.
-$v^2 = u^2 + 2as$
-$0 = (-21)^2 + 2(9.8)s$
-$0 = 441 + 19.6s$
-$19.6s = -441 \\Rightarrow s = -22.5 \\text{ m}$
+**Step 1: Define Parameters & Sign Convention**
 
-**Step 3:** Interpret $s$. It rose 22.5 m above the launch point.
-$\\text{Height above ground} = 22.5 + 7 = 29.5 \\text{ m}$
+Choose downwards as the positive direction. The initial velocity is upwards, and the velocity at the greatest height is zero.
 
-### Example 2: 2D Vector Velocity Targeted Practice
+$$
+u = -21
+$$
+
+$$
+a = 9.8
+$$
+
+$$
+v = 0
+$$
+
+**Step 2: Select SUVAT Equation and Solve for Displacement (s)**
+$$
+\\begin{aligned}
+v^2 &= u^2 + 2as \\\\
+0^2 &= (-21)^2 + 2(9.8)s \\\\
+0 &= 441 + 19.6s \\\\
+-19.6s &= 441 \\\\
+s &= -22.5 \\text{ m}
+\\end{aligned}
+$$
+
+**Step 3: Interpret Result and Find Final Height**
+
+The negative displacement confirms the ball travelled 22.5 m upwards from its starting point.
+
+The question asks for the height above the ground.
+
+$$
+\\text{Height} = 7 + 22.5
+$$
+$$
+= 29.5\\text{ m}
+$$
+
+> **Final Answer:** The greatest height reached is $29.5 \\text{ m}$.
+
+### Example 2: 2D Vector Velocity
+
+**Question:**
 A particle has initial velocity $\\mathbf{u} = 3\\mathbf{i} - \\mathbf{j} \\text{ m s}^{-1}$ and constant acceleration $\\mathbf{a} = 2\\mathbf{i} + 4\\mathbf{j} \\text{ m s}^{-2}$. Find its velocity after 5 seconds.
 
-**Step 1:** Use $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$
-**Step 2:** Substitute and scale
-$\\mathbf{v} = (3\\mathbf{i} - \\mathbf{j}) + (2\\mathbf{i} + 4\\mathbf{j})(5)$
-$\\mathbf{v} = 3\\mathbf{i} - \\mathbf{j} + 10\\mathbf{i} + 20\\mathbf{j}$
-**Step 3:** Group components
-$\\mathbf{v} = 13\\mathbf{i} + 19\\mathbf{j} \\text{ m s}^{-1}$
+**Solution:**
+
+**Step 1: Select the Vector SUVAT Equation**
+$$
+\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t
+$$
+
+**Step 2: Substitute the Vectors and Time**
+$$
+\\mathbf{v} = (3\\mathbf{i} - \\mathbf{j}) + (2\\mathbf{i} + 4\\mathbf{j})(5)
+$$
+
+**Step 3: Scale the Acceleration Vector**
+$$
+\\mathbf{v} = 3\\mathbf{i} - \\mathbf{j} + 10\\mathbf{i} + 20\\mathbf{j}
+$$
+
+**Step 4: Group Components to Find Final Velocity**
+$$
+\\mathbf{v} = (3+10)\\mathbf{i} + (-1+20)\\mathbf{j}
+$$
+
+> **Final Answer:** $\\mathbf{v} = 13\\mathbf{i} + 19\\mathbf{j} \\text{ m s}^{-1}$
 `;
 
 export const M3_CONTENT = `
@@ -224,38 +309,60 @@ export const M3_CONTENT = `
 
 ## 4. Full Theory Explanation
 
-### Newton's First Law and Equilibrium
+### NEWTON'S FIRST LAW AND EQUILIBRIUM
 If an object has zero acceleration ($a=0$), the resultant force is zero. The forces are in equilibrium:
+
 * Sum of upward forces = sum of downward forces.
 * Sum of leftward forces = sum of rightward forces.
 
-### Newton's Second Law ($F=ma$)
+### NEWTON'S SECOND LAW ($F=ma$)
 When forces are unbalanced, the object accelerates in the direction of the resultant force.
-$\\text{Resultant Force } (F) = \\text{mass } (m) \\times \\text{acceleration } (a)$
-*Note: $F$ represents the resultant force, not just any single applied force.*
+$$
+\\text{Resultant Force} = \\text{mass} \\times \\text{acceleration}
+$$
+$$
+F = ma
+$$
+*Note: $F$ represents the **resultant** force, not just any single applied force.*
 
-### Resolving Forces and Inclined Planes
+### RESOLVING FORCES AND INCLINED PLANES
 ![visual:M3-Inclined]()
 For a particle on an inclined plane at angle $\\theta$ to the horizontal:
+
 * The component of weight acting **down the slope** is $mg \\sin \\theta$.
 * The component of weight acting **perpendicularly into the slope** is $mg \\cos \\theta$.
-The Normal Reaction ($R$) acts perpendicular to the surface. It only equals $mg \\cos \\theta$ if there are no other angled forces pulling away from or pushing into the slope.
+* The Normal Reaction ($R$) acts perpendicular to the surface.
+* $R$ only equals $mg \\cos \\theta$ if there are no other angled forces pulling away from or pushing into the slope.
 
-### The Friction Model
-Rough surfaces generate friction opposing motion or impending motion. 
-$F \\leq \\mu R$
-Friction only reaches its maximum limiting value ($F = \\mu R$) when the object is on the point of slipping, or is actively sliding.
+### THE FRICTION MODEL
+Rough surfaces generate friction that opposes motion or impending motion.
+$$
+F \\leq \\mu R
+$$
+Friction reaches its maximum limiting value, $F = \\mu R$, only when:
 
-### Connected Particles
+* the object is on the point of slipping, or
+* the object is actively sliding.
+
+### CONNECTED PARTICLES
 ![visual:M3-Rough]()
 
 Particles joined by a taut, inextensible string share the exact same magnitude of acceleration.
-* **Towbars and Trailers:** Treat the entire system as a single particle to find the common acceleration. To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
-* **Pulleys:** Because particles on a pulley move in different directions, you must write a separate $F=ma$ equation for each mass (using the direction of motion as positive for each) and solve them simultaneously. A "smooth pulley" guarantees the tension $T$ is equal on both sides.
+
+**Towbars and Trailers:**
+* Treat the entire system as one particle to find the common acceleration.
+* To find the tension, you must "zoom in" and apply $F=ma$ to just one of the individual particles.
+
+**Pulleys:**
+* Particles on a pulley may move in different directions.
+* Write a separate $F=ma$ equation for each mass.
+* Use the direction of motion as positive for each.
+* Solve the equations simultaneously.
+* A "smooth pulley" guarantees the tension $T$ is equal on both sides.
 
 ![visual:M3-Pulley]()
 
-### Dynamics of Lift Problems
+### DYNAMICS OF LIFT PROBLEMS
 * **To find the Cable Tension ($T$):** Zoom out. Treat the lift and the passenger as one single combined mass ($M_{\\text{lift}} + m_{\\text{person}}$). The internal forces cancel out.
 * **To find the Normal Reaction ($R$):** Zoom in. Treat the passenger as a single isolated particle. The Normal Reaction is the force the floor pushes up on them.
 
@@ -263,46 +370,68 @@ Particles joined by a taut, inextensible string share the exact same magnitude o
 
 ## 5. Worked Examples
 
-### Example 1: Worked Example Targeted Practice
+### Example 1: Horizontal Motion
+
+**Question:**
 A body of mass $5 \\text{ kg}$ is pulled along a rough horizontal table by a horizontal force of $20 \\text{ N}$ against a constant friction force of $4 \\text{ N}$. It starts from rest. Find the distance travelled in the first 4 seconds.
 
-**Step 1:** Use $F=ma$ to find acceleration.
-Resultant force = $20 - 4 = 16 \\text{ N}$
-$16 = 5a \\Rightarrow a = 3.2 \\text{ m s}^{-2}$
+**Solution:**
 
-**Step 2:** Apply SUVAT.
-$u = 0, a = 3.2, t = 4, s = ?$
-$s = ut + \\frac{1}{2}at^2$
+**Step 1: Use $F=ma$ to Find Acceleration**
+The resultant force is the driving force minus the resistive friction.
 $$
 \\begin{aligned}
+F &= 20 - 4 = 16 \\text{ N} \\\\
+16 &= 5a \\\\
+a &= 3.2 \\text{ m s}^{-2}
+\\end{aligned}
+$$
+
+**Step 2: Apply SUVAT to Find Displacement**
+We have $u=0$, $a=3.2$, and $t=4$. We need to find $s$.
+$$
+\\begin{aligned}
+s &= ut + \\frac{1}{2}at^2 \\\\
 s &= 0(4) + \\frac{1}{2}(3.2)(4^2) \\\\
 &= 1.6 \\times 16 \\\\
 &= 25.6 \\text{ m}
 \\end{aligned}
 $$
 
-### Example 2: Lift Dynamics Exam-Style Question
+> **Final Answer:** The body travels $25.6 \\text{ m}$.
+
+### Example 2: Lift Dynamics
+
+**Question:**
 A lift of mass $500 \\text{ kg}$ contains a passenger of mass $80 \\text{ kg}$. The lift is moving upwards and accelerates at $2 \\text{ m s}^{-2}$. Find the tension in the cable and the normal reaction force exerted by the floor on the passenger. (Take Upwards as Positive)
 
-**System Tension ($T$):** Total mass = $580 \\text{ kg}$.
-$T - 580g = 580a$
+**Solution:**
+
+**Step 1: Find Cable Tension (T) by Isolating the Whole System**
+Total mass = $500 + 80 = 580 \\text{ kg}$.
 $$
 \\begin{aligned}
+F &= ma \\\\
+T - 580g &= 580a \\\\
 T - 580(9.8) &= 580(2) \\\\
 T - 5684 &= 1160 \\\\
 T &= 6844 \\text{ N}
 \\end{aligned}
 $$
 
-**Reaction on Passenger ($R$):** Mass = $80 \\text{ kg}$.
-$R - 80g = 80a$
+**Step 2: Find Normal Reaction (R) by Isolating the Passenger**
+Consider only the forces acting on the passenger (mass = $80 \\text{ kg}$).
 $$
 \\begin{aligned}
+F &= ma \\\\
+R - 80g &= 80a \\\\
 R - 80(9.8) &= 80(2) \\\\
 R - 784 &= 160 \\\\
 R &= 944 \\text{ N}
 \\end{aligned}
 $$
+
+> **Final Answer:** Tension $T = 6844 \\text{ N}$, Reaction $R = 944 \\text{ N}$.
 `;
 
 export const S1_CONTENT = `
@@ -326,7 +455,8 @@ export const S1_CONTENT = `
 * **Continuous Data:** Quantitative data that can take any value within a range, usually measured.
 * **Bias:** A systematic unfairness in the way data is collected, meaning the sample is not representative of the population.
 
-## 4. Sampling Methods
+## 4. SAMPLING METHODS
+
 1. **Simple Random Sampling:** Requires a complete sampling frame. Every item has an equal chance of selection. This removes human bias but does not guarantee the sample will perfectly mirror the population structure.
 2. **Stratified Sampling:** The population is divided into distinct, non-overlapping groups. A random sample is then drawn from each stratum in exact proportion to the size of that group in the population.
 
@@ -337,12 +467,15 @@ $\\text{Stratum sample size} = \\frac{\\text{Stratum population size}}{\\text{To
 
 ## 5. Worked Example
 
-### Example 1: Stratified Sampling Targeted Practice
+### Example 1: Stratified Sampling
+
+**Question:**
 A college has 300 students: 180 study Mathematics and 120 do not. A sample of 40 students is needed, stratified by whether they study Mathematics. Find how many of each group should be selected.
 
-**Step 1:** Identify totals. Total population = 300. Target sample = 40.
+**Solution:**
 
-**Step 2:** Calculate for Mathematics students.
+**Step 1: Calculate Sample Size for Mathematics Students**
+Total population = 300. Target sample = 40.
 $$
 \\begin{aligned}
 \\text{Maths sample} &= \\frac{180}{300} \\times 40 \\\\
@@ -351,7 +484,7 @@ $$
 \\end{aligned}
 $$
 
-**Step 3:** Calculate for non-Mathematics students.
+**Step 2: Calculate Sample Size for Non-Mathematics Students**
 $$
 \\begin{aligned}
 \\text{Non-Maths sample} &= \\frac{120}{300} \\times 40 \\\\
@@ -359,6 +492,8 @@ $$
 &= 16
 \\end{aligned}
 $$
+
+> **Final Answer:** The sample should contain 24 Mathematics students and 16 non-Mathematics students.
 `;
 
 export const S2_CONTENT = `
@@ -407,6 +542,7 @@ export const S3_CONTENT = `
 
 ## 2. Formulae & Concepts
 ![visual:S3-Tree]()
+
 * **Addition Law:** $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
 * **Mutually Exclusive:** Cannot happen at the same time. $P(A \\cap B) = 0$.
 * **Exhaustive Events:** Cover all possible outcomes. $P(A \\cup B) = 1$.
@@ -414,31 +550,41 @@ export const S3_CONTENT = `
 
 *(Note: Conditional probability formula methods are explicitly excluded from AS2 requirements by CCEA).*
 
+### VENN DIAGRAMS
 ![visual:S3-Venn]()
 
-### Two-Way Tables
+### TWO-WAY TABLES
 Two-way tables are useful when probabilities are grouped by two categories. Always complete missing row totals, column totals, and the grand total before finding a probability.
 
 ![visual:S3-Table]()
 
-### Multi-Stage Conditional Space
+### MULTI-STAGE CONDITIONAL SPACE
 When modeling complex, multi-stage sequential sample boundaries across independent paths, look to a segmented conditional probability framework.
 
 ![visual:S3-Bayes]()
 
-## 3. Worked Example: Exhaustive Events
+## 3. WORKED EXAMPLE: EXHAUSTIVE EVENTS
+
+**Question:**
 Events $A$ and $B$ are exhaustive events such that $P(A) = 0.65$ and $P(B) = 0.42$. Find $P(A \\cap B)$ and determine if the events are mutually exclusive.
 
-**Step 1:** Since $A$ and $B$ are exhaustive, $P(A \\cup B) = 1$.
-**Step 2:** Apply Addition Law.
+**Solution:**
+
+**Step 1: Use the Exhaustive Property and Addition Law**
+Since $A$ and $B$ are exhaustive, $P(A \\cup B) = 1$.
 $$
 \\begin{aligned}
+P(A \\cup B) &= P(A) + P(B) - P(A \\cap B) \\\\
 1 &= 0.65 + 0.42 - P(A \\cap B) \\\\
 1 &= 1.07 - P(A \\cap B) \\\\
 P(A \\cap B) &= 0.07
 \\end{aligned}
 $$
-**Conclusion:** Because $P(A \\cap B) = 0.07 \\neq 0$, they are not mutually exclusive.
+
+**Step 2: Conclusion**
+Because $P(A \\cap B) = 0.07 \\neq 0$, the events are **not** mutually exclusive.
+
+> **Final Answer:** $P(A \\cap B) = 0.07$. Not mutually exclusive.
 `;
 
 export const S4_CONTENT = `
@@ -446,58 +592,77 @@ export const S4_CONTENT = `
 **S4: Statistical Distributions (Discrete Probability and the Binomial Model)**
 
 ## 2. The Binomial Model Conditions
+
 ![visual:S4-BinomialTree]()
 
 You can only use the binomial model if the situation satisfies four strict conditions:
+
 1. There is a **fixed number of trials** ($n$).
 2. There are exactly **two possible outcomes** for each trial ("success" and "failure").
 3. The **probability of success** ($p$) is constant for every trial.
 4. The trials are **completely independent** of each other.
 
-Notation: $X \\sim B(n, p)$
+The notation for a binomial distribution is:
+$$
+X \\sim B(n, p)
+$$
 
-### Model Suitability Verification
+### MODEL SUITABILITY VERIFICATION
 Before assigning distribution formulas to physical word problems, you must explicitly confirm all criteria are met.
 
 ![visual:S4-BinomialConditions]()
 
 ## 3. Exact Probabilities Formula
+
+To find the probability of exactly $x$ successes in $n$ trials:
+$$
 $P(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}$
+$$
 
 ![visual:S4-Inequality]()
 
-### Normal Distribution Contrast
+### NORMAL DISTRIBUTION CONTRAST
 The binomial model is discrete, while the normal distribution is continuous. Keep this contrast clear when deciding which model a question is asking for.
 
 ![visual:S4-Normal]()
 
 ## 4. Worked Example
-A factory makes frames. 20% are faulty. Sample of 8 frames. Let $X$ be number of faulty frames.
-$X \\sim B(8, 0.2)$
 
-**Find probability that none are faulty ($x=0$):**
+**Question:**
+A factory makes frames. 20% are faulty. Sample of 8 frames. Let $X$ be number of faulty frames.
+
+(a) Find the probability that none are faulty.
+(b) Find the probability that at most two are faulty.
+
+**Solution:**
+
+The scenario can be modelled as $X \\sim B(8, 0.2)$.
+
+**(a) Probability of zero faulty frames ($P(X=0)$)**
 $$
 \\begin{aligned}
 P(X=0) &= \\binom{8}{0}(0.2)^0(0.8)^8 \\\\
-&= 0.168
+&= 0.168 \\text{ (3 s.f.)}
 \\end{aligned}
 $$
 
-**Find probability that at most two are faulty ($X \\leq 2$):**
+**(b) Probability of at most two faulty frames ($P(X \\leq 2)$)**
 $P(X \\leq 2) = P(X=0) + P(X=1) + P(X=2)$
 $$
 \\begin{aligned}
 P(X=1) &= \\binom{8}{1}(0.2)^1(0.8)^7 \\\\
-&= 0.336
+&= 0.3355...
 \\end{aligned}
 $$
 $$
 \\begin{aligned}
 P(X=2) &= \\binom{8}{2}(0.2)^2(0.8)^6 \\\\
-&= 0.294
+&= 0.2936...
 \\end{aligned}
 $$
-$P(X \\leq 2) = 0.168 + 0.336 + 0.294 = 0.797$ (to 3 s.f.)
+$P(X \\leq 2) = 0.1677... + 0.3355... + 0.2936... = 0.7969...$
+
+> **Final Answer:** (a) $0.168$, (b) $0.797$ (to 3 s.f.)
 `;
 
 export const LESSONS: CourseModule[] = [
