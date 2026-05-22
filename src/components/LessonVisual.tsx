@@ -3,10 +3,12 @@
 // ==========================================
 
 // M1 Imports
-import { FMaBridge, SIUnitDerivationTree } from "./Visuals/M1/M1-Mermaid";
 import { 
+  FmaBridgeSVG,
+  M1SIUnitDerivationSVG,
   ScalarVectorSVG, 
   ModellingAssumptionsSVG, 
+  M1ModellingSandboxSVG,
   TowingModelSVG, 
   LiftPhysicsSVG,
   M1ExamTrapSVG,
@@ -113,15 +115,15 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     // ------------------------------------------
     // MECHANICS M1
     // ------------------------------------------
-    case "M1-Bridge": return <FMaBridge />;
+    case "M1-Bridge": return <FmaBridgeSVG />;
     case "M1-ScalarVector": return <ScalarVectorSVG />;
     case "M1-Modelling": return <ModellingAssumptionsSVG />;
     case "M1-Towing": return <TowingModelSVG />;
     case "M1-Lift": return <LiftPhysicsSVG />;
     case "M1-ExamTrap": return <M1ExamTrapSVG />;
-    case "M1-SIUnits": return <SIUnitDerivationTree />;
+    case "M1-SIUnits": return <M1SIUnitDerivationSVG />;
     case "M1-ScalarVectorMap": return <ScalarVectorSpatialMapSVG />;
-    case "M1-ModellingSandbox": return <ModellingAssumptionsSVG />;
+    case "M1-ModellingSandbox": return <M1ModellingSandboxSVG />;
     case "M1-FreeBody": return <M1FreeBodyDiagram />;
     case "M2-VTGraphEngine": return <M2VelocityTimeGraphEngine />;
     case "M2-SUVATMatrix": return <M2SuvatMatrix />;
