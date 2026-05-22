@@ -1,3 +1,278 @@
+# Project Architecture
+## Structure
+src
+src/App.tsx
+src/main.tsx
+src/types
+src/types/mechanicsTheme.ts
+src/index.css
+src/types.ts
+src/components
+src/components/MermaidDiagram.tsx
+src/components/diagrams
+src/components/diagrams/mermaid.config.ts
+src/components/diagrams/primitives
+src/components/LessonVisual.tsx
+src/components/MathText.tsx
+src/components/Visuals
+src/components/Visuals/S2
+src/components/Visuals/S3
+src/components/Visuals/S4
+src/components/Visuals/M1
+src/components/Visuals/S1
+src/components/Visuals/M2
+src/components/Visuals/M3
+src/components/TikzDiagramPanel.tsx
+src/components/DiagramPanel.tsx
+src/vite-env.d.ts
+src/lib
+src/lib/utils.ts
+src/data 2
+src/data
+src/data/questions.ts
+src/data/lessons.ts
+src/pages
+src/pages/Dashboard.tsx
+src/pages/PracticeBank.tsx
+src/pages/Lessons.tsx
+\n## Primitives Library
+import React from 'react';
+
+export interface DiagramLabelProps {
+  position: { top: string; left: string };
+  children: React.ReactNode;
+  className?: string;
+}
+
+/**
+ * An HTML-based overlay for rendering high-quality text over an SVG diagram
+ * without relying on <foreignObject>, ensuring consistent typography and crisp rendering.
+ */
+export const DiagramLabel: React.FC<DiagramLabelProps> = ({
+  position,
+  children,
+  className = '',
+}) => {
+  return (
+    <div
+      className={`diagram-label ${className}`}
+      style={{
+        position: 'absolute',
+        top: position.top,
+        left: position.left,
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+        color: '#e2e8f0', // Crisp, light text for dark mode
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        fontSize: '0.875rem',
+        fontWeight: 500,
+        textShadow: '0 2px 4px rgba(0,0,0,0.5)', // Better legibility over lines
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+import React from 'react';
+import { themeColors } from '../../../types/mechanicsTheme';
+
+export interface ObjectBlockProps {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  massLabel?: string;
+  isParticle?: boolean;
+}
+
+/**
+ * Renders an idealized mass (particle or rigid block) for mechanics diagrams.
+ */
+export const ObjectBlock: React.FC<ObjectBlockProps> = ({
+  x,
+  y,
+  width,
+  height,
+  massLabel,
+  isParticle = false,
+}) => {
+  const strokeColor = themeColors.structural;
+  // Sleek, minimal dark-mode fill
+  const fillColor = 'rgba(40, 44, 52, 0.8)';
+
+  if (isParticle) {
+    const radius = Math.min(width, height) / 2;
+    const cx = x + width / 2;
+    const cy = y + height / 2;
+
+    return (
+      <g className="object-particle">
+        <circle
+          cx={cx}
+          cy={cy}
+          r={radius}
+          stroke={strokeColor}
+          strokeWidth={2}
+          fill={fillColor}
+        />
+        {massLabel && (
+          <text
+            x={cx}
+            y={cy}
+            fill={themeColors.connector}
+            textAnchor="middle"
+            dominantBaseline="central"
+            fontSize="14"
+            fontWeight="500"
+            fontFamily="system-ui, -apple-system, sans-serif"
+          >
+            {massLabel}
+          </text>
+        )}
+      </g>
+    );
+  }
+
+  return (
+    <g className="object-block">
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        stroke={strokeColor}
+        strokeWidth={2}
+        fill={fillColor}
+        rx={6} // Subtle rounded corners for a premium feel
+        ry={6}
+      />
+      {massLabel && (
+        <text
+          x={x + width / 2}
+          y={y + height / 2}
+          fill={themeColors.connector}
+          textAnchor="middle"
+          dominantBaseline="central"
+          fontSize="14"
+          fontWeight="500"
+          fontFamily="system-ui, -apple-system, sans-serif"
+        >
+          {massLabel}
+        </text>
+      )}
+    </g>
+  );
+};
+import React from 'react';
+import { SemanticColor, themeColors } from '../../../types/mechanicsTheme';
+
+/**
+ * SVGLibrary defines the standard markers (arrows, dots) for use in diagrams.
+ * This should be rendered once per SVG context or globally if referencing by ID.
+ */
+export const SVGLibrary: React.FC = () => {
+  const colors = Object.entries(themeColors) as [SemanticColor, string][];
+
+  return (
+    <svg aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
+      <defs>
+        {colors.map(([type, color]) => (
+          <React.Fragment key={type}>
+            {/* Standard forward arrow */}
+            <marker
+              id={`arrow-${type}`}
+              viewBox="0 0 10 10"
+              refX="8"
+              refY="5"
+              markerWidth="5"
+              markerHeight="5"
+              orient="auto-start-reverse"
+            >
+              <path d="M 0 1 L 10 5 L 0 9 z" fill={color} />
+            </marker>
+            {/* Reverse arrow */}
+            <marker
+              id={`arrow-reverse-${type}`}
+              viewBox="0 0 10 10"
+              refX="2"
+              refY="5"
+              markerWidth="5"
+              markerHeight="5"
+              orient="auto-start-reverse"
+            >
+              <path d="M 10 1 L 0 5 L 10 9 z" fill={color} />
+            </marker>
+            {/* Dot marker */}
+            <marker
+              id={`dot-${type}`}
+              viewBox="0 0 10 10"
+              refX="5"
+              refY="5"
+              markerWidth="4"
+              markerHeight="4"
+            >
+              <circle cx="5" cy="5" r="3" fill={color} />
+            </marker>
+          </React.Fragment>
+        ))}
+      </defs>
+    </svg>
+  );
+};
+import React from 'react';
+import { SemanticColor, themeColors, ArrowMarker } from '../../../types/mechanicsTheme';
+
+export interface VectorArrowProps {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  type: SemanticColor;
+  marker?: ArrowMarker;
+  dashed?: boolean;
+}
+
+/**
+ * Renders a vector line with optional markers using the semantic theme.
+ */
+export const VectorArrow: React.FC<VectorArrowProps> = ({
+  x1,
+  y1,
+  x2,
+  y2,
+  type,
+  marker = 'default',
+  dashed = false,
+}) => {
+  const color = themeColors[type];
+
+  let markerEnd: string | undefined = undefined;
+  let markerStart: string | undefined = undefined;
+
+  if (marker === 'default') {
+    markerEnd = `url(#arrow-${type})`;
+  } else if (marker === 'reverse') {
+    markerStart = `url(#arrow-reverse-${type})`;
+  } else if (marker === 'dot') {
+    markerEnd = `url(#dot-${type})`;
+  }
+
+  return (
+    <line
+      x1={x1}
+      y1={y1}
+      x2={x2}
+      y2={y2}
+      stroke={color}
+      strokeWidth={2}
+      strokeDasharray={dashed ? '6,6' : 'none'}
+      strokeLinecap="round"
+      markerEnd={markerEnd}
+      markerStart={markerStart}
+    />
+  );
+};
+\n## Main Visuals Status (M1-SVG.tsx)
 import React, { useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
@@ -143,116 +418,106 @@ export const M1SIUnitDerivationSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-[76/44] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
-      <SVGLibrary />
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 440" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="SI unit derivation tree for velocity, acceleration, force and weight">
-
-        {/* Base units */}
-        <rect x="48" y="44" width="170" height="78" rx="8" fill="#0f172a" stroke={themeColors.velocity} strokeWidth="1.6" />
-        <rect x="295" y="44" width="170" height="78" rx="8" fill="#0f172a" stroke={themeColors.velocity} strokeWidth="1.6" />
-        <rect x="542" y="44" width="170" height="78" rx="8" fill="#0f172a" stroke={themeColors.velocity} strokeWidth="1.6" />
-
-        {/* Derived units */}
-        <rect x="130" y="174" width="220" height="84" rx="8" fill="#0f172a" stroke={themeColors.applied} strokeWidth="1.6" />
-        <rect x="410" y="174" width="220" height="84" rx="8" fill="#0f172a" stroke={themeColors.applied} strokeWidth="1.6" />
-
-        {/* Force units */}
-        <rect x="122" y="306" width="236" height="88" rx="8" fill="#022c22" stroke={themeColors.accel} strokeWidth="1.8" />
-        <rect x="402" y="306" width="236" height="88" rx="8" fill="#022c22" stroke={themeColors.accel} strokeWidth="1.8" />
-
-        {/* Relationship arrows */}
-        <VectorArrow x1={380} y1={122} x2={250} y2={172} type="applied" marker="default" />
-        <VectorArrow x1={627} y1={122} x2={250} y2={172} type="applied" marker="default" />
-        <VectorArrow x1={282} y1={258} x2={506} y2={306} type="applied" marker="default" />
-        <VectorArrow x1={627} y1={122} x2={530} y2={306} type="structural" dashed marker="default" />
-        <VectorArrow x1={133} y1={122} x2={230} y2={306} type="accel" marker="default" />
-        <VectorArrow x1={520} y1={258} x2={260} y2={306} type="accel" marker="default" />
-        <VectorArrow x1={133} y1={122} x2={506} y2={306} type="accel" dashed marker="default" />
-      </svg>
+    <svg width="100%" viewBox="0 0 760 440" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="max-w-4xl" role="img" aria-label="SI unit derivation tree for velocity, acceleration, force and weight">
+      <defs>
+        <marker id="si-arrow-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748b" />
+        </marker>
+        <marker id="si-arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" />
+        </marker>
+        <marker id="si-arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+        </marker>
+      </defs>
 
       {/* Row labels */}
-      <DiagramLabel position={{ left: '10.5%', top: '6.3%' }}>
-        <div className="text-xs font-bold uppercase tracking-wider text-sky-300">Base SI Units</div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '13.5%', top: '35.4%' }}>
-        <div className="text-xs font-bold uppercase tracking-wider text-amber-300">Derived Motion Units</div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '9.2%', top: '65%' }}>
-        <div className="text-xs font-bold uppercase tracking-wider text-emerald-300">Force Units</div>
-      </DiagramLabel>
+      <text x="34" y="28" className="text-xs font-bold uppercase tracking-wider fill-sky-300">Base SI Units</text>
+      <text x="34" y="156" className="text-xs font-bold uppercase tracking-wider fill-amber-300">Derived Motion Units</text>
+      <text x="34" y="286" className="text-xs font-bold uppercase tracking-wider fill-emerald-300">Force Units</text>
 
-      {/* Base unit text */}
-      <DiagramLabel position={{ left: '17.5%', top: '18.6%' }}>
-        <div className="flex flex-col items-center text-center">
+      {/* Base units */}
+      <rect x="48" y="44" width="170" height="78" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.6" />
+      <rect x="295" y="44" width="170" height="78" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.6" />
+      <rect x="542" y="44" width="170" height="78" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.6" />
+
+      <foreignObject x="62" y="56" width="142" height="52">
+        <div className="flex h-full flex-col items-center justify-center text-center">
           <div className="text-sm font-bold text-sky-300">Mass</div>
           <MathText content="\text{kg}" className="text-xl font-bold text-slate-100 [&_p]:m-0" />
         </div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '50%', top: '18.6%' }}>
-        <div className="flex flex-col items-center text-center">
+      </foreignObject>
+      <foreignObject x="309" y="56" width="142" height="52">
+        <div className="flex h-full flex-col items-center justify-center text-center">
           <div className="text-sm font-bold text-sky-300">Length</div>
           <MathText content="\text{m}" className="text-xl font-bold text-slate-100 [&_p]:m-0" />
         </div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '82.5%', top: '18.6%' }}>
-        <div className="flex flex-col items-center text-center">
+      </foreignObject>
+      <foreignObject x="556" y="56" width="142" height="52">
+        <div className="flex h-full flex-col items-center justify-center text-center">
           <div className="text-sm font-bold text-sky-300">Time</div>
           <MathText content="\text{s}" className="text-xl font-bold text-slate-100 [&_p]:m-0" />
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      {/* Derived unit text */}
-      <DiagramLabel position={{ left: '31.5%', top: '49.1%' }}>
-        <div className="flex flex-col items-center text-center">
+      {/* Derived units */}
+      <rect x="130" y="174" width="220" height="84" rx="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.6" />
+      <rect x="410" y="174" width="220" height="84" rx="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.6" />
+
+      <foreignObject x="146" y="186" width="188" height="60">
+        <div className="flex h-full flex-col items-center justify-center text-center">
           <div className="text-sm font-bold text-amber-300">Velocity</div>
           <MathText content="\frac{\text{displacement}}{\text{time}} = \text{m s}^{-1}" className="text-base font-semibold text-slate-100 [&_p]:m-0" />
         </div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '68.4%', top: '49.1%' }}>
-        <div className="flex flex-col items-center text-center">
+      </foreignObject>
+      <foreignObject x="426" y="186" width="188" height="60">
+        <div className="flex h-full flex-col items-center justify-center text-center">
           <div className="text-sm font-bold text-amber-300">Acceleration</div>
           <MathText content="\frac{\text{change in velocity}}{\text{time}} = \text{m s}^{-2}" className="text-base font-semibold text-slate-100 [&_p]:m-0" />
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      {/* Force unit text */}
-      <DiagramLabel position={{ left: '31.5%', top: '80.1%' }}>
-        <div className="flex flex-col items-center text-center">
+      {/* Force units */}
+      <rect x="122" y="306" width="236" height="88" rx="8" fill="#022c22" stroke="#10b981" strokeWidth="1.8" />
+      <rect x="402" y="306" width="236" height="88" rx="8" fill="#022c22" stroke="#10b981" strokeWidth="1.8" />
+
+      <foreignObject x="138" y="318" width="204" height="64">
+        <div className="flex h-full flex-col items-center justify-center text-center">
           <div className="text-sm font-bold text-emerald-300">Force</div>
           <MathText content="F = ma,\quad N = \text{kg m s}^{-2}" className="text-base font-semibold text-slate-100 [&_p]:m-0" />
         </div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '68.4%', top: '80.1%' }}>
-        <div className="flex flex-col items-center text-center">
+      </foreignObject>
+      <foreignObject x="418" y="318" width="204" height="64">
+        <div className="flex h-full flex-col items-center justify-center text-center">
           <div className="text-sm font-bold text-emerald-300">Weight</div>
           <MathText content="W = mg" className="text-lg font-bold text-slate-100 [&_p]:m-0" />
           <div className="text-xs font-semibold text-slate-300">weight is measured in N</div>
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      {/* Connection labels */}
-      <DiagramLabel position={{ left: '56%', top: '33.6%' }}>
-        <div className="text-xs font-semibold text-slate-300">Length + Time</div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '55.2%', top: '64.1%' }}>
-        <div className="text-xs font-semibold text-slate-300">Velocity + Time</div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '27.1%', top: '65%' }}>
-        <div className="text-xs font-semibold text-slate-300">Mass + Acceleration</div>
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '73.4%', top: '62.2%' }}>
-        <div className="text-xs font-semibold text-slate-300">Mass + g</div>
-      </DiagramLabel>
+      {/* Relationship arrows */}
+      <path d="M 380 122 C 360 144, 312 150, 250 172" stroke="#f59e0b" strokeWidth="2.2" markerEnd="url(#si-arrow-amber)" />
+      <path d="M 627 122 C 610 148, 325 146, 250 172" stroke="#f59e0b" strokeWidth="2.2" markerEnd="url(#si-arrow-amber)" />
+      <path d="M 282 258 C 318 282, 430 278, 506 306" stroke="#f59e0b" strokeWidth="2.2" markerEnd="url(#si-arrow-amber)" />
+      <path d="M 627 122 C 640 176, 608 214, 530 306" stroke="#64748b" strokeWidth="2.2" strokeDasharray="5 5" markerEnd="url(#si-arrow-slate)" />
+      <path d="M 133 122 C 126 198, 150 266, 230 306" stroke="#10b981" strokeWidth="2.2" markerEnd="url(#si-arrow-emerald)" />
+      <path d="M 520 258 C 494 284, 376 286, 260 306" stroke="#10b981" strokeWidth="2.2" markerEnd="url(#si-arrow-emerald)" />
+      <path d="M 133 122 C 210 154, 390 218, 506 306" stroke="#10b981" strokeWidth="2.2" strokeDasharray="5 5" markerEnd="url(#si-arrow-emerald)" />
+
+      <text x="426" y="148" className="text-xs font-semibold fill-slate-300">Length + Time</text>
+      <text x="420" y="282" className="text-xs font-semibold fill-slate-300">Velocity + Time</text>
+      <text x="206" y="286" className="text-xs font-semibold fill-slate-300">Mass + Acceleration</text>
+      <text x="558" y="274" className="text-xs font-semibold fill-slate-300">Mass + g</text>
 
       {/* Exam warnings */}
-      <DiagramLabel position={{ left: '50%', top: '95%' }}>
-        <div className="grid grid-cols-3 gap-3 text-center text-[11px] font-semibold leading-tight text-rose-300 w-[676px]">
+      <foreignObject x="42" y="402" width="676" height="32">
+        <div className="grid grid-cols-3 gap-3 text-center text-[11px] font-semibold leading-tight text-rose-300">
           <div>Convert tonnes to kg before using W = mg or F = ma.</div>
           <div>kg is mass; N is force.</div>
           <div>m s^-2 means acceleration, not velocity.</div>
         </div>
-      </DiagramLabel>
-    </div>
+      </foreignObject>
+    </svg>
   </DiagramPanel>
 );
 
@@ -292,87 +557,75 @@ export const ScalarVectorSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-[76/39] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
-      <SVGLibrary />
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Scalar and vector classification with velocity vector magnitude calculation">
-        {/* Classification panels */}
-        <rect x="34" y="26" width="318" height="124" rx="8" fill="#0f172a" stroke={themeColors.applied} strokeWidth="1.8" />
-        <rect x="408" y="26" width="318" height="124" rx="8" fill="#0f172a" stroke={themeColors.accel} strokeWidth="1.8" />
+    <svg width="100%" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="max-w-4xl" role="img" aria-label="Scalar and vector classification with velocity vector magnitude calculation">
+      <defs>
+        <marker id="scalar-vector-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+        </marker>
+      </defs>
 
-        <VectorArrow x1={448} y1={98} x2={524} y2={62} type="accel" marker="default" />
+      {/* Classification panels */}
+      <rect x="34" y="26" width="318" height="124" rx="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.8" />
+      <rect x="408" y="26" width="318" height="124" rx="8" fill="#0f172a" stroke="#10b981" strokeWidth="1.8" />
 
-        {/* Coordinate diagram */}
-        <rect x="146" y="168" width="468" height="134" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.6" />
-        <VectorArrow x1={196} y1={198} x2={196} y2={278} type="structural" marker="default" />
-        <VectorArrow x1={196} y1={198} x2={584} y2={198} type="structural" marker="default" />
-
-        <VectorArrow x1={196} y1={198} x2={308} y2={198} type="accel" marker="none" />
-        <VectorArrow x1={308} y1={198} x2={308} y2={278} type="force" marker="none" />
-        <VectorArrow x1={196} y1={198} x2={308} y2={278} type="accel" marker="default" />
-
-        <circle cx="196" cy="198" r="5" fill="#e2e8f0" />
-        <circle cx="308" cy="278" r="5" fill={themeColors.accel} />
-
-        {/* Calculation strip */}
-        <rect x="68" y="330" width="624" height="38" rx="8" fill="#020617" stroke="#334155" strokeWidth="1.6" />
-      </svg>
-
-      <DiagramLabel position={{ left: '25.4%', top: '22.8%' }}>
-        <div className="flex items-center gap-4 w-[278px]">
+      <foreignObject x="54" y="42" width="278" height="94">
+        <div className="flex h-full items-center gap-4 overflow-visible">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded border border-amber-900/60 bg-slate-950 text-2xl font-black text-amber-300">7</div>
-          <div className="text-left">
+          <div>
             <div className="text-base font-bold text-amber-300">Scalar: magnitude only</div>
             <div className="mt-1 text-sm leading-snug text-slate-300">A number with units, but no direction.</div>
           </div>
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      <DiagramLabel position={{ left: '82%', top: '22.8%' }}>
-        <div className="w-[166px] text-left">
+      <line x1="448" y1="98" x2="524" y2="62" stroke="#10b981" strokeWidth="3.2" markerEnd="url(#scalar-vector-arrow)" />
+      <foreignObject x="540" y="42" width="166" height="94">
+        <div className="overflow-visible">
           <div className="text-base font-bold leading-snug text-emerald-300">Vector: magnitude + direction</div>
           <div className="mt-1 text-sm leading-snug text-slate-300">Direction is part of the answer.</div>
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      <DiagramLabel position={{ left: '78.5%', top: '51.8%' }}>
-        <div className="text-sm font-bold text-slate-300">i</div>
-      </DiagramLabel>
+      {/* Coordinate diagram */}
+      <rect x="146" y="168" width="468" height="134" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.6" />
+      <line x1="196" y1="198" x2="196" y2="278" stroke="#64748b" strokeWidth="1.8" markerEnd="url(#scalar-vector-arrow)" />
+      <line x1="196" y1="198" x2="584" y2="198" stroke="#64748b" strokeWidth="1.8" markerEnd="url(#scalar-vector-arrow)" />
+      <text x="588" y="202" className="text-sm font-bold fill-slate-300">i</text>
+      <text x="190" y="292" className="text-sm font-bold fill-slate-300">-j</text>
 
-      <DiagramLabel position={{ left: '25.5%', top: '74.9%' }}>
-        <div className="text-sm font-bold text-slate-300">-j</div>
-      </DiagramLabel>
+      <line x1="196" y1="198" x2="308" y2="198" stroke="#10b981" strokeWidth="3.2" />
+      <line x1="308" y1="198" x2="308" y2="278" stroke="#fb7185" strokeWidth="3.2" />
+      <line x1="196" y1="198" x2="308" y2="278" stroke="#10b981" strokeWidth="3.2" markerEnd="url(#scalar-vector-arrow)" />
+      <circle cx="196" cy="198" r="5" fill="#e2e8f0" />
+      <circle cx="308" cy="278" r="5" fill="#10b981" />
 
-      <DiagramLabel position={{ left: '35%', top: '47.7%' }}>
+      <foreignObject x="218" y="172" width="96" height="28">
         <div className="rounded border border-emerald-900/60 bg-slate-950/90 px-2 py-1 text-center text-sm font-bold text-emerald-300">
           <MathText content="7\mathbf{i}" className="[&_p]:m-0" />
         </div>
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '35%', top: '67.2%' }}>
+      </foreignObject>
+      <foreignObject x="220" y="248" width="92" height="28">
         <div className="rounded border border-rose-900/60 bg-slate-950/90 px-2 py-1 text-center text-sm font-bold text-rose-300">
           <MathText content="-24\mathbf{j}" className="[&_p]:m-0" />
         </div>
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '59.3%', top: '55.1%' }}>
-        <div className="rounded border border-emerald-900/60 bg-slate-950/90 px-3 py-2 text-sm font-bold text-emerald-300 text-center">
+      </foreignObject>
+      <foreignObject x="330" y="188" width="242" height="54">
+        <div className="rounded border border-emerald-900/60 bg-slate-950/90 px-3 py-2 text-sm font-bold text-emerald-300">
           <MathText content="\mathbf{v} = 7\mathbf{i} - 24\mathbf{j}\ \text{m s}^{-1}" className="[&_p]:m-0" />
           <div className="mt-1 text-xs font-semibold text-slate-300">velocity is a vector</div>
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      <DiagramLabel position={{ left: '68%', top: '71.3%' }}>
-        <div className="text-sm font-semibold text-rose-300 w-48 text-center">
-          negative component points down
-        </div>
-      </DiagramLabel>
+      <text x="430" y="278" className="text-sm font-semibold fill-rose-300">negative component points down</text>
 
-      <DiagramLabel position={{ left: '50%', top: '89.5%' }}>
-        <div className="text-center text-base font-bold text-emerald-300 w-[588px]">
+      {/* Calculation strip */}
+      <rect x="68" y="330" width="624" height="38" rx="8" fill="#020617" stroke="#334155" strokeWidth="1.6" />
+      <foreignObject x="86" y="336" width="588" height="26">
+        <div className="text-center text-base font-bold text-emerald-300">
           <MathText content="|\mathbf{v}| = \sqrt{7^2 + (-24)^2} = 25\ \text{m s}^{-1}" className="[&_p]:m-0" />
         </div>
-      </DiagramLabel>
-    </div>
+      </foreignObject>
+    </svg>
   </DiagramPanel>
 );
 
@@ -481,8 +734,8 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => (
 // Diagram 3: Mechanics Modelling Assumptions
 // ==========================================
 export const ModellingAssumptionsSVG: React.FC = () => (
-  <div className="w-full flex flex-col my-8 relative border border-slate-800/50 bg-slate-950 p-6 rounded-xl shadow-[8px_8px_0px_#0f172a]">
-    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-l border-b border-slate-800/50 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+  <div className="w-full flex flex-col my-8 relative border border-slate-800 bg-slate-950 p-6 rounded-xl shadow-[8px_8px_0px_#0f172a]">
+    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-l border-b border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
       Fig 3. Common Modelling Assumptions
     </div>
     <p className="text-sm text-slate-400 italic text-center mt-6 mb-2">
@@ -626,102 +879,105 @@ export const M1ModellingSandboxSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-[76/41] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
-      <SVGLibrary />
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 410" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Real world towing system simplified into a mathematical model using assumptions">
-        {/* Panels */}
-        <rect x="24" y="28" width="300" height="244" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.8" />
-        <rect x="436" y="28" width="300" height="244" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.8" />
+    <svg width="100%" viewBox="0 0 760 410" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="max-w-4xl" role="img" aria-label="Real world towing system simplified into a mathematical model using assumptions">
+      <defs>
+        <marker id="sandbox-arrow-main" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
+        </marker>
+        <marker id="sandbox-arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+        </marker>
+        <marker id="sandbox-arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" />
+        </marker>
+      </defs>
 
-        {/* Real-world towing sketch */}
-        <line x1="48" y1="218" x2="300" y2="218" stroke="#64748b" strokeWidth="3" />
-        {Array.from({ length: 11 }).map((_, idx) => (
-          <line key={idx} x1={58 + idx * 22} y1="218" x2={50 + idx * 22} y2="228" stroke="#334155" strokeWidth="2" />
-        ))}
-        <rect x="64" y="154" width="82" height="38" rx="5" fill="#1e293b" stroke="#e2e8f0" strokeWidth="2" />
-        <path d="M 78 154 L 94 132 H 128 L 142 154" stroke="#e2e8f0" strokeWidth="2" fill="#334155" />
-        <circle cx="82" cy="198" r="10" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
-        <circle cx="128" cy="198" r="10" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
-        <rect x="198" y="164" width="64" height="30" rx="4" fill="#1e293b" stroke="#cbd5e1" strokeWidth="2" />
-        <path d="M 210 164 L 224 146 H 248 L 260 164" stroke="#cbd5e1" strokeWidth="2" fill="#334155" />
-        <circle cx="214" cy="200" r="8" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
-        <circle cx="250" cy="200" r="8" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
-        <line x1="146" y1="178" x2="198" y2="178" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
-        <path d="M 294 154 C 274 146, 268 132, 292 122" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 5" fill="none" />
-        <path d="M 60 132 C 42 124, 44 110, 64 104" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 5" fill="none" />
+      {/* Panels */}
+      <rect x="24" y="28" width="300" height="244" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.8" />
+      <rect x="436" y="28" width="300" height="244" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.8" />
 
-        {/* Assumption arrow */}
-        <VectorArrow x1={338} y1={148} x2={420} y2={148} type="velocity" marker="default" />
-
-        {/* Simplified model */}
-        <VectorArrow x1={468} y1={218} x2={704} y2={218} type="velocity" marker="none" />
-        <ObjectBlock x={506} y={158} width={40} height={40} isParticle={true} massLabel="m1" />
-        <ObjectBlock x={626} y={158} width={40} height={40} isParticle={true} massLabel="m2" />
-        <line x1="546" y1="178" x2="626" y2="178" stroke="#e2e8f0" strokeWidth="4" strokeLinecap="round" />
-        
-        <VectorArrow x1={496} y1={132} x2={676} y2={132} type="accel" marker="default" />
-        <VectorArrow x1={482} y1={178} x2={512} y2={178} type="applied" marker="default" />
-      </svg>
-
-      {/* HTML Overlays */}
-      <DiagramLabel position={{ left: '22.9%', top: '15.9%' }}>
+      <foreignObject x="44" y="46" width="260" height="38">
         <div className="text-center">
           <div className="text-base font-bold text-amber-300">Real Situation</div>
           <div className="text-xs text-slate-400">Real system: detailed and messy</div>
         </div>
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '77.1%', top: '15.9%' }}>
+      </foreignObject>
+      <foreignObject x="456" y="46" width="260" height="38">
         <div className="text-center">
           <div className="text-base font-bold text-emerald-300">Mathematical Model</div>
           <div className="text-xs text-slate-400">Model: simplified for equations</div>
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      <DiagramLabel position={{ left: '23%', top: '25.9%' }}>
+      {/* Real-world towing sketch */}
+      <line x1="48" y1="218" x2="300" y2="218" stroke="#64748b" strokeWidth="3" />
+      {Array.from({ length: 11 }).map((_, idx) => (
+        <line key={idx} x1={58 + idx * 22} y1="218" x2={50 + idx * 22} y2="228" stroke="#334155" strokeWidth="2" />
+      ))}
+      <rect x="64" y="154" width="82" height="38" rx="5" fill="#1e293b" stroke="#e2e8f0" strokeWidth="2" />
+      <path d="M 78 154 L 94 132 H 128 L 142 154" stroke="#e2e8f0" strokeWidth="2" fill="#334155" />
+      <circle cx="82" cy="198" r="10" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
+      <circle cx="128" cy="198" r="10" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
+      <rect x="198" y="164" width="64" height="30" rx="4" fill="#1e293b" stroke="#cbd5e1" strokeWidth="2" />
+      <path d="M 210 164 L 224 146 H 248 L 260 164" stroke="#cbd5e1" strokeWidth="2" fill="#334155" />
+      <circle cx="214" cy="200" r="8" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
+      <circle cx="250" cy="200" r="8" fill="#020617" stroke="#cbd5e1" strokeWidth="2" />
+      <line x1="146" y1="178" x2="198" y2="178" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" />
+      <path d="M 294 154 C 274 146, 268 132, 292 122" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 5" fill="none" />
+      <path d="M 60 132 C 42 124, 44 110, 64 104" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 5" fill="none" />
+      <foreignObject x="50" y="88" width="250" height="36">
         <div className="grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-amber-200">
           <div className="rounded border border-amber-900/60 bg-slate-950/80 px-2 py-1">shape</div>
           <div className="rounded border border-amber-900/60 bg-slate-950/80 px-2 py-1">wheels</div>
           <div className="rounded border border-amber-900/60 bg-slate-950/80 px-2 py-1">air</div>
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      <DiagramLabel position={{ left: '50%', top: '30%' }}>
+      {/* Assumption arrow */}
+      <line x1="338" y1="148" x2="420" y2="148" stroke="#38bdf8" strokeWidth="3.5" markerEnd="url(#sandbox-arrow-main)" />
+      <foreignObject x="332" y="100" width="96" height="46">
         <div className="rounded border border-sky-900/60 bg-slate-950 px-2 py-2 text-center text-xs font-bold leading-tight text-sky-300">
           Apply assumptions
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      <DiagramLabel position={{ left: '91.4%', top: '32.2%' }}>
+      {/* Simplified model */}
+      <line x1="468" y1="218" x2="704" y2="218" stroke="#38bdf8" strokeWidth="2.5" />
+      <circle cx="526" cy="178" r="20" fill="#022c22" stroke="#10b981" strokeWidth="3" />
+      <circle cx="646" cy="178" r="20" fill="#022c22" stroke="#10b981" strokeWidth="3" />
+      <text x="518" y="184" className="text-sm font-bold fill-emerald-200">m1</text>
+      <text x="638" y="184" className="text-sm font-bold fill-emerald-200">m2</text>
+      <line x1="546" y1="178" x2="626" y2="178" stroke="#e2e8f0" strokeWidth="4" strokeLinecap="round" />
+      <path d="M 496 132 H 676" stroke="#10b981" strokeWidth="2.8" markerEnd="url(#sandbox-arrow-emerald)" />
+      <foreignObject x="680" y="120" width="30" height="24">
         <MathText content="a" className="text-lg font-bold text-emerald-300 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '63.4%', top: '41%' }}>
+      </foreignObject>
+      <path d="M 482 178 H 512" stroke="#f59e0b" strokeWidth="2.8" markerEnd="url(#sandbox-arrow-amber)" />
+      <foreignObject x="458" y="156" width="48" height="24">
         <MathText content="D" className="text-sm font-bold text-amber-300 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '77.1%', top: '40%' }}>
-        <div className="rounded border border-slate-800 bg-slate-950/90 px-2 py-1 text-center text-xs font-bold text-slate-200">
+      </foreignObject>
+      <foreignObject x="558" y="152" width="56" height="24">
+        <div className="rounded border border-slate-800 bg-slate-950/90 text-center text-xs font-bold text-slate-200">
           towbar
         </div>
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '77.1%', top: '60.2%' }}>
-        <div className="text-center text-xs font-semibold leading-tight text-emerald-200 w-[230px]">
+      </foreignObject>
+      <foreignObject x="470" y="228" width="230" height="38">
+        <div className="text-center text-xs font-semibold leading-tight text-emerald-200">
           clean particles/blocks on a horizontal surface
         </div>
-      </DiagramLabel>
+      </foreignObject>
 
-      <DiagramLabel position={{ left: '50%', top: '82.4%' }}>
-        <div className="grid grid-cols-2 gap-2 text-center text-xs font-semibold text-sky-200 md:grid-cols-5 w-full max-w-[656px]">
+      {/* Assumption chips */}
+      <foreignObject x="52" y="294" width="656" height="88">
+        <div className="grid grid-cols-2 gap-2 text-center text-xs font-semibold text-sky-200 md:grid-cols-5">
           <div className="rounded border border-sky-900/60 bg-sky-950/30 px-2 py-2">particle: dimensions ignored</div>
           <div className="rounded border border-sky-900/60 bg-sky-950/30 px-2 py-2">light towbar: negligible mass</div>
           <div className="rounded border border-sky-900/60 bg-sky-950/30 px-2 py-2">rigid towbar: does not bend</div>
           <div className="rounded border border-sky-900/60 bg-sky-950/30 px-2 py-2">smooth surface: no friction</div>
           <div className="rounded border border-sky-900/60 bg-sky-950/30 px-2 py-2">inextensible idea: same acceleration</div>
         </div>
-      </DiagramLabel>
-    </div>
+      </foreignObject>
+    </svg>
   </DiagramPanel>
 );
 
@@ -990,7 +1246,7 @@ export const LiftPhysicsSVG: React.FC = () => (
 // Diagram 6: CCEA Examiner Warning Trap (Restored)
 // ==========================================
 export const M1ExamTrapSVG: React.FC = () => (
-  <div className="w-full border border-slate-800/50 bg-slate-950 p-6 rounded-xl my-8 relative overflow-hidden shadow-[8px_8px_0px_#0f172a]">
+  <div className="w-full border border-rose-500/40 bg-slate-950 p-6 rounded-xl my-8 relative overflow-hidden shadow-[8px_8px_0px_#4c0519]">
     <div className="absolute top-0 right-0 bg-rose-600 text-slate-50 text-[9px] uppercase tracking-widest font-black px-3 py-1 font-sans">
       CCEA Examiner Warning
     </div>
@@ -1058,68 +1314,61 @@ export const M1KinematicNotationPanel: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="relative w-full aspect-[76/19] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a] mb-5">
-          <SVGLibrary />
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 190" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Kinematic position axis showing origin initial position final position and displacement">
-            {/* Axis */}
-            <VectorArrow x1={92} y1={96} x2={668} y2={96} type="structural" marker="default" />
-            <VectorArrow x1={92} y1={96} x2={690} y2={96} type="velocity" marker="default" />
+        <svg width="100%" viewBox="0 0 760 190" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="max-w-4xl mb-5" role="img" aria-label="Kinematic position axis showing origin initial position final position and displacement">
+          <defs>
+            <marker id="notation-arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
+            </marker>
+            <marker id="notation-arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+            </marker>
+          </defs>
 
-            {/* Position markers */}
-            <circle cx="146" cy="96" r="6" fill="#e2e8f0" />
-            <VectorArrow x1={146} y1={78} x2={146} y2={114} type="connector" marker="none" />
+          <rect x="36" y="28" width="688" height="132" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
 
-            <circle cx="274" cy="96" r="6" fill={themeColors.velocity} />
-            <VectorArrow x1={274} y1={70} x2={274} y2={122} type="velocity" marker="none" />
+          {/* Axis */}
+          <line x1="92" y1="96" x2="668" y2="96" stroke="#475569" strokeWidth="3" />
+          <line x1="92" y1="96" x2="690" y2="96" stroke="#38bdf8" strokeWidth="3" markerEnd="url(#notation-arrow-sky)" />
+          <text x="558" y="78" className="text-sm font-bold fill-sky-300">positive direction</text>
 
-            <circle cx="560" cy="96" r="6" fill={themeColors.accel} />
-            <VectorArrow x1={560} y1={70} x2={560} y2={122} type="accel" marker="none" />
+          {/* Position markers */}
+          <circle cx="146" cy="96" r="6" fill="#e2e8f0" />
+          <line x1="146" y1="78" x2="146" y2="114" stroke="#e2e8f0" strokeWidth="2" />
+          <text x="139" y="133" className="text-base font-bold fill-slate-200">O</text>
+          <text x="126" y="150" className="text-xs font-semibold fill-slate-400">origin</text>
 
-            {/* Displacement */}
-            <VectorArrow x1={284} y1={44} x2={550} y2={44} type="accel" marker="default" />
-          </svg>
-
-          <DiagramLabel position={{ left: '81.3%', top: '36.8%' }}>
-            <div className="text-sm font-bold text-sky-300">positive direction</div>
-          </DiagramLabel>
-
-          <DiagramLabel position={{ left: '19.1%', top: '65.8%' }}>
-            <div className="text-base font-bold text-slate-200">O</div>
-          </DiagramLabel>
-          <DiagramLabel position={{ left: '19.2%', top: '74.7%' }}>
-            <div className="text-xs font-semibold text-slate-400">origin</div>
-          </DiagramLabel>
-
-          <DiagramLabel position={{ left: '36.7%', top: '73.7%' }}>
+          <circle cx="274" cy="96" r="6" fill="#38bdf8" />
+          <line x1="274" y1="70" x2="274" y2="122" stroke="#38bdf8" strokeWidth="2" />
+          <foreignObject x="250" y="126" width="58" height="28">
             <div className="text-center text-sm font-bold text-sky-300">
               <MathText content="x_0" className="[&_p]:m-0" />
             </div>
-          </DiagramLabel>
-          <DiagramLabel position={{ left: '36.3%', top: '28.4%' }}>
-            <div className="text-xs font-semibold text-slate-300">initial position</div>
-          </DiagramLabel>
+          </foreignObject>
+          <text x="226" y="62" className="text-xs font-semibold fill-slate-300">initial position</text>
 
-          <DiagramLabel position={{ left: '73.9%', top: '73.7%' }}>
+          <circle cx="560" cy="96" r="6" fill="#10b981" />
+          <line x1="560" y1="70" x2="560" y2="122" stroke="#10b981" strokeWidth="2" />
+          <foreignObject x="544" y="126" width="36" height="28">
             <div className="text-center text-sm font-bold text-emerald-300">
               <MathText content="x" className="[&_p]:m-0" />
             </div>
-          </DiagramLabel>
-          <DiagramLabel position={{ left: '73.4%', top: '28.4%' }}>
-            <div className="text-xs font-semibold text-slate-300">final position</div>
-          </DiagramLabel>
+          </foreignObject>
+          <text x="518" y="62" className="text-xs font-semibold fill-slate-300">final position</text>
 
-          <DiagramLabel position={{ left: '56.6%', top: '17.4%' }}>
+          {/* Displacement */}
+          <path d="M 284 44 H 550" stroke="#10b981" strokeWidth="4" markerEnd="url(#notation-arrow-emerald)" />
+          <foreignObject x="350" y="16" width="160" height="34">
             <div className="rounded border border-emerald-900/60 bg-slate-950 px-3 py-2 text-center text-sm font-bold text-emerald-300">
               <MathText content="s = x - x_0" className="[&_p]:m-0" />
             </div>
-          </DiagramLabel>
+          </foreignObject>
 
-          <DiagramLabel position={{ left: '53.7%', top: '86.8%' }}>
+          <foreignObject x="278" y="150" width="260" height="30">
             <div className="rounded border border-rose-900/60 bg-rose-950/40 px-3 py-1 text-center text-xs font-bold text-rose-200">
               s is displacement, not speed
             </div>
-          </DiagramLabel>
-        </div>
+          </foreignObject>
+        </svg>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 w-full max-w-4xl">
           {notation.map(item => (
@@ -1356,50 +1605,6 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </DiagramLabel>
           </div>
         </div>
-      </div>
-    </DiagramPanel>
-  );
-};
-
-export const M1ModellingSummaryTable: React.FC = () => {
-  const assumptions = [
-    { word: 'Particle', meaning: 'Dimensions are negligible; mass is at a point.', effect: 'Ignore rotation, shape, and air resistance.' },
-    { word: 'Smooth Surface', meaning: 'Friction is completely absent.', effect: 'No friction force acts on the object.' },
-    { word: 'Rough Surface', meaning: 'Friction is present at the contact.', effect: 'Friction (F <= mu R) opposes motion.' },
-    { word: 'Light String', meaning: 'Mass of the string is negligible.', effect: 'Ignore weight; tension is constant throughout.' },
-    { word: 'Inextensible', meaning: 'The string or cable does not stretch.', effect: 'Connected particles share acceleration magnitude.' },
-    { word: 'Smooth Pulley', meaning: 'No friction at the pulley axle.', effect: 'Tension is equal on both sides of the string.' },
-    { word: 'Rigid Rod', meaning: 'Does not bend or buckle under load.', effect: 'Can transmit both tension (pull) and thrust (push).' },
-  ];
-
-  return (
-    <DiagramPanel
-      title="Modelling Assumptions Summary"
-      analysis={
-        <p className="text-sm text-slate-400 italic text-center">
-          CCEA examiners frequently ask for the "mathematical effect" of these words.
-        </p>
-      }
-    >
-      <div className="w-full overflow-hidden rounded-xl border border-slate-800 bg-slate-950/50 shadow-inner">
-        <table className="w-full border-collapse text-left text-xs sm:text-sm">
-          <thead>
-            <tr className="bg-slate-900/80 border-b border-slate-800">
-              <th className="px-4 py-3 font-bold text-sky-400 uppercase tracking-wider w-1/4">Modelling Word</th>
-              <th className="px-4 py-3 font-bold text-slate-400 uppercase tracking-wider w-3/8">Physical Meaning</th>
-              <th className="px-4 py-3 font-bold text-emerald-400 uppercase tracking-wider w-3/8">Mathematical Effect</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-800">
-            {assumptions.map((item, idx) => (
-              <tr key={idx} className="hover:bg-slate-900/30 transition-colors">
-                <td className="px-4 py-3 font-bold text-slate-200">{item.word}</td>
-                <td className="px-4 py-3 text-slate-400 leading-relaxed">{item.meaning}</td>
-                <td className="px-4 py-3 text-slate-300 font-medium leading-relaxed">{item.effect}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </DiagramPanel>
   );

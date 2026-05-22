@@ -778,3 +778,71 @@ export const M2VelocityTimeGraphEngine: React.FC = () => {
     </DiagramPanel>
   );
 };
+
+export const M2CrossingAxisVTGraph: React.FC = () => {
+  return (
+    <DiagramPanel
+      title="Fig. V-T Graph: Distance vs Displacement"
+      analysis={
+        <div className="space-y-4">
+          <p className="text-sm text-slate-400 italic text-center">
+            When velocity changes sign (crosses the time axis), the object changes direction.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-3 bg-emerald-950/20 border border-emerald-500/30 rounded-lg">
+              <h4 className="font-bold text-emerald-400 mb-1 text-xs uppercase tracking-wider">Displacement</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">Net area (Positive Area - Negative Area). In this graph, it is the directed distance from the start.</p>
+            </div>
+            <div className="p-3 bg-amber-950/20 border border-amber-500/30 rounded-lg">
+              <h4 className="font-bold text-amber-400 mb-1 text-xs uppercase tracking-wider">Total Distance</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">Total area (|Positive| + |Negative|). The odometer reading of the journey.</p>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <svg viewBox="0 0 600 300" className="w-full h-auto max-w-2xl" overflow="visible" shapeRendering="geometricPrecision">
+        {/* Axes */}
+        <line x1="50" y1="150" x2="550" y2="150" stroke="#475569" strokeWidth="2" /> {/* t-axis */}
+        <line x1="100" y1="40" x2="100" y2="260" stroke="#475569" strokeWidth="2" /> {/* v-axis */}
+
+        <text x="70" y="45" fill="#94a3b8" className="text-xs font-bold italic">v</text>
+        <text x="560" y="155" fill="#94a3b8" className="text-xs font-bold italic">t</text>
+
+        {/* Shaded Areas */}
+        {/* Area 1: Positive (0 to 4s) */}
+        <path d="M 100 150 L 100 70 L 300 150 Z" fill="#10b981" fillOpacity="0.25" stroke="#10b981" strokeWidth="1" strokeDasharray="4 2" />
+        <text x="160" y="130" fill="#34d399" className="text-[10px] font-bold">Area A (+)</text>
+
+        {/* Area 2: Negative (4 to 6s) */}
+        <path d="M 300 150 L 400 190 L 400 150 Z" fill="#f43f5e" fillOpacity="0.25" stroke="#f43f5e" strokeWidth="1" strokeDasharray="4 2" />
+        <text x="345" y="175" fill="#fb7185" className="text-[10px] font-bold">Area B (-)</text>
+
+        {/* Velocity Line */}
+        <line x1="100" y1="70" x2="400" y2="190" stroke="#f59e0b" strokeWidth="3" strokeLinecap="round" />
+        
+        {/* Key Points */}
+        <circle cx="100" cy="70" r="4" fill="#f59e0b" />
+        <text x="80" y="75" fill="#f59e0b" className="text-xs font-bold text-right">20</text>
+        
+        <circle cx="300" cy="150" r="4" fill="#f59e0b" />
+        <text x="295" y="168" fill="#94a3b8" className="text-xs font-bold">4s</text>
+        
+        <circle cx="400" cy="190" r="4" fill="#f59e0b" />
+        <text x="405" y="200" fill="#f59e0b" className="text-xs font-bold">-10</text>
+        <text x="395" y="145" fill="#94a3b8" className="text-xs font-bold">6s</text>
+        <line x1="400" y1="150" x2="400" y2="190" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
+
+        {/* Formulas overlay */}
+        <foreignObject x="420" y="50" width="160" height="100">
+          <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-800 space-y-2 shadow-xl">
+            <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Displacement:</div>
+            <div className="text-xs text-slate-200 font-mono">Area A - Area B</div>
+            <div className="text-[10px] text-amber-400 font-bold uppercase tracking-wider mt-2">Distance:</div>
+            <div className="text-xs text-slate-200 font-mono">Area A + Area B</div>
+          </div>
+        </foreignObject>
+      </svg>
+    </DiagramPanel>
+  );
+};

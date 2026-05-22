@@ -101,7 +101,7 @@ When objects are connected by a light towbar or inextensible string, the connect
 
 ![visual:M1-Towing]()
 
-> **Visual placeholder:** Add a compact table comparing modelling words, what they mean physically, and what they allow mathematically.
+![visual:M1-ModellingTable]()
 
 ## 7. Formulae and Notation
 * **Weight:** $W=mg$.
@@ -248,7 +248,7 @@ For example, if a cyclist travels 5 km east and then 5 km west, the total distan
 
 ![visual:M2-VTGraphEngine]()
 
-> **Visual placeholder:** Add a velocity-time graph that crosses the time axis, showing displacement as signed area and distance as total area.
+![visual:M2-VTCrossing]()
 
 ### CONSTANT ACCELERATION
 The SUVAT equations apply only when acceleration is constant. The variables are:

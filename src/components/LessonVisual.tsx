@@ -12,7 +12,8 @@ import {
   M1ExamTrapSVG,
   ScalarVectorSpatialMapSVG,
   M1FreeBodyDiagram,
-  M1KinematicNotationPanel
+  M1KinematicNotationPanel,
+  M1ModellingSummaryTable
 } from "./Visuals/M1/M1-SVG";
 import {
   M1FmaBridgeMermaid,
@@ -27,7 +28,8 @@ import {
   M2VelocityTimeGraphEngine,
   M2SuvatMatrix,
   M2KinematicTrack,
-  M2SignConventionSplit
+  M2SignConventionSplit,
+  M2CrossingAxisVTGraph
 } from "./Visuals/M2/M2-SVG";
 
 // M3 Imports
@@ -127,6 +129,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M1-ScalarVectorMap": return <ScalarVectorSpatialMapSVG />;
     case "M1-ModellingSandbox": return <M1ModellingSandboxSVG />;
     case "M1-FreeBody": return <M1FreeBodyDiagram />;
+    case "M1-ModellingTable": return <M1ModellingSummaryTable />;
     case "M2-VTGraphEngine": return <M2VelocityTimeGraphEngine />;
     case "M2-SUVATMatrix": return <M2SuvatMatrix />;
     case "M2-KinematicTrack": return <M2KinematicTrack />;
@@ -138,6 +141,7 @@ export function LessonVisual({ visualId }: LessonVisualProps) {
     case "M2-VTS": return <M2KinematicsMaster />;
     case "M2-Traffic": return <M2VectorMagnitudeTrap />;
     case "M2-Gravity": return <M2GravitySignConvention />;
+    case "M2-VTCrossing": return <M2CrossingAxisVTGraph />;
     case "M2-SignConventionSplit": return <M2SignConventionSplit />;
     
     // ------------------------------------------
