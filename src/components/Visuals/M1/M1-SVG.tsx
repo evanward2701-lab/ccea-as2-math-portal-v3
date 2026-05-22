@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
+import { SVGLibrary } from '../../diagrams/primitives/SVGLibrary';
+import { ObjectBlock } from '../../diagrams/primitives/ObjectBlock';
+import { VectorArrow } from '../../diagrams/primitives/VectorArrow';
+import { DiagramLabel } from '../../diagrams/primitives/DiagramLabel';
+import { themeColors } from '../../../types/mechanicsTheme';
 
 // ==========================================
 // Fig 1. The F=ma Bridge
@@ -383,59 +388,70 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => (
       </div>
     }
   >
-    <svg width="100%" viewBox="0 0 760 300" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="max-w-4xl" role="img" aria-label="Map comparing distance path and displacement vector from A to B">
-      <defs>
-        <marker id="arrow-displacement-map" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
-        </marker>
-        <marker id="arrow-compass-map" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
-        </marker>
-      </defs>
+    <div className="relative w-full aspect-[76/30] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+      <SVGLibrary />
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 300" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Map comparing distance path and displacement vector from A to B">
+        <path d="M 82 224 H 682 M 112 194 H 652 M 142 164 H 622 M 172 134 H 592 M 202 104 H 562 M 232 74 H 532" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 8" />
 
-      <rect x="32" y="28" width="696" height="236" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-      <path d="M 82 224 H 682 M 112 194 H 652 M 142 164 H 622 M 172 134 H 592 M 202 104 H 562 M 232 74 H 532" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 8" />
+        {/* Points A and B */}
+        <circle cx="120" cy="214" r="12" fill={themeColors.velocity} />
+        <circle cx="620" cy="74" r="12" fill={themeColors.velocity} />
 
-      {/* Points A and B */}
-      <circle cx="120" cy="214" r="12" fill="#38bdf8" />
-      <text x="116" y="219" className="text-sm font-bold fill-slate-950">A</text>
-      <text x="88" y="246" className="text-sm font-bold fill-sky-300">Start A</text>
+        {/* Distance Path (Winding) */}
+        <path d="M 130 206 C 210 100, 312 256, 394 166 C 492 58, 574 114, 610 82" stroke={themeColors.applied} strokeWidth="4" strokeDasharray="7 8" strokeLinecap="round" fill="none" />
 
-      <circle cx="620" cy="74" r="12" fill="#38bdf8" />
-      <text x="616" y="79" className="text-sm font-bold fill-slate-950">B</text>
-      <text x="588" y="48" className="text-sm font-bold fill-sky-300">Finish B</text>
+        {/* Displacement Vector (Straight) */}
+        <VectorArrow x1={132} y1={210} x2={608} y2={78} type="accel" marker="default" />
 
-      {/* Distance Path (Winding) */}
-      <path d="M 130 206 C 210 100, 312 256, 394 166 C 492 58, 574 114, 610 82" stroke="#f59e0b" strokeWidth="4" strokeDasharray="7 8" strokeLinecap="round" fill="none" />
-      <foreignObject x="240" y="52" width="190" height="44">
+        {/* Compass */}
+        <circle cx="90" cy="72" r="34" stroke="#334155" strokeWidth="2" fill="#020617" fillOpacity="0.7" />
+        <VectorArrow x1={90} y1={94} x2={90} y2={46} type="velocity" marker="default" />
+        <VectorArrow x1={68} y1={72} x2={116} y2={72} type="structural" marker="default" />
+        <VectorArrow x1={78} y1={84} x2={108} y2={54} type="accel" marker="default" />
+      </svg>
+
+      <DiagramLabel position={{ left: '15.8%', top: '71.3%' }}>
+        <div className="text-sm font-bold text-slate-950">A</div>
+      </DiagramLabel>
+      <DiagramLabel position={{ left: '11.6%', top: '82%' }}>
+        <div className="text-sm font-bold text-sky-300">Start A</div>
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '81.6%', top: '24.7%' }}>
+        <div className="text-sm font-bold text-slate-950">B</div>
+      </DiagramLabel>
+      <DiagramLabel position={{ left: '77.4%', top: '16%' }}>
+        <div className="text-sm font-bold text-sky-300">Finish B</div>
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '44%', top: '24.7%' }}>
         <div className="rounded border border-amber-900/60 bg-slate-950/90 px-3 py-2 text-center text-sm font-bold text-amber-300">
           Distance path = 12 m
         </div>
-      </foreignObject>
+      </DiagramLabel>
 
-      {/* Displacement Vector (Straight) */}
-      <line x1="132" y1="210" x2="608" y2="78" stroke="#10b981" strokeWidth="4" markerEnd="url(#arrow-displacement-map)" />
-      <foreignObject x="380" y="196" width="218" height="44">
+      <DiagramLabel position={{ left: '64.3%', top: '72.7%' }}>
         <div className="rounded border border-emerald-900/60 bg-slate-950/90 px-3 py-2 text-center text-sm font-bold text-emerald-300">
           Displacement = 8 m northeast
         </div>
-      </foreignObject>
+      </DiagramLabel>
 
-      {/* Compass */}
-      <circle cx="90" cy="72" r="34" stroke="#334155" strokeWidth="2" fill="#020617" fillOpacity="0.7" />
-      <line x1="90" y1="94" x2="90" y2="46" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrow-compass-map)" />
-      <line x1="68" y1="72" x2="116" y2="72" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow-compass-map)" />
-      <line x1="78" y1="84" x2="108" y2="54" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrow-displacement-map)" />
-      <text x="85" y="42" className="text-xs font-bold fill-sky-300">N</text>
-      <text x="118" y="77" className="text-xs font-bold fill-slate-300">E</text>
-      <text x="108" y="54" className="text-xs font-bold fill-emerald-300">NE</text>
+      <DiagramLabel position={{ left: '11.2%', top: '14%' }}>
+        <div className="text-xs font-bold text-sky-300">N</div>
+      </DiagramLabel>
+      <DiagramLabel position={{ left: '15.5%', top: '25.7%' }}>
+        <div className="text-xs font-bold text-slate-300">E</div>
+      </DiagramLabel>
+      <DiagramLabel position={{ left: '14.2%', top: '18%' }}>
+        <div className="text-xs font-bold text-emerald-300">NE</div>
+      </DiagramLabel>
 
-      <foreignObject x="74" y="268" width="612" height="22">
-        <div className="text-center text-xs font-semibold text-slate-400">
+      <DiagramLabel position={{ left: '50%', top: '89.3%' }}>
+        <div className="text-center text-xs font-semibold text-slate-400 w-full px-4">
           Direction matters for displacement and velocity; path length matters for distance and speed.
         </div>
-      </foreignObject>
-    </svg>
+      </DiagramLabel>
+    </div>
   </DiagramPanel>
 );
 
@@ -856,101 +872,98 @@ export const LiftPhysicsSVG: React.FC = () => (
       </div>
     }
   >
-    <svg width="100%" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" className="max-w-4xl" role="img" aria-label="Lift physics isolation diagram comparing whole lift system and isolated passenger">
-      <defs>
-        <marker id="lift-arrow-up" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
-        </marker>
-        <marker id="lift-arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
-        </marker>
-        <marker id="lift-arrow-weight" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#fb7185" />
-        </marker>
-      </defs>
+    <div className="relative w-full aspect-[76/39] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+      <SVGLibrary />
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Lift physics isolation diagram comparing whole lift system and isolated passenger">
+        {/* Panels */}
+        <rect x="24" y="28" width="340" height="300" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+        <rect x="396" y="28" width="340" height="300" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
 
-      {/* Panels */}
-      <rect x="24" y="28" width="340" height="300" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-      <rect x="396" y="28" width="340" height="300" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+        {/* Whole-system model */}
+        <rect x="118" y="92" width="152" height="168" rx="10" stroke={themeColors.applied} strokeWidth="2.5" strokeDasharray="8 6" fill="#020617" fillOpacity="0.35" />
+        <line x1="194" y1="58" x2="194" y2="110" stroke="#cbd5e1" strokeWidth="3" />
+        <ObjectBlock x={132} y={110} width={124} height={120} />
+        <line x1="132" y1="142" x2="256" y2="142" stroke="#475569" strokeWidth="2" />
+        <circle cx="194" cy="164" r="14" stroke="#cbd5e1" strokeWidth="2" fill="#334155" />
+        <line x1="194" y1="178" x2="194" y2="210" stroke="#cbd5e1" strokeWidth="2.5" />
+        <line x1="176" y1="220" x2="194" y2="210" stroke="#cbd5e1" strokeWidth="2.5" />
+        <line x1="212" y1="220" x2="194" y2="210" stroke="#cbd5e1" strokeWidth="2.5" />
 
-      <foreignObject x="42" y="44" width="304" height="42">
+        <VectorArrow x1={194} y1={112} x2={194} y2={48} type="accel" marker="default" />
+        <VectorArrow x1={194} y1={230} x2={194} y2={292} type="force" marker="default" />
+        <VectorArrow x1={88} y1={218} x2={88} y2={150} type="velocity" marker="default" />
+
+        {/* Passenger-only model */}
+        <rect x="514" y="118" width="96" height="136" rx="10" stroke={themeColors.applied} strokeWidth="2.5" strokeDasharray="8 6" fill="#020617" fillOpacity="0.35" />
+        <line x1="470" y1="226" x2="654" y2="226" stroke="#475569" strokeWidth="4" />
+        <circle cx="562" cy="152" r="18" stroke="#e2e8f0" strokeWidth="2.5" fill="#1e293b" />
+        <line x1="562" y1="170" x2="562" y2="212" stroke="#e2e8f0" strokeWidth="2.5" />
+        <line x1="538" y1="226" x2="562" y2="212" stroke="#e2e8f0" strokeWidth="2.5" />
+        <line x1="586" y1="226" x2="562" y2="212" stroke="#e2e8f0" strokeWidth="2.5" />
+
+        <VectorArrow x1={526} y1={226} x2={526} y2={148} type="accel" marker="default" />
+        <VectorArrow x1={602} y1={154} x2={602} y2={274} type="force" marker="default" />
+        <VectorArrow x1={682} y1={218} x2={682} y2={150} type="velocity" marker="default" />
+      </svg>
+
+      <DiagramLabel position={{ left: '25.5%', top: '16.7%' }}>
         <div className="text-center">
           <div className="text-base font-bold text-sky-300">Whole system: lift + passenger</div>
           <div className="text-xs text-slate-400">Use to find cable tension</div>
         </div>
-      </foreignObject>
-      <foreignObject x="414" y="44" width="304" height="42">
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '74.5%', top: '16.7%' }}>
         <div className="text-center">
           <div className="text-base font-bold text-amber-300">Isolated passenger</div>
           <div className="text-xs text-slate-400">Use to find floor reaction</div>
         </div>
-      </foreignObject>
+      </DiagramLabel>
 
-      {/* Whole-system model */}
-      <rect x="118" y="92" width="152" height="168" rx="10" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="8 6" fill="#020617" fillOpacity="0.35" />
-      <line x1="194" y1="58" x2="194" y2="110" stroke="#cbd5e1" strokeWidth="3" />
-      <rect x="132" y="110" width="124" height="120" rx="4" stroke="#64748b" strokeWidth="3" fill="#1e293b" />
-      <line x1="132" y1="142" x2="256" y2="142" stroke="#475569" strokeWidth="2" />
-      <circle cx="194" cy="164" r="14" stroke="#cbd5e1" strokeWidth="2" fill="#334155" />
-      <line x1="194" y1="178" x2="194" y2="210" stroke="#cbd5e1" strokeWidth="2.5" />
-      <line x1="176" y1="220" x2="194" y2="210" stroke="#cbd5e1" strokeWidth="2.5" />
-      <line x1="212" y1="220" x2="194" y2="210" stroke="#cbd5e1" strokeWidth="2.5" />
-
-      <path d="M 194 112 L 194 48" stroke="#10b981" strokeWidth="4" markerEnd="url(#lift-arrow-up)" />
-      <foreignObject x="207" y="55" width="48" height="30">
+      <DiagramLabel position={{ left: '30.4%', top: '17.9%' }}>
         <MathText content="T" className="text-xl font-bold text-emerald-300 [&_p]:m-0" />
-      </foreignObject>
-      <path d="M 194 230 L 194 292" stroke="#fb7185" strokeWidth="4" markerEnd="url(#lift-arrow-weight)" />
-      <foreignObject x="205" y="268" width="104" height="34">
-        <MathText content="(M+m)g" className="text-lg font-bold text-rose-300 [&_p]:m-0" />
-      </foreignObject>
-      <path d="M 88 218 L 88 150" stroke="#38bdf8" strokeWidth="4" markerEnd="url(#lift-arrow-sky)" />
-      <foreignObject x="58" y="160" width="34" height="30">
-        <MathText content="a" className="text-xl font-bold text-sky-300 [&_p]:m-0" />
-      </foreignObject>
+      </DiagramLabel>
 
-      <foreignObject x="62" y="282" width="266" height="34">
+      <DiagramLabel position={{ left: '33.8%', top: '73.1%' }}>
+        <MathText content="(M+m)g" className="text-lg font-bold text-rose-300 [&_p]:m-0" />
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '9.9%', top: '44.9%' }}>
+        <MathText content="a" className="text-xl font-bold text-sky-300 [&_p]:m-0" />
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '25.7%', top: '76.7%' }}>
         <div className="rounded-lg border border-emerald-900/60 bg-slate-950 px-3 py-1 text-center text-sm font-bold text-emerald-300">
           <MathText content="T - (M + m)g = (M + m)a" className="[&_p]:m-0" />
         </div>
-      </foreignObject>
+      </DiagramLabel>
 
-      {/* Passenger-only model */}
-      <rect x="514" y="118" width="96" height="136" rx="10" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="8 6" fill="#020617" fillOpacity="0.35" />
-      <line x1="470" y1="226" x2="654" y2="226" stroke="#475569" strokeWidth="4" />
-      <circle cx="562" cy="152" r="18" stroke="#e2e8f0" strokeWidth="2.5" fill="#1e293b" />
-      <line x1="562" y1="170" x2="562" y2="212" stroke="#e2e8f0" strokeWidth="2.5" />
-      <line x1="538" y1="226" x2="562" y2="212" stroke="#e2e8f0" strokeWidth="2.5" />
-      <line x1="586" y1="226" x2="562" y2="212" stroke="#e2e8f0" strokeWidth="2.5" />
-
-      <path d="M 526 226 L 526 148" stroke="#10b981" strokeWidth="4" markerEnd="url(#lift-arrow-up)" />
-      <foreignObject x="482" y="154" width="42" height="30">
+      <DiagramLabel position={{ left: '66.2%', top: '43.3%' }}>
         <MathText content="R" className="text-xl font-bold text-emerald-300 [&_p]:m-0" />
-      </foreignObject>
-      <path d="M 602 154 L 602 274" stroke="#fb7185" strokeWidth="4" markerEnd="url(#lift-arrow-weight)" />
-      <foreignObject x="612" y="236" width="54" height="30">
-        <MathText content="mg" className="text-xl font-bold text-rose-300 [&_p]:m-0" />
-      </foreignObject>
-      <path d="M 682 218 L 682 150" stroke="#38bdf8" strokeWidth="4" markerEnd="url(#lift-arrow-sky)" />
-      <foreignObject x="690" y="160" width="34" height="30">
-        <MathText content="a" className="text-xl font-bold text-sky-300 [&_p]:m-0" />
-      </foreignObject>
+      </DiagramLabel>
 
-      <foreignObject x="446" y="282" width="240" height="34">
+      <DiagramLabel position={{ left: '84.1%', top: '64.4%' }}>
+        <MathText content="mg" className="text-xl font-bold text-rose-300 [&_p]:m-0" />
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '93%', top: '44.9%' }}>
+        <MathText content="a" className="text-xl font-bold text-sky-300 [&_p]:m-0" />
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '74.5%', top: '76.7%' }}>
         <div className="rounded-lg border border-amber-900/60 bg-slate-950 px-3 py-1 text-center text-sm font-bold text-amber-300">
           <MathText content="R - mg = ma" className="[&_p]:m-0" />
         </div>
-      </foreignObject>
+      </DiagramLabel>
 
-      {/* Legend */}
-      <foreignObject x="76" y="342" width="608" height="32">
-        <div className="grid grid-cols-3 gap-3 text-center text-xs font-semibold text-slate-300">
+      <DiagramLabel position={{ left: '50%', top: '91.8%' }}>
+        <div className="grid grid-cols-3 gap-3 text-center text-xs font-semibold text-slate-300 w-full px-4">
           <div className="rounded border border-slate-800 bg-slate-900/60 px-2 py-1"><span className="text-emerald-300">emerald</span>/<span className="text-sky-300">sky</span> arrow = upward force</div>
           <div className="rounded border border-slate-800 bg-slate-900/60 px-2 py-1"><span className="text-rose-300">rose</span> arrow = weight</div>
           <div className="rounded border border-slate-800 bg-slate-900/60 px-2 py-1"><span className="text-amber-300">amber dashed outline</span> = chosen system</div>
         </div>
-      </foreignObject>
-    </svg>
+      </DiagramLabel>
+    </div>
   </DiagramPanel>
 );
 
@@ -1172,19 +1185,19 @@ export const M1FreeBodyDiagram: React.FC = () => {
       }
     >
       <div className="flex w-full flex-col items-center gap-4">
-        <div className="grid w-full max-w-4xl gap-3 lg:grid-cols-[1fr_1.15fr]">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-3">
-            <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-sky-300">Scenario</h4>
+        <div className="grid w-full max-w-4xl gap-4 lg:grid-cols-[1fr_1.15fr]">
+          <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4">
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-sky-300">Scenario</h4>
             <div className="grid grid-cols-2 gap-2">
               {(Object.keys(scenarioLabels) as FreeBodyScenario[]).map(option => (
                 <button
                   key={option}
                   type="button"
                   onClick={() => selectScenario(option)}
-                  className={`rounded-lg border px-3 py-2 text-left text-xs font-semibold transition-colors ${
+                  className={`rounded-lg border px-3 py-2 text-left text-xs font-semibold transition-all duration-300 ${
                     scenario === option
-                      ? 'border-sky-500 bg-sky-950/60 text-sky-100'
-                      : 'border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-600'
+                      ? 'border-sky-500/50 bg-sky-950/60 text-sky-100 shadow-[0_0_15px_rgba(14,165,233,0.15)]'
+                      : 'border-slate-800/50 bg-slate-950 text-slate-400 hover:border-slate-700 hover:bg-slate-900/50'
                   }`}
                 >
                   {scenarioLabels[option]}
@@ -1192,17 +1205,17 @@ export const M1FreeBodyDiagram: React.FC = () => {
               ))}
             </div>
 
-            <h4 className="mb-2 mt-4 text-xs font-bold uppercase tracking-wider text-slate-300">Forces on the object</h4>
+            <h4 className="mb-3 mt-6 text-xs font-bold uppercase tracking-wider text-slate-400">Forces on the object</h4>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1">
               {(Object.keys(forceLabels) as Force[]).map(force => {
                 const disabled = scenario === 'smooth' && force === 'friction';
                 return (
                   <label
                     key={force}
-                    className={`flex items-center justify-between gap-3 rounded-lg border px-3 py-2 text-sm ${
+                    className={`flex items-center justify-between gap-3 rounded-lg border px-3 py-2 text-sm transition-all duration-300 ${
                       disabled
-                        ? 'cursor-not-allowed border-slate-800 bg-slate-950/70 text-slate-500'
-                        : 'cursor-pointer border-slate-800 bg-slate-950 text-slate-300'
+                        ? 'cursor-not-allowed border-slate-800/30 bg-slate-950/50 text-slate-600'
+                        : 'cursor-pointer border-slate-800/50 bg-slate-950 text-slate-300 hover:border-slate-700 hover:bg-slate-900/50'
                     }`}
                   >
                     <span>{forceLabels[force]}</span>
@@ -1211,7 +1224,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
                       checked={forces[force]}
                       disabled={disabled}
                       onChange={() => toggleForce(force)}
-                      className="h-4 w-4 rounded border-slate-700 bg-slate-800 text-sky-500 focus:ring-sky-500 disabled:opacity-40"
+                      className="h-4 w-4 rounded border-slate-700 bg-slate-900 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 disabled:opacity-40 transition-colors"
                     />
                   </label>
                 );
@@ -1219,101 +1232,103 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </div>
           </div>
 
-          <svg viewBox="0 0 560 400" width="100%" className="h-auto rounded-xl border border-slate-800 bg-slate-950" role="img" aria-label="Interactive free body diagram showing selected forces on a block">
-            <defs>
-              <marker id="fbd-arrow-down-rose" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 5 8 L 10 0 Z" fill="#f43f5e" /></marker>
-              <marker id="fbd-arrow-up-emerald" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 8 L 5 0 L 10 8 Z" fill="#10b981" /></marker>
-              <marker id="fbd-arrow-left-amber" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 10 0 L 2 5 L 10 10 Z" fill="#f59e0b" /></marker>
-              <marker id="fbd-arrow-right-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 8 5 L 0 10 Z" fill="#38bdf8" /></marker>
-              <marker id="fbd-arrow-right-violet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 8 5 L 0 10 Z" fill="#8b5cf6" /></marker>
-              <marker id="fbd-arrow-right-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 8 5 L 0 10 Z" fill="#94a3b8" /></marker>
-            </defs>
-
-            <rect x="28" y="28" width="504" height="344" rx="10" fill="#0f172a" stroke="#1e293b" strokeWidth="1.8" />
-            <text x="48" y="58" className="fill-slate-200 text-base font-bold">Selected object</text>
-            <text x="48" y="80" className="fill-slate-400 text-xs">block on table; external forces only</text>
-
-            {/* Surface and object */}
-            <line x1="72" y1="234" x2="488" y2="234" stroke="#64748b" strokeWidth="3" />
-            {scenario === 'rough' && (
-              <g opacity="0.85">
+          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+            <SVGLibrary />
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Interactive free body diagram showing selected forces on a block">
+              <rect x="28" y="28" width="504" height="364" rx="10" fill="#0f172a" stroke="#1e293b" strokeWidth="1.8" />
+              
+              {/* Surface and object */}
+              <line x1="72" y1="234" x2="488" y2="234" stroke={themeColors.structural} strokeWidth="3" />
+              <g className={`transition-opacity duration-300 ${scenario === 'rough' ? 'opacity-85' : 'opacity-0'}`}>
                 {Array.from({ length: 13 }).map((_, index) => (
-                  <line key={index} x1={92 + index * 30} y1="246" x2={108 + index * 30} y2="238" stroke="#f59e0b" strokeWidth="1.8" />
+                  <line key={index} x1={92 + index * 30} y1="246" x2={108 + index * 30} y2="238" stroke={themeColors.applied} strokeWidth="1.8" />
                 ))}
               </g>
-            )}
-            <rect x="210" y="154" width="140" height="80" rx="8" fill="#1e293b" stroke="#94a3b8" strokeWidth="1.8" />
-            <circle cx="280" cy="194" r="5" fill="#020617" stroke="#cbd5e1" strokeWidth="1.5" />
-            <text x="258" y="200" className="fill-slate-300 text-sm font-semibold">object</text>
+              
+              <ObjectBlock x={210} y={154} width={140} height={80} massLabel="object" />
 
-            {(forces.friction || forces.tension || forces.applied) && (
-              <g>
-                <line x1="214" y1="122" x2="346" y2="122" stroke="#94a3b8" strokeWidth="1.8" strokeDasharray="5 5" markerEnd="url(#fbd-arrow-right-slate)" />
-                <text x="234" y="112" className="fill-slate-300 text-xs font-semibold">motion / intended motion</text>
+              <g className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
+                <VectorArrow x1={214} y1={122} x2={346} y2={122} type="structural" dashed marker="default" />
               </g>
-            )}
 
-            {/* Forces */}
-            {forces.weight && (
-              <g>
-                <line x1="280" y1="194" x2="280" y2="320" stroke="#f43f5e" strokeWidth="3.2" markerEnd="url(#fbd-arrow-down-rose)" />
-                <foreignObject x="292" y="286" width="72" height="34">
-                  <div className="text-lg font-bold text-rose-300"><MathText content="mg" className="[&_p]:m-0" /></div>
-                </foreignObject>
+              {/* Forces */}
+              <g className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>
+                <VectorArrow x1={280} y1={194} x2={280} y2={320} type="force" />
               </g>
-            )}
 
-            {forces.reaction && (
-              <g>
-                <line x1="280" y1="154" x2="280" y2="48" stroke="#10b981" strokeWidth="3.2" markerEnd="url(#fbd-arrow-up-emerald)" />
-                <foreignObject x="292" y="60" width="48" height="34">
-                  <div className="text-lg font-bold text-emerald-300"><MathText content="R" className="[&_p]:m-0" /></div>
-                </foreignObject>
-                <text x="304" y="94" className="fill-emerald-200 text-xs font-semibold">perpendicular</text>
+              <g className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
+                <VectorArrow x1={280} y1={154} x2={280} y2={48} type="accel" />
               </g>
-            )}
 
-            {forces.friction && (
-              <g>
-                <line x1="210" y1="194" x2="92" y2="194" stroke="#f59e0b" strokeWidth="3.2" markerEnd="url(#fbd-arrow-left-amber)" />
-                <foreignObject x="102" y="160" width="54" height="34">
-                  <div className="text-lg font-bold text-amber-300"><MathText content="F" className="[&_p]:m-0" /></div>
-                </foreignObject>
-                <text x="92" y="222" className="fill-amber-200 text-xs font-semibold">opposes motion</text>
+              <g className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
+                <VectorArrow x1={210} y1={194} x2={92} y2={194} type="applied" />
               </g>
-            )}
 
-            {forces.tension && (
-              <g>
-                <line x1="350" y1="194" x2="486" y2="194" stroke="#38bdf8" strokeWidth="3.2" markerEnd="url(#fbd-arrow-right-sky)" />
-                <line x1="350" y1="194" x2="410" y2="194" stroke="#38bdf8" strokeWidth="1.8" strokeDasharray="6 5" />
-                <foreignObject x="444" y="160" width="54" height="34">
-                  <div className="text-lg font-bold text-sky-300"><MathText content="T" className="[&_p]:m-0" /></div>
-                </foreignObject>
-                <text x="394" y="222" className="fill-sky-200 text-xs font-semibold">string pulls</text>
+              <g className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
+                <VectorArrow x1={350} y1={194} x2={486} y2={194} type="velocity" />
+                <VectorArrow x1={350} y1={194} x2={410} y2={194} type="velocity" dashed marker="none" />
               </g>
-            )}
 
-            {forces.applied && (
-              <g>
-                <line x1="350" y1="164" x2="486" y2="122" stroke="#8b5cf6" strokeWidth="3.2" markerEnd="url(#fbd-arrow-right-violet)" />
-                <foreignObject x="452" y="88" width="54" height="34">
-                  <div className="text-lg font-bold text-violet-300"><MathText content="P" className="[&_p]:m-0" /></div>
-                </foreignObject>
-                <text x="402" y="140" className="fill-violet-200 text-xs font-semibold">direct push/pull</text>
+              <g className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
+                <VectorArrow x1={350} y1={164} x2={486} y2={122} type="weight" />
               </g>
-            )}
 
-            {/* Legend */}
-            <g transform="translate(48 326)">
-              <rect x="0" y="0" width="276" height="50" rx="8" fill="#020617" stroke="#1e293b" />
-              <circle cx="16" cy="17" r="5" fill="#f43f5e" /><text x="28" y="21" className="fill-slate-300 text-xs">weight</text>
-              <circle cx="86" cy="17" r="5" fill="#10b981" /><text x="98" y="21" className="fill-slate-300 text-xs">reaction</text>
-              <circle cx="176" cy="17" r="5" fill="#8b5cf6" /><text x="188" y="21" className="fill-slate-300 text-xs">applied</text>
-              <circle cx="16" cy="36" r="5" fill="#f59e0b" /><text x="28" y="40" className="fill-slate-300 text-xs">friction</text>
-              <circle cx="86" cy="36" r="5" fill="#38bdf8" /><text x="98" y="40" className="fill-slate-300 text-xs">tension</text>
-            </g>
-          </svg>
+              {/* Legend */}
+              <g transform="translate(48 336)">
+                <rect x="0" y="0" width="276" height="42" rx="6" fill="#020617" stroke="#1e293b" />
+                <circle cx="16" cy="14" r="5" fill={themeColors.force} /><text x="28" y="18" className="fill-slate-400 text-[10px] font-medium tracking-wide">weight</text>
+                <circle cx="86" cy="14" r="5" fill={themeColors.accel} /><text x="98" y="18" className="fill-slate-400 text-[10px] font-medium tracking-wide">reaction</text>
+                <circle cx="176" cy="14" r="5" fill={themeColors.weight} /><text x="188" y="18" className="fill-slate-400 text-[10px] font-medium tracking-wide">applied</text>
+                <circle cx="16" cy="28" r="5" fill={themeColors.applied} /><text x="28" y="32" className="fill-slate-400 text-[10px] font-medium tracking-wide">friction</text>
+                <circle cx="86" cy="28" r="5" fill={themeColors.velocity} /><text x="98" y="32" className="fill-slate-400 text-[10px] font-medium tracking-wide">tension</text>
+              </g>
+            </svg>
+
+            {/* HTML Overlay Labels */}
+            <DiagramLabel position={{ left: '16%', top: '14%' }}>
+              <div className="text-base font-bold text-slate-200">Selected object</div>
+            </DiagramLabel>
+            
+            <DiagramLabel position={{ left: '21%', top: '19%' }}>
+              <div className="text-xs text-slate-400">block on table; external forces only</div>
+            </DiagramLabel>
+
+            <DiagramLabel position={{ left: '50%', top: '26%' }} className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-xs font-semibold text-slate-400">motion / intended motion</div>
+            </DiagramLabel>
+
+            <DiagramLabel position={{ left: '58%', top: '72%' }} className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-lg font-bold" style={{ color: themeColors.force }}><MathText content="mg" className="[&_p]:m-0" /></div>
+            </DiagramLabel>
+
+            <DiagramLabel position={{ left: '56%', top: '18%' }} className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-lg font-bold" style={{ color: themeColors.accel }}><MathText content="R" className="[&_p]:m-0" /></div>
+            </DiagramLabel>
+            <DiagramLabel position={{ left: '62%', top: '22%' }} className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-xs font-semibold" style={{ color: themeColors.accel }}>perpendicular</div>
+            </DiagramLabel>
+
+            <DiagramLabel position={{ left: '23%', top: '42%' }} className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-lg font-bold" style={{ color: themeColors.applied }}><MathText content="F" className="[&_p]:m-0" /></div>
+            </DiagramLabel>
+            <DiagramLabel position={{ left: '24%', top: '53%' }} className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-xs font-semibold" style={{ color: themeColors.applied }}>opposes motion</div>
+            </DiagramLabel>
+
+            <DiagramLabel position={{ left: '84%', top: '42%' }} className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-lg font-bold" style={{ color: themeColors.velocity }}><MathText content="T" className="[&_p]:m-0" /></div>
+            </DiagramLabel>
+            <DiagramLabel position={{ left: '78%', top: '53%' }} className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-xs font-semibold" style={{ color: themeColors.velocity }}>string pulls</div>
+            </DiagramLabel>
+
+            <DiagramLabel position={{ left: '85%', top: '25%' }} className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-lg font-bold" style={{ color: themeColors.weight }}><MathText content="P" className="[&_p]:m-0" /></div>
+            </DiagramLabel>
+            <DiagramLabel position={{ left: '79%', top: '33%' }} className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
+              <div className="text-xs font-semibold" style={{ color: themeColors.weight }}>direct push/pull</div>
+            </DiagramLabel>
+          </div>
         </div>
       </div>
     </DiagramPanel>
