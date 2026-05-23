@@ -23,10 +23,10 @@ export const S1HistogramBoundaryMorph: React.FC = () => {
       title="Fig. Histogram Class Boundaries"
       analysis={
         <div className="space-y-4">
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-            <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Class Width</h4>
-            <p className="text-sm text-slate-300 leading-relaxed mb-2">For continuous data, the class width is the difference between the upper and lower boundaries.</p>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Class Width</h4>
+            <p className="text-sm text-zinc-300 leading-relaxed mb-2">For continuous data, the class width is the difference between the upper and lower boundaries.</p>
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content="\text{Width} = \text{Upper Boundary} - \text{Lower Boundary}" />
             </div>
           </div>
@@ -37,13 +37,13 @@ export const S1HistogramBoundaryMorph: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="flex space-x-2 mb-8 p-1 bg-slate-900 border border-slate-800 rounded-lg">
+        <div className="flex space-x-2 mb-8 p-1 bg-zinc-900 border border-zinc-800 rounded-lg">
           <button
             onClick={() => setIsContinuous(false)}
             className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors ${
               !isContinuous
-                ? 'bg-amber-500 text-slate-950'
-                : 'bg-transparent text-slate-400 hover:bg-slate-800'
+                ? 'bg-amber-500 text-zinc-950'
+                : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
             }`}
           >
             Class Limits
@@ -52,8 +52,8 @@ export const S1HistogramBoundaryMorph: React.FC = () => {
             onClick={() => setIsContinuous(true)}
             className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors ${
               isContinuous
-                ? 'bg-emerald-500 text-slate-950'
-                : 'bg-transparent text-slate-400 hover:bg-slate-800'
+                ? 'bg-emerald-500 text-zinc-950'
+                : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
             }`}
           >
             Class Boundaries

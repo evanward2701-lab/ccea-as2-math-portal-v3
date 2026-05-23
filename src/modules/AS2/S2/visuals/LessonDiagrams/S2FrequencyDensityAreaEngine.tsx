@@ -30,19 +30,19 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
       title="Fig. Frequency Density Area Engine"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic">
+          <p className="text-sm text-zinc-400 italic">
             In a histogram, the area of each bar represents the frequency. When classes are merged, the total frequency (area) remains constant, but the frequency density (height) adjusts.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-              <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Frequency Density</h4>
-              <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+              <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Frequency Density</h4>
+              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
                 <MathText content="\text{FD} = \frac{\text{Frequency}}{\text{Class Width}}" />
               </div>
             </div>
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Frequency (Area)</h4>
-              <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
                 <MathText content="\text{Frequency} = \text{FD} \times \text{Class Width}" />
               </div>
             </div>
@@ -54,14 +54,14 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="flex space-x-2 mb-8 p-1 bg-slate-900 border border-slate-800 rounded-lg">
+        <div className="flex space-x-2 mb-8 p-1 bg-zinc-900 border border-zinc-800 rounded-lg">
           <button
             onClick={() => setIsMerged(false)}
             className={cn(
               "px-4 py-1.5 text-xs font-bold rounded-md transition-colors",
               !isMerged
-                ? 'bg-amber-500 text-slate-950'
-                : 'bg-transparent text-slate-400 hover:bg-slate-800'
+                ? 'bg-amber-500 text-zinc-950'
+                : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
             )}
           >
             Separate Classes
@@ -71,8 +71,8 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
             className={cn(
               "px-4 py-1.5 text-xs font-bold rounded-md transition-colors",
               isMerged
-                ? 'bg-emerald-500 text-slate-950'
-                : 'bg-transparent text-slate-400 hover:bg-slate-800'
+                ? 'bg-emerald-500 text-zinc-950'
+                : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
             )}
           >
             Merged Class
@@ -126,11 +126,11 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
             )}
           </svg>
 
-          <DiagramLabel position={{ left: 'padding', top: `${(padding - 15) / height * 100}%` }} className="-translate-x-1/2">
-            <MathText content="\text{FD}" className="text-slate-400 text-xs" />
+          <DiagramLabel position={{ left: 'padding', top: `${(padding - 15) / height * 100}%` }} className="-tranzinc-x-1/2">
+            <MathText content="\text{FD}" className="text-zinc-400 text-xs" />
           </DiagramLabel>
           <DiagramLabel position={{ left: `${(width - padding / 2) / width * 100}%`, top: `${(baseY + 10) / height * 100}%` }}>
-            <MathText content="x" className="text-slate-400 text-xs" />
+            <MathText content="x" className="text-zinc-400 text-xs" />
           </DiagramLabel>
 
           {isMerged ? (

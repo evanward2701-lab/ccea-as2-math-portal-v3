@@ -31,24 +31,24 @@ export const M3InclinedPlaneResolver: React.FC = () => {
       title="Fig. Dynamic Inclined Plane Resolver"
       analysis={
         <div className="space-y-4">
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-            <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Parallel Component</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Parallel Component</h4>
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`mg \\sin\\theta = ${parallel.toFixed(1)}\\text{ N}`} />
             </div>
           </div>
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Perpendicular Component</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`mg \\cos\\theta = ${perpendicular.toFixed(1)}\\text{ N}`} />
             </div>
           </div>
-           <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Normal Reaction</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`R = mg \\cos\\theta = ${perpendicular.toFixed(1)}\\text{ N}`} />
             </div>
-            <p className="text-xs text-slate-500 italic mt-2 text-center">Assuming no other perpendicular forces.</p>
+            <p className="text-xs text-zinc-500 italic mt-2 text-center">Assuming no other perpendicular forces.</p>
           </div>
           <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
             <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not draw the weight vector acting diagonally down the slope. Weight is a gravitational force and is always vertical.
@@ -57,9 +57,9 @@ export const M3InclinedPlaneResolver: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-md flex flex-col gap-3 mb-6 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
+        <div className="w-full max-w-md flex flex-col gap-3 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
           <div className="flex items-center gap-4">
-            <label htmlFor="angle-slider" className="text-sm font-medium text-slate-300 whitespace-nowrap">
+            <label htmlFor="angle-slider" className="text-sm font-medium text-zinc-300 whitespace-nowrap">
               Angle <MathText content="\theta" className="inline [&_p]:inline" />
             </label>
             <input
@@ -69,16 +69,16 @@ export const M3InclinedPlaneResolver: React.FC = () => {
               max="60"
               value={angle}
               onChange={(e) => setAngle(Number(e.target.value))}
-              className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+              className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer"
             />
-            <span className="text-sm font-mono text-sky-400 w-12 text-right">{angle}°</span>
+            <span className="text-sm font-mono text-zinc-400 w-12 text-right">{angle}°</span>
           </div>
-          <label className="flex items-center space-x-2 cursor-pointer text-sm text-slate-300 self-start">
+          <label className="flex items-center space-x-2 cursor-pointer text-sm text-zinc-300 self-start">
             <input
               type="checkbox"
               checked={showComponents}
               onChange={() => setShowComponents(prev => !prev)}
-              className="form-checkbox h-4 w-4 rounded bg-slate-800 border-slate-700 text-sky-500 focus:ring-sky-500"
+              className="form-checkbox h-4 w-4 rounded bg-zinc-800 border-zinc-700 text-zinc-500 focus:ring-zinc-500"
             />
             <span>Show resolved components</span>
           </label>
@@ -92,7 +92,7 @@ export const M3InclinedPlaneResolver: React.FC = () => {
 
           {/* Plane */}
           <line x1={originX} y1={originY} x2={planeEndX} y2={planeEndY} stroke="#475569" strokeWidth="3" />
-          <line x1={originX} y1={originY} x2={planeEndX} y2={originY} stroke="#334155" strokeWidth="1.5" strokeDasharray="4 4" />
+          <line x1={originX} y1={originY} x2={planeEndX} y2={originY} stroke="#3f3f46" strokeWidth="1.5" strokeDasharray="4 4" />
           <path d={`M ${originX + 40} ${originY} A 40 40 0 0 0 ${originX + 40 * Math.cos(rad)} ${originY - 40 * Math.sin(rad)}`} stroke="#94a3b8" strokeWidth="1.5" fill="none" />
           <text x={originX + 50} y={originY - 5} fill="#94a3b8" fontSize="14"><MathText content="\theta" /></text>
 
@@ -101,7 +101,7 @@ export const M3InclinedPlaneResolver: React.FC = () => {
           <text x={blockX + 5} y={blockY + weight * visualScale + 20} fill="#f43f5e" fontSize="14"><MathText content="mg" /></text>
 
           {/* Rotated group for components relative to the plane */}
-          <g transform={`translate(${blockX}, ${blockY}) rotate(${-angle})`}>
+          <g transform={`tranzinc(${blockX}, ${blockY}) rotate(${-angle})`}>
             {/* Block */}
             <rect x="-25" y="-40" width="50" height="40" rx="4" fill="#1e293b" stroke="#94a3b8" strokeWidth="1.5" />
 

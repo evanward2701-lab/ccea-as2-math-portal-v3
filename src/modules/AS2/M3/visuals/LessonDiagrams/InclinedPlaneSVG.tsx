@@ -11,8 +11,8 @@ export const InclinedPlaneSVG: React.FC = () => (
     title="Fig 3. Inclined Plane Resolution"
     analysis={(
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">
+        <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+          <p className="text-sm text-zinc-300 leading-relaxed">
             Weight <MathText content="mg" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" /> always acts vertically downwards. Resolve forces parallel and perpendicular to the plane of motion.
           </p>
         </div>
@@ -22,11 +22,11 @@ export const InclinedPlaneSVG: React.FC = () => (
       </div>
     )}
   >
-    <div className="relative w-full aspect-42/30 max-w-xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-42/30 max-w-xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="40 20 420 300" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         {/* Horizontal Base */}
-        <line x1="50" y1="260" x2="450" y2="260" stroke="#334155" strokeWidth="2" strokeDasharray="4 4" />
+        <line x1="50" y1="260" x2="450" y2="260" stroke="#3f3f46" strokeWidth="2" strokeDasharray="4 4" />
         
         {/* Inclined Plane */}
         <line x1="50" y1="260" x2="450" y2="100" stroke="#475569" strokeWidth="3" />
@@ -47,7 +47,7 @@ export const InclinedPlaneSVG: React.FC = () => (
       </DiagramLabel>
 
       <DiagramLabel position={{ left: '50%', top: '50%' }}>
-        <div className="bg-slate-900/80 p-2 rounded border border-slate-800 text-xs text-slate-300">
+        <div className="bg-zinc-900/80 p-2 rounded border border-zinc-800 text-xs text-zinc-300">
           Resolving diagram...
         </div>
       </DiagramLabel>

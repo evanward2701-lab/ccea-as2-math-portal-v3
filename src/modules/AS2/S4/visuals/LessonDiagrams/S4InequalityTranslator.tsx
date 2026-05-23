@@ -34,12 +34,12 @@ export const S4InequalityTranslator: React.FC = () => {
       title="Fig. Binomial Inequality Translator"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic">
+          <p className="text-sm text-zinc-400 italic">
             Translating English phrases into mathematical inequalities is a critical skill for binomial problems. This tool visualizes which integer values are included for each phrase.
           </p>
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Calculator-Ready Formula</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={getMath()} />
             </div>
           </div>
@@ -50,13 +50,13 @@ export const S4InequalityTranslator: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-lg grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
+        <div className="w-full max-w-lg grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
           <div>
-            <label className="text-sm font-medium text-slate-300 block mb-2">Phrase</label>
+            <label className="text-sm font-medium text-zinc-300 block mb-2">Phrase</label>
             <select
               value={phrase}
               onChange={(e) => setPhrase(e.target.value as InequalityPhrase)}
-              className="w-full bg-slate-800 border border-slate-700 rounded-md p-2 text-sm"
+              className="w-full bg-zinc-800 border border-zinc-700 rounded-md p-2 text-sm"
             >
               <option value="at most">At most</option>
               <option value="fewer than">Fewer than</option>
@@ -65,9 +65,9 @@ export const S4InequalityTranslator: React.FC = () => {
             </select>
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-slate-300"><MathText content="r" /></label>
+            <label className="text-sm font-medium text-zinc-300"><MathText content="r" /></label>
             <input type="range" min="1" max={n} value={r} onChange={(e) => setR(Number(e.target.value))} className="w-full" />
-            <span className="text-sm font-mono text-sky-400 w-8 text-right">{r}</span>
+            <span className="text-sm font-mono text-zinc-400 w-8 text-right">{r}</span>
           </div>
         </div>
 
@@ -87,11 +87,11 @@ export const S4InequalityTranslator: React.FC = () => {
                     r={isBoundary ? 10 : 8}
                     className={cn(
                       "transition-all",
-                      isIncluded ? "fill-emerald-500" : "fill-slate-700",
+                      isIncluded ? "fill-emerald-500" : "fill-zinc-700",
                       isBoundary && "stroke-rose-400 stroke-2"
                     )}
                   />
-                  <text x={x} y={45} textAnchor="middle" className={cn("font-mono text-xs", isIncluded ? "fill-slate-950" : "fill-slate-400")}>
+                  <text x={x} y={45} textAnchor="middle" className={cn("font-mono text-xs", isIncluded ? "fill-zinc-950" : "fill-zinc-400")}>
                     {i}
                   </text>
                 </g>
@@ -99,8 +99,8 @@ export const S4InequalityTranslator: React.FC = () => {
             })}
           </svg>
           
-          <DiagramLabel position={{ left: '50%', top: '85%' }} className="-translate-x-1/2">
-            <div className="text-center text-sm font-bold text-sky-300 mt-4 capitalize">
+          <DiagramLabel position={{ left: '50%', top: '85%' }} className="-tranzinc-x-1/2">
+            <div className="text-center text-sm font-bold text-zinc-300 mt-4 capitalize">
               "{phrase} {r}"
             </div>
           </DiagramLabel>

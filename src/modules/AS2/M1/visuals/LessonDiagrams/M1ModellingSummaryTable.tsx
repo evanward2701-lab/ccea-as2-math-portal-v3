@@ -16,26 +16,26 @@ export const M1ModellingSummaryTable: React.FC = () => {
     <DiagramPanel
       title="Modelling Assumptions Summary"
       analysis={
-        <p className="text-sm text-slate-400 italic text-center">
+        <p className="text-sm text-zinc-400 italic text-center">
           CCEA examiners frequently ask for the "mathematical effect" of these words.
         </p>
       }
     >
-      <div className="w-full overflow-hidden rounded-xl border border-slate-800 bg-slate-950/50 shadow-inner">
+      <div className="w-full overflow-hidden rounded-xl border border-zinc-800 bg-[#141416]/50 shadow-inner">
         <table className="w-full border-collapse text-left text-xs sm:text-sm">
           <thead>
-            <tr className="bg-slate-900/80 border-b border-slate-800">
-              <th className="px-4 py-3 font-bold text-sky-400 uppercase tracking-wider w-1/4">Modelling Word</th>
-              <th className="px-4 py-3 font-bold text-slate-400 uppercase tracking-wider w-3/8">Physical Meaning</th>
+            <tr className="bg-zinc-900/80 border-b border-zinc-800">
+              <th className="px-4 py-3 font-bold text-zinc-400 uppercase tracking-wider w-1/4">Modelling Word</th>
+              <th className="px-4 py-3 font-bold text-zinc-400 uppercase tracking-wider w-3/8">Physical Meaning</th>
               <th className="px-4 py-3 font-bold text-emerald-400 uppercase tracking-wider w-3/8">Mathematical Effect</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-800">
+          <tbody className="divide-y divide-zinc-800">
             {assumptions.map((item, idx) => (
-              <tr key={idx} className="hover:bg-slate-900/30 transition-colors">
-                <td className="px-4 py-3 font-bold text-slate-200">{item.word}</td>
-                <td className="px-4 py-3 text-slate-400 leading-relaxed">{item.meaning}</td>
-                <td className="px-4 py-3 text-slate-300 font-medium leading-relaxed">{item.effect}</td>
+              <tr key={idx} className="hover:bg-zinc-900/30 transition-colors">
+                <td className="px-4 py-3 font-bold text-zinc-200">{item.word}</td>
+                <td className="px-4 py-3 text-zinc-400 leading-relaxed">{item.meaning}</td>
+                <td className="px-4 py-3 text-zinc-300 font-medium leading-relaxed">{item.effect}</td>
               </tr>
             ))}
           </tbody>

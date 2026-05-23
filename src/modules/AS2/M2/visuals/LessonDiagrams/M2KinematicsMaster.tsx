@@ -9,7 +9,7 @@ export const M2KinematicsMaster: React.FC = () => {
       <DiagramPanel 
         title="Fig 1. Velocity-Time Graph Shapes"
         analysis={
-          <p className="text-sm text-slate-400 italic text-center">
+          <p className="text-sm text-zinc-400 italic text-center">
             Gradient represents acceleration. Horizontal lines mean zero acceleration.
           </p>
         }
@@ -31,13 +31,13 @@ export const M2KinematicsMaster: React.FC = () => {
               </g>
             </svg>
             <DiagramLabel position={{ left: '15%', top: '15%' }}>
-              <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-slate-400 text-xs" />
+              <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-zinc-400 text-xs" />
             </DiagramLabel>
             <DiagramLabel position={{ left: '95%', top: '85%' }}>
-              <MathText content="t \text{ (s)}" className="text-slate-400 text-xs" />
+              <MathText content="t \text{ (s)}" className="text-zinc-400 text-xs" />
             </DiagramLabel>
           </div>
-          <div className="text-center mt-2 text-sm text-slate-300">
+          <div className="text-center mt-2 text-sm text-zinc-300">
             <p className="font-bold text-rose-400">Stationary, <MathText content="v = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
           </div>
         </div>
@@ -58,13 +58,13 @@ export const M2KinematicsMaster: React.FC = () => {
               </g>
             </svg>
             <DiagramLabel position={{ left: '15%', top: '15%' }}>
-              <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-slate-400 text-xs" />
+              <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-zinc-400 text-xs" />
             </DiagramLabel>
             <DiagramLabel position={{ left: '95%', top: '85%' }}>
-              <MathText content="t \text{ (s)}" className="text-slate-400 text-xs" />
+              <MathText content="t \text{ (s)}" className="text-zinc-400 text-xs" />
             </DiagramLabel>
           </div>
-          <div className="text-center mt-2 text-sm text-slate-300">
+          <div className="text-center mt-2 text-sm text-zinc-300">
             <p className="font-bold text-amber-400">Constant velocity, <MathText content="a = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
           </div>
         </div>
@@ -85,13 +85,13 @@ export const M2KinematicsMaster: React.FC = () => {
               </g>
             </svg>
             <DiagramLabel position={{ left: '15%', top: '15%' }}>
-              <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-slate-400 text-xs" />
+              <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-zinc-400 text-xs" />
             </DiagramLabel>
             <DiagramLabel position={{ left: '95%', top: '85%' }}>
-              <MathText content="t \text{ (s)}" className="text-slate-400 text-xs" />
+              <MathText content="t \text{ (s)}" className="text-zinc-400 text-xs" />
             </DiagramLabel>
           </div>
-          <div className="text-center mt-2 text-sm text-slate-300">
+          <div className="text-center mt-2 text-sm text-zinc-300">
             <p className="font-bold text-emerald-400">Constant positive acceleration</p>
           </div>
         </div>
@@ -102,16 +102,16 @@ export const M2KinematicsMaster: React.FC = () => {
         title="Fig 2. Traffic Lights Triangular Model"
         analysis={
           <div className="space-y-3">
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Symmetry Alert</h4>
-              <p className="text-sm text-slate-300 leading-relaxed">The peak time <MathText content="T" className="inline [&_p]:inline [&_p]:m-0" /> does not have to be halfway through the journey.</p>
+              <p className="text-sm text-zinc-300 leading-relaxed">The peak time <MathText content="T" className="inline [&_p]:inline [&_p]:m-0" /> does not have to be halfway through the journey.</p>
             </div>
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-center">
-              <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Formula</h4>
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-center">
+              <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Formula</h4>
               <MathText content="\text{Area} = \frac{1}{2} \times \text{base} \times \text{height}" />
             </div>
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-              <p className="text-sm text-slate-300 leading-relaxed">The triangle area gives the total distance.</p>
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+              <p className="text-sm text-zinc-300 leading-relaxed">The triangle area gives the total distance.</p>
             </div>
           </div>
         }
@@ -135,23 +135,23 @@ export const M2KinematicsMaster: React.FC = () => {
           </svg>
 
           <DiagramLabel position={{ left: '6%', top: '10%' }}>
-            <MathText content="v" className="text-slate-400 font-bold" />
+            <MathText content="v" className="text-zinc-400 font-bold" />
           </DiagramLabel>
           <DiagramLabel position={{ left: '98%', top: '85%' }}>
-            <MathText content="t" className="text-slate-400 font-bold" />
+            <MathText content="t" className="text-zinc-400 font-bold" />
           </DiagramLabel>
           <DiagramLabel position={{ left: '6%', top: '22%' }}>
             <MathText content="V" className="text-amber-400 font-bold text-right group-hover:text-amber-300 transition-colors" />
           </DiagramLabel>
           <DiagramLabel position={{ left: '48.5%', top: '92%' }}>
-            <MathText content="T" className="text-slate-400 text-sm" />
+            <MathText content="T" className="text-zinc-400 text-sm" />
           </DiagramLabel>
           <DiagramLabel position={{ left: '88.5%', top: '92%' }}>
             <MathText content="120" className="text-rose-400 font-bold" />
           </DiagramLabel>
 
           <DiagramLabel position={{ left: '48%', top: '60%' }}>
-            <div className="text-center text-sm text-amber-300 font-bold bg-slate-950/90 py-2 px-2 border border-amber-500/20 rounded shadow-lg group-hover:border-amber-500/50 transition-colors">
+            <div className="text-center text-sm text-amber-300 font-bold bg-[#141416]/90 py-2 px-2 border border-amber-500/20 rounded shadow-lg group-hover:border-amber-500/50 transition-colors">
               Area = displacement<br/>
               = 1500 m
             </div>

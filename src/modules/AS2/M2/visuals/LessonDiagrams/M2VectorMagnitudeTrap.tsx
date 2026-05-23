@@ -10,14 +10,14 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
       analysis={
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div className="flex flex-col items-center gap-y-4">
-            <div className="p-2 bg-slate-950 rounded-lg border border-slate-800 font-mono text-indigo-400 text-sm">
+            <div className="p-2 bg-[#141416] rounded-lg border border-zinc-800 font-mono text-indigo-400 text-sm">
               <MathText content="\mathbf{s} = x\mathbf{i} + y\mathbf{j}" />
             </div>
-            <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-emerald-400 text-sm">
+            <div className="p-3 bg-[#141416] rounded-lg border border-zinc-800 font-mono text-emerald-400 text-sm">
               <MathText content="\text{Distance} = |\mathbf{s}| = \sqrt{x^2 + y^2}" />
             </div>
           </div>
-          <div className="text-sm text-slate-400 leading-relaxed md:text-left">
+          <div className="text-sm text-zinc-400 leading-relaxed md:text-left">
             <p>
               If a 2D vector kinematics question requests the scalar <strong>distance</strong>, you must first calculate the displacement vector, then find its modulus.
             </p>
@@ -27,8 +27,8 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
     >
       <div className="relative w-full max-w-lg aspect-30/18 select-none">
         <svg viewBox="0 0 300 180" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
-          <line x1="40" y1="160" x2="280" y2="160" stroke="#334155" strokeWidth="1" strokeDasharray="2 2" />
-          <line x1="40" y1="40" x2="40" y2="160" stroke="#334155" strokeWidth="1" strokeDasharray="2 2" />
+          <line x1="40" y1="160" x2="280" y2="160" stroke="#3f3f46" strokeWidth="1" strokeDasharray="2 2" />
+          <line x1="40" y1="40" x2="40" y2="160" stroke="#3f3f46" strokeWidth="1" strokeDasharray="2 2" />
           
           {/* Vector Base Foundations */}
           <line x1="40" y1="160" x2="260" y2="160" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" />
@@ -46,7 +46,7 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
         </svg>
 
         <DiagramLabel position={{ left: '50%', top: '95%' }}>
-          <div className="text-blue-400 font-bold text-center text-xs">
+          <div className="text-zinc-400 font-bold text-center text-xs">
             <MathText content="x\mathbf{i}" />
           </div>
         </DiagramLabel>

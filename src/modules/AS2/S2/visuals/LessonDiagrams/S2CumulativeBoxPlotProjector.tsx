@@ -40,12 +40,12 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
       title="Fig. Cumulative Frequency to Box Plot Projector"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic">
+          <p className="text-sm text-zinc-400 italic">
             The cumulative frequency curve allows us to estimate quartiles and the median, which are then used to construct a box plot.
           </p>
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-            <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Quartile Positions</h4>
-            <div className="grid grid-cols-3 gap-2 text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Quartile Positions</h4>
+            <div className="grid grid-cols-3 gap-2 text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <div><MathText content={`Q_1 = ${q1Pos}`} className="text-xs" /></div>
               <div><MathText content={`\\text{Median} = ${q2Pos}`} className="text-xs" /></div>
               <div><MathText content={`Q_3 = ${q3Pos}`} className="text-xs" /></div>
@@ -60,7 +60,7 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
       <div className="w-full flex flex-col items-center">
         <button
           onClick={() => setProjectQuartiles(prev => !prev)}
-          className="px-6 py-2 mb-8 bg-sky-600 text-white font-bold rounded-lg hover:bg-sky-500 transition-colors"
+          className="px-6 py-2 mb-8 bg-zinc-600 text-white font-bold rounded-lg hover:bg-zinc-500 transition-colors"
         >
           {projectQuartiles ? 'Reset View' : 'Project Quartiles'}
         </button>
@@ -109,29 +109,29 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
 
           {/* Labels */}
           <DiagramLabel position={{ left: 'padding', top: `${(cfMinY - 15) / svgHeight * 100}%` }}>
-            <MathText content="\text{CF}" className="text-slate-400 text-xs" />
+            <MathText content="\text{CF}" className="text-zinc-400 text-xs" />
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(n) / svgHeight * 100}%` }} className="-translate-x-full pr-2">
-            <span className="text-slate-400 text-[10px]">{n}</span>
+          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(n) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
+            <span className="text-zinc-400 text-[10px]">{n}</span>
           </DiagramLabel>
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q3Pos) / svgHeight * 100}%` }} className="-translate-x-full pr-2">
-            <span className="text-slate-400 text-[10px]">{q3Pos}</span>
+          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q3Pos) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
+            <span className="text-zinc-400 text-[10px]">{q3Pos}</span>
           </DiagramLabel>
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q2Pos) / svgHeight * 100}%` }} className="-translate-x-full pr-2">
-            <span className="text-slate-400 text-[10px]">{q2Pos}</span>
+          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q2Pos) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
+            <span className="text-zinc-400 text-[10px]">{q2Pos}</span>
           </DiagramLabel>
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q1Pos) / svgHeight * 100}%` }} className="-translate-x-full pr-2">
-            <span className="text-slate-400 text-[10px]">{q1Pos}</span>
+          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q1Pos) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
+            <span className="text-zinc-400 text-[10px]">{q1Pos}</span>
           </DiagramLabel>
 
           <DiagramLabel position={{ left: `${(svgWidth - padding) / svgWidth * 100}%`, top: `${(boxPlotYCenter + 10) / svgHeight * 100}%` }}>
-            <MathText content="x" className="text-slate-400 text-xs" />
+            <MathText content="x" className="text-zinc-400 text-xs" />
           </DiagramLabel>
 
           {[minX, q1X, q2X, q3X, maxX].map((xVal, i) => (
-            <DiagramLabel key={`lbl-x-${i}`} position={{ left: `${xVal / svgWidth * 100}%`, top: `${(boxPlotYCenter + 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
-              <span className="text-slate-400 text-[10px]">
+            <DiagramLabel key={`lbl-x-${i}`} position={{ left: `${xVal / svgWidth * 100}%`, top: `${(boxPlotYCenter + 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+              <span className="text-zinc-400 text-[10px]">
                 {i === 0 ? 'Min' : i === 1 ? 'Q1' : i === 2 ? 'Med' : i === 3 ? 'Q3' : 'Max'}
               </span>
             </DiagramLabel>
@@ -139,14 +139,14 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
 
           {projectQuartiles && (
             <>
-              <DiagramLabel position={{ left: `${q1X / svgWidth * 100}%`, top: `${(q1YCoord - 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
-                <MathText content="Q_1" className="text-[#38bdf8] text-xs" />
+              <DiagramLabel position={{ left: `${q1X / svgWidth * 100}%`, top: `${(q1YCoord - 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+                <MathText content="Q_1" className="text-[#a1a1aa] text-xs" />
               </DiagramLabel>
-              <DiagramLabel position={{ left: `${q2X / svgWidth * 100}%`, top: `${(q2YCoord - 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
-                <MathText content="\text{Median}" className="text-[#38bdf8] text-xs" />
+              <DiagramLabel position={{ left: `${q2X / svgWidth * 100}%`, top: `${(q2YCoord - 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+                <MathText content="\text{Median}" className="text-[#a1a1aa] text-xs" />
               </DiagramLabel>
-              <DiagramLabel position={{ left: `${q3X / svgWidth * 100}%`, top: `${(q3YCoord - 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
-                <MathText content="Q_3" className="text-[#38bdf8] text-xs" />
+              <DiagramLabel position={{ left: `${q3X / svgWidth * 100}%`, top: `${(q3YCoord - 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+                <MathText content="Q_3" className="text-[#a1a1aa] text-xs" />
               </DiagramLabel>
             </>
           )}

@@ -7,7 +7,6 @@ export * from "./ScalarVectorSVG";
 export * from "./ModellingAssumptionsSVG";
 export * from "./M1KinematicNotationPanel";
 export * from "./M1ModellingSandboxSVG";
-export * from "./M1FmaBridgeMermaid";
 export * from "./TowingModelSVG";
 export * from "./M1ModellingSummaryTable";
 export * from "./M1SIUnitDerivationMermaid";

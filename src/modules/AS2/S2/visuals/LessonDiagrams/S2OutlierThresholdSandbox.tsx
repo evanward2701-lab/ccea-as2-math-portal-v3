@@ -43,19 +43,19 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
       title="Fig. Dynamic Outlier Threshold Sandbox"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic">
+          <p className="text-sm text-zinc-400 italic">
             Explore how the 1.5 IQR rule defines outlier boundaries and how box plot whiskers adapt to the highest/lowest non-outlier values.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-              <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">IQR</h4>
-              <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+              <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">IQR</h4>
+              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
                 <MathText content={`\\text{IQR} = Q_3 - Q_1 = ${iqr}`} />
               </div>
             </div>
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Outlier Fences</h4>
-              <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
                 <MathText content={`Q_1 - 1.5\\text{IQR} = ${lowerFence}`} />
                 <MathText content={`Q_3 + 1.5\\text{IQR} = ${upperFence}`} />
               </div>
@@ -68,8 +68,8 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-lg flex items-center gap-3 mb-8 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
-          <label htmlFor="candidate-slider" className="text-sm font-medium text-slate-300 whitespace-nowrap">
+        <div className="w-full max-w-lg flex items-center gap-3 mb-8 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
+          <label htmlFor="candidate-slider" className="text-sm font-medium text-zinc-300 whitespace-nowrap">
             Candidate Value
           </label>
           <input
@@ -80,9 +80,9 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
             step="1"
             value={candidateValue}
             onChange={(e) => setCandidateValue(Number(e.target.value))}
-            className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+            className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer"
           />
-          <span className="text-sm font-mono text-sky-400 w-12 text-right">{candidateValue}</span>
+          <span className="text-sm font-mono text-zinc-400 w-12 text-right">{candidateValue}</span>
         </div>
 
         <div className="relative w-full aspect-60/20 max-w-3xl mx-auto">
@@ -123,34 +123,34 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
             />
           </svg>
 
-          <DiagramLabel position={{ left: `${xScale(q1) / svgWidth * 100}%`, top: `${(yAxisCenter + 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
-            <span className="text-slate-400 text-[10px]">{q1}</span>
+          <DiagramLabel position={{ left: `${xScale(q1) / svgWidth * 100}%`, top: `${(yAxisCenter + 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+            <span className="text-zinc-400 text-[10px]">{q1}</span>
           </DiagramLabel>
-          <DiagramLabel position={{ left: `${xScale(median) / svgWidth * 100}%`, top: `${(yAxisCenter + 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
-            <span className="text-slate-400 text-[10px]">{median}</span>
+          <DiagramLabel position={{ left: `${xScale(median) / svgWidth * 100}%`, top: `${(yAxisCenter + 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+            <span className="text-zinc-400 text-[10px]">{median}</span>
           </DiagramLabel>
-          <DiagramLabel position={{ left: `${xScale(q3) / svgWidth * 100}%`, top: `${(yAxisCenter + 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
-            <span className="text-slate-400 text-[10px]">{q3}</span>
-          </DiagramLabel>
-
-          <DiagramLabel position={{ left: `${xScale(q1) / svgWidth * 100}%`, top: `${(yAxisCenter + 35) / svgHeight * 100}%` }} className="-translate-x-1/2">
-            <MathText content="Q_1" className="text-slate-400 text-xs" />
-          </DiagramLabel>
-          <DiagramLabel position={{ left: `${xScale(median) / svgWidth * 100}%`, top: `${(yAxisCenter + 35) / svgHeight * 100}%` }} className="-translate-x-1/2">
-            <MathText content="\text{Median}" className="text-slate-400 text-xs" />
-          </DiagramLabel>
-          <DiagramLabel position={{ left: `${xScale(q3) / svgWidth * 100}%`, top: `${(yAxisCenter + 35) / svgHeight * 100}%` }} className="-translate-x-1/2">
-            <MathText content="Q_3" className="text-slate-400 text-xs" />
+          <DiagramLabel position={{ left: `${xScale(q3) / svgWidth * 100}%`, top: `${(yAxisCenter + 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+            <span className="text-zinc-400 text-[10px]">{q3}</span>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: `${xScale(lowerFence) / svgWidth * 100}%`, top: `${(yAxisCenter - 35) / svgHeight * 100}%` }} className="-translate-x-1/2">
+          <DiagramLabel position={{ left: `${xScale(q1) / svgWidth * 100}%`, top: `${(yAxisCenter + 35) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+            <MathText content="Q_1" className="text-zinc-400 text-xs" />
+          </DiagramLabel>
+          <DiagramLabel position={{ left: `${xScale(median) / svgWidth * 100}%`, top: `${(yAxisCenter + 35) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+            <MathText content="\text{Median}" className="text-zinc-400 text-xs" />
+          </DiagramLabel>
+          <DiagramLabel position={{ left: `${xScale(q3) / svgWidth * 100}%`, top: `${(yAxisCenter + 35) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+            <MathText content="Q_3" className="text-zinc-400 text-xs" />
+          </DiagramLabel>
+
+          <DiagramLabel position={{ left: `${xScale(lowerFence) / svgWidth * 100}%`, top: `${(yAxisCenter - 35) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
             <div className="text-[#f43f5e] text-[10px]">Lower Fence</div>
           </DiagramLabel>
-          <DiagramLabel position={{ left: `${xScale(upperFence) / svgWidth * 100}%`, top: `${(yAxisCenter - 35) / svgHeight * 100}%` }} className="-translate-x-1/2">
+          <DiagramLabel position={{ left: `${xScale(upperFence) / svgWidth * 100}%`, top: `${(yAxisCenter - 35) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
             <div className="text-[#f43f5e] text-[10px]">Upper Fence</div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: `${candidateDotX / svgWidth * 100}%`, top: `${(yAxisCenter - 40) / svgHeight * 100}%` }} className="-translate-x-1/2 transition-all duration-300">
+          <DiagramLabel position={{ left: `${candidateDotX / svgWidth * 100}%`, top: `${(yAxisCenter - 40) / svgHeight * 100}%` }} className="-tranzinc-x-1/2 transition-all duration-300">
             <div className={cn("text-xs font-bold", isOutlier ? "text-[#f43f5e]" : "text-[#10b981]")}>{candidateValue}</div>
           </DiagramLabel>
         </div>

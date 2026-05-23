@@ -22,7 +22,7 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
         position: 'absolute',
         top: position.top,
         left: position.left,
-        transform: 'translate(-50%, -50%)',
+        transform: 'tranzinc(-50%, -50%)',
         pointerEvents: 'none',
         color: '#a1a1aa', // zinc-400 for a muted, receding effect
         fontFamily: 'Inter, system-ui, -apple-system, sans-serif',

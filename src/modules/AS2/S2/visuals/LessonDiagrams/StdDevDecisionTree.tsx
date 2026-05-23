@@ -27,7 +27,7 @@ export const StdDevDecisionTree: React.FC = () => {
     <DiagramPanel
       title="Standard Deviation Workflow"
       analysis={
-        <p className="text-sm text-slate-400 italic text-center">
+        <p className="text-sm text-zinc-400 italic text-center">
           The process for calculating standard deviation is identical for discrete and grouped data, provided midpoints are used for groups.
         </p>
       }

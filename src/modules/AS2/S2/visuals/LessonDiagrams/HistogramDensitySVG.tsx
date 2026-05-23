@@ -8,8 +8,8 @@ export const HistogramDensitySVG: React.FC = () => (
     title="Fig 1. Histogram Geometry"
     analysis={
       <div className="space-y-3">
-        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">
+        <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+          <p className="text-sm text-zinc-300 leading-relaxed">
             In a histogram, the <strong className="font-semibold text-emerald-400">area</strong> of each bar represents the <strong className="font-semibold text-emerald-400">frequency</strong>, not the height.
           </p>
         </div>
@@ -18,7 +18,7 @@ export const HistogramDensitySVG: React.FC = () => (
           <p className="text-sm text-rose-300 leading-relaxed mb-3">
             Do not read the bar height as the frequency when class widths are unequal.
           </p>
-          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
             <MathText content="\text{Area} = \text{Width} \times \text{Height}" />
           </div>
         </div>
@@ -36,8 +36,8 @@ export const HistogramDensitySVG: React.FC = () => (
         <path d="M50 25 L50 200 L460 200" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
         
         {/* Bars */}
-        <rect x="50" y="60" width="100" height="140" fill="#0f172a" stroke="#334155" strokeWidth="2" className="hover:fill-slate-800 transition-colors" />
-        <rect x="150" y="100" width="100" height="100" fill="#0f172a" stroke="#334155" strokeWidth="2" className="hover:fill-slate-800 transition-colors" />
+        <rect x="50" y="60" width="100" height="140" fill="#141417" stroke="#3f3f46" strokeWidth="2" className="hover:fill-zinc-800 transition-colors" />
+        <rect x="150" y="100" width="100" height="100" fill="#141417" stroke="#3f3f46" strokeWidth="2" className="hover:fill-zinc-800 transition-colors" />
         <rect x="250" y="140" width="200" height="60" fill="#022c22" stroke="#10b981" strokeWidth="2" className="hover:fill-emerald-900/50 transition-colors" />
       </svg>
 
@@ -56,11 +56,11 @@ export const HistogramDensitySVG: React.FC = () => (
       </DiagramLabel>
 
       <DiagramLabel position={{ left: '45.6%', top: '85%' }}>
-        <MathText content="\text{Time } (t)" className="text-slate-400 text-sm" />
+        <MathText content="\text{Time } (t)" className="text-zinc-400 text-sm" />
       </DiagramLabel>
 
       <DiagramLabel position={{ left: '61.4%', top: '55%' }}>
-        <div className="text-emerald-400 text-sm font-semibold tracking-wide bg-slate-950/40 rounded px-2 py-1">
+        <div className="text-emerald-400 text-sm font-semibold tracking-wide bg-[#141416]/40 rounded px-2 py-1">
           <MathText content="\text{Area} = \text{Frequency}" />
         </div>
       </DiagramLabel>

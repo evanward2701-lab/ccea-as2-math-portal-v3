@@ -15,33 +15,33 @@ export const InequalityPanelSVG: React.FC = () => (
     }
   >
     <div className="w-full overflow-x-auto">
-      <table className="w-full border-collapse border border-slate-800 text-sm font-sans bg-slate-900 text-center">
+      <table className="w-full border-collapse border border-zinc-800 text-sm font-sans bg-zinc-900 text-center">
         <thead>
-          <tr className="bg-slate-950 text-slate-400 border-b border-slate-800 uppercase font-mono tracking-wider text-[10px]">
-            <th className="p-4 border-r border-slate-800 text-left pl-6">English Phrase</th>
-            <th className="p-4 border-r border-slate-800">Raw Inequality</th>
+          <tr className="bg-[#141416] text-zinc-400 border-b border-zinc-800 uppercase font-mono tracking-wider text-[10px]">
+            <th className="p-4 border-r border-zinc-800 text-left pl-6">English Phrase</th>
+            <th className="p-4 border-r border-zinc-800">Raw Inequality</th>
             <th className="p-4 text-emerald-400">Calculator Format <MathText content="P(X \le x)" className="inline [&_p]:inline [&_p]:m-0" /></th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-slate-800/50">
-          <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"More than 4"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X > 4)" /></td>
+        <tbody className="divide-y divide-zinc-800/50">
+          <tr className="hover:bg-zinc-800/30 transition-colors">
+            <td className="p-4 border-r border-zinc-800/60 text-left pl-6 font-semibold text-zinc-300">"More than 4"</td>
+            <td className="p-4 border-r border-zinc-800/60"><MathText content="P(X > 4)" /></td>
             <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="1 - P(X \leq 4)" /></td>
           </tr>
-          <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At least 4" / "4 or more"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \geq 4)" /></td>
+          <tr className="hover:bg-zinc-800/30 transition-colors">
+            <td className="p-4 border-r border-zinc-800/60 text-left pl-6 font-semibold text-zinc-300">"At least 4" / "4 or more"</td>
+            <td className="p-4 border-r border-zinc-800/60"><MathText content="P(X \geq 4)" /></td>
             <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="1 - P(X \leq 3)" /></td>
           </tr>
-          <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"Fewer than 4"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X < 4)" /></td>
+          <tr className="hover:bg-zinc-800/30 transition-colors">
+            <td className="p-4 border-r border-zinc-800/60 text-left pl-6 font-semibold text-zinc-300">"Fewer than 4"</td>
+            <td className="p-4 border-r border-zinc-800/60"><MathText content="P(X < 4)" /></td>
             <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="P(X \leq 3)" /></td>
           </tr>
-          <tr className="hover:bg-slate-800/30 transition-colors">
-            <td className="p-4 border-r border-slate-800/50 text-left pl-6 font-semibold text-slate-300">"At most 4" / "No more than 4"</td>
-            <td className="p-4 border-r border-slate-800/50"><MathText content="P(X \leq 4)" /></td>
+          <tr className="hover:bg-zinc-800/30 transition-colors">
+            <td className="p-4 border-r border-zinc-800/60 text-left pl-6 font-semibold text-zinc-300">"At most 4" / "No more than 4"</td>
+            <td className="p-4 border-r border-zinc-800/60"><MathText content="P(X \leq 4)" /></td>
             <td className="p-4 bg-emerald-950/10 font-bold"><MathText content="P(X \leq 4)" /></td>
           </tr>
         </tbody>

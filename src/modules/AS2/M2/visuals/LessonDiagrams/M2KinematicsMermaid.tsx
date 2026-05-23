@@ -20,7 +20,7 @@ export const M2KinematicsMermaid: React.FC = () => {
       C1 --> C1a[s_x, u_x, v_x, a_x]
       C2 --> C2b[s_y, u_y, v_y, a_y]
       
-      style A fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#fff
+      style A fill:#141417,stroke:#3b82f6,stroke-width:2px,color:#fff
       style B2a fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#fff
   `;
 
@@ -28,7 +28,7 @@ export const M2KinematicsMermaid: React.FC = () => {
     <DiagramPanel
       title="Kinematics Conceptual Map"
       analysis={
-        <p className="text-sm text-slate-400 italic text-center">
+        <p className="text-sm text-zinc-400 italic text-center">
           In 2D motion, we treat horizontal and vertical components as independent 1D problems.
         </p>
       }

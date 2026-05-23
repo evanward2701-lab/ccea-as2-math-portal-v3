@@ -11,8 +11,8 @@ export const LiftSystemSVG: React.FC = () => (
     title="Fig 4. Lift Systems Isolation"
     analysis={
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">
+        <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+          <p className="text-sm text-zinc-300 leading-relaxed">
             To find cable tension (<MathText content="T" className="inline" />), model the lift and passenger as one combined system. To find the floor reaction (<MathText content="R" className="inline" />), isolate the passenger.
           </p>
         </div>
@@ -22,7 +22,7 @@ export const LiftSystemSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-60/28 max-w-2xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-60/28 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         <line x1="300" y1="10" x2="300" y2="250" stroke="#1e293b" strokeWidth="1.5" strokeDasharray="4 4" />
@@ -31,7 +31,7 @@ export const LiftSystemSVG: React.FC = () => (
         <line x1="150" y1="40" x2="150" y2="80" stroke="#475569" strokeWidth="2" />
         <VectorArrow x1={150} y1={80} x2={150} y2={45} type="accel" marker="default" />
         
-        <rect x="90" y="80" width="120" height="120" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+        <rect x="90" y="80" width="120" height="120" fill="#141417" stroke="#3f3f46" strokeWidth="2" />
         <rect x="130" y="140" width="40" height="60" fill="#1e293b" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
         
         <VectorArrow x1={150} y1={200} x2={150} y2={250} type="applied" marker="default" />
@@ -50,10 +50,10 @@ export const LiftSystemSVG: React.FC = () => (
       </svg>
 
       <DiagramLabel position={{ left: '21.5%', top: '5%' }}>
-        <div className="text-center text-slate-400 text-[11px] font-bold uppercase tracking-wider">Diagram A: Whole System</div>
+        <div className="text-center text-zinc-400 text-[11px] font-bold uppercase tracking-wider">Diagram A: Whole System</div>
       </DiagramLabel>
       <DiagramLabel position={{ left: '71.5%', top: '5%' }}>
-        <div className="text-center text-slate-400 text-[11px] font-bold uppercase tracking-wider">Diagram B: Isolated Passenger</div>
+        <div className="text-center text-zinc-400 text-[11px] font-bold uppercase tracking-wider">Diagram B: Isolated Passenger</div>
       </DiagramLabel>
 
       <DiagramLabel position={{ left: '26.5%', top: '15%' }}>

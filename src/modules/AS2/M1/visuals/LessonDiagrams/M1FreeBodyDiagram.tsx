@@ -52,8 +52,8 @@ export const M1FreeBodyDiagram: React.FC = () => {
       analysis={
         <div className="space-y-3">
           <div className="grid gap-3 md:grid-cols-3">
-            <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 p-3 text-sm text-sky-200">
-              <strong className="text-sky-300">Smooth surface</strong> means no friction.
+            <div className="rounded-lg border border-zinc-900/50 bg-zinc-950/20 p-3 text-sm text-zinc-200">
+              <strong className="text-zinc-300">Smooth surface</strong> means no friction.
             </div>
             <div className="rounded-lg border border-amber-900/50 bg-amber-950/20 p-3 text-sm text-amber-200">
               <strong className="text-amber-300">Rough surface</strong> means friction opposes motion.
@@ -62,19 +62,19 @@ export const M1FreeBodyDiagram: React.FC = () => {
               <strong className="text-rose-300">Object only:</strong> include forces acting on this object, not forces it exerts.
             </div>
           </div>
-          <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-3 text-sm text-slate-300">
+          <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 text-sm text-zinc-300">
             <a href="#" className="hover:underline">A free-body diagram</a> shows only external forces acting on the selected object. Weight <MathText content="mg" className="inline text-rose-300 [&_p]:inline [&_p]:m-0" /> acts vertically downwards; reaction <MathText content="R" className="inline text-emerald-300 [&_p]:inline [&_p]:m-0" /> is perpendicular to the surface.
           </div>
-          <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-3 text-sm text-slate-300">
-            Tension <MathText content="T" className="inline text-sky-300 [&_p]:inline [&_p]:m-0" /> appears if a string, towbar, or cable pulls on the object. Applied force <MathText content="P" className="inline text-violet-300 [&_p]:inline [&_p]:m-0" /> appears only when a direct force is given.
+          <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 text-sm text-zinc-300">
+            Tension <MathText content="T" className="inline text-zinc-300 [&_p]:inline [&_p]:m-0" /> appears if a string, towbar, or cable pulls on the object. Applied force <MathText content="P" className="inline text-violet-300 [&_p]:inline [&_p]:m-0" /> appears only when a direct force is given.
           </div>
         </div>
       }
     >
       <div className="flex w-full flex-col items-center gap-4">
         <div className="grid w-full max-w-4xl gap-4 lg:grid-cols-[1fr_1.15fr]">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4">
-            <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-sky-300">Scenario</h4>
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4">
+            <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-zinc-300">Scenario</h4>
             <div className="grid grid-cols-2 gap-2">
               {(Object.keys(scenarioLabels) as FreeBodyScenario[]).map(option => (
                 <button
@@ -83,8 +83,8 @@ export const M1FreeBodyDiagram: React.FC = () => {
                   onClick={() => selectScenario(option)}
                   className={`rounded-lg border px-3 py-2 text-left text-xs font-semibold transition-all duration-300 ${
                     scenario === option
-                      ? 'border-sky-500/50 bg-sky-950/60 text-sky-100 shadow-[0_0_15px_rgba(14,165,233,0.15)]'
-                      : 'border-slate-800/50 bg-slate-950 text-slate-400 hover:border-slate-700 hover:bg-slate-900/50'
+                      ? 'border-zinc-500/50 bg-zinc-950/60 text-zinc-100 shadow-[0_0_15px_rgba(14,165,233,0.15)]'
+                      : 'border-zinc-800/60 bg-[#141416] text-zinc-400 hover:border-zinc-700 hover:bg-zinc-900/50'
                   }`}
                 >
                   {scenarioLabels[option]}
@@ -92,7 +92,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
               ))}
             </div>
 
-            <h4 className="mb-3 mt-6 text-xs font-bold uppercase tracking-wider text-slate-400">Forces on the object</h4>
+            <h4 className="mb-3 mt-6 text-xs font-bold uppercase tracking-wider text-zinc-400">Forces on the object</h4>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1">
               {(Object.keys(forceLabels) as Force[]).map(force => {
                 const disabled = scenario === 'smooth' && force === 'friction';
@@ -101,8 +101,8 @@ export const M1FreeBodyDiagram: React.FC = () => {
                     key={force}
                     className={`flex items-center justify-between gap-3 rounded-lg border px-3 py-2 text-sm transition-all duration-300 ${
                       disabled
-                        ? 'cursor-not-allowed border-slate-800/30 bg-slate-950/50 text-slate-600'
-                        : 'cursor-pointer border-slate-800/50 bg-slate-950 text-slate-300 hover:border-slate-700 hover:bg-slate-900/50'
+                        ? 'cursor-not-allowed border-zinc-800/30 bg-[#141416]/50 text-zinc-600'
+                        : 'cursor-pointer border-zinc-800/60 bg-[#141416] text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900/50'
                     }`}
                   >
                     <span>{forceLabels[force]}</span>
@@ -111,7 +111,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
                       checked={forces[force]}
                       disabled={disabled}
                       onChange={() => toggleForce(force)}
-                      className="h-4 w-4 rounded border-slate-700 bg-slate-900 text-sky-500 focus:ring-sky-500/50 focus:ring-offset-0 disabled:opacity-40 transition-colors"
+                      className="h-4 w-4 rounded border-zinc-700 bg-zinc-900 text-zinc-500 focus:ring-zinc-500/50 focus:ring-offset-0 disabled:opacity-40 transition-colors"
                     />
                   </label>
                 );
@@ -119,10 +119,10 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+          <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
             <SVGLibrary />
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Interactive free body diagram showing selected forces on a block">
-              <rect x="28" y="28" width="504" height="364" rx="10" fill="#0f172a" stroke="#1e293b" strokeWidth="1.8" />
+              <rect x="28" y="28" width="504" height="364" rx="10" fill="#141417" stroke="#1e293b" strokeWidth="1.8" />
               
               {/* Surface and object */}
               <line x1="72" y1="234" x2="488" y2="234" stroke={themeColors.structural} strokeWidth="3" />
@@ -161,27 +161,27 @@ export const M1FreeBodyDiagram: React.FC = () => {
               </g>
 
               {/* Legend */}
-              <g transform="translate(48 336)">
+              <g transform="tranzinc(48 336)">
                 <rect x="0" y="0" width="276" height="42" rx="6" fill="#020617" stroke="#1e293b" />
-                <circle cx="16" cy="14" r="5" fill={themeColors.force} /><text x="28" y="18" className="fill-slate-400 text-[10px] font-medium tracking-wide">weight</text>
-                <circle cx="86" cy="14" r="5" fill={themeColors.accel} /><text x="98" y="18" className="fill-slate-400 text-[10px] font-medium tracking-wide">reaction</text>
-                <circle cx="176" cy="14" r="5" fill={themeColors.weight} /><text x="188" y="18" className="fill-slate-400 text-[10px] font-medium tracking-wide">applied</text>
-                <circle cx="16" cy="28" r="5" fill={themeColors.applied} /><text x="28" y="32" className="fill-slate-400 text-[10px] font-medium tracking-wide">friction</text>
-                <circle cx="86" cy="28" r="5" fill={themeColors.velocity} /><text x="98" y="32" className="fill-slate-400 text-[10px] font-medium tracking-wide">tension</text>
+                <circle cx="16" cy="14" r="5" fill={themeColors.force} /><text x="28" y="18" className="fill-zinc-400 text-[10px] font-medium tracking-wide">weight</text>
+                <circle cx="86" cy="14" r="5" fill={themeColors.accel} /><text x="98" y="18" className="fill-zinc-400 text-[10px] font-medium tracking-wide">reaction</text>
+                <circle cx="176" cy="14" r="5" fill={themeColors.weight} /><text x="188" y="18" className="fill-zinc-400 text-[10px] font-medium tracking-wide">applied</text>
+                <circle cx="16" cy="28" r="5" fill={themeColors.applied} /><text x="28" y="32" className="fill-zinc-400 text-[10px] font-medium tracking-wide">friction</text>
+                <circle cx="86" cy="28" r="5" fill={themeColors.velocity} /><text x="98" y="32" className="fill-zinc-400 text-[10px] font-medium tracking-wide">tension</text>
               </g>
             </svg>
 
             {/* HTML Overlay Labels */}
             <DiagramLabel position={{ left: '16%', top: '14%' }}>
-              <div className="text-base font-bold text-slate-200">Selected object</div>
+              <div className="text-base font-bold text-zinc-200">Selected object</div>
             </DiagramLabel>
             
             <DiagramLabel position={{ left: '21%', top: '19%' }}>
-              <div className="text-xs text-slate-400">block on table; external forces only</div>
+              <div className="text-xs text-zinc-400">block on table; external forces only</div>
             </DiagramLabel>
 
             <DiagramLabel position={{ left: '50%', top: '26%' }} className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-xs font-semibold text-slate-400">motion / intended motion</div>
+              <div className="text-xs font-semibold text-zinc-400">motion / intended motion</div>
             </DiagramLabel>
 
             <DiagramLabel position={{ left: '58%', top: '72%' }} className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>

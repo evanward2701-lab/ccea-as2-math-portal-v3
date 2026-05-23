@@ -12,30 +12,30 @@ export const PulleySystemSVG: React.FC = () => (
     title="Fig 2. Connected Particles"
     analysis={
       <div className="space-y-3">
-        <p className="text-sm text-slate-400 italic text-center">
+        <p className="text-sm text-zinc-400 italic text-center">
           A smooth pulley ensures tension T is equal on both sides. The inextensible string ensures acceleration a is equal in magnitude.
         </p>
-        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+        <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
           <h4 className="font-bold text-emerald-400 mb-2 text-sm">Smooth Pulley</h4>
-          <p className="text-sm text-slate-300 leading-relaxed mb-2">Tension is equal on both sides of the string.</p>
-          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60 text-sm text-slate-300">T is equal on both sides</div>
+          <p className="text-sm text-zinc-300 leading-relaxed mb-2">Tension is equal on both sides of the string.</p>
+          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">T is equal on both sides</div>
         </div>
-        <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+        <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
           <h4 className="font-bold text-amber-400 mb-2 text-sm">Inextensible String</h4>
-          <p className="text-sm text-slate-300 leading-relaxed mb-2">Both connected masses share the same acceleration magnitude.</p>
-          <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60 text-sm text-slate-300">a is common to both masses</div>
+          <p className="text-sm text-zinc-300 leading-relaxed mb-2">Both connected masses share the same acceleration magnitude.</p>
+          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">a is common to both masses</div>
         </div>
       </div>
     }
   >
-    <div className="relative w-full aspect-30/35 max-w-sm mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-30/35 max-w-sm mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="80 20 300 330" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         {/* Ceiling & Pulley */}
         <line x1="120" y1="30" x2="280" y2="30" stroke="#475569" strokeWidth="3" />
-        <path d="M130 30 L120 20 M160 30 L150 20 M190 30 L180 20 M220 30 L210 20 M250 30 L240 20 M280 30 L270 20" stroke="#334155" strokeWidth="1.5" />
+        <path d="M130 30 L120 20 M160 30 L150 20 M190 30 L180 20 M220 30 L210 20 M250 30 L240 20 M280 30 L270 20" stroke="#3f3f46" strokeWidth="1.5" />
         <line x1="200" y1="30" x2="200" y2="75" stroke="#64748b" strokeWidth="2" />
-        <circle cx="200" cy="75" r="25" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
+        <circle cx="200" cy="75" r="25" fill="#141417" stroke="#94a3b8" strokeWidth="2" />
         <circle cx="200" cy="75" r="4" fill="#64748b" />
 
         {/* Cables */}

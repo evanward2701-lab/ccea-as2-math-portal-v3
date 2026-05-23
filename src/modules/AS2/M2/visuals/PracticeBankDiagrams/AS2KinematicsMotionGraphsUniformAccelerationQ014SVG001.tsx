@@ -17,7 +17,7 @@ export const AS2KinematicsMotionGraphsUniformAccelerationQ014SVG001: React.FC = 
   <text x="415" y="190" font-family="Inter, sans-serif" font-size="12">AB = 3 km</text>
 
   
-  <g transform="translate(78 95)">
+  <g transform="tranzinc(78 95)">
     <path d="M10 25 L105 25 L138 38 L105 46 L10 46 L25 36 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
     <path d="M55 25 L25 5 L42 25" fill="none" stroke="currentColor" stroke-width="1.5"/>
     <path d="M62 46 L34 70 L50 46" fill="none" stroke="currentColor" stroke-width="1.5"/>

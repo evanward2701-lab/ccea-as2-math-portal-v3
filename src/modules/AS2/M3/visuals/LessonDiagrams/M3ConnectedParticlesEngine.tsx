@@ -31,16 +31,16 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
       title="Fig. Connected Particles Pulley Engine"
       analysis={
         <div className="space-y-4">
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-            <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Whole System Equation</h4>
-            <p className="text-xs text-slate-400 italic mb-3">Tension is an internal force and cancels out when considering the whole system, allowing for calculation of acceleration.</p>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Whole System Equation</h4>
+            <p className="text-xs text-zinc-400 italic mb-3">Tension is an internal force and cancels out when considering the whole system, allowing for calculation of acceleration.</p>
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`a = \\frac{|m_A - m_B|g}{m_A + m_B} = ${acceleration.toFixed(2)}\\text{ m s}^{-2}`} />
             </div>
           </div>
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Tension</h4>
-             <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+             <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`T = ${tension.toFixed(1)}\\text{ N}`} />
             </div>
           </div>
@@ -51,15 +51,15 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-lg grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
+        <div className="w-full max-w-lg grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
           <div className="flex items-center gap-3">
-            <label htmlFor="massA-slider" className="text-sm font-medium text-slate-300 whitespace-nowrap">Mass A</label>
-            <input id="massA-slider" type="range" min="1" max="10" step="0.5" value={massA} onChange={(e) => setMassA(Number(e.target.value))} className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" />
+            <label htmlFor="massA-slider" className="text-sm font-medium text-zinc-300 whitespace-nowrap">Mass A</label>
+            <input id="massA-slider" type="range" min="1" max="10" step="0.5" value={massA} onChange={(e) => setMassA(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
             <span className="text-sm font-mono text-amber-400 w-16 text-right">{massA.toFixed(1)} kg</span>
           </div>
           <div className="flex items-center gap-3">
-            <label htmlFor="massB-slider" className="text-sm font-medium text-slate-300 whitespace-nowrap">Mass B</label>
-            <input id="massB-slider" type="range" min="1" max="10" step="0.5" value={massB} onChange={(e) => setMassB(Number(e.target.value))} className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" />
+            <label htmlFor="massB-slider" className="text-sm font-medium text-zinc-300 whitespace-nowrap">Mass B</label>
+            <input id="massB-slider" type="range" min="1" max="10" step="0.5" value={massB} onChange={(e) => setMassB(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
             <span className="text-sm font-mono text-amber-400 w-16 text-right">{massB.toFixed(1)} kg</span>
           </div>
         </div>
@@ -68,13 +68,13 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
           <defs>
             <marker id="cp-arrow-emerald" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 10 L 5 0 L 10 10 Z" fill="#10b981" /></marker>
             <marker id="cp-arrow-amber" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 5 10 L 10 0 Z" fill="#f59e0b" /></marker>
-            <marker id="cp-arrow-sky-up" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 10 L 5 0 L 10 10 Z" fill="#38bdf8" /></marker>
-            <marker id="cp-arrow-sky-down" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 5 10 L 10 0 Z" fill="#38bdf8" /></marker>
+            <marker id="cp-arrow-sky-up" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 10 L 5 0 L 10 10 Z" fill="#a1a1aa" /></marker>
+            <marker id="cp-arrow-sky-down" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 5 10 L 10 0 Z" fill="#a1a1aa" /></marker>
           </defs>
 
           {/* Pulley */}
           <line x1="280" y1="20" x2="280" y2="60" stroke="#64748b" strokeWidth="2" />
-          <circle cx="280" cy="60" r="30" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
+          <circle cx="280" cy="60" r="30" fill="#141417" stroke="#94a3b8" strokeWidth="2" />
           <circle cx="280" cy="60" r="4" fill="#64748b" />
 
           {/* Masses and Strings */}
@@ -100,18 +100,18 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
 
           {/* Acceleration */}
           {direction === 'A-down' && <>
-            <line x1="120" y1="180" x2="120" y2="230" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-down)" />
-            <text x="100" y="205" fill="#38bdf8" fontSize="14"><MathText content="a" /></text>
-            <line x1="440" y1="230" x2="440" y2="180" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-up)" />
-            <text x="450" y="205" fill="#38bdf8" fontSize="14"><MathText content="a" /></text>
+            <line x1="120" y1="180" x2="120" y2="230" stroke="#a1a1aa" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-down)" />
+            <text x="100" y="205" fill="#a1a1aa" fontSize="14"><MathText content="a" /></text>
+            <line x1="440" y1="230" x2="440" y2="180" stroke="#a1a1aa" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-up)" />
+            <text x="450" y="205" fill="#a1a1aa" fontSize="14"><MathText content="a" /></text>
           </>}
           {direction === 'B-down' && <>
-            <line x1="120" y1="230" x2="120" y2="180" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-up)" />
-            <text x="100" y="205" fill="#38bdf8" fontSize="14"><MathText content="a" /></text>
-            <line x1="440" y1="180" x2="440" y2="230" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-down)" />
-            <text x="450" y="205" fill="#38bdf8" fontSize="14"><MathText content="a" /></text>
+            <line x1="120" y1="230" x2="120" y2="180" stroke="#a1a1aa" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-up)" />
+            <text x="100" y="205" fill="#a1a1aa" fontSize="14"><MathText content="a" /></text>
+            <line x1="440" y1="180" x2="440" y2="230" stroke="#a1a1aa" strokeWidth="2.5" markerEnd="url(#cp-arrow-sky-down)" />
+            <text x="450" y="205" fill="#a1a1aa" fontSize="14"><MathText content="a" /></text>
           </>}
-          {direction === 'equilibrium' && <text x="280" y="350" textAnchor="middle" fill="#38bdf8" fontSize="14" fontWeight="bold">Equilibrium: a = 0</text>}
+          {direction === 'equilibrium' && <text x="280" y="350" textAnchor="middle" fill="#a1a1aa" fontSize="14" fontWeight="bold">Equilibrium: a = 0</text>}
         </svg>
       </div>
     </DiagramPanel>

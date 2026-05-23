@@ -3,8 +3,8 @@ import { MathText } from '@/core/components/MathText';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 
 export const StratifiedProportionVisual: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-10 mb-12 border border-slate-800 bg-slate-950 relative shadow-[8px_8px_0px_#0f172a] rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-slate-900 text-slate-400 border-l border-b border-slate-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+  <div className="w-full flex flex-col items-center py-10 mb-12 border border-zinc-800 bg-[#141416] relative shadow-inner rounded-xl overflow-hidden">
+    <div className="absolute top-0 right-0 bg-zinc-900 text-zinc-400 border-l border-b border-zinc-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
       Fig 3. Stratified Sample Allocation
     </div>
 
@@ -17,7 +17,7 @@ export const StratifiedProportionVisual: React.FC = () => (
         </defs>
 
         {/* Main Population Node */}
-        <rect x="50" y="85" width="120" height="50" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
+        <rect x="50" y="85" width="120" height="50" rx="8" fill="#141417" stroke="#a1a1aa" strokeWidth="2" />
 
         {/* Path lines */}
         <line x1="170" y1="110" x2="250" y2="50" stroke="#64748b" strokeWidth="2" markerEnd="url(#flow-arrow)" />
@@ -30,13 +30,13 @@ export const StratifiedProportionVisual: React.FC = () => (
         <rect x="260" y="145" width="100" height="50" rx="6" fill="#1e293b" stroke="#c084fc" strokeWidth="2" />
 
         {/* Target Sample Node */}
-        <rect x="430" y="85" width="120" height="50" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" />
+        <rect x="430" y="85" width="120" height="50" rx="8" fill="#141417" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" />
       </svg>
 
       <DiagramLabel position={{ left: '21.1%', top: '48%' }}>
         <div className="text-center w-24">
           <div className="text-[#f8fafc] text-[10px] font-bold">Total Population</div>
-          <div className="text-[#38bdf8] text-[9px] font-mono">N = 300</div>
+          <div className="text-[#a1a1aa] text-[9px] font-mono">N = 300</div>
         </div>
       </DiagramLabel>
 
@@ -69,26 +69,26 @@ export const StratifiedProportionVisual: React.FC = () => (
       </DiagramLabel>
     </div>
 
-    <div className="w-full px-8 border-t border-slate-800/60 pt-6 bg-slate-900/40 text-[12px]">
-      <span className="text-sky-400 font-bold uppercase tracking-wider block mb-3 text-[10px]">Mathematical Allocation Pipeline:</span>
-      <p className="text-slate-300 leading-relaxed mb-4 italic">
-        To maintain proportional representation, we calculate: <span className="text-emerald-400 font-bold not-italic font-mono bg-slate-900 px-1 py-0.5 rounded border border-slate-700">(Strata Size ÷ Total Population) × Sample Size</span>
+    <div className="w-full px-8 border-t border-zinc-800/60 pt-6 bg-zinc-900/40 text-[12px]">
+      <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-3 text-[10px]">Mathematical Allocation Pipeline:</span>
+      <p className="text-zinc-300 leading-relaxed mb-4 italic">
+        To maintain proportional representation, we calculate: <span className="text-emerald-400 font-bold not-italic font-mono bg-zinc-900 px-1 py-0.5 rounded border border-zinc-700">(Strata Size ÷ Total Population) × Sample Size</span>
       </p>
-      <div className="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono space-y-4 text-slate-300">
+      <div className="bg-[#141416] p-4 rounded-lg border border-zinc-800 font-mono space-y-4 text-zinc-300">
         <div className="flex items-center gap-4">
-          <span className="w-24 text-slate-400">Yr 12 Sample:</span> 
+          <span className="w-24 text-zinc-400">Yr 12 Sample:</span> 
           <MathText content="\frac{120}{300} \times 60 = 24" className="text-emerald-400" />
         </div>
         <div className="flex items-center gap-4">
-          <span className="w-24 text-slate-400">Yr 13 Sample:</span> 
+          <span className="w-24 text-zinc-400">Yr 13 Sample:</span> 
           <MathText content="\frac{100}{300} \times 60 = 20" className="text-amber-400" />
         </div>
         <div className="flex items-center gap-4">
-          <span className="w-24 text-slate-400">Yr 14 Sample:</span> 
+          <span className="w-24 text-zinc-400">Yr 14 Sample:</span> 
           <MathText content="\frac{80}{300} \times 60 = 16" className="text-purple-400" />
         </div>
       </div>
-      <p className="text-[10px] text-slate-500 font-mono mt-3 text-right">
+      <p className="text-[10px] text-zinc-500 font-mono mt-3 text-right">
         Verification Check: 24 + 20 + 16 = 60
       </p>
     </div>

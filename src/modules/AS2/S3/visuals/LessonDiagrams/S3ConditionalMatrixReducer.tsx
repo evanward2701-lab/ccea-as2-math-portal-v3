@@ -15,15 +15,15 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
   const [mode, setMode] = useState<Mode>('full');
 
   const renderCell = (value: number | string, row: string, col: string, isTotal: boolean = false) => {
-    let cellClass = 'p-3 border-r border-slate-800/50 italic bg-slate-900/20';
-    let textClass = 'text-slate-300';
+    let cellClass = 'p-3 border-r border-zinc-800/60 italic bg-zinc-900/20';
+    let textClass = 'text-zinc-300';
 
     if (isTotal) {
-      cellClass = 'p-3 font-semibold bg-slate-800/20';
-      textClass = 'text-slate-300';
+      cellClass = 'p-3 font-semibold bg-zinc-800/20';
+      textClass = 'text-zinc-300';
       if (row === 'total' && col === 'total') {
-        cellClass = 'p-3 font-bold bg-emerald-500 text-slate-950 shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]';
-        textClass = 'text-slate-950';
+        cellClass = 'p-3 font-bold bg-emerald-500 text-zinc-950 shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]';
+        textClass = 'text-zinc-950';
       }
     }
 
@@ -75,12 +75,12 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
       title="Fig. Conditional Matrix Reducer"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic">
+          <p className="text-sm text-zinc-400 italic">
             Conditional probability means we reduce the sample space to a specific subgroup. The denominator becomes the size of that subgroup, not the grand total.
           </p>
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-            <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Conditional Probability</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Conditional Probability</h4>
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               {getConditionalFormula() || <MathText content="P(A|B) = \frac{P(A \cap B)}{P(B)}" />}
             </div>
           </div>
@@ -91,52 +91,52 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="flex flex-wrap justify-center gap-3 mb-8 p-1 bg-slate-900 border border-slate-800 rounded-lg">
+        <div className="flex flex-wrap justify-center gap-3 mb-8 p-1 bg-zinc-900 border border-zinc-800 rounded-lg">
           <button
             onClick={() => setMode('full')}
-            className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", mode === 'full' ? 'bg-sky-500 text-slate-950' : 'bg-transparent text-slate-400 hover:bg-slate-800')}
+            className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", mode === 'full' ? 'bg-zinc-500 text-zinc-950' : 'bg-transparent text-zinc-400 hover:bg-zinc-800')}
           >
             Full Table
           </button>
           <button
             onClick={() => setMode('artGivenMale')}
-            className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", mode === 'artGivenMale' ? 'bg-emerald-500 text-slate-950' : 'bg-transparent text-slate-400 hover:bg-slate-800')}
+            className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", mode === 'artGivenMale' ? 'bg-emerald-500 text-zinc-950' : 'bg-transparent text-zinc-400 hover:bg-zinc-800')}
           >
             P(Art | Male)
           </button>
           <button
             onClick={() => setMode('techGivenFemale')}
-            className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", mode === 'techGivenFemale' ? 'bg-amber-500 text-slate-950' : 'bg-transparent text-slate-400 hover:bg-slate-800')}
+            className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", mode === 'techGivenFemale' ? 'bg-amber-500 text-zinc-950' : 'bg-transparent text-zinc-400 hover:bg-zinc-800')}
           >
             P(Tech | Female)
           </button>
         </div>
 
         <div className="w-full overflow-x-auto max-w-lg">
-          <table className="w-full border-collapse border border-slate-800 text-sm font-sans bg-slate-900 text-slate-300 text-center">
+          <table className="w-full border-collapse border border-zinc-800 text-sm font-sans bg-zinc-900 text-zinc-300 text-center">
             <thead>
-              <tr className="bg-slate-950 text-slate-400 border-b border-slate-800">
-                <th className="p-3 border-r border-slate-800"></th>
-                <th className="p-3 border-r border-slate-800 font-bold text-sky-400">Art</th>
-                <th className="p-3 border-r border-slate-800 font-bold text-sky-400">Technology</th>
-                <th className="p-3 font-bold bg-slate-800/40 text-slate-200">Total</th>
+              <tr className="bg-[#141416] text-zinc-400 border-b border-zinc-800">
+                <th className="p-3 border-r border-zinc-800"></th>
+                <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400">Art</th>
+                <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400">Technology</th>
+                <th className="p-3 font-bold bg-zinc-800/40 text-zinc-200">Total</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-slate-800/50">
-                <th className="p-3 border-r border-slate-800 font-bold bg-slate-950 text-sky-400 text-left pl-4">Male</th>
+              <tr className="border-b border-zinc-800/60">
+                <th className="p-3 border-r border-zinc-800 font-bold bg-[#141416] text-zinc-400 text-left pl-4">Male</th>
                 {renderCell(tableData.male.art, 'male', 'art')}
                 {renderCell(tableData.male.tech, 'male', 'tech')}
                 {renderCell(tableData.male.total, 'male', 'total', true)}
               </tr>
-              <tr className="border-b border-slate-800">
-                <th className="p-3 border-r border-slate-800 font-bold bg-slate-950 text-sky-400 text-left pl-4">Female</th>
+              <tr className="border-b border-zinc-800">
+                <th className="p-3 border-r border-zinc-800 font-bold bg-[#141416] text-zinc-400 text-left pl-4">Female</th>
                 {renderCell(tableData.female.art, 'female', 'art')}
                 {renderCell(tableData.female.tech, 'female', 'tech')}
                 {renderCell(tableData.female.total, 'female', 'total', true)}
               </tr>
-              <tr className="bg-slate-950/60">
-                <th className="p-3 border-r border-slate-800 font-bold text-slate-400 text-left pl-4">Total</th>
+              <tr className="bg-[#141416]/60">
+                <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400 text-left pl-4">Total</th>
                 {renderCell(tableData.total.art, 'total', 'art', true)}
                 {renderCell(tableData.total.tech, 'total', 'tech', true)}
                 {renderCell(tableData.total.total, 'total', 'total', true)}

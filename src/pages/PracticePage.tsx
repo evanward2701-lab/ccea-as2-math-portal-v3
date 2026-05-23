@@ -22,7 +22,7 @@ export function PracticePage() {
   const title = currentLesson ? currentLesson.title : moduleId;
 
   return (
-    <div className="p-8 max-w-350 mx-auto w-full flex flex-col gap-8 bg-background text-zinc-100 min-h-screen">
+    <div className="p-8 max-w-7xl mx-auto w-full flex flex-col gap-8 bg-background text-zinc-100 min-h-screen">
       <header className="mb-6">
         <Link 
           to="/practice"
@@ -46,7 +46,7 @@ export function PracticePage() {
         </div>
       </header>
 
-      <main className="flex flex-col gap-8 max-w-4xl mx-auto w-full">
+      <main className="flex flex-col gap-8 max-w-5xl mx-auto w-full">
         {moduleQuestions.length === 0 ? (
           <div className="p-16 text-center border border-dashed border-zinc-800 rounded-3xl bg-zinc-900/20">
             <p className="text-zinc-500 font-serif italic mb-2">No practice questions active for this sector.</p>

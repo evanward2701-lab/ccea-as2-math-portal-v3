@@ -52,9 +52,9 @@ export function PracticeBank() {
   });
 
   return (
-    <div className="p-8 max-w-350 mx-auto w-full flex flex-col gap-8 bg-background text-zinc-100">
+    <div className="p-8 max-w-7xl mx-auto w-full flex flex-col gap-8 bg-background text-zinc-100">
       {/* Configuration Filter Sidebar */}
-      <aside className="w-full border border-zinc-800 bg-zinc-900/40 p-6 rounded-2xl shadow-xl backdrop-blur-sm">
+      <aside className="w-full border border-zinc-800 bg-zinc-800/40 p-6 rounded-2xl shadow-xl backdrop-blur-sm">
         <h2 className="text-xs uppercase tracking-widest text-zinc-500 font-mono font-bold mb-6">Filter Matrix</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

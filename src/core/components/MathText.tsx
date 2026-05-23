@@ -22,7 +22,7 @@ export function MathText({ content, className, center, noMargin }: MathTextProps
     p: ({ node, ...props }) => (
       <p 
         className={cn(
-          "text-[16px] leading-[1.7] text-zinc-300 font-serif tracking-normal antialiased whitespace-pre-wrap",
+          "text-lg md:text-xl leading-relaxed text-zinc-300 font-serif tracking-normal antialiased whitespace-pre-wrap font-normal",
           !noMargin && "mb-6",
           center && "text-center"
         )} 
@@ -32,7 +32,7 @@ export function MathText({ content, className, center, noMargin }: MathTextProps
     h2: ({ node, ...props }) => <h2 className="mt-12 mb-6 text-xl font-serif font-light text-zinc-100 tracking-wide border-l border-zinc-700 pl-6" {...props} />,
     h3: ({ node, ...props }) => <h3 className="mt-8 mb-4 text-[10px] font-bold text-zinc-500 uppercase tracking-[0.3em]" {...props} />,
     li: ({ node, ...props }) => (
-      <li className="relative pl-8 mb-4 text-[16px] leading-[1.7] font-serif text-zinc-400 before:content-[''] before:absolute before:left-0 before:top-[12px] before:w-4 before:h-px before:bg-zinc-800" {...props} />
+      <li className="relative pl-8 mb-4 text-lg md:text-xl leading-relaxed font-serif text-zinc-300 font-normal before:content-[''] before:absolute before:left-0 before:top-[14px] before:w-4 before:h-px before:bg-zinc-800" {...props} />
     ),
     blockquote: ({ node, ...props }) => (
       <blockquote className="my-10 p-8 border border-zinc-800 bg-zinc-900/10 rounded-2xl shadow-sm backdrop-blur-xs italic text-zinc-400 font-serif leading-relaxed" {...props} />
@@ -51,7 +51,7 @@ export function MathText({ content, className, center, noMargin }: MathTextProps
       if (alt?.startsWith("visual:")) {
         const visualId = alt.replace("visual:", "");
         return (
-          <div className="my-10 p-10 bg-[#141417] border border-zinc-800 rounded-2xl flex justify-center shadow-inner overflow-hidden">
+          <div className="my-10 p-10 bg-[#141416] border border-zinc-800 rounded-2xl flex justify-center shadow-inner overflow-hidden">
             <LessonVisual visualId={visualId} />
           </div>
         );
@@ -92,7 +92,7 @@ export function MathText({ content, className, center, noMargin }: MathTextProps
           }
         } else {
           finalElements.push(
-            <div key={`visual-${i}-${index}`} className="my-10 p-10 bg-[#141417] border border-zinc-800 rounded-2xl flex justify-center shadow-inner overflow-hidden">
+            <div key={`visual-${i}-${index}`} className="my-10 p-10 bg-[#141416] border border-zinc-800 rounded-2xl flex justify-center shadow-inner overflow-hidden">
               <LessonVisual visualId={part} />
             </div>
           );

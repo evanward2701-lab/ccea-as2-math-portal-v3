@@ -45,7 +45,7 @@ const ResidualPlot: React.FC<{ title: string; pattern: 'random' | 'curved' | 'fa
   const trendColor = status === 'suitable' ? '#10b981' : '#f43f5e';
 
   return (
-    <div className="flex flex-col items-center p-4 bg-slate-900/50 border border-slate-800 rounded-lg shadow-inner relative">
+    <div className="flex flex-col items-center p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg shadow-inner relative">
       <h5 className={`font-bold text-sm mb-3 ${status === 'suitable' ? 'text-emerald-400' : 'text-rose-400'}`}>{title}</h5>
       <div className="relative w-full aspect-50/15">
         <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="absolute inset-0 w-full h-full" overflow="visible" shapeRendering="geometricPrecision">
@@ -56,10 +56,10 @@ const ResidualPlot: React.FC<{ title: string; pattern: 'random' | 'curved' | 'fa
           ))}
         </svg>
         <DiagramLabel position={{ left: `${(svgWidth - padding) / svgWidth * 100}%`, top: `${(zeroLineY + 10) / svgHeight * 100}%` }}>
-          <MathText content="x" className="text-slate-400 text-xs" />
+          <MathText content="x" className="text-zinc-400 text-xs" />
         </DiagramLabel>
         <DiagramLabel position={{ left: `${(padding - 20) / svgWidth * 100}%`, top: `${(zeroLineY - 15) / svgHeight * 100}%` }}>
-          <MathText content="e" className="text-slate-400 text-xs" />
+          <MathText content="e" className="text-zinc-400 text-xs" />
         </DiagramLabel>
       </div>
       <p className={`text-xs mt-2 ${status === 'suitable' ? 'text-emerald-300' : 'text-rose-300'}`}>
@@ -75,7 +75,7 @@ export const S2ResidualPatternClassifier: React.FC = () => {
       title="Fig. Residual Pattern Classifier"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic">
+          <p className="text-sm text-zinc-400 italic">
             Residual plots help assess the appropriateness of a linear regression model. A random scatter indicates a good fit, while patterns suggest issues.
           </p>
           <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">

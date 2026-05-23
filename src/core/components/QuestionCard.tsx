@@ -168,10 +168,10 @@ const MarkSchemeScaffold: React.FC<{ rows: Row[] }> = ({ rows }) => {
       {rows.map((row, idx) => {
         if (row.kind === 'break') return <div key={idx} className="h-4" />;
         if (row.kind === 'annotation') {
-          return <div key={idx} className="w-full max-w-2xl mb-3 italic text-zinc-500 text-[12px] text-center antialiased opacity-80">{row.text}</div>;
+          return <div key={idx} className="w-full max-w-4xl mb-3 italic text-zinc-500 text-[12px] text-center antialiased opacity-80">{row.text}</div>;
         }
         return (
-          <div key={idx} className="w-full max-w-2xl mb-4 last:mb-0">
+          <div key={idx} className="w-full max-w-4xl mb-4 last:mb-0">
             {row.text && <div className="w-full text-center"><MathText content={row.text} center noMargin /></div>}
             {row.marks && row.marks.length > 0 && (
               <div className="w-full flex justify-end mt-1">
@@ -254,17 +254,17 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   }
 
   return (
-    <div className={cn("mb-6 p-6 md:p-8 bg-[#1e1e21] border border-zinc-700/50 rounded-[2rem] shadow-xl animate-in fade-in slide-in-from-bottom-6 duration-1000", index !== undefined && `delay-[${index * 150}ms]`)}>
+    <div className={cn("mb-6 p-6 md:p-8 bg-zinc-800/60 border border-zinc-700/50 rounded-[2rem] shadow-xl animate-in fade-in slide-in-from-bottom-6 duration-1000", index !== undefined && `delay-[${index * 150}ms]`)}>
       <div className="flex items-center justify-between mb-6 opacity-60">
         <div className="flex items-center gap-3">
           {showModuleBadge && <span className="text-[9px] font-mono font-bold bg-zinc-800 border border-zinc-700 text-zinc-500 px-2 py-0.5 rounded uppercase tracking-[0.1em]">{question.moduleId}</span>}
           <h3 className="text-[9px] font-mono font-bold text-zinc-500 uppercase tracking-[0.4em]">Ref <span className="text-zinc-600 font-normal">#{question.id}</span></h3>
         </div>
-        <div className="text-[9px] font-mono font-bold text-zinc-500 uppercase tracking-[0.3em] bg-zinc-950/40 px-3 py-1 rounded-full border border-zinc-800/40">{question.marks} Marks</div>
+        <div className="text-[9px] font-mono font-bold text-zinc-500 uppercase tracking-[0.3em] bg-zinc-900/40 px-3 py-1 rounded-full border border-zinc-800/40">{question.marks} Marks</div>
       </div>
 
       {question.visualId && !question.questionMarkdown.includes('[VISUAL') && (
-        <div className="mb-8 p-6 bg-[#141417] rounded-2xl border border-zinc-800 flex justify-center items-center overflow-hidden shadow-inner group transition-all duration-1000">
+        <div className="mb-8 p-6 bg-[#141416] rounded-2xl border border-zinc-800 flex justify-center items-center overflow-hidden shadow-inner group transition-all duration-1000">
           <VisualRenderer visualId={question.visualId} />
         </div>
       )}

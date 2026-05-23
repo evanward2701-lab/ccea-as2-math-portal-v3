@@ -20,7 +20,7 @@ By the end of this lesson, you should be able to:
 * Use notation $X\\sim B(n,p)$.
 * Calculate exact probabilities using the binomial formula.
 * Calculate cumulative probabilities by summing exact probabilities.
-* Translate wording into probability inequalities.
+* Tranzinc wording into probability inequalities.
 
 ## 4. Key Vocabulary
 * **Random Variable:** A variable whose value depends on chance.
@@ -71,7 +71,7 @@ P(X=x)=\\binom{n}{x}p^x(1-p)^{n-x}
 $$
 
 ### CUMULATIVE PROBABILITIES AND INEQUALITIES
-Translate wording carefully:
+Tranzinc wording carefully:
 
 * **At most 2:** $X\\leq2$
 * **Fewer than 2:** $X<2$, so $X\\leq1$
@@ -117,7 +117,7 @@ The binomial model is discrete because it counts successes. A normal distributio
 4. Round appropriately.
 
 ### Method C: Cumulative Probability
-1. Translate the wording into an inequality.
+1. Tranzinc the wording into an inequality.
 2. List the exact values required.
 3. Add the relevant exact probabilities.
 4. Consider using the complement if it is shorter.
@@ -177,7 +177,7 @@ No. Although there are two outcomes and a fixed number of trials, the probabilit
 * Can I state the four binomial conditions?
 * Can I write $X\\sim B(n,p)$?
 * Can I use the binomial formula?
-* Can I translate at most, fewer than, at least, and more than?
+* Can I tranzinc at most, fewer than, at least, and more than?
 * Can I use complements for shorter calculations?
 * Can I explain why a binomial model may not fit?
 

@@ -24,21 +24,21 @@ export const M3FrictionSimulator: React.FC = () => {
       title="Fig. Limiting Friction Simulator"
       analysis={
         <div className="space-y-4">
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Limiting Friction</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`F_{max} = \\mu R = ${limitingFriction.toFixed(1)}\\text{ N}`} />
             </div>
           </div>
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider">Actual Friction</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`F = ${actualFriction.toFixed(1)}\\text{ N}`} />
             </div>
           </div>
-          <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-            <h4 className="font-bold text-sky-400 mb-2 text-sm uppercase tracking-wider">Resultant Force & Acceleration</h4>
-            <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Resultant Force & Acceleration</h4>
+            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
               <MathText content={`F_{res} = ${resultantForce.toFixed(1)}\\text{ N} \\implies a = ${acceleration.toFixed(2)}\\text{ m s}^{-2}`} />
             </div>
           </div>
@@ -49,15 +49,15 @@ export const M3FrictionSimulator: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-lg grid grid-cols-1 gap-4 mb-6 rounded-lg border border-slate-800 bg-slate-900/50 p-3">
+        <div className="w-full max-w-lg grid grid-cols-1 gap-4 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-slate-300 w-32">Applied Force P</label>
-            <input type="range" min="0" max="80" value={appliedForce} onChange={(e) => setAppliedForce(Number(e.target.value))} className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" />
-            <span className="text-sm font-mono text-sky-400 w-16 text-right">{appliedForce.toFixed(1)} N</span>
+            <label className="text-sm font-medium text-zinc-300 w-32">Applied Force P</label>
+            <input type="range" min="0" max="80" value={appliedForce} onChange={(e) => setAppliedForce(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
+            <span className="text-sm font-mono text-zinc-400 w-16 text-right">{appliedForce.toFixed(1)} N</span>
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-slate-300 w-32">Friction Coeff. <MathText content="\mu" className="inline [&_p]:inline" /></label>
-            <input type="range" min="0.1" max="0.8" step="0.05" value={mu} onChange={(e) => setMu(Number(e.target.value))} className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" />
+            <label className="text-sm font-medium text-zinc-300 w-32">Friction Coeff. <MathText content="\mu" className="inline [&_p]:inline" /></label>
+            <input type="range" min="0.1" max="0.8" step="0.05" value={mu} onChange={(e) => setMu(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
             <span className="text-sm font-mono text-amber-400 w-16 text-right">{mu.toFixed(2)}</span>
           </div>
         </div>
@@ -73,13 +73,13 @@ export const M3FrictionSimulator: React.FC = () => {
           <defs>
             <marker id="fs-arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" /></marker>
             <marker id="fs-arrow-rose" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 10 1.5 L 2 5 L 10 8.5 z" fill="#f43f5e" /></marker>
-            <marker id="fs-arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" /></marker>
+            <marker id="fs-arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#a1a1aa" /></marker>
           </defs>
 
           {/* Ground */}
           <line x1="50" y1="180" x2="550" y2="180" stroke="#475569" strokeWidth="3" />
           {Array.from({ length: 25 }).map((_, i) => (
-            <line key={i} x1={50 + i * 20} y1="180" x2={60 + i * 20} y2="185" stroke="#334155" strokeWidth="1" />
+            <line key={i} x1={50 + i * 20} y1="180" x2={60 + i * 20} y2="185" stroke="#3f3f46" strokeWidth="1" />
           ))}
 
           {/* Block */}
@@ -101,8 +101,8 @@ export const M3FrictionSimulator: React.FC = () => {
           {/* Acceleration a */}
           {acceleration > 0.01 && (
             <>
-              <line x1="300" y1="100" x2={300 + acceleration * 20} y2="100" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#fs-arrow-sky)" />
-              <text x={305 + acceleration * 20} y="95" fill="#38bdf8" fontSize="14"><MathText content="a" /></text>
+              <line x1="300" y1="100" x2={300 + acceleration * 20} y2="100" stroke="#a1a1aa" strokeWidth="2.5" markerEnd="url(#fs-arrow-sky)" />
+              <text x={305 + acceleration * 20} y="95" fill="#a1a1aa" fontSize="14"><MathText content="a" /></text>
             </>
           )}
         </svg>

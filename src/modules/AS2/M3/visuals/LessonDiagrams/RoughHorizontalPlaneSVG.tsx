@@ -12,8 +12,8 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
     title="Fig 1. Single Particle Resolving"
     analysis={
       <div className="space-y-3">
-        <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed text-center italic">
+        <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+          <p className="text-sm text-zinc-300 leading-relaxed text-center italic">
             Always draw a comprehensive force diagram before resolving. Acceleration dictates the positive direction.
           </p>
         </div>
@@ -23,11 +23,11 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-45/23 max-w-xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-45/23 max-w-xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="100 20 450 230" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         {/* Ground Plane & Roughness */}
-        <line x1="100" y1="160" x2="500" y2="160" stroke="#334155" strokeWidth="3" />
+        <line x1="100" y1="160" x2="500" y2="160" stroke="#3f3f46" strokeWidth="3" />
         <path d="M150 160 L140 172 M200 160 L190 172 M250 160 L240 172 M300 160 L290 172 M350 160 L340 172 M400 160 L390 172 M450 160 L440 172" stroke="#1e293b" strokeWidth="2" />
 
         {/* Particle Block */}

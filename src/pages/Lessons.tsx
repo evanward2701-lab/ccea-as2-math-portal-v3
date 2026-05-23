@@ -47,14 +47,14 @@ export function Lessons() {
     <div className="flex-1 flex h-full overflow-hidden bg-background">
       {/* Lesson Content Area */}
       <div className="flex-1 overflow-y-auto relative scroll-smooth">
-        <div className="max-w-4xl mx-auto px-8 py-16 md:px-16 w-full">
+        <div className="max-w-5xl mx-auto px-8 py-16 md:px-16 w-full">
           {/* Main Title Section */}
           <header className="mb-16 border-b border-zinc-800 pb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="flex items-center gap-4 mb-8">
               <span className="text-[10px] uppercase tracking-[0.2em] font-mono font-bold bg-zinc-800 text-zinc-400 px-3 py-1 rounded-md shadow-sm border border-zinc-700">
                 {currentLesson.type}
               </span>
-              <span className="text-[11px] uppercase tracking-[0.3em] font-mono font-bold text-sky-400/80">
+              <span className="text-[11px] uppercase tracking-[0.3em] font-mono font-bold text-zinc-400/80">
                 Module {currentIndex + 1} of {LESSONS.length}
               </span>
             </div>
@@ -80,7 +80,7 @@ export function Lessons() {
                 to={`/lessons/${prevLesson.id}`}
                 className="group flex flex-col items-start hover:bg-zinc-900/50 p-4 rounded-xl transition-colors border border-transparent hover:border-zinc-800 w-64"
               >
-                <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-500 group-hover:text-sky-400 transition-colors mb-2 font-bold">
+                <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-500 group-hover:text-zinc-400 transition-colors mb-2 font-bold">
                   <ArrowLeft className="w-3 h-3" /> Previous
                 </span>
                 <span className="text-zinc-300 font-serif truncate w-full">{prevLesson.title}</span>
@@ -92,7 +92,7 @@ export function Lessons() {
                 to={`/lessons/${nextLesson.id}`}
                 className="group flex flex-col items-end hover:bg-zinc-900/50 p-4 rounded-xl transition-colors border border-transparent hover:border-zinc-800 w-64 text-right"
               >
-                <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-500 group-hover:text-sky-400 transition-colors mb-2 font-bold">
+                <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-zinc-500 group-hover:text-zinc-400 transition-colors mb-2 font-bold">
                   Next <ArrowRight className="w-3 h-3" />
                 </span>
                 <span className="text-zinc-300 font-serif truncate w-full">{nextLesson.title}</span>

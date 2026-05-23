@@ -8,7 +8,7 @@ export const M2InitialVelocityTrap: React.FC = () => {
     <DiagramPanel
       title='Exam Trap: "Assuming Starts from Rest"'
       analysis={
-        <p className="text-sm text-slate-400 italic text-center max-w-md mx-auto">
+        <p className="text-sm text-zinc-400 italic text-center max-w-md mx-auto">
           A velocity-time graph does not have to begin at zero. Read the initial velocity from the vertical intercept before choosing a SUVAT setup.
         </p>
       }
@@ -24,7 +24,7 @@ export const M2InitialVelocityTrap: React.FC = () => {
         </svg>
 
         <DiagramLabel position={{ left: '65%', top: '25%' }}>
-          <div className="text-[10px] text-rose-400 font-bold bg-slate-900 p-1 rounded border border-rose-900/50">FATAL: Assuming u=0</div>
+          <div className="text-[10px] text-rose-400 font-bold bg-zinc-900 p-1 rounded border border-rose-900/50">FATAL: Assuming u=0</div>
         </DiagramLabel>
 
         <DiagramLabel position={{ left: '6%', top: '55%' }}>
@@ -32,11 +32,11 @@ export const M2InitialVelocityTrap: React.FC = () => {
         </DiagramLabel>
         
         <DiagramLabel position={{ left: '5%', top: '10%' }}>
-          <MathText content="v" className="text-slate-400 text-xs" />
+          <MathText content="v" className="text-zinc-400 text-xs" />
         </DiagramLabel>
         
         <DiagramLabel position={{ left: '72%', top: '85%' }}>
-          <MathText content="t" className="text-slate-400 text-xs" />
+          <MathText content="t" className="text-zinc-400 text-xs" />
         </DiagramLabel>
       </div>
     </DiagramPanel>

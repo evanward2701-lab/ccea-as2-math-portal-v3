@@ -14,7 +14,7 @@ export const BinomialTree: React.FC = () => {
       F -- p --> FS[Failure, Success]
       F -- 1-p --> FF[Failure, Failure]
       
-      style Start fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#fff
+      style Start fill:#141417,stroke:#3b82f6,stroke-width:2px,color:#fff
       style S fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#fff
       style F fill:#450a0a,stroke:#f43f5e,stroke-width:2px,color:#fff
   `;
@@ -23,7 +23,7 @@ export const BinomialTree: React.FC = () => {
     <DiagramPanel
       title="Binomial Logic Tree (n=2)"
       analysis={
-        <p className="text-sm text-slate-400 italic text-center">
+        <p className="text-sm text-zinc-400 italic text-center">
           In a binomial model, each trial has the same probability 'p' of success, regardless of previous outcomes.
         </p>
       }

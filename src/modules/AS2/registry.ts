@@ -14,7 +14,7 @@ export type ModuleKey = keyof typeof VisualRegistry;
  */
 export const AS2_SHORT_ID_MAPPING: Record<string, { module: ModuleKey; component: string }> = {
   // M1
-  "M1-Bridge": { module: "M1", component: "M1FmaBridgeMermaid" },
+  "M1-Bridge": { module: "M1", component: "FmaBridgeSVG" },
   "M1-ScalarVector": { module: "M1", component: "ScalarVectorSVG" },
   "M1-Modelling": { module: "M1", component: "ModellingAssumptionsSVG" },
   "M1-Towing": { module: "M1", component: "TowingModelSVG" },

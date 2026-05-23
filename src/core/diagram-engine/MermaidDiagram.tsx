@@ -4,12 +4,12 @@ import mermaid from "mermaid";
 mermaid.initialize({
   startOnLoad: false,
   securityLevel: "loose",
-  theme: "dark", // <-- Switch from 'base' to 'dark'
+  theme: "dark",
   themeVariables: {
-    background: "#020617",       // Matches Slate-950
-    primaryColor: "#1e293b",     // Matches Slate-800
-    primaryTextColor: "#f8fafc", // Slate-50
-    lineColor: "#475569",        // Slate-600 lines
+    background: "transparent",
+    primaryColor: "#27272a",     // zinc-800
+    primaryTextColor: "#f4f4f5", // zinc-100
+    lineColor: "#52525b",        // zinc-600
   }
 });
 

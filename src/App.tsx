@@ -31,7 +31,7 @@ function AppLayout() {
       <nav className="h-16 border-b border-zinc-800 flex items-center justify-between px-8 bg-background z-10 shrink-0 shadow-sm">
         <div className="flex items-center gap-8">
           <span className="font-serif italic text-2xl font-bold tracking-tighter text-zinc-100 flex items-center gap-3">
-            <GraduationCap className="h-6 w-6 text-sky-400" />
+            <GraduationCap className="h-6 w-6 text-zinc-400" />
             {activeQualification} Mathematics
           </span>
           <div className="h-4 w-px bg-zinc-700"></div>
@@ -56,7 +56,7 @@ function AppLayout() {
                     <summary className={cn(
                       "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200 cursor-pointer list-none",
                       isActive 
-                        ? "bg-zinc-800 text-sky-400 border-zinc-700 shadow-md" 
+                        ? "bg-zinc-800 text-zinc-400 border-zinc-700 shadow-md" 
                         : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
                     )}>
                       <Icon className="h-4 w-4 shrink-0" />
@@ -102,7 +102,7 @@ function AppLayout() {
                   className={cn(
                     "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200",
                     isActive 
-                      ? "bg-zinc-800 text-sky-400 border-zinc-700 shadow-md" 
+                      ? "bg-zinc-800 text-zinc-400 border-zinc-700 shadow-md" 
                       : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
                   )}
                 >

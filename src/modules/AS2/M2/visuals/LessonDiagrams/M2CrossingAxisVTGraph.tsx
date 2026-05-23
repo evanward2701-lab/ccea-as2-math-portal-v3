@@ -9,17 +9,17 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
       title="Fig. V-T Graph: Distance vs Displacement"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic text-center">
+          <p className="text-sm text-zinc-400 italic text-center">
             When velocity changes sign (crosses the time axis), the object changes direction.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-3 bg-emerald-950/20 border border-emerald-500/30 rounded-lg">
               <h4 className="font-bold text-emerald-400 mb-1 text-xs uppercase tracking-wider">Displacement</h4>
-              <p className="text-xs text-slate-300 leading-relaxed">Net area (Positive Area - Negative Area). In this graph, it is the directed distance from the start.</p>
+              <p className="text-xs text-zinc-300 leading-relaxed">Net area (Positive Area - Negative Area). In this graph, it is the directed distance from the start.</p>
             </div>
             <div className="p-3 bg-amber-950/20 border border-amber-500/30 rounded-lg">
               <h4 className="font-bold text-amber-400 mb-1 text-xs uppercase tracking-wider">Total Distance</h4>
-              <p className="text-xs text-slate-300 leading-relaxed">Total area (|Positive| + |Negative|). The odometer reading of the journey.</p>
+              <p className="text-xs text-zinc-300 leading-relaxed">Total area (|Positive| + |Negative|). The odometer reading of the journey.</p>
             </div>
           </div>
         </div>
@@ -49,10 +49,10 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
         </svg>
 
         <DiagramLabel position={{ left: '11.5%', top: '15%' }}>
-          <MathText content="v" className="text-slate-400 font-bold italic text-xs" />
+          <MathText content="v" className="text-zinc-400 font-bold italic text-xs" />
         </DiagramLabel>
         <DiagramLabel position={{ left: '93%', top: '51.5%' }}>
-          <MathText content="t" className="text-slate-400 font-bold italic text-xs" />
+          <MathText content="t" className="text-zinc-400 font-bold italic text-xs" />
         </DiagramLabel>
 
         <DiagramLabel position={{ left: '26.6%', top: '43.3%' }}>
@@ -68,22 +68,22 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
         </DiagramLabel>
 
         <DiagramLabel position={{ left: '49.1%', top: '56%' }}>
-          <div className="text-xs font-bold text-slate-400">4s</div>
+          <div className="text-xs font-bold text-zinc-400">4s</div>
         </DiagramLabel>
 
         <DiagramLabel position={{ left: '67.5%', top: '66.6%' }}>
           <div className="text-xs font-bold text-amber-500">-10</div>
         </DiagramLabel>
         <DiagramLabel position={{ left: '65.8%', top: '48.3%' }}>
-          <div className="text-xs font-bold text-slate-400">6s</div>
+          <div className="text-xs font-bold text-zinc-400">6s</div>
         </DiagramLabel>
 
         <DiagramLabel position={{ left: '70%', top: '16.7%' }}>
-          <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-800 space-y-2 shadow-xl">
+          <div className="bg-zinc-900/80 p-3 rounded-lg border border-zinc-800 space-y-2 shadow-xl">
             <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Displacement:</div>
-            <div className="text-xs text-slate-200 font-mono text-center">Area A - Area B</div>
+            <div className="text-xs text-zinc-200 font-mono text-center">Area A - Area B</div>
             <div className="text-[10px] text-amber-400 font-bold uppercase tracking-wider mt-2">Distance:</div>
-            <div className="text-xs text-slate-200 font-mono text-center">Area A + Area B</div>
+            <div className="text-xs text-zinc-200 font-mono text-center">Area A + Area B</div>
           </div>
         </DiagramLabel>
       </div>

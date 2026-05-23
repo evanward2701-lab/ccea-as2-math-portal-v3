@@ -9,7 +9,7 @@ export const M2SignConventionSplit: React.FC = () => {
       title="Fig. SUVAT Sign Convention Comparison"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic text-center">
+          <p className="text-sm text-zinc-400 italic text-center">
             The choice of positive direction is arbitrary, but consistency is key. Both conventions yield the same physical result.
           </p>
           <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
@@ -20,7 +20,7 @@ export const M2SignConventionSplit: React.FC = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl items-center">
         {/* Upwards Positive */}
-        <div className="flex flex-col items-center bg-slate-900/50 p-6 rounded-lg border border-slate-800 h-full relative">
+        <div className="flex flex-col items-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
           <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">Upwards Positive</h4>
           <div className="relative w-full max-w-[160px] aspect-18/22">
             <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
@@ -54,7 +54,7 @@ export const M2SignConventionSplit: React.FC = () => {
         </div>
 
         {/* Downwards Positive */}
-        <div className="flex flex-col items-center bg-slate-900/50 p-6 rounded-lg border border-slate-800 h-full relative">
+        <div className="flex flex-col items-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
           <h4 className="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4">Downwards Positive</h4>
           <div className="relative w-full max-w-[160px] aspect-18/22">
             <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">

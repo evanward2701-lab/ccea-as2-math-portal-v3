@@ -37,8 +37,8 @@ const VTGraph: React.FC<VTGraphProps> = ({ u, v, t, showArea = true, showGradien
   const clampedYV = Math.max(padding, Math.min(yBase, yV));
 
   return (
-    <div className="flex flex-col items-center p-4 bg-slate-900/50 border border-slate-800 rounded-lg shadow-inner relative">
-      <h4 className="font-bold text-sky-400 mb-3 text-sm">{title}</h4>
+    <div className="flex flex-col items-center p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg shadow-inner relative">
+      <h4 className="font-bold text-zinc-400 mb-3 text-sm">{title}</h4>
       <div className="relative w-full max-w-2xl aspect-52/30">
         <svg viewBox={`0 0 ${width} ${height}`} className="absolute inset-0 w-full h-full" overflow="visible" shapeRendering="geometricPrecision">
           {/* Axes */}
@@ -74,10 +74,10 @@ const VTGraph: React.FC<VTGraphProps> = ({ u, v, t, showArea = true, showGradien
         </svg>
 
         <DiagramLabel position={{ left: `${(x0 - 40) / width * 100}%`, top: `${(padding / 2 - 10) / height * 100}%` }}>
-          <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-slate-400 text-xs" />
+          <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-zinc-400 text-xs" />
         </DiagramLabel>
         <DiagramLabel position={{ left: `${(width - padding / 2 - 10) / width * 100}%`, top: `${(yBase + 10) / height * 100}%` }}>
-          <MathText content="t \text{ (s)}" className="text-slate-400 text-xs" />
+          <MathText content="t \text{ (s)}" className="text-zinc-400 text-xs" />
         </DiagramLabel>
 
         <DiagramLabel position={{ left: `${(xU - 30) / width * 100}%`, top: `${(clampedYU - 15) / height * 100}%` }}>
@@ -89,10 +89,10 @@ const VTGraph: React.FC<VTGraphProps> = ({ u, v, t, showArea = true, showGradien
         </DiagramLabel>
 
         <DiagramLabel position={{ left: `${(xU - 10) / width * 100}%`, top: `${(yBase + 5) / height * 100}%` }}>
-          <MathText content="0" className="text-slate-300 text-xs" />
+          <MathText content="0" className="text-zinc-300 text-xs" />
         </DiagramLabel>
         <DiagramLabel position={{ left: `${(xV - 10) / width * 100}%`, top: `${(yBase + 5) / height * 100}%` }}>
-          <MathText content="t" className="text-slate-300 text-xs" />
+          <MathText content="t" className="text-zinc-300 text-xs" />
         </DiagramLabel>
       </div>
     </div>
@@ -105,19 +105,19 @@ export const M2VelocityTimeGraphEngine: React.FC = () => {
       title="Fig. Dynamic Velocity-Time Graph"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-slate-400 italic">
+          <p className="text-sm text-zinc-400 italic">
             Velocity-time graphs are powerful tools for analyzing motion with constant acceleration.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Displacement (Area)</h4>
-              <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
                 <MathText content="s = \frac{1}{2}(u + v)t" />
               </div>
             </div>
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider">Acceleration (Gradient)</h4>
-              <div className="text-center bg-slate-950 p-2 rounded border border-slate-800/60">
+              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
                 <MathText content="a = \frac{v - u}{t}" />
               </div>
             </div>

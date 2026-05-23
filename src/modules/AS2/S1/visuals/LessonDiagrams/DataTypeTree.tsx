@@ -29,7 +29,7 @@ export const DataTypeTree: React.FC = () => {
     <DiagramPanel
       title="Data Taxonomy Overview"
       analysis={
-        <p className="text-sm text-slate-400 italic text-center">
+        <p className="text-sm text-zinc-400 italic text-center">
           Understanding the data type is the first step in choosing the correct statistical analysis.
         </p>
       }

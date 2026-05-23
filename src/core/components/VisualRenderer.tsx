@@ -15,7 +15,7 @@ interface VisualRendererProps {
  */
 export const PracticeVisualFrame: React.FC<{ children: React.ReactNode; id: string }> = ({ children, id }) => (
   <div className="w-full flex justify-center py-6">
-    <div className="w-full max-w-2xl bg-[#141417] rounded-3xl border border-zinc-800/50 shadow-inner overflow-hidden flex justify-center items-center p-8 transition-all hover:border-zinc-700 duration-700 group">
+    <div className="w-full max-w-3xl bg-[#141416] rounded-3xl border border-zinc-800/50 shadow-inner overflow-hidden flex justify-center items-center p-8 transition-all hover:border-zinc-700 duration-700 group">
       <div className="w-full max-h-[420px] overflow-auto flex justify-center items-center scrollbar-hide">
         {children}
       </div>

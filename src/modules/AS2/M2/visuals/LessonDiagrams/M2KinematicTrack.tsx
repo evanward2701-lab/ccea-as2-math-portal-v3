@@ -19,15 +19,15 @@ export const M2KinematicTrack: React.FC = () => {
       analysis={
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Constant Velocity</h4>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-zinc-300 leading-relaxed">
                 Equal spacing between position marks indicates constant velocity (zero acceleration).
               </p>
             </div>
-            <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Constant Acceleration</h4>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-zinc-300 leading-relaxed">
                 Increasing spacing between position marks indicates constant positive acceleration.
               </p>
             </div>
@@ -68,10 +68,10 @@ export const M2KinematicTrack: React.FC = () => {
         </svg>
 
         <DiagramLabel position={{ left: '5%', top: '60%' }}>
-          <MathText content="O" className="text-slate-300 text-xs" />
+          <MathText content="O" className="text-zinc-300 text-xs" />
         </DiagramLabel>
         <DiagramLabel position={{ left: '90%', top: '60%' }}>
-          <p className="text-slate-400 text-[10px] w-16">Positive Direction</p>
+          <p className="text-zinc-400 text-[10px] w-16">Positive Direction</p>
         </DiagramLabel>
       </div>
     </DiagramPanel>

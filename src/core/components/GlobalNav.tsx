@@ -12,7 +12,7 @@ export function GlobalNav() {
   ];
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 shrink-0">
+    <div className="sticky top-0 z-50 w-full bg-zinc-900/80 backdrop-blur-md border-b border-zinc-800 shrink-0">
       <div className="flex items-center justify-center gap-8 h-12 px-6">
         {tabs.map(tab => {
           const isActive = activeQualification === tab.id;

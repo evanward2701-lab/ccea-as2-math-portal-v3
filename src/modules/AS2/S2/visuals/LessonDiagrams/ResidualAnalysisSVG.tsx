@@ -8,8 +8,8 @@ export const ResidualAnalysisSVG: React.FC = () => (
     title="Fig 6. Diagnostic Residual Analysis"
     analysis={
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">A random dispersion of residual plots validates a linear model. A clear pattern suggests a non-linear model is more appropriate.</p>
+        <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+          <p className="text-sm text-zinc-300 leading-relaxed">A random dispersion of residual plots validates a linear model. A clear pattern suggests a non-linear model is more appropriate.</p>
         </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
           <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> A clear pattern in the residuals (like the curve above) invalidates a linear regression model, even if the PMCC is strong.
@@ -36,10 +36,10 @@ export const ResidualAnalysisSVG: React.FC = () => (
       </svg>
 
       <DiagramLabel position={{ left: '3.1%', top: '5%' }}>
-        <MathText content="e" className="text-xs text-slate-400 italic" />
+        <MathText content="e" className="text-xs text-zinc-400 italic" />
       </DiagramLabel>
       <DiagramLabel position={{ left: '96.9%', top: '45%' }}>
-        <MathText content="x" className="text-xs text-slate-400 italic" />
+        <MathText content="x" className="text-xs text-zinc-400 italic" />
       </DiagramLabel>
     </div>
   </DiagramPanel>

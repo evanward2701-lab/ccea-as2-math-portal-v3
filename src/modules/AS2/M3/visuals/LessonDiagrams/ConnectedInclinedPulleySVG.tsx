@@ -12,8 +12,8 @@ export const ConnectedInclinedPulleySVG: React.FC = () => (
     title="Fig 5. Advanced Connected Inclined Plane"
     analysis={(
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
-          <p className="text-sm text-slate-300 leading-relaxed">
+        <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
+          <p className="text-sm text-zinc-300 leading-relaxed">
             For each mass, resolve forces along its direction of acceleration. For the inclined particle, this means resolving parallel and perpendicular to the slope.
           </p>
         </div>
@@ -23,7 +23,7 @@ export const ConnectedInclinedPulleySVG: React.FC = () => (
       </div>
     )}
   >
-    <div className="relative w-full aspect-60/30 max-w-2xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-60/30 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="40 90 520 260" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         {/* Hanging Mass Body B */}
@@ -38,16 +38,16 @@ export const ConnectedInclinedPulleySVG: React.FC = () => (
         <VectorArrow x1={495} y1={190} x2={495} y2={230} type="velocity" marker="default" />
 
         {/* Slope Geometry */}
-        <line x1="50" y1="280" x2="500" y2="280" stroke="#334155" strokeWidth="2" strokeDasharray="4 4" />
+        <line x1="50" y1="280" x2="500" y2="280" stroke="#3f3f46" strokeWidth="2" strokeDasharray="4 4" />
         <line x1="50" y1="280" x2="450" y2="120" stroke="#475569" strokeWidth="3" />
-        <line x1="450" y1="120" x2="450" y2="280" stroke="#334155" strokeWidth="1.5" />
+        <line x1="450" y1="120" x2="450" y2="280" stroke="#3f3f46" strokeWidth="1.5" />
 
         <path d="M 110 280 A 60 60 0 0 0 102 260" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
-        <circle cx="450" cy="120" r="12" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
+        <circle cx="450" cy="120" r="12" fill="#141417" stroke="#94a3b8" strokeWidth="2" />
 
         {/* Inclined Mass Body A */}
         <line x1="285" y1="186" x2="450" y2="120" stroke="#64748b" strokeWidth="1.5" />
-        <g transform="translate(250 200) rotate(-21.8)">
+        <g transform="tranzinc(250 200) rotate(-21.8)">
           <rect x="-35" y="-25" width="70" height="50" fill="#1e293b" stroke="#475569" strokeWidth="2" />
           
           {/* Labels for m_A are complex with rotation, I'll use absolute overlays for simple ones and SVG text for nested ones if needed, but the task says NO foreignObject. */}
