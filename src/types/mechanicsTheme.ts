@@ -1,6 +1,6 @@
 /**
  * Foundational UI types for the mechanics platform theme.
- * Uses a polished, muted dark-mode palette suitable for luxury-minimalist UI.
+ * Uses a polished, luxury-minimalist zinc-based palette.
  */
 
 export type SemanticColor =
@@ -15,11 +15,11 @@ export type SemanticColor =
 export type ArrowMarker = 'default' | 'none' | 'dot' | 'reverse';
 
 export const themeColors: Record<SemanticColor, string> = {
-  force: '#e06c75',      // Muted red
-  velocity: '#61afef',   // Muted blue
-  accel: '#98c379',      // Muted green
-  weight: '#c678dd',     // Muted purple
-  structural: '#5c6370', // Muted dark grey
-  connector: '#abb2bf',  // Muted light grey
-  applied: '#e5c07b',    // Muted yellow
+  force: '#71717a',      // zinc-500
+  velocity: '#71717a',   // zinc-500
+  accel: '#71717a',      // zinc-500
+  weight: '#71717a',     // zinc-500
+  structural: '#52525b', // zinc-600
+  connector: '#d4d4d8',  // zinc-300
+  applied: '#a1a1aa',    // zinc-400
 };

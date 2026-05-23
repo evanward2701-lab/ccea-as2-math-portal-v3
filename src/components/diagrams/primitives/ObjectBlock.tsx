@@ -12,6 +12,7 @@ export interface ObjectBlockProps {
 
 /**
  * Renders an idealized mass (particle or rigid block) for mechanics diagrams.
+ * Updated for a luxury-minimalist aesthetic: thinner strokes and muted tones.
  */
 export const ObjectBlock: React.FC<ObjectBlockProps> = ({
   x,
@@ -22,8 +23,8 @@ export const ObjectBlock: React.FC<ObjectBlockProps> = ({
   isParticle = false,
 }) => {
   const strokeColor = themeColors.structural;
-  // Sleek, minimal dark-mode fill
-  const fillColor = 'rgba(40, 44, 52, 0.8)';
+  // Sleek, minimal semi-transparent fill
+  const fillColor = 'rgba(24, 24, 27, 0.4)'; // matches zinc-900 with transparency
 
   if (isParticle) {
     const radius = Math.min(width, height) / 2;
@@ -37,7 +38,7 @@ export const ObjectBlock: React.FC<ObjectBlockProps> = ({
           cy={cy}
           r={radius}
           stroke={strokeColor}
-          strokeWidth={2}
+          strokeWidth={1.5}
           fill={fillColor}
         />
         {massLabel && (
@@ -47,9 +48,10 @@ export const ObjectBlock: React.FC<ObjectBlockProps> = ({
             fill={themeColors.connector}
             textAnchor="middle"
             dominantBaseline="central"
-            fontSize="14"
-            fontWeight="500"
-            fontFamily="system-ui, -apple-system, sans-serif"
+            fontSize="12"
+            fontWeight="400"
+            fontFamily="serif"
+            fontStyle="italic"
           >
             {massLabel}
           </text>
@@ -66,10 +68,10 @@ export const ObjectBlock: React.FC<ObjectBlockProps> = ({
         width={width}
         height={height}
         stroke={strokeColor}
-        strokeWidth={2}
+        strokeWidth={1.5}
         fill={fillColor}
-        rx={6} // Subtle rounded corners for a premium feel
-        ry={6}
+        rx={4} // Slightly less rounded for a more precise architectural feel
+        ry={4}
       />
       {massLabel && (
         <text
@@ -78,9 +80,10 @@ export const ObjectBlock: React.FC<ObjectBlockProps> = ({
           fill={themeColors.connector}
           textAnchor="middle"
           dominantBaseline="central"
-          fontSize="14"
-          fontWeight="500"
-          fontFamily="system-ui, -apple-system, sans-serif"
+          fontSize="12"
+          fontWeight="400"
+          fontFamily="serif"
+          fontStyle="italic"
         >
           {massLabel}
         </text>

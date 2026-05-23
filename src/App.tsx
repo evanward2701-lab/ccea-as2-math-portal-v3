@@ -19,16 +19,16 @@ export default function App() {
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-slate-950 text-slate-100 font-sans overflow-hidden select-none">
+    <div className="flex flex-col h-screen bg-background text-zinc-100 font-sans overflow-hidden select-none">
       {/* Header Navigation */}
-      <nav className="h-16 border-b border-slate-800 flex items-center justify-between px-8 bg-slate-950 z-10 shrink-0 shadow-sm">
+      <nav className="h-16 border-b border-zinc-800 flex items-center justify-between px-8 bg-background z-10 shrink-0 shadow-sm">
         <div className="flex items-center gap-8">
-          <span className="font-serif italic text-2xl font-bold tracking-tighter text-slate-100 flex items-center gap-3">
+          <span className="font-serif italic text-2xl font-bold tracking-tighter text-zinc-100 flex items-center gap-3">
             <GraduationCap className="h-6 w-6 text-sky-400" />
             AS2 Mathematics
           </span>
-          <div className="h-4 w-px bg-slate-700"></div>
-          <span className="text-[10px] uppercase tracking-widest font-semibold text-slate-400">
+          <div className="h-4 w-px bg-zinc-700"></div>
+          <span className="text-[10px] uppercase tracking-widest font-semibold text-zinc-400">
             CCEA Specification / Revision Portal
           </span>
         </div>
@@ -36,7 +36,7 @@ export default function App() {
 
       <div className="flex-1 flex overflow-hidden">
         {/* Main Sidebar Layout */}
-        <aside className="w-64 border-r border-slate-800 flex flex-col bg-slate-900/50 shrink-0 shadow-xl z-20 h-full overflow-y-auto">
+        <aside className="w-64 border-r border-zinc-800 flex flex-col bg-zinc-900/50 shrink-0 shadow-xl z-20 h-full overflow-y-auto">
           <nav className="flex-1 px-4 py-8 space-y-2">
             {mainLinks.map((link) => {
               const Icon = link.icon;
@@ -49,13 +49,13 @@ export default function App() {
                     <summary className={cn(
                       "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200 cursor-pointer list-none",
                       isActive 
-                        ? "bg-slate-800 text-sky-400 border-slate-700 shadow-md" 
-                        : "bg-transparent text-slate-400 border-transparent hover:bg-slate-800/50 hover:text-slate-200 hover:border-slate-700/50"
+                        ? "bg-zinc-800 text-sky-400 border-zinc-700 shadow-md" 
+                        : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
                     )}>
                       <Icon className="h-4 w-4 shrink-0" />
                       <span>{link.name}</span>
                     </summary>
-                    <div className="pl-5 pt-2 space-y-1 border-l-2 border-slate-800 ml-6">
+                    <div className="pl-5 pt-2 space-y-1 border-l-2 border-zinc-800 ml-6">
                       {LESSONS.map(lesson => {
                         const lessonIsActive = location.pathname === `/lessons/${lesson.id}`;
                         return (
@@ -65,13 +65,13 @@ export default function App() {
                             className={cn(
                               "flex items-center gap-3 px-4 py-2 rounded-xl text-xs font-mono transition-all",
                               lessonIsActive
-                                ? "bg-slate-800 text-emerald-400 border border-slate-700 shadow-inner font-bold"
-                                : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/50 border border-transparent"
+                                ? "bg-zinc-800 text-emerald-400 border border-zinc-700 shadow-inner font-bold"
+                                : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 border border-transparent"
                             )}
                           >
                             <span className={cn(
                               "w-8 text-center px-1.5 py-0.5 rounded text-[9px] font-bold",
-                              lessonIsActive ? "bg-emerald-950 text-emerald-400" : "bg-slate-800 text-slate-400"
+                              lessonIsActive ? "bg-emerald-950 text-emerald-400" : "bg-zinc-800 text-zinc-400"
                             )}>
                               {getModuleCode(lesson.id)}
                             </span>
@@ -91,8 +91,8 @@ export default function App() {
                   className={cn(
                     "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200",
                     isActive 
-                      ? "bg-slate-800 text-sky-400 border-slate-700 shadow-md" 
-                      : "bg-transparent text-slate-400 border-transparent hover:bg-slate-800/50 hover:text-slate-200 hover:border-slate-700/50"
+                      ? "bg-zinc-800 text-sky-400 border-zinc-700 shadow-md" 
+                      : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
                   )}
                 >
                   <Icon className="h-4 w-4 shrink-0" />
@@ -103,12 +103,12 @@ export default function App() {
           </nav>
 
           {/* User / Session Footer Area */}
-          <div className="p-4 border-t border-slate-800 bg-slate-950/50">
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-lg flex flex-col items-center justify-center gap-2 shadow-inner">
+          <div className="p-4 border-t border-zinc-800 bg-background/50">
+            <div className="p-4 bg-background border border-zinc-800 rounded-lg flex flex-col items-center justify-center gap-2 shadow-inner">
               <span className="text-[9px] uppercase tracking-widest font-mono text-emerald-400 font-bold">
                 System Active
               </span>
-              <span className="text-[10px] text-slate-500 font-medium">
+              <span className="text-[10px] text-zinc-500 font-medium">
                 M1-M3 & S1-S4 Modules Loaded
               </span>
             </div>
@@ -116,7 +116,7 @@ export default function App() {
         </aside>
 
         {/* Dynamic Route Viewport */}
-        <main className="flex-1 overflow-y-scroll flex flex-col relative bg-slate-950">
+        <main className="flex-1 overflow-y-scroll flex flex-col relative bg-background">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/lessons" element={<Lessons />} />

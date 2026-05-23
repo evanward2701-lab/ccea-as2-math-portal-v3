@@ -3,7 +3,7 @@ import { SemanticColor, themeColors } from '../../../types/mechanicsTheme';
 
 /**
  * SVGLibrary defines the standard markers (arrows, dots) for use in diagrams.
- * This should be rendered once per SVG context or globally if referencing by ID.
+ * Updated for a luxury-minimalist aesthetic: sharper, more precise architectural pointers.
  */
 export const SVGLibrary: React.FC = () => {
   const colors = Object.entries(themeColors) as [SemanticColor, string][];
@@ -13,40 +13,40 @@ export const SVGLibrary: React.FC = () => {
       <defs>
         {colors.map(([type, color]) => (
           <React.Fragment key={type}>
-            {/* Standard forward arrow */}
+            {/* Standard forward arrow - sharp architectural pointer */}
             <marker
               id={`arrow-${type}`}
               viewBox="0 0 10 10"
-              refX="8"
+              refX="9"
               refY="5"
-              markerWidth="5"
-              markerHeight="5"
+              markerWidth="4"
+              markerHeight="4"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill={color} />
+              <path d="M 0 2 L 10 5 L 0 8 L 2 5 Z" fill={color} />
             </marker>
-            {/* Reverse arrow */}
+            {/* Reverse arrow - sharp architectural pointer */}
             <marker
               id={`arrow-reverse-${type}`}
               viewBox="0 0 10 10"
-              refX="2"
+              refX="1"
               refY="5"
-              markerWidth="5"
-              markerHeight="5"
+              markerWidth="4"
+              markerHeight="4"
               orient="auto-start-reverse"
             >
-              <path d="M 10 1 L 0 5 L 10 9 z" fill={color} />
+              <path d="M 10 2 L 0 5 L 10 8 L 8 5 Z" fill={color} />
             </marker>
-            {/* Dot marker */}
+            {/* Dot marker - smaller and more precise */}
             <marker
               id={`dot-${type}`}
               viewBox="0 0 10 10"
               refX="5"
               refY="5"
-              markerWidth="4"
-              markerHeight="4"
+              markerWidth="3"
+              markerHeight="3"
             >
-              <circle cx="5" cy="5" r="3" fill={color} />
+              <circle cx="5" cy="5" r="2" fill={color} />
             </marker>
           </React.Fragment>
         ))}

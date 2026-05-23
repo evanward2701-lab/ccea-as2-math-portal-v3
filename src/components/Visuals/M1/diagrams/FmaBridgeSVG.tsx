@@ -11,109 +11,96 @@ export const FmaBridgeSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 1. The F=ma Bridge"
     analysis={
-      <div className="grid gap-3 sm:grid-cols-2 w-full max-w-2xl">
-        <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-3 text-center text-sm text-slate-300">
-          <span className="font-semibold text-sky-300">Resultant force:</span> add all forces first.
-        </div>
-        <div className="rounded-lg border border-slate-800 bg-slate-900/50 p-3 text-center text-sm text-slate-300">
-          Then use <MathText content="F = ma" className="inline text-emerald-300 font-semibold [&_p]:inline [&_p]:m-0" /> to find the acceleration.
-        </div>
+      <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+        <p className="text-zinc-400 text-sm italic text-center leading-relaxed">
+          The Second Law acts as a mathematical translation layer between the physical forces acting on an object and its resulting motion response.
+        </p>
       </div>
     }
   >
-    <div className="relative w-full aspect-760/300 max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-16/9 max-w-4xl mx-auto rounded-xl overflow-hidden border border-zinc-800/30 bg-zinc-950 shadow-sm">
       <SVGLibrary />
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 300" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Newton's Second Law bridge from resultant force to acceleration">
-        {/* Panels */}
-        <rect x="20" y="38" width="220" height="206" rx="8" fill="#0f172a" stroke={themeColors.structural} strokeWidth="2" />
-        <rect x="270" y="38" width="220" height="206" rx="8" fill="#022c22" stroke={themeColors.accel} strokeWidth="2.5" />
-        <rect x="520" y="38" width="220" height="206" rx="8" fill="#0f172a" stroke={themeColors.structural} strokeWidth="2" />
-
-        {/* Force diagram */}
-        <ObjectBlock x={106} y={126} width={48} height={34} />
-        <circle cx="130" cy="143" r="3" fill={themeColors.connector} />
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Newton's Second Law bridge diagram with massive negative space">
         
-        <VectorArrow x1={154} y1={143} x2={214} y2={143} type="velocity" />
-        <VectorArrow x1={106} y1={143} x2={50} y2={143} type="force" />
-        <VectorArrow x1={130} y1={126} x2={130} y2={94} type="velocity" />
-        <VectorArrow x1={130} y1={160} x2={130} y2={192} type="force" />
+        {/* Core Bridge Line - Minimalist geometric separator */}
+        <line x1="100" y1="225" x2="700" y2="225" stroke={themeColors.structural} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
 
-        <text x="184" y="134" className="text-xs font-bold" fill={themeColors.velocity}>push</text>
-        <text x="52" y="134" className="text-xs font-bold" fill={themeColors.force}>friction</text>
-        <text x="140" y="104" className="text-xs font-bold" fill={themeColors.velocity}>R</text>
-        <text x="140" y="190" className="text-xs font-bold" fill={themeColors.force}>mg</text>
+        {/* Phase 1: Input (Forces) */}
+        <g transform="translate(150, 225) scale(0.8)">
+          <ObjectBlock x={-25} y={-18} width={50} height={36} isParticle />
+          <circle cx="0" cy="0" r="2" fill={themeColors.connector} />
+          
+          {/* Force Vectors */}
+          <VectorArrow x1={25} y1={0} x2={75} y2={0} type="applied" />
+          <VectorArrow x1={-25} y1={0} x2={-65} y2={0} type="force" />
+          <VectorArrow x1={0} y1={-18} x2={0} y2={-58} type="accel" />
+          <VectorArrow x1={0} y1={18} x2={0} y2={58} type="weight" />
+        </g>
 
-        <VectorArrow x1={78} y1={214} x2={182} y2={214} type="accel" />
+        {/* Phase 2: The Logic (F=ma) */}
+        <g transform="translate(400, 225)">
+          {/* Minimalist central container */}
+          <rect x="-60" y="-40" width="120" height="80" rx="4" stroke={themeColors.structural} strokeWidth="1" strokeDasharray="2 2" opacity="0.2" />
+        </g>
 
-        {/* Central law components handled by DiagramLabel */}
+        {/* Phase 3: Output (Motion) */}
+        <g transform="translate(650, 225) scale(0.8)">
+          <line x1="-80" y1="0" x2="40" y2="0" stroke={themeColors.structural} strokeWidth="1" strokeDasharray="4 4" opacity="0.4" />
+          <circle cx="-50" cy="0" r="8" fill={themeColors.structural} opacity="0.2" />
+          <circle cx="-10" cy="0" r="10" fill={themeColors.structural} opacity="0.4" />
+          <circle cx="40" cy="0" r="12" fill="none" stroke={themeColors.connector} strokeWidth="1.2" />
+          
+          <VectorArrow x1={40} y1={-25} x2={90} y2={-25} type="velocity" />
+        </g>
 
-        {/* Motion response */}
-        <line x1="556" y1="190" x2="694" y2="190" stroke={themeColors.structural} strokeWidth="3" strokeDasharray="5 5" />
-        <circle cx="570" cy="190" r="13" fill={themeColors.structural} opacity="0.45" />
-        <circle cx="608" cy="190" r="13" fill={themeColors.structural} opacity="0.7" />
-        <circle cx="654" cy="190" r="13" fill="#1e293b" stroke={themeColors.connector} strokeWidth="2" />
-        
-        <VectorArrow x1={654} y1={156} x2={704} y2={156} type="applied" />
-        <text x="672" y="145" className="text-sm font-bold" fill={themeColors.applied}>a</text>
-        
-        <path d="M 570 120 H 610 M 586 106 H 636 M 610 92 H 674" stroke={themeColors.accel} strokeWidth="3" strokeLinecap="round" opacity="0.9" />
-
-        {/* Bridge arrows */}
-        <VectorArrow x1={246} y1={141} x2={264} y2={141} type="structural" />
-        <VectorArrow x1={496} y1={141} x2={514} y2={141} type="structural" />
+        {/* Connecting Logic Arrows */}
+        <VectorArrow x1={240} y1={225} x2={310} y2={225} type="structural" />
+        <VectorArrow x1={490} y1={225} x2={560} y2={225} type="structural" />
       </svg>
 
-      {/* Labels */}
-      <DiagramLabel position={{ top: '25.3%', left: '17.1%' }}>
-        <div className="text-center">
-          <div className="text-base font-bold" style={{ color: themeColors.velocity }}>Forces on object</div>
-          <div className="text-xs text-slate-400">Find the single overall force</div>
+      {/* Dynamic Typography Overlays */}
+      <DiagramLabel position={{ top: '35%', left: '18.75%' }}>
+        <div className="flex flex-col items-center gap-1">
+          <span className="font-serif italic text-zinc-300">External Forces</span>
+          <span className="text-[10px] text-zinc-500 uppercase tracking-widest">Input</span>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '25.3%', left: '50%' }}>
-        <div className="text-center">
-          <div className="text-base font-bold" style={{ color: themeColors.accel }}>Newton's Second Law</div>
-          <div className="text-xs text-slate-400">The bridge from force to motion</div>
+      <DiagramLabel position={{ top: '65%', left: '18.75%' }}>
+        <div className="flex flex-col items-center gap-2">
+           <div className="flex gap-4">
+             <span className="text-zinc-500 italic">push</span>
+             <span className="text-zinc-500 italic">friction</span>
+           </div>
+           <MathText content="\Sigma F" className="text-emerald-400 font-bold" />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '25.3%', left: '82.9%' }}>
-        <div className="text-center">
-          <div className="text-base font-bold" style={{ color: themeColors.applied }}>Motion response</div>
-          <div className="text-xs text-slate-400">Acceleration changes velocity</div>
-        </div>
-      </DiagramLabel>
-
-      <DiagramLabel position={{ top: '76.7%', left: '17.1%' }}>
-        <div className="text-center text-sm font-semibold" style={{ color: themeColors.accel }}>
-          Resultant Force, <MathText content="\Sigma F" className="inline [&_p]:inline [&_p]:m-0" />
-        </div>
-      </DiagramLabel>
-
-      <DiagramLabel position={{ top: '45.3%', left: '50%' }}>
-        <div className="text-center flex flex-col justify-center h-full">
-          <div style={{ color: themeColors.accel }}>
-            <MathText content="F = ma" className="text-3xl font-bold [&_p]:m-0" />
+      <DiagramLabel position={{ top: '50%', left: '50%' }}>
+        <div className="flex flex-col items-center">
+          <div className="p-4 bg-zinc-900/40 rounded-xl border border-zinc-800/50 backdrop-blur-sm">
+            <MathText content="F = ma" className="text-2xl text-zinc-100" />
           </div>
+          <span className="mt-4 text-[9px] text-zinc-500 uppercase tracking-[0.3em] font-bold">Newton's Bridge</span>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '64.3%', left: '50%' }}>
-        <div className="rounded-lg border border-emerald-500/40 bg-slate-950/70 px-3 py-2 text-center text-xs font-semibold leading-snug text-emerald-100">
-          F is the resultant force, not just any single force
+      <DiagramLabel position={{ top: '35%', left: '81.25%' }}>
+        <div className="flex flex-col items-center gap-1">
+          <span className="font-serif italic text-zinc-300">Kinematic Response</span>
+          <span className="text-[10px] text-zinc-500 uppercase tracking-widest">Output</span>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '92%', left: '50.3%' }}>
-        <div className="grid grid-cols-2 gap-4 text-center text-xs leading-snug text-slate-300">
-          <div><span className="font-semibold" style={{ color: themeColors.velocity }}>More resultant force</span> means more acceleration for the same mass</div>
-          <div><span className="font-semibold" style={{ color: themeColors.applied }}>More mass</span> means less acceleration for the same resultant force</div>
+      <DiagramLabel position={{ top: '65%', left: '81.25%' }}>
+        <div className="flex items-center gap-3">
+          <MathText content="a" className="text-lg text-sky-400 font-bold" />
+          <span className="text-[10px] text-zinc-500 italic">acceleration</span>
         </div>
       </DiagramLabel>
-      
-      <DiagramLabel position={{ top: '74.7%', left: '82%' }}>
-        <div className="text-xs font-semibold text-slate-300">velocity marks spread out</div>
+
+      <DiagramLabel position={{ top: '15%', left: '50%' }}>
+        <div className="text-[10px] text-zinc-600 uppercase tracking-[0.4em] font-light">Mathematical Translation Layer</div>
       </DiagramLabel>
     </div>
   </DiagramPanel>

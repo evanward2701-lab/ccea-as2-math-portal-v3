@@ -30,4 +30,6 @@ export interface PracticeQuestion {
   markSchemeMarkdown: string;
   marks: number;
   visualId?: string;
+  questionParts?: { label: string; text: string }[];
+  solutionSteps?: { step: number; text: string; mark: string }[];
 }

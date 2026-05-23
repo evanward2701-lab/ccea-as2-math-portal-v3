@@ -13,6 +13,7 @@ export interface VectorArrowProps {
 
 /**
  * Renders a vector line with optional markers using the semantic theme.
+ * Refined for a luxury-minimalist aesthetic: thinner strokes and precise pointers.
  */
 export const VectorArrow: React.FC<VectorArrowProps> = ({
   x1,
@@ -43,8 +44,8 @@ export const VectorArrow: React.FC<VectorArrowProps> = ({
       x2={x2}
       y2={y2}
       stroke={color}
-      strokeWidth={2}
-      strokeDasharray={dashed ? '6,6' : 'none'}
+      strokeWidth={1.2} // Thinner, more elegant stroke
+      strokeDasharray={dashed ? '4,4' : 'none'}
       strokeLinecap="round"
       markerEnd={markerEnd}
       markerStart={markerStart}

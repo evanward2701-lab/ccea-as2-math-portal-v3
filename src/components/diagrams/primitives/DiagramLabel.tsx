@@ -7,8 +7,8 @@ export interface DiagramLabelProps {
 }
 
 /**
- * An HTML-based overlay for rendering high-quality text over an SVG diagram
- * without relying on <foreignObject>, ensuring consistent typography and crisp rendering.
+ * An HTML-based overlay for rendering high-quality text over an SVG diagram.
+ * Refined for a luxury-minimalist aesthetic: smaller font size and muted colors.
  */
 export const DiagramLabel: React.FC<DiagramLabelProps> = ({
   position,
@@ -24,11 +24,11 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
         left: position.left,
         transform: 'translate(-50%, -50%)',
         pointerEvents: 'none',
-        color: '#e2e8f0', // Crisp, light text for dark mode
-        fontFamily: 'system-ui, -apple-system, sans-serif',
-        fontSize: '0.875rem',
+        color: '#a1a1aa', // zinc-400 for a muted, receding effect
+        fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+        fontSize: '12px', // precise, smaller architectural labels
         fontWeight: 500,
-        textShadow: '0 2px 4px rgba(0,0,0,0.5)', // Better legibility over lines
+        textShadow: '0 1px 2px rgba(0,0,0,0.3)', // subtle shadow for clarity
       }}
     >
       {children}
