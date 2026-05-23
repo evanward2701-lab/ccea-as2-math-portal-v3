@@ -1,0 +1,59 @@
+import React from 'react';
+import { MathText } from '@/core/components/MathText';
+import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+
+export const BayesResolutionSVG: React.FC = () => (
+  <DiagramPanel
+    title="Fig 4. Conditional Partition Asset"
+    analysis={
+      <div className="space-y-4">
+        <p className="text-sm text-slate-400 italic">
+          The sample space is divided into mutually exclusive partitions (<MathText content="A_1, A_2, A_3" className="inline"/>).
+        </p>
+        <div className="p-4 bg-slate-950 rounded-lg border border-slate-800">
+          <span className="text-sky-400 font-bold uppercase tracking-wider block mb-2 text-[10px]">Total Probability Law:</span>
+          <div className="font-mono text-slate-300 text-sm">
+            <MathText content="P(B) = P(A_1 \cap B) + P(A_2 \cap B) + P(A_3 \cap B)" />
+          </div>
+        </div>
+        <p className="text-sm text-slate-400 italic">
+          To isolate a conditional reverse path (Bayes' Theorem), compute the path ratio:
+        </p>
+        <div className="p-4 bg-slate-950 rounded-lg border border-emerald-900">
+          <div className="font-mono text-emerald-400 text-base">
+            <MathText content="P(A_1 | B) = \frac{P(A_1 \cap B)}{P(B)}" />
+          </div>
+        </div>
+      </div>
+    }
+  >
+    <div className="relative w-full aspect-54/16 max-w-2xl mx-auto">
+      <svg viewBox="30 20 540 160" className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
+        {/* Sample Universe Block */}
+        <rect x="40" y="30" width="520" height="120" stroke="#475569" strokeWidth="2" fill="#0f172a" rx="4"/>
+        
+        {/* Partitions */}
+        <line x1="220" y1="30" x2="220" y2="150" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+        <line x1="400" y1="30" x2="400" y2="150" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+        
+        {/* Overlapping Target Event B */}
+        <ellipse cx="300" cy="90" rx="180" ry="50" stroke="#f59e0b" strokeWidth="2" fill="#f59e0b" fillOpacity="0.08" />
+      </svg>
+
+      <DiagramLabel position={{ left: '50%', top: '50%' }}>
+        <MathText content="B" className="text-amber-400 font-bold text-sm" />
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '24.1%', top: '56.3%' }}>
+        <MathText content="A_1 \cap B" className="text-slate-400 text-xs italic" />
+      </DiagramLabel>
+      <DiagramLabel position={{ left: '55.6%', top: '65.6%' }}>
+        <MathText content="A_2 \cap B" className="text-slate-400 text-xs italic" />
+      </DiagramLabel>
+      <DiagramLabel position={{ left: '88.9%', top: '56.3%' }}>
+        <MathText content="A_3 \cap B" className="text-slate-400 text-xs italic" />
+      </DiagramLabel>
+    </div>
+  </DiagramPanel>
+);

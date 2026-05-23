@@ -1,12 +1,20 @@
 import { useSearchParams } from "react-router-dom";
-import { QUESTIONS } from "@/data/questions";
-import { LESSONS } from "@/data/lessons";
-import { QuestionCard } from "../components/QuestionCard";
+import { QUESTIONS as AS2_QUESTIONS } from "@/modules/AS2/data/questions";
+import { LESSONS as AS2_LESSONS } from "@/modules/AS2/data/lessons";
+import { QUESTIONS as AS1_QUESTIONS } from "@/modules/AS1/data/questions";
+import { LESSONS as AS1_LESSONS } from "@/modules/AS1/data/lessons";
+import { QuestionCard } from "@/core/components/QuestionCard";
+import { useQualification } from "@/core/context/QualificationContext";
 
 const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
 
 export function PracticeBank() {
+  const { activeQualification } = useQualification();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const QUESTIONS = activeQualification === 'AS1' ? AS1_QUESTIONS : activeQualification === 'AS2' ? AS2_QUESTIONS : [];
+  const LESSONS = activeQualification === 'AS1' ? AS1_LESSONS : activeQualification === 'AS2' ? AS2_LESSONS : [];
+
   const selectedModule = getModuleCode(searchParams.get("module") || "All");
   const selectedType = searchParams.get("type") || "All";
   const selectedMarks = searchParams.get("marks") || "All";
@@ -28,8 +36,11 @@ export function PracticeBank() {
     if (selectedType !== "All") {
       const isMechanics = q.moduleId.startsWith("M");
       const isStatistics = q.moduleId.startsWith("S");
+      const isPure = q.moduleId.startsWith("P") || q.topic.includes("Pure");
+      
       if (selectedType === "Mechanics" && !isMechanics) return false;
       if (selectedType === "Statistics" && !isStatistics) return false;
+      if (selectedType === "Pure" && !isPure) return false;
     }
 
     if (selectedMarks !== "All") {
@@ -69,8 +80,14 @@ export function PracticeBank() {
               className="w-full text-xs font-mono bg-background border border-zinc-800 text-zinc-300 rounded-lg p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
             >
               <option value="All">All Categories</option>
-              <option value="Mechanics">Mechanics</option>
-              <option value="Statistics">Statistics</option>
+              {activeQualification === 'AS2' ? (
+                <>
+                  <option value="Mechanics">Mechanics</option>
+                  <option value="Statistics">Statistics</option>
+                </>
+              ) : (
+                <option value="Pure">Pure Mathematics</option>
+              )}
             </select>
           </div>
 

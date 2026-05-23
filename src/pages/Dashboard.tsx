@@ -1,10 +1,26 @@
 import { Link } from "react-router-dom";
-import { LESSONS } from "@/data/lessons";
-import { QUESTIONS } from "@/data/questions";
+import { useQualification } from "@/core/context/QualificationContext";
+import { LESSONS as AS2_LESSONS } from "@/modules/AS2/data/lessons";
+import { QUESTIONS as AS2_QUESTIONS } from "@/modules/AS2/data/questions";
+import { LESSONS as AS1_LESSONS } from "@/modules/AS1/data/lessons";
+import { QUESTIONS as AS1_QUESTIONS } from "@/modules/AS1/data/questions";
 
 export function Dashboard() {
-  const mechanicsLessons = LESSONS.filter(l => l.type === "Mechanics");
-  const statisticsLessons = LESSONS.filter(l => l.type === "Statistics");
+  const { activeQualification } = useQualification();
+
+  const getModuleData = () => {
+    switch (activeQualification) {
+      case 'AS1': return { lessons: AS1_LESSONS, questions: AS1_QUESTIONS, title: "AS1 Pure", subtitle: "Mathematics" };
+      case 'AS2': return { lessons: AS2_LESSONS, questions: AS2_QUESTIONS, title: "AS2 Applied", subtitle: "Mathematics" };
+      case 'A2': return { lessons: [], questions: [], title: "A2 Pure/Applied", subtitle: "Mathematics" };
+      default: return { lessons: AS2_LESSONS, questions: AS2_QUESTIONS, title: "AS2 Applied", subtitle: "Mathematics" };
+    }
+  };
+
+  const { lessons, questions, title, subtitle } = getModuleData();
+  const mechanicsLessons = lessons.filter(l => l.type === "Mechanics");
+  const statisticsLessons = lessons.filter(l => l.type === "Statistics");
+  const pureLessons = lessons.filter(l => l.type !== "Mechanics" && l.type !== "Statistics");
 
   return (
     <div className="p-8 max-w-350 mx-auto flex flex-col gap-8 w-full bg-background text-zinc-100 h-full">
@@ -15,15 +31,15 @@ export function Dashboard() {
             Platform Overview
           </div>
           <h1 className="font-serif text-5xl font-light leading-tight tracking-wide text-zinc-100 mt-4">
-            AS2 Applied <br/>
-            <span className="italic text-emerald-400 font-serif">Mathematics</span>
+            {title} <br/>
+            <span className="italic text-emerald-400 font-serif">{subtitle}</span>
           </h1>
         </div>
         
-        {/* Performance Index now acts as the 4th corner of your "2x2" visual logic */}
+        {/* Performance Index */}
         <div className="border border-zinc-800 bg-emerald-950/20 p-8 flex flex-col justify-center rounded-2xl shadow-2xl backdrop-blur-sm border-emerald-900/30">
           <div className="text-5xl font-serif italic text-emerald-400 mb-2">
-            {QUESTIONS.length}
+            {questions.length}
           </div>
           <div className="text-[10px] uppercase font-mono tracking-widest text-emerald-400 font-bold">
             Active Exam Tasks
@@ -37,81 +53,88 @@ export function Dashboard() {
         </div>
       </header>
 
-      {/* MAIN MODULE GRID: The 2-Column Expansion */}
-      <main className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-        
-        {/* Mechanics Column */}
-        <div className="flex flex-col h-full border border-zinc-800 bg-zinc-900/40 relative rounded-2xl shadow-2xl backdrop-blur-sm">
-          <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-zinc-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
-            Section A
+      {/* MAIN MODULE GRID */}
+      {lessons.length === 0 ? (
+        <main className="flex-1 flex items-center justify-center border border-zinc-800/50 bg-zinc-900/20 rounded-2xl p-12">
+          <div className="text-center">
+            <h3 className="font-serif text-2xl text-zinc-400 mb-2 italic">Modules pending ingestion...</h3>
+            <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-widest">Content for {activeQualification} is currently unavailable.</p>
           </div>
-          <div className="p-8">
-            {/* Reduced to text-3xl for better hierarchy */}
-            <h3 className="font-serif text-3xl mb-6 italic border-b border-zinc-800/80 pb-4 text-zinc-100">
-              Mechanics
-            </h3>
-            <ul className="space-y-2">
-              {mechanicsLessons.map(lesson => {
-                const code = lesson.id.replace("-Lesson", "");
-                return (
-                  <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-zinc-800 hover:bg-background/60 transition-all">
-                    <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
-                      <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
-                        {code}
-                      </span>
-                      <span className="text-xl font-serif font-medium leading-snug text-zinc-200 group-hover:text-sky-400 transition-colors truncate">
-                        {lesson.title}
-                      </span>
-                    </Link>
-                    <Link 
-                      to={`/practice/${code}/General`}
-                      className="px-4 py-2 bg-zinc-800 hover:bg-sky-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-500 hover:text-sky-400 rounded-lg border border-zinc-700 transition-all shadow-sm"
-                    >
-                      Practice
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+        </main>
+      ) : (
+        <main className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          
+          {/* Column A */}
+          <div className="flex flex-col h-full border border-zinc-800 bg-zinc-900/40 relative rounded-2xl shadow-2xl backdrop-blur-sm">
+            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-zinc-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
+              Section A
+            </div>
+            <div className="p-8">
+              <h3 className="font-serif text-3xl mb-6 italic border-b border-zinc-800/80 pb-4 text-zinc-100">
+                {activeQualification === 'AS2' ? 'Mechanics' : 'Pure Mathematics (1)'}
+              </h3>
+              <ul className="space-y-2">
+                {(activeQualification === 'AS2' ? mechanicsLessons : pureLessons).map(lesson => {
+                  const code = lesson.id.replace("-Lesson", "");
+                  return (
+                    <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-zinc-800 hover:bg-background/60 transition-all">
+                      <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
+                        <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
+                          {code}
+                        </span>
+                        <span className="text-xl font-serif font-medium leading-snug text-zinc-200 group-hover:text-sky-400 transition-colors truncate">
+                          {lesson.title}
+                        </span>
+                      </Link>
+                      <Link 
+                        to={`/practice/${code}/General`}
+                        className="px-4 py-2 bg-zinc-800 hover:bg-sky-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-500 hover:text-sky-400 rounded-lg border border-zinc-700 transition-all shadow-sm"
+                      >
+                        Practice
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
 
-        {/* Statistics Column */}
-        <div className="flex flex-col h-full border border-zinc-800 bg-zinc-900/40 relative rounded-2xl shadow-2xl backdrop-blur-sm">
-          <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-sky-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
-            Section B
+          {/* Column B */}
+          <div className="flex flex-col h-full border border-zinc-800 bg-zinc-900/40 relative rounded-2xl shadow-2xl backdrop-blur-sm">
+            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-sky-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
+              Section B
+            </div>
+            <div className="p-8">
+              <h3 className="font-serif text-3xl font-light mb-6 italic border-b border-zinc-800/80 pb-4 text-zinc-100 tracking-wide">
+                {activeQualification === 'AS2' ? 'Statistics' : 'Pure Mathematics (2)'}
+              </h3>
+              <ul className="space-y-2">
+                {(activeQualification === 'AS2' ? statisticsLessons : []).map(lesson => {
+                  const code = lesson.id.replace("-Lesson", "");
+                  return (
+                    <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-zinc-800 hover:bg-background/60 transition-all">
+                      <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
+                        <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
+                          {code}
+                        </span>
+                        <span className="text-xl font-serif font-medium leading-snug text-zinc-200 group-hover:text-sky-400 transition-colors truncate">
+                          {lesson.title}
+                        </span>
+                      </Link>
+                      <Link 
+                        to={`/practice/${code}/General`}
+                        className="px-4 py-2 bg-zinc-800 hover:bg-sky-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-500 hover:text-sky-400 rounded-lg border border-zinc-700 transition-all shadow-sm"
+                      >
+                        Practice
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-          <div className="p-8">
-            {/* Reduced to text-3xl for better hierarchy */}
-            <h3 className="font-serif text-3xl font-light mb-6 italic border-b border-zinc-800/80 pb-4 text-zinc-100 tracking-wide">
-              Statistics
-            </h3>
-            <ul className="space-y-2">
-              {statisticsLessons.map(lesson => {
-                const code = lesson.id.replace("-Lesson", "");
-                return (
-                  <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-zinc-800 hover:bg-background/60 transition-all">
-                    <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
-                      <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
-                        {code}
-                      </span>
-                      <span className="text-xl font-serif font-medium leading-snug text-zinc-200 group-hover:text-sky-400 transition-colors truncate">
-                        {lesson.title}
-                      </span>
-                    </Link>
-                    <Link 
-                      to={`/practice/${code}/General`}
-                      className="px-4 py-2 bg-zinc-800 hover:bg-sky-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-500 hover:text-sky-400 rounded-lg border border-zinc-700 transition-all shadow-sm"
-                    >
-                      Practice
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </main>
+        </main>
+      )}
     </div>
   );
 }

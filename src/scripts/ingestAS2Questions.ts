@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const SOURCE_ROOT = '/Users/evanward/Documents/AS Portal - New /AS2 Files/';
 const TARGET_FILE = path.join(__dirname, '../data/imported_questions.ts');
-const LESSON_VISUAL_PATH = path.join(__dirname, '../components/LessonVisual.tsx');
+const LESSON_VISUAL_PATH = path.join(__dirname, '@/core/components/VisualRenderer.tsx');
 
 interface PracticeQuestion {
   id: string;
@@ -180,7 +180,7 @@ function runIngestion() {
     }
   });
 
-  const output = `import { PracticeQuestion } from '../types';
+  const output = `import { PracticeQuestion } from '@/core/types';
 
 export const IMPORTED_QUESTIONS: PracticeQuestion[] = ${JSON.stringify(allQuestions, null, 2)};
 `;

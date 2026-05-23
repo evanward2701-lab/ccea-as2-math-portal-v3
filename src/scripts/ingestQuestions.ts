@@ -6,8 +6,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const SOURCE_ROOT = '/Users/evanward/Documents/AS Portal - New /AS2 Files/';
-const TARGET_FILE = path.join(__dirname, '../data/imported_questions.ts');
-const LESSON_VISUAL_PATH = path.join(__dirname, '../components/LessonVisual.tsx');
+const TARGET_FILE = path.join(__dirname, '../data/generated/as2Questions.ts');
+const LESSON_VISUAL_PATH = path.join(__dirname, '@/core/components/VisualRenderer.tsx');
 
 interface PracticeQuestion {
   id: string;
@@ -20,25 +20,21 @@ interface PracticeQuestion {
   visualId?: string;
 }
 
-// 1. Build Visual ID Map from LessonVisual.tsx
-// We want to map component names to their slug IDs (e.g., "M2KinematicsMaster" -> "M2-VTS")
+// 1. Build Visual ID Map
 function getVisualIdMap() {
   if (!fs.existsSync(LESSON_VISUAL_PATH)) return {};
   const content = fs.readFileSync(LESSON_VISUAL_PATH, 'utf-8');
   const mapping: Record<string, string> = {};
-  
-  // Look for "visual-id": { module: "...", component: "ComponentName" }
   const regex = /"([^"]+)":\s*{\s*module:\s*"[^"]+",\s*component:\s*"([^"]+)"\s*}/g;
   let match;
   while ((match = regex.exec(content)) !== null) {
-    mapping[match[2].toLowerCase()] = match[1]; // lowercase ComponentName -> visual-id
+    mapping[match[2].toLowerCase()] = match[1];
   }
   return mapping;
 }
 
 const componentToVisualId = getVisualIdMap();
 
-// Keyword mapping for common visual types if ID mapping fails
 const KEYWORD_MAP: Record<string, string> = {
   "velocity-time": "M2-VTGraphEngine",
   "displacement-time": "M2-VTS",
@@ -62,51 +58,37 @@ const KEYWORD_MAP: Record<string, string> = {
 
 function parseMarkdownPack(filePath: string) {
   const content = fs.readFileSync(filePath, 'utf-8');
-  // Split by horizontal rules that separate questions
-  const sections = content.split('\n---').map(s => s.trim());
-  return sections;
+  return content.split('\n---').map(s => s.trim());
 }
 
 function extractQuestionData(section: string) {
-  const idMatch = section.match(/\*\*Question ID:\*\*\s*(AS2[A-Za-z0-9]+)/);
+  const idMatch = section.match(/\*\*Question ID:\*\*\s*(AS2[A-Za-z0-9_-]+)/);
   const marksMatch = section.match(/\*\*Marks:\*\*\s*(\d+)/);
   const questionContentMatch = section.match(/### Question\s+([\s\S]*?)(?=\s+###|$)/);
   
   if (!idMatch) return null;
 
   let questionMarkdown = (questionContentMatch ? questionContentMatch[1] : '').trim();
-  
-  // Cleanup: Remove "Space for Working" if present
   questionMarkdown = questionMarkdown.split('### Space for Working')[0].trim();
 
-  // 2. Linking Logic: Scan for visual placeholders
   let visualId: string | undefined = undefined;
   const visualMatch = section.match(/\[VISUAL (?:PLACEHOLDER|REFERENCE):\s*([^\]|]+)(?:\|[^\]]*)?\]/);
   
   if (visualMatch) {
-    const rawId = visualMatch[1].trim();
-    const lowerId = rawId.toLowerCase();
-    
-    // a. Try to find a component name in the string
+    const rawId = visualMatch[1].trim().toLowerCase();
     for (const [compName, vid] of Object.entries(componentToVisualId)) {
-      if (lowerId.includes(compName)) {
+      if (rawId.includes(compName)) {
         visualId = vid;
         break;
       }
     }
-
-    // b. Fallback to keyword mapping
     if (!visualId) {
       for (const [kw, vid] of Object.entries(KEYWORD_MAP)) {
-        if (lowerId.includes(kw)) {
+        if (rawId.includes(kw)) {
           visualId = vid;
           break;
         }
       }
-    }
-
-    if (visualId) {
-      console.log(`   🔗 Bound visual "${visualId}" to ${idMatch[1]}`);
     }
   }
 
@@ -118,15 +100,30 @@ function extractQuestionData(section: string) {
   };
 }
 
-function extractSolutionData(section: string) {
-  const idMatch = section.match(/\*\*Question ID:\*\*\s*(AS2[A-Za-z0-9]+)/);
-  const solutionMatch = section.match(/### Official Mark Scheme Solution\s+([\s\S]*?)(?=\s+###|$)/);
-  
+function extractFullSolutionData(section: string) {
+  const idMatch = section.match(/\*\*Question ID:\*\*\s*(AS2[A-Za-z0-9_-]+)/);
   if (!idMatch) return null;
+
+  let solutionContent = section
+    .replace(/\*\*Question ID:\*\*.*$/m, '')
+    .replace(/\*\*Source:\*\*.*$/m, '')
+    .replace(/\*\*Original reference:\*\*.*$/m, '')
+    .trim();
+
+  const officialMissing = solutionContent.includes('Official solution not found') || 
+                          solutionContent.includes('No official mark scheme content available');
+  const generatedBlock = solutionContent.includes('### Generated solution');
+  const finalAnswerBlock = solutionContent.includes('### Final Answer');
+
+  if (officialMissing && generatedBlock) {
+    solutionContent = solutionContent.replace('### Generated solution', '> **Note:** Official mark scheme unavailable. Generated solution shown for study support.\n\n### Generated solution');
+  } else if (officialMissing && !generatedBlock && finalAnswerBlock) {
+    solutionContent = solutionContent.replace('### Final Answer', '> **Note:** Step-by-step working unavailable. Displaying final answer only.\n\n### Final Answer');
+  }
 
   return {
     id: idMatch[1],
-    markSchemeMarkdown: (solutionMatch ? solutionMatch[1] : '').trim()
+    markSchemeMarkdown: solutionContent
   };
 }
 
@@ -139,10 +136,7 @@ function runIngestion() {
   }
 
   const allQuestions: PracticeQuestion[] = [];
-  const folders = fs.readdirSync(SOURCE_ROOT).filter(f => {
-    const fullPath = path.join(SOURCE_ROOT, f);
-    return fs.statSync(fullPath).isDirectory();
-  });
+  const folders = fs.readdirSync(SOURCE_ROOT).filter(f => fs.statSync(path.join(SOURCE_ROOT, f)).isDirectory());
 
   folders.forEach(folder => {
     const folderPath = path.join(SOURCE_ROOT, folder);
@@ -152,7 +146,7 @@ function runIngestion() {
     const solutionsFile = files.find(f => f.endsWith('_solutions.md'));
 
     if (questionsFile && solutionsFile) {
-      console.log(`\x1b[1mProcessing Pack: ${folder}\x1b[0m`);
+      console.log(`Processing Pack: ${folder}`);
       
       const qSections = parseMarkdownPack(path.join(folderPath, questionsFile));
       const sSections = parseMarkdownPack(path.join(folderPath, solutionsFile));
@@ -165,17 +159,14 @@ function runIngestion() {
       });
 
       sSections.forEach(s => {
-        const data = extractSolutionData(s);
+        const data = extractFullSolutionData(s);
         if (data && questionMap[data.id]) {
           questionMap[data.id].markSchemeMarkdown = data.markSchemeMarkdown;
         }
       });
 
-      // 3. Module Detection: Folder name contains 'M2', 'S3', etc.
       const moduleMatch = folder.match(/([MS][1-4])/i);
       const moduleId = moduleMatch ? moduleMatch[1].toUpperCase() : 'Unknown';
-      
-      // Topic derivation: everything after the module code
       let topic = folder;
       if (moduleMatch) {
         topic = folder.split(moduleMatch[0])[1].replace(/^[- ]+/, '').trim();
@@ -188,7 +179,7 @@ function runIngestion() {
           topic: topic || 'General',
           type: "Exam-Style",
           questionMarkdown: q.questionMarkdown,
-          markSchemeMarkdown: q.markSchemeMarkdown || '_Solution content missing from pack._',
+          markSchemeMarkdown: q.markSchemeMarkdown || '_Solution content pending recovery._',
           marks: q.marks,
           visualId: q.visualId
         });
@@ -196,15 +187,14 @@ function runIngestion() {
     }
   });
 
-  const output = `import { PracticeQuestion } from '../types';
-
-export const IMPORTED_QUESTIONS: PracticeQuestion[] = ${JSON.stringify(allQuestions, null, 2)};
-`;
-
+  const output = `import { PracticeQuestion } from '@/core/types';\n\nexport const AS2_GENERATED_QUESTIONS: PracticeQuestion[] = ${JSON.stringify(allQuestions, null, 2)};\n`;
+  
+  if (!fs.existsSync(path.dirname(TARGET_FILE))) {
+    fs.mkdirSync(path.dirname(TARGET_FILE), { recursive: true });
+  }
+  
   fs.writeFileSync(TARGET_FILE, output);
-  console.log(`\n\x1b[32m✅ Ingestion Complete!\x1b[0m`);
-  console.log(`Total questions imported: ${allQuestions.length}`);
-  console.log(`Output: src/data/imported_questions.ts`);
+  console.log(`\n\x1b[32m✅ Ingestion Complete! ${allQuestions.length} questions written to ${TARGET_FILE}\x1b[0m`);
 }
 
 runIngestion();

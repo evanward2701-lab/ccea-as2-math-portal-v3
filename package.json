@@ -10,7 +10,17 @@
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
     "audit": "tsx src/scripts/auditor/audit.ts",
-    "screenshots": "tsx src/scripts/captureScreenshots.ts"
+    "screenshots": "tsx src/scripts/captureScreenshots.ts",
+    "ingest:as2": "tsx src/scripts/ingestQuestions.ts",
+    "import:combined": "tsx src/scripts/importCombinedPracticePacks.ts",
+    "extract:all": "npm run import:combined",
+    "audit:questions": "tsx src/scripts/auditQuestionBank.ts",
+    "build:m2-combined": "tsx src/scripts/buildCombinedM2Markdown.ts",
+    "build:m3-combined": "tsx src/scripts/buildCombinedM3Markdown.ts",
+    "build:s2-correlation-combined": "tsx src/scripts/buildCombinedS2CorrelationMarkdown.ts",
+    "build:s2-standard-deviation-combined": "tsx src/scripts/buildCombinedS2StandardDeviationMarkdown.ts",
+    "build:s3-probability-combined": "tsx src/scripts/buildCombinedS3ProbabilityMarkdown.ts",
+    "build:s4-binomial-combined": "tsx src/scripts/buildCombinedS4BinomialMarkdown.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
@@ -31,6 +41,7 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.15.1",
     "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "shadcn": "^4.7.0",
     "tailwind-merge": "^3.6.0",

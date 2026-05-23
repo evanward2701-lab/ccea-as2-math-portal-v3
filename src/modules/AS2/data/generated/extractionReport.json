@@ -1,0 +1,17 @@
+{
+  "foldersScanned": 9,
+  "totalQuestionsFound": 105,
+  "totalQuestionsImported": 105,
+  "questionsNoSolution": [],
+  "generatedOnlySolutions": [
+    "AS2ConnectedParticlesQ010",
+    "AS2ForcesNewtonsLawsQ004",
+    "AS2InclinedPlanesQ002",
+    "AS2MeanStandardDeviationQ001",
+    "AS2ProductMomentCorrelationCoefficientQ007"
+  ],
+  "finalAnswerOnlySolutions": [],
+  "placeholdersFound": 0,
+  "visualsExtracted": 119,
+  "unmatchedVisualIDs": []
+}

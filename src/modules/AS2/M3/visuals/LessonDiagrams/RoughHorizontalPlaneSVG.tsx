@@ -1,0 +1,74 @@
+import React from 'react';
+import { MathText } from '@/core/components/MathText';
+import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
+import { themeColors } from '@/core/types/mechanicsTheme';
+
+export const RoughHorizontalPlaneSVG: React.FC = () => (
+  <DiagramPanel
+    title="Fig 1. Single Particle Resolving"
+    analysis={
+      <div className="space-y-3">
+        <div className="p-3 bg-slate-900/50 border border-slate-800 rounded-lg">
+          <p className="text-sm text-slate-300 leading-relaxed text-center italic">
+            Always draw a comprehensive force diagram before resolving. Acceleration dictates the positive direction.
+          </p>
+        </div>
+        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Never confuse mass (<MathText content="m" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" />) with weight (<MathText content="mg" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" />) in your diagrams or equations.
+        </div>
+      </div>
+    }
+  >
+    <div className="relative w-full aspect-45/23 max-w-xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+      <SVGLibrary />
+      <svg className="absolute inset-0 w-full h-full" viewBox="100 20 450 230" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
+        {/* Ground Plane & Roughness */}
+        <line x1="100" y1="160" x2="500" y2="160" stroke="#334155" strokeWidth="3" />
+        <path d="M150 160 L140 172 M200 160 L190 172 M250 160 L240 172 M300 160 L290 172 M350 160 L340 172 M400 160 L390 172 M450 160 L440 172" stroke="#1e293b" strokeWidth="2" />
+
+        {/* Particle Block */}
+        <ObjectBlock x={250} y={100} width={100} height={60} massLabel="m" />
+
+        {/* Normal Reaction Force R */}
+        <VectorArrow x1={300} y1={100} x2={300} y2={35} type="accel" marker="default" />
+
+        {/* Weight Force mg */}
+        <VectorArrow x1={300} y1={160} x2={300} y2={215} type="applied" marker="default" />
+
+        {/* Driving Force P */}
+        <VectorArrow x1={350} y1={130} x2={445} y2={130} type="accel" marker="default" />
+
+        {/* Friction Resistance Vector F_r */}
+        <VectorArrow x1={250} y1={140} x2={165} y2={140} type="force" marker="default" />
+
+        {/* Acceleration Vector */}
+        <VectorArrow x1={380} y1={65} x2={430} y2={65} type="velocity" marker="default" />
+        <VectorArrow x1={390} y1={65} x2={440} y2={65} type="velocity" marker="default" />
+      </svg>
+
+      <DiagramLabel position={{ left: '44.4%', top: '6.5%' }}>
+        <MathText content="R" />
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '44.4%', top: '84.8%' }}>
+        <MathText content="mg" />
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '77.8%', top: '34.8%' }}>
+        <div className="text-emerald-400 text-xs font-semibold whitespace-nowrap">Driving Force (<MathText content="P" className="inline [&_p]:inline"/>)</div>
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '0%', top: '39.1%' }}>
+        <div className="text-rose-400 text-xs font-semibold whitespace-nowrap">Friction (<MathText content="F" className="inline [&_p]:inline"/>)</div>
+      </DiagramLabel>
+
+      <DiagramLabel position={{ left: '75.6%', top: '19.6%' }}>
+        <MathText content="a" />
+      </DiagramLabel>
+    </div>
+  </DiagramPanel>
+);

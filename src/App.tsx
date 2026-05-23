@@ -4,13 +4,17 @@ import { Dashboard } from "./pages/Dashboard";
 import { Lessons } from "./pages/Lessons";
 import { PracticeBank } from "./pages/PracticeBank";
 import { PracticePage } from "./pages/PracticePage";
-import { cn } from "@/lib/utils";
-import { LESSONS } from "./data/lessons";
+import { cn } from "@/core/utils/cn";
+import { LESSONS as AS2_LESSONS } from "@/modules/AS2/data/lessons";
+import { LESSONS as AS1_LESSONS } from "@/modules/AS1/data/lessons";
+import { QualificationProvider, useQualification } from "@/core/context/QualificationContext";
+import { GlobalNav } from "@/core/components/GlobalNav";
 
 const getModuleCode = (moduleId: string) => moduleId.replace("-Lesson", "");
 
-export default function App() {
+function AppLayout() {
   const location = useLocation();
+  const { activeQualification } = useQualification();
 
   const mainLinks = [
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
@@ -18,14 +22,17 @@ export default function App() {
     { name: "Practice Bank", path: "/practice", icon: BrainCircuit },
   ];
 
+  const currentLessons = activeQualification === 'AS1' ? AS1_LESSONS : activeQualification === 'AS2' ? AS2_LESSONS : [];
+
   return (
     <div className="flex flex-col h-screen bg-background text-zinc-100 font-sans overflow-hidden select-none">
+      <GlobalNav />
       {/* Header Navigation */}
       <nav className="h-16 border-b border-zinc-800 flex items-center justify-between px-8 bg-background z-10 shrink-0 shadow-sm">
         <div className="flex items-center gap-8">
           <span className="font-serif italic text-2xl font-bold tracking-tighter text-zinc-100 flex items-center gap-3">
             <GraduationCap className="h-6 w-6 text-sky-400" />
-            AS2 Mathematics
+            {activeQualification} Mathematics
           </span>
           <div className="h-4 w-px bg-zinc-700"></div>
           <span className="text-[10px] uppercase tracking-widest font-semibold text-zinc-400">
@@ -56,29 +63,33 @@ export default function App() {
                       <span>{link.name}</span>
                     </summary>
                     <div className="pl-5 pt-2 space-y-1 border-l-2 border-zinc-800 ml-6">
-                      {LESSONS.map(lesson => {
-                        const lessonIsActive = location.pathname === `/lessons/${lesson.id}`;
-                        return (
-                          <Link
-                            key={lesson.id}
-                            to={`/lessons/${lesson.id}`}
-                            className={cn(
-                              "flex items-center gap-3 px-4 py-2 rounded-xl text-xs font-mono transition-all",
-                              lessonIsActive
-                                ? "bg-zinc-800 text-emerald-400 border border-zinc-700 shadow-inner font-bold"
-                                : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 border border-transparent"
-                            )}
-                          >
-                            <span className={cn(
-                              "w-8 text-center px-1.5 py-0.5 rounded text-[9px] font-bold",
-                              lessonIsActive ? "bg-emerald-950 text-emerald-400" : "bg-zinc-800 text-zinc-400"
-                            )}>
-                              {getModuleCode(lesson.id)}
-                            </span>
-                            <span className="truncate">{lesson.title}</span>
-                          </Link>
-                        );
-                      })}
+                      {currentLessons.length === 0 ? (
+                         <div className="px-4 py-2 text-[10px] text-zinc-500 italic">No modules available</div>
+                      ) : (
+                        currentLessons.map(lesson => {
+                          const lessonIsActive = location.pathname === `/lessons/${lesson.id}`;
+                          return (
+                            <Link
+                              key={lesson.id}
+                              to={`/lessons/${lesson.id}`}
+                              className={cn(
+                                "flex items-center gap-3 px-4 py-2 rounded-xl text-xs font-mono transition-all",
+                                lessonIsActive
+                                  ? "bg-zinc-800 text-emerald-400 border border-zinc-700 shadow-inner font-bold"
+                                  : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 border border-transparent"
+                              )}
+                            >
+                              <span className={cn(
+                                "w-8 text-center px-1.5 py-0.5 rounded text-[9px] font-bold",
+                                lessonIsActive ? "bg-emerald-950 text-emerald-400" : "bg-zinc-800 text-zinc-400"
+                              )}>
+                                {getModuleCode(lesson.id)}
+                              </span>
+                              <span className="truncate">{lesson.title}</span>
+                            </Link>
+                          );
+                        })
+                      )}
                     </div>
                   </details>
                 );
@@ -108,8 +119,8 @@ export default function App() {
               <span className="text-[9px] uppercase tracking-widest font-mono text-emerald-400 font-bold">
                 System Active
               </span>
-              <span className="text-[10px] text-zinc-500 font-medium">
-                M1-M3 & S1-S4 Modules Loaded
+              <span className="text-[10px] text-zinc-500 font-medium text-center">
+                {activeQualification} Modules Loaded
               </span>
             </div>
           </div>
@@ -127,5 +138,13 @@ export default function App() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <QualificationProvider>
+      <AppLayout />
+    </QualificationProvider>
   );
 }

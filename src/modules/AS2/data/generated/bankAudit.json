@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "totalQuestions": 114,
+    "moduleBreakdown": {
+      "M1": 4,
+      "M2": 21,
+      "M3": 48,
+      "S4": 10,
+      "S2": 19,
+      "S3": 12
+    },
+    "questionsWithMainVisual": 0,
+    "duplicateIDCount": 0
+  },
+  "qualityGaps": {
+    "missingSolutionsCount": 0,
+    "generatedOnlyCount": 5,
+    "finalAnswerOnlyCount": 0,
+    "missingSolutionsList": [],
+    "duplicateIDs": []
+  },
+  "visualAudit": {
+    "unresolvedCount": 0,
+    "unresolvedList": []
+  }
+}
