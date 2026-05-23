@@ -129,7 +129,7 @@ When objects are connected by a light towbar or inextensible string, the connect
 
 ### Method: Interpreting Modelling Assumptions
 1. Highlight the modelling words in the question.
-2. Tranzinc each word into a mathematical effect.
+2. Translate each word into a mathematical effect.
 3. Use the effect in equations, diagrams, or explanations.
 
 ## 9. Worked Examples

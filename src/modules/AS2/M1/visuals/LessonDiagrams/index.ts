@@ -9,5 +9,4 @@ export * from "./M1KinematicNotationPanel";
 export * from "./M1ModellingSandboxSVG";
 export * from "./TowingModelSVG";
 export * from "./M1ModellingSummaryTable";
-export * from "./M1SIUnitDerivationMermaid";
 export * from "./LiftPhysicsSVG";

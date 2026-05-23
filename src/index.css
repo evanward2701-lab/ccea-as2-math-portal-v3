@@ -132,3 +132,16 @@
     @apply font-serif font-light tracking-wide text-zinc-100;
   }
 }
+
+.mermaid-diagram {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

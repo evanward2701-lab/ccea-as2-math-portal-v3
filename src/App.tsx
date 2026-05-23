@@ -4,6 +4,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Lessons } from "./pages/Lessons";
 import { PracticeBank } from "./pages/PracticeBank";
 import { PracticePage } from "./pages/PracticePage";
+import CompareDerivationDiagramsPage from "./pages/CompareDerivationDiagramsPage";
 import { cn } from "@/core/utils/cn";
 import { LESSONS as AS2_LESSONS } from "@/modules/AS2/data/lessons";
 import { LESSONS as AS1_LESSONS } from "@/modules/AS1/data/lessons";
@@ -20,6 +21,7 @@ function AppLayout() {
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
     { name: "Course Modules", path: "/lessons", icon: BookOpen },
     { name: "Practice Bank", path: "/practice", icon: BrainCircuit },
+    { name: "Compare Diagrams", path: "/compare", icon: BrainCircuit },
   ];
 
   const currentLessons = activeQualification === 'AS1' ? AS1_LESSONS : activeQualification === 'AS2' ? AS2_LESSONS : [];
@@ -43,7 +45,7 @@ function AppLayout() {
 
       <div className="flex-1 flex overflow-hidden">
         {/* Main Sidebar Layout */}
-        <aside className="w-64 border-r border-zinc-800 flex flex-col bg-zinc-900/50 shrink-0 shadow-xl z-20 h-full overflow-y-auto">
+        <aside className="w-64 border-r border-zinc-800 flex flex-col bg-[#1c1c1f] shrink-0 shadow-xl z-20 h-full overflow-y-auto">
           <nav className="flex-1 px-4 py-8 space-y-2">
             {mainLinks.map((link) => {
               const Icon = link.icon;
@@ -75,13 +77,13 @@ function AppLayout() {
                               className={cn(
                                 "flex items-center gap-3 px-4 py-2 rounded-xl text-xs font-mono transition-all",
                                 lessonIsActive
-                                  ? "bg-zinc-800 text-emerald-400 border border-zinc-700 shadow-inner font-bold"
+                                  ? "bg-zinc-800 text-zinc-200 border border-zinc-700 shadow-inner font-bold"
                                   : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 border border-transparent"
                               )}
                             >
                               <span className={cn(
                                 "w-8 text-center px-1.5 py-0.5 rounded text-[9px] font-bold",
-                                lessonIsActive ? "bg-emerald-950 text-emerald-400" : "bg-zinc-800 text-zinc-400"
+                                lessonIsActive ? "bg-zinc-950 text-zinc-200" : "bg-zinc-800 text-zinc-400"
                               )}>
                                 {getModuleCode(lesson.id)}
                               </span>
@@ -114,9 +116,9 @@ function AppLayout() {
           </nav>
 
           {/* User / Session Footer Area */}
-          <div className="p-4 border-t border-zinc-800 bg-background/50">
+          <div className="p-4 border-t border-zinc-800 bg-[#141416]/50">
             <div className="p-4 bg-background border border-zinc-800 rounded-lg flex flex-col items-center justify-center gap-2 shadow-inner">
-              <span className="text-[9px] uppercase tracking-widest font-mono text-emerald-400 font-bold">
+              <span className="text-[9px] uppercase tracking-widest font-mono text-zinc-400 font-bold">
                 System Active
               </span>
               <span className="text-[10px] text-zinc-500 font-medium text-center">
@@ -134,6 +136,7 @@ function AppLayout() {
             <Route path="/lessons/:id" element={<Lessons />} />
             <Route path="/practice" element={<PracticeBank />} />
             <Route path="/practice/:moduleId/:topic" element={<PracticePage />} />
+            <Route path="/compare" element={<CompareDerivationDiagramsPage />} />
           </Routes>
         </main>
       </div>

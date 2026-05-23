@@ -101,7 +101,7 @@ export const M3InclinedPlaneResolver: React.FC = () => {
           <text x={blockX + 5} y={blockY + weight * visualScale + 20} fill="#f43f5e" fontSize="14"><MathText content="mg" /></text>
 
           {/* Rotated group for components relative to the plane */}
-          <g transform={`tranzinc(${blockX}, ${blockY}) rotate(${-angle})`}>
+          <g transform={`translate(${blockX}, ${blockY}) rotate(${-angle})`}>
             {/* Block */}
             <rect x="-25" y="-40" width="50" height="40" rx="4" fill="#1e293b" stroke="#94a3b8" strokeWidth="1.5" />
 

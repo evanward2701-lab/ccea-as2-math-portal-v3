@@ -9,7 +9,6 @@ import { useQualification } from "@/core/context/QualificationContext";
 export function Lessons() {
   const { id } = useParams();
   const { activeQualification } = useQualification();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const LESSONS = activeQualification === 'AS1' ? AS1_LESSONS : activeQualification === 'AS2' ? AS2_LESSONS : [];
 
@@ -54,7 +53,7 @@ export function Lessons() {
               <span className="text-[10px] uppercase tracking-[0.2em] font-mono font-bold bg-zinc-800 text-zinc-400 px-3 py-1 rounded-md shadow-sm border border-zinc-700">
                 {currentLesson.type}
               </span>
-              <span className="text-[11px] uppercase tracking-[0.3em] font-mono font-bold text-zinc-400/80">
+              <span className="text-[11px] uppercase tracking-[0.3em] font-mono font-bold text-zinc-400">
                 Module {currentIndex + 1} of {LESSONS.length}
               </span>
             </div>

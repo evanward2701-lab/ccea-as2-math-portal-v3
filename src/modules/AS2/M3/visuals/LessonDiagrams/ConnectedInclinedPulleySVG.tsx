@@ -47,7 +47,7 @@ export const ConnectedInclinedPulleySVG: React.FC = () => (
 
         {/* Inclined Mass Body A */}
         <line x1="285" y1="186" x2="450" y2="120" stroke="#64748b" strokeWidth="1.5" />
-        <g transform="tranzinc(250 200) rotate(-21.8)">
+        <g transform="translate(250 200) rotate(-21.8)">
           <rect x="-35" y="-25" width="70" height="50" fill="#1e293b" stroke="#475569" strokeWidth="2" />
           
           {/* Labels for m_A are complex with rotation, I'll use absolute overlays for simple ones and SVG text for nested ones if needed, but the task says NO foreignObject. */}

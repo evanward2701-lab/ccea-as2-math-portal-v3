@@ -20,7 +20,7 @@ export const AS2_SHORT_ID_MAPPING: Record<string, { module: ModuleKey; component
   "M1-Towing": { module: "M1", component: "TowingModelSVG" },
   "M1-Lift": { module: "M1", component: "LiftPhysicsSVG" },
   "M1-ExamTrap": { module: "M1", component: "M1ExamTrapSVG" },
-  "M1-SIUnits": { module: "M1", component: "M1SIUnitDerivationMermaid" },
+  "M1-SIUnits": { module: "M1", component: "M1SIUnitDerivationSVG" },
   "M1-ScalarVectorMap": { module: "M1", component: "ScalarVectorSpatialMapSVG" },
   "M1-ModellingSandbox": { module: "M1", component: "M1ModellingSandboxSVG" },
   "M1-FreeBody": { module: "M1", component: "M1FreeBodyDiagram" },

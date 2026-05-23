@@ -22,7 +22,7 @@ export const M1ModellingSandboxSVG: React.FC = () => (
           Rigid light towbar: fixed distance, negligible mass.
         </div>
         <div className="md:col-span-3 rounded-lg border border-emerald-900/50 bg-emerald-950/20 p-3 text-center text-sm font-semibold text-emerald-200">
-          Exam technique: tranzinc each modelling word into a mathematical effect before writing equations.
+          Exam technique: translate each modelling word into a mathematical effect before writing equations.
         </div>
       </div>
     }

@@ -113,7 +113,7 @@ export const S4ContinuityCorrectionLens: React.FC = () => {
             ))}
           </svg>
 
-          <DiagramLabel position={{ left: `${boundaryX / svgWidth * 100}%`, top: `${(baseY + 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+          <DiagramLabel position={{ left: `${boundaryX / svgWidth * 100}%`, top: `${(baseY + 20) / svgHeight * 100}%` }} className="-translate-x-1/2">
             <div className="text-[#f43f5e] text-xs font-bold">{correction.boundary}</div>
           </DiagramLabel>
         </div>

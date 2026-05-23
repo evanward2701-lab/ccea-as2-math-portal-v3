@@ -39,7 +39,7 @@ export function PracticePage() {
             <h1 className="text-4xl font-serif text-zinc-100 tracking-wide">
               {title}
             </h1>
-            <h2 className="text-[11px] uppercase tracking-widest font-mono text-emerald-400 font-bold">
+            <h2 className="text-[11px] uppercase tracking-widest font-mono text-zinc-400 font-bold">
               {topic === "General" ? "Full Module Practice Bank" : `Topic Focus: ${topic}`}
             </h2>
           </div>

@@ -63,7 +63,7 @@ export function PracticeBank() {
             <select 
               value={searchParams.get("module") || "All"} 
               onChange={(e) => updateFilter("module", e.target.value)}
-              className="w-full text-xs font-mono bg-background border border-zinc-800 text-zinc-300 rounded-lg p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
+              className="w-full text-xs font-mono bg-background border border-zinc-800 text-zinc-300 rounded-lg p-2.5 outline-none transition-colors"
             >
               <option value="All">All Modules</option>
               {LESSONS.map(l => (
@@ -77,7 +77,7 @@ export function PracticeBank() {
             <select 
               value={selectedType} 
               onChange={(e) => updateFilter("type", e.target.value)}
-              className="w-full text-xs font-mono bg-background border border-zinc-800 text-zinc-300 rounded-lg p-2.5 focus:border-emerald-500/50 outline-none transition-colors"
+              className="w-full text-xs font-mono bg-background border border-zinc-800 text-zinc-300 rounded-lg p-2.5 outline-none transition-colors"
             >
               <option value="All">All Categories</option>
               {activeQualification === 'AS2' ? (
@@ -100,7 +100,7 @@ export function PracticeBank() {
                   onClick={() => updateFilter("marks", tier)}
                   className={`w-full text-left text-xs font-mono px-3 py-2 rounded-lg transition-all border ${
                     selectedMarks === tier
-                      ? "bg-zinc-800 border-zinc-700 text-emerald-400 font-bold shadow-inner"
+                      ? "bg-zinc-800 border-zinc-700 text-zinc-200 font-bold shadow-inner"
                       : "text-zinc-400 border-transparent hover:bg-background/60 hover:text-zinc-200"
                   }`}
                 >

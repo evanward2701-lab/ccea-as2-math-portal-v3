@@ -1,155 +1,101 @@
 import React, { useState } from 'react';
-import { MathText } from '@/core/components/MathText';
+import { MathText, MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 
 export const S2CumulativeBoxPlotProjector: React.FC = () => {
-  const [projectQuartiles, setProjectQuartiles] = useState(false);
+  const [n, setN] = useState(100);
 
-  const n = 120; // Total frequency
-  const q1Pos = n / 4; // 30
-  const q2Pos = n / 2; // 60
-  const q3Pos = (3 * n) / 4; // 90
+  const q1Pos = n * 0.25;
+  const q2Pos = n * 0.50;
+  const q3Pos = n * 0.75;
+
+  const q1Val = 20;
+  const q2Val = 35;
+  const q3Val = 48;
 
   const svgWidth = 560;
-  const svgHeight = 400;
-  const padding = 50;
+  const svgHeight = 440;
+  const padding = 60;
 
   const cfGraphHeight = (svgHeight / 2) - padding;
-  const cfBaseY = svgHeight / 2 - 10;
+  const cfBaseY = svgHeight / 2;
   const cfMinY = padding;
 
-  const minX = 70;
-  const q1X = 155;
-  const q2X = 220;
-  const q3X = 300;
-  const maxX = 420;
+  const cfYScale = (val: number) => cfBaseY - (val / n) * cfGraphHeight;
 
-  const cfYScale = (value: number) => cfBaseY - (value / n) * cfGraphHeight;
-
-  const q1YCoord = cfYScale(q1Pos);
-  const q2YCoord = cfYScale(q2Pos);
-  const q3YCoord = cfYScale(q3Pos);
-
-  const curvePath = `M ${minX} ${cfBaseY} C ${minX + 60} ${cfBaseY - 10}, ${q1X - 5} ${q1YCoord + 10}, ${q1X} ${q1YCoord} C ${q1X + 20} ${q1YCoord - 10}, ${q2X - 5} ${q2YCoord + 5}, ${q2X} ${q2YCoord} C ${q2X + 30} ${q2YCoord - 10}, ${q3X - 5} ${q3YCoord + 5}, ${q3X} ${q3YCoord} C ${q3X + 35} ${q3YCoord - 15}, ${maxX - 5} ${cfMinY + 5}, ${maxX} ${cfMinY}`;
-
-  const boxPlotYCenter = svgHeight - padding;
+  const boxPlotYCenter = svgHeight - padding - 40;
+  const q1X = padding + (q1Val / 80) * (svgWidth - 2 * padding);
+  const q2X = padding + (q2Val / 80) * (svgWidth - 2 * padding);
+  const q3X = padding + (q3Val / 80) * (svgWidth - 2 * padding);
 
   return (
     <DiagramPanel
-      title="Fig. Cumulative Frequency to Box Plot Projector"
+      title="Fig. CF to Box Plot Projection"
       analysis={
-        <div className="space-y-4">
-          <p className="text-sm text-zinc-400 italic">
-            The cumulative frequency curve allows us to estimate quartiles and the median, which are then used to construct a box plot.
-          </p>
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Quartile Positions</h4>
-            <div className="grid grid-cols-3 gap-2 text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
-              <div><MathText content={`Q_1 = ${q1Pos}`} className="text-xs" /></div>
-              <div><MathText content={`\\text{Median} = ${q2Pos}`} className="text-xs" /></div>
-              <div><MathText content={`Q_3 = ${q3Pos}`} className="text-xs" /></div>
+        <div className="grid gap-4 md:grid-cols-2 w-full max-w-5xl mx-auto">
+          <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-xl">
+            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider text-center">Quartile Positions</h4>
+            <div className="flex flex-col items-center gap-1">
+              <MathInline content={`Q_1 = ${q1Pos}`} className="text-sm text-zinc-300" />
+              <MathInline content={`\\text{Median} = ${q2Pos}`} className="text-sm text-zinc-300" />
+              <MathInline content={`Q_3 = ${q3Pos}`} className="text-sm text-zinc-300" />
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The whiskers of a box plot extend to the lowest and highest <strong>valid</strong> data values, not necessarily to the outlier fences.
+          <div className="rounded-xl border border-zinc-800 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
+            Project horizontally from the <span className="text-amber-400 font-semibold">Cumulative Frequency</span> axis to the curve, then vertically down to the <span className="text-emerald-400 font-semibold">Box Plot</span> axis.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <button
-          onClick={() => setProjectQuartiles(prev => !prev)}
-          className="px-6 py-2 mb-8 bg-zinc-600 text-white font-bold rounded-lg hover:bg-zinc-500 transition-colors"
-        >
-          {projectQuartiles ? 'Reset View' : 'Project Quartiles'}
-        </button>
+        <div className="relative w-full aspect-[56/44] max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+          <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+            {/* Grid */}
+            <path d={`M ${padding} ${cfMinY} V ${cfBaseY} H ${svgWidth - padding}`} stroke="#3f3f46" strokeWidth="2" />
+            <path d={`M ${padding} ${boxPlotYCenter} H ${svgWidth - padding}`} stroke="#3f3f46" strokeWidth="2" />
 
-        <div className="relative w-full aspect-56/40 max-w-2xl mx-auto">
-          <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-            {/* CF Curve Axes */}
-            <line x1={padding} y1={cfMinY} x2={padding} y2={cfBaseY} stroke="#475569" strokeWidth="2" />
-            <line x1={padding} y1={cfBaseY} x2={svgWidth - padding} y2={cfBaseY} stroke="#475569" strokeWidth="2" />
+            {/* Projection Lines */}
+            {[q1Pos, q2Pos, q3Pos].map((pos, i) => {
+              const y = cfYScale(pos);
+              const x = [q1X, q2X, q3X][i];
+              return (
+                <g key={i}>
+                  <line x1={padding} y1={y} x2={x} y2={y} stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.6" />
+                  <line x1={x} y1={y} x2={x} y2={boxPlotYCenter} stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.6" />
+                </g>
+              );
+            })}
 
-            {/* CF Curve */}
-            <path d={curvePath} fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+            {/* Curve Sketch */}
+            <path d={`M ${padding} ${cfBaseY} Q ${q2X} ${cfYScale(n * 0.1)}, ${svgWidth - padding} ${cfMinY}`} stroke="#a1a1aa" strokeWidth="2" fill="none" opacity="0.4" />
 
-            {/* Box Plot X-axis */}
-            <line x1={padding} y1={boxPlotYCenter} x2={svgWidth - padding} y2={boxPlotYCenter} stroke="#475569" strokeWidth="2" />
-
-            {/* X-axis ticks */}
-            {[minX, q1X, q2X, q3X, maxX].map((xVal, i) => (
-              <g key={`x-tick-${i}`}>
-                <line x1={xVal} y1={cfBaseY} x2={xVal} y2={cfBaseY + 5} stroke="#475569" strokeWidth="1" />
-                <line x1={xVal} y1={boxPlotYCenter} x2={xVal} y2={boxPlotYCenter - 5} stroke="#475569" strokeWidth="1" />
-              </g>
-            ))}
-
-            {projectQuartiles && (
-              <>
-                {/* Q1 Projection */}
-                <polyline points={`${padding},${q1YCoord} ${q1X},${q1YCoord} ${q1X},${boxPlotYCenter}`} fill="none" stroke="#64748b" strokeDasharray="4 2" strokeWidth="1.5" className="transition-all duration-500" />
-                {/* Median Projection */}
-                <polyline points={`${padding},${q2YCoord} ${q2X},${q2YCoord} ${q2X},${boxPlotYCenter}`} fill="none" stroke="#64748b" strokeDasharray="4 2" strokeWidth="1.5" className="transition-all duration-500" />
-                {/* Q3 Projection */}
-                <polyline points={`${padding},${q3YCoord} ${q3X},${q3YCoord} ${q3X},${boxPlotYCenter}`} fill="none" stroke="#64748b" strokeDasharray="4 2" strokeWidth="1.5" className="transition-all duration-500" />
-
-                {/* Box Plot */}
-                <rect x={q1X} y={boxPlotYCenter - 15} width={q3X - q1X} height="30" fill="#10b981" fillOpacity="0.2" stroke="#10b981" strokeWidth="2" className="transition-all duration-500" />
-                <line x1={q2X} y1={boxPlotYCenter - 15} x2={q2X} y2={boxPlotYCenter + 15} stroke="#10b981" strokeWidth="2" className="transition-all duration-500" />
-
-                {/* Whiskers */}
-                <line x1={minX} y1={boxPlotYCenter} x2={q1X} y2={boxPlotYCenter} stroke="#10b981" strokeWidth="2" className="transition-all duration-500" />
-                <line x1={maxX} y1={boxPlotYCenter} x2={q3X} y2={boxPlotYCenter} stroke="#10b981" strokeWidth="2" className="transition-all duration-500" />
-                <line x1={minX} y1={boxPlotYCenter - 5} x2={minX} y2={boxPlotYCenter + 5} stroke="#10b981" strokeWidth="2" className="transition-all duration-500" />
-                <line x1={maxX} y1={boxPlotYCenter - 5} x2={maxX} y2={boxPlotYCenter + 5} stroke="#10b981" strokeWidth="2" className="transition-all duration-500" />
-              </>
-            )}
+            {/* Box Plot Elements */}
+            <rect x={q1X} y={boxPlotYCenter - 20} width={q3X - q1X} height={40} fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1.5" />
+            <line x1={q2X} y1={boxPlotYCenter - 20} x2={q2X} y2={boxPlotYCenter + 20} stroke="#10b981" strokeWidth="2" />
           </svg>
 
-          {/* Labels */}
-          <DiagramLabel position={{ left: 'padding', top: `${(cfMinY - 15) / svgHeight * 100}%` }}>
-            <MathText content="\text{CF}" className="text-zinc-400 text-xs" />
+          <DiagramLabel position={{ left: `${padding / svgWidth * 100}%`, top: `${(cfMinY - 20) / svgHeight * 100}%` }} anchor="center">
+            <MathInline content="\text{CF}" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(n) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
-            <span className="text-zinc-400 text-[10px]">{n}</span>
-          </DiagramLabel>
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q3Pos) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
-            <span className="text-zinc-400 text-[10px]">{q3Pos}</span>
-          </DiagramLabel>
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q2Pos) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
-            <span className="text-zinc-400 text-[10px]">{q2Pos}</span>
-          </DiagramLabel>
-          <DiagramLabel position={{ left: 'padding', top: `${cfYScale(q1Pos) / svgHeight * 100}%` }} className="-tranzinc-x-full pr-2">
-            <span className="text-zinc-400 text-[10px]">{q1Pos}</span>
+          <DiagramLabel position={{ left: `${padding / svgWidth * 100}%`, top: `${cfYScale(n) / svgHeight * 100}%` }} anchor="end" offsetX="-8px">
+            <span className="text-zinc-400 text-[10px] font-mono">{n}</span>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: `${(svgWidth - padding) / svgWidth * 100}%`, top: `${(boxPlotYCenter + 10) / svgHeight * 100}%` }}>
-            <MathText content="x" className="text-zinc-400 text-xs" />
+          <DiagramLabel position={{ left: `${(svgWidth - padding) / svgWidth * 100}%`, top: `${(boxPlotYCenter + 15) / svgHeight * 100}%` }} anchor="center">
+            <MathInline content="x" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
 
-          {[minX, q1X, q2X, q3X, maxX].map((xVal, i) => (
-            <DiagramLabel key={`lbl-x-${i}`} position={{ left: `${xVal / svgWidth * 100}%`, top: `${(boxPlotYCenter + 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
-              <span className="text-zinc-400 text-[10px]">
-                {i === 0 ? 'Min' : i === 1 ? 'Q1' : i === 2 ? 'Med' : i === 3 ? 'Q3' : 'Max'}
-              </span>
-            </DiagramLabel>
-          ))}
-
-          {projectQuartiles && (
-            <>
-              <DiagramLabel position={{ left: `${q1X / svgWidth * 100}%`, top: `${(q1YCoord - 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
-                <MathText content="Q_1" className="text-[#a1a1aa] text-xs" />
-              </DiagramLabel>
-              <DiagramLabel position={{ left: `${q2X / svgWidth * 100}%`, top: `${(q2YCoord - 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
-                <MathText content="\text{Median}" className="text-[#a1a1aa] text-xs" />
-              </DiagramLabel>
-              <DiagramLabel position={{ left: `${q3X / svgWidth * 100}%`, top: `${(q3YCoord - 20) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
-                <MathText content="Q_3" className="text-[#a1a1aa] text-xs" />
-              </DiagramLabel>
-            </>
-          )}
+          <DiagramLabel position={{ left: `${q1X / svgWidth * 100}%`, top: `${(boxPlotYCenter + 35) / svgHeight * 100}%` }} anchor="center">
+            <MathInline content="Q_1" className="text-zinc-500 text-[10px] font-bold" />
+          </DiagramLabel>
+          <DiagramLabel position={{ left: `${q2X / svgWidth * 100}%`, top: `${(boxPlotYCenter + 35) / svgHeight * 100}%` }} anchor="center">
+            <MathInline content="\text{Med}" className="text-zinc-500 text-[10px] font-bold" />
+          </DiagramLabel>
+          <DiagramLabel position={{ left: `${q3X / svgWidth * 100}%`, top: `${(boxPlotYCenter + 35) / svgHeight * 100}%` }} anchor="center">
+            <MathInline content="Q_3" className="text-zinc-500 text-[10px] font-bold" />
+          </DiagramLabel>
         </div>
       </div>
     </DiagramPanel>

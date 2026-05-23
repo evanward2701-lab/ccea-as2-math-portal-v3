@@ -14,6 +14,22 @@ interface MathTextProps {
   noMargin?: boolean;
 }
 
+export function MathInline({ content, className }: { content: string; className?: string }) {
+  if (!content) return null;
+  return (
+    <span className={cn("inline-flex items-center", className)}>
+      <ReactMarkdown
+        remarkPlugins={[remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+        components={{
+          p: ({ node, ...props }) => <span {...props} />
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </span>
+  );
+}
 const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
 const placeholderPattern = /\[(VISUAL|INTERACTIVE) (?:PLACEHOLDER|REFERENCE):\s*([^\]|]+)(?:\|([^\]]*))?\]/gi;
 
@@ -51,7 +67,7 @@ export function MathText({ content, className, center, noMargin }: MathTextProps
       if (alt?.startsWith("visual:")) {
         const visualId = alt.replace("visual:", "");
         return (
-          <div className="my-10 p-10 bg-[#141416] border border-zinc-800 rounded-2xl flex justify-center shadow-inner overflow-hidden">
+          <div className="my-12 w-full flex justify-center">
             <LessonVisual visualId={visualId} />
           </div>
         );
@@ -92,7 +108,7 @@ export function MathText({ content, className, center, noMargin }: MathTextProps
           }
         } else {
           finalElements.push(
-            <div key={`visual-${i}-${index}`} className="my-10 p-10 bg-[#141416] border border-zinc-800 rounded-2xl flex justify-center shadow-inner overflow-hidden">
+            <div key={`visual-${i}-${index}`} className="my-12 w-full flex justify-center">
               <LessonVisual visualId={part} />
             </div>
           );
@@ -105,7 +121,7 @@ export function MathText({ content, className, center, noMargin }: MathTextProps
       const id = segments[i + 2]?.trim();
       
       finalElements.push(
-        <div key={`placeholder-${id}`} className="my-8 flex justify-center">
+        <div key={`placeholder-${id}`} className="my-12 w-full flex justify-center">
           <VisualRenderer visualId={id} />
         </div>
       );

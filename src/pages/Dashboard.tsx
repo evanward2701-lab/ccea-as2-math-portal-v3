@@ -32,21 +32,21 @@ export function Dashboard() {
           </div>
           <h1 className="font-serif text-5xl font-light leading-tight tracking-wide text-zinc-100 mt-4">
             {title} <br/>
-            <span className="italic text-emerald-400 font-serif">{subtitle}</span>
+            <span className="italic text-zinc-400 font-serif">{subtitle}</span>
           </h1>
         </div>
         
         {/* Performance Index */}
-        <div className="border border-zinc-800 bg-emerald-950/20 p-8 flex flex-col justify-center rounded-2xl shadow-2xl backdrop-blur-sm border-emerald-900/30">
-          <div className="text-5xl font-serif italic text-emerald-400 mb-2">
+        <div className="border border-zinc-800 bg-zinc-900/40 p-8 flex flex-col justify-center rounded-2xl shadow-2xl backdrop-blur-sm">
+          <div className="text-5xl font-serif italic text-zinc-300 mb-2">
             {questions.length}
           </div>
-          <div className="text-[10px] uppercase font-mono tracking-widest text-emerald-400 font-bold">
+          <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 font-bold">
             Active Exam Tasks
           </div>
           <Link
             to="/practice"
-            className="w-full mt-6 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-center text-[10px] font-mono font-bold uppercase tracking-wider transition-all"
+            className="w-full mt-6 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 text-zinc-300 border border-zinc-700/50 rounded-lg text-center text-[10px] font-mono font-bold uppercase tracking-wider transition-all"
           >
             Launch Sandbox &rarr;
           </Link>
@@ -156,7 +156,7 @@ export function Dashboard() {
                       </Link>
                       <Link 
                         to={`/practice/${code}/General`}
-                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-500 hover:text-zinc-400 rounded-lg border border-zinc-700 transition-all shadow-sm"
+                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700/50 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-400 hover:text-zinc-200 rounded-lg border border-zinc-700 transition-all shadow-sm"
                       >
                         Practice
                       </Link>
@@ -191,7 +191,7 @@ export function Dashboard() {
                       </Link>
                       <Link 
                         to={`/practice/${code}/General`}
-                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-500 hover:text-zinc-400 rounded-lg border border-zinc-700 transition-all shadow-sm"
+                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700/50 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-400 hover:text-zinc-200 rounded-lg border border-zinc-700 transition-all shadow-sm"
                       >
                         Practice
                       </Link>

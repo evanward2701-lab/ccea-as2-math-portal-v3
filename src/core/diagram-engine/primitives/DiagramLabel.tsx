@@ -1,34 +1,47 @@
 import React from 'react';
+import { cn } from '@/core/utils/cn';
 
 export interface DiagramLabelProps {
   position: { top: string; left: string };
+  anchor?: 'center' | 'start' | 'end' | 'top' | 'bottom';
+  offsetX?: number | string;
+  offsetY?: number | string;
   children: React.ReactNode;
   className?: string;
 }
 
 /**
  * An HTML-based overlay for rendering high-quality text over an SVG diagram.
- * Refined for a luxury-minimalist aesthetic: smaller font size and muted colors.
  */
 export const DiagramLabel: React.FC<DiagramLabelProps> = ({
   position,
+  anchor = 'center',
+  offsetX = 0,
+  offsetY = 0,
   children,
   className = '',
 }) => {
+  let anchorTransform = 'translate(-50%, -50%)';
+  if (anchor === 'start') {
+    anchorTransform = 'translate(0, -50%)';
+  } else if (anchor === 'end') {
+    anchorTransform = 'translate(-100%, -50%)';
+  } else if (anchor === 'top') {
+    anchorTransform = 'translate(-50%, 0)';
+  } else if (anchor === 'bottom') {
+    anchorTransform = 'translate(-50%, -100%)';
+  }
+
   return (
     <div
-      className={`diagram-label ${className}`}
+      className={cn(
+        'diagram-label absolute pointer-events-none text-zinc-400 font-sans text-xs font-medium drop-shadow-sm transition-opacity duration-300',
+        className
+      )}
       style={{
-        position: 'absolute',
         top: position.top,
         left: position.left,
-        transform: 'tranzinc(-50%, -50%)',
-        pointerEvents: 'none',
-        color: '#a1a1aa', // zinc-400 for a muted, receding effect
-        fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-        fontSize: '12px', // precise, smaller architectural labels
-        fontWeight: 500,
-        textShadow: '0 1px 2px rgba(0,0,0,0.3)', // subtle shadow for clarity
+        transform: `translate(calc(${offsetX}), calc(${offsetY})) ${anchorTransform}`,
       }}
     >
       {children}

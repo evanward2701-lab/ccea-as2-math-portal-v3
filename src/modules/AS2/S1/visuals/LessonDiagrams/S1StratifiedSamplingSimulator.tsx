@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 
+import { cn } from '@/core/utils/cn';
+
 const POPULATION = { A: 50, B: 30, C: 20, total: 100 };
 
 interface StratumRowProps {
@@ -20,6 +22,21 @@ const StratumRow: React.FC<StratumRowProps> = ({ name, popSize, sampleSize, tota
     purple: { bg: 'bg-purple-500/20', border: 'border-purple-500', text: 'text-purple-400' },
   };
 
+  const dotClasses = {
+    sky: {
+      selected: 'bg-zinc-400 ring-2 ring-offset-2 ring-offset-zinc-900 ring-emerald-400',
+      unselected: 'bg-zinc-500/50',
+    },
+    amber: {
+      selected: 'bg-amber-400 ring-2 ring-offset-2 ring-offset-zinc-900 ring-emerald-400',
+      unselected: 'bg-amber-500/50',
+    },
+    purple: {
+      selected: 'bg-purple-400 ring-2 ring-offset-2 ring-offset-zinc-900 ring-emerald-400',
+      unselected: 'bg-purple-500/50',
+    },
+  };
+
   return (
     <div className={`p-4 rounded-lg border border-zinc-800 ${colorClasses[color].bg}`}>
       <div className="flex justify-between items-center mb-3">
@@ -32,7 +49,10 @@ const StratumRow: React.FC<StratumRowProps> = ({ name, popSize, sampleSize, tota
         {Array.from({ length: popSize }).map((_, i) => (
           <div
             key={i}
-            className={`w-full aspect-square rounded-full ${i < sampleSize ? `bg-${color}-400 ring-2 ring-offset-2 ring-offset-zinc-900 ring-emerald-400` : `bg-${color}-500/50`}`}
+            className={cn(
+              'w-full aspect-square rounded-full',
+              i < sampleSize ? dotClasses[color].selected : dotClasses[color].unselected
+            )}
           />
         ))}
       </div>

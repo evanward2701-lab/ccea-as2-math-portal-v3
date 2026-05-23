@@ -39,7 +39,7 @@ export const DiagramPanel: React.FC<DiagramPanelProps> = ({ title, analysis, chi
         {children}
       </div>
       {analysis && (
-        <div className="w-full max-w-prose mt-8 px-8 border-t border-zinc-800/60 pt-6 text-sm leading-relaxed text-zinc-400">
+        <div className="w-full max-w-5xl mt-8 px-8 border-t border-zinc-800/60 pt-6 text-sm leading-relaxed text-zinc-400">
           {analysis}
         </div>
       )}

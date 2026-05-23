@@ -21,6 +21,10 @@ flowchart TD
     W["Weight<br/><b>W = mg</b><br/><span style='font-size:12px;color:#94a3b8'>measured in N</span>"]
   end
 
+  style Base fill:transparent,stroke:transparent,color:#e4e4e7
+  style Motion fill:transparent,stroke:transparent,color:#e4e4e7
+  style Force fill:transparent,stroke:transparent,color:#e4e4e7
+
   M --> V
   S --> V
   V --> A

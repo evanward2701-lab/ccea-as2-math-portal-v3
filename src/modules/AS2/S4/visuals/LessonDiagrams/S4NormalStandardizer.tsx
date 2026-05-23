@@ -129,10 +129,10 @@ export const S4NormalStandardizer: React.FC = () => {
 
           {[-3, -2, -1, 0, 1, 2, 3].map(z => (
             <React.Fragment key={z}>
-              <DiagramLabel position={{ left: `${xScaleZ(z) / svgWidth * 100}%`, top: `${(yScale(0) + 35) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+              <DiagramLabel position={{ left: `${xScaleZ(z) / svgWidth * 100}%`, top: `${(yScale(0) + 35) / svgHeight * 100}%` }} className="-translate-x-1/2">
                 <span className="text-zinc-400 text-[10px]">{z}</span>
               </DiagramLabel>
-              <DiagramLabel position={{ left: `${xScaleZ(z) / svgWidth * 100}%`, top: `${(yScale(0) - 25) / svgHeight * 100}%` }} className="-tranzinc-x-1/2">
+              <DiagramLabel position={{ left: `${xScaleZ(z) / svgWidth * 100}%`, top: `${(yScale(0) - 25) / svgHeight * 100}%` }} className="-translate-x-1/2">
                 <span className="text-zinc-400 text-[10px]">{Math.round(mu + z * sigma)}</span>
               </DiagramLabel>
             </React.Fragment>
