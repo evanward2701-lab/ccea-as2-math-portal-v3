@@ -663,7 +663,7 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-[76/30] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-76/30 max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 300" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Map comparing distance path and displacement vector from A to B">
         <path d="M 82 224 H 682 M 112 194 H 652 M 142 164 H 622 M 172 134 H 592 M 202 104 H 562 M 232 74 H 532" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 8" />
@@ -1147,7 +1147,7 @@ export const LiftPhysicsSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-[76/39] max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+    <div className="relative w-full aspect-76/39 max-w-4xl mx-auto rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Lift physics isolation diagram comparing whole lift system and isolated passenger">
         {/* Panels */}
@@ -1507,7 +1507,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
+          <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border border-slate-800/50 bg-slate-950 shadow-[8px_8px_0px_#0f172a]">
             <SVGLibrary />
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Interactive free body diagram showing selected forces on a block">
               <rect x="28" y="28" width="504" height="364" rx="10" fill="#0f172a" stroke="#1e293b" strokeWidth="1.8" />

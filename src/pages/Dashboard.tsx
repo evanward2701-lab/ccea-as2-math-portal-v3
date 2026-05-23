@@ -7,7 +7,7 @@ export function Dashboard() {
   const statisticsLessons = LESSONS.filter(l => l.type === "Statistics");
 
   return (
-    <div className="p-8 max-w-[1400px] mx-auto flex flex-col gap-8 w-full bg-slate-950 text-slate-100 h-full">
+    <div className="p-8 max-w-350 mx-auto flex flex-col gap-8 w-full bg-slate-950 text-slate-100 h-full">
       {/* HEADER SECTION: Combined Title and Performance Status */}
       <header className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-3 border border-slate-800 bg-slate-900/40 p-8 rounded-2xl shadow-2xl backdrop-blur-sm relative overflow-hidden">
@@ -51,19 +51,27 @@ export function Dashboard() {
               Mechanics
             </h3>
             <ul className="space-y-2">
-              {mechanicsLessons.map(lesson => (
-                <li key={lesson.id} className="group">
-                  <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-950/60 transition-all">
-                    <span className="text-[10px] w-fit border border-slate-700 text-slate-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-slate-800">
-                      {lesson.id.replace("-Lesson", "")}
-                    </span>
-                    {/* Module Title bumped to text-xl */}
-                    <span className="text-xl font-serif font-medium leading-snug text-slate-200 group-hover:text-sky-400 transition-colors">
-                      {lesson.title}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+              {mechanicsLessons.map(lesson => {
+                const code = lesson.id.replace("-Lesson", "");
+                return (
+                  <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-950/60 transition-all">
+                    <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
+                      <span className="text-[10px] w-fit border border-slate-700 text-slate-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-slate-800">
+                        {code}
+                      </span>
+                      <span className="text-xl font-serif font-medium leading-snug text-slate-200 group-hover:text-sky-400 transition-colors truncate">
+                        {lesson.title}
+                      </span>
+                    </Link>
+                    <Link 
+                      to={`/practice/${code}/General`}
+                      className="px-4 py-2 bg-slate-800 hover:bg-sky-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-slate-500 hover:text-sky-400 rounded-lg border border-slate-700 transition-all shadow-sm"
+                    >
+                      Practice
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -79,19 +87,27 @@ export function Dashboard() {
               Statistics
             </h3>
             <ul className="space-y-2">
-              {statisticsLessons.map(lesson => (
-                <li key={lesson.id} className="group">
-                  <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-950/60 transition-all">
-                    <span className="text-[10px] w-fit border border-slate-700 text-slate-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-slate-800">
-                      {lesson.id.replace("-Lesson", "")}
-                    </span>
-                    {/* Module Title bumped to text-xl */}
-                    <span className="text-xl font-serif font-medium leading-snug text-slate-200 group-hover:text-sky-400 transition-colors">
-                      {lesson.title}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+              {statisticsLessons.map(lesson => {
+                const code = lesson.id.replace("-Lesson", "");
+                return (
+                  <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-950/60 transition-all">
+                    <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
+                      <span className="text-[10px] w-fit border border-slate-700 text-slate-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-slate-800">
+                        {code}
+                      </span>
+                      <span className="text-xl font-serif font-medium leading-snug text-slate-200 group-hover:text-sky-400 transition-colors truncate">
+                        {lesson.title}
+                      </span>
+                    </Link>
+                    <Link 
+                      to={`/practice/${code}/General`}
+                      className="px-4 py-2 bg-slate-800 hover:bg-sky-900/30 text-[10px] font-mono font-bold uppercase tracking-tighter text-slate-500 hover:text-sky-400 rounded-lg border border-slate-700 transition-all shadow-sm"
+                    >
+                      Practice
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

@@ -34,7 +34,7 @@ export function PracticeBank() {
   });
 
   return (
-    <div className="p-8 max-w-[1400px] mx-auto w-full flex flex-col gap-8 bg-slate-950 text-slate-100">
+    <div className="p-8 max-w-350 mx-auto w-full flex flex-col gap-8 bg-slate-950 text-slate-100">
       {/* Configuration Filter Sidebar */}
       <aside className="w-full border border-slate-800 bg-slate-900/40 p-6 rounded-2xl shadow-xl backdrop-blur-sm">
         <h2 className="text-xs uppercase tracking-widest text-slate-500 font-mono font-bold mb-6">Filter Matrix</h2>

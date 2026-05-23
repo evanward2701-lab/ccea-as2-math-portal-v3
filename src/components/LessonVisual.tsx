@@ -1,102 +1,4 @@
-// ==========================================
-// IMPORTS: MECHANICS (M1 - M3)
-// ==========================================
-
-// M1 Imports
-import { 
-  ScalarVectorSVG, 
-  ModellingAssumptionsSVG, 
-  M1ModellingSandboxSVG,
-  TowingModelSVG, 
-  LiftPhysicsSVG,
-  M1ExamTrapSVG,
-  ScalarVectorSpatialMapSVG,
-  M1FreeBodyDiagram,
-  M1KinematicNotationPanel,
-  M1ModellingSummaryTable
-} from "./Visuals/M1/M1-SVG";
-import {
-  M1FmaBridgeMermaid,
-  M1SIUnitDerivationMermaid
-} from "./Visuals/M1/M1-Mermaid";
-
-// M2 Imports - UPDATED TO MATCH REFACTORED COMPONENT NAMES
-import {
-  M2KinematicsMaster,
-  M2GravitySignConvention,
-  M2VectorMagnitudeTrap,
-  M2VelocityTimeGraphEngine,
-  M2SuvatMatrix,
-  M2KinematicTrack,
-  M2SignConventionSplit,
-  M2CrossingAxisVTGraph
-} from "./Visuals/M2/M2-SVG";
-
-// M3 Imports
-import { M3ConnectedParticlesMermaid } from './Visuals/M3/M3-Mermaid';
-import { 
-  RoughHorizontalPlaneSVG, 
-  PulleySystemSVG, 
-  InclinedPlaneSVG, 
-  LiftSystemSVG, 
-  ConnectedInclinedPulleySVG,
-  M3InclinedPlaneResolver,
-  M3ConnectedParticlesEngine,
-  M3FrictionSimulator
-} from './Visuals/M3/M3-SVG';
-
-
-// ==========================================
-// IMPORTS: STATISTICS (S1 - S4)
-// ==========================================
-
-// S1 Imports
-import { DataTypeTree } from "./Visuals/S1/S1-Mermaid";
-import {
-  SamplingTableSVG,
-  StratifiedProportionVisual,
-  S1TaxonomyDecisionTree,
-  S1HistogramBoundaryMorph,
-  S1StratifiedSamplingSimulator
-} from "./Visuals/S1/S1-SVG"; 
-
-// S2 Imports
-import { StdDevDecisionTree } from "./Visuals/S2/S2-Mermaid";
-import {
-  HistogramDensitySVG,
-  PMCCPanelSVG,
-  ScatterClustersSVG,
-  InterpolationLineSVG,
-  ResidualAnalysisSVG,
-  S2FrequencyDensityAreaEngine,
-  S2CumulativeBoxPlotProjector,
-  S2OutlierThresholdSandbox,
-  S2ResidualPatternClassifier
-} from "./Visuals/S2/S2-SVG";
-
-// S3 Imports
-import { ProbabilityTree } from "./Visuals/S3/S3-Mermaid";
-import {
-  VennMutExSVG,
-  TwoWayTableSVG,
-  BayesResolutionSVG,
-  S3DynamicVennSpaceEngine,
-  S3ConditionalMatrixReducer,
-  S3ProbabilityTreeEngine
-} from "./Visuals/S3/S3-SVG";
-
-// S4 Imports 
-import { BinomialTree } from "./Visuals/S4/S4-Mermaid";
-import {
-  InequalityPanelSVG,
-  NormalDistributionSVG,
-  BinomialConditionsChecklistSVG,
-  S4BinomialMorphEngine,
-  S4ContinuityCorrectionLens,
-  S4NormalStandardizer,
-  S4InequalityTranslator
-} from "./Visuals/S4/S4-SVG";
-
+import { VisualRegistry, ModuleKey } from "./Visuals/registry";
 
 // ==========================================
 // ROUTER COMPONENT
@@ -106,118 +8,113 @@ interface LessonVisualProps {
   visualId: string;
 }
 
-const VISUAL_ID_ALIASES: Record<string, string> = {
-  "M3-Inclined": "M3-Incline",
-  "S4-BinomialTree": "S4-Binomial",
-  "S3-Bayes": "S3-BayesResolution",
+/**
+ * Maps incoming lesson visual IDs (e.g., "M1-Towing") to the specific
+ * React component exported from the module's diagrams folder.
+ */
+const VISUAL_MAPPING: Record<string, { module: ModuleKey; component: string }> = {
+  // M1
+  "M1-Bridge": { module: "M1", component: "M1FmaBridgeMermaid" },
+  "M1-ScalarVector": { module: "M1", component: "ScalarVectorSVG" },
+  "M1-Modelling": { module: "M1", component: "ModellingAssumptionsSVG" },
+  "M1-Towing": { module: "M1", component: "TowingModelSVG" },
+  "M1-Lift": { module: "M1", component: "LiftPhysicsSVG" },
+  "M1-ExamTrap": { module: "M1", component: "M1ExamTrapSVG" },
+  "M1-SIUnits": { module: "M1", component: "M1SIUnitDerivationMermaid" },
+  "M1-ScalarVectorMap": { module: "M1", component: "ScalarVectorSpatialMapSVG" },
+  "M1-ModellingSandbox": { module: "M1", component: "M1ModellingSandboxSVG" },
+  "M1-FreeBody": { module: "M1", component: "M1FreeBodyDiagram" },
+  "M1-ModellingTable": { module: "M1", component: "M1ModellingSummaryTable" },
+  "M1-Notation": { module: "M1", component: "M1KinematicNotationPanel" },
+
+  // M2
+  "M2-VTS": { module: "M2", component: "M2KinematicsMaster" },
+  "M2-Traffic": { module: "M2", component: "M2VectorMagnitudeTrap" },
+  "M2-Gravity": { module: "M2", component: "M2GravitySignConvention" },
+  "M2-VTCrossing": { module: "M2", component: "M2CrossingAxisVTGraph" },
+  "M2-SignConventionSplit": { module: "M2", component: "M2SignConventionSplit" },
+  "M2-VTGraphEngine": { module: "M2", component: "M2VelocityTimeGraphEngine" },
+  "M2-SUVATMatrix": { module: "M2", component: "M2SuvatMatrix" },
+  "M2-KinematicTrack": { module: "M2", component: "M2KinematicTrack" },
+
+  // M3
+  "M3-Rough": { module: "M3", component: "RoughHorizontalPlaneSVG" },
+  "M3-Pulley": { module: "M3", component: "PulleySystemSVG" },
+  "M3-Incline": { module: "M3", component: "InclinedPlaneSVG" },
+  "M3-Inclined": { module: "M3", component: "InclinedPlaneSVG" }, // Alias
+  "M3-Lift": { module: "M3", component: "LiftSystemSVG" },
+  "M3-Connected": { module: "M3", component: "ConnectedInclinedPulleySVG" },
+  "M3-Flow": { module: "M3", component: "M3ConnectedParticlesMermaid" },
+  "M3-InclineResolver": { module: "M3", component: "M3InclinedPlaneResolver" },
+  "M3-PulleyEngine": { module: "M3", component: "M3ConnectedParticlesEngine" },
+  "M3-FrictionSimulator": { module: "M3", component: "M3FrictionSimulator" },
+
+  // S1
+  "S1-Tree": { module: "S1", component: "DataTypeTree" },
+  "S1-Sampling": { module: "S1", component: "SamplingTableSVG" },
+  "S1-Stratified": { module: "S1", component: "StratifiedProportionVisual" },
+  "S1-TaxonomyDecision": { module: "S1", component: "S1TaxonomyDecisionTree" },
+  "S1-HistogramBoundaries": { module: "S1", component: "S1HistogramBoundaryMorph" },
+  "S1-StratifiedSampler": { module: "S1", component: "S1StratifiedSamplingSimulator" },
+
+  // S2
+  "S2-StdDev": { module: "S2", component: "StdDevDecisionTree" },
+  "S2-Histogram": { module: "S2", component: "HistogramDensitySVG" },
+  "S2-PMCC": { module: "S2", component: "PMCCPanelSVG" },
+  "S2-Scatter": { module: "S2", component: "ScatterClustersSVG" },
+  "S2-Interpolate": { module: "S2", component: "InterpolationLineSVG" },
+  "S2-Residual": { module: "S2", component: "ResidualAnalysisSVG" },
+  "S2-FrequencyDensityEngine": { module: "S2", component: "S2FrequencyDensityAreaEngine" },
+  "S2-CFBoxPlot": { module: "S2", component: "S2CumulativeBoxPlotProjector" },
+  "S2-OutlierSandbox": { module: "S2", component: "S2OutlierThresholdSandbox" },
+  "S2-ResidualClassifier": { module: "S2", component: "S2ResidualPatternClassifier" },
+
+  // S3
+  "S3-Tree": { module: "S3", component: "ProbabilityTree" },
+  "S3-Venn": { module: "S3", component: "VennMutExSVG" },
+  "S3-Table": { module: "S3", component: "TwoWayTableSVG" },
+  "S3-BayesResolution": { module: "S3", component: "BayesResolutionSVG" },
+  "S3-Bayes": { module: "S3", component: "BayesResolutionSVG" }, // Alias
+  "S3-DynamicVenn": { module: "S3", component: "S3DynamicVennSpaceEngine" },
+  "S3-ConditionalTable": { module: "S3", component: "S3ConditionalMatrixReducer" },
+  "S3-TreeEngine": { module: "S3", component: "S3ProbabilityTreeEngine" },
+
+  // S4
+  "S4-Binomial": { module: "S4", component: "BinomialTree" },
+  "S4-BinomialTree": { module: "S4", component: "BinomialTree" }, // Alias
+  "S4-Inequality": { module: "S4", component: "InequalityPanelSVG" },
+  "S4-Normal": { module: "S4", component: "NormalDistributionSVG" },
+  "S4-BinomialConditions": { module: "S4", component: "BinomialConditionsChecklistSVG" },
+  "S4-BinomialEngine": { module: "S4", component: "S4BinomialMorphEngine" },
+  "S4-ContinuityCorrection": { module: "S4", component: "S4ContinuityCorrectionLens" },
+  "S4-NormalStandardizer": { module: "S4", component: "S4NormalStandardizer" },
+  "S4-InequalityTranslator": { module: "S4", component: "S4InequalityTranslator" },
 };
 
 export function LessonVisual({ visualId }: LessonVisualProps) {
-  const canonicalVisualId = normalizeVisualId(visualId);
+  const mapping = VISUAL_MAPPING[visualId];
 
-  switch (canonicalVisualId) {
-    // ------------------------------------------
-    // MECHANICS M1
-    // ------------------------------------------
-    case "M1-Bridge": return <M1FmaBridgeMermaid />;
-    case "M1-ScalarVector": return <ScalarVectorSVG />;
-    case "M1-Modelling": return <ModellingAssumptionsSVG />;
-    case "M1-Towing": return <TowingModelSVG />;
-    case "M1-Lift": return <LiftPhysicsSVG />;
-    case "M1-ExamTrap": return <M1ExamTrapSVG />;
-    case "M1-SIUnits": return <M1SIUnitDerivationMermaid />;
-    case "M1-ScalarVectorMap": return <ScalarVectorSpatialMapSVG />;
-    case "M1-ModellingSandbox": return <M1ModellingSandboxSVG />;
-    case "M1-FreeBody": return <M1FreeBodyDiagram />;
-    case "M1-ModellingTable": return <M1ModellingSummaryTable />;
-    case "M2-VTGraphEngine": return <M2VelocityTimeGraphEngine />;
-    case "M2-SUVATMatrix": return <M2SuvatMatrix />;
-    case "M2-KinematicTrack": return <M2KinematicTrack />;
-    case "M1-Notation": return <M1KinematicNotationPanel />;
-
-    // ------------------------------------------
-    // MECHANICS M2 
-    // ------------------------------------------
-    case "M2-VTS": return <M2KinematicsMaster />;
-    case "M2-Traffic": return <M2VectorMagnitudeTrap />;
-    case "M2-Gravity": return <M2GravitySignConvention />;
-    case "M2-VTCrossing": return <M2CrossingAxisVTGraph />;
-    case "M2-SignConventionSplit": return <M2SignConventionSplit />;
-    
-    // ------------------------------------------
-    // MECHANICS M3
-    // ------------------------------------------
-    case "M3-Rough": return <RoughHorizontalPlaneSVG />;
-    case "M3-Pulley": return <PulleySystemSVG />;
-    case "M3-Incline": return <InclinedPlaneSVG />;
-    case "M3-Lift": return <LiftSystemSVG />;
-    case "M3-Connected": return <ConnectedInclinedPulleySVG />;
-    case "M3-Flow": return <M3ConnectedParticlesMermaid />;
-    case "M3-InclineResolver": return <M3InclinedPlaneResolver />;
-    case "M3-PulleyEngine": return <M3ConnectedParticlesEngine />;
-    case "M3-FrictionSimulator": return <M3FrictionSimulator />;
-
-    // ------------------------------------------
-    // STATISTICS S1
-    // ------------------------------------------
-    case "S1-Tree": return <DataTypeTree />;
-    case "S1-Sampling": return <SamplingTableSVG />;
-    case "S1-Stratified": return <StratifiedProportionVisual />; 
-    case "S1-TaxonomyDecision": return <S1TaxonomyDecisionTree />;
-    case "S1-HistogramBoundaries": return <S1HistogramBoundaryMorph />;
-    case "S1-StratifiedSampler": return <S1StratifiedSamplingSimulator />;
-
-
-    // ------------------------------------------
-    // STATISTICS S2
-    // ------------------------------------------
-    case "S2-StdDev": return <StdDevDecisionTree />;
-    case "S2-Histogram": return <HistogramDensitySVG />;
-    case "S2-PMCC": return <PMCCPanelSVG />;
-    case "S2-Scatter": return <ScatterClustersSVG />;
-    case "S2-Interpolate": return <InterpolationLineSVG />;
-    case "S2-Residual": return <ResidualAnalysisSVG />;
-    case "S2-FrequencyDensityEngine": return <S2FrequencyDensityAreaEngine />;
-    case "S2-CFBoxPlot": return <S2CumulativeBoxPlotProjector />;
-    case "S2-OutlierSandbox": return <S2OutlierThresholdSandbox />;
-    case "S2-ResidualClassifier": return <S2ResidualPatternClassifier />;
-
-    // ------------------------------------------
-    // STATISTICS S3
-    // ------------------------------------------
-    case "S3-Tree": return <ProbabilityTree />;
-    case "S3-Venn": return <VennMutExSVG />;
-    case "S3-Table": return <TwoWayTableSVG />;
-    case "S3-BayesResolution": return <BayesResolutionSVG />;
-    case "S3-DynamicVenn": return <S3DynamicVennSpaceEngine />;
-    case "S3-ConditionalTable": return <S3ConditionalMatrixReducer />;
-    case "S3-TreeEngine": return <S3ProbabilityTreeEngine />;
-
-// ------------------------------------------
-    // STATISTICS S4
-    // ------------------------------------------
-    case "S4-Binomial": return <BinomialTree />;
-    case "S4-Inequality": return <InequalityPanelSVG />;
-    case "S4-Normal": return <NormalDistributionSVG />;
-    case "S4-BinomialConditions": return <BinomialConditionsChecklistSVG />;
-    case "S4-BinomialEngine": return <S4BinomialMorphEngine />;
-    case "S4-ContinuityCorrection": return <S4ContinuityCorrectionLens />;
-    case "S4-NormalStandardizer": return <S4NormalStandardizer />;
-    case "S4-InequalityTranslator": return <S4InequalityTranslator />;
-
-    // ------------------------------------------
-    // FALLBACK
-    // ------------------------------------------
-    default:
-      console.warn(`Visual ID "${visualId}" not found in LessonVisual.tsx router.`);
-      return (
-        <div className="my-8 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-400">
-          Diagram unavailable: {visualId}
-        </div>
-      );
+  if (!mapping) {
+    console.warn(`Visual ID "${visualId}" not found in LessonVisual.tsx mapping.`);
+    return (
+      <div className="my-8 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-400">
+        Diagram unavailable: {visualId}
+      </div>
+    );
   }
-}
 
-function normalizeVisualId(visualId: string) {
-  return VISUAL_ID_ALIASES[visualId] ?? visualId;
+  const { module, component } = mapping;
+  const ModuleRegistry = VisualRegistry[module];
+  const Component = (ModuleRegistry as any)[component];
+
+  if (!Component) {
+    console.error(`Component "${component}" not found in module "${module}" registry.`);
+    return (
+      <div className="my-8 rounded-2xl border border-rose-800/40 bg-rose-900/10 p-6 text-sm text-rose-400">
+        Error loading diagram: {component}
+      </div>
+    );
+  }
+
+  return <Component />;
 }

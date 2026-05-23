@@ -3,6 +3,7 @@ import { BookOpen, GraduationCap, LayoutDashboard, BrainCircuit } from "lucide-r
 import { Dashboard } from "./pages/Dashboard";
 import { Lessons } from "./pages/Lessons";
 import { PracticeBank } from "./pages/PracticeBank";
+import { PracticePage } from "./pages/PracticePage";
 import { cn } from "@/lib/utils";
 import { LESSONS } from "./data/lessons";
 
@@ -121,6 +122,7 @@ export default function App() {
             <Route path="/lessons" element={<Lessons />} />
             <Route path="/lessons/:id" element={<Lessons />} />
             <Route path="/practice" element={<PracticeBank />} />
+            <Route path="/practice/:moduleId/:topic" element={<PracticePage />} />
           </Routes>
         </main>
       </div>
