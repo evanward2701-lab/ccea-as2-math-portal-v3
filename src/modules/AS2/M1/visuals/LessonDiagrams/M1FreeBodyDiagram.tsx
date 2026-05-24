@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import { MathText, MathInline } from '@/core/components/MathText';
+import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
-import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
-import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
-import { themeColors } from '@/core/types/mechanicsTheme';
 import { cn } from '@/core/utils/cn';
 
 type Force = 'weight' | 'reaction' | 'friction' | 'tension' | 'applied';
@@ -33,6 +28,37 @@ const forceLabels: Record<Force, string> = {
   applied: 'Applied force',
 };
 
+const forceDetails: Record<Force, { label: string; symbol: string; tone: string; dot: string }> = {
+  weight: { label: 'Weight', symbol: 'W = mg', tone: 'text-rose-300 border-rose-500/20 bg-rose-950/10', dot: 'bg-rose-400' },
+  reaction: { label: 'Reaction', symbol: 'R', tone: 'text-emerald-300 border-emerald-500/20 bg-emerald-950/10', dot: 'bg-emerald-400' },
+  friction: { label: 'Friction', symbol: 'F', tone: 'text-amber-300 border-amber-500/20 bg-amber-950/10', dot: 'bg-amber-400' },
+  tension: { label: 'Tension', symbol: 'T', tone: 'text-blue-300 border-blue-500/20 bg-blue-950/10', dot: 'bg-blue-400' },
+  applied: { label: 'Applied', symbol: 'P', tone: 'text-zinc-300 border-zinc-700/70 bg-zinc-900/20', dot: 'bg-zinc-300' },
+};
+
+const scenarioOrder = Object.keys(scenarioLabels) as FreeBodyScenario[];
+const forceOrder = Object.keys(forceLabels) as Force[];
+
+const ForceStatusChip: React.FC<{ force: Force; active: boolean; disabled?: boolean }> = ({ force, active, disabled }) => {
+  const detail = forceDetails[force];
+
+  return (
+    <div
+      className={cn(
+        'flex min-h-10 items-center justify-between gap-3 rounded-lg border px-3 py-2 text-[11px] font-bold transition-colors',
+        active ? detail.tone : 'border-zinc-800 bg-[#0c0c0e]/60 text-zinc-600',
+        disabled && 'opacity-45'
+      )}
+    >
+      <span className="flex items-center gap-2">
+        <span className={cn('size-2 rounded-full', active ? detail.dot : 'bg-zinc-700')} />
+        {detail.label}
+      </span>
+      <span className="whitespace-nowrap font-serif text-xs">{detail.symbol}</span>
+    </div>
+  );
+};
+
 export const M1FreeBodyDiagram: React.FC = () => {
   const [scenario, setScenario] = useState<FreeBodyScenario>('smooth');
   const [forces, setForces] = useState<Record<Force, boolean>>(scenarioDefaults.smooth);
@@ -47,177 +73,207 @@ export const M1FreeBodyDiagram: React.FC = () => {
     setForces(prev => ({ ...prev, [force]: !prev[force] }));
   };
 
+  const showMotionGuide = forces.friction || forces.tension || forces.applied;
+
   return (
     <DiagramPanel
       title="Fig. Interactive Free-Body Diagram"
       analysis={
-        <div className="space-y-4 max-w-5xl mx-auto w-full">
+        <div className="mx-auto w-full max-w-5xl space-y-4">
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
-              <strong className="text-zinc-100">Smooth surface</strong> means no friction.
+            <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
+              <strong className="font-bold text-zinc-100">Smooth surface</strong> means no friction.
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
-              <strong className="text-amber-400">Rough surface</strong> means friction opposes motion.
+            <div className="rounded-xl border border-amber-500/20 bg-amber-950/10 p-4 text-sm leading-relaxed text-zinc-400">
+              <strong className="font-bold text-amber-400">Rough surface</strong> means friction opposes motion.
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
-              <strong className="text-rose-400">Object only:</strong> include forces acting on this object, not forces it exerts.
+            <div className="rounded-xl border border-rose-500/20 bg-rose-950/10 p-4 text-sm leading-relaxed text-zinc-400">
+              <strong className="font-bold text-rose-400">Object only:</strong> include forces acting on this object, not forces it exerts.
             </div>
           </div>
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 text-base text-zinc-300 leading-relaxed">
-            <span className="font-semibold text-zinc-100">A free-body diagram</span> shows only external forces acting on the selected object. Weight <MathInline content="mg" className="text-rose-400" /> acts vertically downwards; reaction <MathInline content="R" className="text-emerald-400" /> is perpendicular to the surface.
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
+            <span className="font-bold text-zinc-100">A free-body diagram</span> shows only external forces acting on the selected object. Weight{' '}
+            <MathInline content="$mg$" className="text-rose-400" /> acts vertically downwards; reaction{' '}
+            <MathInline content="$R$" className="text-emerald-400" /> is perpendicular to the surface.
           </div>
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 text-base text-zinc-300 leading-relaxed">
-            Tension <MathInline content="T" className="text-zinc-100" /> appears if a string, towbar, or cable pulls on the object. Applied force <MathInline content="P" className="text-zinc-100" /> appears only when a direct force is given.
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
+            Tension <MathInline content="$T$" className="text-blue-400" /> appears if a string, towbar, or cable pulls on the object. Applied force{' '}
+            <MathInline content="$P$" className="text-zinc-200" /> appears only when a direct force is given.
           </div>
         </div>
       }
     >
-      <div className="flex w-full flex-col items-center gap-6">
-        <div className="grid w-full max-w-5xl mx-auto gap-6 lg:grid-cols-[1fr_2.5fr]">
-          <div className="rounded-xl border border-zinc-800/60 bg-[#1c1c1f] p-5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-zinc-400">Scenario</h4>
-            <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
-              {(Object.keys(scenarioLabels) as FreeBodyScenario[]).map(option => (
-                <button
-                  key={option}
-                  type="button"
-                  onClick={() => selectScenario(option)}
-                  className={`rounded-lg border px-4 py-2.5 text-left text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                    scenario === option
-                      ? 'border-zinc-500 bg-zinc-800 text-zinc-100 shadow-[0_0_15px_rgba(255,255,255,0.05)]'
-                      : 'border-zinc-800 bg-[#141416] text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900 hover:text-zinc-300'
-                  }`}
-                >
-                  {scenarioLabels[option]}
-                </button>
+      <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-[#141417] p-5 shadow-2xl">
+        <div className="grid w-full gap-5 xl:grid-cols-[280px_1fr]">
+          <aside className="rounded-xl border border-zinc-800/70 bg-[#0f0f12]/90 p-4 shadow-xl">
+            <div>
+              <h4 className="mb-3 text-[10px] font-black uppercase tracking-[0.25em] text-zinc-500">Preset scenario</h4>
+              <div className="grid grid-cols-2 gap-2 xl:grid-cols-1">
+                {scenarioOrder.map(option => (
+                  <button
+                    key={option}
+                    type="button"
+                    aria-pressed={scenario === option}
+                    onClick={() => selectScenario(option)}
+                    className={cn(
+                      'rounded-lg border px-3 py-2.5 text-left text-xs font-bold transition-all duration-200',
+                      scenario === option
+                        ? 'border-zinc-500 bg-zinc-800 text-zinc-100 shadow-sm'
+                        : 'border-zinc-800 bg-[#111113] text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900 hover:text-zinc-300'
+                    )}
+                  >
+                    {scenarioLabels[option]}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="mb-3 text-[10px] font-black uppercase tracking-[0.25em] text-zinc-500">Forces on object</h4>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-1">
+                {forceOrder.map(force => {
+                  const disabled = scenario === 'smooth' && force === 'friction';
+
+                  return (
+                    <label
+                      key={force}
+                      className={cn(
+                        'flex items-center justify-between gap-3 rounded-lg border px-3 py-2.5 text-xs font-semibold transition-all duration-200',
+                        disabled
+                          ? 'cursor-not-allowed border-zinc-900/60 bg-[#111113]/35 text-zinc-600'
+                          : 'cursor-pointer border-zinc-800 bg-[#111113] text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900'
+                      )}
+                    >
+                      <span>{forceLabels[force]}</span>
+                      <input
+                        type="checkbox"
+                        checked={forces[force]}
+                        disabled={disabled}
+                        onChange={() => toggleForce(force)}
+                        className="size-4 rounded border-zinc-700 bg-zinc-900 accent-zinc-300 disabled:opacity-30"
+                      />
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          </aside>
+
+          <section className="flex min-w-0 flex-col gap-3 rounded-xl border border-zinc-800/70 bg-[#0c0c0e]/70 p-3 shadow-xl">
+            <div className="relative aspect-[16/10] min-h-[320px] overflow-hidden rounded-xl border border-zinc-800/60 bg-[#141417] shadow-inner">
+              <svg
+                className="absolute inset-0 h-full w-full"
+                viewBox="0 0 800 500"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                shapeRendering="geometricPrecision"
+                role="img"
+                aria-label="Interactive free body diagram showing selected forces on a block"
+              >
+                <defs>
+                  <marker id="fbd-arrow-rose" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fb7185" />
+                  </marker>
+                  <marker id="fbd-arrow-emerald" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#34d399" />
+                  </marker>
+                  <marker id="fbd-arrow-amber" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fbbf24" />
+                  </marker>
+                  <marker id="fbd-arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#60a5fa" />
+                  </marker>
+                  <marker id="fbd-arrow-zinc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#e4e4e7" />
+                  </marker>
+                </defs>
+
+                <text x="72" y="78" fill="#8b8794" className="text-[13px] font-black uppercase tracking-[0.28em]" style={{ fontFamily: 'serif' }}>
+                  block on table
+                </text>
+                <text x="72" y="100" fill="#8b8794" className="text-[13px] font-black uppercase tracking-[0.28em]" style={{ fontFamily: 'serif' }}>
+                  external forces only
+                </text>
+
+                <line x1="90" y1="320" x2="710" y2="320" stroke="#52525b" strokeWidth="3" strokeLinecap="round" />
+                <g className={cn('transition-opacity duration-300', scenario === 'rough' ? 'opacity-80' : 'opacity-0')}>
+                  {Array.from({ length: 22 }).map((_, index) => (
+                    <line key={index} x1={105 + index * 27} y1="334" x2={118 + index * 27} y2="320" stroke="#3f3f46" strokeWidth="1.4" />
+                  ))}
+                </g>
+
+                <rect x="310" y="190" width="180" height="130" rx="9" fill="#1c1c1f" stroke="#52525b" strokeWidth="2.4" />
+                <text x="400" y="256" fill="#71717a" textAnchor="middle" dominantBaseline="middle" className="text-[11px] font-black uppercase tracking-widest" style={{ fontFamily: 'sans-serif' }}>
+                  object
+                </text>
+
+                <g className={cn('transition-opacity duration-300', showMotionGuide ? 'opacity-45' : 'opacity-0')}>
+                  <line x1="210" y1="48" x2="610" y2="48" stroke="#a1a1aa" strokeWidth="1.6" strokeDasharray="7 7" markerEnd="url(#fbd-arrow-zinc)" />
+                  <text x="410" y="32" fill="#a1a1aa" textAnchor="middle" dominantBaseline="middle" className="text-[10px] font-bold uppercase tracking-widest" style={{ fontFamily: 'sans-serif' }}>
+                    intended motion
+                  </text>
+                </g>
+
+                <g className={cn('transition-opacity duration-300', forces.reaction ? 'opacity-100' : 'opacity-0')}>
+                  <line x1="400" y1="190" x2="400" y2="70" stroke="#34d399" strokeWidth="4" markerEnd="url(#fbd-arrow-emerald)" />
+                  <text x="426" y="90" fill="#34d399" textAnchor="start" dominantBaseline="middle" className="text-[26px] font-black" style={{ fontFamily: 'serif' }}>
+                    R
+                  </text>
+                  <text x="452" y="90" fill="#a7f3d0" textAnchor="start" dominantBaseline="middle" className="text-[12px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
+                    perpendicular
+                  </text>
+                </g>
+
+                <g className={cn('transition-opacity duration-300', forces.weight ? 'opacity-100' : 'opacity-0')}>
+                  <line x1="400" y1="320" x2="400" y2="430" stroke="#fb7185" strokeWidth="4" markerEnd="url(#fbd-arrow-rose)" />
+                  <text x="424" y="405" fill="#fb7185" textAnchor="start" dominantBaseline="middle" className="text-[22px] font-black" style={{ fontFamily: 'serif' }}>
+                    W = mg
+                  </text>
+                </g>
+
+                <g className={cn('transition-opacity duration-300', forces.friction ? 'opacity-100' : 'opacity-0')}>
+                  <line x1="310" y1="320" x2="150" y2="320" stroke="#fbbf24" strokeWidth="4" markerEnd="url(#fbd-arrow-amber)" />
+                  <text x="188" y="296" fill="#fbbf24" textAnchor="middle" dominantBaseline="middle" className="text-[24px] font-black" style={{ fontFamily: 'serif' }}>
+                    F
+                  </text>
+                  <text x="220" y="342" fill="#fcd34d" textAnchor="middle" dominantBaseline="middle" className="text-[11px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
+                    opposes motion
+                  </text>
+                </g>
+
+                <g className={cn('transition-opacity duration-300', forces.tension ? 'opacity-100' : 'opacity-0')}>
+                  <line x1="490" y1="255" x2="670" y2="255" stroke="#60a5fa" strokeWidth="4" markerEnd="url(#fbd-arrow-blue)" />
+                  <text x="635" y="230" fill="#60a5fa" textAnchor="middle" dominantBaseline="middle" className="text-[24px] font-black" style={{ fontFamily: 'serif' }}>
+                    T
+                  </text>
+                  <text x="635" y="282" fill="#93c5fd" textAnchor="middle" dominantBaseline="middle" className="text-[11px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
+                    string pulls
+                  </text>
+                </g>
+
+                <g className={cn('transition-opacity duration-300', forces.applied ? 'opacity-100' : 'opacity-0')}>
+                  <line x1="490" y1="190" x2="650" y2="90" stroke="#e4e4e7" strokeWidth="4" markerEnd="url(#fbd-arrow-zinc)" />
+                  <text x="655" y="84" fill="#e4e4e7" textAnchor="start" dominantBaseline="middle" className="text-[24px] font-black" style={{ fontFamily: 'serif' }}>
+                    P
+                  </text>
+                  <text x="616" y="124" fill="#d4d4d8" textAnchor="start" dominantBaseline="middle" className="text-[11px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
+                    direct push/pull
+                  </text>
+                </g>
+              </svg>
+            </div>
+
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+              {forceOrder.map(force => (
+                <ForceStatusChip
+                  key={force}
+                  force={force}
+                  active={forces[force]}
+                  disabled={scenario === 'smooth' && force === 'friction'}
+                />
               ))}
             </div>
-
-            <h4 className="mb-4 mt-8 text-sm font-bold uppercase tracking-widest text-zinc-400">Forces on the object</h4>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              {(Object.keys(forceLabels) as Force[]).map(force => {
-                const disabled = scenario === 'smooth' && force === 'friction';
-                return (
-                  <label
-                    key={force}
-                    className={`flex items-center justify-between gap-3 rounded-lg border px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
-                      disabled
-                        ? 'cursor-not-allowed border-zinc-800/30 bg-[#141416]/50 text-zinc-600'
-                        : 'cursor-pointer border-zinc-800 bg-[#141416] text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900'
-                    }`}
-                  >
-                    <span>{forceLabels[force]}</span>
-                    <input
-                      type="checkbox"
-                      checked={forces[force]}
-                      disabled={disabled}
-                      onChange={() => toggleForce(force)}
-                      className="h-4 w-4 rounded border-zinc-700 bg-zinc-900 text-zinc-400 focus:ring-zinc-500/50 focus:ring-offset-0 disabled:opacity-40 transition-colors cursor-pointer"
-                    />
-                  </label>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
-            <SVGLibrary />
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Interactive free body diagram showing selected forces on a block">
-              
-              {/* Surface and object */}
-              <line x1="100" y1="280" x2="700" y2="280" stroke={themeColors.structural} strokeWidth="3" />
-              <g className={`transition-opacity duration-300 ${scenario === 'rough' ? 'opacity-85' : 'opacity-0'}`}>
-                {Array.from({ length: 20 }).map((_, index) => (
-                  <line key={index} x1={120 + index * 30} y1="295" x2={140 + index * 30} y2="285" stroke={themeColors.applied} strokeWidth="1.8" />
-                ))}
-              </g>
-              
-              <ObjectBlock x={300} y={160} width={200} height={120} massLabel="object" />
-
-              <g className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={300} y1={120} x2={500} y2={120} type="structural" dashed marker="default" />
-              </g>
-
-              {/* Forces */}
-              <g className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={400} y1={220} x2={400} y2={380} type="force" />
-              </g>
-
-              <g className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={400} y1={160} x2={400} y2={40} type="accel" />
-              </g>
-
-              {/* Forces */}
-              <g className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={300} y1={220} x2={140} y2={220} type="applied" />
-              </g>
-
-              <g className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={500} y1={220} x2={660} y2={220} type="velocity" />
-                <VectorArrow x1={500} y1={220} x2={580} y2={220} type="velocity" dashed marker="none" />
-              </g>
-
-              <g className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={500} y1={180} x2={660} y2={100} type="weight" />
-              </g>
-
-              {/* Legend embedded in SVG to prevent positioning issues */}
-              <g transform="translate(60 360)">
-                <rect x="0" y="0" width="380" height="60" rx="8" fill="#141416" stroke="#27272a" />
-                <circle cx="20" cy="20" r="6" fill={themeColors.force} /><text x="35" y="24" className="fill-zinc-400 text-xs font-semibold tracking-wide" style={{ fontFamily: 'sans-serif' }}>weight</text>
-                <circle cx="120" cy="20" r="6" fill={themeColors.accel} /><text x="135" y="24" className="fill-zinc-400 text-xs font-semibold tracking-wide" style={{ fontFamily: 'sans-serif' }}>reaction</text>
-                <circle cx="240" cy="20" r="6" fill={themeColors.weight} /><text x="255" y="24" className="fill-zinc-400 text-xs font-semibold tracking-wide" style={{ fontFamily: 'sans-serif' }}>applied</text>
-                
-                <circle cx="20" cy="40" r="6" fill={themeColors.applied} /><text x="35" y="44" className="fill-zinc-400 text-xs font-semibold tracking-wide" style={{ fontFamily: 'sans-serif' }}>friction</text>
-                <circle cx="120" cy="40" r="6" fill={themeColors.velocity} /><text x="135" y="44" className="fill-zinc-400 text-xs font-semibold tracking-wide" style={{ fontFamily: 'sans-serif' }}>tension</text>
-              </g>
-            </svg>
-
-            {/* HTML Overlay Labels */}
-            <DiagramLabel x="16%" y="14%" anchor="start">
-              <div className="text-base md:text-lg font-bold text-zinc-200">Selected object</div>
-            </DiagramLabel>
-            
-            <DiagramLabel x="16%" y="22%" anchor="start">
-              <div className="text-sm text-zinc-400">block on table; external forces only</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="50%" y="20%" className={cn("transition-opacity duration-300", !(forces.friction || forces.tension || forces.applied) && 'opacity-0')}>
-              <div className="text-sm font-semibold text-zinc-400">motion / intended motion</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="55%" y="80%" className={cn("transition-opacity duration-300", !forces.weight && 'opacity-0')}>
-              <div className="text-xl font-bold" style={{ color: themeColors.force }}><MathInline content="mg" /></div>
-            </DiagramLabel>
-
-            <DiagramLabel x="53%" y="15%" className={cn("transition-opacity duration-300", !forces.reaction && 'opacity-0')}>
-              <div className="text-xl font-bold" style={{ color: themeColors.accel }}><MathInline content="R" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="59%" y="19%" className={cn("transition-opacity duration-300", !forces.reaction && 'opacity-0')}>
-              <div className="text-sm font-semibold" style={{ color: themeColors.accel }}>perpendicular</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="20%" y="42%" className={cn("transition-opacity duration-300", !forces.friction && 'opacity-0')}>
-              <div className="text-xl font-bold" style={{ color: themeColors.applied }}><MathInline content="F" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="20%" y="55%" className={cn("transition-opacity duration-300", !forces.friction && 'opacity-0')}>
-              <div className="text-sm font-semibold" style={{ color: themeColors.applied }}>opposes motion</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="85%" y="42%" className={cn("transition-opacity duration-300", !forces.tension && 'opacity-0')}>
-              <div className="text-xl font-bold" style={{ color: themeColors.velocity }}><MathInline content="T" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="85%" y="55%" className={cn("transition-opacity duration-300", !forces.tension && 'opacity-0')}>
-              <div className="text-sm font-semibold" style={{ color: themeColors.velocity }}>string pulls</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="87%" y="20%" className={cn("transition-opacity duration-300", !forces.applied && 'opacity-0')}>
-              <div className="text-xl font-bold" style={{ color: themeColors.weight }}><MathInline content="P" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="80%" y="30%" className={cn("transition-opacity duration-300", !forces.applied && 'opacity-0')}>
-              <div className="text-sm font-semibold" style={{ color: themeColors.weight }}>direct push/pull</div>
-            </DiagramLabel>
-          </div>
+          </section>
         </div>
       </div>
     </DiagramPanel>

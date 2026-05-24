@@ -69,7 +69,7 @@ export function Lessons() {
 
           {/* Dynamic Markdown Content */}
           <article className="prose prose-invert prose-zinc max-w-none w-full animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 fill-mode-both">
-            <MathText content={currentLesson.content} />
+            <MathText content={currentLesson.content} variant="lesson" />
           </article>
 
           {/* Bottom Navigation Ribbon */}

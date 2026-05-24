@@ -113,7 +113,6 @@ When objects are connected by a light towbar or inextensible string, the connect
 
 ### Method: Converting Units
 
-![visual:M1-FreeBody]()
 1. Identify the quantity and its given unit.
 2. Convert to SI units before using any mechanics formula.
 3. Substitute into the formula.
@@ -129,6 +128,14 @@ When objects are connected by a light towbar or inextensible string, the connect
 1. Highlight the modelling words in the question.
 2. Translate each word into a mathematical effect.
 3. Use the effect in equations, diagrams, or explanations.
+
+### Method: Drawing a Free-Body Diagram
+
+![visual:M1-FreeBody]()
+1. Choose the object you are isolating.
+2. Include only external forces acting on that object.
+3. Label weight, reaction, friction, tension, or applied force only when they are present.
+4. Use the diagram to decide which forces enter the equation of motion.
 
 ## 9. Worked Examples
 
