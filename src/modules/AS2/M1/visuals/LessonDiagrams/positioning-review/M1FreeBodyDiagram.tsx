@@ -1,222 +1,177 @@
-import React, { useState } from 'react';
-import { MathText } from '@/core/components/MathText';
+import React from 'react';
+import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
-import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
-import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
-import { themeColors } from '@/core/types/mechanicsTheme';
-
-type Force = 'weight' | 'reaction' | 'friction' | 'tension' | 'applied';
-type FreeBodyScenario = 'smooth' | 'rough' | 'string' | 'applied';
-
-const scenarioDefaults: Record<FreeBodyScenario, Record<Force, boolean>> = {
-  smooth: { weight: true, reaction: true, friction: false, tension: false, applied: false },
-  rough: { weight: true, reaction: true, friction: true, tension: false, applied: false },
-  string: { weight: true, reaction: true, friction: false, tension: true, applied: false },
-  applied: { weight: true, reaction: true, friction: false, tension: false, applied: true },
-};
-
-const scenarioLabels: Record<FreeBodyScenario, string> = {
-  smooth: 'Smooth table',
-  rough: 'Rough table',
-  string: 'Pulled by string',
-  applied: 'Applied force',
-};
-
-const forceLabels: Record<Force, string> = {
-  weight: 'Weight',
-  reaction: 'Reaction',
-  friction: 'Friction',
-  tension: 'Tension',
-  applied: 'Applied force',
-};
 
 export const M1FreeBodyDiagram: React.FC = () => {
-  const [scenario, setScenario] = useState<FreeBodyScenario>('smooth');
-  const [forces, setForces] = useState<Record<Force, boolean>>(scenarioDefaults.smooth);
-
-  const selectScenario = (nextScenario: FreeBodyScenario) => {
-    setScenario(nextScenario);
-    setForces(scenarioDefaults[nextScenario]);
-  };
-
-  const toggleForce = (force: Force) => {
-    if (scenario === 'smooth' && force === 'friction') return;
-    setForces(prev => ({ ...prev, [force]: !prev[force] }));
-  };
-
   return (
     <DiagramPanel
-      title="Fig. Interactive Free-Body Diagram"
+      title="Fig 3. Common Modelling Assumptions"
       analysis={
-        <div className="space-y-3">
-          <div className="grid gap-3 md:grid-cols-3">
-            <div className="rounded-lg border border-zinc-900/50 bg-zinc-950/20 p-3 text-sm text-zinc-200">
-              <strong className="text-zinc-300">Smooth surface</strong> means no friction.
-            </div>
-            <div className="rounded-lg border border-amber-900/50 bg-amber-950/20 p-3 text-sm text-amber-200">
-              <strong className="text-amber-300">Rough surface</strong> means friction opposes motion.
-            </div>
-            <div className="rounded-lg border border-rose-900/50 bg-rose-950/25 p-3 text-sm text-rose-200">
-              <strong className="text-rose-300">Object only:</strong> include forces acting on this object, not forces it exerts.
-            </div>
-          </div>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 text-sm text-zinc-300">
-            <a href="#" className="hover:underline">A free-body diagram</a> shows only external forces acting on the selected object. Weight <MathText content="mg" className="inline text-rose-300 [&_p]:inline [&_p]:m-0" /> acts vertically downwards; reaction <MathText content="R" className="inline text-emerald-300 [&_p]:inline [&_p]:m-0" /> is perpendicular to the surface.
-          </div>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 text-sm text-zinc-300">
-            Tension <MathText content="T" className="inline text-zinc-300 [&_p]:inline [&_p]:m-0" /> appears if a string, towbar, or cable pulls on the object. Applied force <MathText content="P" className="inline text-violet-300 [&_p]:inline [&_p]:m-0" /> appears only when a direct force is given.
-          </div>
+        <div className="w-full max-w-5xl mx-auto text-center text-zinc-400 italic text-base leading-relaxed py-1 px-4">
+          Modelling words are shortcuts for physical assumptions and mathematical consequences.
         </div>
       }
     >
-      <div className="flex w-full flex-col items-center gap-4">
-        <div className="grid w-full max-w-4xl gap-4 lg:grid-cols-[1fr_1.15fr]">
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4">
-            <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-zinc-300">Scenario</h4>
-            <div className="grid grid-cols-2 gap-2">
-              {(Object.keys(scenarioLabels) as FreeBodyScenario[]).map(option => (
-                <button
-                  key={option}
-                  type="button"
-                  onClick={() => selectScenario(option)}
-                  className={`rounded-lg border px-3 py-2 text-left text-xs font-semibold transition-all duration-300 ${
-                    scenario === option
-                      ? 'border-zinc-500/50 bg-zinc-950/60 text-zinc-100 shadow-[0_0_15px_rgba(14,165,233,0.15)]'
-                      : 'border-zinc-800/60 bg-[#141416] text-zinc-400 hover:border-zinc-700 hover:bg-zinc-900/50'
-                  }`}
-                >
-                  {scenarioLabels[option]}
-                </button>
-              ))}
+      {/* 3-Column Responsive Core Grid Matrix */}
+      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        {/* CARD 1: PARTICLE */}
+        <div className="flex flex-col justify-between bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-5 backdrop-blur-md min-h-[340px]">
+          <div>
+            <div className="text-zinc-400 font-bold tracking-wider text-[11px] uppercase mb-4 pl-1">
+              <MathInline content="$\text{Particle}$" />
             </div>
-
-            <h4 className="mb-3 mt-6 text-xs font-bold uppercase tracking-wider text-zinc-400">Forces on the object</h4>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1">
-              {(Object.keys(forceLabels) as Force[]).map(force => {
-                const disabled = scenario === 'smooth' && force === 'friction';
-                return (
-                  <label
-                    key={force}
-                    className={`flex items-center justify-between gap-3 rounded-lg border px-3 py-2 text-sm transition-all duration-300 ${
-                      disabled
-                        ? 'cursor-not-allowed border-zinc-800/30 bg-[#141416]/50 text-zinc-600'
-                        : 'cursor-pointer border-zinc-800/60 bg-[#141416] text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900/50'
-                    }`}
-                  >
-                    <span>{forceLabels[force]}</span>
-                    <input
-                      type="checkbox"
-                      checked={forces[force]}
-                      disabled={disabled}
-                      onChange={() => toggleForce(force)}
-                      className="h-4 w-4 rounded border-zinc-700 bg-zinc-900 text-zinc-500 focus:ring-zinc-500/50 focus:ring-offset-0 disabled:opacity-40 transition-colors"
-                    />
-                  </label>
-                );
-              })}
+            <div className="w-full h-24 bg-[#141417] border border-zinc-800/60 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <svg viewBox="0 0 200 100" className="w-full h-full">
+                <rect x="30" y="25" width="140" height="50" rx="6" stroke="#27272a" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
+                <circle cx="100" cy="50" r="6" fill="#e4e4e7" />
+                <line x1="60" y1="50" x2="140" y2="50" stroke="#52525b" strokeWidth="1.5" />
+              </svg>
             </div>
-          </div>
-
-          <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
-            <SVGLibrary />
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Interactive free body diagram showing selected forces on a block">
-              <rect x="28" y="28" width="504" height="364" rx="10" fill="#141417" stroke="#1e293b" strokeWidth="1.8" />
-              
-              {/* Surface and object */}
-              <line x1="72" y1="234" x2="488" y2="234" stroke={themeColors.structural} strokeWidth="3" />
-              <g className={`transition-opacity duration-300 ${scenario === 'rough' ? 'opacity-85' : 'opacity-0'}`}>
-                {Array.from({ length: 13 }).map((_, index) => (
-                  <line key={index} x1={92 + index * 30} y1="246" x2={108 + index * 30} y2="238" stroke={themeColors.applied} strokeWidth="1.8" />
-                ))}
-              </g>
-              
-              <ObjectBlock x={210} y={154} width={140} height={80} massLabel="object" />
-
-              <g className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={214} y1={122} x2={346} y2={122} type="structural" dashed marker="default" />
-              </g>
-
-              {/* Forces */}
-              <g className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={280} y1={194} x2={280} y2={320} type="force" />
-              </g>
-
-              <g className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={280} y1={154} x2={280} y2={48} type="accel" />
-              </g>
-
-              <g className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={210} y1={194} x2={92} y2={194} type="applied" />
-              </g>
-
-              <g className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={350} y1={194} x2={486} y2={194} type="velocity" />
-                <VectorArrow x1={350} y1={194} x2={410} y2={194} type="velocity" dashed marker="none" />
-              </g>
-
-              <g className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
-                <VectorArrow x1={350} y1={164} x2={486} y2={122} type="weight" />
-              </g>
-
-              {/* Legend */}
-              <g transform="translate(48 336)">
-                <rect x="0" y="0" width="276" height="42" rx="6" fill="#020617" stroke="#1e293b" />
-                <circle cx="16" cy="14" r="5" fill={themeColors.force} /><text x="28" y="18" className="fill-zinc-400 text-[10px] font-medium tracking-wide">weight</text>
-                <circle cx="86" cy="14" r="5" fill={themeColors.accel} /><text x="98" y="18" className="fill-zinc-400 text-[10px] font-medium tracking-wide">reaction</text>
-                <circle cx="176" cy="14" r="5" fill={themeColors.weight} /><text x="188" y="18" className="fill-zinc-400 text-[10px] font-medium tracking-wide">applied</text>
-                <circle cx="16" cy="28" r="5" fill={themeColors.applied} /><text x="28" y="32" className="fill-zinc-400 text-[10px] font-medium tracking-wide">friction</text>
-                <circle cx="86" cy="28" r="5" fill={themeColors.velocity} /><text x="98" y="32" className="fill-zinc-400 text-[10px] font-medium tracking-wide">tension</text>
-              </g>
-            </svg>
-
-            {/* HTML Overlay Labels */}
-            <DiagramLabel x="16%" y="14%">
-              <div className="text-base font-bold text-zinc-200">Selected object</div>
-            </DiagramLabel>
-            
-            <DiagramLabel x="21%" y="19%">
-              <div className="text-xs text-zinc-400">block on table; external forces only</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="50%" y="26%" className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-xs font-semibold text-zinc-400">motion / intended motion</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="58%" y="72%" className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-lg font-bold" style={{ color: themeColors.force }}><MathText content="mg" className="[&_p]:m-0" /></div>
-            </DiagramLabel>
-
-            <DiagramLabel x="56%" y="18%" className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-lg font-bold" style={{ color: themeColors.accel }}><MathText content="R" className="[&_p]:m-0" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="62%" y="22%" className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-xs font-semibold" style={{ color: themeColors.accel }}>perpendicular</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="23%" y="42%" className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-lg font-bold" style={{ color: themeColors.applied }}><MathText content="F" className="[&_p]:m-0" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="24%" y="53%" className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-xs font-semibold" style={{ color: themeColors.applied }}>opposes motion</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="84%" y="42%" className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-lg font-bold" style={{ color: themeColors.velocity }}><MathText content="T" className="[&_p]:m-0" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="78%" y="53%" className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-xs font-semibold" style={{ color: themeColors.velocity }}>string pulls</div>
-            </DiagramLabel>
-
-            <DiagramLabel x="85%" y="25%" className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-lg font-bold" style={{ color: themeColors.weight }}><MathText content="P" className="[&_p]:m-0" /></div>
-            </DiagramLabel>
-            <DiagramLabel x="79%" y="33%" className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="text-xs font-semibold" style={{ color: themeColors.weight }}>direct push/pull</div>
-            </DiagramLabel>
+            <div className="space-y-2 text-zinc-300 text-xs px-1">
+              <p className="leading-relaxed"><strong className="text-zinc-400 font-bold block mb-0.5">Meaning:</strong> Dimensions are negligible; total mass is treated concentrated at a singular localized point.</p>
+              <p className="leading-relaxed"><strong className="text-zinc-400 font-bold block mb-0.5">Effect:</strong> Completely ignore complex rotational elements and shape profiles; lines of action intersect at one locus.</p>
+            </div>
           </div>
         </div>
+
+        {/* CARD 2: SMOOTH SURFACE */}
+        <div className="flex flex-col justify-between bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-5 backdrop-blur-md min-h-[340px]">
+          <div>
+            <div className="text-zinc-400 font-bold tracking-wider text-[11px] uppercase mb-4 pl-1">
+              <MathInline content="$\text{Smooth Surface}$" />
+            </div>
+            <div className="w-full h-24 bg-[#141417] border border-zinc-800/60 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <svg viewBox="0 0 200 100" className="w-full h-full">
+                <line x1="30" y1="70" x2="170" y2="70" stroke="#3f3f46" strokeWidth="2.5" />
+                <rect x="75" y="35" width="50" height="35" rx="4" fill="#1c1c1f" stroke="#e4e4e7" strokeWidth="2" />
+              </svg>
+            </div>
+            <div className="space-y-2 text-zinc-300 text-xs px-1">
+              <p className="leading-relaxed"><strong className="text-zinc-400 font-bold block mb-0.5">Meaning:</strong> Absolutely no frictional force components exist at the contact interface mapping tracks.</p>
+              <p className="leading-relaxed"><strong className="text-zinc-400 font-bold block mb-0.5">Effect:</strong> Completely omit the active lateral friction force vector (<MathInline content="$F$" />) from the structural free-body system.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CARD 3: ROUGH SURFACE */}
+        <div className="flex flex-col justify-between bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-5 backdrop-blur-md min-h-[340px]">
+          <div>
+            <div className="text-zinc-400 font-bold tracking-wider text-[11px] uppercase mb-4 pl-1">
+              <MathInline content="$\text{Rough Surface}$" />
+            </div>
+            <div className="w-full h-24 bg-[#141417] border border-zinc-800/60 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <svg viewBox="0 0 200 100" className="w-full h-full">
+                <defs>
+                  <marker id="arr-amber-mod" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fbbf24" />
+                  </marker>
+                </defs>
+                <line x1="30" y1="70" x2="170" y2="70" stroke="#3f3f46" strokeWidth="2.5" />
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <line key={i} x1={40 + i * 16} y1="78" x2={50 + i * 16} y2="70" stroke="#27272a" strokeWidth="1" />
+                ))}
+                <rect x="75" y="35" width="50" height="35" rx="4" fill="#1c1c1f" stroke="#e4e4e7" strokeWidth="2" />
+                <line x1="75" y1="52" x2="35" y2="52" stroke="#fbbf24" strokeWidth="2" markerEnd="url(#arr-amber-mod)" />
+              </svg>
+            </div>
+            <div className="space-y-2 text-zinc-300 text-xs px-1 mb-3">
+              <p className="leading-relaxed"><strong className="text-amber-400 font-bold block mb-0.5">Meaning:</strong> High-friction contact resistance is active at the horizontal interface line.</p>
+              <p className="leading-relaxed"><strong className="text-amber-400 font-bold block mb-0.5">Effect:</strong> Friction force acts to directly oppose active or impending movement vectors:</p>
+            </div>
+          </div>
+          <div className="w-full bg-[#141417]/80 rounded-lg p-2.5 text-center border border-zinc-800/40 text-sm font-bold text-amber-400 shadow-inner">
+            <MathInline content="$F \le \mu R$" />
+          </div>
+        </div>
+
+        {/* CARD 4: LIGHT STRING / TOWBAR / PULLEY */}
+        <div className="flex flex-col justify-between bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-5 backdrop-blur-md min-h-[340px]">
+          <div>
+            <div className="text-zinc-400 font-bold tracking-wider text-[11px] uppercase mb-4 pl-1">
+              <MathInline content="$\text{Light String / Towbar / Pulley}$" />
+            </div>
+            <div className="w-full h-24 bg-[#141417] border border-zinc-800/60 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <svg viewBox="0 0 200 100" className="w-full h-full">
+                <line x1="30" y1="50" x2="170" y2="50" stroke="#e4e4e7" strokeWidth="2" />
+                <circle cx="100" cy="50" r="16" fill="#1c1c1f" stroke="#52525b" strokeWidth="2" />
+                <text x="100" y="54" textAnchor="middle" className="fill-zinc-500 text-[10px] font-black tracking-wider">0 kg</text>
+              </svg>
+            </div>
+            <div className="space-y-2 text-zinc-300 text-xs px-1">
+              <p className="leading-relaxed"><strong className="text-zinc-400 font-bold block mb-0.5">Meaning:</strong> The mechanical connector or tracking element possesses entirely negligible mass.</p>
+              <p className="leading-relaxed"><strong className="text-zinc-400 font-bold block mb-0.5">Effect:</strong> Do not include its weight in calculations; tension is completely uniform throughout the path string length.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CARD 5: INEXTENSIBLE STRING */}
+        <div className="flex flex-col justify-between bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-5 backdrop-blur-md min-h-[340px]">
+          <div>
+            <div className="text-zinc-400 font-bold tracking-wider text-[11px] uppercase mb-4 pl-1">
+              <MathInline content="$\text{Inextensible String}$" />
+            </div>
+            <div className="w-full h-24 bg-[#141417] border border-zinc-800/60 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <svg viewBox="0 0 200 100" className="w-full h-full">
+                <line x1="50" y1="50" x2="150" y2="50" stroke="#3b82f6" strokeWidth="2.5" />
+                <rect x="35" y="40" width="20" height="20" rx="3" fill="#1c1c1f" stroke="#52525b" strokeWidth="1.5" />
+                <rect x="145" y="40" width="20" height="20" rx="3" fill="#1c1c1f" stroke="#52525b" strokeWidth="1.5" />
+                <line x1="45" y1="25" x2="155" y2="25" stroke="#10b981" strokeWidth="1.5" strokeDasharray="3 3" />
+              </svg>
+            </div>
+            <div className="space-y-2 text-zinc-300 text-xs px-1 mb-3">
+              <p className="leading-relaxed"><strong className="text-emerald-400 font-bold block mb-0.5">Meaning:</strong> The connective string profile is stiff and does not stretch or deform under tension load.</p>
+              <p className="leading-relaxed"><strong className="text-emerald-400 font-bold block mb-0.5">Effect:</strong> Coupled boundary particles share an identical magnitude of acceleration speed at all times:</p>
+            </div>
+          </div>
+          <div className="w-full bg-[#141417]/80 rounded-lg p-2.5 text-center border border-zinc-800/40 text-sm font-bold text-emerald-400 shadow-inner">
+            <MathInline content="$a_1 = a_2$" />
+          </div>
+        </div>
+
+        {/* CARD 6: SMOOTH PULLEY */}
+        <div className="flex flex-col justify-between bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-5 backdrop-blur-md min-h-[340px]">
+          <div>
+            <div className="text-zinc-400 font-bold tracking-wider text-[11px] uppercase mb-4 pl-1">
+              <MathInline content="$\text{Smooth Pulley}$" />
+            </div>
+            <div className="w-full h-24 bg-[#141417] border border-zinc-800/60 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <svg viewBox="0 0 200 100" className="w-full h-full">
+                <path d="M 85 85 L 85 45 A 15 15 0 0 1 115 45 L 115 85" fill="none" stroke="#10b981" strokeWidth="2.5" />
+                <circle cx="100" cy="45" r="12" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" />
+                <circle cx="100" cy="45" r="2.5" fill="#a1a1aa" />
+              </svg>
+            </div>
+            <div className="space-y-2 text-zinc-300 text-xs px-1 mb-3">
+              <p className="leading-relaxed"><strong className="text-emerald-400 font-bold block mb-0.5">Meaning:</strong> The string turns around a bearing casing assembly with absolutely zero frictional losses.</p>
+              <p className="leading-relaxed"><strong className="text-emerald-400 font-bold block mb-0.5">Effect:</strong> Tension magnitude remains perfectly equal and constant on both downstream sections of the string:</p>
+            </div>
+          </div>
+          <div className="w-full bg-[#141417]/80 rounded-lg p-2.5 text-center border border-zinc-800/40 text-sm font-bold text-emerald-400 shadow-inner">
+            <MathInline content="$T_1 = T_2$" />
+          </div>
+        </div>
+
+        {/* CARD 7: RIGID ROD / TOWBAR */}
+        <div className="flex flex-col justify-between bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-5 backdrop-blur-md min-h-[340px] lg:col-span-3 lg:max-w-md lg:mx-auto w-full">
+          <div>
+            <div className="text-zinc-400 font-bold tracking-wider text-[11px] uppercase mb-4 pl-1">
+              <MathInline content="$\text{Rigid Rod / Towbar}$" />
+            </div>
+            <div className="w-full h-24 bg-[#141417] border border-zinc-800/60 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+              <svg viewBox="0 0 200 100" className="w-full h-full">
+                <line x1="55" y1="50" x2="145" y2="50" stroke="#f43f5e" strokeWidth="4" strokeLinecap="round" />
+                <rect x="30" y="40" width="25" height="20" rx="3" fill="#1c1c1f" stroke="#52525b" strokeWidth="1.5" />
+                <rect x="145" y="40" width="25" height="20" rx="3" fill="#1c1c1f" stroke="#52525b" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <div className="space-y-2 text-zinc-300 text-xs px-1">
+              <p className="leading-relaxed"><strong className="text-rose-400 font-bold block mb-0.5">Meaning:</strong> The mechanical bar structural connector does not bend, compress, buckle, or deform under load conditions.</p>
+              <p className="leading-relaxed"><strong className="text-rose-400 font-bold block mb-0.5">Effect:</strong> Maintains a static, fixed separation distance metric between moving entities; can transmit both tension (pull) and thrust (push) forces.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </DiagramPanel>
   );
