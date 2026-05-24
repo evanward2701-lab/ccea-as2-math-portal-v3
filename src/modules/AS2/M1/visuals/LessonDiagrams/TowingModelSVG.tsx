@@ -3,7 +3,7 @@ import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
 
-type Tone = 'amber' | 'emerald' | 'rose';
+type Tone = 'zinc' | 'amber' | 'emerald' | 'rose';
 
 interface AnalysisCard {
   title: string;
@@ -14,23 +14,29 @@ interface AnalysisCard {
 }
 
 const toneStyles: Record<Tone, { text: string; border: string; bg: string; strip: string }> = {
+  zinc: {
+    text: 'text-zinc-400',
+    border: 'border-zinc-800/80',
+    bg: 'bg-zinc-950/20',
+    strip: 'border-zinc-800/80 bg-zinc-950/35 text-zinc-400',
+  },
   amber: {
-    text: 'text-amber-300',
-    border: 'border-amber-500/25',
+    text: 'text-amber-400',
+    border: 'border-amber-500/20',
     bg: 'bg-amber-950/15',
-    strip: 'border-amber-500/25 bg-amber-950/15 text-amber-300',
+    strip: 'border-amber-500/20 bg-amber-950/20 text-amber-400',
   },
   emerald: {
-    text: 'text-emerald-300',
-    border: 'border-emerald-500/25',
+    text: 'text-emerald-400',
+    border: 'border-emerald-500/20',
     bg: 'bg-emerald-950/15',
-    strip: 'border-emerald-500/25 bg-emerald-950/15 text-emerald-300',
+    strip: 'border-emerald-500/20 bg-emerald-950/20 text-emerald-400',
   },
   rose: {
-    text: 'text-rose-300',
-    border: 'border-rose-500/30',
-    bg: 'bg-rose-950/20',
-    strip: 'border-zinc-800/80 bg-zinc-950/35 text-zinc-500',
+    text: 'text-rose-400',
+    border: 'border-rose-500/20',
+    bg: 'bg-rose-950/15',
+    strip: 'border-zinc-800 bg-zinc-950/40 text-zinc-500',
   },
 };
 
@@ -59,195 +65,138 @@ const AnalysisCard: React.FC<AnalysisCard> = ({ title, body, tone, formula, foot
   const styles = toneStyles[tone];
 
   return (
-    <article className={cn('flex min-h-[180px] flex-col justify-between rounded-xl border p-5 shadow-sm', styles.border, styles.bg)}>
+    <article className={cn('flex min-h-[190px] flex-col justify-between rounded-xl border p-5 bg-[#141417]/40 shadow-sm', styles.border)}>
       <div>
-        <h4 className={cn('mb-2 text-sm font-bold uppercase tracking-wider', styles.text)}>{title}</h4>
+        <h4 className={cn('mb-2 text-xs font-black uppercase tracking-wider', styles.text)}>{title}</h4>
         <p className="text-xs font-medium leading-relaxed text-zinc-400">{body}</p>
       </div>
-      <div className={cn('mt-4 rounded-lg border p-3 text-center text-sm font-bold shadow-inner', styles.strip)}>
+      <div className={cn('mt-4 rounded-lg border p-3 text-center text-xs font-bold shadow-inner', styles.strip)}>
         {formula ? <MathInline content={formula} /> : footer}
       </div>
     </article>
   );
 };
 
-const LabelBadge: React.FC<{
-  className: string;
-  tone?: Tone | 'zinc' | 'blue';
-  children: React.ReactNode;
-}> = ({ className, tone = 'zinc', children }) => {
-  const toneClass =
-    tone === 'amber'
-      ? 'border-amber-500/25 text-amber-300'
-      : tone === 'emerald'
-        ? 'border-emerald-500/25 text-emerald-300'
-        : tone === 'rose'
-          ? 'border-rose-500/25 text-rose-300'
-          : tone === 'blue'
-            ? 'border-blue-500/25 text-blue-300'
-            : 'border-zinc-800/80 text-zinc-300';
-
+export const TowingModelSVG: React.FC = () => {
   return (
-    <div
-      className={cn(
-        'absolute rounded-md border bg-[#0c0c0e]/95 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider shadow-sm backdrop-blur-xs lg:px-2.5 lg:py-1 lg:text-[10px]',
-        toneClass,
-        className,
-      )}
+    <DiagramPanel
+      title="Fig 4. Towing Dynamics & Force Isolation"
+      analysis={
+        <div className="mx-auto grid w-full max-w-5xl gap-4 px-2 md:grid-cols-3">
+          {analysisCards.map((card) => (
+            <AnalysisCard key={card.title} {...card} />
+          ))}
+          <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/10 p-3.5 text-center text-xs font-bold tracking-wide text-emerald-400 shadow-inner md:col-span-3 select-none">
+            Exam technique: translate each modelling word into its mathematical consequence before constructing equations.
+          </div>
+        </div>
+      }
     >
-      {children}
-    </div>
-  );
-};
+      {/* Complete Uniform Geometry Enclosure Track */}
+      <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-zinc-800/80 bg-[#141417] p-5 shadow-2xl">
+        <div className="mb-5 flex flex-col gap-1 border-b border-zinc-800/60 pb-5 text-center select-none">
+          <div className="text-[10px] font-black uppercase tracking-[0.32em] text-zinc-500">System Isolation</div>
+          <div className="text-xl font-bold tracking-tight text-white mt-1">Whole System vs Isolated Body Dynamics</div>
+        </div>
 
-const MathLabel: React.FC<{
-  className: string;
-  content: string;
-  color?: string;
-}> = ({ className, content, color = 'text-zinc-300' }) => (
-  <div className={cn('absolute font-bold', color, className)}>
-    <MathInline content={content} />
-  </div>
-);
+        <div className="relative w-full aspect-[80/42] bg-[#0c0c0e]/40 rounded-xl border border-zinc-800/60 overflow-hidden">
+          <svg
+            className="absolute inset-0 h-full w-full z-0"
+            viewBox="0 0 800 420"
+            fill="none"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <defs>
+              <marker id="tow-zinc-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#52525b" />
+              </marker>
+              <marker id="tow-emerald-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#10b981" />
+              </marker>
+              <marker id="tow-rose-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#f43f5e" />
+              </marker>
+              <marker id="tow-blue-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#3b82f6" />
+              </marker>
+            </defs>
 
-const TowingBoard: React.FC = () => (
-  <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-xl border border-zinc-800/80 bg-[#141417] shadow-2xl">
-    <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-zinc-500/5 to-transparent" />
-    <svg
-      className="relative z-0 h-full w-full"
-      viewBox="0 0 800 420"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      shapeRendering="geometricPrecision"
-      role="img"
-      aria-label="Towing dynamics model showing whole system and isolated vehicle methods"
-    >
-      <defs>
-        <marker id="tow-zinc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M 1 1 L 9 5 L 1 9 Z" fill="#a1a1aa" />
-        </marker>
-        <marker id="tow-emerald-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M 1 1 L 9 5 L 1 9 Z" fill="#10b981" />
-        </marker>
-        <marker id="tow-rose-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-          <path d="M 1 1 L 9 5 L 1 9 Z" fill="#fb7185" />
-        </marker>
-        <marker id="tow-blue-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 1 1 L 9 5 L 1 9 Z" fill="#60a5fa" />
-        </marker>
-      </defs>
+            {/* Methods Boundaries Layer Systems */}
+            <rect x="35" y="90" width="730" height="235" rx="14" fill="none" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.4" />
+            <rect x="85" y="145" width="200" height="160" rx="10" fill="none" stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
+            <rect x="239" y="228" width="157" height="70" rx="4" fill="none" stroke="#3b82f6" strokeWidth="1.7" strokeDasharray="6 6" opacity="0.8" />
 
-      <rect x="34" y="52" width="732" height="300" rx="16" fill="#111113" stroke="#27272a" strokeWidth="1.5" />
+            {/* Ground Track line */}
+            <line x1="45" y1="300" x2="755" y2="300" stroke="#27272a" strokeWidth="2.5" strokeLinecap="round" />
 
-      <rect
-        x="80"
-        y="108"
-        width="620"
-        height="214"
-        rx="14"
-        fill="none"
-        stroke="#f59e0b"
-        strokeWidth="2"
-        strokeDasharray="8 8"
-        opacity="0.65"
-      />
-      <rect
-        x="96"
-        y="140"
-        width="202"
-        height="156"
-        rx="12"
-        fill="none"
-        stroke="#10b981"
-        strokeWidth="2"
-        strokeDasharray="7 7"
-        opacity="0.65"
-      />
+            {/* Trailing Vehicle Frame Profile (m1) */}
+            <rect x="120" y="220" width="95" height="50" rx="5" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" />
+            <circle cx="145" cy="284" r="14" fill="#09090b" stroke="#52525b" strokeWidth="2" />
+            <circle cx="190" cy="284" r="14" fill="#09090b" stroke="#52525b" strokeWidth="2" />
+            <line x1="132" y1="270" x2="202" y2="270" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" opacity="0.65" />
 
-      <line x1="70" y1="282" x2="730" y2="282" stroke="#475569" strokeWidth="2.5" strokeLinecap="round" />
-      {Array.from({ length: 24 }).map((_, index) => (
-        <line
-          key={index}
-          x1={86 + index * 27}
-          y1="292"
-          x2={98 + index * 27}
-          y2="282"
-          stroke="#3f3f46"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-      ))}
+            {/* Leading Vehicle Frame Profile (m2) */}
+            <rect x="420" y="205" width="150" height="63" rx="9" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" />
+            <path d="M 446 205 L 472 160 H 538 L 566 205 Z" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" strokeLinejoin="round" />
+            <circle cx="455" cy="284" r="16" fill="#09090b" stroke="#52525b" strokeWidth="2" />
+            <circle cx="535" cy="284" r="16" fill="#09090b" stroke="#52525b" strokeWidth="2" />
+            <line x1="436" y1="268" x2="552" y2="268" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" opacity="0.65" />
 
-      <rect x="120" y="214" width="96" height="48" rx="5" fill="#182235" stroke="#cbd5e1" strokeWidth="2.4" />
-      <circle cx="144" cy="274" r="15" fill="#09090b" stroke="#cbd5e1" strokeWidth="2.4" />
-      <circle cx="192" cy="274" r="15" fill="#09090b" stroke="#cbd5e1" strokeWidth="2.4" />
+            {/* Coupling Towbar line connector */}
+            <line x1="215" y1="243" x2="420" y2="243" stroke="#e4e4e7" strokeWidth="3" strokeLinecap="round" />
 
-      <rect x="414" y="198" width="154" height="64" rx="9" fill="#182235" stroke="#cbd5e1" strokeWidth="2.4" />
-      <path
-        d="M 440 198 L 466 154 H 540 L 566 198 Z"
-        fill="#292d36"
-        stroke="#cbd5e1"
-        strokeWidth="2.4"
-        strokeLinejoin="round"
-      />
-      <circle cx="450" cy="274" r="18" fill="#09090b" stroke="#cbd5e1" strokeWidth="2.4" />
-      <circle cx="538" cy="274" r="18" fill="#09090b" stroke="#cbd5e1" strokeWidth="2.4" />
+            {/* System Acceleration Vector Track overhead (Single line with double-arrowheads) */}
+            <g stroke="#52525b" strokeWidth="1.5">
+              <line x1="280" y1="55" x2="510" y2="55" markerEnd="url(#tow-zinc-arrow)" />
+              <path d="M 496 49.5 L 504 55 L 496 60.5 Z" fill="#52525b" stroke="none" />
+            </g>
 
-      <line x1="216" y1="238" x2="414" y2="238" stroke="#e4e4e7" strokeWidth="4" strokeLinecap="round" />
+            {/* External Vector Pointers */}
+            <line x1="570" y1="243" x2="680" y2="243" stroke="#10b981" strokeWidth="3.5" markerEnd="url(#tow-emerald-arrow)" />
+            <line x1="120" y1="243" x2="55" y2="243" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#tow-rose-arrow)" />
+            <line x1="420" y1="225" x2="355" y2="225" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#tow-rose-arrow)" />
 
-      <line x1="300" y1="84" x2="526" y2="84" stroke="#a1a1aa" strokeWidth="2.8" markerEnd="url(#tow-zinc-arrow)" />
-      <line x1="568" y1="238" x2="682" y2="238" stroke="#10b981" strokeWidth="3.4" markerEnd="url(#tow-emerald-arrow)" />
+            {/* Internal Symmetrical Towbar Tension Pairs */}
+            <line x1="240" y1="243" x2="275" y2="243" stroke="#3b82f6" strokeWidth="2.5" markerEnd="url(#tow-blue-arrow)" />
+            <line x1="395" y1="243" x2="360" y2="243" stroke="#3b82f6" strokeWidth="2.5" markerEnd="url(#tow-blue-arrow)" />
+          </svg>
 
-      <line x1="120" y1="238" x2="58" y2="238" stroke="#fb7185" strokeWidth="2.6" markerEnd="url(#tow-rose-arrow)" />
-      <line x1="414" y1="238" x2="352" y2="238" stroke="#fb7185" strokeWidth="2.6" markerEnd="url(#tow-rose-arrow)" />
+          {/* Absolute Structured Typography Layer Frame */}
+          <div className="absolute inset-0 z-10 pointer-events-none select-none text-xs font-semibold text-zinc-400">
+            {/* System Header Badges */}
+            <div className="absolute left-[10.5%] top-[23.5%] rounded border border-amber-500/20 bg-[#0c0c0e]/95 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-amber-400 backdrop-blur-xs">
+              Whole System Boundary
+            </div>
+            <div className="absolute left-[11.5%] top-[34.8%] rounded border border-emerald-500/20 bg-[#0c0c0e]/95 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-emerald-400 backdrop-blur-xs">
+              Isolated Forces
+            </div>
 
-      <line x1="242" y1="238" x2="286" y2="238" stroke="#60a5fa" strokeWidth="2.6" markerEnd="url(#tow-blue-arrow)" />
-      <line x1="388" y1="238" x2="344" y2="238" stroke="#60a5fa" strokeWidth="2.6" markerEnd="url(#tow-blue-arrow)" />
-    </svg>
+            {/* FIXED: Balanced and safely grouped mid-span layout metrics callout indicators */}
+            <div className="absolute left-[50%] top-[13%] -translate-x-1/2 rounded-md border border-zinc-800 bg-[#0c0c0e]/95 px-2 py-1 text-zinc-500 text-[9px] font-black uppercase tracking-widest shadow-sm">
+              Common acceleration <MathInline content="$a$" />
+            </div>
+            <div className="absolute left-[39.7%] top-[66%] -translate-x-1/2 text-[9px] font-black text-blue-400 tracking-wider uppercase">
+              Internal forces cancel
+            </div>
+            <div className="absolute left-[50%] top-[81%] -translate-x-1/2 rounded-md border border-zinc-800 bg-[#0c0c0e]/95 px-2 py-1 text-[9px] font-bold text-zinc-500 tracking-wide uppercase shadow-sm">
+              Rigid light towbar
+            </div>
 
-    <div className="pointer-events-none absolute inset-0 z-10 select-none">
-      <LabelBadge className="left-[13%] top-[22%]" tone="amber">
-        whole system boundary
-      </LabelBadge>
-      <LabelBadge className="left-[13%] top-[71%]" tone="emerald">
-        isolated focus
-      </LabelBadge>
-      <LabelBadge className="left-[39%] top-[36%] hidden lg:block" tone="zinc">
-        rigid light towbar
-      </LabelBadge>
-      <LabelBadge className="left-[44%] top-[27%]" tone="blue">
-        internal forces cancel
-      </LabelBadge>
-      <LabelBadge className="left-[66%] top-[17%]" tone="zinc">
-        common acceleration
-      </LabelBadge>
+            {/* Mass Parameter Labels */}
+            <div className="absolute left-[21%] top-[52%] transform -translate-x-1/2 text-sm font-bold text-white/95"><MathInline content="$m_1$" /></div>
+            <div className="absolute left-[62%] top-[52%] transform -translate-x-1/2 text-sm font-bold text-white/95"><MathInline content="$m_2$" /></div>
 
-      <MathLabel className="left-[20%] top-[55%] -translate-x-1/2 text-sm" content="$m_1$" color="text-zinc-100" />
-      <MathLabel className="left-[61.5%] top-[52%] -translate-x-1/2 text-sm" content="$m_2$" color="text-zinc-100" />
-      <MathLabel className="left-[7.5%] top-[50%] -translate-x-1/2 text-xs lg:text-sm" content="$R_1$" color="text-rose-300" />
-      <MathLabel className="left-[41.5%] top-[45%] -translate-x-1/2 text-xs lg:text-sm" content="$R_2$" color="text-rose-300" />
-      <MathLabel className="left-[84.5%] top-[49%] -translate-x-1/2 text-xs lg:text-sm" content="$D$" color="text-emerald-300" />
-      <MathLabel className="left-[51.7%] top-[15%] text-xs lg:text-sm" content="$a$" color="text-zinc-300" />
-      <MathLabel className="left-[32.5%] top-[55%] -translate-x-1/2 text-[10px] lg:text-xs" content="$T$" color="text-blue-300" />
-      <MathLabel className="left-[46%] top-[55%] -translate-x-1/2 text-[10px] lg:text-xs" content="$T$" color="text-blue-300" />
-    </div>
-  </div>
-);
+            {/* Force Variable Vectors */}
+            <div className="absolute left-[5.4%] top-[52%] font-black text-rose-400 text-sm"><MathInline content="$R_1$" /></div>
+            <div className="absolute left-[42.2%] top-[48.5%] font-black text-rose-400 text-sm"><MathInline content="$R_2$" /></div>
+            <div className="absolute left-[86.5%] top-[50%] font-black text-emerald-400 text-sm"><MathInline content="$D$" /></div>
 
-export const TowingModelSVG: React.FC = () => (
-  <DiagramPanel
-    title="Fig. Towing Dynamics"
-    analysis={
-      <div className="mx-auto grid w-full max-w-5xl gap-4 px-2 md:grid-cols-3">
-        {analysisCards.map((card) => (
-          <AnalysisCard key={card.title} {...card} />
-        ))}
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/10 p-3.5 text-center text-xs font-bold tracking-wide text-emerald-300 shadow-inner md:col-span-3">
-          Exam technique: translate each modelling word into its mathematical consequence before constructing equations.
+            {/* Opposing Towbar Tension Values */}
+            <div className="absolute left-[31.6%] top-[60.5%] font-bold text-blue-400 text-xs"><MathInline content="$T$" /></div>
+            <div className="absolute left-[46.8%] top-[60.5%] font-bold text-blue-400 text-xs"><MathInline content="$T$" /></div>
+          </div>
         </div>
       </div>
-    }
-  >
-    <TowingBoard />
-  </DiagramPanel>
-);
+    </DiagramPanel>
+  );
+};

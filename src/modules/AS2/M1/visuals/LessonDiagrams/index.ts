@@ -4,7 +4,6 @@ export * from "./M1ExamTrapSVG";
 export * from "./ScalarVectorSpatialMapSVG";
 export * from "./FmaBridgeSVG";
 export * from "./ScalarVectorSVG";
-export * from "./ModellingAssumptionsSVG";
 export * from "./M1KinematicNotationPanel";
 export * from "./M1ModellingSandboxSVG";
 export * from "./TowingModelSVG";

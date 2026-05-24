@@ -16,7 +16,7 @@ export const AS2_SHORT_ID_MAPPING: Record<string, { module: ModuleKey; component
   // M1
   "M1-Bridge": { module: "M1", component: "FmaBridgeSVG" },
   "M1-ScalarVector": { module: "M1", component: "ScalarVectorSVG" },
-  "M1-Modelling": { module: "M1", component: "ModellingAssumptionsSVG" },
+  "M1-Modelling": { module: "M1", component: "M1ModellingSummaryTable" },
   "M1-Towing": { module: "M1", component: "TowingModelSVG" },
   "M1-Lift": { module: "M1", component: "LiftPhysicsSVG" },
   "M1-ExamTrap": { module: "M1", component: "M1ExamTrapSVG" },
@@ -24,7 +24,6 @@ export const AS2_SHORT_ID_MAPPING: Record<string, { module: ModuleKey; component
   "M1-ScalarVectorMap": { module: "M1", component: "ScalarVectorSpatialMapSVG" },
   "M1-ModellingSandbox": { module: "M1", component: "M1ModellingSandboxSVG" },
   "M1-FreeBody": { module: "M1", component: "M1FreeBodyDiagram" },
-  "M1-ModellingTable": { module: "M1", component: "M1ModellingSummaryTable" },
   "M1-Notation": { module: "M1", component: "M1KinematicNotationPanel" },
 
   // M2

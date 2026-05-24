@@ -101,8 +101,6 @@ When objects are connected by a light towbar or inextensible string, the connect
 
 ![visual:M1-Towing]()
 
-![visual:M1-ModellingTable]()
-
 ## 7. Formulae and Notation
 * **Weight:** $W=mg$.
 
