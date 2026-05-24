@@ -1,132 +1,187 @@
 import React from 'react';
-import { MathText } from '@/core/components/MathText';
-import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
-import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
-import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
-import { themeColors } from '@/core/types/mechanicsTheme';
+import { MathInline } from '@/core/components/MathText';
 
-export const LiftPhysicsSVG: React.FC = () => (
-  <DiagramPanel
-    title="Lift Physics Isolation"
-    analysis={
-      /* Layout Track Expanded: max-w-3xl transformed to max-w-5xl for deep structural spacing */
-      <div className="grid gap-4 md:grid-cols-2 w-full max-w-5xl mx-auto px-2">
-        {/* Typography Scale: text-sm upgraded to premium text-base / tracking-normal */}
-        <div className="rounded-xl border border-zinc-800/80 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
-          <strong className="text-zinc-100 font-semibold block mb-1">Whole system:</strong> Use the lift + passenger together to isolate and calculate overall cable tension <MathText content="T" className="inline [&_p]:inline [&_p]:m-0 text-emerald-400" />.
+export const LiftPhysicsSVG: React.FC = () => {
+  return (
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      {/* ==================== LEFT CARD: WHOLE SYSTEM ==================== */}
+      <div className="flex flex-col gap-4 bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-4 backdrop-blur-md">
+        {/* Title rendered in beautiful math typography */}
+        <div className="text-zinc-300 font-bold tracking-wide text-base pl-2">
+          <MathInline content="$\text{Whole System}$" />
         </div>
-        <div className="rounded-xl border border-zinc-800/80 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
-          <strong className="text-amber-400 font-semibold block mb-1">Isolated passenger:</strong> Target the passenger boundaries independently to extract floor contact reaction <MathText content="R" className="inline [&_p]:inline [&_p]:m-0 text-amber-400" />.
+
+        {/* Graphic Area - Stretched vertically to h-[290px], elements untouched */}
+        <div className="relative w-full h-[290px] bg-[#141417] border border-zinc-800/60 rounded-xl overflow-hidden">
+          <svg
+            viewBox="0 0 400 290"
+            className="w-full h-full absolute inset-0 z-0"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <defs>
+              <marker
+                id="arr-rose-slim-left"
+                viewBox="0 0 10 10"
+                refX="7"
+                refY="5"
+                markerWidth="8"
+                markerHeight="8"
+                orient="auto-start-reverse"
+              >
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#f43f5e" />
+              </marker>
+              <marker
+                id="arr-accel-slim-left"
+                viewBox="0 0 10 10"
+                refX="7"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto-start-reverse"
+              >
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#ffffff" />
+              </marker>
+            </defs>
+
+            {/* Ceiling Anchor Support Line */}
+            <line x1="100" y1="45" x2="300" y2="45" stroke="#27272a" strokeWidth="4.5" strokeDasharray="5 5" />
+            
+            {/* Solid White Cable String */}
+            <line x1="200" y1="45" x2="200" y2="105" stroke="#e4e4e7" strokeWidth="3.5" />
+            
+            {/* Prominent Green Caret Inline Chevron (^) Indicator */}
+            <path d="M 190 82 L 200 70 L 210 82" stroke="#10b981" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+
+            {/* Lift Box Frame Enclosure */}
+            <rect x="135" y="105" width="130" height="110" rx="10" fill="#18181b" stroke="#3f3f46" strokeWidth="3" />
+
+            {/* Symmetrical Inside Passenger Stickman */}
+            <g transform="translate(200, 160) scale(1.35)" stroke="#a1a1aa" strokeWidth="1.5" fill="none" opacity="0.6">
+              <circle cx="0" cy="-22" r="5" stroke="#a1a1aa" fill="#141417" />
+              <line x1="0" y1="-17" x2="0" y2="12" />
+              <line x1="0" y1="-10" x2="-10" y2="-2" />
+              <line x1="0" y1="-10" x2="10" y2="-2" />
+              <line x1="0" y1="12" x2="-8" y2="35" />
+              <line x1="0" y1="12" x2="8" y2="35" />
+            </g>
+
+            {/* Total Weight System Vector Line */}
+            <line x1="200" y1="215" x2="200" y2="245" stroke="#f43f5e" strokeWidth="3.5" markerEnd="url(#arr-rose-slim-left)" />
+
+            {/* ACCELERATION: Left Side Arrow */}
+            <g stroke="#ffffff" strokeWidth="3" fill="none">
+              <line x1="90" y1="180" x2="90" y2="125" markerEnd="url(#arr-accel-slim-left)" />
+              <line x1="90" y1="134" x2="90" y2="133" markerEnd="url(#arr-accel-slim-left)" />
+            </g>
+          </svg>
+
+          {/* HTML Math Labels Overlay Layer for Card 1 */}
+          <div className="absolute inset-0 z-10 pointer-events-none select-none">
+            <div className="absolute left-[54%] top-[24%] text-emerald-400 font-medium"><MathInline content="$T$" /></div>
+            <div className="absolute left-[54%] top-[81%] text-rose-400 font-medium"><MathInline content="$(m + M)g$" /></div>
+            <div className="absolute left-[26%] top-[54%] text-white font-medium"><MathInline content="$a$" /></div>
+          </div>
         </div>
-        <div className="rounded-xl border border-zinc-800/80 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
-          <strong className="text-emerald-400 font-semibold block mb-1">Weight:</strong> Always acts cleanly vertical downwards through center of mass, scaled continuously in Newtons.
-        </div>
-        <div className="rounded-xl border border-rose-900/30 bg-rose-950/10 p-4 text-base text-rose-300 leading-relaxed">
-          <strong className="text-rose-400 font-semibold block mb-1">Exam Pitfall:</strong> Never map passenger contact reaction <MathText content="R" className="inline [&_p]:inline [&_p]:m-0" /> when solving whole lift configurations. It rests inside system limits as an internal action vector and drops out.
-        </div>
-        <div className="md:col-span-2 rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 text-center text-sm font-semibold text-zinc-400 tracking-wider uppercase">
-          Core concepts transfer directly into structural M3 lift dynamics.
+
+        {/* Isolated Governing Equation Section */}
+        <div className="flex flex-col items-center justify-center text-center bg-zinc-900/40 rounded-xl p-4 border border-zinc-800/50 shadow-xl mt-2">
+          <span className="text-xs text-zinc-500 font-semibold mb-2 uppercase tracking-wider select-none">Whole System Equation</span>
+          <MathInline content="$$T - (m + M)g = (m + M)a$$" />
         </div>
       </div>
-    }
-  >
-    {/* Design Engine Alignment: Transitioned to bg-[#1c1c1f], absolute neutral shadow vectors */}
-    <div className="relative w-full aspect-76/39 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
-      <SVGLibrary />
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Lift physics isolation diagram comparing whole lift system and isolated passenger">
-        
-        {/* Section Viewport Enclosures - Softened structural boundaries */}
-        <rect x="24" y="28" width="340" height="300" rx="8" fill="#141416" stroke="#27272a" strokeWidth="1" />
-        <rect x="396" y="28" width="340" height="300" rx="8" fill="#141416" stroke="#27272a" strokeWidth="1" />
 
-        {/* Left Side: System Bounds Model (Stripped fill="#020617" blue profiles) */}
-        <rect x="118" y="92" width="152" height="168" rx="10" stroke={themeColors.applied} strokeWidth="2" strokeDasharray="6 4" fill="#1c1c1f" fillOpacity="0.4" />
-        <line x1="194" y1="58" x2="194" y2="110" stroke="#a1a1aa" strokeWidth="2" />
-        <ObjectBlock x={132} y={110} width={124} height={120} />
-        <line x1="132" y1="142" x2="256" y2="142" stroke="#27272a" strokeWidth="1.5" />
-        <circle cx="194" cy="164" r="14" stroke="#a1a1aa" strokeWidth="2" fill="#27272a" />
-        <line x1="194" y1="178" x2="194" y2="210" stroke="#a1a1aa" strokeWidth="2" />
-        <line x1="176" y1="220" x2="194" y2="210" stroke="#a1a1aa" strokeWidth="2" />
-        <line x1="212" y1="220" x2="194" y2="210" stroke="#a1a1aa" strokeWidth="2" />
-
-        <VectorArrow x1={194} y1={112} x2={194} y2={48} type="accel" marker="default" />
-        <VectorArrow x1={194} y1={230} x2={194} y2={292} type="force" marker="default" />
-        <VectorArrow x1={88} y1={218} x2={88} y2={150} type="velocity" marker="default" />
-
-        {/* Right Side: Isolated Passenger Profile (Blue values replaced cleanly) */}
-        <rect x="514" y="118" width="96" height="136" rx="10" stroke={themeColors.applied} strokeWidth="2" strokeDasharray="6 4" fill="#1c1c1f" fillOpacity="0.4" />
-        <line x1="470" y1="226" x2="654" y2="226" stroke="#27272a" strokeWidth="3" />
-        <circle cx="562" cy="152" r="18" stroke="#d4d4d8" strokeWidth="2" fill="#141416" />
-        <line x1="562" y1="170" x2="562" y2="212" stroke="#d4d4d8" strokeWidth="2" />
-        <line x1="538" y1="226" x2="562" y2="212" stroke="#d4d4d8" strokeWidth="2" />
-        <line x1="586" y1="226" x2="562" y2="212" stroke="#d4d4d8" strokeWidth="2" />
-
-        <VectorArrow x1={526} y1={226} x2={526} y2={148} type="accel" marker="default" />
-        <VectorArrow x1={602} y1={154} x2={602} y2={274} type="force" marker="default" />
-        <VectorArrow x1={682} y1={218} x2={682} y2={150} type="velocity" marker="default" />
-      </svg>
-
-      {/* Dynamic Overlay Layout Labels */}
-      <DiagramLabel position={{ left: '25.5%', top: '16.7%' }}>
-        <div className="text-center">
-          <div className="text-base font-bold text-zinc-200">Whole system: lift + passenger</div>
-          <div className="text-xs text-zinc-500 mt-0.5">Use to find cable tension</div>
+      {/* ==================== RIGHT CARD: ISOLATED PASSENGER ==================== */}
+      <div className="flex flex-col gap-4 bg-zinc-900/10 border border-zinc-800/40 rounded-xl p-4 backdrop-blur-md">
+        {/* Title rendered in beautiful math typography */}
+        <div className="text-zinc-300 font-bold tracking-wide text-base pl-2">
+          <MathInline content="$\text{Isolated Passenger}$" />
         </div>
-      </DiagramLabel>
 
-      <DiagramLabel position={{ left: '74.5%', top: '16.7%' }}>
-        <div className="text-center">
-          <div className="text-base font-bold text-amber-400">Isolated passenger</div>
-          <div className="text-xs text-zinc-500 mt-0.5">Use to find floor reaction</div>
+        {/* Graphic Area - Stretched vertically to h-[290px], elements untouched */}
+        <div className="relative w-full h-[290px] bg-[#141417] border border-zinc-800/60 rounded-xl overflow-hidden">
+          <svg
+            viewBox="0 0 400 290"
+            className="w-full h-full absolute inset-0 z-0"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <defs>
+              <marker
+                id="arr-rose-slim-right"
+                viewBox="0 0 10 10"
+                refX="7"
+                refY="5"
+                markerWidth="8"
+                markerHeight="8"
+                orient="auto-start-reverse"
+              >
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#f43f5e" />
+              </marker>
+              <marker
+                id="arr-blue-slim-right"
+                viewBox="0 0 10 10"
+                refX="7"
+                refY="5"
+                markerWidth="8"
+                markerHeight="8"
+                orient="auto-start-reverse"
+              >
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#3b82f6" />
+              </marker>
+              <marker
+                id="arr-accel-slim-right"
+                viewBox="0 0 10 10"
+                refX="7"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto-start-reverse"
+              >
+                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#ffffff" />
+              </marker>
+            </defs>
+
+            {/* Bold Solid Floor Platform Casing Line */}
+            <line x1="110" y1="180" x2="290" y2="180" stroke="#3f3f46" strokeWidth="4.5" strokeLinecap="round" />
+
+            {/* Thinner Active Passenger Stickman */}
+            <g transform="translate(200, 115) scale(1.6)" stroke="#e4e4e7" strokeWidth="1.5" fill="none">
+              <circle cx="0" cy="-22" r="6" stroke="#e4e4e7" fill="#141417" />
+              <line x1="0" y1="-16" x2="0" y2="12" />
+              <line x1="0" y1="-10" x2="-12" y2="-2" />
+              <line x1="0" y1="-10" x2="12" y2="-2" />
+              <line x1="0" y1="12" x2="-10" y2="35" />
+              <line x1="0" y1="12" x2="10" y2="35" />
+            </g>
+
+            {/* Blue Reaction Vector (R) coming straight out from the top of his head pointing UP */}
+            <line x1="200" y1="67" x2="200" y2="35" stroke="#3b82f6" strokeWidth="3.5" markerEnd="url(#arr-blue-slim-right)" />
+
+            {/* Passenger Weight (mg) vector dropping straight DOWN from platform baseline tracking line */}
+            <line x1="200" y1="180" x2="200" y2="220" stroke="#f43f5e" strokeWidth="3.5" markerEnd="url(#arr-rose-slim-right)" />
+
+            {/* ACCELERATION: Shifting only this arrow up by 15px so it doesn't touch the platform line */}
+            <g stroke="#ffffff" strokeWidth="3" fill="none">
+              <line x1="135" y1="165" x2="135" y2="110" markerEnd="url(#arr-accel-slim-right)" />
+              <line x1="135" y1="119" x2="135" y2="118" markerEnd="url(#arr-accel-slim-right)" />
+            </g>
+          </svg>
+
+          {/* HTML Math Labels Overlay Layer for Card 2 - Kept relative positioning perfect */}
+          <div className="absolute inset-0 z-10 pointer-events-none select-none">
+            <div className="absolute left-[54%] top-[10%] text-blue-400 font-medium"><MathInline content="$R$" /></div>
+            <div className="absolute left-[54%] top-[74%] text-rose-400 font-medium"><MathInline content="$mg$" /></div>
+            <div className="absolute left-[27%] top-[49%] text-white font-medium"><MathInline content="$a$" /></div>
+          </div>
         </div>
-      </DiagramLabel>
 
-      <DiagramLabel position={{ left: '30.4%', top: '17.9%' }}>
-        <MathText content="T" className="text-xl font-bold text-emerald-400 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '33.8%', top: '73.1%' }}>
-        <MathText content="(M+m)g" className="text-lg font-bold text-rose-400 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '9.9%', top: '44.9%' }}>
-        <MathText content="a" className="text-xl font-bold text-zinc-400 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '25.7%', top: '76.7%' }}>
-        <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-4 py-1.5 text-center text-sm font-bold text-emerald-400 backdrop-blur-sm shadow-md">
-          <MathText content="T - (M + m)g = (M + m)a" className="[&_p]:m-0" />
+        {/* Isolated Governing Equation Section */}
+        <div className="flex flex-col items-center justify-center text-center bg-zinc-900/40 rounded-xl p-4 border border-zinc-800/50 shadow-xl mt-2">
+          <span className="text-xs text-zinc-500 font-semibold mb-2 uppercase tracking-wider select-none">Passenger Equation</span>
+          <MathInline content="$$R - mg = ma$$" />
         </div>
-      </DiagramLabel>
+      </div>
 
-      <DiagramLabel position={{ left: '66.2%', top: '43.3%' }}>
-        <MathText content="R" className="text-xl font-bold text-emerald-400 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '84.1%', top: '64.4%' }}>
-        <MathText content="mg" className="text-xl font-bold text-rose-400 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '93%', top: '44.9%' }}>
-        <MathText content="a" className="text-xl font-bold text-zinc-400 [&_p]:m-0" />
-      </DiagramLabel>
-
-      <DiagramLabel position={{ left: '74.5%', top: '76.7%' }}>
-        <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-4 py-1.5 text-center text-sm font-bold text-amber-400 backdrop-blur-sm shadow-md">
-          <MathText content="R - mg = ma" className="[&_p]:m-0" />
-        </div>
-      </DiagramLabel>
-
-      {/* Pure Desaturated Neutral Explanatory Legend Footer */}
-      <DiagramLabel position={{ left: '50%', top: '91.8%' }}>
-        <div className="grid grid-cols-3 gap-3 text-center text-[11px] font-medium text-zinc-400 w-full px-6">
-          <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-emerald-400 font-semibold">Emerald vector</span> = upward tension / reaction force</div>
-          <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-rose-400 font-semibold">Rose vector</span> = gravitational weight down</div>
-          <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-zinc-300 font-semibold">Dashed boundary</span> = current isolated system envelope</div>
-        </div>
-      </DiagramLabel>
     </div>
-  </DiagramPanel>
-);
+  );
+};

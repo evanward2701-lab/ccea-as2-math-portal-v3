@@ -55,12 +55,8 @@ const ResidualPlot: React.FC<{ title: string; pattern: 'random' | 'curved' | 'fa
             <circle key={i} cx={x} cy={y} r="3" fill={dotColor} />
           ))}
         </svg>
-        <DiagramLabel position={{ left: `${(svgWidth - padding) / svgWidth * 100}%`, top: `${(zeroLineY + 10) / svgHeight * 100}%` }}>
-          <MathText content="x" className="text-zinc-400 text-xs" />
-        </DiagramLabel>
-        <DiagramLabel position={{ left: `${(padding - 20) / svgWidth * 100}%`, top: `${(zeroLineY - 15) / svgHeight * 100}%` }}>
-          <MathText content="e" className="text-zinc-400 text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x={`${(svgWidth - padding) / svgWidth * 100}%`} y={`${(zeroLineY + 10) / svgHeight * 100}%`} text="x" />
+        <DiagramLabel x={`${(padding - 20) / svgWidth * 100}%`} y={`${(zeroLineY - 15) / svgHeight * 100}%`} text="e" />
       </div>
       <p className={`text-xs mt-2 ${status === 'suitable' ? 'text-emerald-300' : 'text-rose-300'}`}>
         {status === 'suitable' ? 'Linear model is suitable.' : 'Linear model is unsuitable.'}

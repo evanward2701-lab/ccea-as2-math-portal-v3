@@ -67,10 +67,8 @@ export const M2KinematicTrack: React.FC = () => {
           </g>
         </svg>
 
-        <DiagramLabel position={{ left: '5%', top: '60%' }}>
-          <MathText content="O" className="text-zinc-300 text-xs" />
-        </DiagramLabel>
-        <DiagramLabel position={{ left: '90%', top: '60%' }}>
+        <DiagramLabel x="5%" y="60%" text="O" />
+        <DiagramLabel x="90%" y="60%">
           <p className="text-zinc-400 text-[10px] w-16">Positive Direction</p>
         </DiagramLabel>
       </div>

@@ -61,25 +61,25 @@ export const M1KinematicNotationPanel: React.FC = () => {
           </svg>
 
           {/* MathText labels that require KaTeX */}
-          <DiagramLabel position={{ left: '36.0%', top: '73.7%' }} anchor="center">
+          <DiagramLabel x="36.0%" y="73.7%" anchor="center">
             <div className="text-center text-sm font-bold text-zinc-300">
               <MathText content="x_0" className="[&_p]:m-0" />
             </div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '73.7%', top: '73.7%' }} anchor="center">
+          <DiagramLabel x="73.7%" y="73.7%" anchor="center">
             <div className="text-center text-sm font-bold text-emerald-400">
               <MathText content="x" className="[&_p]:m-0" />
             </div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '55.2%', top: '15%' }} anchor="center">
+          <DiagramLabel x="55.2%" y="15%" anchor="center">
             <div className="rounded border border-emerald-900/60 bg-[#1c1c1f] px-3 py-2 text-center text-sm font-bold text-emerald-400 shadow-md">
               <MathText content="s = x - x_0" className="[&_p]:m-0" />
             </div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '50%', top: '90%' }} anchor="center">
+          <DiagramLabel x="50%" y="90%" anchor="center">
             <div className="rounded border border-rose-900/60 bg-rose-950/40 px-3 py-1 text-center text-xs font-bold text-rose-300">
               s is displacement, not speed
             </div>

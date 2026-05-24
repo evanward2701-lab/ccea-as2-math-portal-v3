@@ -36,16 +36,12 @@ export const M2SignConventionSplit: React.FC = () => {
               <line x1="110" y1="180" x2="110" y2="120" stroke="#f59e0b" strokeWidth="2" />
               <path d="M 105 135 L 110 120 L 115 135 Z" fill="#f59e0b" />
             </svg>
-            <DiagramLabel position={{ left: '45%', top: '5%' }}>
+            <DiagramLabel x="45%" y="5%">
               <div className="text-lg font-bold text-emerald-400 text-center">+</div>
             </DiagramLabel>
-            <DiagramLabel position={{ left: '55%', top: '75%' }}>
-              <MathText content="g" className="text-rose-400 text-sm" />
-            </DiagramLabel>
-            <DiagramLabel position={{ left: '65%', top: '55%' }}>
-              <MathText content="u = +21" className="text-amber-400 text-xs" />
-            </DiagramLabel>
-            <DiagramLabel position={{ left: '50%', top: '85%' }}>
+            <DiagramLabel x="55%" y="75%" text="g" />
+            <DiagramLabel x="65%" y="55%" text="u = +21" />
+            <DiagramLabel x="50%" y="85%">
               <div className="text-center text-emerald-400 text-lg font-bold">
                 <MathText content="a = -9.8" />
               </div>
@@ -70,16 +66,12 @@ export const M2SignConventionSplit: React.FC = () => {
               <line x1="110" y1="20" x2="110" y2="80" stroke="#f43f5e" strokeWidth="2" />
               <path d="M 105 65 L 110 80 L 115 65 Z" fill="#f43f5e" />
             </svg>
-            <DiagramLabel position={{ left: '45%', top: '85%' }}>
+            <DiagramLabel x="45%" y="85%">
               <div className="text-lg font-bold text-amber-400 text-center">+</div>
             </DiagramLabel>
-            <DiagramLabel position={{ left: '55%', top: '75%' }}>
-              <MathText content="g" className="text-emerald-400 text-sm" />
-            </DiagramLabel>
-            <DiagramLabel position={{ left: '65%', top: '35%' }}>
-              <MathText content="u = -21" className="text-rose-400 text-xs" />
-            </DiagramLabel>
-            <DiagramLabel position={{ left: '50%', top: '85%' }}>
+            <DiagramLabel x="55%" y="75%" text="g" />
+            <DiagramLabel x="65%" y="35%" text="u = -21" />
+            <DiagramLabel x="50%" y="85%">
               <div className="text-center text-amber-400 text-lg font-bold">
                 <MathText content="a = +9.8" />
               </div>

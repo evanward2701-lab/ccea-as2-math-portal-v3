@@ -33,35 +33,35 @@ export const StratifiedProportionVisual: React.FC = () => (
         <rect x="430" y="85" width="120" height="50" rx="8" fill="#141417" stroke="#f43f5e" strokeWidth="2" strokeDasharray="4 4" />
       </svg>
 
-      <DiagramLabel position={{ left: '21.1%', top: '48%' }}>
+      <DiagramLabel x="21.1%" y="48%">
         <div className="text-center w-24">
           <div className="text-[#f8fafc] text-[10px] font-bold">Total Population</div>
           <div className="text-[#a1a1aa] text-[9px] font-mono">N = 300</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '59.6%', top: '22%' }}>
+      <DiagramLabel x="59.6%" y="22%">
         <div className="text-center w-20">
           <div className="text-[#94a3b8] text-[9px] font-bold">Yr 12 Strata</div>
           <div className="text-[#34d399] text-[9px] font-mono">Pop: 120</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '59.6%', top: '52%' }}>
+      <DiagramLabel x="59.6%" y="52%">
         <div className="text-center w-20">
           <div className="text-[#94a3b8] text-[9px] font-bold">Yr 13 Strata</div>
           <div className="text-[#f59e0b] text-[9px] font-mono">Pop: 100</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '59.6%', top: '82%' }}>
+      <DiagramLabel x="59.6%" y="82%">
         <div className="text-center w-20">
           <div className="text-[#94a3b8] text-[9px] font-bold">Yr 14 Strata</div>
           <div className="text-[#c084fc] text-[9px] font-mono">Pop: 80</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '94.2%', top: '48%' }}>
+      <DiagramLabel x="94.2%" y="48%">
         <div className="text-center w-24">
           <div className="text-[#f8fafc] text-[10px] font-bold">Target Sample</div>
           <div className="text-[#f43f5e] text-[9px] font-mono">n = 60</div>

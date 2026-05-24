@@ -50,25 +50,19 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
         <VectorArrow x1={390} y1={65} x2={440} y2={65} type="velocity" marker="default" />
       </svg>
 
-      <DiagramLabel position={{ left: '44.4%', top: '6.5%' }}>
-        <MathText content="R" />
-      </DiagramLabel>
+      <DiagramLabel x="44.4%" y="6.5%" text="R" />
 
-      <DiagramLabel position={{ left: '44.4%', top: '84.8%' }}>
-        <MathText content="mg" />
-      </DiagramLabel>
+      <DiagramLabel x="44.4%" y="84.8%" text="mg" />
 
-      <DiagramLabel position={{ left: '77.8%', top: '34.8%' }}>
+      <DiagramLabel x="77.8%" y="34.8%">
         <div className="text-emerald-400 text-xs font-semibold whitespace-nowrap">Driving Force (<MathText content="P" className="inline [&_p]:inline"/>)</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '0%', top: '39.1%' }}>
+      <DiagramLabel x="0%" y="39.1%">
         <div className="text-rose-400 text-xs font-semibold whitespace-nowrap">Friction (<MathText content="F" className="inline [&_p]:inline"/>)</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '75.6%', top: '19.6%' }}>
-        <MathText content="a" />
-      </DiagramLabel>
+      <DiagramLabel x="75.6%" y="19.6%" text="a" />
     </div>
   </DiagramPanel>
 );

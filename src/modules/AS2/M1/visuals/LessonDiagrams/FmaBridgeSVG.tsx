@@ -60,14 +60,14 @@ export const FmaBridgeSVG: React.FC = () => (
       </svg>
 
       {/* Dynamic Typography Overlays */}
-      <DiagramLabel position={{ top: '35%', left: '18.75%' }}>
+      <DiagramLabel x="18.75%" y="35%">
         <div className="flex flex-col items-center gap-1">
           <span className="font-serif italic text-zinc-300 text-sm">External Forces</span>
           <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-medium">Input</span>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '65%', left: '18.75%' }}>
+      <DiagramLabel x="18.75%" y="65%">
         <div className="flex flex-col items-center gap-1.5">
            <div className="flex gap-4 text-xs">
              <span className="text-zinc-500 italic">push</span>
@@ -78,7 +78,7 @@ export const FmaBridgeSVG: React.FC = () => (
       </DiagramLabel>
 
       {/* Completely Neutral Central Formula Badge Block */}
-      <DiagramLabel position={{ top: '50%', left: '50%' }}>
+      <DiagramLabel x="50%" y="50%">
         <div className="flex flex-col items-center">
           <div className="p-5 bg-zinc-900/80 rounded-xl border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
             <MathText content="F = ma" className="text-2xl text-zinc-100 font-medium" />
@@ -87,21 +87,21 @@ export const FmaBridgeSVG: React.FC = () => (
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '35%', left: '81.25%' }}>
+      <DiagramLabel x="81.25%" y="35%">
         <div className="flex flex-col items-center gap-1">
           <span className="font-serif italic text-zinc-300 text-sm">Kinematic Response</span>
           <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-medium">Output</span>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '65%', left: '81.25%' }}>
+      <DiagramLabel x="81.25%" y="65%">
         <div className="flex items-center gap-3">
           <MathText content="a" className="text-xl text-zinc-300 font-bold" />
           <span className="text-xs text-zinc-500 italic">acceleration</span>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ top: '15%', left: '50%' }}>
+      <DiagramLabel x="50%" y="15%">
         <div className="text-[10px] text-zinc-500 uppercase tracking-[0.4em] font-medium opacity-80">Mathematical Translation Layer</div>
       </DiagramLabel>
     </div>

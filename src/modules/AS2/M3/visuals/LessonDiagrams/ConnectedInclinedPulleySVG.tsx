@@ -54,27 +54,15 @@ export const ConnectedInclinedPulleySVG: React.FC = () => (
         </g>
       </svg>
 
-      <DiagramLabel position={{ left: '85%', top: '65%' }}>
-        <MathText content="m_B" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '90%', top: '55%' }}>
-        <MathText content="T" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '90%', top: '90%' }}>
-        <MathText content="m_Bg" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '95%', top: '80%' }}>
-        <MathText content="a" />
-      </DiagramLabel>
+      <DiagramLabel x="85%" y="65%" text="m_B" />
+      <DiagramLabel x="90%" y="55%" text="T" />
+      <DiagramLabel x="90%" y="90%" text="m_Bg" />
+      <DiagramLabel x="95%" y="80%" text="a" />
 
-      <DiagramLabel position={{ left: '15%', top: '75%' }}>
-        <MathText content="\alpha" />
-      </DiagramLabel>
+      <DiagramLabel x="15%" y="75%" text="\alpha" />
       
       {/* Simplified labels for m_A for now due to rotation complexity */}
-      <DiagramLabel position={{ left: '45%', top: '75%' }}>
-        <MathText content="m_A" />
-      </DiagramLabel>
+      <DiagramLabel x="45%" y="75%" text="m_A" />
     </div>
   </DiagramPanel>
 );

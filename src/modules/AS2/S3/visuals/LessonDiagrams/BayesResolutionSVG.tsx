@@ -41,19 +41,11 @@ export const BayesResolutionSVG: React.FC = () => (
         <ellipse cx="300" cy="90" rx="180" ry="50" stroke="#f59e0b" strokeWidth="2" fill="#f59e0b" fillOpacity="0.08" />
       </svg>
 
-      <DiagramLabel position={{ left: '50%', top: '50%' }}>
-        <MathText content="B" className="text-amber-400 font-bold text-sm" />
-      </DiagramLabel>
+      <DiagramLabel x="50%" y="50%" text="B" />
 
-      <DiagramLabel position={{ left: '24.1%', top: '56.3%' }}>
-        <MathText content="A_1 \cap B" className="text-zinc-400 text-xs italic" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '55.6%', top: '65.6%' }}>
-        <MathText content="A_2 \cap B" className="text-zinc-400 text-xs italic" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '88.9%', top: '56.3%' }}>
-        <MathText content="A_3 \cap B" className="text-zinc-400 text-xs italic" />
-      </DiagramLabel>
+      <DiagramLabel x="24.1%" y="56.3%" text="A_1 \cap B" />
+      <DiagramLabel x="55.6%" y="65.6%" text="A_2 \cap B" />
+      <DiagramLabel x="88.9%" y="56.3%" text="A_3 \cap B" />
     </div>
   </DiagramPanel>
 );

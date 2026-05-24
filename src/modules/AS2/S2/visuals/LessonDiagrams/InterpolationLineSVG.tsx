@@ -60,28 +60,28 @@ export const InterpolationLineSVG: React.FC = () => (
           <circle cx="420" cy="120" r="4" fill="#64748b" />
         </svg>
 
-        <DiagramLabel position={{ left: '0%', top: '20%' }}>
+        <DiagramLabel x="0%" y="20%">
           <div className="text-right text-[10px] text-zinc-400 font-sans pr-2 font-medium leading-tight">Cumulative<br/>Frequency</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '15.4%', top: '5%' }}><MathText content="5" className="text-xs text-zinc-300" /></DiagramLabel>
-        <DiagramLabel position={{ left: '42.3%', top: '5%' }}><MathText content="10" className="text-xs font-bold text-zinc-400" /></DiagramLabel>
-        <DiagramLabel position={{ left: '80.8%', top: '5%' }}><MathText content="17" className="text-xs text-zinc-300" /></DiagramLabel>
+        <DiagramLabel x="15.4%" y="5%" text="5" />
+        <DiagramLabel x="42.3%" y="5%" text="10" />
+        <DiagramLabel x="80.8%" y="5%" text="17" />
 
-        <DiagramLabel position={{ left: '26.9%', top: '29%' }}>
+        <DiagramLabel x="26.9%" y="29%">
           <div className="text-center text-[10px] text-zinc-400">gap = 5</div>
         </DiagramLabel>
-        <DiagramLabel position={{ left: '46.2%', top: '39%' }}>
+        <DiagramLabel x="46.2%" y="39%">
           <div className="text-center text-[10px] text-zinc-400">total = 12</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '0%', top: '60%' }}>
+        <DiagramLabel x="0%" y="60%">
           <div className="text-right text-[10px] text-zinc-400 font-sans pr-2 font-medium leading-tight">Class<br/>Boundary</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '15.4%', top: '67.5%' }}><MathText content="10" className="text-xs text-zinc-300" /></DiagramLabel>
-        <DiagramLabel position={{ left: '42.3%', top: '67.5%' }}><MathText content="Q_2" className="text-sm font-bold text-emerald-400" /></DiagramLabel>
-        <DiagramLabel position={{ left: '80.8%', top: '67.5%' }}><MathText content="20" className="text-xs text-zinc-300" /></DiagramLabel>
+        <DiagramLabel x="15.4%" y="67.5%" text="10" />
+        <DiagramLabel x="42.3%" y="67.5%" text="Q_2" />
+        <DiagramLabel x="80.8%" y="67.5%" text="20" />
       </div>
       
       <div className="w-full max-w-md">

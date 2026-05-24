@@ -23,21 +23,15 @@ export const M2InitialVelocityTrap: React.FC = () => {
           <line x1="50" y1="80" x2="320" y2="20" stroke="#10b981" strokeWidth="3" />
         </svg>
 
-        <DiagramLabel position={{ left: '65%', top: '25%' }}>
+        <DiagramLabel x="65%" y="25%">
           <div className="text-[10px] text-rose-400 font-bold bg-zinc-900 p-1 rounded border border-rose-900/50">FATAL: Assuming u=0</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '6%', top: '55%' }}>
-          <MathText content="u" className="text-emerald-400 font-bold text-right" />
-        </DiagramLabel>
+        <DiagramLabel x="6%" y="55%" text="u" />
         
-        <DiagramLabel position={{ left: '5%', top: '10%' }}>
-          <MathText content="v" className="text-zinc-400 text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x="5%" y="10%" text="v" />
         
-        <DiagramLabel position={{ left: '72%', top: '85%' }}>
-          <MathText content="t" className="text-zinc-400 text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x="72%" y="85%" text="t" />
       </div>
     </DiagramPanel>
   );

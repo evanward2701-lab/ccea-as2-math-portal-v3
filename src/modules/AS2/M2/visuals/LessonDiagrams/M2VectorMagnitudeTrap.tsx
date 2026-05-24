@@ -45,18 +45,18 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
           <path d="M 250 160 L 250 150 L 260 150" fill="none" stroke="#475569" strokeWidth="1" />
         </svg>
 
-        <DiagramLabel position={{ left: '50%', top: '95%' }}>
+        <DiagramLabel x="50%" y="95%">
           <div className="text-zinc-400 font-bold text-center text-xs">
             <MathText content="x\mathbf{i}" />
           </div>
         </DiagramLabel>
-        <DiagramLabel position={{ left: '92%', top: '50%' }}>
+        <DiagramLabel x="92%" y="50%">
           <div className="text-indigo-400 font-bold text-left text-xs">
             <MathText content="y\mathbf{j}" />
           </div>
         </DiagramLabel>
         
-        <DiagramLabel position={{ left: '50%', top: '22%' }}>
+        <DiagramLabel x="50%" y="22%">
           <div className="text-emerald-400 font-bold text-xs">
             <MathText content="|\mathbf{s}| = \sqrt{x^2+y^2}" />
           </div>

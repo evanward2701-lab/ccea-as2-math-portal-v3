@@ -64,7 +64,7 @@ export const ScalarVectorSVG: React.FC = () => (
         <rect x="68" y="330" width="624" height="38" rx="8" fill="#020617" stroke="#3f3f46" strokeWidth="1.6" />
       </svg>
 
-      <DiagramLabel position={{ left: '25.4%', top: '22.8%' }}>
+      <DiagramLabel x="25.4%" y="22.8%">
         <div className="flex items-center gap-4 w-69.5">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded border border-amber-900/60 bg-[#141416] text-2xl font-black text-amber-300">7</div>
           <div className="text-left">
@@ -74,47 +74,47 @@ export const ScalarVectorSVG: React.FC = () => (
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '82%', top: '22.8%' }}>
+      <DiagramLabel x="82%" y="22.8%">
         <div className="w-41.5 text-left">
           <div className="text-base font-bold leading-snug text-emerald-300">Vector: magnitude + direction</div>
           <div className="mt-1 text-sm leading-snug text-zinc-300">Direction is part of the answer.</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '78.5%', top: '51.8%' }}>
+      <DiagramLabel x="78.5%" y="51.8%">
         <div className="text-sm font-bold text-zinc-300">i</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '25.5%', top: '74.9%' }}>
+      <DiagramLabel x="25.5%" y="74.9%">
         <div className="text-sm font-bold text-zinc-300">-j</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '35%', top: '47.7%' }}>
+      <DiagramLabel x="35%" y="47.7%">
         <div className="rounded border border-emerald-900/60 bg-[#141416]/90 px-2 py-1 text-center text-sm font-bold text-emerald-300">
           <MathText content="7\mathbf{i}" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '35%', top: '67.2%' }}>
+      <DiagramLabel x="35%" y="67.2%">
         <div className="rounded border border-rose-900/60 bg-[#141416]/90 px-2 py-1 text-center text-sm font-bold text-rose-300">
           <MathText content="-24\mathbf{j}" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '59.3%', top: '55.1%' }}>
+      <DiagramLabel x="59.3%" y="55.1%">
         <div className="rounded border border-emerald-900/60 bg-[#141416]/90 px-3 py-2 text-sm font-bold text-emerald-300 text-center">
           <MathText content="\mathbf{v} = 7\mathbf{i} - 24\mathbf{j}\ \text{m s}^{-1}" className="[&_p]:m-0" />
           <div className="mt-1 text-xs font-semibold text-zinc-300">velocity is a vector</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '68%', top: '71.3%' }}>
+      <DiagramLabel x="68%" y="71.3%">
         <div className="text-sm font-semibold text-rose-300 w-48 text-center">
           negative component points down
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '50%', top: '89.5%' }}>
+      <DiagramLabel x="50%" y="89.5%">
         <div className="text-center text-base font-bold text-emerald-300 w-147">
           <MathText content="|\mathbf{v}| = \sqrt{7^2 + (-24)^2} = 25\ \text{m s}^{-1}" className="[&_p]:m-0" />
         </div>

@@ -89,13 +89,13 @@ export const S3DynamicVennSpaceEngine: React.FC = () => {
           </svg>
 
           {!isMutuallyExclusive && (
-            <DiagramLabel position={{ left: '50%', top: '50%' }} anchor="center">
+            <DiagramLabel x="50%" y="50%" anchor="center">
               <div className="text-zinc-400 text-sm font-bold"><MathInline content="A \cap B" /></div>
             </DiagramLabel>
           )}
 
           {isMutuallyExclusive && (
-            <DiagramLabel position={{ left: '50%', top: '50%' }} anchor="center">
+            <DiagramLabel x="50%" y="50%" anchor="center">
               <div className="text-rose-400 text-sm font-bold uppercase tracking-widest">Mutually Exclusive</div>
             </DiagramLabel>
           )}

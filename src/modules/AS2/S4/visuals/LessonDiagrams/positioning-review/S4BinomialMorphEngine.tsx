@@ -106,7 +106,7 @@ export const S4BinomialMorphEngine: React.FC = () => {
             })}
           </svg>
 
-          <DiagramLabel position={{ left: '0%', top: '50%' }} className="-translate-y-1/2">
+          <DiagramLabel x="0%" y="50%" className="-translate-y-1/2">
             <div className="text-center text-xs text-zinc-400 -rotate-90 origin-center w-32">
               <MathText content="P(X=x)" />
             </div>

@@ -172,47 +172,47 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </svg>
 
             {/* HTML Overlay Labels */}
-            <DiagramLabel position={{ left: '16%', top: '14%' }}>
+            <DiagramLabel x="16%" y="14%">
               <div className="text-base font-bold text-zinc-200">Selected object</div>
             </DiagramLabel>
             
-            <DiagramLabel position={{ left: '21%', top: '19%' }}>
+            <DiagramLabel x="21%" y="19%">
               <div className="text-xs text-zinc-400">block on table; external forces only</div>
             </DiagramLabel>
 
-            <DiagramLabel position={{ left: '50%', top: '26%' }} className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="50%" y="26%" className={`transition-opacity duration-300 ${(forces.friction || forces.tension || forces.applied) ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-xs font-semibold text-zinc-400">motion / intended motion</div>
             </DiagramLabel>
 
-            <DiagramLabel position={{ left: '58%', top: '72%' }} className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="58%" y="72%" className={`transition-opacity duration-300 ${forces.weight ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-lg font-bold" style={{ color: themeColors.force }}><MathText content="mg" className="[&_p]:m-0" /></div>
             </DiagramLabel>
 
-            <DiagramLabel position={{ left: '56%', top: '18%' }} className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="56%" y="18%" className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-lg font-bold" style={{ color: themeColors.accel }}><MathText content="R" className="[&_p]:m-0" /></div>
             </DiagramLabel>
-            <DiagramLabel position={{ left: '62%', top: '22%' }} className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="62%" y="22%" className={`transition-opacity duration-300 ${forces.reaction ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-xs font-semibold" style={{ color: themeColors.accel }}>perpendicular</div>
             </DiagramLabel>
 
-            <DiagramLabel position={{ left: '23%', top: '42%' }} className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="23%" y="42%" className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-lg font-bold" style={{ color: themeColors.applied }}><MathText content="F" className="[&_p]:m-0" /></div>
             </DiagramLabel>
-            <DiagramLabel position={{ left: '24%', top: '53%' }} className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="24%" y="53%" className={`transition-opacity duration-300 ${forces.friction ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-xs font-semibold" style={{ color: themeColors.applied }}>opposes motion</div>
             </DiagramLabel>
 
-            <DiagramLabel position={{ left: '84%', top: '42%' }} className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="84%" y="42%" className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-lg font-bold" style={{ color: themeColors.velocity }}><MathText content="T" className="[&_p]:m-0" /></div>
             </DiagramLabel>
-            <DiagramLabel position={{ left: '78%', top: '53%' }} className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="78%" y="53%" className={`transition-opacity duration-300 ${forces.tension ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-xs font-semibold" style={{ color: themeColors.velocity }}>string pulls</div>
             </DiagramLabel>
 
-            <DiagramLabel position={{ left: '85%', top: '25%' }} className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="85%" y="25%" className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-lg font-bold" style={{ color: themeColors.weight }}><MathText content="P" className="[&_p]:m-0" /></div>
             </DiagramLabel>
-            <DiagramLabel position={{ left: '79%', top: '33%' }} className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
+            <DiagramLabel x="79%" y="33%" className={`transition-opacity duration-300 ${forces.applied ? 'opacity-100' : 'opacity-0'}`}>
               <div className="text-xs font-semibold" style={{ color: themeColors.weight }}>direct push/pull</div>
             </DiagramLabel>
           </div>

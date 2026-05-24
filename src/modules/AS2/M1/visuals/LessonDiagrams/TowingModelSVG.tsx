@@ -88,55 +88,45 @@ export const TowingModelSVG: React.FC = () => (
         <path d="M 104 190 H 56" stroke="#fb7185" strokeWidth="2.6" markerEnd="url(#tow-arrow-rose)" />
       </svg>
 
-      <DiagramLabel position={{ left: '22.4%', top: '16.4%' }}>
+      <DiagramLabel x="22.4%" y="16.4%">
         <div className="rounded border border-amber-900/60 bg-[#141416] px-3 py-1 text-center text-sm font-bold text-amber-300">
           whole system
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '22.1%', top: '61.4%' }}>
+      <DiagramLabel x="22.1%" y="61.4%">
         <div className="rounded border border-emerald-900/60 bg-[#141416] px-3 py-1 text-center text-sm font-bold text-emerald-300">
           isolated vehicle
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '20.8%', top: '42.9%' }}>
-        <MathText content="m_1" className="text-sm font-bold text-zinc-200 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="20.8%" y="42.9%" text="m_1" />
 
-      <DiagramLabel position={{ left: '36.3%', top: '34.5%' }}>
+      <DiagramLabel x="36.3%" y="34.5%">
         <div className="rounded border border-zinc-900/60 bg-[#141416] px-2 py-1 text-center text-xs font-bold text-zinc-300">
           rigid light towbar
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '55%', top: '41%' }}>
-        <MathText content="m_2" className="text-sm font-bold text-zinc-200 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="55%" y="41%" text="m_2" />
 
-      <DiagramLabel position={{ left: '75.7%', top: '17.1%' }}>
+      <DiagramLabel x="75.7%" y="17.1%">
         <div className="rounded border border-zinc-900/60 bg-[#141416] px-3 py-2 text-center text-xs font-bold leading-tight text-zinc-300">
           common acceleration <MathText content="a" className="inline [&_p]:inline [&_p]:m-0" />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '35.9%', top: '48.1%' }}>
-        <MathText content="T" className="text-base font-bold text-emerald-300 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="35.9%" y="48.1%" text="T" />
 
-      <DiagramLabel position={{ left: '52%', top: '28.1%' }}>
+      <DiagramLabel x="52%" y="28.1%">
         <div className="rounded border border-emerald-900/60 bg-[#141416] px-3 py-1 text-center text-xs font-semibold leading-tight text-emerald-200">
           internal forces cancel
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '75.1%', top: '41.9%' }}>
-        <MathText content="D" className="text-lg font-bold text-amber-300 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="75.1%" y="41.9%" text="D" />
 
-      <DiagramLabel position={{ left: '10.5%', top: '41.2%' }}>
-        <MathText content="R_1" className="text-sm font-bold text-rose-300 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="10.5%" y="41.2%" text="R_1" />
     </div>
   </DiagramPanel>
 );

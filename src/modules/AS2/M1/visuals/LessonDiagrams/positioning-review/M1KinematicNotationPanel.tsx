@@ -51,42 +51,42 @@ export const M1KinematicNotationPanel: React.FC = () => {
             <VectorArrow x1={284} y1={44} x2={550} y2={44} type="accel" marker="default" />
           </svg>
 
-          <DiagramLabel position={{ left: '81.3%', top: '36.8%' }}>
+          <DiagramLabel x="81.3%" y="36.8%">
             <div className="text-sm font-bold text-zinc-300">positive direction</div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '19.1%', top: '65.8%' }}>
+          <DiagramLabel x="19.1%" y="65.8%">
             <div className="text-base font-bold text-zinc-200">O</div>
           </DiagramLabel>
-          <DiagramLabel position={{ left: '19.2%', top: '74.7%' }}>
+          <DiagramLabel x="19.2%" y="74.7%">
             <div className="text-xs font-semibold text-zinc-400">origin</div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '36.7%', top: '73.7%' }}>
+          <DiagramLabel x="36.7%" y="73.7%">
             <div className="text-center text-sm font-bold text-zinc-300">
               <MathText content="x_0" className="[&_p]:m-0" />
             </div>
           </DiagramLabel>
-          <DiagramLabel position={{ left: '36.3%', top: '28.4%' }}>
+          <DiagramLabel x="36.3%" y="28.4%">
             <div className="text-xs font-semibold text-zinc-300">initial position</div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '73.9%', top: '73.7%' }}>
+          <DiagramLabel x="73.9%" y="73.7%">
             <div className="text-center text-sm font-bold text-emerald-300">
               <MathText content="x" className="[&_p]:m-0" />
             </div>
           </DiagramLabel>
-          <DiagramLabel position={{ left: '73.4%', top: '28.4%' }}>
+          <DiagramLabel x="73.4%" y="28.4%">
             <div className="text-xs font-semibold text-zinc-300">final position</div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '56.6%', top: '17.4%' }}>
+          <DiagramLabel x="56.6%" y="17.4%">
             <div className="rounded border border-emerald-900/60 bg-[#141416] px-3 py-2 text-center text-sm font-bold text-emerald-300">
               <MathText content="s = x - x_0" className="[&_p]:m-0" />
             </div>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: '53.7%', top: '86.8%' }}>
+          <DiagramLabel x="53.7%" y="86.8%">
             <div className="rounded border border-rose-900/60 bg-rose-950/40 px-3 py-1 text-center text-xs font-bold text-rose-200">
               s is displacement, not speed
             </div>

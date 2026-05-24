@@ -120,19 +120,19 @@ export const S4NormalStandardizer: React.FC = () => {
             <circle cx={xScaleZ(zScore)} cy={yScale(pdf(zScore))} r="4" fill="#f59e0b" />
           </svg>
 
-          <DiagramLabel position={{ left: `${(svgWidth - padding.right + 10) / svgWidth * 100}%`, top: `${yScale(0) / svgHeight * 100}%` }}>
+          <DiagramLabel x={`${(svgWidth - padding.right + 10) / svgWidth * 100}%`} y={`${yScale(0) / svgHeight * 100}%`}>
             <span className="text-[#94a3b8] text-xs font-bold">X</span>
           </DiagramLabel>
-          <DiagramLabel position={{ left: `${(svgWidth - padding.right + 10) / svgWidth * 100}%`, top: `${(yScale(0) + 20) / svgHeight * 100}%` }}>
+          <DiagramLabel x={`${(svgWidth - padding.right + 10) / svgWidth * 100}%`} y={`${(yScale(0) + 20) / svgHeight * 100}%`}>
             <span className="text-[#94a3b8] text-xs font-bold">Z</span>
           </DiagramLabel>
 
           {[-3, -2, -1, 0, 1, 2, 3].map(z => (
             <React.Fragment key={z}>
-              <DiagramLabel position={{ left: `${xScaleZ(z) / svgWidth * 100}%`, top: `${(yScale(0) + 35) / svgHeight * 100}%` }} className="-translate-x-1/2">
+              <DiagramLabel x={`${xScaleZ(z) / svgWidth * 100}%`} y={`${(yScale(0) + 35) / svgHeight * 100}%`} className="-translate-x-1/2">
                 <span className="text-zinc-400 text-[10px]">{z}</span>
               </DiagramLabel>
-              <DiagramLabel position={{ left: `${xScaleZ(z) / svgWidth * 100}%`, top: `${(yScale(0) - 25) / svgHeight * 100}%` }} className="-translate-x-1/2">
+              <DiagramLabel x={`${xScaleZ(z) / svgWidth * 100}%`} y={`${(yScale(0) - 25) / svgHeight * 100}%`} className="-translate-x-1/2">
                 <span className="text-zinc-400 text-[10px]">{Math.round(mu + z * sigma)}</span>
               </DiagramLabel>
             </React.Fragment>

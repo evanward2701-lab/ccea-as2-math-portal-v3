@@ -73,27 +73,15 @@ const VTGraph: React.FC<VTGraphProps> = ({ u, v, t, showArea = true, showGradien
           <circle cx={xV} cy={clampedYV} r="4" fill="#f59e0b" />
         </svg>
 
-        <DiagramLabel position={{ left: `${(x0 - 40) / width * 100}%`, top: `${(padding / 2 - 10) / height * 100}%` }}>
-          <MathText content="v \text{ (m s}^{-1}\text{)}" className="text-zinc-400 text-xs" />
-        </DiagramLabel>
-        <DiagramLabel position={{ left: `${(width - padding / 2 - 10) / width * 100}%`, top: `${(yBase + 10) / height * 100}%` }}>
-          <MathText content="t \text{ (s)}" className="text-zinc-400 text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x={`${(x0 - 40) / width * 100}%`} y={`${(padding / 2 - 10) / height * 100}%`} text="v \text{ (m s}^{-1}\text{)}" />
+        <DiagramLabel x={`${(width - padding / 2 - 10) / width * 100}%`} y={`${(yBase + 10) / height * 100}%`} text="t \text{ (s)}" />
 
-        <DiagramLabel position={{ left: `${(xU - 30) / width * 100}%`, top: `${(clampedYU - 15) / height * 100}%` }}>
-          <MathText content="u" className="text-amber-400 text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x={`${(xU - 30) / width * 100}%`} y={`${(clampedYU - 15) / height * 100}%`} text="u" />
 
-        <DiagramLabel position={{ left: `${(xV + 5) / width * 100}%`, top: `${(clampedYV - 15) / height * 100}%` }}>
-          <MathText content="v" className="text-amber-400 text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x={`${(xV + 5) / width * 100}%`} y={`${(clampedYV - 15) / height * 100}%`} text="v" />
 
-        <DiagramLabel position={{ left: `${(xU - 10) / width * 100}%`, top: `${(yBase + 5) / height * 100}%` }}>
-          <MathText content="0" className="text-zinc-300 text-xs" />
-        </DiagramLabel>
-        <DiagramLabel position={{ left: `${(xV - 10) / width * 100}%`, top: `${(yBase + 5) / height * 100}%` }}>
-          <MathText content="t" className="text-zinc-300 text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x={`${(xU - 10) / width * 100}%`} y={`${(yBase + 5) / height * 100}%`} text="0" />
+        <DiagramLabel x={`${(xV - 10) / width * 100}%`} y={`${(yBase + 5) / height * 100}%`} text="t" />
       </div>
     </div>
   );

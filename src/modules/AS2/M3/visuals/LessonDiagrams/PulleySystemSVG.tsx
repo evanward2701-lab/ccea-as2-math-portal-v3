@@ -61,26 +61,14 @@ export const PulleySystemSVG: React.FC = () => (
         <VectorArrow x1={270} y1={180} x2={270} y2={140} type="velocity" marker="default" />
       </svg>
 
-      <DiagramLabel position={{ left: '35%', top: '35%' }}>
-        <MathText content="T" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '55%', top: '25%' }}>
-        <MathText content="T" />
-      </DiagramLabel>
+      <DiagramLabel x="35%" y="35%" text="T" />
+      <DiagramLabel x="55%" y="25%" text="T" />
 
-      <DiagramLabel position={{ left: '35%', top: '90%' }}>
-        <MathText content="m_1g" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '55%', top: '65%' }}>
-        <MathText content="m_2g" />
-      </DiagramLabel>
+      <DiagramLabel x="35%" y="90%" text="m_1g" />
+      <DiagramLabel x="55%" y="65%" text="m_2g" />
 
-      <DiagramLabel position={{ left: '10%', top: '65%' }}>
-        <MathText content="a" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '60%', top: '40%' }}>
-        <MathText content="a" />
-      </DiagramLabel>
+      <DiagramLabel x="10%" y="65%" text="a" />
+      <DiagramLabel x="60%" y="40%" text="a" />
     </div>
   </DiagramPanel>
 );

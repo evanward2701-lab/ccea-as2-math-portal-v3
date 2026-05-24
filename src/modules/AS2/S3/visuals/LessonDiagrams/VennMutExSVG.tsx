@@ -44,19 +44,11 @@ export const VennMutExSVG: React.FC = () => (
         <path d="M440,81.3 A55,55 0 0,0 440,168.7 A55,55 0 0,0 440,81.3" fill="#f43f5e" fillOpacity="0.25" />
       </svg>
 
-      <DiagramLabel position={{ left: '16.7%', top: '50%' }}>
-        <MathText content="A" className="text-emerald-400 font-serif text-base" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '33.3%', top: '50%' }}>
-        <MathText content="B" className="text-zinc-400 font-serif text-base" />
-      </DiagramLabel>
+      <DiagramLabel x="16.7%" y="50%" text="A" />
+      <DiagramLabel x="33.3%" y="50%" text="B" />
 
-      <DiagramLabel position={{ left: '63.3%', top: '50%' }}>
-        <MathText content="A" className="text-emerald-400 font-serif text-base" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '86.7%', top: '50%' }}>
-        <MathText content="B" className="text-zinc-400 font-serif text-base" />
-      </DiagramLabel>
+      <DiagramLabel x="63.3%" y="50%" text="A" />
+      <DiagramLabel x="86.7%" y="50%" text="B" />
     </div>
   </DiagramPanel>
 );

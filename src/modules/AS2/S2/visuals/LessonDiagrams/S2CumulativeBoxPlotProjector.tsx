@@ -75,25 +75,25 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
             <line x1={q2X} y1={boxPlotYCenter - 20} x2={q2X} y2={boxPlotYCenter + 20} stroke="#10b981" strokeWidth="2" />
           </svg>
 
-          <DiagramLabel position={{ left: `${padding / svgWidth * 100}%`, top: `${(cfMinY - 20) / svgHeight * 100}%` }} anchor="center">
+          <DiagramLabel x={`${padding / svgWidth * 100}%`} y={`${(cfMinY - 20) / svgHeight * 100}%`} anchor="center">
             <MathInline content="\text{CF}" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: `${padding / svgWidth * 100}%`, top: `${cfYScale(n) / svgHeight * 100}%` }} anchor="end" offsetX="-8px">
+          <DiagramLabel x={`${padding / svgWidth * 100}%`} y={`${cfYScale(n) / svgHeight * 100}%`} anchor="end" offsetX="-8px">
             <span className="text-zinc-400 text-[10px] font-mono">{n}</span>
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: `${(svgWidth - padding) / svgWidth * 100}%`, top: `${(boxPlotYCenter + 15) / svgHeight * 100}%` }} anchor="center">
+          <DiagramLabel x={`${(svgWidth - padding) / svgWidth * 100}%`} y={`${(boxPlotYCenter + 15) / svgHeight * 100}%`} anchor="center">
             <MathInline content="x" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: `${q1X / svgWidth * 100}%`, top: `${(boxPlotYCenter + 35) / svgHeight * 100}%` }} anchor="center">
+          <DiagramLabel x={`${q1X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
             <MathInline content="Q_1" className="text-zinc-500 text-[10px] font-bold" />
           </DiagramLabel>
-          <DiagramLabel position={{ left: `${q2X / svgWidth * 100}%`, top: `${(boxPlotYCenter + 35) / svgHeight * 100}%` }} anchor="center">
+          <DiagramLabel x={`${q2X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
             <MathInline content="\text{Med}" className="text-zinc-500 text-[10px] font-bold" />
           </DiagramLabel>
-          <DiagramLabel position={{ left: `${q3X / svgWidth * 100}%`, top: `${(boxPlotYCenter + 35) / svgHeight * 100}%` }} anchor="center">
+          <DiagramLabel x={`${q3X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
             <MathInline content="Q_3" className="text-zinc-500 text-[10px] font-bold" />
           </DiagramLabel>
         </div>

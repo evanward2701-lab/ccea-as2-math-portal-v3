@@ -66,43 +66,43 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => (
       </svg>
 
       {/* Dynamic Typography Overlays — Swapped contrasting text weight defaults */}
-      <DiagramLabel position={{ left: '15.8%', top: '71.3%' }}>
+      <DiagramLabel x="15.8%" y="71.3%">
         <div className="text-sm font-black text-white">A</div>
       </DiagramLabel>
-      <DiagramLabel position={{ left: '11.6%', top: '82%' }}>
+      <DiagramLabel x="11.6%" y="82%">
         <div className="text-xs font-bold text-zinc-400">Start Position</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '81.6%', top: '24.7%' }}>
+      <DiagramLabel x="81.6%" y="24.7%">
         <div className="text-sm font-black text-white">B</div>
       </DiagramLabel>
-      <DiagramLabel position={{ left: '77.4%', top: '16%' }}>
+      <DiagramLabel x="77.4%" y="16%">
         <div className="text-xs font-bold text-zinc-400">Target Terminal</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '44%', top: '24.7%' }}>
+      <DiagramLabel x="44%" y="24.7%">
         <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-3 py-1.5 text-center text-xs font-bold text-amber-400 backdrop-blur-sm">
           Distance Path = 12 m
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '64.3%', top: '72.7%' }}>
+      <DiagramLabel x="64.3%" y="72.7%">
         <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-3 py-1.5 text-center text-xs font-bold text-emerald-400 backdrop-blur-sm">
           Displacement = 8 m Northeast
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '11.2%', top: '14%' }}>
+      <DiagramLabel x="11.2%" y="14%">
         <div className="text-[10px] font-bold text-zinc-500">N</div>
       </DiagramLabel>
-      <DiagramLabel position={{ left: '15.5%', top: '25.7%' }}>
+      <DiagramLabel x="15.5%" y="25.7%">
         <div className="text-[10px] font-bold text-zinc-500">E</div>
       </DiagramLabel>
-      <DiagramLabel position={{ left: '14.2%', top: '18%' }}>
+      <DiagramLabel x="14.2%" y="18%">
         <div className="text-[10px] font-bold text-emerald-400">NE</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '50%', top: '89.3%' }}>
+      <DiagramLabel x="50%" y="89.3%">
         <div className="text-center text-xs font-semibold text-zinc-400 w-full px-4">
           Direction coordinates govern displacement vectors; absolute scalar trajectories map total distance.
         </div>

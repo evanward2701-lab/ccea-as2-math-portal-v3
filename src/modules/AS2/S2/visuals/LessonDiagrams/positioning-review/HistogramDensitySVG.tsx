@@ -41,25 +41,23 @@ export const HistogramDensitySVG: React.FC = () => (
         <rect x="250" y="140" width="200" height="60" fill="#022c22" stroke="#10b981" strokeWidth="2" className="hover:fill-emerald-900/50 transition-colors" />
       </svg>
 
-      <DiagramLabel position={{ left: '5%', top: '40%' }}>
+      <DiagramLabel x="5%" y="40%">
         <div className="text-[#94a3b8] text-sm -rotate-90 origin-center w-32 text-center">Frequency Density</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '17.5%', top: '75%' }}>
+      <DiagramLabel x="17.5%" y="75%">
         <div className="text-[#64748b] text-[10px]">width = 10</div>
       </DiagramLabel>
-      <DiagramLabel position={{ left: '35.1%', top: '75%' }}>
+      <DiagramLabel x="35.1%" y="75%">
         <div className="text-[#64748b] text-[10px]">width = 10</div>
       </DiagramLabel>
-      <DiagramLabel position={{ left: '61.4%', top: '75%' }}>
+      <DiagramLabel x="61.4%" y="75%">
         <div className="text-[#64748b] text-[10px]">width = 20</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '45.6%', top: '85%' }}>
-        <MathText content="\text{Time } (t)" className="text-zinc-400 text-sm" />
-      </DiagramLabel>
+      <DiagramLabel x="45.6%" y="85%" text="\text{Time } (t)" />
 
-      <DiagramLabel position={{ left: '61.4%', top: '55%' }}>
+      <DiagramLabel x="61.4%" y="55%">
         <div className="text-emerald-400 text-sm font-semibold tracking-wide bg-[#141416]/40 rounded px-2 py-1">
           <MathText content="\text{Area} = \text{Frequency}" />
         </div>

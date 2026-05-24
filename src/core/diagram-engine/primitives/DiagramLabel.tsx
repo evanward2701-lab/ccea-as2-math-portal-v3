@@ -1,26 +1,37 @@
 import React from 'react';
 import { cn } from '@/core/utils/cn';
+import { MathInline } from '@/core/components/MathText';
 
 export interface DiagramLabelProps {
-  position: { top: string; left: string };
+  /** X coordinate as a percentage (0-100) */
+  x: number | string;
+  /** Y coordinate as a percentage (0-100) */
+  y: number | string;
+  /** Optional text to render through MathInline (KaTeX support) */
+  text?: string;
   anchor?: 'center' | 'start' | 'end' | 'top' | 'bottom';
   offsetX?: number | string;
   offsetY?: number | string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }
 
 /**
- * An HTML-based overlay for rendering high-quality text over an SVG diagram.
+ * An HTML-based overlay for rendering high-quality text or KaTeX over an SVG diagram.
+ * Processed through the MathInline engine for native math support.
+ * Uses fluid absolute positioning with centering transforms by default.
  */
 export const DiagramLabel: React.FC<DiagramLabelProps> = ({
-  position,
+  x,
+  y,
+  text,
   anchor = 'center',
   offsetX = 0,
   offsetY = 0,
   children,
   className = '',
 }) => {
+  // Map anchor prop to the correct CSS transform centering logic
   let anchorTransform = 'translate(-50%, -50%)';
   if (anchor === 'start') {
     anchorTransform = 'translate(0, -50%)';
@@ -32,6 +43,10 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
     anchorTransform = 'translate(-50%, -100%)';
   }
 
+  // Ensure percentage string format
+  const left = typeof x === 'number' ? `${x}%` : x.includes('%') ? x : `${x}%`;
+  const top = typeof y === 'number' ? `${y}%` : y.includes('%') ? y : `${y}%`;
+
   return (
     <div
       className={cn(
@@ -39,12 +54,13 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
         className
       )}
       style={{
-        top: position.top,
-        left: position.left,
+        top,
+        left,
+        // Centering transforms (translate(-50%, -50%)) align exactly with the center of the text bounding box.
         transform: `translate(calc(${offsetX}), calc(${offsetY})) ${anchorTransform}`,
       }}
     >
-      {children}
+      {text ? <MathInline content={text} /> : children}
     </div>
   );
 };

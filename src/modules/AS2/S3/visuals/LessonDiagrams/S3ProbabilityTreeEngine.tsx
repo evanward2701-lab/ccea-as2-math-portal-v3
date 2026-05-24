@@ -138,22 +138,22 @@ export const S3ProbabilityTreeEngine: React.FC = () => {
             {selectedPath === 'BB' && <polyline points="100,180 250,260 400,300" fill="none" stroke="#10b981" strokeWidth="3" strokeLinecap="round" />}
           </svg>
 
-          <DiagramLabel position={{ left: '67.7%', top: '13.9%' }}>
+          <DiagramLabel x="67.7%" y="13.9%">
             <div className={cn("text-xs cursor-pointer", selectedPath === 'RR' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('RR')}>
               P(R then R) = {calculatePathProb('RR')}
             </div>
           </DiagramLabel>
-          <DiagramLabel position={{ left: '67.7%', top: '36.1%' }}>
+          <DiagramLabel x="67.7%" y="36.1%">
             <div className={cn("text-xs cursor-pointer", selectedPath === 'RB' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('RB')}>
               P(R then B) = {calculatePathProb('RB')}
             </div>
           </DiagramLabel>
-          <DiagramLabel position={{ left: '67.7%', top: '58.3%' }}>
+          <DiagramLabel x="67.7%" y="58.3%">
             <div className={cn("text-xs cursor-pointer", selectedPath === 'BR' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('BR')}>
               P(B then R) = {calculatePathProb('BR')}
             </div>
           </DiagramLabel>
-          <DiagramLabel position={{ left: '67.7%', top: '80.6%' }}>
+          <DiagramLabel x="67.7%" y="80.6%">
             <div className={cn("text-xs cursor-pointer", selectedPath === 'BB' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('BB')}>
               P(B then B) = {calculatePathProb('BB')}
             </div>

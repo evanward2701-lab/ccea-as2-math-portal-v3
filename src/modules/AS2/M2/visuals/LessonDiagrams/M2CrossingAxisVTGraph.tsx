@@ -48,37 +48,33 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
           <line x1="400" y1="150" x2="400" y2="190" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
         </svg>
 
-        <DiagramLabel position={{ left: '11.5%', top: '15%' }}>
-          <MathText content="v" className="text-zinc-400 font-bold italic text-xs" />
-        </DiagramLabel>
-        <DiagramLabel position={{ left: '93%', top: '51.5%' }}>
-          <MathText content="t" className="text-zinc-400 font-bold italic text-xs" />
-        </DiagramLabel>
+        <DiagramLabel x="11.5%" y="15%" text="v" />
+        <DiagramLabel x="93%" y="51.5%" text="t" />
 
-        <DiagramLabel position={{ left: '26.6%', top: '43.3%' }}>
+        <DiagramLabel x="26.6%" y="43.3%">
           <div className="text-[10px] font-bold text-emerald-400">Area A (+)</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '57.5%', top: '58.3%' }}>
+        <DiagramLabel x="57.5%" y="58.3%">
           <div className="text-[10px] font-bold text-rose-400">Area B (-)</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '13.3%', top: '25%' }}>
+        <DiagramLabel x="13.3%" y="25%">
           <div className="text-xs font-bold text-amber-500">20</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '49.1%', top: '56%' }}>
+        <DiagramLabel x="49.1%" y="56%">
           <div className="text-xs font-bold text-zinc-400">4s</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '67.5%', top: '66.6%' }}>
+        <DiagramLabel x="67.5%" y="66.6%">
           <div className="text-xs font-bold text-amber-500">-10</div>
         </DiagramLabel>
-        <DiagramLabel position={{ left: '65.8%', top: '48.3%' }}>
+        <DiagramLabel x="65.8%" y="48.3%">
           <div className="text-xs font-bold text-zinc-400">6s</div>
         </DiagramLabel>
 
-        <DiagramLabel position={{ left: '70%', top: '16.7%' }}>
+        <DiagramLabel x="70%" y="16.7%">
           <div className="bg-zinc-900/80 p-3 rounded-lg border border-zinc-800 space-y-2 shadow-xl">
             <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Displacement:</div>
             <div className="text-xs text-zinc-200 font-mono text-center">Area A - Area B</div>

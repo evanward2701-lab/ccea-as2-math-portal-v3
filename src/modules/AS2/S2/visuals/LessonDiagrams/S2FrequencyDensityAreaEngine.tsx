@@ -90,14 +90,14 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
             ))}
           </svg>
 
-          <DiagramLabel position={{ left: `${padding / width * 100}%`, top: `${(padding - 15) / height * 100}%` }} anchor="center">
+          <DiagramLabel x={`${padding / width * 100}%`} y={`${(padding - 15) / height * 100}%`} anchor="center">
             <MathInline content="\text{FD}" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
-          <DiagramLabel position={{ left: `${(width - padding / 2) / width * 100}%`, top: `${(baseY + 10) / height * 100}%` }} anchor="center">
+          <DiagramLabel x={`${(width - padding / 2) / width * 100}%`} y={`${(baseY + 10) / height * 100}%`} anchor="center">
             <MathInline content="x" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
 
-          <DiagramLabel position={{ left: `${(padding + mergedData.limitL * scaleX + 5) / width * 100}%`, top: `${(baseY - mergedData.density * scaleY + 10) / height * 100}%` }} anchor="start">
+          <DiagramLabel x={`${(padding + mergedData.limitL * scaleX + 5) / width * 100}%`} y={`${(baseY - mergedData.density * scaleY + 10) / height * 100}%`} anchor="start">
             <div className="flex flex-col gap-1 p-2 bg-[#141416]/80 rounded border border-emerald-500/30 backdrop-blur-sm shadow-md">
               <MathInline content={`F = ${mergedData.freq}`} className="text-emerald-400 text-xs font-bold" />
               <MathInline content={`FD = ${mergedData.density}`} className="text-emerald-400 text-xs" />

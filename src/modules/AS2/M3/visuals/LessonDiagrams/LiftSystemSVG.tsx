@@ -49,32 +49,20 @@ export const LiftSystemSVG: React.FC = () => (
         <VectorArrow x1={380} y1={160} x2={380} y2={120} type="velocity" marker="default" />
       </svg>
 
-      <DiagramLabel position={{ left: '21.5%', top: '5%' }}>
+      <DiagramLabel x="21.5%" y="5%">
         <div className="text-center text-zinc-400 text-[11px] font-bold uppercase tracking-wider">Diagram A: Whole System</div>
       </DiagramLabel>
-      <DiagramLabel position={{ left: '71.5%', top: '5%' }}>
+      <DiagramLabel x="71.5%" y="5%">
         <div className="text-center text-zinc-400 text-[11px] font-bold uppercase tracking-wider">Diagram B: Isolated Passenger</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '26.5%', top: '15%' }}>
-        <MathText content="T" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '26.5%', top: '90%' }}>
-        <MathText content="(M+m)g" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '5%', top: '45%' }}>
-        <MathText content="a" />
-      </DiagramLabel>
+      <DiagramLabel x="26.5%" y="15%" text="T" />
+      <DiagramLabel x="26.5%" y="90%" text="(M+m)g" />
+      <DiagramLabel x="5%" y="45%" text="a" />
 
-      <DiagramLabel position={{ left: '76.5%', top: '30%' }}>
-        <MathText content="R" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '76.5%', top: '90%' }}>
-        <MathText content="mg" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '60%', top: '45%' }}>
-        <MathText content="a" />
-      </DiagramLabel>
+      <DiagramLabel x="76.5%" y="30%" text="R" />
+      <DiagramLabel x="76.5%" y="90%" text="mg" />
+      <DiagramLabel x="60%" y="45%" text="a" />
     </div>
   </DiagramPanel>
 );

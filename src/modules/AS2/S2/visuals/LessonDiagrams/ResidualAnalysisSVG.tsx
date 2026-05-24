@@ -35,12 +35,8 @@ export const ResidualAnalysisSVG: React.FC = () => (
         ))}
       </svg>
 
-      <DiagramLabel position={{ left: '3.1%', top: '5%' }}>
-        <MathText content="e" className="text-xs text-zinc-400 italic" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '96.9%', top: '45%' }}>
-        <MathText content="x" className="text-xs text-zinc-400 italic" />
-      </DiagramLabel>
+      <DiagramLabel x="3.1%" y="5%" text="e" />
+      <DiagramLabel x="96.9%" y="45%" text="x" />
     </div>
   </DiagramPanel>
 );

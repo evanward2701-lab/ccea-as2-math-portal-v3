@@ -38,22 +38,18 @@ export const ScatterClustersSVG: React.FC = () => (
         <line x1="80" y1="230" x2="420" y2="50" stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="6 4" />
       </svg>
 
-      <DiagramLabel position={{ left: '5.2%', top: '3.2%' }}>
-        <MathText content="y" className="text-zinc-400 text-sm" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '94.8%', top: '82.3%' }}>
-        <MathText content="x" className="text-zinc-400 text-sm" />
-      </DiagramLabel>
+      <DiagramLabel x="5.2%" y="3.2%" text="y" />
+      <DiagramLabel x="94.8%" y="82.3%" text="x" />
 
-      <DiagramLabel position={{ left: '22.9%', top: '72.6%' }}>
+      <DiagramLabel x="22.9%" y="72.6%">
         <div className="text-xs font-semibold text-zinc-400">Group A</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '64.6%', top: '11.3%' }}>
+      <DiagramLabel x="64.6%" y="11.3%">
         <div className="text-xs font-semibold text-purple-400">Group B</div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '45%', top: '38%' }}>
+      <DiagramLabel x="45%" y="38%">
         <div className="flex items-center justify-center gap-2 text-center text-rose-400 text-[10px] font-mono font-bold tracking-widest uppercase bg-[#141416]/90 border border-zinc-800 px-3 py-1 rounded shadow-lg backdrop-blur-sm -rotate-[28deg]">
           <div className="w-3 h-3 rounded-full bg-rose-500 text-white flex items-center justify-center text-[9px] font-black shrink-0">!</div>
           <span>Misleading overall trend</span>

@@ -99,7 +99,7 @@ export const S4InequalityTranslator: React.FC = () => {
             })}
           </svg>
           
-          <DiagramLabel position={{ left: '50%', top: '85%' }} className="-translate-x-1/2">
+          <DiagramLabel x="50%" y="85%" className="-translate-x-1/2">
             <div className="text-center text-sm font-bold text-zinc-300 mt-4 capitalize">
               "{phrase} {r}"
             </div>

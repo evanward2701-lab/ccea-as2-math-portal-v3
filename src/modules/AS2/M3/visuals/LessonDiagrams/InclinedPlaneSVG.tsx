@@ -38,15 +38,11 @@ export const InclinedPlaneSVG: React.FC = () => (
         <VectorArrow x1={250} y1={180} x2={250} y2={280} type="applied" marker="default" />
       </svg>
 
-      <DiagramLabel position={{ left: '55%', top: '90%' }}>
-        <MathText content="mg" />
-      </DiagramLabel>
+      <DiagramLabel x="55%" y="90%" text="mg" />
 
-      <DiagramLabel position={{ left: '20%', top: '75%' }}>
-        <MathText content="\theta" />
-      </DiagramLabel>
+      <DiagramLabel x="20%" y="75%" text="\theta" />
 
-      <DiagramLabel position={{ left: '50%', top: '50%' }}>
+      <DiagramLabel x="50%" y="50%">
         <div className="bg-zinc-900/80 p-2 rounded border border-zinc-800 text-xs text-zinc-300">
           Resolving diagram...
         </div>

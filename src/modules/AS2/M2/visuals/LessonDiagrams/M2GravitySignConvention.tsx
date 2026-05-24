@@ -31,10 +31,10 @@ export const M2GravitySignConvention: React.FC = () => {
               <line x1="90" y1="50" x2="90" y2="200" stroke="#475569" strokeWidth="5" />
               <path d="M 82 180 L 90 200 L 98 180 Z" fill="#f43f5e" />
             </svg>
-            <DiagramLabel position={{ left: '50%', top: '5%' }}>
+            <DiagramLabel x="50%" y="5%">
               <div className="text-sm font-bold uppercase tracking-wider text-zinc-500 text-center w-32">Physical Direction</div>
             </DiagramLabel>
-            <DiagramLabel position={{ left: '20%', top: '55%' }}>
+            <DiagramLabel x="20%" y="55%">
               <div className="text-base font-bold text-rose-400 leading-tight text-right w-24">
                 <MathText content="g = 9.8 \text{ m s}^{-2}" />
                 <span className="text-sm block">acting downwards</span>
@@ -54,7 +54,7 @@ export const M2GravitySignConvention: React.FC = () => {
                     <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" /></marker>
                   </defs>
                 </svg>
-                <DiagramLabel position={{ left: '50%', top: '10%' }}>
+                <DiagramLabel x="50%" y="10%">
                   <div className="text-[10px] font-bold text-emerald-400 uppercase">Positive</div>
                 </DiagramLabel>
               </div>
@@ -76,7 +76,7 @@ export const M2GravitySignConvention: React.FC = () => {
                     <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" /></marker>
                   </defs>
                 </svg>
-                <DiagramLabel position={{ left: '50%', top: '90%' }}>
+                <DiagramLabel x="50%" y="90%">
                   <div className="text-[10px] font-bold text-amber-400 uppercase">Positive</div>
                 </DiagramLabel>
               </div>

@@ -65,21 +65,21 @@ export const M1ModellingSandboxSVG: React.FC = () => (
       </svg>
 
       {/* HTML Overlays */}
-      <DiagramLabel position={{ left: '22.9%', top: '15.9%' }}>
+      <DiagramLabel x="22.9%" y="15.9%">
         <div className="text-center">
           <div className="text-base font-bold text-amber-300">Real Situation</div>
           <div className="text-xs text-zinc-400">Real system: detailed and messy</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '77.1%', top: '15.9%' }}>
+      <DiagramLabel x="77.1%" y="15.9%">
         <div className="text-center">
           <div className="text-base font-bold text-emerald-300">Mathematical Model</div>
           <div className="text-xs text-zinc-400">Model: simplified for equations</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '23%', top: '25.9%' }}>
+      <DiagramLabel x="23%" y="25.9%">
         <div className="grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-amber-200">
           <div className="rounded border border-amber-900/60 bg-[#141416]/80 px-2 py-1">shape</div>
           <div className="rounded border border-amber-900/60 bg-[#141416]/80 px-2 py-1">wheels</div>
@@ -87,33 +87,29 @@ export const M1ModellingSandboxSVG: React.FC = () => (
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '50%', top: '30%' }}>
+      <DiagramLabel x="50%" y="30%">
         <div className="rounded border border-zinc-900/60 bg-[#141416] px-2 py-2 text-center text-xs font-bold leading-tight text-zinc-300">
           Apply assumptions
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '91.4%', top: '32.2%' }}>
-        <MathText content="a" className="text-lg font-bold text-emerald-300 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="91.4%" y="32.2%" text="a" />
 
-      <DiagramLabel position={{ left: '63.4%', top: '41%' }}>
-        <MathText content="D" className="text-sm font-bold text-amber-300 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="63.4%" y="41%" text="D" />
 
-      <DiagramLabel position={{ left: '77.1%', top: '40%' }}>
+      <DiagramLabel x="77.1%" y="40%">
         <div className="rounded border border-zinc-800 bg-[#141416]/90 px-2 py-1 text-center text-xs font-bold text-zinc-200">
           towbar
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '77.1%', top: '60.2%' }}>
+      <DiagramLabel x="77.1%" y="60.2%">
         <div className="text-center text-xs font-semibold leading-tight text-emerald-200 w-57.5">
           clean particles/blocks on a horizontal surface
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '50%', top: '82.4%' }}>
+      <DiagramLabel x="50%" y="82.4%">
         <div className="grid grid-cols-2 gap-2 text-center text-xs font-semibold text-zinc-200 md:grid-cols-5 w-full max-w-164">
           <div className="rounded border border-zinc-900/60 bg-zinc-950/30 px-2 py-2">particle: dimensions ignored</div>
           <div className="rounded border border-zinc-900/60 bg-zinc-950/30 px-2 py-2">light towbar: negligible mass</div>

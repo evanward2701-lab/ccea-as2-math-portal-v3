@@ -43,19 +43,11 @@ export const NormalDistributionSVG: React.FC = () => (
         <line x1="383" y1="200" x2="383" y2="205" stroke="#64748b" strokeWidth="2" />
       </svg>
 
-      <DiagramLabel position={{ left: '50%', top: '85%' }}>
-        <MathText content="\mu" className="text-emerald-400 text-center font-bold" />
-      </DiagramLabel>
+      <DiagramLabel x="50%" y="85%" text="\mu" />
 
-      <DiagramLabel position={{ left: '35.4%', top: '85%' }}>
-        <MathText content="\mu - \sigma" className="text-zinc-400 text-center text-xs" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '64.6%', top: '85%' }}>
-        <MathText content="\mu + \sigma" className="text-zinc-400 text-center text-xs" />
-      </DiagramLabel>
-      <DiagramLabel position={{ left: '50%', top: '41.7%' }}>
-        <MathText content="\approx 68\%" className="text-zinc-300 text-center font-bold text-xs" />
-      </DiagramLabel>
+      <DiagramLabel x="35.4%" y="85%" text="\mu - \sigma" />
+      <DiagramLabel x="64.6%" y="85%" text="\mu + \sigma" />
+      <DiagramLabel x="50%" y="41.7%" text="\approx 68\%" />
     </div>
   </DiagramPanel>
 );

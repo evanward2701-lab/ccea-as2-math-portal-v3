@@ -13,29 +13,29 @@ export const SVGLibrary: React.FC = () => {
       <defs>
         {colors.map(([type, color]) => (
           <React.Fragment key={type}>
-            {/* Standard forward arrow - sharp architectural pointer */}
+            {/* Standard forward arrow - bold textbook pointer */}
             <marker
               id={`arrow-${type}`}
               viewBox="0 0 10 10"
-              refX="9"
+              refX="9.5"
               refY="5"
-              markerWidth="4"
-              markerHeight="4"
+              markerWidth="6"
+              markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M 0 2 L 10 5 L 0 8 L 2 5 Z" fill={color} />
+              <path d="M 0 2 L 10 5 L 0 8 L 2.5 5 Z" fill={color} />
             </marker>
-            {/* Reverse arrow - sharp architectural pointer */}
+            {/* Reverse arrow - bold textbook pointer */}
             <marker
               id={`arrow-reverse-${type}`}
               viewBox="0 0 10 10"
-              refX="1"
+              refX="0.5"
               refY="5"
-              markerWidth="4"
-              markerHeight="4"
+              markerWidth="6"
+              markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M 10 2 L 0 5 L 10 8 L 8 5 Z" fill={color} />
+              <path d="M 10 2 L 0 5 L 10 8 L 7.5 5 Z" fill={color} />
             </marker>
             {/* Dot marker - smaller and more precise */}
             <marker

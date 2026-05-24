@@ -69,58 +69,46 @@ export const LiftPhysicsSVG: React.FC = () => (
       </svg>
 
       {/* Dynamic Overlay Layout Labels */}
-      <DiagramLabel position={{ left: '25.5%', top: '16.7%' }}>
+      <DiagramLabel x="25.5%" y="16.7%">
         <div className="text-center">
           <div className="text-base font-bold text-zinc-200">Whole system: lift + passenger</div>
           <div className="text-xs text-zinc-500 mt-0.5">Use to find cable tension</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '74.5%', top: '16.7%' }}>
+      <DiagramLabel x="74.5%" y="16.7%">
         <div className="text-center">
           <div className="text-base font-bold text-amber-400">Isolated passenger</div>
           <div className="text-xs text-zinc-500 mt-0.5">Use to find floor reaction</div>
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '30.4%', top: '17.9%' }}>
-        <MathText content="T" className="text-xl font-bold text-emerald-400 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="30.4%" y="17.9%" text="T" />
 
-      <DiagramLabel position={{ left: '33.8%', top: '73.1%' }}>
-        <MathText content="(M+m)g" className="text-lg font-bold text-rose-400 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="33.8%" y="73.1%" text="(M+m)g" />
 
-      <DiagramLabel position={{ left: '9.9%', top: '44.9%' }}>
-        <MathText content="a" className="text-xl font-bold text-zinc-400 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="9.9%" y="44.9%" text="a" />
 
-      <DiagramLabel position={{ left: '25.7%', top: '76.7%' }}>
+      <DiagramLabel x="25.7%" y="76.7%">
         <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-4 py-1.5 text-center text-sm font-bold text-emerald-400 backdrop-blur-sm shadow-md">
           <MathText content="T - (M + m)g = (M + m)a" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel position={{ left: '66.2%', top: '43.3%' }}>
-        <MathText content="R" className="text-xl font-bold text-emerald-400 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="66.2%" y="43.3%" text="R" />
 
-      <DiagramLabel position={{ left: '84.1%', top: '64.4%' }}>
-        <MathText content="mg" className="text-xl font-bold text-rose-400 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="84.1%" y="64.4%" text="mg" />
 
-      <DiagramLabel position={{ left: '93%', top: '44.9%' }}>
-        <MathText content="a" className="text-xl font-bold text-zinc-400 [&_p]:m-0" />
-      </DiagramLabel>
+      <DiagramLabel x="93%" y="44.9%" text="a" />
 
-      <DiagramLabel position={{ left: '74.5%', top: '76.7%' }}>
+      <DiagramLabel x="74.5%" y="76.7%">
         <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-4 py-1.5 text-center text-sm font-bold text-amber-400 backdrop-blur-sm shadow-md">
           <MathText content="R - mg = ma" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
 
       {/* Pure Desaturated Neutral Explanatory Legend Footer */}
-      <DiagramLabel position={{ left: '50%', top: '91.8%' }}>
+      <DiagramLabel x="50%" y="91.8%">
         <div className="grid grid-cols-3 gap-3 text-center text-[11px] font-medium text-zinc-400 w-full px-6">
           <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-emerald-400 font-semibold">Emerald vector</span> = upward tension / reaction force</div>
           <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-rose-400 font-semibold">Rose vector</span> = gravitational weight down</div>
