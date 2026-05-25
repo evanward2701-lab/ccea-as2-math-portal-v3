@@ -81,7 +81,7 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Conditional Probability</h4>
             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-              {getConditionalFormula() || <MathText content="P(A|B) = \frac{P(A \cap B)}{P(B)}" />}
+              {getConditionalFormula() || <MathText content="P(A|B) = \\frac{P(A \\cap B)}{P(B)}" />}
             </div>
           </div>
           <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">

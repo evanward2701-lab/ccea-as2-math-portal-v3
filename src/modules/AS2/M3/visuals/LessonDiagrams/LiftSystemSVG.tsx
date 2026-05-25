@@ -1,68 +1,146 @@
 import React from 'react';
-import { MathText } from '@/core/components/MathText';
+import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
+import { Particle, SupportSurface } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
 import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
 import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
-import { themeColors } from '@/core/types/mechanicsTheme';
+
+interface LiftStudyPanelProps {
+  title: string;
+  note: string;
+  equationTitle: string;
+  equation: string;
+  children: React.ReactNode;
+}
+
+const StickFigure: React.FC<{ x: number; y: number; scale?: number; tone?: 'muted' | 'active' }> = ({
+  x,
+  y,
+  scale = 1,
+  tone = 'muted',
+}) => {
+  const stroke = tone === 'active' ? '#e4e4e7' : '#8b8794';
+  const fill = tone === 'active' ? '#141417' : '#1c1c1f';
+
+  return (
+    <g transform={`translate(${x}, ${y}) scale(${scale})`} fill="none" stroke={stroke} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <Particle cx={0} cy={-28} r={8} fill={fill} stroke={stroke} strokeWidth={2} />
+      <line x1={0} y1={-20} x2={0} y2={28} />
+      <line x1={0} y1={-8} x2={-22} y2={8} />
+      <line x1={0} y1={-8} x2={22} y2={8} />
+      <line x1={0} y1={28} x2={-18} y2={72} />
+      <line x1={0} y1={28} x2={18} y2={72} />
+    </g>
+  );
+};
+
+const LiftStudyPanel: React.FC<LiftStudyPanelProps> = ({ title, note, equationTitle, equation, children }) => (
+  <div className="flex flex-col gap-4 rounded-xl border border-zinc-800/70 bg-zinc-930/70 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.28)]">
+    <div className="flex min-h-12 items-start justify-between gap-4">
+      <div>
+        <h3 className="font-serif text-2xl font-light leading-none tracking-wide text-zinc-100">{title}</h3>
+        <p className="mt-2 max-w-sm text-xs leading-relaxed text-zinc-500">{note}</p>
+      </div>
+    </div>
+
+    <div className="relative aspect-[14/9] w-full overflow-hidden rounded-xl border border-zinc-800/70 bg-zinc-950 shadow-inner">
+      <SVGLibrary />
+      {children}
+    </div>
+
+    <div className="rounded-xl border border-zinc-800/80 bg-zinc-925/60 px-5 py-4 text-center shadow-inner">
+      <div className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">{equationTitle}</div>
+      <div className="text-xl font-semibold text-zinc-100">
+        <MathInline content={equation} />
+      </div>
+    </div>
+  </div>
+);
 
 export const LiftSystemSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 4. Lift Systems Isolation"
     analysis={
-      <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <p className="text-sm text-zinc-300 leading-relaxed">
-            To find cable tension (<MathText content="T" className="inline" />), model the lift and passenger as one combined system. To find the floor reaction (<MathText content="R" className="inline" />), isolate the passenger.
-          </p>
+      <div className="mx-auto grid w-full max-w-5xl gap-4 px-2 md:grid-cols-2">
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
+          <strong className="text-zinc-100">Whole system:</strong> model the lift and passenger together to find the cable tension.
         </div>
-        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The normal reaction <MathText content="R" className="inline" /> is an internal force to the system and must not be included in the whole-system equation for tension.
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
+          <strong className="text-zinc-100">Isolated passenger:</strong> model the passenger alone to find the floor reaction.
+        </div>
+        <div className="rounded-xl border border-rose-500/20 bg-rose-950/10 p-4 text-sm leading-relaxed text-rose-300">
+          <strong className="text-rose-400">Exam trap:</strong> the passenger reaction is internal to the whole system and must not appear in the whole-system equation.
+        </div>
+        <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/10 p-4 text-sm leading-relaxed text-emerald-300">
+          <strong className="text-emerald-400">Direction rule:</strong> upward acceleration makes the upward force side larger than the weight side.
         </div>
       </div>
     }
   >
-    <div className="relative w-full aspect-60/28 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner">
-      <SVGLibrary />
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-        <line x1="300" y1="10" x2="300" y2="250" stroke="#1e293b" strokeWidth="1.5" strokeDasharray="4 4" />
-        
-        {/* DIAGRAM A */}
-        <line x1="150" y1="40" x2="150" y2="80" stroke="#475569" strokeWidth="2" />
-        <VectorArrow x1={150} y1={80} x2={150} y2={45} type="accel" marker="default" />
-        
-        <rect x="90" y="80" width="120" height="120" fill="#141417" stroke="#3f3f46" strokeWidth="2" />
-        <rect x="130" y="140" width="40" height="60" fill="#1e293b" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
-        
-        <VectorArrow x1={150} y1={200} x2={150} y2={250} type="applied" marker="default" />
+    <div className="grid w-full max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2">
+      <LiftStudyPanel
+        title="Whole System"
+        note="Boundary contains the lift and passenger; floor contact is internal."
+        equationTitle="Whole System Equation"
+        equation="$T - (m + M)g = (m + M)a$"
+      >
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 420 270"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          shapeRendering="geometricPrecision"
+          role="img"
+          aria-label="Whole lift system force diagram"
+        >
+          <rect x={22} y={24} width={376} height={222} rx={18} fill="#0f0f12" stroke="#27272a" strokeWidth={1} opacity={0.88} />
+          <SupportSurface x1={116} y1={54} x2={304} y2={54} rough stroke="#52525b" strokeWidth={3} />
+          <line x1={210} y1={54} x2={210} y2={100} stroke="#d4d4d8" strokeWidth={2.5} strokeLinecap="round" />
 
-        {/* System Accel A */}
-        <VectorArrow x1={50} y1={160} x2={50} y2={120} type="velocity" marker="default" />
+          <rect x={144} y={100} width={132} height={100} rx={12} fill="#141417" stroke="#52525b" strokeWidth={2} />
+          <ObjectBlock x={160} y={120} width={100} height={62} isParticle={false} />
+          <StickFigure x={210} y={154} scale={0.62} />
 
-        {/* DIAGRAM B */}
-        <rect x="430" y="140" width="40" height="60" fill="#1e293b" stroke="#64748b" strokeWidth="2" className="hover:stroke-sky-400 transition-all" />
-        
-        <VectorArrow x1={450} y1={140} x2={450} y2={85} type="accel" marker="default" />
+          <VectorArrow x1={210} y1={102} x2={210} y2={64} type="tension" />
+          <VectorArrow x1={210} y1={200} x2={210} y2={236} type="weight" />
+          <VectorArrow x1={82} y1={210} x2={82} y2={148} type="accel" marker="acceleration" />
+        </svg>
 
-        <VectorArrow x1={450} y1={200} x2={450} y2={250} type="applied" marker="default" />
+        <DiagramLabel x="53.5%" y="24%" text="$T$" className="text-base font-black text-blue-400" />
+        <DiagramLabel x="57.5%" y="82%" text="$(m + M)g$" className="text-base font-black text-rose-400" />
+        <DiagramLabel x="23.5%" y="64%" text="$a$" className="text-base font-black text-zinc-100" />
+      </LiftStudyPanel>
 
-        <VectorArrow x1={380} y1={160} x2={380} y2={120} type="velocity" marker="default" />
-      </svg>
+      <LiftStudyPanel
+        title="Isolated Passenger"
+        note="Boundary contains only the passenger; the floor reaction is now external."
+        equationTitle="Passenger Equation"
+        equation="$R - mg = ma$"
+      >
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 420 270"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          shapeRendering="geometricPrecision"
+          role="img"
+          aria-label="Isolated passenger force diagram"
+        >
+          <rect x={22} y={24} width={376} height={222} rx={18} fill="#0f0f12" stroke="#27272a" strokeWidth={1} opacity={0.88} />
+          <SupportSurface x1={122} y1={188} x2={298} y2={188} stroke="#52525b" strokeWidth={3} />
+          <StickFigure x={210} y={118} scale={0.88} tone="active" />
 
-      <DiagramLabel x="21.5%" y="5%">
-        <div className="text-center text-zinc-400 text-2.75 font-bold uppercase tracking-wider">Diagram A: Whole System</div>
-      </DiagramLabel>
-      <DiagramLabel x="71.5%" y="5%">
-        <div className="text-center text-zinc-400 text-2.75 font-bold uppercase tracking-wider">Diagram B: Isolated Passenger</div>
-      </DiagramLabel>
+          <VectorArrow x1={210} y1={84} x2={210} y2={42} type="reaction" />
+          <VectorArrow x1={210} y1={188} x2={210} y2={232} type="weight" />
+          <VectorArrow x1={86} y1={178} x2={86} y2={118} type="accel" marker="acceleration" />
+        </svg>
 
-      <DiagramLabel x="26.5%" y="15%" text="T" />
-      <DiagramLabel x="26.5%" y="90%" text="(M+m)g" />
-      <DiagramLabel x="5%" y="45%" text="a" />
-
-      <DiagramLabel x="76.5%" y="30%" text="R" />
-      <DiagramLabel x="76.5%" y="90%" text="mg" />
-      <DiagramLabel x="60%" y="45%" text="a" />
+        <DiagramLabel x="55.5%" y="22%" text="$R$" className="text-base font-black text-emerald-400" />
+        <DiagramLabel x="55.5%" y="80.5%" text="$mg$" className="text-base font-black text-rose-400" />
+        <DiagramLabel x="23.5%" y="56%" text="$a$" className="text-base font-black text-zinc-100" />
+      </LiftStudyPanel>
     </div>
   </DiagramPanel>
 );

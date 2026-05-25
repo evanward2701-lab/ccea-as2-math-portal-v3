@@ -1,9 +1,7 @@
 import React from 'react';
-import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
-import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
 import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 import { themeColors } from '@/core/types/mechanicsTheme';
 
@@ -28,47 +26,60 @@ export const PulleySystemSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-30/35 max-w-sm mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner">
+    <div className="relative mx-auto aspect-80/46 w-full max-w-4xl overflow-hidden rounded-2xl border border-zinc-800/70 bg-zinc-925 shadow-inner">
       <SVGLibrary />
-      <svg className="absolute inset-0 w-full h-full" viewBox="80 20 300 330" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-        {/* Ceiling & Pulley */}
-        <line x1="120" y1="30" x2="280" y2="30" stroke="#475569" strokeWidth="3" />
-        <path d="M130 30 L120 20 M160 30 L150 20 M190 30 L180 20 M220 30 L210 20 M250 30 L240 20 M280 30 L270 20" stroke="#3f3f46" strokeWidth="1.5" />
-        <line x1="200" y1="30" x2="200" y2="75" stroke="#64748b" strokeWidth="2" />
-        <circle cx="200" cy="75" r="25" fill="#141417" stroke="#94a3b8" strokeWidth="2" />
-        <circle cx="200" cy="75" r="4" fill="#64748b" />
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 800 460"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        shapeRendering="geometricPrecision"
+        role="img"
+        aria-label="Connected particles on a smooth pulley"
+      >
+        <line x1={245} y1={58} x2={515} y2={58} stroke="#64748b" strokeWidth={4} />
+        <path d="M 270 58 L 250 35 M 315 58 L 295 35 M 360 58 L 340 35 M 405 58 L 385 35 M 450 58 L 430 35 M 495 58 L 475 35" stroke="#3f3f46" strokeWidth={2.5} />
+        <line x1={380} y1={58} x2={380} y2={96} stroke="#64748b" strokeWidth={2.5} />
 
-        {/* Cables */}
-        <line x1="175" y1="75" x2="175" y2="200" stroke="#64748b" strokeWidth="1.5" /> {/* m1 cable */}
-        <line x1="225" y1="75" x2="225" y2="150" stroke="#64748b" strokeWidth="1.5" />
+        <path d="M 338 138 Q 380 66 422 138" stroke="#94a3b8" strokeWidth={3} strokeLinecap="round" />
+        <line x1={338} y1={138} x2={338} y2={270} stroke="#94a3b8" strokeWidth={3} />
+        <line x1={422} y1={138} x2={422} y2={226} stroke="#94a3b8" strokeWidth={3} />
 
-        {/* Mass Body 1 */}
-        <ObjectBlock x={150} y={200} width={50} height={60} massLabel="m_1" />
-        
-        {/* Mass Body 2 */}
-        <ObjectBlock x={210} y={150} width={30} height={35} massLabel="m_2" />
+        <circle cx={380} cy={138} r={42} fill="#141417" stroke="#94a3b8" strokeWidth={3} />
+        <circle cx={380} cy={138} r={7} fill="#64748b" />
 
-        {/* Tensions */}
-        <VectorArrow x1={175} y1={200} x2={175} y2={120} type="accel" marker="default" />
-        <VectorArrow x1={225} y1={150} x2={225} y2={95} type="accel" marker="default" />
+        <rect x={300} y={270} width={76} height={76} rx={7} fill="rgba(30, 41, 59, 0.78)" stroke="#94a3b8" strokeWidth={2.4} />
+        <rect x={393} y={226} width={58} height={52} rx={7} fill="rgba(24, 24, 27, 0.7)" stroke={themeColors.structural} strokeWidth={2.4} />
+        <text x={338} y={308} fill={themeColors.connector} textAnchor="middle" dominantBaseline="middle" fontFamily="serif" fontSize={22} fontStyle="italic">
+          m
+          <tspan baselineShift="sub" fontSize={14}>1</tspan>
+        </text>
+        <text x={422} y={252} fill={themeColors.connector} textAnchor="middle" dominantBaseline="middle" fontFamily="serif" fontSize={18} fontStyle="italic">
+          m
+          <tspan baselineShift="sub" fontSize={12}>2</tspan>
+        </text>
 
-        {/* Gravity */}
-        <VectorArrow x1={175} y1={260} x2={175} y2={320} type="applied" marker="default" />
-        <VectorArrow x1={225} y1={185} x2={225} y2={235} type="applied" marker="default" />
-
-        {/* Acceleration */}
-        <VectorArrow x1={130} y1={220} x2={130} y2={260} type="velocity" marker="default" />
-        <VectorArrow x1={270} y1={180} x2={270} y2={140} type="velocity" marker="default" />
+        <VectorArrow x1={338} y1={270} x2={338} y2={203} type="tension" strokeWidth={2.7} />
+        <VectorArrow x1={422} y1={226} x2={422} y2={158} type="tension" strokeWidth={2.7} />
+        <VectorArrow x1={338} y1={346} x2={338} y2={414} type="weight" strokeWidth={2.7} />
+        <VectorArrow x1={422} y1={278} x2={422} y2={346} type="weight" strokeWidth={2.7} />
+        <VectorArrow x1={230} y1={292} x2={230} y2={380} type="velocity" marker="acceleration" strokeWidth={2.7} />
+        <VectorArrow x1={540} y1={305} x2={540} y2={217} type="velocity" marker="acceleration" strokeWidth={2.7} />
       </svg>
 
-      <DiagramLabel x="35%" y="35%" text="T" />
-      <DiagramLabel x="55%" y="25%" text="T" />
+      <DiagramLabel x="40%" y="50%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
+      <DiagramLabel x="56.5%" y="37%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
 
-      <DiagramLabel x="35%" y="90%" text="m_1g" />
-      <DiagramLabel x="55%" y="65%" text="m_2g" />
+      <DiagramLabel x="43.5%" y="90%" text="m_1g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
+      <DiagramLabel x="58%" y="76%" text="m_2g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
 
-      <DiagramLabel x="10%" y="65%" text="a" />
-      <DiagramLabel x="60%" y="40%" text="a" />
+      <DiagramLabel x="25%" y="73%" text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
+      <DiagramLabel x="69%" y="55%" text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
+
+      <div className="absolute left-[7%] top-[8%] rounded-lg border border-zinc-800/80 bg-zinc-950/35 px-4 py-3 shadow-xl">
+        <p className="font-serif text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">smooth pulley</p>
+        <p className="mt-1 text-xs font-semibold text-zinc-400">equal tension, common acceleration</p>
+      </div>
     </div>
   </DiagramPanel>
 );

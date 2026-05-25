@@ -2,6 +2,8 @@ import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { Particle } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 export const ScalarVectorSVG: React.FC = () => {
   return (
@@ -52,6 +54,7 @@ export const ScalarVectorSVG: React.FC = () => {
     >
       {/* Complete Uniform Geometry Enclosure Track */}
       <div className="relative w-full aspect-80/50 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-2xl">
+        <SVGLibrary />
         
         {/* Unified Scalar-Vector Coordinate Space Graphics */}
         <svg
@@ -59,18 +62,6 @@ export const ScalarVectorSVG: React.FC = () => {
           className="w-full h-full absolute inset-0 z-0"
           preserveAspectRatio="xMidYMid meet"
         >
-          <defs>
-            <marker id="v-arrow-amber" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fbbf24" />
-            </marker>
-            <marker id="v-arrow-emerald" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 2 2 L 10 5 L 2 8 Z" fill="#10b981" />
-            </marker>
-            <marker id="v-arrow-zinc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-              <path d="M 2 2 L 10 5 L 2 8 Z" fill="#52525b" />
-            </marker>
-          </defs>
-
           {/* ==================== UPPER ROW SECTION ENCLOSURES ==================== */}
           <rect x="40" y="30" width="340" height="110" rx="12" fill="#1c1c1f" stroke="#27272a" strokeWidth="2" />
           <rect x="420" y="30" width="340" height="110" rx="12" fill="#1c1c1f" stroke="#27272a" strokeWidth="2" />
@@ -79,17 +70,17 @@ export const ScalarVectorSVG: React.FC = () => {
           <rect x="40" y="170" width="720" height="220" rx="12" className="fill-zinc-850 stroke-zinc-700 stroke-[1.5]" />
 
           {/* Coordinate System Unit Grid Axes lines */}
-          <line x1="120" y1="210" x2="120" y2="360" stroke="#52525b" strokeWidth="2" markerEnd="url(#v-arrow-zinc)" />
-          <line x1="120" y1="210" x2="420" y2="210" stroke="#52525b" strokeWidth="2" markerEnd="url(#v-arrow-zinc)" />
+          <VectorArrow x1={120} y1={210} x2={120} y2={360} type="structural" strokeWidth={2} />
+          <VectorArrow x1={120} y1={210} x2={420} y2={210} type="structural" strokeWidth={2} />
 
           {/* Subtitle Vector Component Projections (Dashed) */}
           {/* Horizontal component 7i */}
-          <line x1="120" y1="210" x2="280" y2="210" stroke="#10b981" strokeWidth="2.5" strokeDasharray="4 4" />
+          <VectorArrow x1={120} y1={210} x2={280} y2={210} type="velocity" dashed marker="none" strokeWidth={2.5} />
           {/* Vertical component -24j */}
-          <line x1="280" y1="210" x2="280" y2="345" stroke="#f43f5e" strokeWidth="2.5" strokeDasharray="4 4" />
+          <VectorArrow x1={280} y1={210} x2={280} y2={345} type="weight" dashed marker="none" strokeWidth={2.5} />
 
           {/* Resultant True Velocity Vector Line Hypotenuse */}
-          <line x1="120" y1="210" x2="280" y2="345" stroke="#10b981" strokeWidth="3.5" markerEnd="url(#v-arrow-emerald)" />
+          <VectorArrow x1={120} y1={210} x2={280} y2={345} type="velocity" strokeWidth={3.5} />
 
           {/* Target Intersection Points Nodes */}
           <Particle cx={120} cy={210} r={6} fill="#ffffff" />
@@ -102,8 +93,7 @@ export const ScalarVectorSVG: React.FC = () => {
         {/* Absolute Positioned Layout Typography Sheet Layer */}
         <div className="absolute inset-0 z-10 pointer-events-none select-none">
           
-          {/* --- FIXED: Moved top yellow scalar content block down to top-[9%] to center perfectly --- */}
-          <div className="absolute left-[8%] top-[9%] flex items-center gap-4">
+          <div className="absolute left-[5%] top-[6%] flex h-[22%] w-[42.5%] items-center justify-center gap-4 px-6">
             <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-amber-500/30 bg-zinc-925 text-xl font-black text-amber-400 shadow-md">
               <MathInline content="$7$" />
             </div>
@@ -113,11 +103,10 @@ export const ScalarVectorSVG: React.FC = () => {
             </div>
           </div>
 
-          {/* --- FIXED: Moved top green vector content block down to top-[9%] to match across row line --- */}
-          <div className="absolute left-[55%] top-[9%] flex items-center gap-4">
+          <div className="absolute left-[52.5%] top-[6%] flex h-[22%] w-[42.5%] items-center justify-center gap-4 px-6">
             <div className="w-17.5 h-12.5 relative shrink-0">
               <svg className="w-full h-full" viewBox="0 0 70 50">
-                <line x1="5" y1="45" x2="60" y2="10" stroke="#10b981" strokeWidth="3.5" markerEnd="url(#v-arrow-emerald)" />
+                <VectorArrow x1={5} y1={45} x2={60} y2={10} type="velocity" strokeWidth={3.5} />
               </svg>
             </div>
             <div className="flex flex-col">
@@ -152,8 +141,7 @@ export const ScalarVectorSVG: React.FC = () => {
             Negative component points downward
           </div>
 
-          {/* --- FIXED: Moved the vector magnitude display track equation upward from bottom-[4.5%] to bottom-[5.5%] --- */}
-          <div className="absolute left-[50%] bottom-[5.5%] transform -translate-x-1/2 w-full flex justify-center items-center text-center text-sm font-bold text-emerald-400 py-3.5">
+          <div className="absolute left-[5%] top-[83%] flex h-[10%] w-[90%] items-center justify-center text-center text-sm font-bold text-emerald-400">
             <MathInline content="$|\mathbf{v}| = \sqrt{7^2 + (-24)^2} = 25\quad\text{m s}^{-1}$" />
           </div>
 

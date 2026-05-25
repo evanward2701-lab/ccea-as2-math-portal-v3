@@ -3,6 +3,8 @@ import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
 import { Particle } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 type NotationTone = 'emerald' | 'amber' | 'zinc';
 
@@ -21,27 +23,44 @@ const notationCards: NotationCard[] = [
   { symbol: '$t$', label: 'Time', unit: '$\\text{s}$', tone: 'zinc' },
 ];
 
-const toneClasses: Record<NotationTone, string> = {
-  emerald: 'text-emerald-400 border-emerald-500/20 bg-emerald-950/10',
-  amber: 'text-amber-400 border-amber-500/20 bg-amber-950/10',
-  zinc: 'text-zinc-300 border-zinc-700/60 bg-zinc-900/10',
+const toneClasses: Record<NotationTone, { text: string; border: string; bg: string; unit: string }> = {
+  emerald: {
+    text: 'text-emerald-300',
+    border: 'border-emerald-500/25',
+    bg: 'bg-emerald-950/12',
+    unit: 'border-emerald-500/25 bg-emerald-950/15 text-emerald-300',
+  },
+  amber: {
+    text: 'text-amber-300',
+    border: 'border-amber-500/25',
+    bg: 'bg-amber-950/12',
+    unit: 'border-amber-500/25 bg-amber-950/15 text-amber-300',
+  },
+  zinc: {
+    text: 'text-zinc-200',
+    border: 'border-zinc-700/70',
+    bg: 'bg-zinc-900/18',
+    unit: 'border-zinc-700/70 bg-zinc-950/25 text-zinc-200',
+  },
 };
 
-const NotationCard: React.FC<NotationCard> = ({ symbol, label, unit, tone }) => (
-  <div className="flex h-37 flex-col items-center justify-between rounded-xl border border-zinc-800/80 bg-zinc-925/45 p-4 text-center shadow-sm">
-    <div className="flex flex-col items-center">
-      <div className={cn('text-2xl font-black leading-none', toneClasses[tone])}>
+const NotationCard: React.FC<NotationCard> = ({ symbol, label, unit, tone }) => {
+  const styles = toneClasses[tone];
+
+  return (
+    <div className={cn('flex min-h-36 flex-col items-center justify-center gap-3 rounded-xl border px-3 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.035),0_16px_34px_rgba(0,0,0,0.2)]', styles.border, styles.bg)}>
+      <div className={cn('font-serif text-3xl font-semibold leading-none', styles.text)}>
         <MathInline content={symbol} />
       </div>
-      <div className="mt-4 text-2.5 font-black uppercase tracking-[0.22em] text-zinc-500">
+      <div className="flex min-h-10 items-center justify-center text-center text-[11px] font-black uppercase leading-tight text-zinc-500 text-balance break-words">
         {label}
       </div>
+      <div className={cn('flex min-h-9 w-full items-center justify-center rounded-lg border px-3 py-1.5 font-serif text-base font-semibold shadow-inner', styles.unit)}>
+        <MathInline content={unit} />
+      </div>
     </div>
-    <div className={cn('w-full rounded-lg border px-3 py-2 text-sm font-bold shadow-inner', toneClasses[tone])}>
-      <MathInline content={unit} />
-    </div>
-  </div>
-);
+  );
+};
 
 export const M1KinematicNotationPanel: React.FC = () => {
   return (
@@ -49,12 +68,12 @@ export const M1KinematicNotationPanel: React.FC = () => {
       title="Fig 1b. Kinematic Notation & Position Vectors"
       analysis={
         <div className="mx-auto grid w-full max-w-5xl gap-4 px-2 md:grid-cols-2">
-          <div className="flex items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-center text-xs leading-relaxed text-zinc-400">
+          <div className="flex items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-center text-sm leading-relaxed text-zinc-400">
             <span className="mr-1.5 font-bold text-zinc-200">Sign Convention Rule:</span>
             Choose one positive direction before assigning vector signs.
           </div>
-          <div className="flex items-center justify-center rounded-xl border border-rose-500/20 bg-rose-950/10 p-4 text-center text-xs font-medium leading-relaxed text-rose-300">
-            <span className="inline-flex items-baseline justify-center gap-1.5 md:whitespace-nowrap">
+          <div className="flex items-center justify-center rounded-xl border border-rose-500/20 bg-rose-950/10 p-4 text-center text-sm font-medium leading-relaxed text-rose-300">
+            <span className="inline-flex flex-wrap items-baseline justify-center gap-1.5">
               <span className="font-bold text-rose-400">Common Trap:</span>
               <span className="inline-flex items-baseline text-base font-bold leading-none text-rose-200">
                 <MathInline content="$s$" />
@@ -66,18 +85,16 @@ export const M1KinematicNotationPanel: React.FC = () => {
       }
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
-        <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-925 shadow-2xl aspect-80/36 min-h-65">
+        <div className="relative min-h-80 w-full overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-925 shadow-2xl aspect-[16/8]">
+          <SVGLibrary />
           <svg
-            viewBox="0 0 800 360"
+            viewBox="0 0 800 400"
             className="absolute inset-0 h-full w-full"
             preserveAspectRatio="xMidYMid meet"
             role="img"
             aria-label="Kinematic position axis showing origin, initial position, final position, positive direction, and displacement"
           >
             <defs>
-              <marker id="kinematic-arrow-amber" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fbbf24" />
-              </marker>
               <linearGradient id="kinematic-axis-fade" x1="70" y1="0" x2="730" y2="0" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#27272a" stopOpacity="0" />
                 <stop offset="0.15" stopColor="#27272a" stopOpacity="1" />
@@ -86,56 +103,56 @@ export const M1KinematicNotationPanel: React.FC = () => {
               </linearGradient>
             </defs>
 
-            <rect x="34" y="34" width="732" height="292" rx="18" fill="#0f0f12" stroke="#27272a" strokeWidth="1.2" opacity="0.72" />
+            <rect x="42" y="42" width="716" height="300" rx="20" fill="#0f0f12" stroke="#27272a" strokeWidth="1.2" opacity="0.78" />
 
             {/* Positive direction layer */}
-            <line x1="535" y1="78" x2="684" y2="78" stroke="#fbbf24" strokeWidth="2.2" markerEnd="url(#kinematic-arrow-amber)" />
+            <VectorArrow x1={524} y1={94} x2={688} y2={94} type="friction" strokeWidth={2.4} />
 
             {/* Displacement vector layer */}
-            <line x1="360" y1="146" x2="360" y2="192" stroke="#fbbf24" strokeWidth="1.2" strokeDasharray="4 5" opacity="0.38" />
-            <line x1="600" y1="146" x2="600" y2="192" stroke="#fbbf24" strokeWidth="1.2" strokeDasharray="4 5" opacity="0.38" />
-            <line x1="368" y1="146" x2="590" y2="146" stroke="#fbbf24" strokeWidth="2.6" markerEnd="url(#kinematic-arrow-amber)" />
+            <line x1="360" y1="168" x2="360" y2="222" stroke="#fbbf24" strokeWidth="1.2" strokeDasharray="4 5" opacity="0.38" />
+            <line x1="600" y1="168" x2="600" y2="222" stroke="#fbbf24" strokeWidth="1.2" strokeDasharray="4 5" opacity="0.38" />
+            <VectorArrow x1={368} y1={168} x2={590} y2={168} type="friction" strokeWidth={2.8} />
 
             {/* Coordinate datum layer */}
-            <line x1="80" y1="198" x2="720" y2="198" stroke="url(#kinematic-axis-fade)" strokeWidth="2.2" />
-            <line x1="160" y1="168" x2="160" y2="228" stroke="#71717a" strokeWidth="2" opacity="0.82" />
-            <line x1="360" y1="168" x2="360" y2="228" stroke="#52525b" strokeWidth="2" opacity="0.88" />
-            <line x1="600" y1="168" x2="600" y2="228" stroke="#52525b" strokeWidth="2" opacity="0.88" />
-            <Particle cx={160} cy={198} r={6} fill="#0f0f12" stroke="#e4e4e7" strokeWidth={2.6} />
-            <Particle cx={360} cy={198} r={5.5} fill="#71717a" />
-            <Particle cx={600} cy={198} r={5.5} fill="#71717a" />
+            <line x1="90" y1="222" x2="710" y2="222" stroke="url(#kinematic-axis-fade)" strokeWidth="2.2" />
+            <line x1="160" y1="192" x2="160" y2="252" stroke="#71717a" strokeWidth="2" opacity="0.82" />
+            <line x1="360" y1="192" x2="360" y2="252" stroke="#52525b" strokeWidth="2" opacity="0.88" />
+            <line x1="600" y1="192" x2="600" y2="252" stroke="#52525b" strokeWidth="2" opacity="0.88" />
+            <Particle cx={160} cy={222} r={6} fill="#0f0f12" stroke="#e4e4e7" strokeWidth={2.6} />
+            <Particle cx={360} cy={222} r={5.5} fill="#71717a" />
+            <Particle cx={600} cy={222} r={5.5} fill="#71717a" />
 
-            <rect x="421" y="105" width="132" height="38" rx="8" fill="#09090b" stroke="#27272a" strokeWidth="1.5" />
+            <rect x="418" y="112" width="138" height="40" rx="9" fill="#09090b" stroke="#27272a" strokeWidth="1.5" />
           </svg>
 
           <div className="absolute inset-0 z-10 pointer-events-none select-none">
-            <div className="absolute left-[74.5%] top-[14%] -translate-x-1/2 text-2.5 font-black uppercase tracking-[0.25em] text-amber-400">
+            <div className="absolute left-[76%] top-[14%] -translate-x-1/2 text-center text-xs font-black uppercase leading-tight text-amber-400">
               Positive Direction
             </div>
 
-            <div className="absolute left-[61%] top-[32%] -translate-x-1/2 text-sm font-bold text-zinc-100">
+            <div className="absolute left-[61%] top-[33%] -translate-x-1/2 text-base font-bold text-zinc-100">
               <MathInline content="$s = x - x_0$" />
             </div>
 
-            <div className="absolute left-[20%] top-[69%] -translate-x-1/2 text-center">
-              <div className="text-lg font-black text-white">
+            <div className="absolute left-[20%] top-[70%] w-30 -translate-x-1/2 text-center">
+              <div className="font-serif text-2xl font-semibold text-white">
                 O
               </div>
-              <div className="mt-1 text-2.5 font-black uppercase tracking-[0.2em] text-zinc-500">Origin</div>
+              <div className="mt-1 text-[11px] font-black uppercase leading-tight text-zinc-500">Origin</div>
             </div>
 
-            <div className="absolute left-[45%] top-[69%] -translate-x-1/2 text-center">
-              <div className="text-lg font-black text-zinc-100">
+            <div className="absolute left-[45%] top-[70%] w-38 -translate-x-1/2 text-center">
+              <div className="font-serif text-2xl font-semibold text-zinc-100">
                 <MathInline content="$x_0$" />
               </div>
-              <div className="mt-1 text-2.5 font-black uppercase tracking-[0.2em] text-zinc-500">Initial Position</div>
+              <div className="mt-1 text-[11px] font-black uppercase leading-tight text-zinc-500">Initial Position</div>
             </div>
 
-            <div className="absolute left-[75%] top-[69%] -translate-x-1/2 text-center">
-              <div className="text-lg font-black text-zinc-100">
+            <div className="absolute left-[75%] top-[70%] w-38 -translate-x-1/2 text-center">
+              <div className="font-serif text-2xl font-semibold text-zinc-100">
                 <MathInline content="$x$" />
               </div>
-              <div className="mt-1 text-2.5 font-black uppercase tracking-[0.2em] text-zinc-500">Final Position</div>
+              <div className="mt-1 text-[11px] font-black uppercase leading-tight text-zinc-500">Final Position</div>
             </div>
           </div>
         </div>

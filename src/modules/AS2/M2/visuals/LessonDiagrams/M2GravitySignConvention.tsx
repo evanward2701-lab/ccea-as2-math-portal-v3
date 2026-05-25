@@ -2,6 +2,8 @@ import React from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 export const M2GravitySignConvention: React.FC = () => {
   return (
@@ -23,72 +25,87 @@ export const M2GravitySignConvention: React.FC = () => {
         </>
       }
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-4xl items-center">
-        {/* Left Column: Physical Direction */}
-        <div className="flex flex-col items-center justify-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
-          <div className="relative w-full max-w-40 aspect-18/22 select-none">
-            <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
-              <line x1="90" y1="50" x2="90" y2="200" stroke="#475569" strokeWidth="5" />
-              <path d="M 82 180 L 90 200 L 98 180 Z" fill="#f43f5e" />
-            </svg>
-            <DiagramLabel x="50%" y="5%">
-              <div className="text-sm font-bold uppercase tracking-wider text-zinc-500 text-center w-32">Physical Direction</div>
-            </DiagramLabel>
-            <DiagramLabel x="20%" y="55%">
-              <div className="text-base font-bold text-rose-400 leading-tight text-right w-24">
-                <MathText content="g = 9.8 \text{ m s}^{-2}" />
-                <span className="text-sm block">acting downwards</span>
+      <div className="grid w-full max-w-5xl grid-cols-1 gap-6 2xl:grid-cols-[1.05fr_1fr]">
+        <SVGLibrary />
+
+        <section className="relative min-h-[360px] overflow-hidden rounded-xl border border-zinc-800/80 bg-zinc-940/70 shadow-inner">
+          <svg
+            viewBox="0 0 420 320"
+            className="absolute inset-0 h-full w-full"
+            shapeRendering="geometricPrecision"
+            overflow="visible"
+            role="img"
+            aria-label="Gravity vector acting vertically downwards"
+          >
+            <line x1="96" y1="72" x2="96" y2="260" stroke="#27272a" strokeWidth="1" strokeDasharray="5 8" />
+            <VectorArrow x1={180} y1={76} x2={180} y2={238} type="weight" strokeWidth={4.5} marker="acceleration" />
+          </svg>
+
+          <DiagramLabel x="12%" y="14%" anchor="start">
+            <div className="max-w-48 text-2.5 font-black uppercase tracking-[0.28em] text-zinc-500">
+              Physical Direction
+            </div>
+          </DiagramLabel>
+
+          <DiagramLabel x="66%" y="43%">
+            <div className="w-56 rounded-lg border border-rose-500/20 bg-zinc-950/70 px-4 py-3 text-center shadow-xl">
+              <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-rose-400">gravity</div>
+              <div className="text-zinc-100">
+                <MathText content="g = 9.8\\mathrm{m\\,s^{-2}}" noMargin />
               </div>
-            </DiagramLabel>
+            </div>
+          </DiagramLabel>
+
+          <DiagramLabel x="43%" y="84%">
+            <div className="text-center text-xs font-black uppercase tracking-[0.24em] text-rose-300">
+              acts downwards
+            </div>
+          </DiagramLabel>
+        </section>
+
+        <section className="grid gap-4">
+          <div className="grid min-h-40 grid-cols-[112px_1fr] items-center gap-5 rounded-xl border border-zinc-800/80 bg-zinc-925 p-5 shadow-inner">
+            <div className="relative h-32">
+              <svg viewBox="0 0 104 128" className="absolute inset-0 h-full w-full" shapeRendering="geometricPrecision">
+                <VectorArrow x1={52} y1={94} x2={52} y2={28} type="velocity" strokeWidth={4} marker="acceleration" />
+              </svg>
+            </div>
+
+            <div className="min-w-0">
+              <h5 className="mb-3 font-serif text-lg font-bold text-zinc-100">Convention: Up is Positive</h5>
+              <div className="mb-3 inline-flex rounded-md border border-emerald-500/20 bg-emerald-950/10 px-3 py-1 text-2.5 font-black uppercase tracking-[0.18em] text-emerald-400">
+                Positive direction upward
+              </div>
+              <div className="rounded-lg border border-emerald-500/20 bg-zinc-950/60 px-4 py-3 text-emerald-300">
+                <MathText content="a = -9.8\\mathrm{m\\,s^{-2}}" noMargin />
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-500">
+                Standard for projectiles launched from ground.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Right Column: Setups */}
-        <div className="flex flex-col gap-4">
-           {/* Setup 1: Upwards Positive */}
-           <div className="bg-zinc-925 border border-zinc-800 p-4 rounded-lg flex items-center gap-6 relative">
-              <div className="relative w-20 h-28 shrink-0">
-                <svg viewBox="0 0 80 120" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision">
-                  <line x1="40" y1="100" x2="40" y2="20" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrow-emerald)" />
-                  <defs>
-                    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" /></marker>
-                  </defs>
-                </svg>
-                <DiagramLabel x="50%" y="10%">
-                  <div className="text-2.5 font-bold text-emerald-400 uppercase">Positive</div>
-                </DiagramLabel>
-              </div>
-              <div className="flex-1">
-                <h5 className="text-sm font-bold text-zinc-200 mb-1">Convention: Up is Positive</h5>
-                <div className="bg-zinc-900/80 px-3 py-2 rounded font-mono text-emerald-400 text-sm border border-emerald-500/20">
-                  a = -9.8
-                </div>
-                <p className="text-2.5 text-zinc-500 mt-2 italic">Standard for projectiles launched from ground.</p>
-              </div>
-           </div>
+          <div className="grid min-h-40 grid-cols-[112px_1fr] items-center gap-5 rounded-xl border border-zinc-800/80 bg-zinc-925 p-5 shadow-inner">
+            <div className="relative h-32">
+              <svg viewBox="0 0 104 128" className="absolute inset-0 h-full w-full" shapeRendering="geometricPrecision">
+                <VectorArrow x1={52} y1={28} x2={52} y2={94} type="friction" strokeWidth={4} marker="acceleration" />
+              </svg>
+            </div>
 
-           {/* Setup 2: Downwards Positive */}
-           <div className="bg-zinc-925 border border-zinc-800 p-4 rounded-lg flex items-center gap-6 relative">
-              <div className="relative w-20 h-28 shrink-0">
-                <svg viewBox="0 0 80 120" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision">
-                  <line x1="40" y1="20" x2="40" y2="100" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#arrow-amber)" />
-                  <defs>
-                    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" /></marker>
-                  </defs>
-                </svg>
-                <DiagramLabel x="50%" y="90%">
-                  <div className="text-2.5 font-bold text-amber-400 uppercase">Positive</div>
-                </DiagramLabel>
+            <div className="min-w-0">
+              <h5 className="mb-3 font-serif text-lg font-bold text-zinc-100">Convention: Down is Positive</h5>
+              <div className="mb-3 inline-flex rounded-md border border-amber-500/20 bg-amber-950/10 px-3 py-1 text-2.5 font-black uppercase tracking-[0.18em] text-amber-400">
+                Positive direction downward
               </div>
-              <div className="flex-1">
-                <h5 className="text-sm font-bold text-zinc-200 mb-1">Convention: Down is Positive</h5>
-                <div className="bg-zinc-900/80 px-3 py-2 rounded font-mono text-amber-400 text-sm border border-amber-500/20">
-                  a = +9.8
-                </div>
-                <p className="text-2.5 text-zinc-500 mt-2 italic">Standard for objects dropped from height.</p>
+              <div className="rounded-lg border border-amber-500/20 bg-zinc-950/60 px-4 py-3 text-amber-300">
+                <MathText content="a = +9.8\\mathrm{m\\,s^{-2}}" noMargin />
               </div>
-           </div>
-        </div>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-500">
+                Standard for objects dropped from height.
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </DiagramPanel>
   );

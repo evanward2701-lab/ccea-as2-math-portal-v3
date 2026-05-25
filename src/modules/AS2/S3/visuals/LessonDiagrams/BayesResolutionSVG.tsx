@@ -14,7 +14,7 @@ export const BayesResolutionSVG: React.FC = () => (
         <div className="p-4 bg-zinc-925 rounded-lg border border-zinc-800">
           <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-2 text-2.5">Total Probability Law:</span>
           <div className="font-mono text-zinc-300 text-sm">
-            <MathText content="P(B) = P(A_1 \cap B) + P(A_2 \cap B) + P(A_3 \cap B)" />
+            <MathText content="P(B) = P(A_1 \\cap B) + P(A_2 \\cap B) + P(A_3 \\cap B)" />
           </div>
         </div>
         <p className="text-sm text-zinc-400 italic">
@@ -22,7 +22,7 @@ export const BayesResolutionSVG: React.FC = () => (
         </p>
         <div className="p-4 bg-zinc-925 rounded-lg border border-emerald-900">
           <div className="font-mono text-emerald-400 text-base">
-            <MathText content="P(A_1 | B) = \frac{P(A_1 \cap B)}{P(B)}" />
+            <MathText content="P(A_1 | B) = \\frac{P(A_1 \\cap B)}{P(B)}" />
           </div>
         </div>
       </div>
@@ -43,9 +43,9 @@ export const BayesResolutionSVG: React.FC = () => (
 
       <DiagramLabel x="50%" y="50%" text="B" />
 
-      <DiagramLabel x="24.1%" y="56.3%" text="A_1 \cap B" />
-      <DiagramLabel x="55.6%" y="65.6%" text="A_2 \cap B" />
-      <DiagramLabel x="88.9%" y="56.3%" text="A_3 \cap B" />
+      <DiagramLabel x="24.1%" y="56.3%" text="A_1 \\cap B" />
+      <DiagramLabel x="55.6%" y="65.6%" text="A_2 \\cap B" />
+      <DiagramLabel x="88.9%" y="56.3%" text="A_3 \\cap B" />
     </div>
   </DiagramPanel>
 );

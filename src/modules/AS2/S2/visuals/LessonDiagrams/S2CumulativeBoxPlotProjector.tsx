@@ -76,7 +76,7 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${padding / svgWidth * 100}%`} y={`${(cfMinY - 20) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="\text{CF}" className="text-zinc-500 text-xs font-bold" />
+            <MathInline content="\\text{CF}" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
 
           <DiagramLabel x={`${padding / svgWidth * 100}%`} y={`${cfYScale(n) / svgHeight * 100}%`} anchor="end" offsetX="-8px">
@@ -91,7 +91,7 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
             <MathInline content="Q_1" className="text-zinc-500 text-2.5 font-bold" />
           </DiagramLabel>
           <DiagramLabel x={`${q2X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="\text{Med}" className="text-zinc-500 text-2.5 font-bold" />
+            <MathInline content="\\text{Med}" className="text-zinc-500 text-2.5 font-bold" />
           </DiagramLabel>
           <DiagramLabel x={`${q3X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
             <MathInline content="Q_3" className="text-zinc-500 text-2.5 font-bold" />

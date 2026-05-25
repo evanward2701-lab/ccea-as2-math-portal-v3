@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 export const M3InclinedPlaneResolver: React.FC = () => {
   const [angle, setAngle] = useState(30);
@@ -12,19 +15,37 @@ export const M3InclinedPlaneResolver: React.FC = () => {
   const rad = (angle * Math.PI) / 180;
   const parallel = weight * Math.sin(rad);
   const perpendicular = weight * Math.cos(rad);
-  const visualScale = 0.8;
+  const componentScale = 0.72;
+  const parallelComponentScale = 1.25;
+  const weightScale = 0.92;
 
-  const width = 560;
-  const height = 340;
-  const originX = 100;
-  const originY = 280;
-  const planeLength = 400;
+  const width = 700;
+  const height = 430;
+  const originX = 80;
+  const originY = 350;
+  const planeLength = 560;
   const planeEndX = originX + planeLength * Math.cos(rad);
   const planeEndY = originY - planeLength * Math.sin(rad);
 
-  const blockPosRatio = 0.5;
+  const blockPosRatio = 0.52;
   const blockX = originX + planeLength * blockPosRatio * Math.cos(rad);
   const blockY = originY - planeLength * blockPosRatio * Math.sin(rad);
+  const normalX = -Math.sin(rad);
+  const normalY = -Math.cos(rad);
+  const reactionStartX = blockX + normalX * 48;
+  const reactionStartY = blockY + normalY * 48;
+  const reactionEndX = reactionStartX + normalX * perpendicular * componentScale;
+  const reactionEndY = reactionStartY + normalY * perpendicular * componentScale;
+  const toGlobal = (localX: number, localY: number) => ({
+    x: blockX + localX * Math.cos(rad) + localY * Math.sin(rad),
+    y: blockY - localX * Math.sin(rad) + localY * Math.cos(rad),
+  });
+  const reactionLabelPoint = toGlobal(0, -48 - perpendicular * componentScale - 18);
+  const parallelLabelPoint = toGlobal(-parallel * parallelComponentScale * 1.2, -116);
+  const perpendicularLabelPoint = toGlobal(40, perpendicular * componentScale * 0.48);
+  const weightEndY = blockY + weight * weightScale;
+  const labelX = (value: number) => `${(value / width) * 100}%`;
+  const labelY = (value: number) => `${(value / height) * 100}%`;
 
   return (
     <DiagramPanel
@@ -34,19 +55,19 @@ export const M3InclinedPlaneResolver: React.FC = () => {
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Parallel Component</h4>
             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-              <MathText content={`mg \\sin\\theta = ${parallel.toFixed(1)}\\text{ N}`} />
+              <MathText content={`mg \\sin\\theta = ${parallel.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
           </div>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Perpendicular Component</h4>
             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-              <MathText content={`mg \\cos\\theta = ${perpendicular.toFixed(1)}\\text{ N}`} />
+              <MathText content={`mg \\cos\\theta = ${perpendicular.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
           </div>
            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Normal Reaction</h4>
             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-              <MathText content={`R = mg \\cos\\theta = ${perpendicular.toFixed(1)}\\text{ N}`} />
+              <MathText content={`R = mg \\cos\\theta = ${perpendicular.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
             <p className="text-xs text-zinc-500 italic mt-2 text-center">Assuming no other perpendicular forces.</p>
           </div>
@@ -60,7 +81,7 @@ export const M3InclinedPlaneResolver: React.FC = () => {
         <div className="w-full max-w-md flex flex-col gap-3 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
           <div className="flex items-center gap-4">
             <label htmlFor="angle-slider" className="text-sm font-medium text-zinc-300 whitespace-nowrap">
-              Angle <MathText content="\theta" className="inline [&_p]:inline" />
+              Angle <MathText content="\\theta" className="inline [&_p]:inline" />
             </label>
             <input
               id="angle-slider"
@@ -84,44 +105,73 @@ export const M3InclinedPlaneResolver: React.FC = () => {
           </label>
         </div>
 
-        <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto max-w-2xl" overflow="visible" shapeRendering="geometricPrecision">
-          <defs>
-            <marker id="ip-arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" /></marker>
-            <marker id="ip-arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" /></marker>
-          </defs>
+        <div className="relative w-full max-w-3xl aspect-70/43 rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner overflow-hidden">
+          <SVGLibrary />
+          <svg viewBox={`0 0 ${width} ${height}`} className="absolute inset-0 h-full w-full" overflow="visible" shapeRendering="geometricPrecision">
+            <line x1={originX} y1={originY} x2={Math.min(660, planeEndX)} y2={originY} stroke="#3f3f46" strokeWidth="1.5" strokeDasharray="7 8" />
+            <line x1={originX} y1={originY} x2={planeEndX} y2={planeEndY} stroke="#475569" strokeWidth="5" strokeLinecap="round" />
 
-          {/* Plane */}
-          <line x1={originX} y1={originY} x2={planeEndX} y2={planeEndY} stroke="#475569" strokeWidth="3" />
-          <line x1={originX} y1={originY} x2={planeEndX} y2={originY} stroke="#3f3f46" strokeWidth="1.5" strokeDasharray="4 4" />
-          <path d={`M ${originX + 40} ${originY} A 40 40 0 0 0 ${originX + 40 * Math.cos(rad)} ${originY - 40 * Math.sin(rad)}`} stroke="#94a3b8" strokeWidth="1.5" fill="none" />
-          <text x={originX + 50} y={originY - 5} fill="#94a3b8" fontSize="14"><MathText content="\theta" /></text>
+            <g stroke="#3f3f46" strokeWidth="2" opacity="0.5">
+              {Array.from({ length: 10 }).map((_, index) => {
+                const markX = originX + 48 + index * 42;
+                const markY = originY - (markX - originX) * Math.tan(rad);
+                return <line key={index} x1={markX} y1={markY + 10} x2={markX - 24} y2={markY + 34} />;
+              })}
+            </g>
 
-          {/* True Weight Vector (always vertical) */}
-          <line x1={blockX} y1={blockY} x2={blockX} y2={blockY + weight * visualScale} stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#ip-arrow-amber)" />
-          <text x={blockX + 5} y={blockY + weight * visualScale + 20} fill="#f43f5e" fontSize="14"><MathText content="mg" /></text>
+            <path
+              d={`M ${originX + 56} ${originY} A 56 56 0 0 0 ${originX + 56 * Math.cos(rad)} ${originY - 56 * Math.sin(rad)}`}
+              stroke="#a1a1aa"
+              strokeWidth="2"
+              fill="none"
+            />
 
-          {/* Rotated group for components relative to the plane */}
-          <g transform={`translate(${blockX}, ${blockY}) rotate(${-angle})`}>
-            {/* Block */}
-            <rect x="-25" y="-40" width="50" height="40" rx="4" fill="#1e293b" stroke="#94a3b8" strokeWidth="1.5" />
+            <g transform={`translate(${blockX}, ${blockY}) rotate(${-angle})`}>
+              <rect x="-44" y="-48" width="88" height="48" rx="6" fill="#18181b" stroke="#94a3b8" strokeWidth="2" />
+              <line x1="-54" y1="0" x2="54" y2="0" stroke="#a1a1aa" strokeWidth="2" opacity="0.5" />
+              <VectorArrow x1={0} y1={-48} x2={0} y2={-48 - perpendicular * componentScale} type="reaction" strokeWidth={3.2} />
 
-            {/* Normal Reaction R */}
-            <line x1="0" y1="-40" x2="0" y2={-40 - perpendicular * visualScale} stroke="#10b981" strokeWidth="2.5" markerEnd="url(#ip-arrow-emerald)" />
-            <text x={10} y={-40 - perpendicular * visualScale - 5} fill="#10b981" fontSize="14"><MathText content="R" /></text>
+              {showComponents && (
+                <>
+                  <VectorArrow x1={0} y1={-18} x2={-parallel * parallelComponentScale} y2={-18} type="friction" dashed strokeWidth={2.8} />
+                  <VectorArrow x1={0} y1={-18} x2={0} y2={perpendicular * componentScale} type="friction" dashed strokeWidth={2.8} />
+                </>
+              )}
+            </g>
 
-            {showComponents && (
-              <>
-                {/* Perpendicular Component */}
-                <line x1="0" y1="0" x2="0" y2={perpendicular * visualScale} stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#ip-arrow-amber)" />
-                <text x={-80} y={perpendicular * visualScale * 0.5} fill="#f59e0b" fontSize="12" transform={`rotate(90 0 ${perpendicular * visualScale * 0.5})`} textAnchor="middle"><MathText content="mg \cos\\theta" /></text>
+            <VectorArrow x1={blockX} y1={blockY} x2={blockX} y2={weightEndY} type="weight" strokeWidth={3.4} />
+          </svg>
 
-                {/* Parallel Component */}
-                <line x1="0" y1="0" x2={-parallel * visualScale} y2="0" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" markerEnd="url(#ip-arrow-amber)" />
-                <text x={-parallel * visualScale * 0.5} y={-10} fill="#f59e0b" fontSize="12" textAnchor="middle"><MathText content="mg \sin\\theta" /></text>
-              </>
-            )}
-          </g>
-        </svg>
+          <DiagramLabel x={labelX(originX + 76)} y={labelY(originY - 16)} text="\\theta" className="text-zinc-300" />
+
+          <DiagramLabel x={labelX(reactionLabelPoint.x + 12)} y={labelY(reactionLabelPoint.y)}>
+            <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
+              <MathText content="R" noMargin />
+            </div>
+          </DiagramLabel>
+
+          {showComponents && (
+            <>
+              <DiagramLabel x={labelX(parallelLabelPoint.x)} y={labelY(parallelLabelPoint.y)}>
+                <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
+                  <MathText content="mg\\sin\\theta" noMargin />
+                </div>
+              </DiagramLabel>
+
+              <DiagramLabel x={labelX(perpendicularLabelPoint.x)} y={labelY(perpendicularLabelPoint.y)}>
+                <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
+                  <MathText content="mg\\cos\\theta" noMargin />
+                </div>
+              </DiagramLabel>
+            </>
+          )}
+
+          <DiagramLabel x={labelX(blockX + 58)} y={labelY(weightEndY + 22)}>
+            <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
+              <MathText content="mg" noMargin />
+            </div>
+          </DiagramLabel>
+        </div>
       </div>
     </DiagramPanel>
   );

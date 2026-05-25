@@ -1,42 +1,95 @@
 import React from 'react';
-import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { ArrowLibrary } from '@/core/diagram-engine/primitives/ArrowLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
+
+const residualPoints = [
+  [178, 372],
+  [252, 334],
+  [326, 292],
+  [400, 230],
+  [474, 196],
+  [548, 190],
+  [622, 216],
+  [696, 284],
+  [770, 354],
+] as const;
 
 export const ResidualAnalysisSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 6. Diagnostic Residual Analysis"
     analysis={
-      <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <p className="text-sm text-zinc-300 leading-relaxed">A random dispersion of residual plots validates a linear model. A clear pattern suggests a non-linear model is more appropriate.</p>
+      <div className="mx-auto grid w-full max-w-5xl gap-4 md:grid-cols-[1fr_1fr]">
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/45 p-4 text-sm leading-relaxed text-zinc-300 shadow-sm">
+          <span className="font-bold text-zinc-100">Residual check:</span> a random spread around zero supports a linear model.
         </div>
-        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> A clear pattern in the residuals (like the curve above) invalidates a linear regression model, even if the PMCC is strong.
+        <div className="rounded-xl border border-rose-500/30 bg-rose-950/20 p-4 text-sm leading-relaxed text-rose-200 shadow-sm">
+          <span className="font-bold text-rose-300">CCEA Exam Pitfall:</span> a clear pattern in residuals invalidates a linear regression model, even when PMCC is strong.
         </div>
       </div>
     }
   >
-    <div className="relative w-full aspect-48/20 max-w-lg mx-auto">
-      <svg viewBox="10 0 480 200" className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-        {/* Zero Residual Reference Line */}
-        <line x1="50" y1="100" x2="450" y2="100" stroke="#34d399" strokeWidth="1.5" strokeDasharray="4 4" />
-        
-        {/* Coordinate Axes */}
-        <path d="M50 20 L50 180" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M50 100 L460 100" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" />
-        
-        {/* Trend Guide Path Line */}
-        <path d="M 90 150 Q 260 20 440 160" fill="none" stroke="#f43f5e" strokeWidth="1.5" strokeDasharray="2 2" opacity="0.6" />
+    <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5 shadow-2xl">
+      <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/50 shadow-inner">
+        <svg
+          viewBox="0 0 960 540"
+          className="absolute inset-0 h-full w-full"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          shapeRendering="geometricPrecision"
+          role="img"
+          aria-label="Residual plot with a curved pattern around the zero residual line"
+        >
+          <ArrowLibrary />
 
-        {/* Non-Random Residual Curve Points */}
-        {[ [90, 150], [140, 125], [190, 95], [240, 65], [290, 55], [340, 70], [390, 110], [440, 160] ].map(([cx, cy], i) => (
-          <circle key={'res'+i} cx={cx} cy={cy} r="5" fill="#f43f5e" className="transition-all duration-300 hover:scale-150 cursor-pointer" />
-        ))}
-      </svg>
+          <g opacity="0.24">
+            <path d="M154 146 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M154 222 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M154 374 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M154 450 H820" stroke="#27272a" strokeWidth="1" />
+          </g>
 
-      <DiagramLabel x="3.1%" y="5%" text="e" />
-      <DiagramLabel x="96.9%" y="45%" text="x" />
+          <VectorArrow x1={154} y1={438} x2={154} y2={96} type="structural" strokeWidth={2.2} />
+          <VectorArrow x1={154} y1={298} x2={834} y2={298} type="structural" strokeWidth={2.2} />
+
+          <line x1="154" y1="298" x2="820" y2="298" stroke="#34d399" strokeWidth="2" strokeDasharray="8 8" strokeLinecap="round" opacity="0.65" />
+
+          <path
+            d="M178 372 C292 292 366 218 474 196 C596 170 682 262 770 354"
+            fill="none"
+            stroke="#fb7185"
+            strokeWidth="3"
+            strokeDasharray="7 8"
+            strokeLinecap="round"
+            opacity="0.82"
+          />
+
+          {residualPoints.map(([cx, cy], index) => (
+            <circle key={`residual-point-${index}`} cx={cx} cy={cy} r="10" fill="#fb7185" stroke="#18181b" strokeWidth="2" />
+          ))}
+
+          <circle cx="154" cy="298" r="3.5" fill="#71717a" />
+        </svg>
+
+        <DiagramLabel x="14.5%" y="14%" text="e" className="text-lg text-zinc-300" />
+        <DiagramLabel x="91.5%" y="54.5%" text="x" className="text-lg text-zinc-300" />
+
+        <DiagramLabel x="75%" y="47%" className="text-center">
+          <div className="rounded-lg border border-emerald-500/25 bg-emerald-950/15 px-3 py-1.5 text-2.5 font-bold uppercase tracking-[0.22em] text-emerald-300 shadow-lg backdrop-blur-sm">
+            zero residual line
+          </div>
+        </DiagramLabel>
+
+        <DiagramLabel x="63%" y="25%" className="text-center">
+          <div className="max-w-72 rounded-xl border border-rose-500/30 bg-zinc-950/90 px-4 py-3 text-left shadow-2xl backdrop-blur-sm">
+            <div className="mb-1 text-2.5 font-black uppercase tracking-[0.24em] text-rose-400">curved pattern</div>
+            <div className="text-xs font-semibold leading-snug text-zinc-300">
+              Residuals are structured, so a straight-line model is suspect.
+            </div>
+          </div>
+        </DiagramLabel>
+      </div>
     </div>
   </DiagramPanel>
 );

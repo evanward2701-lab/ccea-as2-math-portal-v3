@@ -19,7 +19,7 @@ export const HistogramDensitySVG: React.FC = () => (
             Do not read the bar height as the frequency when class widths are unequal.
           </p>
           <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-            <MathText content="\text{Area} = \text{Width} \times \text{Height}" />
+            <MathText content="\\text{Area} = \\text{Width} \\times \\text{Height}" />
           </div>
         </div>
       </div>
@@ -55,11 +55,11 @@ export const HistogramDensitySVG: React.FC = () => (
         <div className="text-slate-500 text-2.5">width = 20</div>
       </DiagramLabel>
 
-      <DiagramLabel x="45.6%" y="85%" text="\text{Time } (t)" />
+      <DiagramLabel x="45.6%" y="85%" text="\\text{Time } (t)" />
 
       <DiagramLabel x="61.4%" y="55%">
         <div className="text-emerald-400 text-sm font-semibold tracking-wide bg-zinc-925/40 rounded px-2 py-1">
-          <MathText content="\text{Area} = \text{Frequency}" />
+          <MathText content="\\text{Area} = \\text{Frequency}" />
         </div>
       </DiagramLabel>
     </div>

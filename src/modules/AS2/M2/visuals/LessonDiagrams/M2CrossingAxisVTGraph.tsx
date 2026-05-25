@@ -51,11 +51,11 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
         <DiagramLabel x="11.5%" y="15%" text="v" />
         <DiagramLabel x="93%" y="51.5%" text="t" />
 
-        <DiagramLabel x="26.6%" y="43.3%">
+        <DiagramLabel x="27.8%" y="41.1%">
           <div className="text-2.5 font-bold text-emerald-400">Area A (+)</div>
         </DiagramLabel>
 
-        <DiagramLabel x="57.5%" y="58.3%">
+        <DiagramLabel x="61.1%" y="54.4%">
           <div className="text-2.5 font-bold text-rose-400">Area B (-)</div>
         </DiagramLabel>
 

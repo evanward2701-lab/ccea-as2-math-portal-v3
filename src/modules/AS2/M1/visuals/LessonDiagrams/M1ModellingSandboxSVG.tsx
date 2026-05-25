@@ -3,6 +3,8 @@ import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
 import { Particle, SupportSurface } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 type Tone = 'zinc' | 'amber' | 'emerald' | 'rose';
 
@@ -81,9 +83,17 @@ const AssumptionChip: React.FC<Chip> = ({ label, effect, tone }) => {
   const styles = toneStyles[tone];
 
   return (
-    <div className={cn('rounded-lg border px-3 py-3 text-center', styles.border, styles.bg)}>
-      <div className={cn('text-2.5 font-bold uppercase tracking-[0.2em]', styles.text)}>{label}</div>
-      <div className="mt-1 text-xs font-medium leading-snug text-zinc-300">{effect}</div>
+    <div
+      className={cn(
+        'flex min-h-23 flex-col items-center justify-center rounded-xl border px-3 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.035),0_14px_30px_rgba(0,0,0,0.18)]',
+        styles.border,
+        styles.bg
+      )}
+    >
+      <div className={cn('max-w-full text-[11px] font-black uppercase leading-snug tracking-[0.14em] text-balance break-words', styles.text)}>
+        {label}
+      </div>
+      <div className="mt-1.5 max-w-full text-xs font-medium leading-snug text-zinc-300 text-balance break-words">{effect}</div>
     </div>
   );
 };
@@ -122,86 +132,25 @@ const RealWorldSketch: React.FC = () => (
 
 const ModelSketch: React.FC = () => (
   <svg viewBox="0 0 520 260" className="h-full w-full" fill="none" aria-hidden="true">
-    <defs>
-      <marker id="sandbox-model-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-        <path d="M 1 1 L 9 5 L 1 9 Z" fill="#71717a" />
-      </marker>
-      <marker id="sandbox-tension-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-        <path d="M 1 1 L 9 5 L 1 9 Z" fill="#60a5fa" />
-      </marker>
-      <marker id="sandbox-drive-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-        <path d="M 1 1 L 9 5 L 1 9 Z" fill="#10b981" />
-      </marker>
-      <marker id="sandbox-resistance-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-        <path d="M 1 1 L 9 5 L 1 9 Z" fill="#fb7185" />
-      </marker>
-    </defs>
-
     <SupportSurface x1={86} y1={194} x2={434} y2={194} stroke="#71717a" strokeWidth={1.8} className="opacity-45" />
     <g opacity="0.65">
-      <line
-        x1="164"
-        y1="84"
-        x2="314"
-        y2="84"
-        stroke="#71717a"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        markerEnd="url(#sandbox-model-arrow)"
-      />
-      <path d="M 294 78 L 306 84 L 294 90 Z" fill="#71717a" />
+      <VectorArrow x1={164} y1={84} x2={314} y2={84} type="force" strokeWidth={1.8} />
     </g>
 
     <Particle cx={150} cy={144} r={30} fill="#1c1c1f" stroke="#52525b" strokeWidth={3.5} />
     <Particle cx={350} cy={144} r={30} fill="#1c1c1f" stroke="#52525b" strokeWidth={3.5} />
     <line x1="180" y1="144" x2="320" y2="144" stroke="#e4e4e7" strokeWidth="3.5" strokeLinecap="round" />
 
-    <line
-      x1="120"
-      y1="144"
-      x2="72"
-      y2="144"
-      stroke="#fb7185"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      markerEnd="url(#sandbox-resistance-arrow)"
-    />
-
-    <line
-      x1="194"
-      y1="144"
-      x2="232"
-      y2="144"
-      stroke="#60a5fa"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      markerEnd="url(#sandbox-tension-arrow)"
-    />
-    <line
-      x1="306"
-      y1="144"
-      x2="268"
-      y2="144"
-      stroke="#60a5fa"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      markerEnd="url(#sandbox-tension-arrow)"
-    />
-    <line
-      x1="380"
-      y1="144"
-      x2="444"
-      y2="144"
-      stroke="#10b981"
-      strokeWidth="2.8"
-      strokeLinecap="round"
-      markerEnd="url(#sandbox-drive-arrow)"
-    />
+    <VectorArrow x1={120} y1={144} x2={72} y2={144} type="weight" strokeWidth={2.5} />
+    <VectorArrow x1={194} y1={144} x2={232} y2={144} type="tension" strokeWidth={2.4} />
+    <VectorArrow x1={306} y1={144} x2={268} y2={144} type="tension" strokeWidth={2.4} />
+    <VectorArrow x1={380} y1={144} x2={444} y2={144} type="velocity" strokeWidth={2.8} />
   </svg>
 );
 
 const ModelSketchWithLabels: React.FC = () => (
   <div className="relative mx-auto aspect-2/1 w-full max-w-105 lg:max-w-97.5 xl:max-w-107.5">
+    <SVGLibrary />
     <ModelSketch />
     <div className="pointer-events-none absolute inset-0 z-10 select-none text-zinc-100">
       <div className="absolute left-[28.8%] top-[55.5%] -translate-x-1/2 -translate-y-1/2 text-3.25 font-bold">

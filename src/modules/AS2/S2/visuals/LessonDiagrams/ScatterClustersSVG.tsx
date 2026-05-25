@@ -1,60 +1,133 @@
 import React from 'react';
-import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { ArrowLibrary } from '@/core/diagram-engine/primitives/ArrowLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
+
+const groupAPoints = [
+  [250, 338],
+  [284, 356],
+  [318, 368],
+  [354, 386],
+  [384, 414],
+] as const;
+
+const groupBPoints = [
+  [606, 170],
+  [646, 190],
+  [686, 204],
+  [724, 236],
+  [760, 260],
+] as const;
 
 export const ScatterClustersSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 3. Subgroups in Data"
     analysis={
-      <div className="space-y-3">
-        <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <p className="text-sm text-zinc-300 leading-relaxed">An overall regression line can be highly misleading if the population contains distinct sections or subgroups.</p>
+      <div className="mx-auto grid w-full max-w-5xl gap-4 md:grid-cols-[1fr_1fr]">
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/45 p-4 text-sm leading-relaxed text-zinc-300 shadow-sm">
+          <span className="font-bold text-zinc-100">Check the structure first:</span> one overall regression line can hide distinct subgroup patterns.
         </div>
-        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not blindly trust a single PMCC value or line of best fit. Check the scatter structure first.
+        <div className="rounded-xl border border-rose-500/30 bg-rose-950/20 p-4 text-sm leading-relaxed text-rose-200 shadow-sm">
+          <span className="font-bold text-rose-300">CCEA Exam Pitfall:</span> do not blindly trust a single PMCC value or line of best fit. Inspect the scatter first.
         </div>
       </div>
     }
   >
-    <div className="relative w-full aspect-48/31 max-w-lg mx-auto">
-      <svg viewBox="20 0 480 310" className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-        {/* Axes */}
-        <path d="M50 30 L50 250 L470 250" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
-        
-        {/* Group A Cluster Boundary */}
-        <ellipse cx="150" cy="180" rx="60" ry="40" transform="rotate(-30 150 180)" stroke="#a1a1aa" strokeWidth="1.5" strokeDasharray="4 4" fill="rgba(56, 189, 248, 0.05)" />
-        {[ [110, 160], [130, 175], [150, 180], [170, 190], [180, 205] ].map(([cx, cy], i) => (
-          <circle key={'a'+i} cx={cx} cy={cy} r="4.5" fill="#a1a1aa" className="transition-all duration-300 hover:r-6 cursor-pointer" />
-        ))}
+    <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5 shadow-2xl">
+      <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/50 shadow-inner">
+        <svg
+          viewBox="0 0 960 540"
+          className="absolute inset-0 h-full w-full"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          shapeRendering="geometricPrecision"
+          role="img"
+          aria-label="Scatter diagram showing two distinct subgroups and a misleading overall trend line"
+        >
+          <ArrowLibrary />
 
-        {/* Group B Cluster Boundary */}
-        <ellipse cx="350" cy="100" rx="60" ry="40" transform="rotate(-30 350 100)" stroke="#c084fc" strokeWidth="1.5" strokeDasharray="4 4" fill="rgba(192, 132, 252, 0.05)" />
-        {[ [310, 80], [330, 95], [350, 100], [370, 110], [380, 125] ].map(([cx, cy], i) => (
-          <circle key={'b'+i} cx={cx} cy={cy} r="4.5" fill="#c084fc" className="transition-all duration-300 hover:r-6 cursor-pointer" />
-        ))}
+          <g opacity="0.26">
+            <path d="M140 110 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M140 210 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M140 310 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M140 410 H820" stroke="#27272a" strokeWidth="1" />
+          </g>
 
-        {/* Misleading Overall Trend Line (Positive) */}
-        <line x1="80" y1="230" x2="420" y2="50" stroke="#f43f5e" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="6 4" />
-      </svg>
+          <VectorArrow x1={140} y1={460} x2={840} y2={460} type="structural" strokeWidth={2.2} />
+          <VectorArrow x1={140} y1={460} x2={140} y2={70} type="structural" strokeWidth={2.2} />
 
-      <DiagramLabel x="5.2%" y="3.2%" text="y" />
-      <DiagramLabel x="94.8%" y="82.3%" text="x" />
+          <ellipse
+            cx="320"
+            cy="370"
+            rx="116"
+            ry="70"
+            transform="rotate(26 320 370)"
+            stroke="#a1a1aa"
+            strokeWidth="2.5"
+            strokeDasharray="8 8"
+            fill="#64748b"
+            fillOpacity="0.08"
+          />
+          <ellipse
+            cx="682"
+            cy="208"
+            rx="116"
+            ry="70"
+            transform="rotate(26 682 208)"
+            stroke="#c084fc"
+            strokeWidth="2.5"
+            strokeDasharray="8 8"
+            fill="#7c3aed"
+            fillOpacity="0.10"
+          />
 
-      <DiagramLabel x="22.9%" y="72.6%">
-        <div className="text-xs font-semibold text-zinc-400">Group A</div>
-      </DiagramLabel>
+          <line x1="208" y1="424" x2="432" y2="316" stroke="#a1a1aa" strokeWidth="2" strokeDasharray="6 8" strokeLinecap="round" opacity="0.75" />
+          <line x1="572" y1="262" x2="788" y2="156" stroke="#c084fc" strokeWidth="2" strokeDasharray="6 8" strokeLinecap="round" opacity="0.85" />
 
-      <DiagramLabel x="64.6%" y="11.3%">
-        <div className="text-xs font-semibold text-purple-400">Group B</div>
-      </DiagramLabel>
+          <line
+            x1="190"
+            y1="430"
+            x2="790"
+            y2="150"
+            stroke="#fb7185"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeDasharray="14 11"
+          />
 
-      <DiagramLabel x="45%" y="38%">
-        <div className="flex items-center justify-center gap-2 text-center text-rose-400 text-2.5 font-mono font-bold tracking-widest uppercase bg-zinc-925/90 border border-zinc-800 px-3 py-1 rounded shadow-lg backdrop-blur-sm -rotate-[28deg]">
-          <div className="w-3 h-3 rounded-full bg-rose-500 text-white flex items-center justify-center text-2.25 font-black shrink-0">!</div>
-          <span>Misleading overall trend</span>
-        </div>
-      </DiagramLabel>
+          {groupAPoints.map(([cx, cy], index) => (
+            <circle key={`group-a-${index}`} cx={cx} cy={cy} r="9" fill="#d4d4d8" stroke="#18181b" strokeWidth="2" />
+          ))}
+          {groupBPoints.map(([cx, cy], index) => (
+            <circle key={`group-b-${index}`} cx={cx} cy={cy} r="9" fill="#c084fc" stroke="#18181b" strokeWidth="2" />
+          ))}
+        </svg>
+
+        <DiagramLabel x="13.5%" y="11.5%" text="y" className="text-lg text-zinc-300" />
+        <DiagramLabel x="88.5%" y="88.5%" text="x" className="text-lg text-zinc-300" />
+
+        <DiagramLabel x="30%" y="79%" className="text-center">
+          <div className="rounded-lg border border-zinc-700/80 bg-zinc-950/80 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-zinc-300 shadow-lg backdrop-blur-sm">
+            Group A
+          </div>
+        </DiagramLabel>
+
+        <DiagramLabel x="72%" y="20%" className="text-center">
+          <div className="rounded-lg border border-purple-400/35 bg-purple-950/20 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-purple-200 shadow-lg backdrop-blur-sm">
+            Group B
+          </div>
+        </DiagramLabel>
+
+        <DiagramLabel x="66%" y="73%" className="text-center">
+          <div className="max-w-72 rounded-xl border border-rose-500/30 bg-zinc-950/90 px-4 py-3 text-left shadow-2xl backdrop-blur-sm">
+            <div className="mb-1 text-2.5 font-black uppercase tracking-[0.24em] text-rose-400">Overall line</div>
+            <div className="text-xs font-semibold leading-snug text-zinc-300">
+              Can suggest a trend while hiding separate subgroup behaviour.
+            </div>
+          </div>
+        </DiagramLabel>
+      </div>
     </div>
   </DiagramPanel>
 );

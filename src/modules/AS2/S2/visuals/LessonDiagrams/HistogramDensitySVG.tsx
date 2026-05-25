@@ -1,65 +1,100 @@
 import React from 'react';
-import { MathText } from '@/core/components/MathText';
+import { MathInline, MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+
+const bars = [
+  { x: 150, y: 90, width: 120, height: 210, label: 'width = 10', fill: '#141417', stroke: '#3f3f46' },
+  { x: 270, y: 150, width: 120, height: 150, label: 'width = 10', fill: '#141417', stroke: '#3f3f46' },
+  { x: 390, y: 210, width: 240, height: 90, label: 'width = 20', fill: '#022c22', stroke: '#10b981' },
+];
 
 export const HistogramDensitySVG: React.FC = () => (
   <DiagramPanel
     title="Fig 1. Histogram Geometry"
     analysis={
-      <div className="space-y-3">
-        <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <p className="text-sm text-zinc-300 leading-relaxed">
-            In a histogram, the <strong className="font-semibold text-emerald-400">area</strong> of each bar represents the <strong className="font-semibold text-emerald-400">frequency</strong>, not the height.
+      <div className="space-y-4">
+        <div className="rounded-lg border border-zinc-800 bg-zinc-900/45 p-4">
+          <p className="text-sm leading-relaxed text-zinc-300">
+            In a histogram, the <strong className="font-semibold text-emerald-400">area</strong> of each bar represents the{' '}
+            <strong className="font-semibold text-emerald-400">frequency</strong>, not the height.
           </p>
         </div>
-        <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg">
-          <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider">CCEA Exam Pitfall</h4>
-          <p className="text-sm text-rose-300 leading-relaxed mb-3">
+
+        <div className="rounded-lg border border-rose-900/40 bg-rose-950/30 p-4">
+          <h4 className="mb-3 text-2.5 font-black uppercase tracking-[0.22em] text-rose-400">CCEA Exam Pitfall</h4>
+          <p className="mb-4 text-sm leading-relaxed text-rose-300">
             Do not read the bar height as the frequency when class widths are unequal.
           </p>
-          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-            <MathText content="\text{Area} = \text{Width} \times \text{Height}" />
+          <div className="rounded-md border border-zinc-800/70 bg-zinc-950/55 px-4 py-3 text-center text-zinc-100">
+            <MathText content="{\\Large \\mathit{Area}=\\mathit{Width}\\times\\mathit{Height}}" noMargin />
           </div>
         </div>
       </div>
     }
   >
-    <div className="relative w-full aspect-57/28 max-w-lg mx-auto">
-      <svg viewBox="-60 -10 570 280" className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-        {/* Grid Lines */}
-        <line x1="50" y1="60" x2="450" y2="60" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
-        <line x1="50" y1="100" x2="450" y2="100" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
-        <line x1="50" y1="140" x2="450" y2="140" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
+    <div className="relative mx-auto aspect-16/8 w-full max-w-4xl overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+      <svg
+        viewBox="0 0 760 380"
+        className="absolute inset-0 h-full w-full"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        shapeRendering="geometricPrecision"
+        role="img"
+        aria-label="Histogram showing that bar area represents frequency"
+      >
+        <g stroke="#1e293b" strokeDasharray="7 8" strokeWidth="1.4">
+          <line x1="150" y1="90" x2="640" y2="90" />
+          <line x1="150" y1="150" x2="640" y2="150" />
+          <line x1="150" y1="210" x2="640" y2="210" />
+        </g>
 
-        {/* Axes */}
-        <path d="M50 25 L50 200 L460 200" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
-        
-        {/* Bars */}
-        <rect x="50" y="60" width="100" height="140" fill="#141417" stroke="#3f3f46" strokeWidth="2" className="hover:fill-zinc-800 transition-colors" />
-        <rect x="150" y="100" width="100" height="100" fill="#141417" stroke="#3f3f46" strokeWidth="2" className="hover:fill-zinc-800 transition-colors" />
-        <rect x="250" y="140" width="200" height="60" fill="#022c22" stroke="#10b981" strokeWidth="2" className="hover:fill-emerald-900/50 transition-colors" />
+        <path d="M150 45 L150 300 L650 300" stroke="#475569" strokeWidth="3" strokeLinecap="round" />
+
+        {bars.map((bar) => (
+          <rect
+            key={`${bar.x}-${bar.width}`}
+            x={bar.x}
+            y={bar.y}
+            width={bar.width}
+            height={bar.height}
+            fill={bar.fill}
+            stroke={bar.stroke}
+            strokeWidth="2.5"
+          />
+        ))}
+
+        <g stroke="#475569" strokeWidth="1.5" opacity="0.75">
+          <line x1="150" y1="300" x2="150" y2="309" />
+          <line x1="270" y1="300" x2="270" y2="309" />
+          <line x1="390" y1="300" x2="390" y2="309" />
+          <line x1="630" y1="300" x2="630" y2="309" />
+        </g>
       </svg>
 
-      <DiagramLabel x="5%" y="40%">
-        <div className="text-slate-400 text-sm -rotate-90 origin-center w-32 text-center">Frequency Density</div>
+      <DiagramLabel x="11%" y="45%">
+        <div className="w-40 -rotate-90 text-center text-2.5 font-semibold uppercase tracking-[0.16em] text-slate-400">
+          Frequency Density
+        </div>
       </DiagramLabel>
 
-      <DiagramLabel x="17.5%" y="75%">
-        <div className="text-slate-500 text-2.5">width = 10</div>
-      </DiagramLabel>
-      <DiagramLabel x="35.1%" y="75%">
-        <div className="text-slate-500 text-2.5">width = 10</div>
-      </DiagramLabel>
-      <DiagramLabel x="61.4%" y="75%">
-        <div className="text-slate-500 text-2.5">width = 20</div>
+      {bars.map((bar) => (
+        <DiagramLabel key={bar.label} x={`${((bar.x + bar.width / 2) / 760) * 100}%`} y="83%">
+          <div className="font-serif text-sm italic text-slate-500">{bar.label}</div>
+        </DiagramLabel>
+      ))}
+
+      <DiagramLabel x="52.5%" y="90%">
+        <div className="flex items-baseline justify-center gap-1 whitespace-nowrap text-zinc-200">
+          <span className="font-serif text-lg italic leading-none">Time</span>
+          <MathInline content="t" className="[&_.katex]:text-lg" />
+        </div>
       </DiagramLabel>
 
-      <DiagramLabel x="45.6%" y="85%" text="\text{Time } (t)" />
-
-      <DiagramLabel x="61.4%" y="55%">
-        <div className="text-emerald-400 text-sm font-semibold tracking-wide bg-zinc-925/40 rounded px-2 py-1">
-          <MathText content="\text{Area} = \text{Frequency}" />
+      <DiagramLabel x="67%" y="60%">
+        <div className="flex w-36 flex-col items-center justify-center rounded-md border border-emerald-500/25 bg-emerald-950/45 px-2 py-2 text-center text-emerald-200 shadow-xl">
+          <MathInline content="\\mathit{Area}" className="[&_.katex]:text-lg [&_.katex]:leading-none" />
+          <MathInline content="=\\mathit{Frequency}" className="[&_.katex]:text-base [&_.katex]:leading-none" />
         </div>
       </DiagramLabel>
     </div>

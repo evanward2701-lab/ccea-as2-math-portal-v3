@@ -44,7 +44,7 @@ export const S4InequalityTranslator: React.FC = () => {
             </div>
           </div>
           <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> "Fewer than 5" does not include 5. It means <MathText content="X \le 4" className="inline [&_p]:inline"/>. "At least 5" does include 5. It means <MathText content="X \ge 5" className="inline [&_p]:inline"/>, which is calculated as <MathText content="1 - P(X \le 4)" className="inline [&_p]:inline"/>.
+            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> "Fewer than 5" does not include 5. It means <MathText content="X \\le 4" className="inline [&_p]:inline"/>. "At least 5" does include 5. It means <MathText content="X \\ge 5" className="inline [&_p]:inline"/>, which is calculated as <MathText content="1 - P(X \\le 4)" className="inline [&_p]:inline"/>.
           </div>
         </div>
       }

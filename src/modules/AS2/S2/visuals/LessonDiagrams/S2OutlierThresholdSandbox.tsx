@@ -134,7 +134,7 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
           </DiagramLabel>
 
           <DiagramLabel x={`${xScale(q1) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="Q_1" />
-          <DiagramLabel x={`${xScale(median) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="\text{Median}" />
+          <DiagramLabel x={`${xScale(median) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="\\text{Median}" />
           <DiagramLabel x={`${xScale(q3) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="Q_3" />
 
           <DiagramLabel x={`${xScale(lowerFence) / svgWidth * 100}%`} y={`${(yAxisCenter - 35) / svgHeight * 100}%`} className="-translate-x-1/2">

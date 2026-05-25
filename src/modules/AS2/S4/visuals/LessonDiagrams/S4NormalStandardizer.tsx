@@ -51,7 +51,7 @@ export const S4NormalStandardizer: React.FC = () => {
       analysis={
         <div className="space-y-4">
           <p className="text-sm text-zinc-400 italic">
-            Standardizing transforms any normal distribution <MathText content="X \sim N(\mu, \sigma^2)" className="inline [&_p]:inline"/> into the standard normal distribution <MathText content="Z \sim N(0, 1)" className="inline [&_p]:inline"/>, allowing us to use standard tables or calculator functions.
+            Standardizing transforms any normal distribution <MathText content="X \\sim N(\\mu, \\sigma^2)" className="inline [&_p]:inline"/> into the standard normal distribution <MathText content="Z \\sim N(0, 1)" className="inline [&_p]:inline"/>, allowing us to use standard tables or calculator functions.
           </p>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Standardization Formula</h4>
@@ -60,7 +60,7 @@ export const S4NormalStandardizer: React.FC = () => {
             </div>
           </div>
           <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> If a question gives the variance (<MathText content="\sigma^2" className="inline [&_p]:inline"/>), you must take the square root to find the standard deviation (<MathText content="\sigma" className="inline [&_p]:inline"/>) before using the standardization formula.
+            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> If a question gives the variance (<MathText content="\\sigma^2" className="inline [&_p]:inline"/>), you must take the square root to find the standard deviation (<MathText content="\\sigma" className="inline [&_p]:inline"/>) before using the standardization formula.
           </div>
         </div>
       }
@@ -68,12 +68,12 @@ export const S4NormalStandardizer: React.FC = () => {
       <div className="w-full flex flex-col items-center">
         <div className="w-full max-w-xl grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-zinc-300"><MathText content="\mu" /></label>
+            <label className="text-sm font-medium text-zinc-300"><MathText content="\\mu" /></label>
             <input type="range" min="80" max="120" value={mu} onChange={(e) => setMu(Number(e.target.value))} className="w-full" />
             <span className="text-sm font-mono text-zinc-400 w-8 text-right">{mu}</span>
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-zinc-300"><MathText content="\sigma" /></label>
+            <label className="text-sm font-medium text-zinc-300"><MathText content="\\sigma" /></label>
             <input type="range" min="5" max="25" value={sigma} onChange={(e) => setSigma(Number(e.target.value))} className="w-full" />
             <span className="text-sm font-mono text-zinc-400 w-8 text-right">{sigma}</span>
           </div>

@@ -21,8 +21,14 @@ export const DataTypeTree: React.FC = () => {
       C2 --> C2b[e.g., mass, time]
       
       style B fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff
+      style B1 fill:#172554,stroke:#3b82f6,stroke-width:2px,color:#dbeafe
+      style B2 fill:#172554,stroke:#3b82f6,stroke-width:2px,color:#dbeafe
       style C1 fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#fff
+      style C1a fill:#022c22,stroke:#10b981,stroke-width:2px,color:#d1fae5
+      style C1b fill:#022c22,stroke:#10b981,stroke-width:2px,color:#d1fae5
       style C2 fill:#4c1d95,stroke:#a855f7,stroke-width:2px,color:#fff
+      style C2a fill:#2e1065,stroke:#a855f7,stroke-width:2px,color:#f3e8ff
+      style C2b fill:#2e1065,stroke:#a855f7,stroke-width:2px,color:#f3e8ff
   `;
 
   return (

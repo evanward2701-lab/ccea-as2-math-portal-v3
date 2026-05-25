@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 import { cn } from '@/core/utils/cn';
 
 export const M3FrictionSimulator: React.FC = () => {
@@ -18,6 +21,12 @@ export const M3FrictionSimulator: React.FC = () => {
   const acceleration = resultantForce / mass;
 
   const arrowScale = 2;
+  const blockLeftX = 250;
+  const blockRightX = 350;
+  const blockCenterY = 178;
+  const pEndX = Math.min(540, blockRightX + appliedForce * arrowScale);
+  const fEndX = Math.max(60, blockLeftX - actualFriction * arrowScale);
+  const aEndX = Math.min(470, 300 + acceleration * 36);
 
   return (
     <DiagramPanel
@@ -27,23 +36,23 @@ export const M3FrictionSimulator: React.FC = () => {
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Limiting Friction</h4>
             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-              <MathText content={`F_{max} = \\mu R = ${limitingFriction.toFixed(1)}\\text{ N}`} />
+              <MathText content={`F_{max} = \\mu R = ${limitingFriction.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
           </div>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider">Actual Friction</h4>
             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-              <MathText content={`F = ${actualFriction.toFixed(1)}\\text{ N}`} />
+              <MathText content={`F = ${actualFriction.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
           </div>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Resultant Force & Acceleration</h4>
             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-              <MathText content={`F_{res} = ${resultantForce.toFixed(1)}\\text{ N} \\implies a = ${acceleration.toFixed(2)}\\text{ m s}^{-2}`} />
+              <MathText content={`F_{res} = ${resultantForce.toFixed(1)}\\operatorname{N} \\implies a = ${acceleration.toFixed(2)}\\operatorname{m s^{-2}}`} noMargin />
             </div>
           </div>
           <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not automatically set friction equal to <MathText content="\mu R" className="inline [&_p]:inline" />. This is only true when the object is on the point of moving (limiting equilibrium) or is already sliding.
+            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not automatically set friction equal to <MathText content="\\mu R" className="inline [&_p]:inline" />. This is only true when the object is on the point of moving (limiting equilibrium) or is already sliding.
           </div>
         </div>
       }
@@ -56,7 +65,7 @@ export const M3FrictionSimulator: React.FC = () => {
             <span className="text-sm font-mono text-zinc-400 w-16 text-right">{appliedForce.toFixed(1)} N</span>
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-zinc-300 w-32">Friction Coeff. <MathText content="\mu" className="inline [&_p]:inline" /></label>
+            <label className="text-sm font-medium text-zinc-300 w-32">Friction Coeff. <MathText content="\\mu" className="inline [&_p]:inline" /></label>
             <input type="range" min="0.1" max="0.8" step="0.05" value={mu} onChange={(e) => setMu(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
             <span className="text-sm font-mono text-amber-400 w-16 text-right">{mu.toFixed(2)}</span>
           </div>
@@ -69,43 +78,68 @@ export const M3FrictionSimulator: React.FC = () => {
           {isSliding ? 'Sliding: F = μR' : 'Static Equilibrium: F ≤ μR'}
         </div>
 
-        <svg viewBox="0 0 600 250" className="w-full h-auto max-w-3xl" overflow="visible" shapeRendering="geometricPrecision">
-          <defs>
-            <marker id="fs-arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" /></marker>
-            <marker id="fs-arrow-rose" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 10 1.5 L 2 5 L 10 8.5 z" fill="#f43f5e" /></marker>
-            <marker id="fs-arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#a1a1aa" /></marker>
-          </defs>
+        <div className="relative w-full max-w-3xl aspect-60/30 rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner overflow-hidden">
+          <SVGLibrary />
+          <svg viewBox="0 0 600 300" className="absolute inset-0 h-full w-full" overflow="visible" shapeRendering="geometricPrecision">
 
-          {/* Ground */}
-          <line x1="50" y1="180" x2="550" y2="180" stroke="#475569" strokeWidth="3" />
-          {Array.from({ length: 25 }).map((_, i) => (
-            <line key={i} x1={50 + i * 20} y1="180" x2={60 + i * 20} y2="185" stroke="#3f3f46" strokeWidth="1" />
-          ))}
+            <line x1="50" y1="215" x2="550" y2="215" stroke="#475569" strokeWidth="3" />
+            {Array.from({ length: 25 }).map((_, i) => (
+              <line key={i} x1={50 + i * 20} y1="215" x2={62 + i * 20} y2="222" stroke="#3f3f46" strokeWidth="1.4" />
+            ))}
 
-          {/* Block */}
-          <rect x="250" y="120" width="100" height="60" rx="4" fill="#1e293b" stroke="#94a3b8" strokeWidth="1.5" />
-          <text x="300" y="155" textAnchor="middle" fill="#e2e8f0" fontSize="14"><MathText content="m" /></text>
+            <rect x="250" y="140" width="100" height="75" rx="6" fill="#1e293b" stroke="#94a3b8" strokeWidth="2" />
+            <VectorArrow x1={300} y1={140} x2={300} y2={70} type="reaction" strokeWidth={3} />
+            <VectorArrow x1={300} y1={215} x2={300} y2={280} type="weight" strokeWidth={3} />
 
-          {/* Applied Force P */}
-          <line x1="350" y1="150" x2={350 + appliedForce * arrowScale} y2="150" stroke="#10b981" strokeWidth="2.5" markerEnd="url(#fs-arrow-emerald)" />
-          <text x={355 + appliedForce * arrowScale} y="145" fill="#10b981" fontSize="14"><MathText content="P" /></text>
+            <VectorArrow x1={blockRightX} y1={blockCenterY} x2={pEndX} y2={blockCenterY} type="reaction" strokeWidth={3.2} />
 
-          {/* Friction F */}
+            {actualFriction > 0.1 && (
+              <VectorArrow x1={blockLeftX} y1={blockCenterY} x2={fEndX} y2={blockCenterY} type="weight" strokeWidth={3.2} />
+            )}
+
+            {acceleration > 0.01 && (
+              <VectorArrow x1={300} y1={98} x2={aEndX} y2={98} type="applied" strokeWidth={2.6} dashed />
+            )}
+          </svg>
+
+          <DiagramLabel x="50%" y="59%">
+            <div className="text-xl font-serif font-bold text-zinc-100">m</div>
+          </DiagramLabel>
+
+          <DiagramLabel x="50%" y="18%">
+            <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
+              <MathText content="R" noMargin />
+            </div>
+          </DiagramLabel>
+
+          <DiagramLabel x="58%" y="80%">
+            <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
+              <MathText content="W = mg" noMargin />
+            </div>
+          </DiagramLabel>
+
+          <DiagramLabel x={`${Math.min(92, (pEndX / 600) * 100 + 5)}%`} y="48%">
+            <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
+              <MathText content="P" noMargin />
+            </div>
+          </DiagramLabel>
+
           {actualFriction > 0.1 && (
-            <>
-              <line x1="250" y1="165" x2={250 - actualFriction * arrowScale} y2="165" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#fs-arrow-rose)" />
-              <text x={245 - actualFriction * arrowScale} y="160" fill="#f43f5e" fontSize="14" textAnchor="end"><MathText content="F" /></text>
-            </>
+            <DiagramLabel x={`${Math.max(8, (fEndX / 600) * 100 - 5)}%`} y="55%">
+              <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
+                <MathText content="F" noMargin />
+              </div>
+            </DiagramLabel>
           )}
 
-          {/* Acceleration a */}
           {acceleration > 0.01 && (
-            <>
-              <line x1="300" y1="100" x2={300 + acceleration * 20} y2="100" stroke="#a1a1aa" strokeWidth="2.5" markerEnd="url(#fs-arrow-sky)" />
-              <text x={305 + acceleration * 20} y="95" fill="#a1a1aa" fontSize="14"><MathText content="a" /></text>
-            </>
+            <DiagramLabel x={`${Math.min(84, (aEndX / 600) * 100 + 6)}%`} y="26%">
+              <div className="rounded-md border border-zinc-600/40 bg-zinc-950/70 px-3 py-1 text-zinc-300 shadow-xl">
+                <MathText content="a" noMargin />
+              </div>
+            </DiagramLabel>
           )}
-        </svg>
+        </div>
       </div>
     </DiagramPanel>
   );

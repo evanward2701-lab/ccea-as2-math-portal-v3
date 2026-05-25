@@ -5,6 +5,7 @@ import { cn } from '@/core/utils/cn';
 import { SupportSurface } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
 import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 type Force = 'weight' | 'reaction' | 'friction' | 'tension' | 'applied';
@@ -49,7 +50,7 @@ const ForceStatusChip: React.FC<{ force: Force; active: boolean; disabled?: bool
   return (
     <div
       className={cn(
-        'flex min-h-10 items-center justify-between gap-3 rounded-lg border px-3 py-2 text-2.75 font-bold transition-colors',
+        'flex min-h-11 items-center justify-between gap-3 rounded-xl border px-3 py-2 text-sm font-bold transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.035)]',
         active ? detail.tone : 'border-zinc-800 bg-zinc-940/60 text-zinc-600',
         disabled && 'opacity-45'
       )}
@@ -109,9 +110,9 @@ export const M1FreeBodyDiagram: React.FC = () => {
     >
       <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-925 p-5 shadow-2xl">
         <div className="grid w-full gap-5 xl:grid-cols-[280px_1fr]">
-          <aside className="rounded-xl border border-zinc-800/70 bg-zinc-930/90 p-4 shadow-xl">
+          <aside className="rounded-xl border border-zinc-800/70 bg-zinc-950/35 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
             <div>
-              <h4 className="mb-3 text-2.5 font-black uppercase tracking-[0.25em] text-zinc-500">Preset scenario</h4>
+              <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-zinc-500">Preset scenario</h4>
               <div className="grid grid-cols-2 gap-2 xl:grid-cols-1">
                 {scenarioOrder.map(option => (
                   <button
@@ -120,10 +121,10 @@ export const M1FreeBodyDiagram: React.FC = () => {
                     aria-pressed={scenario === option}
                     onClick={() => selectScenario(option)}
                     className={cn(
-                      'rounded-lg border px-3 py-2.5 text-left text-xs font-bold transition-all duration-200',
+                      'rounded-xl border px-3 py-2.5 text-left text-sm font-bold transition-all duration-200',
                       scenario === option
-                        ? 'border-zinc-500 bg-zinc-800 text-zinc-100 shadow-sm'
-                        : 'border-zinc-800 bg-zinc-940 text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900 hover:text-zinc-300'
+                        ? 'border-zinc-500/80 bg-zinc-800/80 text-zinc-100 shadow-sm'
+                        : 'border-zinc-800 bg-zinc-950/45 text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900/70 hover:text-zinc-300'
                     )}
                   >
                     {scenarioLabels[option]}
@@ -133,7 +134,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </div>
 
             <div className="mt-6">
-              <h4 className="mb-3 text-2.5 font-black uppercase tracking-[0.25em] text-zinc-500">Forces on object</h4>
+              <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-zinc-500">Forces on object</h4>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-1">
                 {forceOrder.map(force => {
                   const disabled = scenario === 'smooth' && force === 'friction';
@@ -142,10 +143,10 @@ export const M1FreeBodyDiagram: React.FC = () => {
                     <label
                       key={force}
                       className={cn(
-                        'flex items-center justify-between gap-3 rounded-lg border px-3 py-2.5 text-xs font-semibold transition-all duration-200',
+                        'flex items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-sm font-semibold transition-all duration-200',
                         disabled
-                          ? 'cursor-not-allowed border-zinc-900/60 bg-zinc-940/35 text-zinc-600'
-                          : 'cursor-pointer border-zinc-800 bg-zinc-940 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900'
+                          ? 'cursor-not-allowed border-zinc-900/60 bg-zinc-950/25 text-zinc-600'
+                          : 'cursor-pointer border-zinc-800 bg-zinc-950/45 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900/70'
                       )}
                     >
                       <span>{forceLabels[force]}</span>
@@ -163,8 +164,9 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </div>
           </aside>
 
-          <section className="flex min-w-0 flex-col gap-3 rounded-xl border border-zinc-800/70 bg-zinc-940/70 p-3 shadow-xl">
+          <section className="flex min-w-0 flex-col gap-3 rounded-xl border border-zinc-800/70 bg-zinc-950/30 p-3 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
             <div className="relative aspect-16/10 min-h-80 overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+              <SVGLibrary />
               <svg
                 className="absolute inset-0 h-full w-full"
                 viewBox="0 0 800 500"
@@ -174,83 +176,83 @@ export const M1FreeBodyDiagram: React.FC = () => {
                 role="img"
                 aria-label="Interactive free body diagram showing selected forces on a block"
               >
-                <defs>
-                  <marker id="fbd-arrow-rose" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fb7185" />
-                  </marker>
-                  <marker id="fbd-arrow-emerald" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#34d399" />
-                  </marker>
-                  <marker id="fbd-arrow-amber" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fbbf24" />
-                  </marker>
-                  <marker id="fbd-arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#60a5fa" />
-                  </marker>
-                  <marker id="fbd-arrow-zinc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M 2 2 L 10 5 L 2 8 Z" fill="#e4e4e7" />
-                  </marker>
-                </defs>
-
                 <SupportSurface x1={90} y1={320} x2={710} y2={320} stroke="#52525b" strokeWidth={3} rough={scenario === 'rough'} className={cn('transition-all duration-300')} />
 
                 <ObjectBlock x={310} y={190} width={180} height={130} />
+                <text
+                  x="400"
+                  y="255"
+                  fill="#71717a"
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fontSize="14"
+                  fontWeight="900"
+                  fontFamily="Inter, system-ui, sans-serif"
+                  letterSpacing="2.5"
+                >
+                  OBJECT
+                </text>
 
                 <g className={cn('transition-opacity duration-300', showMotionGuide ? 'opacity-45' : 'opacity-0')}>
-                  <VectorArrow x1={210} y1={48} x2={610} y2={48} type="applied" dashed marker="default" />
+                  <VectorArrow x1={210} y1={58} x2={610} y2={58} type="applied" dashed strokeWidth={1.8} />
+                  <text
+                    x="410"
+                    y="42"
+                    fill="#a1a1aa"
+                    textAnchor="middle"
+                    fontSize="11"
+                    fontWeight="700"
+                    fontFamily="Inter, system-ui, sans-serif"
+                    letterSpacing="1.6"
+                  >
+                    INTENDED MOTION
+                  </text>
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.reaction ? 'opacity-100' : 'opacity-0')}>
-                  <VectorArrow x1={400} y1={190} x2={400} y2={70} type="reaction" />
+                  <VectorArrow x1={400} y1={190} x2={400} y2={75} type="reaction" strokeWidth={2.2} />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.weight ? 'opacity-100' : 'opacity-0')}>
-                  <VectorArrow x1={400} y1={320} x2={400} y2={430} type="weight" />
+                  <VectorArrow x1={400} y1={320} x2={400} y2={430} type="weight" strokeWidth={2.2} />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.friction ? 'opacity-100' : 'opacity-0')}>
-                  <VectorArrow x1={310} y1={320} x2={150} y2={320} type="friction" />
+                  <VectorArrow x1={310} y1={255} x2={150} y2={255} type="friction" strokeWidth={2.3} />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.tension ? 'opacity-100' : 'opacity-0')}>
-                  <VectorArrow x1={490} y1={255} x2={670} y2={255} type="tension" />
+                  <VectorArrow x1={490} y1={255} x2={670} y2={255} type="tension" strokeWidth={2.2} />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.applied ? 'opacity-100' : 'opacity-0')}>
-                  <VectorArrow x1={490} y1={190} x2={650} y2={90} type="applied" />
+                  <VectorArrow x1={490} y1={190} x2={650} y2={90} type="applied" strokeWidth={2.2} />
                 </g>
               </svg>
 
-              <DiagramLabel x={72} y={78} anchor="start" className="text-3.25 font-black uppercase tracking-[0.28em] font-serif text-[#8b8794]">block on table</DiagramLabel>
-              <DiagramLabel x={72} y={100} anchor="start" className="text-3.25 font-black uppercase tracking-[0.28em] font-serif text-[#8b8794]">external forces only</DiagramLabel>
-              <DiagramLabel x="50%" y={256} className="text-2.75 font-black uppercase tracking-widest font-sans text-zinc-500">object</DiagramLabel>
-
-              <div className={cn('transition-opacity duration-300', showMotionGuide ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x="51.25%" y={32} className="text-2.5 font-bold uppercase tracking-widest font-sans text-zinc-400">intended motion</DiagramLabel>
-              </div>
+              <DiagramLabel x="96%" y="89%" anchor="end" className="w-36 whitespace-normal break-normal text-right font-sans text-[9px] font-black uppercase leading-tight tracking-[0.06em] text-zinc-500">
+                <span className="block">block on table</span>
+                <span className="block">object forces only</span>
+              </DiagramLabel>
 
               <div className={cn('transition-opacity duration-300', forces.reaction ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x={426} y={90} anchor="start" className="text-6.5 font-black font-serif text-emerald-400">R</DiagramLabel>
-                <DiagramLabel x={452} y={90} anchor="start" className="text-[12px] font-semibold font-sans text-emerald-200">perpendicular</DiagramLabel>
+                <DiagramLabel x="52.25%" y="22.5%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-emerald-400">R</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.weight ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x={424} y={405} anchor="start" className="text-[22px] font-black font-serif text-rose-400">W = mg</DiagramLabel>
+                <DiagramLabel x="52.5%" y="76%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-rose-400">W</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.friction ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x={188} y={296} className="text-[24px] font-black font-serif text-amber-400">F</DiagramLabel>
-                <DiagramLabel x={220} y={342} className="text-2.75 font-semibold font-sans text-amber-300">opposes motion</DiagramLabel>
+                <DiagramLabel x="25%" y="39.5%" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-amber-400">F</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.tension ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x={635} y={230} className="text-[24px] font-black font-serif text-blue-400">T</DiagramLabel>
-                <DiagramLabel x={635} y={282} className="text-2.75 font-semibold font-sans text-blue-300">string pulls</DiagramLabel>
+                <DiagramLabel x="76%" y="40%" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-blue-400">T</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.applied ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x={655} y={84} anchor="start" className="text-[24px] font-black font-serif text-zinc-200">P</DiagramLabel>
-                <DiagramLabel x={616} y={124} anchor="start" className="text-2.75 font-semibold font-sans text-zinc-300">direct push/pull</DiagramLabel>
+                <DiagramLabel x="83%" y="15.5%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-zinc-200">P</DiagramLabel>
               </div>
             </div>
 

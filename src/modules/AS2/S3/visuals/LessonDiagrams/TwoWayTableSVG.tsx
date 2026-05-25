@@ -29,14 +29,14 @@ export const TwoWayTableSVG: React.FC = () => (
         <tbody>
           <tr className="border-b border-zinc-800/60">
             <th className="p-3 border-r border-zinc-800 font-bold bg-zinc-925 text-zinc-400 text-left pl-4">Event <MathText content="B" className="inline" /></th>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A \cap B)" /></td>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A' \cap B)" /></td>
+            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A \\cap B)" /></td>
+            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A' \\cap B)" /></td>
             <td className="p-3 font-semibold bg-zinc-800/20 text-zinc-300"><MathText content="P(B)" /></td>
           </tr>
           <tr className="border-b border-zinc-800">
             <th className="p-3 border-r border-zinc-800 font-bold bg-zinc-925 text-purple-400 text-left pl-4">Event <MathText content="B'" className="inline" /></th>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A \cap B')" /></td>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A' \cap B')" /></td>
+            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A \\cap B')" /></td>
+            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A' \\cap B')" /></td>
             <td className="p-3 font-semibold bg-zinc-800/20 text-zinc-300"><MathText content="P(B')" /></td>
           </tr>
           <tr className="bg-zinc-925/60">

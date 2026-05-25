@@ -45,11 +45,11 @@ By the end of this lesson, you should be able to:
 ### HISTOGRAMS
 In a histogram, area represents frequency. The vertical axis is frequency density:
 $$
-\\text{Frequency Density}=\\frac{\\text{Frequency}}{\\text{Class Width}}
+{\\Large \\mathit{Frequency\\ Density}=\\frac{\\mathit{Frequency}}{\\mathit{Class\\ Width}}}
 $$
 So:
 $$
-\\text{Frequency}=\\text{Class Width}\\times\\text{Frequency Density}
+{\\Large \\mathit{Frequency}=\\mathit{Class\\ Width}\\times\\mathit{Frequency\\ Density}}
 $$
 
 ![visual:S2-Histogram]()

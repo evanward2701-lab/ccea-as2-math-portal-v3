@@ -30,8 +30,8 @@ export const M2KinematicsMaster: React.FC = () => {
                 <line x1="40" y1="180" x2="220" y2="180" stroke="#f43f5e" strokeWidth="4" strokeLinecap="round" className="group-hover:stroke-rose-400 transition-all duration-300" />
               </g>
             </svg>
-            <DiagramLabel x="15%" y="15%" text="v \text{ (m s}^{-1}\text{)}" />
-            <DiagramLabel x="95%" y="85%" text="t \text{ (s)}" />
+            <DiagramLabel x="15%" y="15%" text="v \\text{ (m s}^{-1}\\text{)}" />
+            <DiagramLabel x="95%" y="85%" text="t \\text{ (s)}" />
           </div>
           <div className="text-center mt-2 text-sm text-zinc-300">
             <p className="font-bold text-rose-400">Stationary, <MathText content="v = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
@@ -53,8 +53,8 @@ export const M2KinematicsMaster: React.FC = () => {
                 <line x1="40" y1="90" x2="220" y2="90" stroke="#f59e0b" strokeWidth="4" strokeLinecap="round" className="group-hover:stroke-amber-300 transition-all duration-300" />
               </g>
             </svg>
-            <DiagramLabel x="15%" y="15%" text="v \text{ (m s}^{-1}\text{)}" />
-            <DiagramLabel x="95%" y="85%" text="t \text{ (s)}" />
+            <DiagramLabel x="15%" y="15%" text="v \\text{ (m s}^{-1}\\text{)}" />
+            <DiagramLabel x="95%" y="85%" text="t \\text{ (s)}" />
           </div>
           <div className="text-center mt-2 text-sm text-zinc-300">
             <p className="font-bold text-amber-400">Constant velocity, <MathText content="a = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
@@ -76,8 +76,8 @@ export const M2KinematicsMaster: React.FC = () => {
                 <line x1="40" y1="180" x2="220" y2="60" stroke="#10b981" strokeWidth="4" strokeLinecap="round" className="group-hover:stroke-emerald-300 transition-all duration-300" />
               </g>
             </svg>
-            <DiagramLabel x="15%" y="15%" text="v \text{ (m s}^{-1}\text{)}" />
-            <DiagramLabel x="95%" y="85%" text="t \text{ (s)}" />
+            <DiagramLabel x="15%" y="15%" text="v \\text{ (m s}^{-1}\\text{)}" />
+            <DiagramLabel x="95%" y="85%" text="t \\text{ (s)}" />
           </div>
           <div className="text-center mt-2 text-sm text-zinc-300">
             <p className="font-bold text-emerald-400">Constant positive acceleration</p>
@@ -96,7 +96,7 @@ export const M2KinematicsMaster: React.FC = () => {
             </div>
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-center">
               <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Formula</h4>
-              <MathText content="\text{Area} = \frac{1}{2} \times \text{base} \times \text{height}" />
+              <MathText content="\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height}" />
             </div>
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <p className="text-sm text-zinc-300 leading-relaxed">The triangle area gives the total distance.</p>
@@ -128,8 +128,8 @@ export const M2KinematicsMaster: React.FC = () => {
           <DiagramLabel x="48.5%" y="92%" text="T" />
           <DiagramLabel x="88.5%" y="92%" text="120" />
 
-          <DiagramLabel x="48%" y="60%">
-            <div className="text-center text-sm text-amber-300 font-bold bg-zinc-925/90 py-2 px-2 border border-amber-500/20 rounded shadow-lg group-hover:border-amber-500/50 transition-colors">
+          <DiagramLabel x="50%" y="62.5%">
+            <div className="min-w-44 text-center text-base font-bold leading-snug text-amber-300 bg-zinc-925/90 py-2.5 px-4 border border-amber-500/20 rounded shadow-lg group-hover:border-amber-500/50 transition-colors">
               Area = displacement<br/>
               = 1500 m
             </div>

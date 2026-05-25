@@ -11,10 +11,10 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div className="flex flex-col items-center gap-y-4">
             <div className="p-2 bg-zinc-925 rounded-lg border border-zinc-800 font-mono text-indigo-400 text-sm">
-              <MathText content="\mathbf{s} = x\mathbf{i} + y\mathbf{j}" />
+              <MathText content="$\\mathbf{s} = x\\mathbf{i} + y\\mathbf{j}$" />
             </div>
             <div className="p-3 bg-zinc-925 rounded-lg border border-zinc-800 font-mono text-emerald-400 text-sm">
-              <MathText content="\text{Distance} = |\mathbf{s}| = \sqrt{x^2 + y^2}" />
+              <MathText content="$\\text{Distance} = |\\mathbf{s}| = \\sqrt{x^2 + y^2}$" />
             </div>
           </div>
           <div className="text-sm text-zinc-400 leading-relaxed md:text-left">
@@ -47,18 +47,18 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
 
         <DiagramLabel x="50%" y="95%">
           <div className="text-zinc-400 font-bold text-center text-xs">
-            <MathText content="x\mathbf{i}" />
+            <MathText content="$x\\mathbf{i}$" />
           </div>
         </DiagramLabel>
         <DiagramLabel x="92%" y="50%">
           <div className="text-indigo-400 font-bold text-left text-xs">
-            <MathText content="y\mathbf{j}" />
+            <MathText content="$y\\mathbf{j}$" />
           </div>
         </DiagramLabel>
         
-        <DiagramLabel x="50%" y="22%">
+        <DiagramLabel x="35%" y="22%">
           <div className="text-emerald-400 font-bold text-xs">
-            <MathText content="|\mathbf{s}| = \sqrt{x^2+y^2}" />
+            <MathText content="$|\\mathbf{s}| = \\sqrt{x^2+y^2}$" noMargin />
           </div>
         </DiagramLabel>
       </div>

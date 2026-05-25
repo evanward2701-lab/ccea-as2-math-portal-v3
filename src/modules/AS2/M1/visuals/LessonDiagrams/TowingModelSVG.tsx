@@ -3,6 +3,8 @@ import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
 import { Particle, SupportSurface } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 type Tone = 'zinc' | 'amber' | 'emerald' | 'rose';
 
@@ -101,6 +103,7 @@ export const TowingModelSVG: React.FC = () => {
         </div>
 
         <div className="relative w-full aspect-80/42 bg-zinc-950/40 rounded-xl border border-zinc-800/60 overflow-hidden">
+          <SVGLibrary />
           <svg
             className="absolute inset-0 h-full w-full z-0"
             viewBox="0 0 800 420"
@@ -125,7 +128,7 @@ export const TowingModelSVG: React.FC = () => {
             {/* Methods Boundaries Layer Systems */}
             <rect x="35" y="90" width="730" height="235" rx="14" fill="none" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.4" />
             <rect x="85" y="145" width="200" height="160" rx="10" fill="none" stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
-            <rect x="239" y="228" width="157" height="70" rx="4" fill="none" stroke="#3b82f6" strokeWidth="1.7" strokeDasharray="6 6" opacity="0.8" />
+            <rect x="220" y="238" width="195" height="60" rx="4" fill="none" stroke="#3b82f6" strokeWidth="1.7" strokeDasharray="6 6" opacity="0.8" />
 
             {/* Ground Track line */}
             <SupportSurface x1={45} y1={300} x2={755} y2={300} stroke="#27272a" strokeWidth={2.5} rough={false} />
@@ -147,10 +150,7 @@ export const TowingModelSVG: React.FC = () => {
             <line x1="215" y1="243" x2="420" y2="243" stroke="#e4e4e7" strokeWidth="3" strokeLinecap="round" />
 
             {/* System Acceleration Vector Track overhead (Single line with double-arrowheads) */}
-            <g stroke="#52525b" strokeWidth="1.5">
-              <line x1="280" y1="55" x2="510" y2="55" markerEnd="url(#tow-zinc-arrow)" />
-              <path d="M 496 49.5 L 504 55 L 496 60.5 Z" fill="#52525b" stroke="none" />
-            </g>
+            <VectorArrow x1={280} y1={70} x2={510} y2={70} type="structural" marker="acceleration" strokeWidth={1.8} />
 
             {/* External Vector Pointers */}
             <line x1="570" y1="243" x2="680" y2="243" stroke="#10b981" strokeWidth="3.5" markerEnd="url(#tow-emerald-arrow)" />
@@ -173,10 +173,10 @@ export const TowingModelSVG: React.FC = () => {
             </div>
 
             {/* FIXED: Balanced and safely grouped mid-span layout metrics callout indicators */}
-            <div className="absolute left-[50%] top-[13%] -translate-x-1/2 rounded-md border border-zinc-800 bg-zinc-940/95 px-2 py-1 text-zinc-500 text-2.25 font-black uppercase tracking-widest shadow-sm">
+            <div className="absolute left-[50%] top-[5.5%] -translate-x-1/2 rounded-md border border-zinc-800 bg-zinc-940/95 px-2 py-1 text-zinc-500 text-2.25 font-black uppercase tracking-widest shadow-sm">
               Common acceleration <MathInline content="$a$" />
             </div>
-            <div className="absolute left-[39.7%] top-[66%] -translate-x-1/2 text-2.25 font-black text-blue-400 tracking-wider uppercase">
+            <div className="absolute left-[39.7%] top-[67%] -translate-x-1/2 w-[24%] text-center text-[10px] font-black uppercase leading-tight tracking-[0.08em] text-blue-400 whitespace-nowrap">
               Internal forces cancel
             </div>
             <div className="absolute left-[50%] top-[81%] -translate-x-1/2 rounded-md border border-zinc-800 bg-zinc-940/95 px-2 py-1 text-2.25 font-bold text-zinc-500 tracking-wide uppercase shadow-sm">
@@ -184,7 +184,7 @@ export const TowingModelSVG: React.FC = () => {
             </div>
 
             {/* Mass Parameter Labels */}
-            <div className="absolute left-[21%] top-[52%] transform -translate-x-1/2 text-sm font-bold text-white/95"><MathInline content="$m_1$" /></div>
+            <div className="absolute left-[21%] top-[53.5%] transform -translate-x-1/2 text-sm font-bold text-white/95"><MathInline content="$m_1$" /></div>
             <div className="absolute left-[62%] top-[52%] transform -translate-x-1/2 text-sm font-bold text-white/95"><MathInline content="$m_2$" /></div>
 
             {/* Force Variable Vectors */}

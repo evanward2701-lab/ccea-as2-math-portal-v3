@@ -17,22 +17,110 @@ interface MathTextProps {
 
 export function MathInline({ content, className }: { content: string; className?: string }) {
   if (!content) return null;
+  const preparedContent = prepareMathContent(content);
+
   return (
     <span className={cn("inline-flex items-center", className)}>
       <ReactMarkdown
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex]}
         components={{
-          p: ({ node, ...props }) => <span {...props} />
+          // Inherit paragraph styling from the main MathText component logic
+          p: ({ node, ...props }) => <span className="inline-block" {...props} />
         }}
       >
-        {content}
+        {formatUnitsAsMath(preparedContent)}
       </ReactMarkdown>
     </span>
   );
 }
+
 const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
 const placeholderPattern = /\[(VISUAL|INTERACTIVE) (?:PLACEHOLDER|REFERENCE):\s*([^\]|]+)(?:\|([^\]]*))?\]/gi;
+const protectedMarkdownPattern = /(```[\s\S]*?```|`[^`\n]*`|\$\$[\s\S]*?\$\$|\$[^$\n]*\$|!\[[^\]]*\]\([^)]*\)|\[[^\]]*\]\([^)]*\))/g;
+
+const unitPhrasePatterns: Array<[RegExp, string]> = [
+  [/\bkg\s+m\s+s(?:\^\{?-?2\}?|[-−]2)\b/g, '$\\mathrm{kg\\,m\\,s^{-2}}$'],
+  [/\bm\s+s(?:\^\{?-?1\}?|[-−]1)\b/g, '$\\mathrm{m\\,s^{-1}}$'],
+  [/\bm\s+s(?:\^\{?-?2\}?|[-−]2)\b/g, '$\\mathrm{m\\,s^{-2}}$'],
+  [/\bkilograms\b/g, '$\\mathrm{kilograms}$'],
+  [/\bkilogram\b/g, '$\\mathrm{kilogram}$'],
+  [/\bmetres\b/g, '$\\mathrm{metres}$'],
+  [/\bmetre\b/g, '$\\mathrm{metre}$'],
+  [/\bseconds\b/g, '$\\mathrm{seconds}$'],
+  [/\bsecond\b/g, '$\\mathrm{second}$'],
+  [/\bnewtons\b/g, '$\\mathrm{newtons}$'],
+  [/\bNewtons\b/g, '$\\mathrm{Newtons}$'],
+  [/\btonnes\b/g, '$\\mathrm{tonnes}$'],
+  [/\btonne\b/g, '$\\mathrm{tonne}$'],
+  [/\bkg\b/g, '$\\mathrm{kg}$'],
+  [/\bN\b/g, '$\\mathrm{N}$'],
+  [/(?<!['’])\bm\b/g, '$\\mathrm{m}$'],
+  [/(?<!['’])\bs\b/g, '$\\mathrm{s}$'],
+];
+
+function formatPlainUnits(text: string): string {
+  const unitSegments: string[] = [];
+
+  const formatted = unitPhrasePatterns.reduce(
+    (currentText, [pattern, replacement]) =>
+      currentText.replace(pattern, () => {
+        const token = `@@MATH_TEXT_UNIT_${unitSegments.length}@@`;
+        unitSegments.push(replacement);
+        return token;
+      }),
+    text
+  );
+
+  return formatted.replace(/@@MATH_TEXT_UNIT_(\d+)@@/g, (_, index) => unitSegments[Number(index)] ?? '');
+}
+
+function formatUnitsAsMath(content: string): string {
+  const protectedSegments: string[] = [];
+  const tokenized = content.replace(protectedMarkdownPattern, (match) => {
+    const token = `@@MATH_TEXT_PROTECTED_${protectedSegments.length}@@`;
+    protectedSegments.push(match);
+    return token;
+  });
+
+  const formatted = formatPlainUnits(tokenized);
+
+  return formatted.replace(/@@MATH_TEXT_PROTECTED_(\d+)@@/g, (_, index) => protectedSegments[Number(index)] ?? '');
+}
+
+function shouldWrapAsInlineMath(content: string): boolean {
+  const trimmed = content.trim();
+  if (!trimmed || trimmed.includes('$') || trimmed.includes('\n')) return false;
+  if (/\\[a-zA-Z]+/.test(trimmed)) return true;
+  if (/[=^_]|[<>≤≥]/.test(trimmed)) return true;
+  if (/^[A-Za-z](?:\([^)]*\))?$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_\d+$/.test(trimmed)) return true;
+  return false;
+}
+
+function prepareMathContent(content: string): string {
+  const normalized = normalizeLatexUnits(normalizeLatexCommandSlashes(content));
+  const trimmed = normalized.trim();
+  if (!shouldWrapAsInlineMath(trimmed)) return normalized;
+  return `$${trimmed}$`;
+}
+
+function normalizeLatexCommandSlashes(content: string): string {
+  return content.replace(/\\\\([a-zA-Z]+)/g, '\\$1');
+}
+
+function normalizeLatexUnits(content: string): string {
+  return content
+    .replace(/\\text\{\s*kg\s+m\s+s\s*\}\^\{?-?2\}?/g, '\\mathrm{kg\\,m\\,s^{-2}}')
+    .replace(/\\text\{\s*m\s+s\s*\}\^\{?-?1\}?/g, '\\mathrm{m\\,s^{-1}}')
+    .replace(/\\text\{\s*m\s+s\s*\}\^\{?-?2\}?/g, '\\mathrm{m\\,s^{-2}}')
+    .replace(/\\text\{\s*m\s*\}\s*\\,\s*\\text\{\s*s\s*\}\^\{?-?1\}?/g, '\\mathrm{m\\,s^{-1}}')
+    .replace(/\\text\{\s*m\s*\}\s*\\,\s*\\text\{\s*s\s*\}\^\{?-?2\}?/g, '\\mathrm{m\\,s^{-2}}')
+    .replace(/\\text\{\s*kg\s*\}/g, '\\mathrm{kg}')
+    .replace(/\\text\{\s*N\s*\}/g, '\\mathrm{N}')
+    .replace(/\\text\{\s*m\s*\}/g, '\\mathrm{m}')
+    .replace(/\\text\{\s*s\s*\}/g, '\\mathrm{s}');
+}
 
 function getNodeText(children: React.ReactNode): string {
   if (typeof children === "string" || typeof children === "number") {
@@ -108,16 +196,23 @@ function LessonSubheading({ children }: { children: React.ReactNode }) {
 export function MathText({ content, className, center, noMargin, variant = "default" }: MathTextProps) {
   const isLesson = variant === "lesson";
   const visualSpacingClass = isLesson ? "my-16 md:my-20" : "my-12";
+  const shouldRenderInline = className?.split(/\s+/).includes("inline") || className?.includes("[&_p]:inline");
+
+  if (!content) return null;
+
+  if (shouldRenderInline) {
+    return <MathInline content={content} className={className} />;
+  }
 
   const markdownComponents: Components = {
     p: ({ node, ...props }) => (
-      <p 
+      <p
         className={cn(
           "text-lg md:text-xl leading-relaxed text-zinc-300 font-serif tracking-normal antialiased whitespace-pre-wrap font-normal",
           !noMargin && "mb-6",
           center && "text-center"
-        )} 
-        {...props} 
+        )}
+        {...props}
       />
     ),
     h2: ({ node, children, ...props }) => (
@@ -166,17 +261,16 @@ export function MathText({ content, className, center, noMargin, variant = "defa
       return <img src={src} alt={alt} className="my-10 border border-zinc-800/50 shadow-sm max-w-full h-auto rounded-2xl" {...props} />;
     },
   };
-  
-  if (!content) return null;
 
   // Pre-process content to handle [VISUAL PLACEHOLDER: ...]
   // We'll replace them with a special format that ReactMarkdown can recognize or we can split on.
   // For now, let's just split the content manually to handle placeholders.
-  
-  const segments = content.split(placeholderPattern);
+
+  const formattedContent = formatUnitsAsMath(prepareMathContent(content));
+  const segments = formattedContent.split(placeholderPattern);
   // Pattern has 3 capture groups: (VISUAL|INTERACTIVE), (ID), (Metadata)
   // Split results: [text, type, id, meta, text, type, id, meta, ...]
-  
+
   const finalElements: React.ReactNode[] = [];
 
   for (let i = 0; i < segments.length; i += 4) {
@@ -210,7 +304,7 @@ export function MathText({ content, className, center, noMargin, variant = "defa
     if (i + 1 < segments.length) {
       const type = segments[i + 1];
       const id = segments[i + 2]?.trim();
-      
+
       finalElements.push(
         <div key={`placeholder-${id}`} className={cn(visualSpacingClass, "w-full flex justify-center")}>
           <VisualRenderer visualId={id} />

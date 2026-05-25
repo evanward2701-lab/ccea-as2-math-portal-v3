@@ -40,13 +40,13 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider text-center">Standard Formula</h4>
               <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                <MathText content="\text{FD} = \frac{\text{Frequency}}{\text{Class Width}}" noMargin />
+                <MathText content="\\text{FD} = \\frac{\\text{Frequency}}{\\text{Class Width}}" noMargin />
               </div>
             </div>
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider text-center">Area Interpretation</h4>
               <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                <MathText content="\text{Frequency} = \text{FD} \times \text{Class Width}" noMargin />
+                <MathText content="\\text{Frequency} = \\text{FD} \\times \\text{Class Width}" noMargin />
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${padding / width * 100}%`} y={`${(padding - 15) / height * 100}%`} anchor="center">
-            <MathInline content="\text{FD}" className="text-zinc-500 text-xs font-bold" />
+            <MathInline content="\\text{FD}" className="text-zinc-500 text-xs font-bold" />
           </DiagramLabel>
           <DiagramLabel x={`${(width - padding / 2) / width * 100}%`} y={`${(baseY + 10) / height * 100}%`} anchor="center">
             <MathInline content="x" className="text-zinc-500 text-xs font-bold" />

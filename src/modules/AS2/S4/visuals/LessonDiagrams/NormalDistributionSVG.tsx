@@ -9,15 +9,15 @@ export const NormalDistributionSVG: React.FC = () => (
     analysis={
       <div className="space-y-3">
         <div className="flex items-start gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <p className="text-sm text-zinc-300 leading-relaxed">The Normal Distribution is a continuous, symmetrical bell-shaped curve defined by its mean <MathText content="\mu" className="inline [&_p]:inline [&_p]:m-0" /> and standard deviation <MathText content="\sigma" className="inline [&_p]:inline [&_p]:m-0" />.
+          <p className="text-sm text-zinc-300 leading-relaxed">The Normal Distribution is a continuous, symmetrical bell-shaped curve defined by its mean <MathText content="\\mu" className="inline [&_p]:inline [&_p]:m-0" /> and standard deviation <MathText content="\\sigma" className="inline [&_p]:inline [&_p]:m-0" />.
           </p>
         </div>
         <div className="p-4 bg-zinc-900/40 border border-zinc-800/60 rounded-lg text-center">
           <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-2 text-2.5">Standardisation Formula</span>
-          <div className="font-mono text-emerald-400 text-lg"><MathText content="Z = \frac{X - \mu}{\sigma}" /></div>
+          <div className="font-mono text-emerald-400 text-lg"><MathText content="Z = \\frac{X - \\mu}{\\sigma}" /></div>
         </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The formula uses standard deviation (<MathText content="\sigma" className="inline [&_p]:inline [&_p]:m-0" />), but exam questions often provide the variance (<MathText content="\sigma^2" className="inline [&_p]:inline [&_p]:m-0" />). You must square root it first!
+          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The formula uses standard deviation (<MathText content="\\sigma" className="inline [&_p]:inline [&_p]:m-0" />), but exam questions often provide the variance (<MathText content="\\sigma^2" className="inline [&_p]:inline [&_p]:m-0" />). You must square root it first!
         </div>
       </div>
     }
@@ -43,11 +43,11 @@ export const NormalDistributionSVG: React.FC = () => (
         <line x1="383" y1="200" x2="383" y2="205" stroke="#64748b" strokeWidth="2" />
       </svg>
 
-      <DiagramLabel x="50%" y="85%" text="\mu" />
+      <DiagramLabel x="50%" y="85%" text="\\mu" />
 
-      <DiagramLabel x="35.4%" y="85%" text="\mu - \sigma" />
-      <DiagramLabel x="64.6%" y="85%" text="\mu + \sigma" />
-      <DiagramLabel x="50%" y="41.7%" text="\approx 68\%" />
+      <DiagramLabel x="35.4%" y="85%" text="\\mu - \\sigma" />
+      <DiagramLabel x="64.6%" y="85%" text="\\mu + \\sigma" />
+      <DiagramLabel x="50%" y="41.7%" text="\\approx 68\\%" />
     </div>
   </DiagramPanel>
 );

@@ -73,8 +73,8 @@ const VTGraph: React.FC<VTGraphProps> = ({ u, v, t, showArea = true, showGradien
           <circle cx={xV} cy={clampedYV} r="4" fill="#f59e0b" />
         </svg>
 
-        <DiagramLabel x={`${(x0 - 40) / width * 100}%`} y={`${(padding / 2 - 10) / height * 100}%`} text="v \text{ (m s}^{-1}\text{)}" />
-        <DiagramLabel x={`${(width - padding / 2 - 10) / width * 100}%`} y={`${(yBase + 10) / height * 100}%`} text="t \text{ (s)}" />
+        <DiagramLabel x={`${(x0 - 40) / width * 100}%`} y={`${(padding / 2 - 10) / height * 100}%`} text="v \\text{ (m s}^{-1}\\text{)}" />
+        <DiagramLabel x={`${(width - padding / 2 - 10) / width * 100}%`} y={`${(yBase + 10) / height * 100}%`} text="t \\text{ (s)}" />
 
         <DiagramLabel x={`${(xU - 30) / width * 100}%`} y={`${(clampedYU - 15) / height * 100}%`} text="u" />
 
@@ -88,6 +88,11 @@ const VTGraph: React.FC<VTGraphProps> = ({ u, v, t, showArea = true, showGradien
 };
 
 export const M2VelocityTimeGraphEngine: React.FC = () => {
+  const exampleOneDisplacement = 0.5 * (4 + 7.5) * 40;
+  const exampleOneAcceleration = (7.5 - 4) / 40;
+  const exampleTwoDisplacement = 0.5 * (0 + 25) * 120;
+  const exampleTwoAcceleration = (25 - 0) / 120;
+
   return (
     <DiagramPanel
       title="Fig. Dynamic Velocity-Time Graph"
@@ -98,15 +103,25 @@ export const M2VelocityTimeGraphEngine: React.FC = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Displacement (Area)</h4>
-              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                <MathText content="s = \frac{1}{2}(u + v)t" />
+              <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Example 1 Working</h4>
+              <div className="space-y-2">
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content={`s = \\frac{1}{2}(4+7.5)(40) = ${exampleOneDisplacement}\\mathrm{m}`} noMargin />
+                </div>
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content={`a = \\frac{7.5-4}{40} = ${exampleOneAcceleration.toFixed(4)}\\mathrm{m\\,s^{-2}}`} noMargin />
+                </div>
               </div>
             </div>
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider">Acceleration (Gradient)</h4>
-              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                <MathText content="a = \frac{v - u}{t}" />
+              <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Example 2 Working</h4>
+              <div className="space-y-2">
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content={`s = \\frac{1}{2}(0+25)(120) = ${exampleTwoDisplacement}\\mathrm{m}`} noMargin />
+                </div>
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content={`a = \\frac{25-0}{120} = ${exampleTwoAcceleration.toFixed(3)}\\mathrm{m\\,s^{-2}}`} noMargin />
+                </div>
               </div>
             </div>
           </div>

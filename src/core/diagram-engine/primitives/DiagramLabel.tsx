@@ -35,7 +35,7 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
   return (
     <div
       className={cn(
-        'absolute pointer-events-none text-zinc-300 font-serif text-xs leading-tight text-balance break-all',
+        'absolute pointer-events-none text-zinc-300 font-serif text-xs leading-tight text-balance break-normal',
         className
       )}
       style={{

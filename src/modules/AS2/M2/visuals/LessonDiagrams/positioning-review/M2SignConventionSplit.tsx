@@ -2,6 +2,8 @@ import React from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 export const M2SignConventionSplit: React.FC = () => {
   return (
@@ -18,64 +20,70 @@ export const M2SignConventionSplit: React.FC = () => {
         </div>
       }
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl items-center">
-        {/* Upwards Positive */}
-        <div className="flex flex-col items-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
-          <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">Upwards Positive</h4>
-          <div className="relative w-full max-w-40 aspect-18/22">
-            <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
-              {/* Upwards Positive Arrow */}
-              <line x1="90" y1="180" x2="90" y2="20" stroke="#10b981" strokeWidth="3" strokeDasharray="3 3" />
-              <path d="M 85 35 L 90 20 L 95 35 Z" fill="#10b981" />
+      <div className="grid w-full max-w-5xl grid-cols-1 gap-6 2xl:grid-cols-2">
+        <SVGLibrary />
 
-              {/* Gravity Arrow */}
-              <line x1="90" y1="100" x2="90" y2="150" stroke="#f43f5e" strokeWidth="2" />
-              <path d="M 85 140 L 90 150 L 95 140 Z" fill="#f43f5e" />
+        <div className="rounded-xl border border-zinc-800/80 bg-zinc-940/70 p-5 shadow-inner">
+          <h4 className="mb-4 text-center text-2.5 font-black uppercase tracking-[0.28em] text-emerald-400">
+            Upwards Positive
+          </h4>
 
-              {/* Initial Velocity Example */}
-              <line x1="110" y1="180" x2="110" y2="120" stroke="#f59e0b" strokeWidth="2" />
-              <path d="M 105 135 L 110 120 L 115 135 Z" fill="#f59e0b" />
+          <div className="relative h-72 overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-950/35">
+            <svg viewBox="0 0 420 280" className="absolute inset-0 h-full w-full" shapeRendering="geometricPrecision">
+              <line x1="110" y1="224" x2="110" y2="52" stroke="#10b981" strokeWidth="2.5" strokeDasharray="5 7" opacity="0.75" />
+              <VectorArrow x1={110} y1={210} x2={110} y2={58} type="velocity" dashed strokeWidth={3.5} marker="acceleration" />
+              <VectorArrow x1={210} y1={80} x2={210} y2={188} type="weight" strokeWidth={3.5} marker="acceleration" />
+              <VectorArrow x1={310} y1={212} x2={310} y2={106} type="friction" strokeWidth={3.5} marker="acceleration" />
             </svg>
-            <DiagramLabel x="45%" y="5%">
-              <div className="text-lg font-bold text-emerald-400 text-center">+</div>
-            </DiagramLabel>
-            <DiagramLabel x="55%" y="75%" text="g" />
-            <DiagramLabel x="65%" y="55%" text="u = +21" />
-            <DiagramLabel x="50%" y="85%">
-              <div className="text-center text-emerald-400 text-lg font-bold">
-                <MathText content="a = -9.8" />
+
+            <DiagramLabel x="26%" y="14%">
+              <div className="rounded-md border border-emerald-500/20 bg-emerald-950/10 px-3 py-1 text-2.5 font-black uppercase tracking-[0.18em] text-emerald-400">
+                positive
               </div>
             </DiagramLabel>
+            <DiagramLabel x="50%" y="76%" text="g" className="text-rose-300" />
+            <DiagramLabel x="74%" y="26%" text="u" className="text-amber-300" />
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-amber-500/20 bg-zinc-950/60 px-4 py-3 text-center text-amber-300">
+              <MathText content="u = +21\\operatorname{m s^{-1}}" noMargin />
+            </div>
+            <div className="rounded-lg border border-emerald-500/20 bg-zinc-950/60 px-4 py-3 text-center text-emerald-300">
+              <MathText content="a = -9.8\\operatorname{m s^{-2}}" noMargin />
+            </div>
           </div>
         </div>
 
-        {/* Downwards Positive */}
-        <div className="flex flex-col items-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
-          <h4 className="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4">Downwards Positive</h4>
-          <div className="relative w-full max-w-40 aspect-18/22">
-            <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
-              {/* Downwards Positive Arrow */}
-              <line x1="90" y1="20" x2="90" y2="180" stroke="#f59e0b" strokeWidth="3" strokeDasharray="3 3" />
-              <path d="M 85 165 L 90 180 L 95 165 Z" fill="#f59e0b" />
+        <div className="rounded-xl border border-zinc-800/80 bg-zinc-940/70 p-5 shadow-inner">
+          <h4 className="mb-4 text-center text-2.5 font-black uppercase tracking-[0.28em] text-amber-400">
+            Downwards Positive
+          </h4>
 
-              {/* Gravity Arrow */}
-              <line x1="90" y1="100" x2="90" y2="150" stroke="#10b981" strokeWidth="2" />
-              <path d="M 85 140 L 90 150 L 95 140 Z" fill="#10b981" />
-
-              {/* Initial Velocity Example */}
-              <line x1="110" y1="20" x2="110" y2="80" stroke="#f43f5e" strokeWidth="2" />
-              <path d="M 105 65 L 110 80 L 115 65 Z" fill="#f43f5e" />
+          <div className="relative h-72 overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-950/35">
+            <svg viewBox="0 0 420 280" className="absolute inset-0 h-full w-full" shapeRendering="geometricPrecision">
+              <line x1="110" y1="52" x2="110" y2="224" stroke="#fbbf24" strokeWidth="2.5" strokeDasharray="5 7" opacity="0.75" />
+              <VectorArrow x1={110} y1={58} x2={110} y2={210} type="friction" dashed strokeWidth={3.5} marker="acceleration" />
+              <VectorArrow x1={210} y1={80} x2={210} y2={188} type="weight" strokeWidth={3.5} marker="acceleration" />
+              <VectorArrow x1={310} y1={106} x2={310} y2={212} type="weight" strokeWidth={3.5} marker="acceleration" />
             </svg>
-            <DiagramLabel x="45%" y="85%">
-              <div className="text-lg font-bold text-amber-400 text-center">+</div>
-            </DiagramLabel>
-            <DiagramLabel x="55%" y="75%" text="g" />
-            <DiagramLabel x="65%" y="35%" text="u = -21" />
-            <DiagramLabel x="50%" y="85%">
-              <div className="text-center text-amber-400 text-lg font-bold">
-                <MathText content="a = +9.8" />
+
+            <DiagramLabel x="26%" y="86%">
+              <div className="rounded-md border border-amber-500/20 bg-amber-950/10 px-3 py-1 text-2.5 font-black uppercase tracking-[0.18em] text-amber-400">
+                positive
               </div>
             </DiagramLabel>
+            <DiagramLabel x="50%" y="76%" text="g" className="text-rose-300" />
+            <DiagramLabel x="74%" y="76%" text="u" className="text-rose-300" />
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-rose-500/20 bg-zinc-950/60 px-4 py-3 text-center text-rose-300">
+              <MathText content="u = -21\\operatorname{m s^{-1}}" noMargin />
+            </div>
+            <div className="rounded-lg border border-amber-500/20 bg-zinc-950/60 px-4 py-3 text-center text-amber-300">
+              <MathText content="a = +9.8\\operatorname{m s^{-2}}" noMargin />
+            </div>
           </div>
         </div>
       </div>
