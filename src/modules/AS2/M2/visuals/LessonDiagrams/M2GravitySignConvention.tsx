@@ -26,7 +26,7 @@ export const M2GravitySignConvention: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-4xl items-center">
         {/* Left Column: Physical Direction */}
         <div className="flex flex-col items-center justify-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
-          <div className="relative w-full max-w-[160px] aspect-18/22 select-none">
+          <div className="relative w-full max-w-40 aspect-18/22 select-none">
             <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
               <line x1="90" y1="50" x2="90" y2="200" stroke="#475569" strokeWidth="5" />
               <path d="M 82 180 L 90 200 L 98 180 Z" fill="#f43f5e" />
@@ -46,7 +46,7 @@ export const M2GravitySignConvention: React.FC = () => {
         {/* Right Column: Setups */}
         <div className="flex flex-col gap-4">
            {/* Setup 1: Upwards Positive */}
-           <div className="bg-[#141416] border border-zinc-800 p-4 rounded-lg flex items-center gap-6 relative">
+           <div className="bg-zinc-925 border border-zinc-800 p-4 rounded-lg flex items-center gap-6 relative">
               <div className="relative w-20 h-28 shrink-0">
                 <svg viewBox="0 0 80 120" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision">
                   <line x1="40" y1="100" x2="40" y2="20" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrow-emerald)" />
@@ -55,7 +55,7 @@ export const M2GravitySignConvention: React.FC = () => {
                   </defs>
                 </svg>
                 <DiagramLabel x="50%" y="10%">
-                  <div className="text-[10px] font-bold text-emerald-400 uppercase">Positive</div>
+                  <div className="text-2.5 font-bold text-emerald-400 uppercase">Positive</div>
                 </DiagramLabel>
               </div>
               <div className="flex-1">
@@ -63,12 +63,12 @@ export const M2GravitySignConvention: React.FC = () => {
                 <div className="bg-zinc-900/80 px-3 py-2 rounded font-mono text-emerald-400 text-sm border border-emerald-500/20">
                   a = -9.8
                 </div>
-                <p className="text-[10px] text-zinc-500 mt-2 italic">Standard for projectiles launched from ground.</p>
+                <p className="text-2.5 text-zinc-500 mt-2 italic">Standard for projectiles launched from ground.</p>
               </div>
            </div>
 
            {/* Setup 2: Downwards Positive */}
-           <div className="bg-[#141416] border border-zinc-800 p-4 rounded-lg flex items-center gap-6 relative">
+           <div className="bg-zinc-925 border border-zinc-800 p-4 rounded-lg flex items-center gap-6 relative">
               <div className="relative w-20 h-28 shrink-0">
                 <svg viewBox="0 0 80 120" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision">
                   <line x1="40" y1="20" x2="40" y2="100" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#arrow-amber)" />
@@ -77,7 +77,7 @@ export const M2GravitySignConvention: React.FC = () => {
                   </defs>
                 </svg>
                 <DiagramLabel x="50%" y="90%">
-                  <div className="text-[10px] font-bold text-amber-400 uppercase">Positive</div>
+                  <div className="text-2.5 font-bold text-amber-400 uppercase">Positive</div>
                 </DiagramLabel>
               </div>
               <div className="flex-1">
@@ -85,7 +85,7 @@ export const M2GravitySignConvention: React.FC = () => {
                 <div className="bg-zinc-900/80 px-3 py-2 rounded font-mono text-amber-400 text-sm border border-amber-500/20">
                   a = +9.8
                 </div>
-                <p className="text-[10px] text-zinc-500 mt-2 italic">Standard for objects dropped from height.</p>
+                <p className="text-2.5 text-zinc-500 mt-2 italic">Standard for objects dropped from height.</p>
               </div>
            </div>
         </div>

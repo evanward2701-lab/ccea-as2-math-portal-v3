@@ -970,7 +970,7 @@ export function getPracticeComponent(id: string): React.FC | null {
   
   if (entry.kind === 'latex' || entry.kind === 'html') {
     return () => (
-      <div className="w-full p-6 bg-zinc-900 rounded-2xl border border-zinc-800 font-mono text-[10px] text-zinc-500 overflow-auto max-h-[300px]">
+      <div className="w-full p-6 bg-zinc-900 rounded-2xl border border-zinc-800 font-mono text-2.5 text-zinc-500 overflow-auto max-h-[300px]">
         <div className="mb-2 text-zinc-600 uppercase tracking-widest font-bold">Source {entry.kind.toUpperCase()} Diagram</div>
         <pre>{entry.sourceContent}</pre>
       </div>

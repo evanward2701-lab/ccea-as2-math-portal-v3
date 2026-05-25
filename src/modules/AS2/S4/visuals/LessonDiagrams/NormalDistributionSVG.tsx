@@ -13,7 +13,7 @@ export const NormalDistributionSVG: React.FC = () => (
           </p>
         </div>
         <div className="p-4 bg-zinc-900/40 border border-zinc-800/60 rounded-lg text-center">
-          <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-2 text-[10px]">Standardisation Formula</span>
+          <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-2 text-2.5">Standardisation Formula</span>
           <div className="font-mono text-emerald-400 text-lg"><MathText content="Z = \frac{X - \mu}{\sigma}" /></div>
         </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">

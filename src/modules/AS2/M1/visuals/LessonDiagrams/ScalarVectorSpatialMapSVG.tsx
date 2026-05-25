@@ -86,7 +86,7 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => {
       }
     >
       {/* Map Viewport Card Grid Container */}
-      <div className="relative w-full aspect-76/33 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141417] shadow-2xl">
+      <div className="relative w-full aspect-76/33 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-2xl">
         
         {/* Native Coordinate Line Graphic SVG Component Frame */}
         <svg
@@ -121,8 +121,8 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => {
         {/* Absolute Positioned Native Math Layout Typography Layer */}
         
         {/* Compass Points Labels */}
-        <DiagramLabel x="11.4%" y="11%" anchor="center" className="text-[11px] font-bold text-zinc-500" text="$\text{N}$" />
-        <DiagramLabel x="15.2%" y="21%" anchor="center" className="text-[11px] font-bold text-zinc-500" text="$\text{E}$" />
+        <DiagramLabel x="11.4%" y="11%" anchor="center" className="text-2.75 font-bold text-zinc-500" text="$\text{N}$" />
+        <DiagramLabel x="15.2%" y="21%" anchor="center" className="text-2.75 font-bold text-zinc-500" text="$\text{E}$" />
         <DiagramLabel x="14.2%" y="14%" anchor="center" className="text-xs font-bold text-emerald-400" text="$\text{NE}$" />
 
         {/* Node Coordinates Metadata Labels */}
@@ -133,9 +133,9 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => {
         <DiagramLabel x="76.8%" y="38%" anchor="center" className="text-xs text-zinc-400" text="$\text{Target Terminal}$" />
 
         {/* Vector & Path Metric Readout Boxes */}
-        <DiagramLabel x="44%" y="24%" anchor="center" className="rounded-xl border border-zinc-800 bg-[#141416]/95 px-3 py-1.5 text-center text-xs font-bold text-amber-400 backdrop-blur-sm shadow-md" text="$\text{Distance Path} = 12\text{ m}$" />
+        <DiagramLabel x="44%" y="24%" anchor="center" className="rounded-xl border border-zinc-800 bg-zinc-925/95 px-3 py-1.5 text-center text-xs font-bold text-amber-400 backdrop-blur-sm shadow-md" text="$\text{Distance Path} = 12\text{ m}$" />
 
-        <DiagramLabel x="54%" y="54%" anchor="center" className="rounded-xl border border-zinc-800 bg-[#141416]/95 px-3 py-1.5 text-center text-xs font-bold text-emerald-400 backdrop-blur-sm shadow-md" text="$\text{Displacement} = 8\text{ m Northeast}$" />
+        <DiagramLabel x="54%" y="54%" anchor="center" className="rounded-xl border border-zinc-800 bg-zinc-925/95 px-3 py-1.5 text-center text-xs font-bold text-emerald-400 backdrop-blur-sm shadow-md" text="$\text{Displacement} = 8\text{ m Northeast}$" />
 
         {/* Lower Dynamic Tracking Legend Caption */}
         <DiagramLabel x="50%" y="90%" anchor="center" className="text-center text-xs font-semibold text-zinc-500 w-full px-8 text-balance">

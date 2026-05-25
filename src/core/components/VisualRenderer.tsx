@@ -15,8 +15,8 @@ interface VisualRendererProps {
  */
 export const PracticeVisualFrame: React.FC<{ children: React.ReactNode; id: string }> = ({ children, id }) => (
   <div className="w-full flex justify-center py-6">
-    <div className="w-full max-w-3xl bg-[#141416] rounded-3xl border border-zinc-800/50 shadow-inner overflow-hidden flex justify-center items-center p-8 transition-all hover:border-zinc-700 duration-700 group">
-      <div className="w-full max-h-[420px] overflow-auto flex justify-center items-center scrollbar-hide">
+    <div className="w-full max-w-3xl bg-zinc-925 rounded-3xl border border-zinc-800/50 shadow-inner overflow-hidden flex justify-center items-center p-8 transition-all hover:border-zinc-700 duration-700 group">
+      <div className="w-full max-h-105 overflow-auto flex justify-center items-center scrollbar-hide">
         {children}
       </div>
     </div>
@@ -49,11 +49,11 @@ export function VisualRenderer({ visualId }: VisualRendererProps) {
   // 3. Fallback: Pending/Unavailable Notice
   return (
     <div className="my-6 p-6 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 flex flex-col items-center gap-2 max-w-sm mx-auto">
-      <div className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-widest flex items-center gap-2">
+      <div className="text-2.5 font-mono font-bold text-zinc-500 uppercase tracking-widest flex items-center gap-2">
         <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50 animate-pulse" />
         Visual Pending
       </div>
-      <div className="text-[11px] font-mono text-zinc-600 truncate max-w-full italic">
+      <div className="text-2.75 font-mono text-zinc-600 truncate max-w-full italic">
         {visualId}
       </div>
     </div>

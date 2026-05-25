@@ -10,10 +10,10 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
       analysis={
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div className="flex flex-col items-center gap-y-4">
-            <div className="p-2 bg-[#141416] rounded-lg border border-zinc-800 font-mono text-indigo-400 text-sm">
+            <div className="p-2 bg-zinc-925 rounded-lg border border-zinc-800 font-mono text-indigo-400 text-sm">
               <MathText content="\mathbf{s} = x\mathbf{i} + y\mathbf{j}" />
             </div>
-            <div className="p-3 bg-[#141416] rounded-lg border border-zinc-800 font-mono text-emerald-400 text-sm">
+            <div className="p-3 bg-zinc-925 rounded-lg border border-zinc-800 font-mono text-emerald-400 text-sm">
               <MathText content="\text{Distance} = |\mathbf{s}| = \sqrt{x^2 + y^2}" />
             </div>
           </div>

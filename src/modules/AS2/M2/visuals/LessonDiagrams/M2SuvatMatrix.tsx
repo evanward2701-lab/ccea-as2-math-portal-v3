@@ -101,7 +101,7 @@ export const M2SuvatMatrix: React.FC = () => {
               >
                 <div className="flex flex-col">
                   <span className={cn(
-                    "text-[10px] font-bold uppercase tracking-widest mb-1",
+                    "text-2.5 font-bold uppercase tracking-widest mb-1",
                     relevant ? "text-emerald-400" : "text-zinc-500"
                   )}>
                     {formula.label}
@@ -118,7 +118,7 @@ export const M2SuvatMatrix: React.FC = () => {
                     <span
                       key={v}
                       className={cn(
-                        "w-6 h-6 flex items-center justify-center rounded text-[10px] font-bold",
+                        "w-6 h-6 flex items-center justify-center rounded text-2.5 font-bold",
                         selectedKnowns.includes(v)
                           ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
                           : relevant

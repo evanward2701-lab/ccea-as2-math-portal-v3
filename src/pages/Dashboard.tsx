@@ -27,7 +27,7 @@ export function Dashboard() {
       {/* HEADER SECTION: Combined Title and Performance Status */}
       <header className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-3 border border-zinc-800 bg-zinc-800/40 p-8 rounded-2xl shadow-2xl backdrop-blur-sm relative overflow-hidden">
-           <div className="absolute top-0 left-0 bg-zinc-800 border-r border-b border-zinc-700 text-zinc-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
+           <div className="absolute top-0 left-0 bg-zinc-800 border-r border-b border-zinc-700 text-zinc-400 px-3 py-1 text-2.5 uppercase font-mono font-bold tracking-widest">
             Platform Overview
           </div>
           <h1 className="font-serif text-5xl font-light leading-tight tracking-wide text-zinc-100 mt-4">
@@ -41,12 +41,12 @@ export function Dashboard() {
           <div className="text-5xl font-serif italic text-zinc-300 mb-2">
             {questions.length}
           </div>
-          <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-500 font-bold">
+          <div className="text-2.5 uppercase font-mono tracking-widest text-zinc-500 font-bold">
             Active Exam Tasks
           </div>
           <Link
             to="/practice"
-            className="w-full mt-6 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 text-zinc-300 border border-zinc-700/50 rounded-lg text-center text-[10px] font-mono font-bold uppercase tracking-wider transition-all"
+            className="w-full mt-6 py-2 bg-zinc-800/50 hover:bg-zinc-700/50 text-zinc-300 border border-zinc-700/50 rounded-lg text-center text-2.5 font-mono font-bold uppercase tracking-wider transition-all"
           >
             Launch Sandbox &rarr;
           </Link>
@@ -58,7 +58,7 @@ export function Dashboard() {
         <main className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* Column A (AS1 Pure) */}
           <div className="flex flex-col h-full border border-zinc-800 bg-zinc-800/40 relative rounded-2xl shadow-2xl backdrop-blur-sm p-8">
-            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-amber-500/80 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest flex items-center gap-2">
+            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-amber-500/80 px-3 py-1 text-2.5 uppercase font-mono font-bold tracking-widest flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               Pending Pipeline
             </div>
@@ -74,14 +74,14 @@ export function Dashboard() {
               ].map(lesson => (
                 <li key={lesson.id} className="flex items-center justify-between gap-4 p-4 rounded-xl border border-dashed border-zinc-700 bg-zinc-900/20">
                   <div className="flex flex-col gap-1 flex-1">
-                    <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800/50">
+                    <span className="text-2.5 w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800/50">
                       {lesson.id}
                     </span>
                     <span className="text-xl font-serif font-medium text-zinc-400">
                       {lesson.title}
                     </span>
                   </div>
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-600 font-bold px-3 py-1 bg-zinc-900 rounded">
+                  <div className="text-2.5 font-mono uppercase tracking-widest text-zinc-600 font-bold px-3 py-1 bg-zinc-900 rounded">
                     Awaiting Sync
                   </div>
                 </li>
@@ -91,7 +91,7 @@ export function Dashboard() {
 
           {/* Column B (AS1 Pure Cont) */}
           <div className="flex flex-col h-full border border-zinc-800 bg-zinc-800/40 relative rounded-2xl shadow-2xl backdrop-blur-sm p-8">
-            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-amber-500/80 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest flex items-center gap-2">
+            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-amber-500/80 px-3 py-1 text-2.5 uppercase font-mono font-bold tracking-widest flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               Pending Pipeline
             </div>
@@ -107,14 +107,14 @@ export function Dashboard() {
               ].map(lesson => (
                 <li key={lesson.id} className="flex items-center justify-between gap-4 p-4 rounded-xl border border-dashed border-zinc-700 bg-zinc-900/20">
                   <div className="flex flex-col gap-1 flex-1">
-                    <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800/50">
+                    <span className="text-2.5 w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800/50">
                       {lesson.id}
                     </span>
                     <span className="text-xl font-serif font-medium text-zinc-400">
                       {lesson.title}
                     </span>
                   </div>
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-600 font-bold px-3 py-1 bg-zinc-900 rounded">
+                  <div className="text-2.5 font-mono uppercase tracking-widest text-zinc-600 font-bold px-3 py-1 bg-zinc-900 rounded">
                     Awaiting Sync
                   </div>
                 </li>
@@ -126,7 +126,7 @@ export function Dashboard() {
         <main className="flex-1 flex items-center justify-center border border-zinc-800/50 bg-zinc-900/20 rounded-2xl p-12">
           <div className="text-center">
             <h3 className="font-serif text-2xl text-zinc-400 mb-2 italic">Modules pending ingestion...</h3>
-            <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-widest">Content for {activeQualification} is currently unavailable.</p>
+            <p className="text-zinc-600 font-mono text-2.5 uppercase tracking-widest">Content for {activeQualification} is currently unavailable.</p>
           </div>
         </main>
       ) : (
@@ -134,7 +134,7 @@ export function Dashboard() {
           
           {/* Column A */}
           <div className="flex flex-col h-full border border-zinc-800 bg-zinc-800/40 relative rounded-2xl shadow-2xl backdrop-blur-sm">
-            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-zinc-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
+            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-zinc-400 px-3 py-1 text-2.5 uppercase font-mono font-bold tracking-widest">
               Section A
             </div>
             <div className="p-8">
@@ -147,7 +147,7 @@ export function Dashboard() {
                   return (
                     <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-zinc-800 hover:bg-background/60 transition-all">
                       <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
-                        <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
+                        <span className="text-2.5 w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
                           {code}
                         </span>
                         <span className="text-xl font-serif font-medium leading-snug text-zinc-200 group-hover:text-zinc-400 transition-colors truncate">
@@ -156,7 +156,7 @@ export function Dashboard() {
                       </Link>
                       <Link 
                         to={`/practice/${code}/General`}
-                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700/50 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-400 hover:text-zinc-200 rounded-lg border border-zinc-700 transition-all shadow-sm"
+                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700/50 text-2.5 font-mono font-bold uppercase tracking-tighter text-zinc-400 hover:text-zinc-200 rounded-lg border border-zinc-700 transition-all shadow-sm"
                       >
                         Practice
                       </Link>
@@ -169,7 +169,7 @@ export function Dashboard() {
 
           {/* Column B */}
           <div className="flex flex-col h-full border border-zinc-800 bg-zinc-800/40 relative rounded-2xl shadow-2xl backdrop-blur-sm">
-            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-zinc-400 px-3 py-1 text-[10px] uppercase font-mono font-bold tracking-widest">
+            <div className="absolute top-0 right-0 bg-zinc-800 border-l border-b border-zinc-700 text-zinc-400 px-3 py-1 text-2.5 uppercase font-mono font-bold tracking-widest">
               Section B
             </div>
             <div className="p-8">
@@ -182,7 +182,7 @@ export function Dashboard() {
                   return (
                     <li key={lesson.id} className="group flex items-center justify-between gap-4 p-3 rounded-xl border border-transparent hover:border-zinc-800 hover:bg-background/60 transition-all">
                       <Link to={`/lessons/${lesson.id}`} className="flex flex-col gap-1 flex-1 overflow-hidden">
-                        <span className="text-[10px] w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
+                        <span className="text-2.5 w-fit border border-zinc-700 text-zinc-500 px-2 py-0.5 font-mono font-bold uppercase rounded bg-zinc-800">
                           {code}
                         </span>
                         <span className="text-xl font-serif font-medium leading-snug text-zinc-200 group-hover:text-zinc-400 transition-colors truncate">
@@ -191,7 +191,7 @@ export function Dashboard() {
                       </Link>
                       <Link 
                         to={`/practice/${code}/General`}
-                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700/50 text-[10px] font-mono font-bold uppercase tracking-tighter text-zinc-400 hover:text-zinc-200 rounded-lg border border-zinc-700 transition-all shadow-sm"
+                        className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700/50 text-2.5 font-mono font-bold uppercase tracking-tighter text-zinc-400 hover:text-zinc-200 rounded-lg border border-zinc-700 transition-all shadow-sm"
                       >
                         Practice
                       </Link>

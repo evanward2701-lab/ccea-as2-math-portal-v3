@@ -24,7 +24,7 @@ export const M2InitialVelocityTrap: React.FC = () => {
         </svg>
 
         <DiagramLabel x="65%" y="25%">
-          <div className="text-[10px] text-rose-400 font-bold bg-zinc-900 p-1 rounded border border-rose-900/50">FATAL: Assuming u=0</div>
+          <div className="text-2.5 text-rose-400 font-bold bg-zinc-900 p-1 rounded border border-rose-900/50">FATAL: Assuming u=0</div>
         </DiagramLabel>
 
         <DiagramLabel x="6%" y="55%" text="u" />

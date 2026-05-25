@@ -18,7 +18,7 @@ export const HistogramDensitySVG: React.FC = () => (
           <p className="text-sm text-rose-300 leading-relaxed mb-3">
             Do not read the bar height as the frequency when class widths are unequal.
           </p>
-          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
             <MathText content="\text{Area} = \text{Width} \times \text{Height}" />
           </div>
         </div>
@@ -42,23 +42,23 @@ export const HistogramDensitySVG: React.FC = () => (
       </svg>
 
       <DiagramLabel x="5%" y="40%">
-        <div className="text-[#94a3b8] text-sm -rotate-90 origin-center w-32 text-center">Frequency Density</div>
+        <div className="text-slate-400 text-sm -rotate-90 origin-center w-32 text-center">Frequency Density</div>
       </DiagramLabel>
 
       <DiagramLabel x="17.5%" y="75%">
-        <div className="text-[#64748b] text-[10px]">width = 10</div>
+        <div className="text-slate-500 text-2.5">width = 10</div>
       </DiagramLabel>
       <DiagramLabel x="35.1%" y="75%">
-        <div className="text-[#64748b] text-[10px]">width = 10</div>
+        <div className="text-slate-500 text-2.5">width = 10</div>
       </DiagramLabel>
       <DiagramLabel x="61.4%" y="75%">
-        <div className="text-[#64748b] text-[10px]">width = 20</div>
+        <div className="text-slate-500 text-2.5">width = 20</div>
       </DiagramLabel>
 
       <DiagramLabel x="45.6%" y="85%" text="\text{Time } (t)" />
 
       <DiagramLabel x="61.4%" y="55%">
-        <div className="text-emerald-400 text-sm font-semibold tracking-wide bg-[#141416]/40 rounded px-2 py-1">
+        <div className="text-emerald-400 text-sm font-semibold tracking-wide bg-zinc-925/40 rounded px-2 py-1">
           <MathText content="\text{Area} = \text{Frequency}" />
         </div>
       </DiagramLabel>

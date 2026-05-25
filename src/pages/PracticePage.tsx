@@ -26,7 +26,7 @@ export function PracticePage() {
       <header className="mb-6">
         <Link 
           to="/practice"
-          className="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-200 text-[10px] font-mono font-bold uppercase tracking-widest transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-200 text-2.5 font-mono font-bold uppercase tracking-widest transition-colors mb-8"
         >
           <ArrowLeft className="w-3 h-3" />
           Back to Practice Matrix
@@ -39,7 +39,7 @@ export function PracticePage() {
             <h1 className="text-4xl font-serif text-zinc-100 tracking-wide">
               {title}
             </h1>
-            <h2 className="text-[11px] uppercase tracking-widest font-mono text-zinc-400 font-bold">
+            <h2 className="text-2.75 uppercase tracking-widest font-mono text-zinc-400 font-bold">
               {topic === "General" ? "Full Module Practice Bank" : `Topic Focus: ${topic}`}
             </h2>
           </div>
@@ -50,7 +50,7 @@ export function PracticePage() {
         {moduleQuestions.length === 0 ? (
           <div className="p-16 text-center border border-dashed border-zinc-800 rounded-3xl bg-zinc-900/20">
             <p className="text-zinc-500 font-serif italic mb-2">No practice questions active for this sector.</p>
-            <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-widest">Select another module or topic.</p>
+            <p className="text-zinc-600 font-mono text-2.5 uppercase tracking-widest">Select another module or topic.</p>
           </div>
         ) : (
           moduleQuestions.map((q, index) => (

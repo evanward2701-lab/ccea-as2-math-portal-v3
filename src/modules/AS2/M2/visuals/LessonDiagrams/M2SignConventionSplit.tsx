@@ -22,7 +22,7 @@ export const M2SignConventionSplit: React.FC = () => {
         {/* Upwards Positive */}
         <div className="flex flex-col items-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
           <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4">Upwards Positive</h4>
-          <div className="relative w-full max-w-[160px] aspect-18/22">
+          <div className="relative w-full max-w-40 aspect-18/22">
             <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
               {/* Upwards Positive Arrow */}
               <line x1="90" y1="180" x2="90" y2="20" stroke="#10b981" strokeWidth="3" strokeDasharray="3 3" />
@@ -52,7 +52,7 @@ export const M2SignConventionSplit: React.FC = () => {
         {/* Downwards Positive */}
         <div className="flex flex-col items-center bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 h-full relative">
           <h4 className="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4">Downwards Positive</h4>
-          <div className="relative w-full max-w-[160px] aspect-18/22">
+          <div className="relative w-full max-w-40 aspect-18/22">
             <svg viewBox="0 0 180 220" className="absolute inset-0 w-full h-full" shapeRendering="geometricPrecision" overflow="visible">
               {/* Downwards Positive Arrow */}
               <line x1="90" y1="20" x2="90" y2="180" stroke="#f59e0b" strokeWidth="3" strokeDasharray="3 3" />

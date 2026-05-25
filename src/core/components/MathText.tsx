@@ -62,7 +62,7 @@ function LessonSectionHeading({ children }: { children: React.ReactNode }) {
         <div className="pointer-events-none absolute left-0 top-1 h-[calc(100%-0.25rem)] w-px bg-linear-to-b from-emerald-400/60 via-zinc-700/80 to-transparent" />
         <div className="mb-3 flex items-center gap-3">
           {sectionNumber && (
-            <span className="rounded-md border border-zinc-700/80 bg-zinc-950/60 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-[0.24em] text-zinc-400 shadow-sm">
+            <span className="rounded-md border border-zinc-700/80 bg-zinc-950/60 px-3 py-1 text-2.5 font-mono font-bold uppercase tracking-[0.24em] text-zinc-400 shadow-sm">
               Section {sectionNumber}
             </span>
           )}
@@ -86,7 +86,7 @@ function LessonSubheading({ children }: { children: React.ReactNode }) {
 
     return (
       <div className="not-prose mt-14 mb-6 flex flex-col gap-2 border-l border-amber-500/40 pl-5">
-        <span className="text-[10px] font-mono font-bold uppercase tracking-[0.24em] text-amber-400">
+        <span className="text-2.5 font-mono font-bold uppercase tracking-[0.24em] text-amber-400">
           {label}
         </span>
         {title && (
@@ -99,7 +99,7 @@ function LessonSubheading({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <h3 className="not-prose mt-14 mb-5 text-[10px] font-bold uppercase tracking-[0.24em] text-zinc-400">
+    <h3 className="not-prose mt-14 mb-5 text-2.5 font-bold uppercase tracking-[0.24em] text-zinc-400">
       {children}
     </h3>
   );
@@ -133,26 +133,26 @@ export function MathText({ content, className, center, noMargin, variant = "defa
       isLesson ? (
         <LessonSubheading>{children}</LessonSubheading>
       ) : (
-        <h3 className="mt-8 mb-4 text-[10px] font-bold text-zinc-500 uppercase tracking-[0.3em]" {...props}>
+        <h3 className="mt-8 mb-4 text-2.5 font-bold text-zinc-500 uppercase tracking-[0.3em]" {...props}>
           {children}
         </h3>
       )
     ),
     li: ({ node, ...props }) => (
-      <li className={cn("relative pl-8 text-lg md:text-xl leading-relaxed font-serif text-zinc-300 font-normal before:content-[''] before:absolute before:left-0 before:top-[14px] before:w-4 before:h-px before:bg-zinc-800", isLesson ? "mb-5" : "mb-4")} {...props} />
+      <li className={cn("relative pl-8 text-lg md:text-xl leading-relaxed font-serif text-zinc-300 font-normal before:content-[''] before:absolute before:left-0 before:top-3.5 before:w-4 before:h-px before:bg-zinc-800", isLesson ? "mb-5" : "mb-4")} {...props} />
     ),
     blockquote: ({ node, ...props }) => (
       <blockquote className="my-10 p-8 border border-zinc-800 bg-zinc-900/10 rounded-2xl shadow-sm backdrop-blur-xs italic text-zinc-400 font-serif leading-relaxed" {...props} />
     ),
     strong: ({ node, ...props }) => <strong className="font-bold text-zinc-100 decoration-zinc-800 underline-offset-4" {...props} />,
-    code: ({ node, ...props }) => <code className="font-mono text-[11px] bg-zinc-900/40 text-zinc-400 px-2 py-0.5 rounded border border-zinc-800/50 shadow-xs" {...props} />,
+    code: ({ node, ...props }) => <code className="font-mono text-2.75 bg-zinc-900/40 text-zinc-400 px-2 py-0.5 rounded border border-zinc-800/50 shadow-xs" {...props} />,
     table: ({ node, ...props }) => (
       <div className="my-8 w-full overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900/10 shadow-inner">
         <table className="w-full border-collapse text-sm text-zinc-300" {...props} />
       </div>
     ),
     thead: ({ node, ...props }) => <thead className="bg-zinc-900/50 border-b border-zinc-800" {...props} />,
-    th: ({ node, ...props }) => <th className="p-4 font-bold text-[10px] uppercase tracking-widest text-zinc-500 text-center" {...props} />,
+    th: ({ node, ...props }) => <th className="p-4 font-bold text-2.5 uppercase tracking-widest text-zinc-500 text-center" {...props} />,
     td: ({ node, ...props }) => <td className="p-4 border-b border-zinc-800/30 text-center" {...props} />,
     img: ({ node, src, alt, ...props }) => {
       if (alt?.startsWith("visual:")) {

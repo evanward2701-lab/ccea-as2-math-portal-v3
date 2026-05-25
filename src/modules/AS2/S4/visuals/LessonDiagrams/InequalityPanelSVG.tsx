@@ -7,7 +7,7 @@ export const InequalityPanelSVG: React.FC = () => (
     title="Fig 2. Binomial Inequalities"
     analysis={
       <div className="p-4 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-        <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+        <strong className="block text-rose-400 not-italic uppercase text-2.5 mb-1">CCEA Exam Pitfall:</strong>
         <p className="leading-relaxed">
           Most standard calculators only process cumulative probabilities going downwards. You MUST convert strict inequalities (<MathText content="<, >" className="inline [&_p]:inline [&_p]:m-0" />) and upwards inequalities (<MathText content="\ge" className="inline [&_p]:inline [&_p]:m-0" />) into a format utilizing <MathText content="P(X \le x)" className="inline [&_p]:inline [&_p]:m-0" />.
         </p>
@@ -17,7 +17,7 @@ export const InequalityPanelSVG: React.FC = () => (
     <div className="w-full overflow-x-auto">
       <table className="w-full border-collapse border border-zinc-800 text-sm font-sans bg-zinc-900 text-center">
         <thead>
-          <tr className="bg-[#141416] text-zinc-400 border-b border-zinc-800 uppercase font-mono tracking-wider text-[10px]">
+          <tr className="bg-zinc-925 text-zinc-400 border-b border-zinc-800 uppercase font-mono tracking-wider text-2.5">
             <th className="p-4 border-r border-zinc-800 text-left pl-6">English Phrase</th>
             <th className="p-4 border-r border-zinc-800">Raw Inequality</th>
             <th className="p-4 text-emerald-400">Calculator Format <MathText content="P(X \le x)" className="inline [&_p]:inline [&_p]:m-0" /></th>

@@ -13,8 +13,8 @@ export const LiftPhysicsSVG: React.FC = () => {
           <MathInline content="$\text{Whole System}$" />
         </div>
 
-        {/* Graphic Area - Stretched vertically to h-[290px], elements untouched */}
-        <div className="relative w-full h-[290px] bg-[#141417] border border-zinc-800/60 rounded-xl overflow-hidden">
+        {/* Graphic Area - Stretched vertically to h-72.5, elements untouched */}
+        <div className="relative w-full h-72.5 bg-zinc-925 border border-zinc-800/60 rounded-xl overflow-hidden">
           <svg
             viewBox="0 0 400 290"
             className="w-full h-full absolute inset-0 z-0"
@@ -46,7 +46,7 @@ export const LiftPhysicsSVG: React.FC = () => {
             </defs>
 
             {/* Ceiling Anchor Support Line */}
-            <SupportSurface x1={100} y1={45} x2={300} y2={45} stroke="#27272a" strokeWidth={4.5} className="stroke-dasharray-5" rough={true} />
+            <SupportSurface x1={100} y1={45} x2={300} y2={45} className="stroke-zinc-800 stroke-[4.5] stroke-dasharray-5" rough={true} />
             
             {/* Solid White Cable String */}
             <line x1="200" y1="45" x2="200" y2="105" stroke="#e4e4e7" strokeWidth="3.5" />
@@ -55,11 +55,11 @@ export const LiftPhysicsSVG: React.FC = () => {
             <path d="M 190 82 L 200 70 L 210 82" stroke="#10b981" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
 
             {/* Lift Box Frame Enclosure */}
-            <rect x="135" y="105" width="130" height="110" rx="10" fill="#18181b" stroke="#3f3f46" strokeWidth="3" />
+            <rect x="135" y="105" width="130" height="110" rx="10" className="fill-zinc-900 stroke-zinc-700 stroke-3" />
 
             {/* Symmetrical Inside Passenger Stickman */}
-            <g transform="translate(200, 160) scale(1.35)" stroke="#a1a1aa" strokeWidth="1.5" fill="none" opacity="0.6">
-              <Particle cx={0} cy={-22} r={5} stroke="#a1a1aa" fill="#141417" />
+            <g transform="translate(200, 160) scale(1.35)" className="stroke-zinc-400 stroke-[1.5]" fill="none" opacity="0.6">
+              <Particle cx={0} cy={-22} r={5} className="stroke-zinc-400 fill-zinc-925" />
               <line x1="0" y1="-17" x2="0" y2="12" />
               <line x1="0" y1="-10" x2="-10" y2="-2" />
               <line x1="0" y1="-10" x2="10" y2="-2" />
@@ -99,8 +99,8 @@ export const LiftPhysicsSVG: React.FC = () => {
           <MathInline content="$\text{Isolated Passenger}$" />
         </div>
 
-        {/* Graphic Area - Stretched vertically to h-[290px], elements untouched */}
-        <div className="relative w-full h-[290px] bg-[#141417] border border-zinc-800/60 rounded-xl overflow-hidden">
+        {/* Graphic Area - Stretched vertically to h-72.5, elements untouched */}
+        <div className="relative w-full h-72.5 bg-zinc-925 border border-zinc-800/60 rounded-xl overflow-hidden">
           <svg
             viewBox="0 0 400 290"
             className="w-full h-full absolute inset-0 z-0"
@@ -143,11 +143,11 @@ export const LiftPhysicsSVG: React.FC = () => {
             </defs>
 
             {/* Bold Solid Floor Platform Casing Line */}
-            <SupportSurface x1={110} y1={180} x2={290} y2={180} stroke="#3f3f46" strokeWidth={4.5} />
+            <SupportSurface x1={110} y1={180} x2={290} y2={180} className="stroke-zinc-700 stroke-[4.5]" />
 
             {/* Thinner Active Passenger Stickman */}
-            <g transform="translate(200, 115) scale(1.6)" stroke="#e4e4e7" strokeWidth="1.5" fill="none">
-              <Particle cx={0} cy={-22} r={6} stroke="#e4e4e7" fill="#141417" />
+            <g transform="translate(200, 115) scale(1.6)" className="stroke-zinc-200 stroke-[1.5]" fill="none">
+              <Particle cx={0} cy={-22} r={6} className="stroke-zinc-200 fill-zinc-925" />
               <line x1="0" y1="-16" x2="0" y2="12" />
               <line x1="0" y1="-10" x2="-12" y2="-2" />
               <line x1="0" y1="-10" x2="12" y2="-2" />

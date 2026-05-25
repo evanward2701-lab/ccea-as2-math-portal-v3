@@ -32,8 +32,8 @@ export const LiftPhysicsSVG: React.FC = () => (
       </div>
     }
   >
-    {/* Design Engine Alignment: Transitioned to bg-[#1c1c1f], absolute neutral shadow vectors */}
-    <div className="relative w-full aspect-76/39 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+    {/* Design Engine Alignment: Transitioned to bg-zinc-850, absolute neutral shadow vectors */}
+    <div className="relative w-full aspect-76/39 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-850 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Lift physics isolation diagram comparing whole lift system and isolated passenger">
         
@@ -90,7 +90,7 @@ export const LiftPhysicsSVG: React.FC = () => (
       <DiagramLabel x="9.9%" y="44.9%" text="a" />
 
       <DiagramLabel x="25.7%" y="76.7%">
-        <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-4 py-1.5 text-center text-sm font-bold text-emerald-400 backdrop-blur-sm shadow-md">
+        <div className="rounded-lg border border-zinc-800 bg-zinc-925/90 px-4 py-1.5 text-center text-sm font-bold text-emerald-400 backdrop-blur-sm shadow-md">
           <MathText content="T - (M + m)g = (M + m)a" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
@@ -102,14 +102,14 @@ export const LiftPhysicsSVG: React.FC = () => (
       <DiagramLabel x="93%" y="44.9%" text="a" />
 
       <DiagramLabel x="74.5%" y="76.7%">
-        <div className="rounded-lg border border-zinc-800 bg-[#141416]/90 px-4 py-1.5 text-center text-sm font-bold text-amber-400 backdrop-blur-sm shadow-md">
+        <div className="rounded-lg border border-zinc-800 bg-zinc-925/90 px-4 py-1.5 text-center text-sm font-bold text-amber-400 backdrop-blur-sm shadow-md">
           <MathText content="R - mg = ma" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
 
       {/* Pure Desaturated Neutral Explanatory Legend Footer */}
       <DiagramLabel x="50%" y="91.8%">
-        <div className="grid grid-cols-3 gap-3 text-center text-[11px] font-medium text-zinc-400 w-full px-6">
+        <div className="grid grid-cols-3 gap-3 text-center text-2.75 font-medium text-zinc-400 w-full px-6">
           <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-emerald-400 font-semibold">Emerald vector</span> = upward tension / reaction force</div>
           <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-rose-400 font-semibold">Rose vector</span> = gravitational weight down</div>
           <div className="rounded border border-zinc-800/80 bg-zinc-900/60 px-2 py-1"><span className="text-zinc-300 font-semibold">Dashed boundary</span> = current isolated system envelope</div>

@@ -35,13 +35,13 @@ export const S3DynamicVennSpaceEngine: React.FC = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider text-center">Addition Law</h4>
-              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
                 <MathText content="P(A \cup B) = P(A) + P(B) - P(A \cap B)" noMargin />
               </div>
             </div>
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider text-center">Probabilities</h4>
-              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60 space-y-1">
+              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60 space-y-1">
                 <MathInline content={`P(A) = ${pA.toFixed(1)}`} className="block" />
                 <MathInline content={`P(B) = ${pB.toFixed(1)}`} className="block" />
                 <MathInline content={`P(A \\cap B) = ${currentIntersection.toFixed(2)}`} className="block" />
@@ -73,7 +73,7 @@ export const S3DynamicVennSpaceEngine: React.FC = () => {
           <span className="text-sm font-mono text-zinc-400 w-12 text-right">{separation}</span>
         </div>
 
-        <div className="relative w-full aspect-56/32 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+        <div className="relative w-full aspect-56/32 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-850 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
           <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
             {/* Universal Set Rectangle */}
             <rect x="20" y="20" width={svgWidth - 40} height={svgHeight - 40} fill="#141416" stroke="#3f3f46" strokeWidth="2" rx="8" />

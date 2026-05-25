@@ -17,9 +17,8 @@ export interface DiagramLabelProps {
 }
 
 /**
- * An HTML-based overlay for rendering high-quality text or KaTeX over an SVG diagram.
- * Processed through the MathInline engine for native math support.
- * Uses fluid absolute positioning with centering transforms by default.
+ * Compatibility primitive for old imports from
+ * `@/core/diagram-engine/primitives/DiagramLabel`.
  */
 export const DiagramLabel: React.FC<DiagramLabelProps> = ({
   x,
@@ -31,7 +30,6 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
   children,
   className = '',
 }) => {
-  // Map anchor prop to the correct CSS transform centering logic
   let anchorTransform = 'translate(-50%, -50%)';
   if (anchor === 'start') {
     anchorTransform = 'translate(0, -50%)';
@@ -43,20 +41,18 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
     anchorTransform = 'translate(-50%, -100%)';
   }
 
-  // Ensure percentage string format
   const left = typeof x === 'number' ? `${x}%` : x.includes('%') ? x : `${x}%`;
   const top = typeof y === 'number' ? `${y}%` : y.includes('%') ? y : `${y}%`;
 
   return (
     <div
       className={cn(
-        'diagram-label absolute pointer-events-none text-zinc-400 font-sans text-xs font-medium drop-shadow-sm transition-opacity duration-300',
+        'diagram-label absolute pointer-events-none text-zinc-400 font-sans text-xs font-medium drop-shadow-sm transition-opacity duration-300 wrap-break-word',
         className
       )}
       style={{
         top,
         left,
-        // Centering transforms (translate(-50%, -50%)) align exactly with the center of the text bounding box.
         transform: `translate(calc(${offsetX}), calc(${offsetY})) ${anchorTransform}`,
       }}
     >

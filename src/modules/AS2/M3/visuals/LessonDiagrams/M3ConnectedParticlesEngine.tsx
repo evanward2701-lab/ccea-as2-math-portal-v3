@@ -34,13 +34,13 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Whole System Equation</h4>
             <p className="text-xs text-zinc-400 italic mb-3">Tension is an internal force and cancels out when considering the whole system, allowing for calculation of acceleration.</p>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={`a = \\frac{|m_A - m_B|g}{m_A + m_B} = ${acceleration.toFixed(2)}\\text{ m s}^{-2}`} />
             </div>
           </div>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Tension</h4>
-             <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={`T = ${tension.toFixed(1)}\\text{ N}`} />
             </div>
           </div>

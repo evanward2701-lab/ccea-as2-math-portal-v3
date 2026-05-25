@@ -50,8 +50,8 @@ export const ScatterClustersSVG: React.FC = () => (
       </DiagramLabel>
 
       <DiagramLabel x="45%" y="38%">
-        <div className="flex items-center justify-center gap-2 text-center text-rose-400 text-[10px] font-mono font-bold tracking-widest uppercase bg-[#141416]/90 border border-zinc-800 px-3 py-1 rounded shadow-lg backdrop-blur-sm -rotate-[28deg]">
-          <div className="w-3 h-3 rounded-full bg-rose-500 text-white flex items-center justify-center text-[9px] font-black shrink-0">!</div>
+        <div className="flex items-center justify-center gap-2 text-center text-rose-400 text-2.5 font-mono font-bold tracking-widest uppercase bg-zinc-925/90 border border-zinc-800 px-3 py-1 rounded shadow-lg backdrop-blur-sm -rotate-[28deg]">
+          <div className="w-3 h-3 rounded-full bg-rose-500 text-white flex items-center justify-center text-2.25 font-black shrink-0">!</div>
           <span>Misleading overall trend</span>
         </div>
       </DiagramLabel>

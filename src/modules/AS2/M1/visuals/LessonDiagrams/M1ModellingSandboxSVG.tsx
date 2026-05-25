@@ -82,7 +82,7 @@ const AssumptionChip: React.FC<Chip> = ({ label, effect, tone }) => {
 
   return (
     <div className={cn('rounded-lg border px-3 py-3 text-center', styles.border, styles.bg)}>
-      <div className={cn('text-[10px] font-bold uppercase tracking-[0.2em]', styles.text)}>{label}</div>
+      <div className={cn('text-2.5 font-bold uppercase tracking-[0.2em]', styles.text)}>{label}</div>
       <div className="mt-1 text-xs font-medium leading-snug text-zinc-300">{effect}</div>
     </div>
   );
@@ -201,28 +201,28 @@ const ModelSketch: React.FC = () => (
 );
 
 const ModelSketchWithLabels: React.FC = () => (
-  <div className="relative mx-auto aspect-[2/1] w-full max-w-[420px] lg:max-w-[390px] xl:max-w-[430px]">
+  <div className="relative mx-auto aspect-2/1 w-full max-w-105 lg:max-w-97.5 xl:max-w-107.5">
     <ModelSketch />
     <div className="pointer-events-none absolute inset-0 z-10 select-none text-zinc-100">
-      <div className="absolute left-[28.8%] top-[55.5%] -translate-x-1/2 -translate-y-1/2 text-[13px] font-bold">
+      <div className="absolute left-[28.8%] top-[55.5%] -translate-x-1/2 -translate-y-1/2 text-3.25 font-bold">
         <MathInline content="$m_1$" />
       </div>
       <div className="absolute left-[19%] top-[50.5%] -translate-x-1/2 -translate-y-full text-[12px] font-bold text-rose-300">
         <MathInline content="$R_1$" />
       </div>
-      <div className="absolute left-[67.2%] top-[55.5%] -translate-x-1/2 -translate-y-1/2 text-[13px] font-bold">
+      <div className="absolute left-[67.2%] top-[55.5%] -translate-x-1/2 -translate-y-1/2 text-3.25 font-bold">
         <MathInline content="$m_2$" />
       </div>
-      <div className="absolute left-[84.5%] top-[50.5%] -translate-x-1/2 -translate-y-full text-[13px] font-bold text-emerald-400">
+      <div className="absolute left-[84.5%] top-[50.5%] -translate-x-1/2 -translate-y-full text-3.25 font-bold text-emerald-400">
         <MathInline content="$D$" />
       </div>
       <div className="absolute left-[63%] top-[27.5%] -translate-x-1/2 -translate-y-1/2 text-xs font-bold text-zinc-400">
         <MathInline content="$a$" />
       </div>
-      <div className="absolute left-[41%] top-[47%] -translate-x-1/2 -translate-y-1/2 text-[11px] font-bold text-blue-300">
+      <div className="absolute left-[41%] top-[47%] -translate-x-1/2 -translate-y-1/2 text-2.75 font-bold text-blue-300">
         <MathInline content="$T$" />
       </div>
-      <div className="absolute left-[55%] top-[47%] -translate-x-1/2 -translate-y-1/2 text-[11px] font-bold text-blue-300">
+      <div className="absolute left-[55%] top-[47%] -translate-x-1/2 -translate-y-1/2 text-2.75 font-bold text-blue-300">
         <MathInline content="$T$" />
       </div>
     </div>
@@ -233,7 +233,7 @@ const TransformBadge: React.FC = () => (
   <div className="flex items-center justify-center gap-3 lg:flex-col">
     <div className="h-px w-16 bg-zinc-700/70 lg:h-16 lg:w-px" />
     <div className="rounded-lg border border-zinc-800/80 bg-zinc-950/70 px-4 py-3 text-center shadow-[0_12px_28px_rgba(0,0,0,0.25)]">
-      <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-zinc-500">Apply</div>
+      <div className="text-2.5 font-bold uppercase tracking-[0.22em] text-zinc-500">Apply</div>
       <div className="mt-1 whitespace-nowrap text-sm font-semibold text-zinc-200">assumptions</div>
     </div>
     <div className="h-px w-16 bg-zinc-700/70 lg:h-16 lg:w-px" />
@@ -255,7 +255,7 @@ const StagePanel: React.FC<{
         <div className={cn('text-lg font-bold tracking-tight', styles.text)}>{title}</div>
         <div className="mt-1 text-xs font-medium text-zinc-400">{caption}</div>
       </div>
-      <div className="relative z-10 flex h-[240px] items-center justify-center rounded-lg border border-zinc-800/60 bg-[#141416]/80 p-2">
+      <div className="relative z-10 flex h-60 items-center justify-center rounded-lg border border-zinc-800/60 bg-zinc-925/80 p-2">
         {children}
       </div>
     </section>
@@ -276,9 +276,9 @@ export const M1ModellingSandboxSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-xl border border-zinc-800/60 bg-[#1c1c1f] p-5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+    <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-850 p-5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
       <div className="mb-5 flex flex-col gap-2 border-b border-zinc-800/70 pb-5 text-center">
-        <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-zinc-500">Model Reduction</div>
+        <div className="text-2.5 font-bold uppercase tracking-[0.32em] text-zinc-500">Model Reduction</div>
         <div className="font-serif text-2xl font-light tracking-wide text-zinc-100">From Real System to Equation Model</div>
       </div>
 

@@ -49,13 +49,13 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">IQR</h4>
-              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
                 <MathText content={`\\text{IQR} = Q_3 - Q_1 = ${iqr}`} />
               </div>
             </div>
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Outlier Fences</h4>
-              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
                 <MathText content={`Q_1 - 1.5\\text{IQR} = ${lowerFence}`} />
                 <MathText content={`Q_3 + 1.5\\text{IQR} = ${upperFence}`} />
               </div>
@@ -124,13 +124,13 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${xScale(q1) / svgWidth * 100}%`} y={`${(yAxisCenter + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <span className="text-zinc-400 text-[10px]">{q1}</span>
+            <span className="text-zinc-400 text-2.5">{q1}</span>
           </DiagramLabel>
           <DiagramLabel x={`${xScale(median) / svgWidth * 100}%`} y={`${(yAxisCenter + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <span className="text-zinc-400 text-[10px]">{median}</span>
+            <span className="text-zinc-400 text-2.5">{median}</span>
           </DiagramLabel>
           <DiagramLabel x={`${xScale(q3) / svgWidth * 100}%`} y={`${(yAxisCenter + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <span className="text-zinc-400 text-[10px]">{q3}</span>
+            <span className="text-zinc-400 text-2.5">{q3}</span>
           </DiagramLabel>
 
           <DiagramLabel x={`${xScale(q1) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="Q_1" />
@@ -138,14 +138,14 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
           <DiagramLabel x={`${xScale(q3) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="Q_3" />
 
           <DiagramLabel x={`${xScale(lowerFence) / svgWidth * 100}%`} y={`${(yAxisCenter - 35) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <div className="text-[#f43f5e] text-[10px]">Lower Fence</div>
+            <div className="text-rose-500 text-2.5">Lower Fence</div>
           </DiagramLabel>
           <DiagramLabel x={`${xScale(upperFence) / svgWidth * 100}%`} y={`${(yAxisCenter - 35) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <div className="text-[#f43f5e] text-[10px]">Upper Fence</div>
+            <div className="text-rose-500 text-2.5">Upper Fence</div>
           </DiagramLabel>
 
           <DiagramLabel x={`${candidateDotX / svgWidth * 100}%`} y={`${(yAxisCenter - 40) / svgHeight * 100}%`} className="-translate-x-1/2 transition-all duration-300">
-            <div className={cn("text-xs font-bold", isOutlier ? "text-[#f43f5e]" : "text-[#10b981]")}>{candidateValue}</div>
+            <div className={cn("text-xs font-bold", isOutlier ? "text-rose-500" : "text-[#10b981]")}>{candidateValue}</div>
           </DiagramLabel>
         </div>
       </div>

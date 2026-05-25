@@ -23,7 +23,7 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-45/23 max-w-xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
+    <div className="relative w-full aspect-45/23 max-w-xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="100 20 450 230" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         {/* Ground Plane & Roughness */}

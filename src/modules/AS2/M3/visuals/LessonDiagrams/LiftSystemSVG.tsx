@@ -22,7 +22,7 @@ export const LiftSystemSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-60/28 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
+    <div className="relative w-full aspect-60/28 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         <line x1="300" y1="10" x2="300" y2="250" stroke="#1e293b" strokeWidth="1.5" strokeDasharray="4 4" />
@@ -50,10 +50,10 @@ export const LiftSystemSVG: React.FC = () => (
       </svg>
 
       <DiagramLabel x="21.5%" y="5%">
-        <div className="text-center text-zinc-400 text-[11px] font-bold uppercase tracking-wider">Diagram A: Whole System</div>
+        <div className="text-center text-zinc-400 text-2.75 font-bold uppercase tracking-wider">Diagram A: Whole System</div>
       </DiagramLabel>
       <DiagramLabel x="71.5%" y="5%">
-        <div className="text-center text-zinc-400 text-[11px] font-bold uppercase tracking-wider">Diagram B: Isolated Passenger</div>
+        <div className="text-center text-zinc-400 text-2.75 font-bold uppercase tracking-wider">Diagram B: Isolated Passenger</div>
       </DiagramLabel>
 
       <DiagramLabel x="26.5%" y="15%" text="T" />

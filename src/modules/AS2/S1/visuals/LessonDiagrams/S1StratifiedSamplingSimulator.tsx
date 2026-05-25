@@ -56,7 +56,7 @@ const StratumRow: React.FC<StratumRowProps> = ({ name, popSize, sampleSize, tota
           />
         ))}
       </div>
-      <div className="text-xs text-zinc-400 mt-4 text-center bg-[#141416]/50 p-2 rounded border border-zinc-800/60">
+      <div className="text-xs text-zinc-400 mt-4 text-center bg-zinc-925/50 p-2 rounded border border-zinc-800/60">
         <MathText content={`\\text{Sample}_${name} = \\frac{${popSize}}{${totalPop}} \\times ${n} \\approx ${sampleSize}`} />
       </div>
     </div>
@@ -80,7 +80,7 @@ export const S1StratifiedSamplingSimulator: React.FC = () => {
           </p>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Allocation Formula</h4>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content="\text{Sample Size} = \frac{\text{Strata Size}}{\text{Total Pop.}} \times n" />
             </div>
           </div>

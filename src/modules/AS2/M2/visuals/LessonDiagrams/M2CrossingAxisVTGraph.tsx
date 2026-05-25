@@ -52,11 +52,11 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
         <DiagramLabel x="93%" y="51.5%" text="t" />
 
         <DiagramLabel x="26.6%" y="43.3%">
-          <div className="text-[10px] font-bold text-emerald-400">Area A (+)</div>
+          <div className="text-2.5 font-bold text-emerald-400">Area A (+)</div>
         </DiagramLabel>
 
         <DiagramLabel x="57.5%" y="58.3%">
-          <div className="text-[10px] font-bold text-rose-400">Area B (-)</div>
+          <div className="text-2.5 font-bold text-rose-400">Area B (-)</div>
         </DiagramLabel>
 
         <DiagramLabel x="13.3%" y="25%">
@@ -76,9 +76,9 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
 
         <DiagramLabel x="70%" y="16.7%">
           <div className="bg-zinc-900/80 p-3 rounded-lg border border-zinc-800 space-y-2 shadow-xl">
-            <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Displacement:</div>
+            <div className="text-2.5 text-emerald-400 font-bold uppercase tracking-wider">Displacement:</div>
             <div className="text-xs text-zinc-200 font-mono text-center">Area A - Area B</div>
-            <div className="text-[10px] text-amber-400 font-bold uppercase tracking-wider mt-2">Distance:</div>
+            <div className="text-2.5 text-amber-400 font-bold uppercase tracking-wider mt-2">Distance:</div>
             <div className="text-xs text-zinc-200 font-mono text-center">Area A + Area B</div>
           </div>
         </DiagramLabel>

@@ -66,7 +66,7 @@ const AnalysisCard: React.FC<AnalysisCard> = ({ title, body, tone, formula, foot
   const styles = toneStyles[tone];
 
   return (
-    <article className={cn('flex min-h-[190px] flex-col justify-between rounded-xl border p-5 bg-[#141417]/40 shadow-sm', styles.border)}>
+    <article className={cn('flex min-h-47.5 flex-col justify-between rounded-xl border p-5 bg-zinc-925/40 shadow-sm', styles.border)}>
       <div>
         <h4 className={cn('mb-2 text-xs font-black uppercase tracking-wider', styles.text)}>{title}</h4>
         <p className="text-xs font-medium leading-relaxed text-zinc-400">{body}</p>
@@ -94,13 +94,13 @@ export const TowingModelSVG: React.FC = () => {
       }
     >
       {/* Complete Uniform Geometry Enclosure Track */}
-      <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-zinc-800/80 bg-[#141417] p-5 shadow-2xl">
+      <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-925 p-5 shadow-2xl">
         <div className="mb-5 flex flex-col gap-1 border-b border-zinc-800/60 pb-5 text-center select-none">
-          <div className="text-[10px] font-black uppercase tracking-[0.32em] text-zinc-500">System Isolation</div>
+          <div className="text-2.5 font-black uppercase tracking-[0.32em] text-zinc-500">System Isolation</div>
           <div className="text-xl font-bold tracking-tight text-white mt-1">Whole System vs Isolated Body Dynamics</div>
         </div>
 
-        <div className="relative w-full aspect-[80/42] bg-[#0c0c0e]/40 rounded-xl border border-zinc-800/60 overflow-hidden">
+        <div className="relative w-full aspect-80/42 bg-zinc-950/40 rounded-xl border border-zinc-800/60 overflow-hidden">
           <svg
             className="absolute inset-0 h-full w-full z-0"
             viewBox="0 0 800 420"
@@ -131,16 +131,16 @@ export const TowingModelSVG: React.FC = () => {
             <SupportSurface x1={45} y1={300} x2={755} y2={300} stroke="#27272a" strokeWidth={2.5} rough={false} />
 
             {/* Trailing Vehicle Frame Profile (m1) */}
-            <rect x="120" y="220" width="95" height="50" rx="5" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" />
-            <Particle cx={145} cy={284} r={14} fill="#09090b" stroke="#52525b" strokeWidth={2} />
-            <Particle cx={190} cy={284} r={14} fill="#09090b" stroke="#52525b" strokeWidth={2} />
+            <rect x="120" y="220" width="95" height="50" rx="5" className="fill-zinc-850 stroke-zinc-700 stroke-2" />
+            <Particle cx={145} cy={284} r={14} className="fill-zinc-950 stroke-zinc-600 stroke-2" />
+            <Particle cx={190} cy={284} r={14} className="fill-zinc-950 stroke-zinc-600 stroke-2" />
             <line x1="132" y1="270" x2="202" y2="270" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" opacity="0.65" />
 
             {/* Leading Vehicle Frame Profile (m2) */}
-            <rect x="420" y="205" width="150" height="63" rx="9" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" />
-            <path d="M 446 205 L 472 160 H 538 L 566 205 Z" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" strokeLinejoin="round" />
-            <Particle cx={455} cy={284} r={16} fill="#09090b" stroke="#52525b" strokeWidth={2} />
-            <Particle cx={535} cy={284} r={16} fill="#09090b" stroke="#52525b" strokeWidth={2} />
+            <rect x="420" y="205" width="150" height="63" rx="9" className="fill-zinc-850 stroke-zinc-700 stroke-2" />
+            <path d="M 446 205 L 472 160 H 538 L 566 205 Z" className="fill-zinc-850 stroke-zinc-700 stroke-2" strokeLinejoin="round" />
+            <Particle cx={455} cy={284} r={16} className="fill-zinc-950 stroke-zinc-600 stroke-2" />
+            <Particle cx={535} cy={284} r={16} className="fill-zinc-950 stroke-zinc-600 stroke-2" />
             <line x1="436" y1="268" x2="552" y2="268" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" opacity="0.65" />
 
             {/* Coupling Towbar line connector */}
@@ -165,21 +165,21 @@ export const TowingModelSVG: React.FC = () => {
           {/* Absolute Structured Typography Layer Frame */}
           <div className="absolute inset-0 z-10 pointer-events-none select-none text-xs font-semibold text-zinc-400">
             {/* System Header Badges */}
-            <div className="absolute left-[10.5%] top-[23.5%] rounded border border-amber-500/20 bg-[#0c0c0e]/95 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-amber-400 backdrop-blur-xs">
+            <div className="absolute left-[10.5%] top-[23.5%] rounded border border-amber-500/20 bg-zinc-940/95 px-2 py-0.5 text-2.25 font-black uppercase tracking-wider text-amber-400 backdrop-blur-xs">
               Whole System Boundary
             </div>
-            <div className="absolute left-[11.5%] top-[34.8%] rounded border border-emerald-500/20 bg-[#0c0c0e]/95 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-emerald-400 backdrop-blur-xs">
+            <div className="absolute left-[11.5%] top-[34.8%] rounded border border-emerald-500/20 bg-zinc-940/95 px-2 py-0.5 text-2.25 font-black uppercase tracking-wider text-emerald-400 backdrop-blur-xs">
               Isolated Forces
             </div>
 
             {/* FIXED: Balanced and safely grouped mid-span layout metrics callout indicators */}
-            <div className="absolute left-[50%] top-[13%] -translate-x-1/2 rounded-md border border-zinc-800 bg-[#0c0c0e]/95 px-2 py-1 text-zinc-500 text-[9px] font-black uppercase tracking-widest shadow-sm">
+            <div className="absolute left-[50%] top-[13%] -translate-x-1/2 rounded-md border border-zinc-800 bg-zinc-940/95 px-2 py-1 text-zinc-500 text-2.25 font-black uppercase tracking-widest shadow-sm">
               Common acceleration <MathInline content="$a$" />
             </div>
-            <div className="absolute left-[39.7%] top-[66%] -translate-x-1/2 text-[9px] font-black text-blue-400 tracking-wider uppercase">
+            <div className="absolute left-[39.7%] top-[66%] -translate-x-1/2 text-2.25 font-black text-blue-400 tracking-wider uppercase">
               Internal forces cancel
             </div>
-            <div className="absolute left-[50%] top-[81%] -translate-x-1/2 rounded-md border border-zinc-800 bg-[#0c0c0e]/95 px-2 py-1 text-[9px] font-bold text-zinc-500 tracking-wide uppercase shadow-sm">
+            <div className="absolute left-[50%] top-[81%] -translate-x-1/2 rounded-md border border-zinc-800 bg-zinc-940/95 px-2 py-1 text-2.25 font-bold text-zinc-500 tracking-wide uppercase shadow-sm">
               Rigid light towbar
             </div>
 

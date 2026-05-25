@@ -5,7 +5,7 @@ import { M1SIUnitDerivationMermaid } from '@/modules/AS2/M1/visuals/LessonDiagra
 
 const CompareDerivationDiagramsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#1c1c1f] text-zinc-200 p-8 space-y-16 overflow-y-auto">
+    <div className="min-h-screen bg-zinc-850 text-zinc-200 p-8 space-y-16 overflow-y-auto">
       {/* Structural Header Box */}
       <div className="border-b border-zinc-800 pb-4 max-w-5xl mx-auto">
         <h1 className="text-2xl font-bold tracking-wide">Diagram Variant Comparison</h1>

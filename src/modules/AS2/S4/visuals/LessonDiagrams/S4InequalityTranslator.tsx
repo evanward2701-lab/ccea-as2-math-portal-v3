@@ -39,7 +39,7 @@ export const S4InequalityTranslator: React.FC = () => {
           </p>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Calculator-Ready Formula</h4>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={getMath()} />
             </div>
           </div>

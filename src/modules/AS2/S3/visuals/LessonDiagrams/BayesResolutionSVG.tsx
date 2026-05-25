@@ -11,8 +11,8 @@ export const BayesResolutionSVG: React.FC = () => (
         <p className="text-sm text-zinc-400 italic">
           The sample space is divided into mutually exclusive partitions (<MathText content="A_1, A_2, A_3" className="inline"/>).
         </p>
-        <div className="p-4 bg-[#141416] rounded-lg border border-zinc-800">
-          <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-2 text-[10px]">Total Probability Law:</span>
+        <div className="p-4 bg-zinc-925 rounded-lg border border-zinc-800">
+          <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-2 text-2.5">Total Probability Law:</span>
           <div className="font-mono text-zinc-300 text-sm">
             <MathText content="P(B) = P(A_1 \cap B) + P(A_2 \cap B) + P(A_3 \cap B)" />
           </div>
@@ -20,7 +20,7 @@ export const BayesResolutionSVG: React.FC = () => (
         <p className="text-sm text-zinc-400 italic">
           To isolate a conditional reverse path (Bayes' Theorem), compute the path ratio:
         </p>
-        <div className="p-4 bg-[#141416] rounded-lg border border-emerald-900">
+        <div className="p-4 bg-zinc-925 rounded-lg border border-emerald-900">
           <div className="font-mono text-emerald-400 text-base">
             <MathText content="P(A_1 | B) = \frac{P(A_1 \cap B)}{P(B)}" />
           </div>

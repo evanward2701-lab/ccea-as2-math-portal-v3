@@ -19,7 +19,7 @@ export const ScalarVectorSVG: React.FC = () => {
             </p>
             <div className="grid grid-cols-2 gap-3 text-sm">
               {['mass', 'time', 'distance', 'speed'].map((item) => (
-                <div key={item} className="rounded-lg border border-amber-900/40 bg-[#141416] px-3 py-2.5 text-center font-bold tracking-wide uppercase text-amber-300/90 shadow-inner">
+                <div key={item} className="rounded-lg border border-amber-900/40 bg-zinc-925 px-3 py-2.5 text-center font-bold tracking-wide uppercase text-amber-300/90 shadow-inner">
                   {item}
                 </div>
               ))}
@@ -36,7 +36,7 @@ export const ScalarVectorSVG: React.FC = () => {
             </p>
             <div className="grid grid-cols-2 gap-3 text-sm">
               {['displacement', 'velocity', 'acceleration', 'force', 'weight'].map((item) => (
-                <div key={item} className="rounded-lg border border-emerald-900/40 bg-[#141416] px-3 py-2.5 text-center font-bold tracking-wide uppercase text-emerald-300/90 shadow-inner">
+                <div key={item} className="rounded-lg border border-emerald-900/40 bg-zinc-925 px-3 py-2.5 text-center font-bold tracking-wide uppercase text-emerald-300/90 shadow-inner">
                   {item}
                 </div>
               ))}
@@ -51,7 +51,7 @@ export const ScalarVectorSVG: React.FC = () => {
       }
     >
       {/* Complete Uniform Geometry Enclosure Track */}
-      <div className="relative w-full aspect-[80/50] max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141417] shadow-2xl">
+      <div className="relative w-full aspect-80/50 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-2xl">
         
         {/* Unified Scalar-Vector Coordinate Space Graphics */}
         <svg
@@ -76,7 +76,7 @@ export const ScalarVectorSVG: React.FC = () => {
           <rect x="420" y="30" width="340" height="110" rx="12" fill="#1c1c1f" stroke="#27272a" strokeWidth="2" />
 
           {/* ==================== LOWER VECTOR COORDINATE ENGINE FRAME ==================== */}
-          <rect x="40" y="170" width="720" height="220" rx="12" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="1.5" />
+          <rect x="40" y="170" width="720" height="220" rx="12" className="fill-zinc-850 stroke-zinc-700 stroke-[1.5]" />
 
           {/* Coordinate System Unit Grid Axes lines */}
           <line x1="120" y1="210" x2="120" y2="360" stroke="#52525b" strokeWidth="2" markerEnd="url(#v-arrow-zinc)" />
@@ -104,7 +104,7 @@ export const ScalarVectorSVG: React.FC = () => {
           
           {/* --- FIXED: Moved top yellow scalar content block down to top-[9%] to center perfectly --- */}
           <div className="absolute left-[8%] top-[9%] flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-amber-500/30 bg-[#141417] text-xl font-black text-amber-400 shadow-md">
+            <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-amber-500/30 bg-zinc-925 text-xl font-black text-amber-400 shadow-md">
               <MathInline content="$7$" />
             </div>
             <div className="flex flex-col">
@@ -115,7 +115,7 @@ export const ScalarVectorSVG: React.FC = () => {
 
           {/* --- FIXED: Moved top green vector content block down to top-[9%] to match across row line --- */}
           <div className="absolute left-[55%] top-[9%] flex items-center gap-4">
-            <div className="w-[70px] h-[50px] relative shrink-0">
+            <div className="w-17.5 h-12.5 relative shrink-0">
               <svg className="w-full h-full" viewBox="0 0 70 50">
                 <line x1="5" y1="45" x2="60" y2="10" stroke="#10b981" strokeWidth="3.5" markerEnd="url(#v-arrow-emerald)" />
               </svg>
@@ -131,24 +131,24 @@ export const ScalarVectorSVG: React.FC = () => {
           <div className="absolute left-[14.5%] top-[70%] text-sm text-zinc-500 font-bold"><MathInline content="$-\mathbf{j}$" /></div>
 
           {/* Vector component magnitude flags */}
-          <div className="absolute left-[24%] top-[37%] rounded-lg border border-emerald-900/50 bg-[#141416]/95 px-2 py-1 text-xs font-bold text-emerald-400 shadow-sm">
+          <div className="absolute left-[24%] top-[37%] rounded-lg border border-emerald-900/50 bg-zinc-925/95 px-2 py-1 text-xs font-bold text-emerald-400 shadow-sm">
             <MathInline content="$7\mathbf{i}$" />
           </div>
-          <div className="absolute left-[36.5%] top-[56%] rounded-lg border border-rose-900/50 bg-[#141416]/95 px-2 py-1 text-xs font-bold text-rose-400 shadow-sm">
+          <div className="absolute left-[36.5%] top-[56%] rounded-lg border border-rose-900/50 bg-zinc-925/95 px-2 py-1 text-xs font-bold text-rose-400 shadow-sm">
             <MathInline content="$-24\mathbf{j}$" />
           </div>
 
           {/* Vector block centered inside card view limits */}
-          <div className="absolute left-[63%] top-[47%] min-w-[210px] rounded-xl border border-emerald-800 bg-[#141416]/95 px-4 pt-3.5 pb-4 text-center shadow-lg flex flex-col justify-center items-center">
+          <div className="absolute left-[63%] top-[47%] min-w-52.5 rounded-xl border border-emerald-800 bg-zinc-925/95 px-4 pt-3.5 pb-4 text-center shadow-lg flex flex-col justify-center items-center">
             <div className="text-sm font-bold text-emerald-400 leading-none mb-1">
               <MathInline content="$\mathbf{v} = 7\mathbf{i} - 24\mathbf{j}\quad\text{m s}^{-1}$" />
             </div>
-            <div className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wide leading-none mt-1">
+            <div className="text-2.75 font-semibold text-zinc-400 uppercase tracking-wide leading-none mt-1">
               Velocity is a vector
             </div>
           </div>
 
-          <div className="absolute left-[64.5%] top-[69%] text-xs font-medium text-rose-400/90 max-w-[160px] text-center leading-relaxed">
+          <div className="absolute left-[64.5%] top-[69%] text-xs font-medium text-rose-400/90 max-w-40 text-center leading-relaxed">
             Negative component points downward
           </div>
 

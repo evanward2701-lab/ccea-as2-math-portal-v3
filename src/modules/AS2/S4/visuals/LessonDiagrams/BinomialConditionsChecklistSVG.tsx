@@ -7,7 +7,7 @@ export const BinomialConditionsChecklistSVG: React.FC = () => (
     title="Fig 4. Model Validation Requirements"
     analysis={
       <div className="p-4 bg-zinc-950/30 border border-zinc-900/40 rounded-lg text-sm text-zinc-300 text-center">
-        <strong className="block text-zinc-400 not-italic uppercase text-[10px] mb-1">Modelling Notation:</strong>
+        <strong className="block text-zinc-400 not-italic uppercase text-2.5 mb-1">Modelling Notation:</strong>
         If all four conditions are met, the scenario can be modelled by a Binomial Distribution, written as <MathText content="X \sim B(n, p)" className="inline [&_p]:inline [&_p]:m-0" />.
       </div>
     }

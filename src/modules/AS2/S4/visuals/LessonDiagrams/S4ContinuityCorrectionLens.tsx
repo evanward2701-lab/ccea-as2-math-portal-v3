@@ -114,7 +114,7 @@ export const S4ContinuityCorrectionLens: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${boundaryX / svgWidth * 100}%`} y={`${(baseY + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <div className="text-[#f43f5e] text-xs font-bold">{correction.boundary}</div>
+            <div className="text-rose-500 text-xs font-bold">{correction.boundary}</div>
           </DiagramLabel>
         </div>
       </div>

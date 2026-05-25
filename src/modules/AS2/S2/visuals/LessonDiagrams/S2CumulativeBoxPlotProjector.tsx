@@ -49,7 +49,7 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="relative w-full aspect-[56/44] max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+        <div className="relative w-full aspect-[56/44] max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-850 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
           <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
             {/* Grid */}
             <path d={`M ${padding} ${cfMinY} V ${cfBaseY} H ${svgWidth - padding}`} stroke="#3f3f46" strokeWidth="2" />
@@ -80,7 +80,7 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
           </DiagramLabel>
 
           <DiagramLabel x={`${padding / svgWidth * 100}%`} y={`${cfYScale(n) / svgHeight * 100}%`} anchor="end" offsetX="-8px">
-            <span className="text-zinc-400 text-[10px] font-mono">{n}</span>
+            <span className="text-zinc-400 text-2.5 font-mono">{n}</span>
           </DiagramLabel>
 
           <DiagramLabel x={`${(svgWidth - padding) / svgWidth * 100}%`} y={`${(boxPlotYCenter + 15) / svgHeight * 100}%`} anchor="center">
@@ -88,13 +88,13 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
           </DiagramLabel>
 
           <DiagramLabel x={`${q1X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="Q_1" className="text-zinc-500 text-[10px] font-bold" />
+            <MathInline content="Q_1" className="text-zinc-500 text-2.5 font-bold" />
           </DiagramLabel>
           <DiagramLabel x={`${q2X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="\text{Med}" className="text-zinc-500 text-[10px] font-bold" />
+            <MathInline content="\text{Med}" className="text-zinc-500 text-2.5 font-bold" />
           </DiagramLabel>
           <DiagramLabel x={`${q3X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="Q_3" className="text-zinc-500 text-[10px] font-bold" />
+            <MathInline content="Q_3" className="text-zinc-500 text-2.5 font-bold" />
           </DiagramLabel>
         </div>
       </div>

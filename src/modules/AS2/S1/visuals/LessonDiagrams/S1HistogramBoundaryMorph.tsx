@@ -26,7 +26,7 @@ export const S1HistogramBoundaryMorph: React.FC = () => {
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Class Width</h4>
             <p className="text-sm text-zinc-300 leading-relaxed mb-2">For continuous data, the class width is the difference between the upper and lower boundaries.</p>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content="\text{Width} = \text{Upper Boundary} - \text{Lower Boundary}" />
             </div>
           </div>

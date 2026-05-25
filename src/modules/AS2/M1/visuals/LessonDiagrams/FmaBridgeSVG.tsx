@@ -20,8 +20,8 @@ export const FmaBridgeSVG: React.FC = () => (
       </div>
     }
   >
-    {/* Viewport Width Expansion & Contrast Tuning: bg-[#1c1c1f] canvas + clean shadow */}
-    <div className="relative w-full aspect-16/9 max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+    {/* Viewport Width Expansion & Contrast Tuning: bg-zinc-850 canvas + clean shadow */}
+    <div className="relative w-full aspect-video max-w-5xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-850 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Newton's Second Law bridge diagram with massive negative space">
         
@@ -64,7 +64,7 @@ export const FmaBridgeSVG: React.FC = () => (
       <DiagramLabel x="18.75%" y="35%">
         <div className="flex flex-col items-center gap-1">
           <span className="font-serif italic text-zinc-300 text-sm">External Forces</span>
-          <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-medium">Input</span>
+          <span className="text-2.5 text-zinc-500 uppercase tracking-widest font-medium">Input</span>
         </div>
       </DiagramLabel>
 
@@ -84,14 +84,14 @@ export const FmaBridgeSVG: React.FC = () => (
           <div className="p-5 bg-zinc-900/80 rounded-xl border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
             <MathText content="F = ma" className="text-2xl text-zinc-100 font-medium" />
           </div>
-          <span className="mt-4 text-[9px] text-zinc-500 uppercase tracking-[0.3em] font-semibold">Newton's Bridge</span>
+          <span className="mt-4 text-2.25 text-zinc-500 uppercase tracking-[0.3em] font-semibold">Newton's Bridge</span>
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="81.25%" y="35%">
         <div className="flex flex-col items-center gap-1">
           <span className="font-serif italic text-zinc-300 text-sm">Kinematic Response</span>
-          <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-medium">Output</span>
+          <span className="text-2.5 text-zinc-500 uppercase tracking-widest font-medium">Output</span>
         </div>
       </DiagramLabel>
 
@@ -103,7 +103,7 @@ export const FmaBridgeSVG: React.FC = () => (
       </DiagramLabel>
 
       <DiagramLabel x="50%" y="15%">
-        <div className="text-[10px] text-zinc-500 uppercase tracking-[0.4em] font-medium opacity-80">Mathematical Translation Layer</div>
+        <div className="text-2.5 text-zinc-500 uppercase tracking-[0.4em] font-medium opacity-80">Mathematical Translation Layer</div>
       </DiagramLabel>
     </div>
   </DiagramPanel>

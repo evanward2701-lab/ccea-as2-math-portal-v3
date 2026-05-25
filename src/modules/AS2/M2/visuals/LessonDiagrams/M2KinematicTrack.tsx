@@ -69,7 +69,7 @@ export const M2KinematicTrack: React.FC = () => {
 
         <DiagramLabel x="5%" y="60%" text="O" />
         <DiagramLabel x="90%" y="60%">
-          <p className="text-zinc-400 text-[10px] w-16">Positive Direction</p>
+          <p className="text-zinc-400 text-2.5 w-16">Positive Direction</p>
         </DiagramLabel>
       </div>
     </DiagramPanel>

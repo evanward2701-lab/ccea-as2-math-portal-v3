@@ -145,7 +145,7 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
           <line x1="42" y1="44" x2="178" y2="44" stroke={accent} strokeWidth="1.8" strokeLinecap="round" />
           <circle cx="110" cy="44" r="15" fill="#141417" stroke="#3f3f46" strokeWidth="1.5" />
         </svg>
-        <DiagramLabel x="50%" y="50%" text="0\text{ kg}" className="text-[9px] font-black tracking-wide text-zinc-500" />
+        <DiagramLabel x="50%" y="50%" text="0\text{ kg}" className="text-2.25 font-black tracking-wide text-zinc-500" />
       </div>
     );
   }
@@ -185,15 +185,15 @@ const AssumptionCard: React.FC<Assumption> = ({ word, meaning, effect, tone, ico
   return (
     <article
       className={cn(
-        'flex min-h-[300px] flex-col justify-between rounded-xl border p-5 shadow-sm',
+        'flex min-h-75 flex-col justify-between rounded-xl border p-5 shadow-sm',
         icon === 'rigid' && 'md:col-span-2 lg:col-span-3 lg:mx-auto lg:w-full lg:max-w-md',
         styles.border,
         styles.bg,
       )}
     >
       <div>
-        <div className={cn('mb-3.5 text-[11px] font-bold uppercase tracking-[0.18em]', styles.title)}>{word}</div>
-        <div className="mb-4 flex h-20 items-center justify-center overflow-hidden rounded-xl border border-zinc-900 bg-[#0c0c0e] shadow-inner">
+        <div className={cn('mb-3.5 text-2.75 font-bold uppercase tracking-[0.18em]', styles.title)}>{word}</div>
+        <div className="mb-4 flex h-20 items-center justify-center overflow-hidden rounded-xl border border-zinc-900 bg-zinc-940 shadow-inner">
           <AssumptionIcon icon={icon} accent={styles.accent} />
         </div>
         <div className="space-y-2 text-xs leading-relaxed text-zinc-400">
@@ -208,7 +208,7 @@ const AssumptionCard: React.FC<Assumption> = ({ word, meaning, effect, tone, ico
         </div>
       </div>
       {formula && (
-        <div className={cn('mt-4 rounded-lg border border-zinc-900 bg-[#0c0c0e] py-2 text-center text-xs font-bold shadow-inner', styles.title)}>
+        <div className={cn('mt-4 rounded-lg border border-zinc-900 bg-zinc-940 py-2 text-center text-xs font-bold shadow-inner', styles.title)}>
           <MathInline content={formula} />
         </div>
       )}
@@ -227,8 +227,8 @@ export const M1ModellingSummaryTable: React.FC = () => (
     }
   >
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-[#141417] p-6 text-center shadow-xl">
-        <div className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">Exam Strategy Index</div>
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-925 p-6 text-center shadow-xl">
+        <div className="text-2.5 font-black uppercase tracking-[0.35em] text-zinc-500">Exam Strategy Index</div>
         <div className="mt-1 text-xl font-bold tracking-tight text-zinc-100">
           Translating Modelling Words to Mathematical Effects
         </div>

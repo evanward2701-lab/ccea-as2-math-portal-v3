@@ -56,10 +56,10 @@ export const M1SIUnitDerivationMermaid: React.FC = () => (
           <span className="font-medium text-zinc-400">Base units:</span> kg, m, s
         </div>
         <div className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4 text-center text-sm text-zinc-300">
-          <span className="font-medium text-amber-400">Derived units:</span> m s<sup className="text-[10px] opacity-75">-1</sup>, m s<sup className="text-[10px] opacity-75">-2</sup>
+          <span className="font-medium text-amber-400">Derived units:</span> m s<sup className="text-2.5 opacity-75">-1</sup>, m s<sup className="text-2.5 opacity-75">-2</sup>
         </div>
         <div className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4 text-center text-sm text-zinc-300">
-          <span className="font-medium text-emerald-400">Force units:</span> N = kg m s<sup className="text-[10px] opacity-75">-2</sup>
+          <span className="font-medium text-emerald-400">Force units:</span> N = kg m s<sup className="text-2.5 opacity-75">-2</sup>
         </div>
       </div>
     }

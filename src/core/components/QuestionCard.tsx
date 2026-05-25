@@ -177,7 +177,7 @@ const MarkSchemeScaffold: React.FC<{ rows: Row[] }> = ({ rows }) => {
               <div className="w-full flex justify-end mt-1">
                 <div className="flex gap-2 flex-wrap justify-end">
                   {row.marks.map((m, mIdx) => (
-                    <span key={mIdx} className="font-mono font-bold text-zinc-400 bg-zinc-800/60 border border-zinc-700/40 px-2.5 py-0.5 rounded-full text-[9px] tracking-widest uppercase italic shadow-xs">{m}</span>
+                    <span key={mIdx} className="font-mono font-bold text-zinc-400 bg-zinc-800/60 border border-zinc-700/40 px-2.5 py-0.5 rounded-full text-2.25 tracking-widest uppercase italic shadow-xs">{m}</span>
                   ))}
                 </div>
               </div>
@@ -257,14 +257,14 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     <div className={cn("mb-6 p-6 md:p-8 bg-zinc-800/60 border border-zinc-700/50 rounded-[2rem] shadow-xl animate-in fade-in slide-in-from-bottom-6 duration-1000", index !== undefined && `delay-[${index * 150}ms]`)}>
       <div className="flex items-center justify-between mb-6 opacity-60">
         <div className="flex items-center gap-3">
-          {showModuleBadge && <span className="text-[9px] font-mono font-bold bg-zinc-800 border border-zinc-700 text-zinc-500 px-2 py-0.5 rounded uppercase tracking-[0.1em]">{question.moduleId}</span>}
-          <h3 className="text-[9px] font-mono font-bold text-zinc-500 uppercase tracking-[0.4em]">Ref <span className="text-zinc-600 font-normal">#{question.id}</span></h3>
+          {showModuleBadge && <span className="text-2.25 font-mono font-bold bg-zinc-800 border border-zinc-700 text-zinc-500 px-2 py-0.5 rounded uppercase tracking-widest">{question.moduleId}</span>}
+          <h3 className="text-2.25 font-mono font-bold text-zinc-500 uppercase tracking-[0.4em]">Ref <span className="text-zinc-600 font-normal">#{question.id}</span></h3>
         </div>
-        <div className="text-[9px] font-mono font-bold text-zinc-500 uppercase tracking-[0.3em] bg-zinc-900/40 px-3 py-1 rounded-full border border-zinc-800/40">{question.marks} Marks</div>
+        <div className="text-2.25 font-mono font-bold text-zinc-500 uppercase tracking-[0.3em] bg-zinc-900/40 px-3 py-1 rounded-full border border-zinc-800/40">{question.marks} Marks</div>
       </div>
 
       {question.visualId && !question.questionMarkdown.includes('[VISUAL') && (
-        <div className="mb-8 p-6 bg-[#141416] rounded-2xl border border-zinc-800 flex justify-center items-center overflow-hidden shadow-inner group transition-all duration-1000">
+        <div className="mb-8 p-6 bg-zinc-925 rounded-2xl border border-zinc-800 flex justify-center items-center overflow-hidden shadow-inner group transition-all duration-1000">
           <VisualRenderer visualId={question.visualId} />
         </div>
       )}
@@ -274,7 +274,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
         {questionParts.map((part, i) => (
           <div key={i} className="flex gap-4 mb-4 last:mb-0 group animate-in fade-in slide-in-from-left-4 duration-700">
             <div className="pt-1 shrink-0">
-              <span className="font-mono font-bold text-zinc-600 text-[10px] uppercase tracking-[0.1em] bg-zinc-800/30 px-2 py-0.5 rounded border border-zinc-700/30 block group-hover:text-zinc-300 transition-colors">{part.displayLabel}</span>
+              <span className="font-mono font-bold text-zinc-600 text-2.5 uppercase tracking-widest bg-zinc-800/30 px-2 py-0.5 rounded border border-zinc-700/30 block group-hover:text-zinc-300 transition-colors">{part.displayLabel}</span>
             </div>
             <div className="flex-1 whitespace-pre-wrap antialiased"><MathText content={part.content} /></div>
           </div>
@@ -284,7 +284,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       <div className="mt-6 space-y-2 border-t border-zinc-800/40 pt-6">
         {solutionDropdowns.map((dropdown, i) => (
           <details key={i} className="group border border-zinc-800/30 rounded-xl bg-[#252529] hover:bg-[#2a2a2e] transition-all duration-500 overflow-hidden">
-            <summary className="cursor-pointer px-6 py-3 font-bold text-[9px] text-zinc-500 hover:text-zinc-200 uppercase tracking-[0.3em] flex items-center justify-between transition-colors list-none select-none">
+            <summary className="cursor-pointer px-6 py-3 font-bold text-2.25 text-zinc-500 hover:text-zinc-200 uppercase tracking-[0.3em] flex items-center justify-between transition-colors list-none select-none">
               <div className="flex items-center gap-4">
                 <div className="w-1 h-1 rounded-full bg-zinc-700 group-open:bg-zinc-100 group-open:shadow-[0_0_10px_rgba(255,255,255,0.4)] transition-all duration-500" />
                 <span>View Solution {dropdown.label ? `Part ${dropdown.label}` : ''}</span>
@@ -294,7 +294,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
               {dropdown.rows.length > 0 ? (
                 <MarkSchemeScaffold rows={dropdown.rows} />
               ) : (
-                <div className="p-2 text-zinc-500 text-[10px] italic text-center">Solution protocol unavailable.</div>
+                <div className="p-2 text-zinc-500 text-2.5 italic text-center">Solution protocol unavailable.</div>
               )}
             </div>
           </details>

@@ -18,17 +18,17 @@ export const PulleySystemSVG: React.FC = () => (
         <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
           <h4 className="font-bold text-emerald-400 mb-2 text-sm">Smooth Pulley</h4>
           <p className="text-sm text-zinc-300 leading-relaxed mb-2">Tension is equal on both sides of the string.</p>
-          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">T is equal on both sides</div>
+          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">T is equal on both sides</div>
         </div>
         <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
           <h4 className="font-bold text-amber-400 mb-2 text-sm">Inextensible String</h4>
           <p className="text-sm text-zinc-300 leading-relaxed mb-2">Both connected masses share the same acceleration magnitude.</p>
-          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">a is common to both masses</div>
+          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">a is common to both masses</div>
         </div>
       </div>
     }
   >
-    <div className="relative w-full aspect-30/35 max-w-sm mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
+    <div className="relative w-full aspect-30/35 max-w-sm mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="80 20 300 330" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         {/* Ceiling & Pulley */}

@@ -37,7 +37,7 @@ function AppLayout() {
             {activeQualification} Mathematics
           </span>
           <div className="h-4 w-px bg-zinc-700"></div>
-          <span className="text-[10px] uppercase tracking-widest font-semibold text-zinc-400">
+          <span className="text-2.5 uppercase tracking-widest font-semibold text-zinc-400">
             CCEA Specification / Revision Portal
           </span>
         </div>
@@ -45,7 +45,7 @@ function AppLayout() {
 
       <div className="flex-1 flex overflow-hidden">
         {/* Main Sidebar Layout */}
-        <aside className="w-64 border-r border-zinc-800 flex flex-col bg-[#1c1c1f] shrink-0 shadow-xl z-20 h-full overflow-y-auto">
+        <aside className="w-64 border-r border-zinc-800 flex flex-col bg-zinc-850 shrink-0 shadow-xl z-20 h-full overflow-y-auto">
           <nav className="flex-1 px-4 py-8 space-y-2">
             {mainLinks.map((link) => {
               const Icon = link.icon;
@@ -56,7 +56,7 @@ function AppLayout() {
                 return (
                   <details key={link.path} className="group" open={isActive}>
                     <summary className={cn(
-                      "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200 cursor-pointer list-none",
+                      "flex items-center gap-3 px-4 py-3 rounded-lg text-2.75 uppercase tracking-widest font-bold border transition-all duration-200 cursor-pointer list-none",
                       isActive 
                         ? "bg-zinc-800 text-zinc-400 border-zinc-700 shadow-md" 
                         : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
@@ -66,7 +66,7 @@ function AppLayout() {
                     </summary>
                     <div className="pl-5 pt-2 space-y-1 border-l-2 border-zinc-800 ml-6">
                       {currentLessons.length === 0 ? (
-                         <div className="px-4 py-2 text-[10px] text-zinc-500 italic">No modules available</div>
+                         <div className="px-4 py-2 text-2.5 text-zinc-500 italic">No modules available</div>
                       ) : (
                         currentLessons.map(lesson => {
                           const lessonIsActive = location.pathname === `/lessons/${lesson.id}`;
@@ -82,7 +82,7 @@ function AppLayout() {
                               )}
                             >
                               <span className={cn(
-                                "w-8 text-center px-1.5 py-0.5 rounded text-[9px] font-bold",
+                                "w-8 text-center px-1.5 py-0.5 rounded text-2.25 font-bold",
                                 lessonIsActive ? "bg-zinc-950 text-zinc-200" : "bg-zinc-800 text-zinc-400"
                               )}>
                                 {getModuleCode(lesson.id)}
@@ -102,7 +102,7 @@ function AppLayout() {
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-3 rounded-lg text-[11px] uppercase tracking-widest font-bold border transition-all duration-200",
+                    "flex items-center gap-3 px-4 py-3 rounded-lg text-2.75 uppercase tracking-widest font-bold border transition-all duration-200",
                     isActive 
                       ? "bg-zinc-800 text-zinc-400 border-zinc-700 shadow-md" 
                       : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
@@ -116,12 +116,12 @@ function AppLayout() {
           </nav>
 
           {/* User / Session Footer Area */}
-          <div className="p-4 border-t border-zinc-800 bg-[#141416]/50">
+          <div className="p-4 border-t border-zinc-800 bg-zinc-925/50">
             <div className="p-4 bg-background border border-zinc-800 rounded-lg flex flex-col items-center justify-center gap-2 shadow-inner">
-              <span className="text-[9px] uppercase tracking-widest font-mono text-zinc-400 font-bold">
+              <span className="text-2.25 uppercase tracking-widest font-mono text-zinc-400 font-bold">
                 System Active
               </span>
-              <span className="text-[10px] text-zinc-500 font-medium text-center">
+              <span className="text-2.5 text-zinc-500 font-medium text-center">
                 {activeQualification} Modules Loaded
               </span>
             </div>

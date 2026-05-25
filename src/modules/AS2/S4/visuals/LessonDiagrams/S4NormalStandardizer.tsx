@@ -55,7 +55,7 @@ export const S4NormalStandardizer: React.FC = () => {
           </p>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Standardization Formula</h4>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={`z = \\frac{x - \\mu}{\\sigma} = \\frac{${xVal} - ${mu}}{${sigma}} = ${zScore.toFixed(2)}`} />
             </div>
           </div>
@@ -121,19 +121,19 @@ export const S4NormalStandardizer: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${(svgWidth - padding.right + 10) / svgWidth * 100}%`} y={`${yScale(0) / svgHeight * 100}%`}>
-            <span className="text-[#94a3b8] text-xs font-bold">X</span>
+            <span className="text-slate-400 text-xs font-bold">X</span>
           </DiagramLabel>
           <DiagramLabel x={`${(svgWidth - padding.right + 10) / svgWidth * 100}%`} y={`${(yScale(0) + 20) / svgHeight * 100}%`}>
-            <span className="text-[#94a3b8] text-xs font-bold">Z</span>
+            <span className="text-slate-400 text-xs font-bold">Z</span>
           </DiagramLabel>
 
           {[-3, -2, -1, 0, 1, 2, 3].map(z => (
             <React.Fragment key={z}>
               <DiagramLabel x={`${xScaleZ(z) / svgWidth * 100}%`} y={`${(yScale(0) + 35) / svgHeight * 100}%`} className="-translate-x-1/2">
-                <span className="text-zinc-400 text-[10px]">{z}</span>
+                <span className="text-zinc-400 text-2.5">{z}</span>
               </DiagramLabel>
               <DiagramLabel x={`${xScaleZ(z) / svgWidth * 100}%`} y={`${(yScale(0) - 25) / svgHeight * 100}%`} className="-translate-x-1/2">
-                <span className="text-zinc-400 text-[10px]">{Math.round(mu + z * sigma)}</span>
+                <span className="text-zinc-400 text-2.5">{Math.round(mu + z * sigma)}</span>
               </DiagramLabel>
             </React.Fragment>
           ))}

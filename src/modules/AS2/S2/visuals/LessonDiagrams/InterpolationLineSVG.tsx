@@ -19,7 +19,7 @@ export const InterpolationLineSVG: React.FC = () => (
           <p className="text-sm text-zinc-300 leading-relaxed mb-3">
             Move 5 out of the total 12 cumulative-frequency gap.
           </p>
-          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
             <MathText content="\frac{10 - 5}{17 - 5} = \frac{5}{12}" />
           </div>
         </div>
@@ -28,7 +28,7 @@ export const InterpolationLineSVG: React.FC = () => (
           <p className="text-sm text-zinc-300 leading-relaxed mb-3">
             Apply the same fraction across the class width from 10 to 20.
           </p>
-          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
             <MathText content="Q_2 = 10 + \frac{5}{12}(20 - 10)" />
           </div>
         </div>
@@ -61,7 +61,7 @@ export const InterpolationLineSVG: React.FC = () => (
         </svg>
 
         <DiagramLabel x="0%" y="20%">
-          <div className="text-right text-[10px] text-zinc-400 font-sans pr-2 font-medium leading-tight">Cumulative<br/>Frequency</div>
+          <div className="text-right text-2.5 text-zinc-400 font-sans pr-2 font-medium leading-tight">Cumulative<br/>Frequency</div>
         </DiagramLabel>
 
         <DiagramLabel x="15.4%" y="5%" text="5" />
@@ -69,14 +69,14 @@ export const InterpolationLineSVG: React.FC = () => (
         <DiagramLabel x="80.8%" y="5%" text="17" />
 
         <DiagramLabel x="26.9%" y="29%">
-          <div className="text-center text-[10px] text-zinc-400">gap = 5</div>
+          <div className="text-center text-2.5 text-zinc-400">gap = 5</div>
         </DiagramLabel>
         <DiagramLabel x="46.2%" y="39%">
-          <div className="text-center text-[10px] text-zinc-400">total = 12</div>
+          <div className="text-center text-2.5 text-zinc-400">total = 12</div>
         </DiagramLabel>
 
         <DiagramLabel x="0%" y="60%">
-          <div className="text-right text-[10px] text-zinc-400 font-sans pr-2 font-medium leading-tight">Class<br/>Boundary</div>
+          <div className="text-right text-2.5 text-zinc-400 font-sans pr-2 font-medium leading-tight">Class<br/>Boundary</div>
         </DiagramLabel>
 
         <DiagramLabel x="15.4%" y="67.5%" text="10" />
@@ -85,7 +85,7 @@ export const InterpolationLineSVG: React.FC = () => (
       </div>
       
       <div className="w-full max-w-md">
-        <div className="p-3 bg-[#141416] border border-zinc-800 rounded-lg text-center">
+        <div className="p-3 bg-zinc-925 border border-zinc-800 rounded-lg text-center">
           <h5 className="text-xs text-zinc-400 uppercase font-bold tracking-wider mb-2">Interpolation Ratio</h5>
           <div className="text-emerald-400 font-mono text-lg">
             <MathText content="\frac{Q_2 - 10}{20 - 10} = \frac{10 - 5}{17 - 5}" />

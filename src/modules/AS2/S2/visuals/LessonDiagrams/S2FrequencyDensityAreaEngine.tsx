@@ -39,13 +39,13 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider text-center">Standard Formula</h4>
-              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
                 <MathText content="\text{FD} = \frac{\text{Frequency}}{\text{Class Width}}" noMargin />
               </div>
             </div>
             <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
               <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider text-center">Area Interpretation</h4>
-              <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
                 <MathText content="\text{Frequency} = \text{FD} \times \text{Class Width}" noMargin />
               </div>
             </div>
@@ -54,7 +54,7 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="relative w-full aspect-56/32 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#1c1c1f] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+        <div className="relative w-full aspect-56/32 max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-850 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
           <svg viewBox={`0 0 ${width} ${height}`} className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
             <line x1={padding} y1={baseY} x2={width - padding / 2} y2={baseY} stroke="#3f3f46" strokeWidth="2" />
             <line x1={padding} y1={baseY} x2={padding} y2={padding} stroke="#3f3f46" strokeWidth="2" />
@@ -98,7 +98,7 @@ export const S2FrequencyDensityAreaEngine: React.FC = () => {
           </DiagramLabel>
 
           <DiagramLabel x={`${(padding + mergedData.limitL * scaleX + 5) / width * 100}%`} y={`${(baseY - mergedData.density * scaleY + 10) / height * 100}%`} anchor="start">
-            <div className="flex flex-col gap-1 p-2 bg-[#141416]/80 rounded border border-emerald-500/30 backdrop-blur-sm shadow-md">
+            <div className="flex flex-col gap-1 p-2 bg-zinc-925/80 rounded border border-emerald-500/30 backdrop-blur-sm shadow-md">
               <MathInline content={`F = ${mergedData.freq}`} className="text-emerald-400 text-xs font-bold" />
               <MathInline content={`FD = ${mergedData.density}`} className="text-emerald-400 text-xs" />
             </div>

@@ -33,19 +33,19 @@ export const M3InclinedPlaneResolver: React.FC = () => {
         <div className="space-y-4">
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Parallel Component</h4>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={`mg \\sin\\theta = ${parallel.toFixed(1)}\\text{ N}`} />
             </div>
           </div>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Perpendicular Component</h4>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={`mg \\cos\\theta = ${perpendicular.toFixed(1)}\\text{ N}`} />
             </div>
           </div>
            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Normal Reaction</h4>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={`R = mg \\cos\\theta = ${perpendicular.toFixed(1)}\\text{ N}`} />
             </div>
             <p className="text-xs text-zinc-500 italic mt-2 text-center">Assuming no other perpendicular forces.</p>

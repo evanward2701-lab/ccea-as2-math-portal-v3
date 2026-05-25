@@ -20,7 +20,7 @@ export const VennMutExSVG: React.FC = () => (
           If events are mutually exclusive, the subtraction component of the General Addition Law (<MathText content="- P(A \cap B)" className="inline [&_p]:inline [&_p]:m-0" />) becomes zero.
         </div>
         <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300">
-          <strong className="block text-rose-400 not-italic uppercase text-[10px] mb-1">CCEA Exam Pitfall:</strong>
+          <strong className="block text-rose-400 not-italic uppercase text-2.5 mb-1">CCEA Exam Pitfall:</strong>
           Never assume <MathText content="P(A \cup B) = P(A) + P(B)" className="inline [&_p]:inline [&_p]:m-0" /> unless the events are explicitly stated to be mutually exclusive.
         </div>
       </div>

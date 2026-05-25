@@ -30,7 +30,7 @@ export const M1KinematicNotationPanel: React.FC = () => {
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="relative w-full aspect-76/19 max-w-4xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner mb-5">
+        <div className="relative w-full aspect-76/19 max-w-4xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner mb-5">
           <SVGLibrary />
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 190" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Kinematic position axis showing origin initial position final position and displacement">
             {/* Axis */}
@@ -81,7 +81,7 @@ export const M1KinematicNotationPanel: React.FC = () => {
           </DiagramLabel>
 
           <DiagramLabel x="56.6%" y="17.4%">
-            <div className="rounded border border-emerald-900/60 bg-[#141416] px-3 py-2 text-center text-sm font-bold text-emerald-300">
+            <div className="rounded border border-emerald-900/60 bg-zinc-925 px-3 py-2 text-center text-sm font-bold text-emerald-300">
               <MathText content="s = x - x_0" className="[&_p]:m-0" />
             </div>
           </DiagramLabel>
@@ -98,7 +98,7 @@ export const M1KinematicNotationPanel: React.FC = () => {
             <div key={item.symbol} className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg text-center flex flex-col items-center justify-center min-h-33">
               <div className={`text-3xl font-mono font-bold ${item.color}`}><MathText content={item.symbol} /></div>
               <div className="text-xs text-zinc-400 uppercase tracking-wider mt-2">{item.name}</div>
-              <div className="mt-2 rounded border border-zinc-800 bg-[#141416] px-2 py-1 text-xs font-semibold text-zinc-300">
+              <div className="mt-2 rounded border border-zinc-800 bg-zinc-925 px-2 py-1 text-xs font-semibold text-zinc-300">
                 <MathText content={item.unit} className="[&_p]:m-0" />
               </div>
             </div>

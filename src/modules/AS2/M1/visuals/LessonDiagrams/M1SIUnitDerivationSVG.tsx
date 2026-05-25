@@ -36,7 +36,7 @@ export const M1SIUnitDerivationSVG: React.FC = () => {
       <div className="w-full max-w-5xl mx-auto flex flex-col gap-6">
         
         {/* Main Graph Card Enclosure */}
-        <div className="relative w-full aspect-[80/50] bg-[#141417] border border-zinc-800/60 rounded-xl overflow-hidden p-6 shadow-2xl">
+        <div className="relative w-full aspect-80/50 bg-zinc-925 border border-zinc-800/60 rounded-xl overflow-hidden p-6 shadow-2xl">
           <SVGLibrary />
           {/* Pure Geometric SVG Vector Track */}
           <svg
@@ -81,12 +81,12 @@ export const M1SIUnitDerivationSVG: React.FC = () => {
           {/* Absolute Structured Typography Layer */}
             
           {/* Row Header Banners */}
-          <DiagramLabel x="6.5%" y="5%" anchor="start" className="text-zinc-500 font-bold uppercase tracking-[0.2em] text-[10px]" text="$\text{Base SI Units}$" />
+          <DiagramLabel x="6.5%" y="5%" anchor="start" className="text-zinc-500 font-bold uppercase tracking-[0.2em] text-2.5" text="$\text{Base SI Units}$" />
           
           {/* ADJUSTED: "Derived Motion Units" positioned between cards and vertically lower */}
-          <DiagramLabel x="50%" y="53%" className="text-amber-500/90 font-bold uppercase tracking-[0.2em] text-[10px]" text="$\text{Derived Motion Units}$" />
+          <DiagramLabel x="50%" y="53%" className="text-amber-500/90 font-bold uppercase tracking-[0.2em] text-2.5" text="$\text{Derived Motion Units}$" />
           
-          <DiagramLabel x="12.5%" y="68%" anchor="start" className="text-emerald-400 font-bold uppercase tracking-[0.2em] text-[10px]" text="$\text{Force Units}$" />
+          <DiagramLabel x="12.5%" y="68%" anchor="start" className="text-emerald-400 font-bold uppercase tracking-[0.2em] text-2.5" text="$\text{Force Units}$" />
 
           {/* --- ROW 1 INLINE LABELS --- */}
           <DiagramLabel x="17.5%" y="14%">
@@ -112,14 +112,14 @@ export const M1SIUnitDerivationSVG: React.FC = () => {
           <DiagramLabel x="28.5%" y="45%">
             <div className="flex flex-col items-center">
               <span className="text-amber-400 text-xs font-bold uppercase tracking-wider mb-0.5"><MathInline content="$\text{Velocity}$" /></span>
-              <span className="text-zinc-400 text-[11px] mb-1.5"><MathInline content="$\text{displacement} \div \text{time}$" /></span>
+              <span className="text-zinc-400 text-2.75 mb-1.5"><MathInline content="$\text{displacement} \div \text{time}$" /></span>
               <span className="text-xl font-extrabold text-white"><MathInline content="$\text{m s}^{-1}$" /></span>
             </div>
           </DiagramLabel>
           <DiagramLabel x="71.5%" y="45%">
             <div className="flex flex-col items-center">
               <span className="text-amber-400 text-xs font-bold uppercase tracking-wider mb-0.5"><MathInline content="$\text{Acceleration}$" /></span>
-              <span className="text-zinc-400 text-[11px] mb-1.5"><MathInline content="$\text{change in velocity} \div \text{time}$" /></span>
+              <span className="text-zinc-400 text-2.75 mb-1.5"><MathInline content="$\text{change in velocity} \div \text{time}$" /></span>
               <span className="text-xl font-extrabold text-white"><MathInline content="$\text{m s}^{-2}$" /></span>
             </div>
           </DiagramLabel>
@@ -136,31 +136,31 @@ export const M1SIUnitDerivationSVG: React.FC = () => {
             <div className="flex flex-col items-center">
               <span className="text-emerald-400 text-xs font-bold uppercase tracking-wider mb-0.5"><MathInline content="$\text{Weight}$" /></span>
               <span className="text-white text-base font-bold mb-1"><MathInline content="$W = mg$" /></span>
-              <span className="text-zinc-500 text-[11px] font-medium italic"><MathInline content="$\text{measured in Newtons (N)}$" /></span>
+              <span className="text-zinc-500 text-2.75 font-medium italic"><MathInline content="$\text{measured in Newtons (N)}$" /></span>
             </div>
           </DiagramLabel>
 
           {/* --- ARROW OPERATION LABELS --- */}
-          <DiagramLabel x="47.5%" y="34%" className="text-zinc-500 font-semibold text-xs bg-[#141417]/90 px-1.5 py-0.5 rounded backdrop-blur-xs" text="$\text{Length} \div \text{Time}$" />
+          <DiagramLabel x="47.5%" y="34%" className="text-zinc-500 font-semibold text-xs bg-zinc-925/90 px-1.5 py-0.5 rounded backdrop-blur-xs" text="$\text{Length} \div \text{Time}$" />
         </div>
 
         {/* ==================== FOOTER WARNING FOOTNOTES ==================== */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2 w-full">
-          <div className="flex flex-col items-center justify-start rounded-xl border border-zinc-800/80 bg-[#141416]/40 p-4 shadow-md backdrop-blur-sm min-h-[100px]">
+          <div className="flex flex-col items-center justify-start rounded-xl border border-zinc-800/80 bg-zinc-925/40 p-4 shadow-md backdrop-blur-sm min-h-25">
             <span className="text-rose-400 font-bold mb-1 text-xs select-none">Mass Scaling:</span>
-            <div className="w-full text-zinc-400 text-xs text-center leading-relaxed whitespace-normal break-words text-balance px-1">
+            <div className="w-full text-zinc-400 text-xs text-center leading-relaxed whitespace-normal wrap-break-word text-balance px-1">
               Convert tonnes to kg before utilizing equations.
             </div>
           </div>
-          <div className="flex flex-col items-center justify-start rounded-xl border border-zinc-800/80 bg-[#141416]/40 p-4 shadow-md backdrop-blur-sm min-h-[100px]">
+          <div className="flex flex-col items-center justify-start rounded-xl border border-zinc-800/80 bg-zinc-925/40 p-4 shadow-md backdrop-blur-sm min-h-25">
             <span className="text-amber-400 font-bold mb-1 text-xs select-none">Dimension Trap:</span>
-            <div className="w-full text-zinc-400 text-xs text-center leading-relaxed whitespace-normal break-words text-balance px-1">
+            <div className="w-full text-zinc-400 text-xs text-center leading-relaxed whitespace-normal wrap-break-word text-balance px-1">
               kg evaluates mass units; Newtons compute active forces.
             </div>
           </div>
-          <div className="flex flex-col items-center justify-start rounded-xl border border-zinc-800/80 bg-[#141416]/40 p-4 shadow-md backdrop-blur-sm min-h-[100px]">
+          <div className="flex flex-col items-center justify-start rounded-xl border border-zinc-800/80 bg-zinc-925/40 p-4 shadow-md backdrop-blur-sm min-h-25">
             <span className="text-emerald-400 font-bold mb-1 text-xs select-none">Unit Context:</span>
-            <div className="w-full text-zinc-400 text-xs text-center leading-relaxed whitespace-normal break-words text-balance px-1 font-sans">
+            <div className="w-full text-zinc-400 text-xs text-center leading-relaxed whitespace-normal wrap-break-word text-balance px-1 font-sans">
               <MathInline content="$\text{m s}^{-2}$" /> tracks structural acceleration, never static velocity.
             </div>
           </div>

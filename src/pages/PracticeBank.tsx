@@ -59,7 +59,7 @@ export function PracticeBank() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <label className="block text-[10px] uppercase font-mono tracking-wider font-bold text-zinc-400 mb-2">Module Topic</label>
+            <label className="block text-2.5 uppercase font-mono tracking-wider font-bold text-zinc-400 mb-2">Module Topic</label>
             <select 
               value={searchParams.get("module") || "All"} 
               onChange={(e) => updateFilter("module", e.target.value)}
@@ -73,7 +73,7 @@ export function PracticeBank() {
           </div>
 
           <div>
-            <label className="block text-[10px] uppercase font-mono tracking-wider font-bold text-zinc-400 mb-2">Syllabus Type</label>
+            <label className="block text-2.5 uppercase font-mono tracking-wider font-bold text-zinc-400 mb-2">Syllabus Type</label>
             <select 
               value={selectedType} 
               onChange={(e) => updateFilter("type", e.target.value)}
@@ -92,7 +92,7 @@ export function PracticeBank() {
           </div>
 
           <div>
-            <label className="block text-[10px] uppercase font-mono tracking-wider font-bold text-zinc-400 mb-2">Mark Allocation</label>
+            <label className="block text-2.5 uppercase font-mono tracking-wider font-bold text-zinc-400 mb-2">Mark Allocation</label>
             <div className="flex flex-col gap-1.5 mt-1">
               {["All", "1-3", "4-6", "7+"].map((tier) => (
                 <button

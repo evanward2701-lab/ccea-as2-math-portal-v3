@@ -3,8 +3,8 @@ import { MathText } from '@/core/components/MathText';
 import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
 
 export const StratifiedProportionVisual: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-10 mb-12 border border-zinc-800 bg-[#141416] relative shadow-inner rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-zinc-900 text-zinc-400 border-l border-b border-zinc-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+  <div className="w-full flex flex-col items-center py-10 mb-12 border border-zinc-800 bg-zinc-925 relative shadow-inner rounded-xl overflow-hidden">
+    <div className="absolute top-0 right-0 bg-zinc-900 text-zinc-400 border-l border-b border-zinc-800 px-3 py-1 text-2.5 uppercase tracking-widest font-bold">
       Fig 3. Stratified Sample Allocation
     </div>
 
@@ -35,46 +35,46 @@ export const StratifiedProportionVisual: React.FC = () => (
 
       <DiagramLabel x="21.1%" y="48%">
         <div className="text-center w-24">
-          <div className="text-[#f8fafc] text-[10px] font-bold">Total Population</div>
-          <div className="text-[#a1a1aa] text-[9px] font-mono">N = 300</div>
+          <div className="text-[#f8fafc] text-2.5 font-bold">Total Population</div>
+          <div className="text-[#a1a1aa] text-2.25 font-mono">N = 300</div>
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="59.6%" y="22%">
         <div className="text-center w-20">
-          <div className="text-[#94a3b8] text-[9px] font-bold">Yr 12 Strata</div>
-          <div className="text-[#34d399] text-[9px] font-mono">Pop: 120</div>
+          <div className="text-slate-400 text-2.25 font-bold">Yr 12 Strata</div>
+          <div className="text-[#34d399] text-2.25 font-mono">Pop: 120</div>
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="59.6%" y="52%">
         <div className="text-center w-20">
-          <div className="text-[#94a3b8] text-[9px] font-bold">Yr 13 Strata</div>
-          <div className="text-[#f59e0b] text-[9px] font-mono">Pop: 100</div>
+          <div className="text-slate-400 text-2.25 font-bold">Yr 13 Strata</div>
+          <div className="text-[#f59e0b] text-2.25 font-mono">Pop: 100</div>
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="59.6%" y="82%">
         <div className="text-center w-20">
-          <div className="text-[#94a3b8] text-[9px] font-bold">Yr 14 Strata</div>
-          <div className="text-[#c084fc] text-[9px] font-mono">Pop: 80</div>
+          <div className="text-slate-400 text-2.25 font-bold">Yr 14 Strata</div>
+          <div className="text-[#c084fc] text-2.25 font-mono">Pop: 80</div>
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="94.2%" y="48%">
         <div className="text-center w-24">
-          <div className="text-[#f8fafc] text-[10px] font-bold">Target Sample</div>
-          <div className="text-[#f43f5e] text-[9px] font-mono">n = 60</div>
+          <div className="text-[#f8fafc] text-2.5 font-bold">Target Sample</div>
+          <div className="text-rose-500 text-2.25 font-mono">n = 60</div>
         </div>
       </DiagramLabel>
     </div>
 
     <div className="w-full px-8 border-t border-zinc-800/60 pt-6 bg-zinc-900/40 text-[12px]">
-      <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-3 text-[10px]">Mathematical Allocation Pipeline:</span>
+      <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-3 text-2.5">Mathematical Allocation Pipeline:</span>
       <p className="text-zinc-300 leading-relaxed mb-4 italic">
         To maintain proportional representation, we calculate: <span className="text-emerald-400 font-bold not-italic font-mono bg-zinc-900 px-1 py-0.5 rounded border border-zinc-700">(Strata Size ÷ Total Population) × Sample Size</span>
       </p>
-      <div className="bg-[#141416] p-4 rounded-lg border border-zinc-800 font-mono space-y-4 text-zinc-300">
+      <div className="bg-zinc-925 p-4 rounded-lg border border-zinc-800 font-mono space-y-4 text-zinc-300">
         <div className="flex items-center gap-4">
           <span className="w-24 text-zinc-400">Yr 12 Sample:</span> 
           <MathText content="\frac{120}{300} \times 60 = 24" className="text-emerald-400" />
@@ -88,7 +88,7 @@ export const StratifiedProportionVisual: React.FC = () => (
           <MathText content="\frac{80}{300} \times 60 = 16" className="text-purple-400" />
         </div>
       </div>
-      <p className="text-[10px] text-zinc-500 font-mono mt-3 text-right">
+      <p className="text-2.5 text-zinc-500 font-mono mt-3 text-right">
         Verification Check: 24 + 20 + 16 = 60
       </p>
     </div>

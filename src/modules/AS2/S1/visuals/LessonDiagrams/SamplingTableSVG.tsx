@@ -1,15 +1,15 @@
 import React from 'react';
 
 export const SamplingTableSVG: React.FC = () => (
-  <div className="w-full flex flex-col items-center py-10 mb-12 border border-zinc-800 bg-[#141416] relative shadow-inner rounded-xl overflow-hidden">
-    <div className="absolute top-0 right-0 bg-zinc-900 text-zinc-400 border-l border-b border-zinc-800 px-3 py-1 text-[10px] uppercase tracking-widest font-bold">
+  <div className="w-full flex flex-col items-center py-10 mb-12 border border-zinc-800 bg-zinc-925 relative shadow-inner rounded-xl overflow-hidden">
+    <div className="absolute top-0 right-0 bg-zinc-900 text-zinc-400 border-l border-b border-zinc-800 px-3 py-1 text-2.5 uppercase tracking-widest font-bold">
       Fig 2. S1 Sampling Methodologies
     </div>
     
     <div className="w-full px-6 mt-6 overflow-x-auto">
-      <table className="w-full border-collapse font-sans bg-[#141416] text-zinc-300">
+      <table className="w-full border-collapse font-sans bg-zinc-925 text-zinc-300">
         <thead>
-          <tr className="bg-zinc-900 text-zinc-400 uppercase tracking-wider text-[10px] font-mono border-b-2 border-zinc-700">
+          <tr className="bg-zinc-900 text-zinc-400 uppercase tracking-wider text-2.5 font-mono border-b-2 border-zinc-700">
             <th className="p-4 text-left font-bold w-1/3 min-w-25">Method</th>
             <th className="p-4 text-left font-bold w-1/3 min-w-37.5">Advantage</th>
             <th className="p-4 text-left font-bold w-1/3 min-w-37.5">Disadvantage</th>

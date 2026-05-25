@@ -16,7 +16,7 @@ export const ScalarVectorSVG: React.FC = () => (
           <p className="mb-3 text-sm text-zinc-300">Magnitude only.</p>
           <div className="grid grid-cols-2 gap-2 text-sm text-zinc-300">
             {['mass', 'time', 'distance', 'speed'].map((item) => (
-              <div key={item} className="rounded border border-amber-900/50 bg-[#141416] px-3 py-2 text-center font-semibold text-amber-200">
+              <div key={item} className="rounded border border-amber-900/50 bg-zinc-925 px-3 py-2 text-center font-semibold text-amber-200">
                 {item}
               </div>
             ))}
@@ -27,7 +27,7 @@ export const ScalarVectorSVG: React.FC = () => (
           <p className="mb-3 text-sm text-zinc-300">Magnitude and direction.</p>
           <div className="grid grid-cols-2 gap-2 text-sm text-zinc-300">
             {['displacement', 'velocity', 'acceleration', 'force', 'weight'].map((item) => (
-              <div key={item} className="rounded border border-emerald-900/50 bg-[#141416] px-3 py-2 text-center font-semibold text-emerald-200">
+              <div key={item} className="rounded border border-emerald-900/50 bg-zinc-925 px-3 py-2 text-center font-semibold text-emerald-200">
                 {item}
               </div>
             ))}
@@ -39,7 +39,7 @@ export const ScalarVectorSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-76/39 max-w-4xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-[#141416] shadow-inner">
+    <div className="relative w-full aspect-76/39 max-w-4xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 760 390" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Scalar and vector classification with velocity vector magnitude calculation">
         {/* Classification panels */}
@@ -66,7 +66,7 @@ export const ScalarVectorSVG: React.FC = () => (
 
       <DiagramLabel x="25.4%" y="22.8%">
         <div className="flex items-center gap-4 w-69.5">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded border border-amber-900/60 bg-[#141416] text-2xl font-black text-amber-300">7</div>
+          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded border border-amber-900/60 bg-zinc-925 text-2xl font-black text-amber-300">7</div>
           <div className="text-left">
             <div className="text-base font-bold text-amber-300">Scalar: magnitude only</div>
             <div className="mt-1 text-sm leading-snug text-zinc-300">A number with units, but no direction.</div>
@@ -90,19 +90,19 @@ export const ScalarVectorSVG: React.FC = () => (
       </DiagramLabel>
 
       <DiagramLabel x="35%" y="47.7%">
-        <div className="rounded border border-emerald-900/60 bg-[#141416]/90 px-2 py-1 text-center text-sm font-bold text-emerald-300">
+        <div className="rounded border border-emerald-900/60 bg-zinc-925/90 px-2 py-1 text-center text-sm font-bold text-emerald-300">
           <MathText content="7\mathbf{i}" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="35%" y="67.2%">
-        <div className="rounded border border-rose-900/60 bg-[#141416]/90 px-2 py-1 text-center text-sm font-bold text-rose-300">
+        <div className="rounded border border-rose-900/60 bg-zinc-925/90 px-2 py-1 text-center text-sm font-bold text-rose-300">
           <MathText content="-24\mathbf{j}" className="[&_p]:m-0" />
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="59.3%" y="55.1%">
-        <div className="rounded border border-emerald-900/60 bg-[#141416]/90 px-3 py-2 text-sm font-bold text-emerald-300 text-center">
+        <div className="rounded border border-emerald-900/60 bg-zinc-925/90 px-3 py-2 text-sm font-bold text-emerald-300 text-center">
           <MathText content="\mathbf{v} = 7\mathbf{i} - 24\mathbf{j}\ \text{m s}^{-1}" className="[&_p]:m-0" />
           <div className="mt-1 text-xs font-semibold text-zinc-300">velocity is a vector</div>
         </div>

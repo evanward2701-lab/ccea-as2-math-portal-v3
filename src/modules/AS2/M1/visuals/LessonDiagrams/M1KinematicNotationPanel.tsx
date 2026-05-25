@@ -28,12 +28,12 @@ const toneClasses: Record<NotationTone, string> = {
 };
 
 const NotationCard: React.FC<NotationCard> = ({ symbol, label, unit, tone }) => (
-  <div className="flex h-[148px] flex-col items-center justify-between rounded-xl border border-zinc-800/80 bg-[#141417]/45 p-4 text-center shadow-sm">
+  <div className="flex h-37 flex-col items-center justify-between rounded-xl border border-zinc-800/80 bg-zinc-925/45 p-4 text-center shadow-sm">
     <div className="flex flex-col items-center">
       <div className={cn('text-2xl font-black leading-none', toneClasses[tone])}>
         <MathInline content={symbol} />
       </div>
-      <div className="mt-4 text-[10px] font-black uppercase tracking-[0.22em] text-zinc-500">
+      <div className="mt-4 text-2.5 font-black uppercase tracking-[0.22em] text-zinc-500">
         {label}
       </div>
     </div>
@@ -66,7 +66,7 @@ export const M1KinematicNotationPanel: React.FC = () => {
       }
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
-        <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-800/80 bg-[#141417] shadow-2xl aspect-[80/36] min-h-[260px]">
+        <div className="relative w-full overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-925 shadow-2xl aspect-80/36 min-h-65">
           <svg
             viewBox="0 0 800 360"
             className="absolute inset-0 h-full w-full"
@@ -109,7 +109,7 @@ export const M1KinematicNotationPanel: React.FC = () => {
           </svg>
 
           <div className="absolute inset-0 z-10 pointer-events-none select-none">
-            <div className="absolute left-[74.5%] top-[14%] -translate-x-1/2 text-[10px] font-black uppercase tracking-[0.25em] text-amber-400">
+            <div className="absolute left-[74.5%] top-[14%] -translate-x-1/2 text-2.5 font-black uppercase tracking-[0.25em] text-amber-400">
               Positive Direction
             </div>
 
@@ -121,21 +121,21 @@ export const M1KinematicNotationPanel: React.FC = () => {
               <div className="text-lg font-black text-white">
                 O
               </div>
-              <div className="mt-1 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Origin</div>
+              <div className="mt-1 text-2.5 font-black uppercase tracking-[0.2em] text-zinc-500">Origin</div>
             </div>
 
             <div className="absolute left-[45%] top-[69%] -translate-x-1/2 text-center">
               <div className="text-lg font-black text-zinc-100">
                 <MathInline content="$x_0$" />
               </div>
-              <div className="mt-1 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Initial Position</div>
+              <div className="mt-1 text-2.5 font-black uppercase tracking-[0.2em] text-zinc-500">Initial Position</div>
             </div>
 
             <div className="absolute left-[75%] top-[69%] -translate-x-1/2 text-center">
               <div className="text-lg font-black text-zinc-100">
                 <MathInline content="$x$" />
               </div>
-              <div className="mt-1 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Final Position</div>
+              <div className="mt-1 text-2.5 font-black uppercase tracking-[0.2em] text-zinc-500">Final Position</div>
             </div>
           </div>
         </div>

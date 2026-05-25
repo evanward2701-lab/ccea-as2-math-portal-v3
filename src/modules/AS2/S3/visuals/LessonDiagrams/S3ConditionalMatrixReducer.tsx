@@ -80,7 +80,7 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
           </p>
           <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
             <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Conditional Probability</h4>
-            <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
               {getConditionalFormula() || <MathText content="P(A|B) = \frac{P(A \cap B)}{P(B)}" />}
             </div>
           </div>
@@ -115,7 +115,7 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
         <div className="w-full overflow-x-auto max-w-lg">
           <table className="w-full border-collapse border border-zinc-800 text-sm font-sans bg-zinc-900 text-zinc-300 text-center">
             <thead>
-              <tr className="bg-[#141416] text-zinc-400 border-b border-zinc-800">
+              <tr className="bg-zinc-925 text-zinc-400 border-b border-zinc-800">
                 <th className="p-3 border-r border-zinc-800"></th>
                 <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400">Art</th>
                 <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400">Technology</th>
@@ -124,18 +124,18 @@ export const S3ConditionalMatrixReducer: React.FC = () => {
             </thead>
             <tbody>
               <tr className="border-b border-zinc-800/60">
-                <th className="p-3 border-r border-zinc-800 font-bold bg-[#141416] text-zinc-400 text-left pl-4">Male</th>
+                <th className="p-3 border-r border-zinc-800 font-bold bg-zinc-925 text-zinc-400 text-left pl-4">Male</th>
                 {renderCell(tableData.male.art, 'male', 'art')}
                 {renderCell(tableData.male.tech, 'male', 'tech')}
                 {renderCell(tableData.male.total, 'male', 'total', true)}
               </tr>
               <tr className="border-b border-zinc-800">
-                <th className="p-3 border-r border-zinc-800 font-bold bg-[#141416] text-zinc-400 text-left pl-4">Female</th>
+                <th className="p-3 border-r border-zinc-800 font-bold bg-zinc-925 text-zinc-400 text-left pl-4">Female</th>
                 {renderCell(tableData.female.art, 'female', 'art')}
                 {renderCell(tableData.female.tech, 'female', 'tech')}
                 {renderCell(tableData.female.total, 'female', 'total', true)}
               </tr>
-              <tr className="bg-[#141416]/60">
+              <tr className="bg-zinc-925/60">
                 <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400 text-left pl-4">Total</th>
                 {renderCell(tableData.total.art, 'total', 'art', true)}
                 {renderCell(tableData.total.tech, 'total', 'tech', true)}

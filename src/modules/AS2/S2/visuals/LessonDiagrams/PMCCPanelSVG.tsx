@@ -17,7 +17,7 @@ export const PMCCPanelSVG: React.FC = () => (
           <p className="text-sm text-rose-300 leading-relaxed mb-3 text-center">
             Always verify your result is between -1 and 1.
           </p>
-          <div className="text-center bg-[#141416] p-2 rounded border border-zinc-800/60">
+          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
             <MathText content="r = 1.2" />
           </div>
           <p className="text-xs text-rose-300/80 italic mt-3 text-center">
@@ -39,20 +39,20 @@ export const PMCCPanelSVG: React.FC = () => (
         <h5 className="text-xs text-zinc-400 uppercase font-bold tracking-wider mb-3 text-center">Summary Statistics Needed</h5>
         <div className="grid grid-cols-4 sm:grid-cols-7 gap-2 text-center font-mono text-sm">
           {['r', 'n', '\\sum x', '\\sum y', '\\sum x^2', '\\sum y^2', '\\sum xy'].map(stat => (
-            <div key={stat} className="bg-[#141416] p-2 rounded border border-zinc-800/60">
+            <div key={stat} className="bg-zinc-925 p-2 rounded border border-zinc-800/60">
               <MathText content={stat} />
             </div>
           ))}
         </div>
       </div>
       <div className="w-full space-y-4 text-lg text-zinc-300 font-mono">
-        <div className="flex justify-center items-center bg-[#141416] p-3 rounded border border-zinc-800/60 shadow-sm">
+        <div className="flex justify-center items-center bg-zinc-925 p-3 rounded border border-zinc-800/60 shadow-sm">
           <MathText content="S_{xx} = \sum x^2 - \frac{(\sum x)^2}{n}" />
         </div>
-        <div className="flex justify-center items-center bg-[#141416] p-3 rounded border border-zinc-800/60 shadow-sm">
+        <div className="flex justify-center items-center bg-zinc-925 p-3 rounded border border-zinc-800/60 shadow-sm">
           <MathText content="S_{yy} = \sum y^2 - \frac{(\sum y)^2}{n}" />
         </div>
-        <div className="flex justify-center items-center bg-[#141416] p-3 rounded border border-zinc-800/60 shadow-sm">
+        <div className="flex justify-center items-center bg-zinc-925 p-3 rounded border border-zinc-800/60 shadow-sm">
           <MathText content="S_{xy} = \sum xy - \frac{\sum x \sum y}{n}" />
         </div>
       </div>
