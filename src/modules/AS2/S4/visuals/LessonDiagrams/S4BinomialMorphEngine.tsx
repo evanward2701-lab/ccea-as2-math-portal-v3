@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
 
 const factorial = (n: number): number => (n <= 1 ? 1 : n * factorial(n - 1));
 const choose = (n: number, k: number): number => (k < 0 || k > n) ? 0 : factorial(n) / (factorial(k) * factorial(n - k));

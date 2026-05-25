@@ -2,6 +2,7 @@ import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
+import { Particle } from '@/core/diagram-engine/PhysicsPrimitives';
 
 type NotationTone = 'emerald' | 'amber' | 'zinc';
 
@@ -100,9 +101,9 @@ export const M1KinematicNotationPanel: React.FC = () => {
             <line x1="160" y1="168" x2="160" y2="228" stroke="#71717a" strokeWidth="2" opacity="0.82" />
             <line x1="360" y1="168" x2="360" y2="228" stroke="#52525b" strokeWidth="2" opacity="0.88" />
             <line x1="600" y1="168" x2="600" y2="228" stroke="#52525b" strokeWidth="2" opacity="0.88" />
-            <circle cx="160" cy="198" r="6" fill="#0f0f12" stroke="#e4e4e7" strokeWidth="2.6" />
-            <circle cx="360" cy="198" r="5.5" fill="#71717a" />
-            <circle cx="600" cy="198" r="5.5" fill="#71717a" />
+            <Particle cx={160} cy={198} r={6} fill="#0f0f12" stroke="#e4e4e7" strokeWidth={2.6} />
+            <Particle cx={360} cy={198} r={5.5} fill="#71717a" />
+            <Particle cx={600} cy={198} r={5.5} fill="#71717a" />
 
             <rect x="421" y="105" width="132" height="38" rx="8" fill="#09090b" stroke="#27272a" strokeWidth="1.5" />
           </svg>

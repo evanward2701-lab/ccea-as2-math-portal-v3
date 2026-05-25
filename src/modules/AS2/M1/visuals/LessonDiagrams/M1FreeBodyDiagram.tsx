@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
+import { SupportSurface } from '@/core/diagram-engine/PhysicsPrimitives';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { ObjectBlock } from '@/core/diagram-engine/ObjectBlock';
+import { VectorArrow } from '@/core/diagram-engine/VectorArrow';
 
 type Force = 'weight' | 'reaction' | 'friction' | 'tension' | 'applied';
 type FreeBodyScenario = 'smooth' | 'rough' | 'string' | 'applied';
@@ -188,79 +192,66 @@ export const M1FreeBodyDiagram: React.FC = () => {
                   </marker>
                 </defs>
 
-                <text x="72" y="78" fill="#8b8794" className="text-[13px] font-black uppercase tracking-[0.28em]" style={{ fontFamily: 'serif' }}>
-                  block on table
-                </text>
-                <text x="72" y="100" fill="#8b8794" className="text-[13px] font-black uppercase tracking-[0.28em]" style={{ fontFamily: 'serif' }}>
-                  external forces only
-                </text>
+                <SupportSurface x1={90} y1={320} x2={710} y2={320} stroke="#52525b" strokeWidth={3} rough={scenario === 'rough'} className={cn('transition-all duration-300')} />
 
-                <line x1="90" y1="320" x2="710" y2="320" stroke="#52525b" strokeWidth="3" strokeLinecap="round" />
-                <g className={cn('transition-opacity duration-300', scenario === 'rough' ? 'opacity-80' : 'opacity-0')}>
-                  {Array.from({ length: 22 }).map((_, index) => (
-                    <line key={index} x1={105 + index * 27} y1="334" x2={118 + index * 27} y2="320" stroke="#3f3f46" strokeWidth="1.4" />
-                  ))}
-                </g>
-
-                <rect x="310" y="190" width="180" height="130" rx="9" fill="#1c1c1f" stroke="#52525b" strokeWidth="2.4" />
-                <text x="400" y="256" fill="#71717a" textAnchor="middle" dominantBaseline="middle" className="text-[11px] font-black uppercase tracking-widest" style={{ fontFamily: 'sans-serif' }}>
-                  object
-                </text>
+                <ObjectBlock x={310} y={190} width={180} height={130} />
 
                 <g className={cn('transition-opacity duration-300', showMotionGuide ? 'opacity-45' : 'opacity-0')}>
-                  <line x1="210" y1="48" x2="610" y2="48" stroke="#a1a1aa" strokeWidth="1.6" strokeDasharray="7 7" markerEnd="url(#fbd-arrow-zinc)" />
-                  <text x="410" y="32" fill="#a1a1aa" textAnchor="middle" dominantBaseline="middle" className="text-[10px] font-bold uppercase tracking-widest" style={{ fontFamily: 'sans-serif' }}>
-                    intended motion
-                  </text>
+                  <VectorArrow x1={210} y1={48} x2={610} y2={48} type="applied" dashed marker="default" />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.reaction ? 'opacity-100' : 'opacity-0')}>
-                  <line x1="400" y1="190" x2="400" y2="70" stroke="#34d399" strokeWidth="4" markerEnd="url(#fbd-arrow-emerald)" />
-                  <text x="426" y="90" fill="#34d399" textAnchor="start" dominantBaseline="middle" className="text-[26px] font-black" style={{ fontFamily: 'serif' }}>
-                    R
-                  </text>
-                  <text x="452" y="90" fill="#a7f3d0" textAnchor="start" dominantBaseline="middle" className="text-[12px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
-                    perpendicular
-                  </text>
+                  <VectorArrow x1={400} y1={190} x2={400} y2={70} type="reaction" />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.weight ? 'opacity-100' : 'opacity-0')}>
-                  <line x1="400" y1="320" x2="400" y2="430" stroke="#fb7185" strokeWidth="4" markerEnd="url(#fbd-arrow-rose)" />
-                  <text x="424" y="405" fill="#fb7185" textAnchor="start" dominantBaseline="middle" className="text-[22px] font-black" style={{ fontFamily: 'serif' }}>
-                    W = mg
-                  </text>
+                  <VectorArrow x1={400} y1={320} x2={400} y2={430} type="weight" />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.friction ? 'opacity-100' : 'opacity-0')}>
-                  <line x1="310" y1="320" x2="150" y2="320" stroke="#fbbf24" strokeWidth="4" markerEnd="url(#fbd-arrow-amber)" />
-                  <text x="188" y="296" fill="#fbbf24" textAnchor="middle" dominantBaseline="middle" className="text-[24px] font-black" style={{ fontFamily: 'serif' }}>
-                    F
-                  </text>
-                  <text x="220" y="342" fill="#fcd34d" textAnchor="middle" dominantBaseline="middle" className="text-[11px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
-                    opposes motion
-                  </text>
+                  <VectorArrow x1={310} y1={320} x2={150} y2={320} type="friction" />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.tension ? 'opacity-100' : 'opacity-0')}>
-                  <line x1="490" y1="255" x2="670" y2="255" stroke="#60a5fa" strokeWidth="4" markerEnd="url(#fbd-arrow-blue)" />
-                  <text x="635" y="230" fill="#60a5fa" textAnchor="middle" dominantBaseline="middle" className="text-[24px] font-black" style={{ fontFamily: 'serif' }}>
-                    T
-                  </text>
-                  <text x="635" y="282" fill="#93c5fd" textAnchor="middle" dominantBaseline="middle" className="text-[11px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
-                    string pulls
-                  </text>
+                  <VectorArrow x1={490} y1={255} x2={670} y2={255} type="tension" />
                 </g>
 
                 <g className={cn('transition-opacity duration-300', forces.applied ? 'opacity-100' : 'opacity-0')}>
-                  <line x1="490" y1="190" x2="650" y2="90" stroke="#e4e4e7" strokeWidth="4" markerEnd="url(#fbd-arrow-zinc)" />
-                  <text x="655" y="84" fill="#e4e4e7" textAnchor="start" dominantBaseline="middle" className="text-[24px] font-black" style={{ fontFamily: 'serif' }}>
-                    P
-                  </text>
-                  <text x="616" y="124" fill="#d4d4d8" textAnchor="start" dominantBaseline="middle" className="text-[11px] font-semibold" style={{ fontFamily: 'sans-serif' }}>
-                    direct push/pull
-                  </text>
+                  <VectorArrow x1={490} y1={190} x2={650} y2={90} type="applied" />
                 </g>
               </svg>
+
+              <DiagramLabel x={72} y={78} anchor="start" className="text-[13px] font-black uppercase tracking-[0.28em] font-serif text-[#8b8794]">block on table</DiagramLabel>
+              <DiagramLabel x={72} y={100} anchor="start" className="text-[13px] font-black uppercase tracking-[0.28em] font-serif text-[#8b8794]">external forces only</DiagramLabel>
+              <DiagramLabel x="50%" y={256} className="text-[11px] font-black uppercase tracking-widest font-sans text-zinc-500">object</DiagramLabel>
+
+              <div className={cn('transition-opacity duration-300', showMotionGuide ? 'opacity-100' : 'opacity-0')}>
+                <DiagramLabel x="51.25%" y={32} className="text-[10px] font-bold uppercase tracking-widest font-sans text-zinc-400">intended motion</DiagramLabel>
+              </div>
+
+              <div className={cn('transition-opacity duration-300', forces.reaction ? 'opacity-100' : 'opacity-0')}>
+                <DiagramLabel x={426} y={90} anchor="start" className="text-[26px] font-black font-serif text-emerald-400">R</DiagramLabel>
+                <DiagramLabel x={452} y={90} anchor="start" className="text-[12px] font-semibold font-sans text-emerald-200">perpendicular</DiagramLabel>
+              </div>
+
+              <div className={cn('transition-opacity duration-300', forces.weight ? 'opacity-100' : 'opacity-0')}>
+                <DiagramLabel x={424} y={405} anchor="start" className="text-[22px] font-black font-serif text-rose-400">W = mg</DiagramLabel>
+              </div>
+
+              <div className={cn('transition-opacity duration-300', forces.friction ? 'opacity-100' : 'opacity-0')}>
+                <DiagramLabel x={188} y={296} className="text-[24px] font-black font-serif text-amber-400">F</DiagramLabel>
+                <DiagramLabel x={220} y={342} className="text-[11px] font-semibold font-sans text-amber-300">opposes motion</DiagramLabel>
+              </div>
+
+              <div className={cn('transition-opacity duration-300', forces.tension ? 'opacity-100' : 'opacity-0')}>
+                <DiagramLabel x={635} y={230} className="text-[24px] font-black font-serif text-blue-400">T</DiagramLabel>
+                <DiagramLabel x={635} y={282} className="text-[11px] font-semibold font-sans text-blue-300">string pulls</DiagramLabel>
+              </div>
+
+              <div className={cn('transition-opacity duration-300', forces.applied ? 'opacity-100' : 'opacity-0')}>
+                <DiagramLabel x={655} y={84} anchor="start" className="text-[24px] font-black font-serif text-zinc-200">P</DiagramLabel>
+                <DiagramLabel x={616} y={124} anchor="start" className="text-[11px] font-semibold font-sans text-zinc-300">direct push/pull</DiagramLabel>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">

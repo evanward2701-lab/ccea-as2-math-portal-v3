@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MathText, MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
 
 export const S3DynamicVennSpaceEngine: React.FC = () => {
   const [separation, setSeparation] = useState(45);

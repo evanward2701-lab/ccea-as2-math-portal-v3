@@ -11,7 +11,6 @@ src/components
 src/components/MermaidDiagram.tsx
 src/components/diagrams
 src/components/diagrams/mermaid.config.ts
-src/components/diagrams/primitives
 src/components/LessonVisual.tsx
 src/components/MathText.tsx
 src/components/Visuals
@@ -276,10 +275,10 @@ export const VectorArrow: React.FC<VectorArrowProps> = ({
 import React, { useState } from 'react';
 import { MathText } from '../../MathText';
 import { DiagramPanel } from '../../DiagramPanel';
-import { SVGLibrary } from '../../diagrams/primitives/SVGLibrary';
-import { ObjectBlock } from '../../diagrams/primitives/ObjectBlock';
-import { VectorArrow } from '../../diagrams/primitives/VectorArrow';
-import { DiagramLabel } from '../../diagrams/primitives/DiagramLabel';
+import { SVGLibrary } from '../../diagrams/SVGLibrary';
+import { ObjectBlock } from '../../diagrams/ObjectBlock';
+import { VectorArrow } from '../../diagrams/VectorArrow';
+import { DiagramLabel } from '../../diagrams/DiagramLabel';
 import { themeColors } from '../../../types/mechanicsTheme';
 
 // ==========================================

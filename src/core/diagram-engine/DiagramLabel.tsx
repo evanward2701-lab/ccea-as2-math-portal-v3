@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '@/core/utils/cn';
-import { MathInline } from '@/core/components/MathText';
+import { MathText } from '@/core/components/MathText';
 
 export interface DiagramLabelProps {
   /** X coordinate as a percentage (0-100) */
@@ -60,7 +60,7 @@ export const DiagramLabel: React.FC<DiagramLabelProps> = ({
         transform: `translate(calc(${offsetX}), calc(${offsetY})) ${anchorTransform}`,
       }}
     >
-      {text ? <MathInline content={text} /> : children}
+      {text ? <MathText content={text} /> : children}
     </div>
   );
 };

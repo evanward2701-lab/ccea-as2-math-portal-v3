@@ -1,10 +1,11 @@
 import React from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
-import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
-import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { SVGLibrary } from '@/core/diagram-engine/SVGLibrary';
+import { ObjectBlock } from '@/core/diagram-engine/ObjectBlock';
+import { VectorArrow } from '@/core/diagram-engine/VectorArrow';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { Particle } from '@/core/diagram-engine/PhysicsPrimitives';
 import { themeColors } from '@/core/types/mechanicsTheme';
 
 export const FmaBridgeSVG: React.FC = () => (
@@ -30,7 +31,7 @@ export const FmaBridgeSVG: React.FC = () => (
         {/* Phase 1: Input (Forces) */}
         <g transform="translate(150, 225) scale(0.8)">
           <ObjectBlock x={-25} y={-18} width={50} height={36} isParticle />
-          <circle cx="0" cy="0" r="2" fill={themeColors.connector} />
+          <Particle cx={0} cy={0} r={2} fill={themeColors.connector} />
           
           {/* Force Vectors */}
           <VectorArrow x1={25} y1={0} x2={75} y2={0} type="applied" />
@@ -47,9 +48,9 @@ export const FmaBridgeSVG: React.FC = () => (
         {/* Phase 3: Output (Motion) */}
         <g transform="translate(650, 225) scale(0.8)">
           <line x1="-80" y1="0" x2="40" y2="0" stroke={themeColors.structural} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
-          <circle cx="-50" cy="0" r="8" fill={themeColors.structural} opacity="0.15" />
-          <circle cx="-10" cy="0" r="10" fill={themeColors.structural} opacity="0.3" />
-          <circle cx="40" cy="0" r="12" fill="none" stroke={themeColors.connector} strokeWidth="1.2" />
+          <Particle cx={-50} cy={0} r={8} fill={themeColors.structural} opacity="0.15" />
+          <Particle cx={-10} cy={0} r={10} fill={themeColors.structural} opacity="0.3" />
+          <Particle cx={40} cy={0} r={12} fill="none" stroke={themeColors.connector} strokeWidth={1.2} />
           
           <VectorArrow x1={40} y1={-25} x2={90} y2={-25} type="velocity" />
         </g>

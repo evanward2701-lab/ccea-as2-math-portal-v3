@@ -1,10 +1,10 @@
 import React from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
-import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
-import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { SVGLibrary } from '@/core/diagram-engine/SVGLibrary';
+import { ObjectBlock } from '@/core/diagram-engine/ObjectBlock';
+import { VectorArrow } from '@/core/diagram-engine/VectorArrow';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
 import { themeColors } from '@/core/types/mechanicsTheme';
 
 export const LiftPhysicsSVG: React.FC = () => (

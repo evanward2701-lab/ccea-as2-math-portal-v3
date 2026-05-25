@@ -1,6 +1,10 @@
 import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
+import { Particle } from '@/core/diagram-engine/PhysicsPrimitives';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { VectorArrow } from '@/core/diagram-engine/VectorArrow';
+import { SVGLibrary } from '@/core/diagram-engine/SVGLibrary';
 
 export const ScalarVectorSpatialMapSVG: React.FC = () => {
   return (
@@ -90,69 +94,53 @@ export const ScalarVectorSpatialMapSVG: React.FC = () => {
           className="w-full h-full absolute inset-0 z-0"
           preserveAspectRatio="xMidYMid meet"
         >
-          <defs>
-            <marker id="arr-zinc-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 2 2 L 10 5 L 2 8 Z" fill="#52525b" />
-            </marker>
-            <marker id="arr-emerald-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-              <path d="M 2 2 L 10 5 L 2 8 Z" fill="#10b981" />
-            </marker>
-            <marker id="arr-amber-compass" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 2 2 L 10 5 L 2 8 Z" fill="#fbbf24" />
-            </marker>
-          </defs>
+          <SVGLibrary />
 
           {/* Grid Horizon Guide Array Track */}
           <path d="M 80 240 H 680 M 80 200 H 680 M 80 160 H 680 M 80 120 H 680 M 80 80 H 680" stroke="#27272a" strokeWidth="1" strokeDasharray="6 8" opacity="0.35" />
 
           {/* Displacement Vector */}
-          <line x1="135" y1="230" x2="600" y2="105" stroke="#10b981" strokeWidth="3" markerEnd="url(#arr-emerald-arrow)" />
+          <VectorArrow x1={135} y1={230} x2={600} y2={105} type="velocity" marker="default" />
 
           {/* Winding Scalar Distance Path Track */}
           <path d="M 135 230 C 220 110, 310 280, 400 180 C 480 90, 550 140, 605 105" fill="none" stroke="#fbbf24" strokeWidth="3.5" strokeDasharray="6 6" strokeLinecap="round" />
 
           {/* Target Boundary Nodes A & B */}
-          <circle cx="135" cy="230" r="14" fill="#1f2937" stroke="#9ca3af" strokeWidth="2.5" />
-          <circle cx="612" cy="100" r="14" fill="#1f2937" stroke="#9ca3af" strokeWidth="2.5" />
+          <Particle cx={135} cy={230} r={14} fill="#1f2937" stroke="#9ca3af" strokeWidth={2.5} />
+          <Particle cx={612} cy={100} r={14} fill="#1f2937" stroke="#9ca3af" strokeWidth={2.5} />
 
           {/* COMPASS COMPONENT ASSEMBLY */}
           <g transform="translate(90, 75)">
-            <circle cx="0" cy="0" r="32" stroke="#27272a" strokeWidth="1.5" fill="#1c1c1f" />
-            <line x1="0" y1="26" x2="0" y2="-22" stroke="#52525b" strokeWidth="1.5" markerEnd="url(#arr-zinc-arrow)" />
-            <line x1="-24" y1="0" x2="20" y2="0" stroke="#52525b" strokeWidth="1.5" markerEnd="url(#arr-zinc-arrow)" />
-            <line x1="0" y1="0" x2="16" y2="-16" stroke="#fbbf24" strokeWidth="2" markerEnd="url(#arr-amber-compass)" />
+            <Particle cx={0} cy={0} r={32} stroke="#27272a" strokeWidth={1.5} fill="#1c1c1f" />
+            <VectorArrow x1={0} y1={26} x2={0} y2={-22} type="structural" marker="default" />
+            <VectorArrow x1={-24} y1={0} x2={20} y2={0} type="structural" marker="default" />
+            <VectorArrow x1={0} y1={0} x2={16} y2={-16} type="friction" marker="default" />
           </g>
         </svg>
 
         {/* Absolute Positioned Native Math Layout Typography Layer */}
-        <div className="absolute inset-0 z-10 pointer-events-none select-none text-zinc-400 font-medium">
-          
-          {/* Compass Points Labels */}
-          <div className="absolute left-[11.4%] top-[11%] text-[11px] font-bold text-zinc-500"><MathInline content="$\text{N}$" /></div>
-          <div className="absolute left-[15.2%] top-[21%] text-[11px] font-bold text-zinc-500"><MathInline content="$\text{E}$" /></div>
-          <div className="absolute left-[14.2%] top-[14%] text-xs font-bold text-emerald-400"><MathInline content="$\text{NE}$" /></div>
+        
+        {/* Compass Points Labels */}
+        <DiagramLabel x="11.4%" y="11%" anchor="center" className="text-[11px] font-bold text-zinc-500" text="$\text{N}$" />
+        <DiagramLabel x="15.2%" y="21%" anchor="center" className="text-[11px] font-bold text-zinc-500" text="$\text{E}$" />
+        <DiagramLabel x="14.2%" y="14%" anchor="center" className="text-xs font-bold text-emerald-400" text="$\text{NE}$" />
 
-          {/* Node Coordinates Metadata Labels */}
-          <div className="absolute left-[17.2%] top-[65.5%] text-sm font-black text-white"><MathInline content="$\mathbf{A}$" /></div>
-          <div className="absolute left-[14.2%] top-[77%] text-xs text-zinc-400"><MathInline content="$\text{Start Position}$" /></div>
+        {/* Node Coordinates Metadata Labels */}
+        <DiagramLabel x="17.2%" y="65.5%" anchor="center" className="text-sm font-black text-white" text="$\mathbf{A}$" />
+        <DiagramLabel x="14.2%" y="77%" anchor="center" className="text-xs text-zinc-400" text="$\text{Start Position}$" />
 
-          <div className="absolute left-[79.9%] top-[26.5%] text-sm font-black text-white"><MathInline content="$\mathbf{B}$" /></div>
-          <div className="absolute left-[76.8%] top-[38%] text-xs text-zinc-400"><MathInline content="$\text{Target Terminal}$" /></div>
+        <DiagramLabel x="79.9%" y="26.5%" anchor="center" className="text-sm font-black text-white" text="$\mathbf{B}$" />
+        <DiagramLabel x="76.8%" y="38%" anchor="center" className="text-xs text-zinc-400" text="$\text{Target Terminal}$" />
 
-          {/* Vector & Path Metric Readout Boxes */}
-          <div className="absolute left-[44%] top-[24%] rounded-xl border border-zinc-800 bg-[#141416]/95 px-3 py-1.5 text-center text-xs font-bold text-amber-400 backdrop-blur-sm shadow-md">
-            <MathInline content="$\text{Distance Path} = 12\text{ m}$" />
-          </div>
+        {/* Vector & Path Metric Readout Boxes */}
+        <DiagramLabel x="44%" y="24%" anchor="center" className="rounded-xl border border-zinc-800 bg-[#141416]/95 px-3 py-1.5 text-center text-xs font-bold text-amber-400 backdrop-blur-sm shadow-md" text="$\text{Distance Path} = 12\text{ m}$" />
 
-          <div className="absolute left-[54%] top-[54%] rounded-xl border border-zinc-800 bg-[#141416]/95 px-3 py-1.5 text-center text-xs font-bold text-emerald-400 backdrop-blur-sm shadow-md">
-            <MathInline content="$\text{Displacement} = 8\text{ m Northeast}$" />
-          </div>
+        <DiagramLabel x="54%" y="54%" anchor="center" className="rounded-xl border border-zinc-800 bg-[#141416]/95 px-3 py-1.5 text-center text-xs font-bold text-emerald-400 backdrop-blur-sm shadow-md" text="$\text{Displacement} = 8\text{ m Northeast}$" />
 
-          {/* Lower Dynamic Tracking Legend Caption */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center text-xs font-semibold text-zinc-500 w-full px-8 text-balance">
-            Direction coordinates govern displacement vectors; absolute scalar trajectories map total distance.
-          </div>
-        </div>
+        {/* Lower Dynamic Tracking Legend Caption */}
+        <DiagramLabel x="50%" y="90%" anchor="center" className="text-center text-xs font-semibold text-zinc-500 w-full px-8 text-balance">
+          Direction coordinates govern displacement vectors; absolute scalar trajectories map total distance.
+        </DiagramLabel>
 
       </div>
     </DiagramPanel>

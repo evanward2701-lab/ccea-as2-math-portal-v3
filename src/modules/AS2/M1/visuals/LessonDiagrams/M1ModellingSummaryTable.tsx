@@ -2,6 +2,9 @@ import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
+import { Particle, Pulley, SupportSurface } from '@/core/diagram-engine/PhysicsPrimitives';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { ObjectBlock } from '@/core/diagram-engine/ObjectBlock';
 
 type Tone = 'zinc' | 'amber' | 'emerald' | 'rose';
 
@@ -110,7 +113,7 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
         <rect x="48" y="22" width="124" height="44" rx="6" stroke="#27272a" strokeWidth="1.5" strokeDasharray="5 5" />
         <line x1="72" y1="44" x2="148" y2="44" stroke="#52525b" strokeWidth="1.5" />
-        <circle cx="110" cy="44" r="6" fill="#e4e4e7" />
+        <Particle cx={110} cy={44} r={6} fill="#e4e4e7" />
       </svg>
     );
   }
@@ -118,7 +121,7 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
   if (icon === 'smooth') {
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
-        <line x1="42" y1="62" x2="178" y2="62" stroke="#3f3f46" strokeWidth="2.4" strokeLinecap="round" />
+        <SupportSurface x1={42} y1={62} x2={178} y2={62} rough={false} stroke="#3f3f46" strokeWidth={2.4} />
         <rect x="88" y="28" width="44" height="34" rx="4" fill="#141417" stroke={accent} strokeWidth="1.8" />
       </svg>
     );
@@ -127,10 +130,7 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
   if (icon === 'rough') {
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
-        <line x1="42" y1="62" x2="178" y2="62" stroke="#3f3f46" strokeWidth="2.4" strokeLinecap="round" />
-        {Array.from({ length: 8 }).map((_, index) => (
-          <line key={index} x1={54 + index * 15} y1="70" x2={64 + index * 15} y2="62" stroke="#27272a" strokeWidth="1.2" />
-        ))}
+        <SupportSurface x1={42} y1={62} x2={178} y2={62} rough={true} stroke="#3f3f46" strokeWidth={2.4} />
         <rect x="92" y="28" width="44" height="34" rx="4" fill="#141417" stroke="#e4e4e7" strokeWidth="1.6" />
         <line x1="92" y1="45" x2="58" y2="45" stroke={accent} strokeWidth="1.8" strokeLinecap="round" />
         <path d="M 58 45 L 66 41 L 66 49 Z" fill={accent} />
@@ -140,13 +140,13 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
 
   if (icon === 'light') {
     return (
-      <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
-        <line x1="42" y1="44" x2="178" y2="44" stroke={accent} strokeWidth="1.8" strokeLinecap="round" />
-        <circle cx="110" cy="44" r="15" fill="#141417" stroke="#3f3f46" strokeWidth="1.5" />
-        <text x="110" y="48" textAnchor="middle" className="fill-zinc-500 text-[9px] font-black tracking-wide">
-          0 kg
-        </text>
-      </svg>
+      <div className="relative h-full w-full">
+        <svg viewBox="0 0 220 88" className="absolute inset-0 h-full w-full" fill="none" aria-hidden="true">
+          <line x1="42" y1="44" x2="178" y2="44" stroke={accent} strokeWidth="1.8" strokeLinecap="round" />
+          <circle cx="110" cy="44" r="15" fill="#141417" stroke="#3f3f46" strokeWidth="1.5" />
+        </svg>
+        <DiagramLabel x="50%" y="50%" text="0\text{ kg}" className="text-[9px] font-black tracking-wide text-zinc-500" />
+      </div>
     );
   }
 
@@ -154,8 +154,8 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
         <line x1="60" y1="44" x2="160" y2="44" stroke="#3b82f6" strokeWidth="2.2" strokeLinecap="round" />
-        <rect x="42" y="34" width="22" height="20" rx="3" fill="#141417" stroke="#52525b" strokeWidth="1.5" />
-        <rect x="156" y="34" width="22" height="20" rx="3" fill="#141417" stroke="#52525b" strokeWidth="1.5" />
+        <ObjectBlock x={42} y={34} width={22} height={20} />
+        <ObjectBlock x={156} y={34} width={22} height={20} />
         <line x1="52" y1="20" x2="168" y2="20" stroke={accent} strokeWidth="1.4" strokeDasharray="4 4" />
       </svg>
     );
@@ -165,8 +165,7 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
         <path d="M 94 74 L 94 38 A 16 16 0 0 1 126 38 L 126 74" stroke={accent} strokeWidth="2.4" strokeLinecap="round" />
-        <circle cx="110" cy="38" r="13" fill="#141417" stroke="#3f3f46" strokeWidth="1.8" />
-        <circle cx="110" cy="38" r="2.5" fill="#a1a1aa" />
+        <Pulley cx={110} cy={38} r={13} showCenter={true} />
       </svg>
     );
   }
@@ -174,8 +173,8 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
   return (
     <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
       <line x1="68" y1="44" x2="152" y2="44" stroke={accent} strokeWidth="4" strokeLinecap="round" />
-      <rect x="42" y="34" width="26" height="20" rx="3" fill="#141417" stroke="#52525b" strokeWidth="1.5" />
-      <rect x="152" y="34" width="26" height="20" rx="3" fill="#141417" stroke="#52525b" strokeWidth="1.5" />
+      <ObjectBlock x={42} y={34} width={26} height={20} />
+      <ObjectBlock x={152} y={34} width={26} height={20} />
     </svg>
   );
 };

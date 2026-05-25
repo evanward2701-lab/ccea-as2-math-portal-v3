@@ -1,7 +1,7 @@
 import React from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
 
 export const M2SignConventionSplit: React.FC = () => {
   return (

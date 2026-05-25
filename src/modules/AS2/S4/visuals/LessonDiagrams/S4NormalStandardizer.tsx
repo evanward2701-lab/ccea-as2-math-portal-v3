@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
 
 const pdf = (z: number) => Math.exp(-(z * z) / 2) / Math.sqrt(2 * Math.PI);
 

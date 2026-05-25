@@ -1,5 +1,6 @@
 import React from 'react';
 import { MathInline } from '@/core/components/MathText';
+import { Particle, SupportSurface } from '@/core/diagram-engine/PhysicsPrimitives';
 
 export const LiftPhysicsSVG: React.FC = () => {
   return (
@@ -45,7 +46,7 @@ export const LiftPhysicsSVG: React.FC = () => {
             </defs>
 
             {/* Ceiling Anchor Support Line */}
-            <line x1="100" y1="45" x2="300" y2="45" stroke="#27272a" strokeWidth="4.5" strokeDasharray="5 5" />
+            <SupportSurface x1={100} y1={45} x2={300} y2={45} stroke="#27272a" strokeWidth={4.5} className="stroke-dasharray-5" rough={true} />
             
             {/* Solid White Cable String */}
             <line x1="200" y1="45" x2="200" y2="105" stroke="#e4e4e7" strokeWidth="3.5" />
@@ -58,7 +59,7 @@ export const LiftPhysicsSVG: React.FC = () => {
 
             {/* Symmetrical Inside Passenger Stickman */}
             <g transform="translate(200, 160) scale(1.35)" stroke="#a1a1aa" strokeWidth="1.5" fill="none" opacity="0.6">
-              <circle cx="0" cy="-22" r="5" stroke="#a1a1aa" fill="#141417" />
+              <Particle cx={0} cy={-22} r={5} stroke="#a1a1aa" fill="#141417" />
               <line x1="0" y1="-17" x2="0" y2="12" />
               <line x1="0" y1="-10" x2="-10" y2="-2" />
               <line x1="0" y1="-10" x2="10" y2="-2" />
@@ -142,11 +143,11 @@ export const LiftPhysicsSVG: React.FC = () => {
             </defs>
 
             {/* Bold Solid Floor Platform Casing Line */}
-            <line x1="110" y1="180" x2="290" y2="180" stroke="#3f3f46" strokeWidth="4.5" strokeLinecap="round" />
+            <SupportSurface x1={110} y1={180} x2={290} y2={180} stroke="#3f3f46" strokeWidth={4.5} />
 
             {/* Thinner Active Passenger Stickman */}
             <g transform="translate(200, 115) scale(1.6)" stroke="#e4e4e7" strokeWidth="1.5" fill="none">
-              <circle cx="0" cy="-22" r="6" stroke="#e4e4e7" fill="#141417" />
+              <Particle cx={0} cy={-22} r={6} stroke="#e4e4e7" fill="#141417" />
               <line x1="0" y1="-16" x2="0" y2="12" />
               <line x1="0" y1="-10" x2="-12" y2="-2" />
               <line x1="0" y1="-10" x2="12" y2="-2" />

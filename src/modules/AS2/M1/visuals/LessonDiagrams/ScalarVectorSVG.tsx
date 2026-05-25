@@ -1,6 +1,7 @@
 import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
+import { Particle } from '@/core/diagram-engine/PhysicsPrimitives';
 
 export const ScalarVectorSVG: React.FC = () => {
   return (
@@ -91,8 +92,8 @@ export const ScalarVectorSVG: React.FC = () => {
           <line x1="120" y1="210" x2="280" y2="345" stroke="#10b981" strokeWidth="3.5" markerEnd="url(#v-arrow-emerald)" />
 
           {/* Target Intersection Points Nodes */}
-          <circle cx="120" cy="210" r="6" fill="#ffffff" />
-          <circle cx="280" cy="345" r="6" fill="#10b981" />
+          <Particle cx={120} cy={210} r={6} fill="#ffffff" />
+          <Particle cx={280} cy={345} r={6} fill="#10b981" />
 
           {/* ==================== LOWER CALCULATION BLOCK PANEL STRIP ==================== */}
           <rect x="40" y="415" width="720" height="50" rx="10" fill="#09090b" stroke="#27272a" strokeWidth="2" />

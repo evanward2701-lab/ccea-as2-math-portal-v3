@@ -2,6 +2,7 @@ import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
+import { Particle, SupportSurface } from '@/core/diagram-engine/PhysicsPrimitives';
 
 type Tone = 'zinc' | 'amber' | 'emerald' | 'rose';
 
@@ -136,7 +137,7 @@ const ModelSketch: React.FC = () => (
       </marker>
     </defs>
 
-    <line x1="86" y1="194" x2="434" y2="194" stroke="#71717a" strokeWidth="1.8" strokeLinecap="round" opacity="0.45" />
+    <SupportSurface x1={86} y1={194} x2={434} y2={194} stroke="#71717a" strokeWidth={1.8} className="opacity-45" />
     <g opacity="0.65">
       <line
         x1="164"
@@ -151,8 +152,8 @@ const ModelSketch: React.FC = () => (
       <path d="M 294 78 L 306 84 L 294 90 Z" fill="#71717a" />
     </g>
 
-    <circle cx="150" cy="144" r="30" fill="#1c1c1f" stroke="#52525b" strokeWidth="3.5" />
-    <circle cx="350" cy="144" r="30" fill="#1c1c1f" stroke="#52525b" strokeWidth="3.5" />
+    <Particle cx={150} cy={144} r={30} fill="#1c1c1f" stroke="#52525b" strokeWidth={3.5} />
+    <Particle cx={350} cy={144} r={30} fill="#1c1c1f" stroke="#52525b" strokeWidth={3.5} />
     <line x1="180" y1="144" x2="320" y2="144" stroke="#e4e4e7" strokeWidth="3.5" strokeLinecap="round" />
 
     <line

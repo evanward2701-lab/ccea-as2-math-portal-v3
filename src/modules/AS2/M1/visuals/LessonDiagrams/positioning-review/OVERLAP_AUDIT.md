@@ -5,7 +5,7 @@ Generated from a browser-rendered audit of `/lessons/M1-Lesson`.
 ## Shared Fix Already Applied
 
 - `DiagramLabel` had an invalid CSS transform: `translate(-50%, -50%)`.
-- This has been corrected to `translate(-50%, -50%)` in `src/core/diagram-engine/primitives/DiagramLabel.tsx`.
+- This has been corrected to `translate(-50%, -50%)` in `src/core/diagram-engine/DiagramLabel.tsx`.
 - This affects all overlay labels and should reduce a lot of accidental drift.
 
 ## Diagrams Copied Here For Later Cleanup

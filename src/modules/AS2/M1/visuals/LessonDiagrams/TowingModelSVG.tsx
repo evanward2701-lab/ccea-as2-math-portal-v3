@@ -2,6 +2,7 @@ import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
+import { Particle, SupportSurface } from '@/core/diagram-engine/PhysicsPrimitives';
 
 type Tone = 'zinc' | 'amber' | 'emerald' | 'rose';
 
@@ -127,19 +128,19 @@ export const TowingModelSVG: React.FC = () => {
             <rect x="239" y="228" width="157" height="70" rx="4" fill="none" stroke="#3b82f6" strokeWidth="1.7" strokeDasharray="6 6" opacity="0.8" />
 
             {/* Ground Track line */}
-            <line x1="45" y1="300" x2="755" y2="300" stroke="#27272a" strokeWidth="2.5" strokeLinecap="round" />
+            <SupportSurface x1={45} y1={300} x2={755} y2={300} stroke="#27272a" strokeWidth={2.5} rough={false} />
 
             {/* Trailing Vehicle Frame Profile (m1) */}
             <rect x="120" y="220" width="95" height="50" rx="5" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" />
-            <circle cx="145" cy="284" r="14" fill="#09090b" stroke="#52525b" strokeWidth="2" />
-            <circle cx="190" cy="284" r="14" fill="#09090b" stroke="#52525b" strokeWidth="2" />
+            <Particle cx={145} cy={284} r={14} fill="#09090b" stroke="#52525b" strokeWidth={2} />
+            <Particle cx={190} cy={284} r={14} fill="#09090b" stroke="#52525b" strokeWidth={2} />
             <line x1="132" y1="270" x2="202" y2="270" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" opacity="0.65" />
 
             {/* Leading Vehicle Frame Profile (m2) */}
             <rect x="420" y="205" width="150" height="63" rx="9" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" />
             <path d="M 446 205 L 472 160 H 538 L 566 205 Z" fill="#1c1c1f" stroke="#3f3f46" strokeWidth="2" strokeLinejoin="round" />
-            <circle cx="455" cy="284" r="16" fill="#09090b" stroke="#52525b" strokeWidth="2" />
-            <circle cx="535" cy="284" r="16" fill="#09090b" stroke="#52525b" strokeWidth="2" />
+            <Particle cx={455} cy={284} r={16} fill="#09090b" stroke="#52525b" strokeWidth={2} />
+            <Particle cx={535} cy={284} r={16} fill="#09090b" stroke="#52525b" strokeWidth={2} />
             <line x1="436" y1="268" x2="552" y2="268" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" opacity="0.65" />
 
             {/* Coupling Towbar line connector */}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
-import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
 
 export const S3ProbabilityTreeEngine: React.FC = () => {
   const [independent, setIndependent] = useState(true);
