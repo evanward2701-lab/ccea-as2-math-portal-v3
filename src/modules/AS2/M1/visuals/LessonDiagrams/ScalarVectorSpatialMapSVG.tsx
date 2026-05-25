@@ -1,10 +1,10 @@
 import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { Particle } from '@/core/diagram-engine/PhysicsPrimitives';
-import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
-import { VectorArrow } from '@/core/diagram-engine/VectorArrow';
-import { SVGLibrary } from '@/core/diagram-engine/SVGLibrary';
+import { Particle } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
 
 export const ScalarVectorSpatialMapSVG: React.FC = () => {
   return (

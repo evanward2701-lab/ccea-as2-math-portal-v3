@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MathText, MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 
 export const S2CumulativeBoxPlotProjector: React.FC = () => {
   const [n, setN] = useState(100);

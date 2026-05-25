@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 import { cn } from '@/core/utils/cn';
 
 export const S2OutlierThresholdSandbox: React.FC = () => {

@@ -6,14 +6,16 @@
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "isolatedModules": true,
+    "moduleDetection": "force",
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "paths": {
+      "@/core/*": ["./src/core/*"],
+      "@/core/diagram-engine/primitives/*": ["./src/core/diagram-engine/primitives/*"],
+      "@/components/*": ["./src/core/components/*", "./src/components/*"],
       "@/*": ["./src/*"]
     },
     "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "ignoreDeprecations": "6.0"
+    "noEmit": true
   },
   "include": ["src"]
 }

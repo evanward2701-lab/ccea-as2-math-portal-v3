@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
-import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 
 type Inequality = 'gte' | 'gt' | 'lte' | 'lt';
 

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
-import { SupportSurface } from '@/core/diagram-engine/PhysicsPrimitives';
-import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
-import { ObjectBlock } from '@/core/diagram-engine/ObjectBlock';
-import { VectorArrow } from '@/core/diagram-engine/VectorArrow';
+import { SupportSurface } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
 
 type Force = 'weight' | 'reaction' | 'friction' | 'tension' | 'applied';
 type FreeBodyScenario = 'smooth' | 'rough' | 'string' | 'applied';

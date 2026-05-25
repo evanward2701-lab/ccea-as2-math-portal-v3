@@ -1,6 +1,6 @@
 import React from 'react';
 import { MathInline } from '@/core/components/MathText';
-import { Particle, SupportSurface } from '@/core/diagram-engine/PhysicsPrimitives';
+import { Particle, SupportSurface } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
 
 export const LiftPhysicsSVG: React.FC = () => {
   return (

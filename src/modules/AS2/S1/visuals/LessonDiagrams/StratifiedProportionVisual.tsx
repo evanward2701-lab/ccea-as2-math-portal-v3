@@ -1,6 +1,6 @@
 import React from 'react';
 import { MathText } from '@/core/components/MathText';
-import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 
 export const StratifiedProportionVisual: React.FC = () => (
   <div className="w-full flex flex-col items-center py-10 mb-12 border border-zinc-800 bg-zinc-925 relative shadow-inner rounded-xl overflow-hidden">

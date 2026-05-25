@@ -2,7 +2,7 @@ import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { cn } from '@/core/utils/cn';
-import { Particle } from '@/core/diagram-engine/PhysicsPrimitives';
+import { Particle } from '@/core/diagram-engine/primitives/PhysicsPrimitives';
 
 type NotationTone = 'emerald' | 'amber' | 'zinc';
 

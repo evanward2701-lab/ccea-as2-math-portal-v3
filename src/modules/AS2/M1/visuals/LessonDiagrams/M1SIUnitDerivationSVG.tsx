@@ -1,10 +1,10 @@
 import React from 'react';
 import { MathInline } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
-import { ObjectBlock } from '@/core/diagram-engine/ObjectBlock';
-import { DiagramLabel } from '@/core/diagram-engine/DiagramLabel';
-import { VectorArrow } from '@/core/diagram-engine/VectorArrow';
-import { SVGLibrary } from '@/core/diagram-engine/SVGLibrary';
+import { ObjectBlock } from '@/core/diagram-engine/primitives/ObjectBlock';
+import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
+import { VectorArrow } from '@/core/diagram-engine/primitives/VectorArrow';
+import { SVGLibrary } from '@/core/diagram-engine/primitives/SVGLibrary';
 
 export const M1SIUnitDerivationSVG: React.FC = () => {
   return (
