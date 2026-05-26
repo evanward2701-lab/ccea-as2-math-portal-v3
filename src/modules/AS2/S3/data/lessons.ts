@@ -41,21 +41,21 @@ By the end of this lesson, you should be able to:
 ### BASIC PROBABILITY RULES
 Probabilities lie between 0 and 1:
 $$
-0\\leq P(A)\\leq1
+{\\Large \\boxed{0\\leq P(A)\\leq1}}
 $$
 For a complement:
 $$
-P(A')=1-P(A)
+{\\Large \\boxed{P(A')=1-P(A)}}
 $$
 
 ### ADDITION LAW
 For two events:
 $$
-P(A\\cup B)=P(A)+P(B)-P(A\\cap B)
+{\\Large \\boxed{P(A\\cup B)=P(A)+P(B)-P(A\\cap B)}}
 $$
 If events are mutually exclusive, $P(A\\cap B)=0$, so:
 $$
-P(A\\cup B)=P(A)+P(B)
+{\\Large \\boxed{P(A\\cup B)=P(A)+P(B)}}
 $$
 
 ![visual:S3-DynamicVenn]()

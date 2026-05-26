@@ -1,5 +1,5 @@
 import React from 'react';
-import { MathText } from '@/core/components/MathText';
+import { MathInline, MathText } from '@/core/components/MathText';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 
@@ -26,29 +26,85 @@ export const VennMutExSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="relative w-full aspect-60/22 max-w-2xl mx-auto">
-      <svg viewBox="0 0 600 220" className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
-        {/* Left Side: Mutually Exclusive */}
-        <rect x="20" y="40" width="260" height="170" stroke="#3f3f46" strokeWidth="2" fill="#141417" rx="4" />
-        <text x="35" y="65" fill="#94a3b8" fontSize="16" fontFamily="serif" fontStyle="italic">E</text>
-        <circle cx="100" cy="125" r="55" stroke="#10b981" strokeWidth="2" fill="#10b981" fillOpacity="0.05" />
-        <circle cx="200" cy="125" r="55" stroke="#a1a1aa" strokeWidth="2" fill="#a1a1aa" fillOpacity="0.05" />
+    <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-950/40 p-5 shadow-2xl">
+      <div className="grid gap-5 lg:grid-cols-2">
+        <div className="rounded-xl border border-emerald-500/20 bg-zinc-950/60 p-4 shadow-inner">
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <h4 className="text-2.5 font-black uppercase tracking-[0.24em] text-emerald-300">Mutually Exclusive</h4>
+            <div className="min-w-36 rounded-lg border border-emerald-500/25 bg-emerald-950/15 px-3 py-1.5 text-center text-sm text-emerald-200">
+              <MathInline content="P(A \\cap B)=0" className="whitespace-nowrap" />
+            </div>
+          </div>
 
-        {/* Right Side: Intersecting */}
-        <rect x="320" y="40" width="260" height="170" stroke="#3f3f46" strokeWidth="2" fill="#141417" rx="4" />
-        <text x="335" y="65" fill="#94a3b8" fontSize="16" fontFamily="serif" fontStyle="italic">E</text>
-        <circle cx="410" cy="125" r="55" stroke="#10b981" strokeWidth="2" fill="#10b981" fillOpacity="0.05" />
-        <circle cx="470" cy="125" r="55" stroke="#a1a1aa" strokeWidth="2" fill="#a1a1aa" fillOpacity="0.05" />
-        
-        {/* Shaded Intersection */}
-        <path d="M440,81.3 A55,55 0 0,0 440,168.7 A55,55 0 0,0 440,81.3" fill="#f43f5e" fillOpacity="0.25" />
-      </svg>
+          <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/70 shadow-inner">
+            <svg viewBox="0 0 520 292" className="absolute inset-0 h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+              <rect x="34" y="32" width="452" height="228" rx="22" fill="#09090b" stroke="#3f3f46" strokeWidth="2.2" />
+              <circle cx="190" cy="148" r="72" fill="#10b981" fillOpacity="0.12" stroke="#10b981" strokeWidth="4" />
+              <circle cx="332" cy="148" r="72" fill="#a1a1aa" fillOpacity="0.08" stroke="#a1a1aa" strokeWidth="4" />
+              <line x1="260" y1="72" x2="260" y2="224" stroke="#27272a" strokeWidth="1.4" strokeDasharray="7 9" opacity="0.85" />
+            </svg>
 
-      <DiagramLabel x="16.7%" y="50%" text="A" />
-      <DiagramLabel x="33.3%" y="50%" text="B" />
+            <DiagramLabel x="10.5%" y="15%" text="S" className="text-2xl font-serif italic text-zinc-400" />
+            <DiagramLabel x="36.5%" y="50%" text="A" className="text-3xl font-serif italic text-zinc-100" />
+            <DiagramLabel x="64%" y="50%" text="B" className="text-3xl font-serif italic text-zinc-100" />
+            <DiagramLabel x="50%" y="84%">
+              <div className="rounded-lg border border-emerald-500/25 bg-emerald-950/15 px-3 py-1 text-2.5 font-black uppercase tracking-[0.22em] text-emerald-300">
+                no overlap
+              </div>
+            </DiagramLabel>
+          </div>
+        </div>
 
-      <DiagramLabel x="63.3%" y="50%" text="A" />
-      <DiagramLabel x="86.7%" y="50%" text="B" />
+        <div className="rounded-xl border border-rose-500/20 bg-zinc-950/60 p-4 shadow-inner">
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <h4 className="text-2.5 font-black uppercase tracking-[0.24em] text-rose-300">Intersecting</h4>
+            <div className="min-w-36 rounded-lg border border-rose-500/25 bg-rose-950/20 px-3 py-1.5 text-center text-sm text-rose-200">
+              <MathInline content="P(A \\cap B)\\neq0" className="whitespace-nowrap" />
+            </div>
+          </div>
+
+          <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/70 shadow-inner">
+            <svg viewBox="0 0 520 292" className="absolute inset-0 h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
+              <defs>
+                <clipPath id="venn-a-clip">
+                  <circle cx="222" cy="148" r="72" />
+                </clipPath>
+              </defs>
+              <rect x="34" y="32" width="452" height="228" rx="22" fill="#09090b" stroke="#3f3f46" strokeWidth="2.2" />
+              <circle cx="222" cy="148" r="72" fill="#10b981" fillOpacity="0.12" stroke="#10b981" strokeWidth="4" />
+              <circle cx="300" cy="148" r="72" fill="#a1a1aa" fillOpacity="0.08" stroke="#a1a1aa" strokeWidth="4" />
+              <circle cx="300" cy="148" r="72" fill="#fb7185" fillOpacity="0.26" clipPath="url(#venn-a-clip)" />
+              <path d="M261 88 C232 119 232 177 261 208 C290 177 290 119 261 88 Z" fill="#fb7185" fillOpacity="0.18" stroke="#fb7185" strokeWidth="1.4" opacity="0.8" />
+            </svg>
+
+            <DiagramLabel x="10.5%" y="15%" text="S" className="text-2xl font-serif italic text-zinc-400" />
+            <DiagramLabel x="39%" y="50%" text="A" className="text-3xl font-serif italic text-zinc-100" />
+            <DiagramLabel x="61%" y="50%" text="B" className="text-3xl font-serif italic text-zinc-100" />
+            <DiagramLabel x="50.25%" y="50%">
+              <div className="rounded-md border border-rose-500/25 bg-zinc-950/55 px-2 py-1 text-center shadow-sm backdrop-blur-sm">
+                <MathInline content="A\\cap B" className="whitespace-nowrap text-sm text-rose-200" />
+              </div>
+            </DiagramLabel>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-5 grid gap-3 md:grid-cols-3">
+        <div className="rounded-xl border border-emerald-500/25 bg-emerald-950/10 p-4 shadow-sm">
+          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-emerald-300">Exclusive</div>
+          <p className="text-sm leading-relaxed text-zinc-300">The same outcome cannot be in both events.</p>
+        </div>
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/45 p-4 shadow-sm">
+          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-zinc-500">Addition Law</div>
+          <div className="text-sm text-zinc-300">
+            <MathInline content="P(A\\cup B)=P(A)+P(B)-P(A\\cap B)" />
+          </div>
+        </div>
+        <div className="rounded-xl border border-rose-500/25 bg-rose-950/15 p-4 shadow-sm">
+          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-rose-300">Pitfall</div>
+          <p className="text-sm leading-relaxed text-zinc-300">Only drop the intersection term when it is definitely zero.</p>
+        </div>
+      </div>
     </div>
   </DiagramPanel>
 );

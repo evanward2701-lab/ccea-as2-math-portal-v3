@@ -34,8 +34,8 @@ export const ScatterClustersSVG: React.FC = () => (
       </div>
     }
   >
-    <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5 shadow-2xl">
-      <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/50 shadow-inner">
+    <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-950/40 p-5 shadow-2xl">
+      <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/60 shadow-inner">
         <svg
           viewBox="0 0 960 540"
           className="absolute inset-0 h-full w-full"
@@ -47,15 +47,17 @@ export const ScatterClustersSVG: React.FC = () => (
         >
           <ArrowLibrary />
 
-          <g opacity="0.26">
-            <path d="M140 110 H820" stroke="#27272a" strokeWidth="1" />
-            <path d="M140 210 H820" stroke="#27272a" strokeWidth="1" />
-            <path d="M140 310 H820" stroke="#27272a" strokeWidth="1" />
-            <path d="M140 410 H820" stroke="#27272a" strokeWidth="1" />
+          <rect x="92" y="64" width="792" height="410" rx="26" fill="#09090b" fillOpacity="0.42" stroke="#27272a" strokeWidth="1.2" />
+
+          <g opacity="0.22">
+            <path d="M140 130 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M140 230 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M140 330 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M140 430 H820" stroke="#27272a" strokeWidth="1" />
           </g>
 
-          <VectorArrow x1={140} y1={460} x2={840} y2={460} type="structural" strokeWidth={2.2} />
-          <VectorArrow x1={140} y1={460} x2={140} y2={70} type="structural" strokeWidth={2.2} />
+          <VectorArrow x1={140} y1={450} x2={840} y2={450} type="structural" strokeWidth={2.2} />
+          <VectorArrow x1={140} y1={450} x2={140} y2={82} type="structural" strokeWidth={2.2} />
 
           <ellipse
             cx="320"
@@ -96,34 +98,36 @@ export const ScatterClustersSVG: React.FC = () => (
             strokeDasharray="14 11"
           />
 
+          <path d="M198 428 L790 152" stroke="#fb7185" strokeWidth="17" strokeLinecap="round" opacity="0.05" />
+
           {groupAPoints.map(([cx, cy], index) => (
-            <circle key={`group-a-${index}`} cx={cx} cy={cy} r="9" fill="#d4d4d8" stroke="#18181b" strokeWidth="2" />
+            <circle key={`group-a-${index}`} cx={cx} cy={cy} r="9.5" fill="#d4d4d8" stroke="#09090b" strokeWidth="2" />
           ))}
           {groupBPoints.map(([cx, cy], index) => (
-            <circle key={`group-b-${index}`} cx={cx} cy={cy} r="9" fill="#c084fc" stroke="#18181b" strokeWidth="2" />
+            <circle key={`group-b-${index}`} cx={cx} cy={cy} r="9.5" fill="#c084fc" stroke="#09090b" strokeWidth="2" />
           ))}
         </svg>
 
-        <DiagramLabel x="13.5%" y="11.5%" text="y" className="text-lg text-zinc-300" />
-        <DiagramLabel x="88.5%" y="88.5%" text="x" className="text-lg text-zinc-300" />
+        <DiagramLabel x="16%" y="13.5%" text="y" className="text-lg text-zinc-300" />
+        <DiagramLabel x="88%" y="85%" text="x" className="text-lg text-zinc-300" />
 
-        <DiagramLabel x="30%" y="79%" className="text-center">
-          <div className="rounded-lg border border-zinc-700/80 bg-zinc-950/80 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-zinc-300 shadow-lg backdrop-blur-sm">
+        <DiagramLabel x="31%" y="83%" className="text-center">
+          <div className="rounded-lg border border-zinc-500/35 bg-zinc-950/85 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-zinc-200 shadow-lg backdrop-blur-sm">
             Group A
           </div>
         </DiagramLabel>
 
-        <DiagramLabel x="72%" y="20%" className="text-center">
-          <div className="rounded-lg border border-purple-400/35 bg-purple-950/20 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-purple-200 shadow-lg backdrop-blur-sm">
+        <DiagramLabel x="76%" y="19%" className="text-center">
+          <div className="rounded-lg border border-purple-400/40 bg-purple-950/25 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-purple-200 shadow-lg backdrop-blur-sm">
             Group B
           </div>
         </DiagramLabel>
 
-        <DiagramLabel x="66%" y="73%" className="text-center">
-          <div className="max-w-72 rounded-xl border border-rose-500/30 bg-zinc-950/90 px-4 py-3 text-left shadow-2xl backdrop-blur-sm">
-            <div className="mb-1 text-2.5 font-black uppercase tracking-[0.24em] text-rose-400">Overall line</div>
+        <DiagramLabel x="71%" y="74%" className="text-center">
+          <div className="max-w-72 rounded-xl border border-rose-500/30 bg-rose-950/20 px-4 py-3 text-left shadow-2xl backdrop-blur-sm">
+            <div className="mb-1 text-2.5 font-black uppercase tracking-[0.24em] text-rose-400">Single Overall Fit</div>
             <div className="text-xs font-semibold leading-snug text-zinc-300">
-              Can suggest a trend while hiding separate subgroup behaviour.
+              Can hide separate subgroup behaviour.
             </div>
           </div>
         </DiagramLabel>
