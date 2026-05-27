@@ -22,6 +22,54 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
               <p className="text-xs text-zinc-300 leading-relaxed">Total area (|Positive| + |Negative|). The odometer reading of the journey.</p>
             </div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-3 bg-emerald-950/20 border border-emerald-500/30 rounded-lg">
+              <h4 className="font-bold text-emerald-400 mb-2 text-xs uppercase tracking-wider">Displacement Working</h4>
+              <div className="space-y-2">
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="A = \\frac{1}{2}\\times4\\times20" noMargin />
+                </div>
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="= 40\\mathrm{m}" noMargin />
+                </div>
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="B = \\frac{1}{2}\\times(6-4)\\times10" noMargin />
+                </div>
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="= 10\\mathrm{m}" noMargin />
+                </div>
+                <div className="rounded border border-emerald-500/20 bg-zinc-925 p-2 text-center">
+                  <MathText content="\\text{Displacement} = 40 - 10" noMargin />
+                </div>
+                <div className="rounded border border-emerald-500/20 bg-zinc-925 p-2 text-center">
+                  <MathText content="= 30\\mathrm{m}" noMargin />
+                </div>
+              </div>
+            </div>
+            <div className="p-3 bg-amber-950/20 border border-amber-500/30 rounded-lg">
+              <h4 className="font-bold text-amber-400 mb-2 text-xs uppercase tracking-wider">Distance Working</h4>
+              <div className="space-y-2">
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="A = \\frac{1}{2}\\times4\\times20" noMargin />
+                </div>
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="= 40\\mathrm{m}" noMargin />
+                </div>
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="B = \\frac{1}{2}\\times(6-4)\\times10" noMargin />
+                </div>
+                <div className="rounded border border-zinc-800/60 bg-zinc-925 p-2 text-center">
+                  <MathText content="= 10\\mathrm{m}" noMargin />
+                </div>
+                <div className="rounded border border-amber-500/20 bg-zinc-925 p-2 text-center">
+                  <MathText content="\\text{Distance} = 40 + 10" noMargin />
+                </div>
+                <div className="rounded border border-amber-500/20 bg-zinc-925 p-2 text-center">
+                  <MathText content="= 50\\mathrm{m}" noMargin />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       }
     >
@@ -45,33 +93,34 @@ export const M2CrossingAxisVTGraph: React.FC = () => {
           <circle cx="100" cy="70" r="4" fill="#f59e0b" />
           <circle cx="300" cy="150" r="4" fill="#f59e0b" />
           <circle cx="400" cy="190" r="4" fill="#f59e0b" />
+          <line x1="100" y1="190" x2="400" y2="190" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
           <line x1="400" y1="150" x2="400" y2="190" stroke="#475569" strokeWidth="1" strokeDasharray="2 2" />
         </svg>
 
-        <DiagramLabel x="11.5%" y="15%" text="v" />
-        <DiagramLabel x="93%" y="51.5%" text="t" />
+        <DiagramLabel x="11.5%" y="7.5%" text="v\\text{ (m s}^{-1}\\text{)}" />
+        <DiagramLabel x="93%" y="51.5%" text="t\\text{ (s)}" />
 
-        <DiagramLabel x="27.8%" y="41.1%">
+        <DiagramLabel x="24%" y="39%">
           <div className="text-2.5 font-bold text-emerald-400">Area A (+)</div>
         </DiagramLabel>
 
-        <DiagramLabel x="61.1%" y="54.4%">
+        <DiagramLabel x="57.5%" y="51%">
           <div className="text-2.5 font-bold text-rose-400">Area B (-)</div>
         </DiagramLabel>
 
-        <DiagramLabel x="13.3%" y="25%">
+        <DiagramLabel x="13.3%" y="20.5%">
           <div className="text-xs font-bold text-amber-500">20</div>
         </DiagramLabel>
 
-        <DiagramLabel x="49.1%" y="56%">
-          <div className="text-xs font-bold text-zinc-400">4s</div>
+        <DiagramLabel x="49.1%" y="43.5%">
+          <div className="text-xs font-bold text-zinc-400">4</div>
         </DiagramLabel>
 
-        <DiagramLabel x="67.5%" y="66.6%">
+        <DiagramLabel x="13.3%" y="62%">
           <div className="text-xs font-bold text-amber-500">-10</div>
         </DiagramLabel>
-        <DiagramLabel x="65.8%" y="48.3%">
-          <div className="text-xs font-bold text-zinc-400">6s</div>
+        <DiagramLabel x="65.8%" y="43.5%">
+          <div className="text-xs font-bold text-zinc-400">6</div>
         </DiagramLabel>
 
         <DiagramLabel x="70%" y="16.7%">

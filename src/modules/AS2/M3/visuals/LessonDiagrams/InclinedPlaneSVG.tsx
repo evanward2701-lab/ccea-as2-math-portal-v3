@@ -80,25 +80,25 @@ export const InclinedPlaneSVG: React.FC = () => (
 
       <DiagramLabel x="19%" y="77%" text="\\theta" className="text-zinc-300" />
 
-      <DiagramLabel x="52%" y="18%">
+      <DiagramLabel x="40%" y="22%">
         <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
           <MathText content="R" noMargin />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel x="28%" y="43%">
+      <DiagramLabel x="18%" y="59%">
         <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
           <MathText content="mg\\sin\\theta" noMargin />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel x="61%" y="61%">
+      <DiagramLabel x="54%" y="69%">
         <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
           <MathText content="mg\\cos\\theta" noMargin />
         </div>
       </DiagramLabel>
 
-      <DiagramLabel x="55%" y="91%">
+      <DiagramLabel x="48%" y="86%">
         <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
           <MathText content="mg" noMargin />
         </div>

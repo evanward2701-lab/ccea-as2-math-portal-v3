@@ -86,7 +86,7 @@ export const ResidualAnalysisSVG: React.FC = () => (
         <DiagramLabel x="14.5%" y="14%" text="e" className="text-lg text-zinc-300" />
         <DiagramLabel x="91.5%" y="54.5%" text="x" className="text-lg text-zinc-300" />
 
-        <DiagramLabel x="80%" y="48%" className="text-center">
+        <DiagramLabel x="80%" y="46%" className="text-center">
           <div className="rounded-lg border border-emerald-500/25 bg-emerald-950/15 px-3 py-1.5 text-2.5 font-bold uppercase tracking-[0.22em] text-emerald-300 shadow-lg backdrop-blur-sm">
             residual = 0
           </div>

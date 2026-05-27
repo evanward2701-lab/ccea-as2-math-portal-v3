@@ -97,20 +97,20 @@ export const StratifiedProportionVisual: React.FC = () => (
             role="img"
             aria-label="Stratified sampling allocation flow from population to strata to target sample"
           >
-            <VectorArrow x1={260} y1={210} x2={408} y2={104} type="structural" marker="default" strokeWidth={2.4} />
-            <VectorArrow x1={260} y1={210} x2={408} y2={210} type="structural" marker="default" strokeWidth={2.4} />
-            <VectorArrow x1={260} y1={210} x2={408} y2={316} type="structural" marker="default" strokeWidth={2.4} />
-            <VectorArrow x1={580} y1={104} x2={704} y2={210} type="structural" marker="default" strokeWidth={2.2} dashed />
-            <VectorArrow x1={580} y1={210} x2={704} y2={210} type="structural" marker="default" strokeWidth={2.2} dashed />
-            <VectorArrow x1={580} y1={316} x2={704} y2={210} type="structural" marker="default" strokeWidth={2.2} dashed />
+            <VectorArrow x1={211} y1={210} x2={331} y2={104} type="structural" marker="default" strokeWidth={2.4} />
+            <VectorArrow x1={211} y1={210} x2={331} y2={210} type="structural" marker="default" strokeWidth={2.4} />
+            <VectorArrow x1={211} y1={210} x2={331} y2={316} type="structural" marker="default" strokeWidth={2.4} />
+            <VectorArrow x1={503} y1={104} x2={685} y2={210} type="structural" marker="default" strokeWidth={2.2} dashed />
+            <VectorArrow x1={503} y1={210} x2={685} y2={210} type="structural" marker="default" strokeWidth={2.2} dashed />
+            <VectorArrow x1={503} y1={316} x2={685} y2={210} type="structural" marker="default" strokeWidth={2.2} dashed />
           </svg>
 
-          <div className="absolute left-[7%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-zinc-400 bg-zinc-950/70 px-5 text-center shadow-xl">
+          <div className="absolute left-[2%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-zinc-400 bg-zinc-950/70 px-5 text-center shadow-xl">
             <div className="text-sm font-black uppercase tracking-[0.18em] text-zinc-100">Total Population</div>
             <div className="mt-1 font-mono text-sm text-zinc-400">N = 300</div>
           </div>
 
-          <div className="absolute left-[41%] top-1/2 grid w-60 -translate-y-1/2 gap-5">
+          <div className="absolute left-[33%] top-1/2 grid w-60 -translate-y-1/2 gap-5">
             {strata.map(({ year, population, sample, accent }) => {
               const colors = accentClasses[accent];
 
@@ -134,7 +134,7 @@ export const StratifiedProportionVisual: React.FC = () => (
             })}
           </div>
 
-          <div className="absolute right-[4%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-dashed border-rose-500 bg-rose-950/10 px-5 text-center shadow-xl">
+          <div className="absolute right-[6%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-dashed border-rose-500 bg-rose-950/10 px-5 text-center shadow-xl">
             <div className="text-sm font-black uppercase tracking-[0.16em] text-zinc-100">Target Sample</div>
             <div className="mt-1 font-mono text-sm text-rose-300">n = 60</div>
           </div>

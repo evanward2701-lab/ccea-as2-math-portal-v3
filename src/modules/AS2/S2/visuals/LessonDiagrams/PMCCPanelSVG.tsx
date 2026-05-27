@@ -33,6 +33,8 @@ const supportingFormulae = [
   },
 ] as const;
 
+const fullPMCCFormula = 'r=\\frac{n\\sum xy-\\sum x\\sum y}{\\sqrt{(n\\sum x^2-(\\sum x)^2)(n\\sum y^2-(\\sum y)^2)}}';
+
 const accentClasses = {
   blue: {
     border: 'border-blue-500/25',
@@ -139,6 +141,15 @@ export const PMCCPanelSVG: React.FC = () => (
             </div>
           );
         })}
+
+        <div className="grid items-center gap-4 rounded-xl border border-rose-500/25 bg-rose-950/10 p-4 shadow-sm sm:grid-cols-[180px_1fr]">
+          <h5 className="text-center text-2.5 font-black uppercase tracking-[0.22em] text-rose-300 sm:text-left">
+            Full formula
+          </h5>
+          <div className="flex min-h-28 items-center justify-center rounded-md border border-rose-500/20 bg-zinc-950/55 px-4 pb-4 pt-5 text-center text-zinc-100">
+            <MathText content={`{\\large ${fullPMCCFormula}}`} className="translate-y-1 [&_p]:leading-none" noMargin />
+          </div>
+        </div>
       </div>
     </div>
   </DiagramPanel>

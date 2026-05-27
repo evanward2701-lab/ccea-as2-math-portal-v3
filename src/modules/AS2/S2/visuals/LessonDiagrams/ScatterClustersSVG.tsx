@@ -59,17 +59,30 @@ export const ScatterClustersSVG: React.FC = () => (
           <VectorArrow x1={140} y1={450} x2={840} y2={450} type="structural" strokeWidth={2.2} />
           <VectorArrow x1={140} y1={450} x2={140} y2={82} type="structural" strokeWidth={2.2} />
 
+          <path d="M198 428 L790 152" stroke="#fb7185" strokeWidth="17" strokeLinecap="round" opacity="0.05" />
+
+          <line
+            x1="190"
+            y1="430"
+            x2="790"
+            y2="150"
+            stroke="#fb7185"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeDasharray="14 11"
+          />
+
           <ellipse
             cx="320"
             cy="370"
             rx="116"
             ry="70"
             transform="rotate(26 320 370)"
-            stroke="#a1a1aa"
+            stroke="#facc15"
             strokeWidth="2.5"
             strokeDasharray="8 8"
-            fill="#64748b"
-            fillOpacity="0.08"
+            fill="#facc15"
+            fillOpacity="0.10"
           />
           <ellipse
             cx="682"
@@ -84,24 +97,11 @@ export const ScatterClustersSVG: React.FC = () => (
             fillOpacity="0.10"
           />
 
-          <line x1="208" y1="424" x2="432" y2="316" stroke="#a1a1aa" strokeWidth="2" strokeDasharray="6 8" strokeLinecap="round" opacity="0.75" />
-          <line x1="572" y1="262" x2="788" y2="156" stroke="#c084fc" strokeWidth="2" strokeDasharray="6 8" strokeLinecap="round" opacity="0.85" />
-
-          <line
-            x1="190"
-            y1="430"
-            x2="790"
-            y2="150"
-            stroke="#fb7185"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeDasharray="14 11"
-          />
-
-          <path d="M198 428 L790 152" stroke="#fb7185" strokeWidth="17" strokeLinecap="round" opacity="0.05" />
+          <line x1="208" y1="424" x2="432" y2="316" stroke="#facc15" strokeWidth="5" strokeDasharray="9 8" strokeLinecap="round" opacity="0.85" />
+          <line x1="572" y1="252" x2="788" y2="151" stroke="#c084fc" strokeWidth="5" strokeDasharray="9 8" strokeLinecap="round" opacity="0.85" />
 
           {groupAPoints.map(([cx, cy], index) => (
-            <circle key={`group-a-${index}`} cx={cx} cy={cy} r="9.5" fill="#d4d4d8" stroke="#09090b" strokeWidth="2" />
+            <circle key={`group-a-${index}`} cx={cx} cy={cy} r="9.5" fill="#facc15" stroke="#09090b" strokeWidth="2" />
           ))}
           {groupBPoints.map(([cx, cy], index) => (
             <circle key={`group-b-${index}`} cx={cx} cy={cy} r="9.5" fill="#c084fc" stroke="#09090b" strokeWidth="2" />
@@ -112,7 +112,7 @@ export const ScatterClustersSVG: React.FC = () => (
         <DiagramLabel x="88%" y="85%" text="x" className="text-lg text-zinc-300" />
 
         <DiagramLabel x="31%" y="83%" className="text-center">
-          <div className="rounded-lg border border-zinc-500/35 bg-zinc-950/85 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-zinc-200 shadow-lg backdrop-blur-sm">
+          <div className="rounded-lg border border-yellow-400/40 bg-yellow-950/20 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-yellow-200 shadow-lg backdrop-blur-sm">
             Group A
           </div>
         </DiagramLabel>

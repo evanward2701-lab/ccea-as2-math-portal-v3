@@ -71,7 +71,7 @@ export const SamplingTableSVG: React.FC = () => (
               >
                 <div className="flex min-w-0 flex-col justify-center rounded-md border border-zinc-800/70 bg-zinc-950/45 px-4 py-3">
                   <div className={`text-base font-black leading-tight ${colors.title}`}>{method}</div>
-                  <div className={`mt-2 w-fit rounded-md border px-2.5 py-1 text-2.5 font-bold uppercase tracking-[0.14em] ${colors.chip}`}>
+                  <div className={`mt-2 w-full rounded-md border px-2.5 py-1 text-center text-[0.62rem] font-bold uppercase tracking-[0.08em] whitespace-nowrap ${colors.chip}`}>
                     {cue}
                   </div>
                 </div>

@@ -26,7 +26,6 @@ export const M3FrictionSimulator: React.FC = () => {
   const blockCenterY = 178;
   const pEndX = Math.min(540, blockRightX + appliedForce * arrowScale);
   const fEndX = Math.max(60, blockLeftX - actualFriction * arrowScale);
-  const aEndX = Math.min(470, 300 + acceleration * 36);
 
   return (
     <DiagramPanel
@@ -97,48 +96,44 @@ export const M3FrictionSimulator: React.FC = () => {
               <VectorArrow x1={blockLeftX} y1={blockCenterY} x2={fEndX} y2={blockCenterY} type="weight" strokeWidth={3.2} />
             )}
 
-            {acceleration > 0.01 && (
-              <VectorArrow x1={300} y1={98} x2={aEndX} y2={98} type="applied" strokeWidth={2.6} dashed />
-            )}
+            <VectorArrow x1={378} y1={78} x2={448} y2={78} type="accel" marker="acceleration" strokeWidth={2.8} />
           </svg>
 
-          <DiagramLabel x="50%" y="59%">
+          <DiagramLabel x="49%" y="56%">
             <div className="text-xl font-serif font-bold text-zinc-100">m</div>
           </DiagramLabel>
 
-          <DiagramLabel x="50%" y="18%">
+          <DiagramLabel x="47%" y="10%">
             <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
               <MathText content="R" noMargin />
             </div>
           </DiagramLabel>
 
-          <DiagramLabel x="58%" y="80%">
+          <DiagramLabel x="53%" y="85%">
             <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
               <MathText content="W = mg" noMargin />
             </div>
           </DiagramLabel>
 
-          <DiagramLabel x={`${Math.min(92, (pEndX / 600) * 100 + 5)}%`} y="48%">
+          <DiagramLabel x={`${Math.min(92, (pEndX / 600) * 100 + 3)}%`} y="53%">
             <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
               <MathText content="P" noMargin />
             </div>
           </DiagramLabel>
 
           {actualFriction > 0.1 && (
-            <DiagramLabel x={`${Math.max(8, (fEndX / 600) * 100 - 5)}%`} y="55%">
+            <DiagramLabel x={`${Math.max(8, (fEndX / 600) * 100 - 7)}%`} y="53%">
               <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
                 <MathText content="F" noMargin />
               </div>
             </DiagramLabel>
           )}
 
-          {acceleration > 0.01 && (
-            <DiagramLabel x={`${Math.min(84, (aEndX / 600) * 100 + 6)}%`} y="26%">
-              <div className="rounded-md border border-zinc-600/40 bg-zinc-950/70 px-3 py-1 text-zinc-300 shadow-xl">
-                <MathText content="a" noMargin />
-              </div>
-            </DiagramLabel>
-          )}
+          <DiagramLabel x="66%" y="11%">
+            <div className="rounded-md border border-zinc-600/40 bg-zinc-950/70 px-3 py-1 text-zinc-300 shadow-xl">
+              <MathText content="a" noMargin />
+            </div>
+          </DiagramLabel>
         </div>
       </div>
     </DiagramPanel>

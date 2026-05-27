@@ -16,13 +16,14 @@ export const M3InclinedPlaneResolver: React.FC = () => {
   const parallel = weight * Math.sin(rad);
   const perpendicular = weight * Math.cos(rad);
   const componentScale = 0.72;
-  const parallelComponentScale = 1.25;
   const weightScale = 0.92;
+  const parallelVisualLength = 10 + 155 * Math.pow(Math.sin(rad), 0.9);
+  const perpendicularVisualLength = 28 + 82 * Math.pow(Math.cos(rad), 0.75);
 
   const width = 700;
   const height = 430;
   const originX = 80;
-  const originY = 350;
+  const originY = 310;
   const planeLength = 560;
   const planeEndX = originX + planeLength * Math.cos(rad);
   const planeEndY = originY - planeLength * Math.sin(rad);
@@ -41,11 +42,13 @@ export const M3InclinedPlaneResolver: React.FC = () => {
     y: blockY - localX * Math.sin(rad) + localY * Math.cos(rad),
   });
   const reactionLabelPoint = toGlobal(0, -48 - perpendicular * componentScale - 18);
-  const parallelLabelPoint = toGlobal(-parallel * parallelComponentScale * 1.2, -116);
-  const perpendicularLabelPoint = toGlobal(40, perpendicular * componentScale * 0.48);
+  const parallelLabelPoint = toGlobal(-parallelVisualLength - 34, -116);
+  const perpendicularLabelPoint = toGlobal(46, perpendicularVisualLength + 30);
   const weightEndY = blockY + weight * weightScale;
   const labelX = (value: number) => `${(value / width) * 100}%`;
   const labelY = (value: number) => `${(value / height) * 100}%`;
+  const nudgeX = width * 0.01;
+  const nudgeY = height * 0.01;
 
   return (
     <DiagramPanel
@@ -133,8 +136,8 @@ export const M3InclinedPlaneResolver: React.FC = () => {
 
               {showComponents && (
                 <>
-                  <VectorArrow x1={0} y1={-18} x2={-parallel * parallelComponentScale} y2={-18} type="friction" dashed strokeWidth={2.8} />
-                  <VectorArrow x1={0} y1={-18} x2={0} y2={perpendicular * componentScale} type="friction" dashed strokeWidth={2.8} />
+                  <VectorArrow x1={0} y1={-18} x2={-parallelVisualLength} y2={-18} type="friction" dashed strokeWidth={2.8} />
+                  <VectorArrow x1={0} y1={-18} x2={0} y2={perpendicularVisualLength} type="friction" dashed strokeWidth={2.8} />
                 </>
               )}
             </g>
@@ -144,7 +147,7 @@ export const M3InclinedPlaneResolver: React.FC = () => {
 
           <DiagramLabel x={labelX(originX + 76)} y={labelY(originY - 16)} text="\\theta" className="text-zinc-300" />
 
-          <DiagramLabel x={labelX(reactionLabelPoint.x + 12)} y={labelY(reactionLabelPoint.y)}>
+          <DiagramLabel x={labelX(reactionLabelPoint.x + 12 - 5 * nudgeX)} y={labelY(reactionLabelPoint.y - 7 * nudgeY)}>
             <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
               <MathText content="R" noMargin />
             </div>
@@ -152,13 +155,13 @@ export const M3InclinedPlaneResolver: React.FC = () => {
 
           {showComponents && (
             <>
-              <DiagramLabel x={labelX(parallelLabelPoint.x)} y={labelY(parallelLabelPoint.y)}>
+              <DiagramLabel x={labelX(parallelLabelPoint.x - 5 * nudgeX)} y={labelY(parallelLabelPoint.y + 10 * nudgeY)}>
                 <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
                   <MathText content="mg\\sin\\theta" noMargin />
                 </div>
               </DiagramLabel>
 
-              <DiagramLabel x={labelX(perpendicularLabelPoint.x)} y={labelY(perpendicularLabelPoint.y)}>
+              <DiagramLabel x={labelX(perpendicularLabelPoint.x - 7 * nudgeX)} y={labelY(perpendicularLabelPoint.y)}>
                 <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
                   <MathText content="mg\\cos\\theta" noMargin />
                 </div>
@@ -166,7 +169,7 @@ export const M3InclinedPlaneResolver: React.FC = () => {
             </>
           )}
 
-          <DiagramLabel x={labelX(blockX + 58)} y={labelY(weightEndY + 22)}>
+          <DiagramLabel x={labelX(blockX + 58 - 12 * nudgeX)} y={labelY(weightEndY + 22 - 2 * nudgeY)}>
             <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
               <MathText content="mg" noMargin />
             </div>

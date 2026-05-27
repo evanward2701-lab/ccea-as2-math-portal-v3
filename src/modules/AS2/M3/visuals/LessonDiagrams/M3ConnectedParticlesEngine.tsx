@@ -139,14 +139,14 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
           </svg>
 
           <DiagramLabel x="38.5%" y={`${((blockAY - 48) / 420) * 100}%`} text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
-          <DiagramLabel x="61.5%" y={`${((blockBY - 48) / 420) * 100}%`} text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
-          <DiagramLabel x="37.5%" y={`${((blockABottom + 42) / 420) * 100}%`} text="m_Ag" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-amber-300" />
-          <DiagramLabel x="62.5%" y={`${((blockBBottom + 42) / 420) * 100}%`} text="m_Bg" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-amber-300" />
+          <DiagramLabel x="58.5%" y={`${((blockBY - 48) / 420) * 100}%`} text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
+          <DiagramLabel x="39.5%" y={`${((blockABottom + 67.2) / 420) * 100}%`} text="m_Ag" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-amber-300" />
+          <DiagramLabel x="53.5%" y={`${((blockBBottom + 75.6) / 420) * 100}%`} text="m_Bg" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-amber-300" />
 
           {direction !== 'equilibrium' && (
             <>
               <DiagramLabel x="27%" y={`${((blockAY + blockAHeight / 2 + 18) / 420) * 100}%`} text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-zinc-300" />
-              <DiagramLabel x="73%" y={`${((blockBY + blockBHeight / 2 + 18) / 420) * 100}%`} text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-zinc-300" />
+              <DiagramLabel x="70%" y={`${((blockBY + blockBHeight / 2 + 18) / 420) * 100}%`} text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-zinc-300" />
             </>
           )}
 

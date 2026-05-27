@@ -43,8 +43,8 @@ export const TwoWayTableSVG: React.FC = () => (
             <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400 text-left pl-4">Marginal Total</th>
             <td className="p-3 border-r border-zinc-800/60 font-semibold bg-zinc-800/10 text-zinc-300"><MathText content="P(A)" /></td>
             <td className="p-3 border-r border-zinc-800/60 font-semibold bg-zinc-800/10 text-zinc-300"><MathText content="P(A')" /></td>
-            <td className="p-3 font-bold bg-emerald-500 text-zinc-950 shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]">
-              <MathText content="1.0" />
+            <td className="p-3 bg-emerald-500 text-zinc-950 shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]">
+              <MathText content="{\\Huge \\mathbf{1}}" className="[&_p]:m-0" />
             </td>
           </tr>
         </tbody>

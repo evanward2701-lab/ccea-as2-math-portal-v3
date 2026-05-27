@@ -138,7 +138,7 @@ export const M2KinematicsMaster: React.FC = () => {
           <DiagramLabel x="48.5%" y="92%" text="T" />
           <DiagramLabel x="88.5%" y="92%" text="120" />
 
-          <DiagramLabel x="50%" y="62.5%">
+          <DiagramLabel x="37%" y="55%">
             <div className="min-w-44 text-center text-base font-bold leading-snug text-amber-300 bg-zinc-925/90 py-2.5 px-4 border border-amber-500/20 rounded shadow-lg group-hover:border-amber-500/50 transition-colors">
               Area = displacement<br/>
               = 1500 m

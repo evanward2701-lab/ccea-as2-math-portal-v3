@@ -5,12 +5,12 @@ import { ArrowLibrary } from '@/core/diagram-engine/primitives/ArrowLibrary';
 import { cn } from '@/core/utils/cn';
 
 const branchLabels = [
-  { label: 'p', x: '26%', y: '34%' },
-  { label: '1-p', x: '26%', y: '66%' },
-  { label: 'p', x: '60%', y: '20%' },
-  { label: '1-p', x: '60%', y: '38%' },
-  { label: 'p', x: '60%', y: '62%' },
-  { label: '1-p', x: '60%', y: '80%' },
+  { label: 'p', x: '29%', y: '38%' },
+  { label: '1-p', x: '29%', y: '61%' },
+  { label: 'p', x: '64%', y: '24%' },
+  { label: '1-p', x: '64%', y: '40%' },
+  { label: 'p', x: '65%', y: '60%' },
+  { label: '1-p', x: '65%', y: '75%' },
 ];
 
 const outcomeCards = [
@@ -18,25 +18,25 @@ const outcomeCards = [
     title: 'Success, Success',
     probability: 'p^2',
     className: 'border-emerald-500/35 bg-emerald-950/15 text-emerald-300',
-    style: { right: '4%', top: '16%' },
+    style: { left: '73%', top: '18%' },
   },
   {
     title: 'Success, Failure',
     probability: 'p(1-p)',
     className: 'border-zinc-700 bg-zinc-950/55 text-zinc-200',
-    style: { right: '4%', top: '36%' },
+    style: { left: '73%', top: '39%' },
   },
   {
     title: 'Failure, Success',
     probability: '(1-p)p',
     className: 'border-zinc-700 bg-zinc-950/55 text-zinc-200',
-    style: { right: '4%', top: '64%' },
+    style: { left: '73%', top: '61%' },
   },
   {
     title: 'Failure, Failure',
     probability: '(1-p)^2',
     className: 'border-rose-500/35 bg-rose-950/15 text-rose-300',
-    style: { right: '4%', top: '84%' },
+    style: { left: '73%', top: '82%' },
   },
 ];
 
@@ -47,7 +47,7 @@ const Card: React.FC<{
 }> = ({ className, children, style }) => (
   <div
     className={cn(
-      'absolute z-10 flex min-h-18 w-[180px] -translate-y-1/2 items-center justify-between gap-3 rounded-lg border px-4 py-3 shadow-xl',
+      'absolute z-10 flex min-h-20 w-[210px] -translate-y-1/2 items-center justify-between gap-4 rounded-xl border px-5 py-3 shadow-2xl backdrop-blur-sm',
       className
     )}
     style={style}
@@ -86,8 +86,9 @@ export const BinomialTree: React.FC = () => {
         </div>
       }
     >
-      <div className="mx-auto w-full max-w-full space-y-4 rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-4 shadow-2xl md:p-6">
-        <div className="relative h-[620px] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/70 shadow-inner">
+      <div className="mx-auto w-full max-w-6xl space-y-4 rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-4 shadow-2xl md:p-6">
+        <div className="relative h-[560px] overflow-hidden rounded-xl bg-zinc-950/45">
+          <div className="absolute inset-0 -translate-x-[5%]">
           <svg
             className="absolute inset-0 h-full w-full"
             viewBox="0 0 1000 640"
@@ -99,53 +100,52 @@ export const BinomialTree: React.FC = () => {
           >
             <ArrowLibrary />
 
-            <rect x="38" y="42" width="924" height="556" rx="24" fill="#09090b" stroke="#27272a" strokeWidth="1.4" />
-
-            <path d="M200 320 C270 238 328 218 386 214" stroke="#52525b" strokeWidth="2.6" markerEnd="url(#arrow-structural)" />
-            <path d="M200 320 C270 402 328 422 386 426" stroke="#52525b" strokeWidth="2.6" markerEnd="url(#arrow-structural)" />
-            <path d="M500 214 C582 130 642 118 710 110" stroke="#52525b" strokeWidth="2.4" markerEnd="url(#arrow-structural)" />
-            <path d="M500 214 C582 258 642 274 710 284" stroke="#52525b" strokeWidth="2.4" markerEnd="url(#arrow-structural)" />
-            <path d="M500 426 C582 382 642 366 710 356" stroke="#52525b" strokeWidth="2.4" markerEnd="url(#arrow-structural)" />
-            <path d="M500 426 C582 510 642 522 710 530" stroke="#52525b" strokeWidth="2.4" markerEnd="url(#arrow-structural)" />
+            <path d="M158 320 C248 244 330 224 418 218" stroke="#71717a" strokeWidth="2.8" markerEnd="url(#arrow-structural)" opacity="0.86" />
+            <path d="M158 320 C248 396 330 416 418 422" stroke="#71717a" strokeWidth="2.8" markerEnd="url(#arrow-structural)" opacity="0.86" />
+            <path d="M548 218 C626 138 690 118 760 116" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
+            <path d="M548 218 C626 250 690 260 760 252" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
+            <path d="M548 422 C626 390 690 380 760 388" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
+            <path d="M548 422 C626 502 690 522 760 524" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
           </svg>
 
-          <div className="absolute left-[11%] top-1/2 z-10 flex size-22 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-500 bg-zinc-950/85 text-base font-bold text-zinc-100 shadow-xl md:size-24 md:text-lg">
+          <div className="absolute left-[7%] top-1/2 z-10 flex size-24 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-500 bg-blue-950/15 text-lg font-black text-zinc-100 shadow-2xl shadow-blue-950/30 md:size-28 md:text-xl">
             Start
           </div>
 
           <Card
-            className="border-emerald-500 bg-emerald-950/35 text-emerald-200"
-            style={{ left: '36%', top: '33.5%' }}
+            className="min-h-12 w-[128px] py-2 border-emerald-500/80 bg-emerald-950/35 text-emerald-200"
+            style={{ left: '39%', top: '34%' }}
           >
-            <span className="text-lg font-bold">Success</span>
+            <span className="text-xl font-black">Success</span>
           </Card>
 
           <Card
-            className="border-rose-500 bg-rose-950/30 text-rose-200"
-            style={{ left: '36%', top: '66.5%' }}
+            className="min-h-12 w-[128px] py-2 border-rose-500/80 bg-rose-950/30 text-rose-200"
+            style={{ left: '39%', top: '66%' }}
           >
-            <span className="text-lg font-bold">Failure</span>
+            <span className="text-xl font-black">Failure</span>
           </Card>
 
           {outcomeCards.map((card) => (
-            <Card key={card.title} className={cn('w-[220px]', card.className)} style={card.style}>
-              <span className="max-w-24 text-sm font-semibold leading-snug md:text-base">{card.title}</span>
-              <MathText content={card.probability} noMargin center className="text-base md:text-lg" />
+            <Card key={card.title} className={cn('w-[230px]', card.className)} style={card.style}>
+              <span className="max-w-[7rem] text-base font-black leading-snug">{card.title}</span>
+              <MathText content={`{\\large ${card.probability}}`} noMargin center className="[&_p]:m-0" />
             </Card>
           ))}
 
           {branchLabels.map((branch) => (
             <div
               key={`${branch.label}-${branch.x}-${branch.y}`}
-              className="absolute z-20 flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-950/95 text-zinc-200 shadow-xl"
+              className="absolute z-20 flex min-h-10 min-w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-zinc-700/90 bg-zinc-950/95 px-2 text-zinc-200 shadow-xl backdrop-blur-sm"
               style={{ left: branch.x, top: branch.y }}
             >
-              <MathText content={branch.label} noMargin center className="text-base" />
+              <MathText content={`{\\large ${branch.label}}`} noMargin center className="[&_p]:m-0" />
             </div>
           ))}
+          </div>
         </div>
 
-        <div className="rounded-xl border border-zinc-800 bg-zinc-950/65 px-5 py-4 text-center text-sm text-zinc-400 shadow-xl md:text-base">
+        <div className="rounded-xl border border-zinc-800 bg-zinc-950/65 px-5 py-4 text-center text-base text-zinc-400 shadow-xl">
           Terminal probabilities: <MathInline content="p^2" />, <MathInline content="p(1-p)" />, <MathInline content="(1-p)p" />, <MathInline content="(1-p)^2" />. Together they add to <MathInline content="1" />.
         </div>
       </div>

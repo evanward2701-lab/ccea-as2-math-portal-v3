@@ -47,7 +47,7 @@ export const M2GravitySignConvention: React.FC = () => {
             </div>
           </DiagramLabel>
 
-          <DiagramLabel x="66%" y="43%">
+          <DiagramLabel x="57%" y="43%">
             <div className="w-56 rounded-lg border border-rose-500/20 bg-zinc-950/70 px-4 py-3 text-center shadow-xl">
               <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-rose-400">gravity</div>
               <div className="text-zinc-100">
@@ -67,7 +67,7 @@ export const M2GravitySignConvention: React.FC = () => {
           <div className="grid min-h-40 grid-cols-[112px_1fr] items-center gap-5 rounded-xl border border-zinc-800/80 bg-zinc-925 p-5 shadow-inner">
             <div className="relative h-32">
               <svg viewBox="0 0 104 128" className="absolute inset-0 h-full w-full" shapeRendering="geometricPrecision">
-                <VectorArrow x1={52} y1={94} x2={52} y2={28} type="velocity" strokeWidth={4} marker="acceleration" />
+                <VectorArrow x1={52} y1={94} x2={52} y2={28} type="velocity" strokeWidth={4} />
               </svg>
             </div>
 
@@ -88,7 +88,7 @@ export const M2GravitySignConvention: React.FC = () => {
           <div className="grid min-h-40 grid-cols-[112px_1fr] items-center gap-5 rounded-xl border border-zinc-800/80 bg-zinc-925 p-5 shadow-inner">
             <div className="relative h-32">
               <svg viewBox="0 0 104 128" className="absolute inset-0 h-full w-full" shapeRendering="geometricPrecision">
-                <VectorArrow x1={52} y1={28} x2={52} y2={94} type="friction" strokeWidth={4} marker="acceleration" />
+                <VectorArrow x1={52} y1={28} x2={52} y2={94} type="friction" strokeWidth={4} />
               </svg>
             </div>
 

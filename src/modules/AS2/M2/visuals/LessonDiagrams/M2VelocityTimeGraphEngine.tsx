@@ -106,10 +106,16 @@ export const M2VelocityTimeGraphEngine: React.FC = () => {
               <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Example 1 Working</h4>
               <div className="space-y-2">
                 <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                  <MathText content={`s = \\frac{1}{2}(4+7.5)(40) = ${exampleOneDisplacement}\\mathrm{m}`} noMargin />
+                  <MathText content="s = \\frac{1}{2}(4+7.5)(40)" noMargin />
                 </div>
                 <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                  <MathText content={`a = \\frac{7.5-4}{40} = ${exampleOneAcceleration.toFixed(4)}\\mathrm{m\\,s^{-2}}`} noMargin />
+                  <MathText content={`= ${exampleOneDisplacement}\\mathrm{m}`} noMargin />
+                </div>
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content="a = \\frac{7.5-4}{40}" noMargin />
+                </div>
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content={`= ${exampleOneAcceleration.toFixed(4)}\\mathrm{m\\,s^{-2}}`} noMargin />
                 </div>
               </div>
             </div>
@@ -117,10 +123,16 @@ export const M2VelocityTimeGraphEngine: React.FC = () => {
               <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Example 2 Working</h4>
               <div className="space-y-2">
                 <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                  <MathText content={`s = \\frac{1}{2}(0+25)(120) = ${exampleTwoDisplacement}\\mathrm{m}`} noMargin />
+                  <MathText content="s = \\frac{1}{2}(0+25)(120)" noMargin />
                 </div>
                 <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
-                  <MathText content={`a = \\frac{25-0}{120} = ${exampleTwoAcceleration.toFixed(3)}\\mathrm{m\\,s^{-2}}`} noMargin />
+                  <MathText content={`= ${exampleTwoDisplacement}\\mathrm{m}`} noMargin />
+                </div>
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content="a = \\frac{25-0}{120}" noMargin />
+                </div>
+                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                  <MathText content={`= ${exampleTwoAcceleration.toFixed(3)}\\mathrm{m\\,s^{-2}}`} noMargin />
                 </div>
               </div>
             </div>

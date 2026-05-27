@@ -60,20 +60,20 @@ export const PulleySystemSVG: React.FC = () => (
         </text>
 
         <VectorArrow x1={338} y1={270} x2={338} y2={203} type="tension" strokeWidth={2.7} />
-        <VectorArrow x1={422} y1={226} x2={422} y2={158} type="tension" strokeWidth={2.7} />
+        <VectorArrow x1={422} y1={226} x2={422} y2={176} type="tension" strokeWidth={2.7} />
         <VectorArrow x1={338} y1={346} x2={338} y2={414} type="weight" strokeWidth={2.7} />
         <VectorArrow x1={422} y1={278} x2={422} y2={346} type="weight" strokeWidth={2.7} />
         <VectorArrow x1={230} y1={292} x2={230} y2={380} type="velocity" marker="acceleration" strokeWidth={2.7} />
         <VectorArrow x1={540} y1={305} x2={540} y2={217} type="velocity" marker="acceleration" strokeWidth={2.7} />
       </svg>
 
-      <DiagramLabel x="40%" y="50%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
-      <DiagramLabel x="56.5%" y="37%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
+      <DiagramLabel x="37%" y="50%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
+      <DiagramLabel x="54.5%" y="39%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
 
-      <DiagramLabel x="43.5%" y="90%" text="m_1g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
-      <DiagramLabel x="58%" y="76%" text="m_2g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
+      <DiagramLabel x="39.25%" y="91%" text="m_1g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
+      <DiagramLabel x="49.75%" y="76.5%" text="m_2g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
 
-      <DiagramLabel x="25%" y="73%" text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
+      <DiagramLabel x="25%" y="70%" text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
       <DiagramLabel x="69%" y="55%" text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
 
       <div className="absolute left-[7%] top-[8%] rounded-lg border border-zinc-800/80 bg-zinc-950/35 px-4 py-3 shadow-xl">

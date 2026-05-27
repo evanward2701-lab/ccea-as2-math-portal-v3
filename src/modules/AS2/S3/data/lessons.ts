@@ -43,6 +43,9 @@ Probabilities lie between 0 and 1:
 $$
 {\\Large \\boxed{0\\leq P(A)\\leq1}}
 $$
+$$
+\\vphantom{\\Large P}
+$$
 For a complement:
 $$
 {\\Large \\boxed{P(A')=1-P(A)}}
@@ -53,6 +56,10 @@ For two events:
 $$
 {\\Large \\boxed{P(A\\cup B)=P(A)+P(B)-P(A\\cap B)}}
 $$
+$$
+\\vphantom{\\Large P}
+$$
+
 If events are mutually exclusive, $P(A\\cap B)=0$, so:
 $$
 {\\Large \\boxed{P(A\\cup B)=P(A)+P(B)}}
