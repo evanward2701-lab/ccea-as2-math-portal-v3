@@ -1,0 +1,25 @@
+{
+  "summary": {
+    "totalQuestions": 169,
+    "moduleBreakdown": {
+      "P1": 40,
+      "P2": 28,
+      "P3": 15,
+      "P4": 26,
+      "P5": 28,
+      "P6": 4,
+      "P7": 20,
+      "P8": 8
+    },
+    "visuals": 163,
+    "unresolvedVisualPlaceholders": 0
+  },
+  "qualityGaps": {
+    "missingSolutions": [],
+    "duplicateQuestionIds": []
+  },
+  "visualAudit": {
+    "unresolvedList": [],
+    "pendingVisualsCreated": 0
+  }
+}

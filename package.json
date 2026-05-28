@@ -12,6 +12,7 @@
     "audit": "tsx src/scripts/auditor/audit.ts",
     "screenshots": "tsx src/scripts/captureScreenshots.ts",
     "ingest:as2": "tsx src/scripts/ingestQuestions.ts",
+    "import:as1": "tsx src/scripts/importAS1Evidence.ts",
     "import:combined": "tsx src/scripts/importCombinedPracticePacks.ts",
     "extract:all": "npm run import:combined",
     "audit:questions": "tsx src/scripts/auditQuestionBank.ts",

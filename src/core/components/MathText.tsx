@@ -23,7 +23,7 @@ export function MathInline({ content, className }: { content: string; className?
     <span className={cn("inline-flex items-center", className)}>
       <ReactMarkdown
         remarkPlugins={[remarkMath]}
-        rehypePlugins={[rehypeKatex]}
+        rehypePlugins={[katexPlugin]}
         components={{
           // Inherit paragraph styling from the main MathText component logic
           p: ({ node, ...props }) => <span className="inline-block" {...props} />
@@ -38,6 +38,7 @@ export function MathInline({ content, className }: { content: string; className?
 const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
 const placeholderPattern = /\[(VISUAL|INTERACTIVE) (?:PLACEHOLDER|REFERENCE):\s*([^\]|]+)(?:\|([^\]]*))?\]/gi;
 const protectedMarkdownPattern = /(```[\s\S]*?```|`[^`\n]*`|\$\$[\s\S]*?\$\$|\$[^$\n]*\$|!\[[^\]]*\]\([^)]*\)|\[[^\]]*\]\([^)]*\))/g;
+const katexPlugin = [rehypeKatex, { strict: false }] as any;
 
 const unitPhrasePatterns: Array<[RegExp, string]> = [
   [/\bkg\s+m\s+s(?:\^\{?-?2\}?|[-−]2)\b/g, '$\\mathrm{kg\\,m\\,s^{-2}}$'],
@@ -242,13 +243,33 @@ export function MathText({ content, className, center, noMargin, variant = "defa
     strong: ({ node, ...props }) => <strong className="font-bold text-zinc-100 decoration-zinc-800 underline-offset-4" {...props} />,
     code: ({ node, ...props }) => <code className="font-mono text-2.75 bg-zinc-900/40 text-zinc-400 px-2 py-0.5 rounded border border-zinc-800/50 shadow-xs" {...props} />,
     table: ({ node, ...props }) => (
-      <div className="my-8 w-full overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900/10 shadow-inner">
-        <table className="w-full border-collapse text-sm text-zinc-300" {...props} />
+      <div className={cn(
+        "my-10 w-full overflow-x-auto rounded-lg border bg-zinc-950/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+        isLesson ? "border-zinc-800/70" : "border-zinc-800"
+      )}>
+        <table className={cn("w-full min-w-[760px] border-collapse", isLesson ? "text-base text-zinc-300" : "text-sm text-zinc-300")} {...props} />
       </div>
     ),
-    thead: ({ node, ...props }) => <thead className="bg-zinc-900/50 border-b border-zinc-800" {...props} />,
-    th: ({ node, ...props }) => <th className="p-4 font-bold text-2.5 uppercase tracking-widest text-zinc-500 text-center" {...props} />,
-    td: ({ node, ...props }) => <td className="p-4 border-b border-zinc-800/30 text-center" {...props} />,
+    thead: ({ node, ...props }) => <thead className="border-b border-zinc-800/80 bg-zinc-900/45" {...props} />,
+    tr: ({ node, ...props }) => <tr className="border-b border-zinc-800/35 last:border-b-0 transition-colors hover:bg-zinc-900/20" {...props} />,
+    th: ({ node, ...props }) => (
+      <th
+        className={cn(
+          "px-5 py-4 text-left align-bottom font-bold uppercase tracking-[0.22em] text-zinc-500",
+          isLesson ? "text-2.5" : "text-xs"
+        )}
+        {...props}
+      />
+    ),
+    td: ({ node, ...props }) => (
+      <td
+        className={cn(
+          "px-5 py-5 text-left align-top leading-relaxed text-zinc-300",
+          isLesson ? "font-serif text-lg" : "text-sm"
+        )}
+        {...props}
+      />
+    ),
     img: ({ node, src, alt, ...props }) => {
       if (alt?.startsWith("visual:")) {
         const visualId = alt.replace("visual:", "");
@@ -284,7 +305,7 @@ export function MathText({ content, className, center, noMargin, variant = "defa
               <ReactMarkdown
                 key={`${i}-${index}`}
                 remarkPlugins={[remarkMath, remarkGfm]}
-                rehypePlugins={[rehypeKatex]}
+                rehypePlugins={[katexPlugin]}
                 components={markdownComponents}
               >
                 {part}
@@ -306,7 +327,7 @@ export function MathText({ content, className, center, noMargin, variant = "defa
       const id = segments[i + 2]?.trim();
 
       finalElements.push(
-        <div key={`placeholder-${id}`} className={cn(visualSpacingClass, "w-full flex justify-center")}>
+        <div key={`placeholder-${id}-${i}`} className={cn(visualSpacingClass, "w-full flex justify-center")}>
           <VisualRenderer visualId={id} />
         </div>
       );

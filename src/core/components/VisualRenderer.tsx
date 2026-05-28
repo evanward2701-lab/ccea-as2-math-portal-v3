@@ -1,6 +1,8 @@
 import React from 'react';
-import { VisualRegistry, AS2_SHORT_ID_MAPPING } from "@/modules/AS2/registry";
-import { getPracticeComponent } from "@/modules/AS2/visualManifest";
+import { VisualRegistry as AS2VisualRegistry, AS2_SHORT_ID_MAPPING } from "@/modules/AS2/registry";
+import { getPracticeComponent as getAS2PracticeComponent } from "@/modules/AS2/visualManifest";
+import { VisualRegistry as AS1VisualRegistry, AS1_SHORT_ID_MAPPING } from "@/modules/AS1/registry";
+import { getAS1PracticeComponent } from "@/modules/AS1/visualManifest";
 
 // ==========================================
 // ROUTER COMPONENT
@@ -31,22 +33,40 @@ export function VisualRenderer({ visualId }: VisualRendererProps) {
   const as2Mapping = AS2_SHORT_ID_MAPPING[visualId];
   if (as2Mapping) {
     const { module, component } = as2Mapping;
-    const ModuleRegistry = VisualRegistry[module];
+    const ModuleRegistry = AS2VisualRegistry[module];
     const Component = (ModuleRegistry as any)[component];
     if (Component) return <Component />;
   }
 
-  // 2. Try Practice Manifest (Automatic extraction)
-  const PracticeComponent = getPracticeComponent(visualId);
-  if (PracticeComponent) {
+  // 2. Try AS1 Short ID Mapping (Lessons)
+  const as1Mapping = AS1_SHORT_ID_MAPPING[visualId];
+  if (as1Mapping) {
+    const { module, component } = as1Mapping;
+    const ModuleRegistry = AS1VisualRegistry[module];
+    const Component = (ModuleRegistry as any)[component];
+    if (Component) return <Component />;
+  }
+
+  // 3. Try Practice Manifests (Automatic extraction)
+  const AS2PracticeComponent = getAS2PracticeComponent(visualId);
+  if (AS2PracticeComponent) {
     return (
       <PracticeVisualFrame id={visualId}>
-        <PracticeComponent />
+        <AS2PracticeComponent />
       </PracticeVisualFrame>
     );
   }
 
-  // 3. Fallback: Pending/Unavailable Notice
+  const AS1PracticeComponent = getAS1PracticeComponent(visualId);
+  if (AS1PracticeComponent) {
+    return (
+      <PracticeVisualFrame id={visualId}>
+        <AS1PracticeComponent />
+      </PracticeVisualFrame>
+    );
+  }
+
+  // 4. Fallback: Pending/Unavailable Notice
   return (
     <div className="my-6 p-6 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 flex flex-col items-center gap-2 max-w-sm mx-auto">
       <div className="text-2.5 font-mono font-bold text-zinc-500 uppercase tracking-widest flex items-center gap-2">

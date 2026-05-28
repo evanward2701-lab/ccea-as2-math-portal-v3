@@ -1,0 +1,541 @@
+# Differentiation
+
+**Unit:** CCEA AS1 Pure Mathematics  
+**Source:** DIFFERENTIATION(2).pdf  
+**Date generated:** 22 May 2026
+
+This lesson pack introduces differentiation and its many applications.  It is designed for students progressing from Higher Tier GCSE Maths to the first unit of the CCEA AS Mathematics course.  The material is aligned closely with the CCEA specification【694213144107686†L590-L616】 and its elaboration document【794346718818743†L461-L497】.  Worked examples, diagrams and interactive widgets will help you understand the concepts and practise exam‑style questions.
+
+## 1. Specification Alignment
+
+| CCEA specification point | Elaboration document guidance | Covered in this lesson? | Where it appears | Gap or action needed | Suggested visual/widget support |
+| --- | --- | --- | --- | --- | --- |
+| **Understand the derivative as the gradient of a tangent**【694213144107686†L590-L616】 | Interpret the gradient of the tangent as a rate of change; limit definition using first principles【794346718818743†L461-L480】 | Yes | Section 7.1 and Section 7.2 | None | TikZ diagram TIKZ‑001 showing secant approaching tangent; widget for exploring slope |
+| **Use derivative notation**【694213144107686†L590-L616】 | Recognise \(dy/dx\), \(f'(x)\) and \(\frac{d}{dx}[f(x)]\) as equivalent【794346718818743†L461-L480】 | Yes | Section 6 | None | SVG tables summarising notation |
+| **Differentiate \(x^n\) for rational \(n\)**【694213144107686†L590-L616】 | Apply the power rule to constant multiples, sums and differences; understand that constants disappear on differentiating【794346718818743†L461-L484】 | Yes | Section 7.3 | None | SVG‑002 table of special cases; widget exploring the power rule |
+| **Find gradients, tangents and normals**【694213144107686†L613-L616】 | Use point–slope form to write the equation of a tangent at \(x=a\); normal gradient is \(-1/m_{\text{tan}}\); tangent horizontal when \(f'(a)=0\)【794346718818743†L461-L497】 | Yes | Section 7.4 | None | TikZ‑001 and TikZ‑002 diagrams; widget exploring tangents and normals |
+| **Identify maxima, minima and stationary points**【694213144107686†L613-L616】 | Solve \(f'(x)=0\) to locate stationary points; use the second derivative or sign table to classify them into maxima, minima or points of inflection【794346718818743†L461-L496】 | Yes | Sections 7.5 and 7.6 | None | Mermaid MMD‑002 decision tree; TikZ graph of \(x^3-3x\); widget for stationary points |
+| **Identify increasing and decreasing functions**【694213144107686†L616-L616】 | Use the sign of \(f'(x)\) to determine where a function is increasing or decreasing; use \(f''(x)\) to discuss concavity and points of inflection【794346718818743†L461-L497】 | Yes | Section 7.7 | None | SVG‑001 table of derivative sign vs behaviour |
+| **Integration as reverse of differentiation**【694213144107686†L624-L632】 | Integrate \(x^n\) (excluding \(n=-1\)) and interpret definite integrals as areas【794346718818743†L499-L529】 | Partial | Section 7.9 summarises integration at a basic level | Further study of integration appears in later lessons | Optional widget exploring area under a curve (not included here) |
+
+## 2. Learning Objectives
+
+By the end of this lesson, you should be able to:
+
+- Explain what a derivative is and why it measures rate of change.
+- Use correct notation for derivatives, including \(dy/dx\), \(f'(x)\) and \(\frac{d}{dx}[f(x)]\).
+- Differentiate functions of the form \(a x^n\) for any rational exponent \(n\) using the power rule.
+- Differentiate sums, differences and constant multiples by treating each term separately.
+- Calculate the gradient of a curve at a point and derive the equations of tangents and normals.
+- Find stationary points by solving \(f'(x)=0\) and classify them using the second derivative or a sign table.
+- Determine intervals where a function is increasing or decreasing and describe its concavity and points of inflection.
+- Sketch graphs of functions using derivatives to identify key features such as turning points, intercepts and asymptotic behaviour.
+- Apply differentiation to simple optimisation problems and interpret solutions in context.
+
+## 3. Compact Prerequisite Recap
+
+Before tackling differentiation, you should already be comfortable with the following Higher Tier GCSE skills:
+
+* **Powers and indices:** laws of indices for integer and fractional exponents (e.g. \(x^a x^b = x^{a+b}\), \(x^{1/2} = \sqrt{x}\), \(x^{-n} = 1/x^n\)), including simplification and rationalising surds.
+* **Straight-line graphs:** gradient \(m\) of \(y=mx+c\), equation of a line through a point with a given gradient.
+* **Quadratic functions:** completing the square, plotting simple graphs and locating turning points.
+* **Basic algebra:** expanding brackets, factorising expressions, solving linear and quadratic equations and inequalities.
+* **Limits and notation:** understanding what happens when a variable tends to zero or infinity, and interpreting functions using algebraic notation.
+
+These topics are summarised here as a reminder only; the main lesson builds on them.
+
+## 4. Big Picture Explanation
+
+Differentiation is a cornerstone of calculus.  It provides a precise way to measure how a quantity changes in response to changes in another variable.  If a car’s distance travelled depends on time, the derivative of the distance with respect to time is the speed.  If a curve \(y = f(x)\) describes a relationship between \(x\) and \(y\), the derivative \(f'(x)\) tells you the gradient (slope) of the tangent line at each point \((x,f(x))\).  Knowing where a function’s derivative is zero or changes sign reveals its peaks, troughs and points of inflection.  Throughout this lesson you will learn how to calculate derivatives, interpret their meaning and apply them to real problems, as required by the CCEA specification【694213144107686†L590-L616】.
+
+## 5. Key Definitions and Notation
+
+* **Function:** A rule that assigns a unique output \(f(x)\) to every input \(x\) in its domain.
+* **Derivative:** The derivative of \(y = f(x)\) with respect to \(x\) measures how fast \(y\) changes as \(x\) changes.  It is denoted by any of the following equivalent forms【794346718818743†L461-L480】:
+  * \(\displaystyle \frac{dy}{dx}\) (Leibniz notation), pronounced “dee‑y dee‑x”.
+  * \(f'(x)\) (Newton’s notation).
+  * \(\displaystyle \frac{d}{dx}[f(x)]\) (operator notation).
+* **Gradient:** The slope of a straight line.  The gradient of a curve at a point is the gradient of the tangent line drawn at that point.
+* **Tangent line:** A straight line that just touches a curve at a point and has the same gradient as the curve there.
+* **Normal line:** A line perpendicular to the tangent line at a given point on a curve.  If the gradient of the tangent is \(m\), then the gradient of the normal is \(-1/m\) (provided \(m\neq 0\)).
+* **Stationary point:** A point on a curve where \(f'(x)=0\).  Depending on context, it may be a local maximum, local minimum or a stationary point of inflection (where the curve flattens but does not change from increasing to decreasing).
+* **Concave up / concave down:** A curve is **concave up** when it bends upwards like a bowl (\(f''(x) > 0\)) and **concave down** when it bends downwards like a cap (\(f''(x) < 0\)).  A point of inflection occurs where concavity changes and \(f''(x)\) changes sign.
+
+## 6. Core Theory
+
+### 6.1 The Idea of Differentiation and Notation
+
+Differentiation tells us *how a function changes when the input changes*.  If the function is \(y=f(x)\), then the expression \(\frac{dy}{dx}\) literally means “the rate at which \(y\) changes with respect to \(x\)”【122875883974921†screenshot】.  In plain English, it answers the question: *for a tiny change in \(x\), how much does \(y\) change?*  The derivative gives the gradient (slope) of the curve \(y=f(x)\) at any particular value of \(x\).  A positive derivative indicates the curve is going upwards; a negative derivative means it is going downwards; a derivative of zero corresponds to a horizontal tangent (which might be a turning point).
+
+Three notations for the derivative are commonly used【122875883974921†screenshot】:
+
+| Notation | Example | Use |
+| --- | --- | --- |
+| \(\displaystyle \frac{dy}{dx}\) | If \(y=x^2\), then \(\frac{dy}{dx}=2x\). | Preferred in many exam questions. |
+| \(f'(x)\) | If \(f(x)=x^2\), then \(f'(x)=2x\). | Common shorthand when a function name is given. |
+| \(\displaystyle \frac{d}{dx}[f(x)]\) | \(\frac{d}{dx}[x^2]=2x\). | Useful when the function name is not used explicitly. |
+
+### 6.2 Definition from First Principles
+
+The formal definition of the derivative uses a limiting process.  For a function \(f(x)\), the derivative at a point \(x\) is defined by the limit
+
+\[
+f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.
+\]
+
+This expression is sometimes called **differentiation from first principles**【122875883974921†screenshot】.  It can be understood geometrically: the fraction \(\frac{f(x+h)-f(x)}{h}\) is the gradient of the *secant* line joining the points \((x,f(x))\) and \((x+h,f(x+h))\).  As \(h\) gets smaller, the secant line approaches the tangent line at \((x,f(x))\) and its gradient approaches the derivative.  A step‑by‑step procedure is:
+
+1. **Write down** \(f(x)\).
+2. **Compute** \(f(x+h)\) by replacing \(x\) with \(x+h\).
+3. **Form the difference** \(f(x+h)-f(x)\).
+4. **Divide by** \(h\) to get an average rate of change.
+5. **Take the limit** as \(h \to 0\) and simplify.
+
+**Example – using first principles:** For \(f(x)=x^2\),
+
+* \(f(x+h)=(x+h)^2=x^2+2xh+h^2\).
+* \(f(x+h)-f(x) = 2xh + h^2\).
+* Dividing by \(h\) gives \(2x + h\).
+* Taking the limit \(h\to 0\) leaves \(2x\).
+
+Therefore \(f'(x)=2x\).  This result agrees with the power rule.  A TikZ diagram (TIKZ‑001) in the diagrams file illustrates this secant‑to‑tangent process.
+
+### 6.3 The Power Rule
+
+For functions of the form \(y=a x^n\), where \(a\) is a constant and \(n\) is any real number (positive, negative or fractional), the **power rule** states that
+
+\[
+\frac{dy}{dx} = a\,n\,x^{n-1}.
+\]
+
+Intuitively, the exponent \(n\) tells us how quickly \(x^n\) grows, and the derivative measures that rate of change, which is proportional to both \(n\) and \(x^{n-1}\).  To apply the power rule:
+
+1. Bring the power down in front: multiply by \(n\).
+2. Multiply by the constant \(a\).
+3. Reduce the power of \(x\) by 1.
+
+**Examples:**
+
+| Function \(y\) | Derivative \(dy/dx\) | Comments |
+| --- | --- | --- |
+| \(x^5\) | \(5x^4\) | Coefficient is 1. |
+| \(3x^{10}\) | \(30x^9\) | Multiply by 10, then by 3. |
+| \(2x^6\) | \(12x^5\) | Multiply by 6, then by 2. |
+| \(\tfrac{1}{4}x^7\) | \(\tfrac{7}{4}x^6\) | Constant factors carry through. |
+| \(-5x^3\) | \(-15x^2\) | Keep the negative sign. |
+| \(x^{-2}\) | \(-2x^{-3}\) | Works for negative exponents. |
+| \(\sqrt{x}=x^{1/2}\) | \(\tfrac{1}{2}x^{-1/2}\) | Express roots as fractional powers. |
+
+The power rule works for all real exponents.  Constants (terms with no \(x\)) vanish under differentiation.  A summary table of special cases is provided as an SVG diagram (SVG‑002) with examples【908776178076130†screenshot】.  Watch out for common pitfalls:
+
+* Always multiply by the coefficient as well as the exponent.  E.g. \(\tfrac{d}{dx}(5x^2)=10x\).
+* Reduce the power by 1.  E.g. \(\tfrac{d}{dx}(x^3)=3x^2\), not \(3x^3\).
+* Do **not** apply the power rule to a sum or product as if it were a single term; differentiate each term separately.
+* Treat \(x\) as the variable; constants disappear.
+
+### 6.4 Multiple Terms, Constants and Linear Combinations
+
+Differentiation is *linear* – you can differentiate sums and differences term by term【571736936791037†screenshot】:
+
+\[
+\frac{d}{dx}[f(x) + g(x) - h(x)] = f'(x) + g'(x) - h'(x).
+\]
+
+This allows you to break up complicated expressions.  Examples:
+
+1. **Sum and difference:** If \(y = x^3 + 4x^2 - 5x + 7\), then
+   \[
+   \frac{dy}{dx} = \frac{d}{dx}(x^3) + \frac{d}{dx}(4x^2) - \frac{d}{dx}(5x) + \frac{d}{dx}(7)
+   = 3x^2 + 8x - 5 + 0.
+   \]
+
+2. **Mixed powers:** To differentiate \(y = 2x^{-3} + x^{1/2} - 4x + 5\), first rewrite all terms with powers of \(x\).  Then
+   \[
+   \frac{dy}{dx} = 2(-3)x^{-4} + \tfrac{1}{2}x^{-1/2} - 4 + 0
+   = -\frac{6}{x^4} + \frac{1}{2\sqrt{x}} - 4.
+   \]
+
+3. **Another mixed example:** If \(y = 3x^{-2} - 7x^{3/2} + x^{-1}\), write \(y=3x^{-2} - 7x^{3/2} + x^{-1}\).  Using the power rule:
+   \[
+   \frac{dy}{dx} = 3(-2)x^{-3} - 7 \cdot \tfrac{3}{2} x^{1/2} + (-1)x^{-2} = -6x^{-3} - \tfrac{21}{2}x^{1/2} - \tfrac{1}{x^2}.
+   \]
+
+Constants multiply through; a table of simple constant–term derivatives is included in Section 7.3 and summarised in an SVG diagram (SVG‑002).
+
+### 6.5 Tangents and Normals
+
+The derivative gives the gradient of the tangent line to a curve.  For a curve \(y=f(x)\), the gradient of the tangent at \(x=a\) is \(m_{\text{tan}} = f'(a)\)【766485541006900†screenshot】.  Using the point–slope form of a straight line, the equation of the tangent through the point \(\bigl(a, f(a)\bigr)\) is
+
+\[
+y - f(a) = f'(a)\,(x - a).
+\]
+
+The **normal** to the curve at \(x=a\) is the line perpendicular to the tangent.  Its gradient is 
+\[
+m_{\text{norm}} = -\frac{1}{f'(a)}
+\]
+provided \(f'(a) \neq 0\).  If \(f'(a)=0\), the tangent is horizontal and the normal is vertical.  A TikZ diagram (TIKZ‑002) illustrates tangents and normals on the graph of \(y=x^2\) and the relationship between their gradients.
+
+**Example – tangent and normal to \(y=x^2\) at \(x=3\):**
+
+* \(f(x) = x^2 \Rightarrow f'(x) = 2x\).
+* At \(x=3\), gradient \(m_{\text{tan}}=2\times 3=6\) and the point is \((3,9)\).
+* **Tangent:** \(y - 9 = 6(x - 3)\Rightarrow y = 6x - 9\).
+* **Normal:** gradient \(m_{\text{norm}}=-1/6\).  Equation: \(y - 9 = -\tfrac{1}{6}(x - 3)\Rightarrow y = -\tfrac{1}{6}x + \tfrac{11}{2}\).
+
+### 6.6 Stationary Points and the Second Derivative
+
+A **stationary point** occurs when the gradient function is zero: \(f'(x)=0\).  Stationary points may be:
+
+- **Local maximum:** \(f''(a) < 0\) – the curve bends downwards (concave down) and the stationary point is a peak.
+- **Local minimum:** \(f''(a) > 0\) – the curve bends upwards (concave up) and the stationary point is a trough.
+- **Stationary point of inflection:** \(f'(a)=0\) and \(f''(a)=0\) but the gradient does not change sign; the curve passes through a flat point without a peak or trough【323011827102861†screenshot】.  A further sign test of \(f'(x)\) on either side of \(a\) is needed.
+
+The **second derivative** \(f''(x)\) is the derivative of the derivative.  It measures how the gradient is changing, sometimes referred to as the curvature of the curve【323011827102861†screenshot】.  A decision‑tree diagram in the mermaid file (MMD‑002) summarises how to classify stationary points using the second derivative or a sign table.
+
+**Procedure to find and classify stationary points**:
+
+1. **Differentiate** \(f(x)\) to find \(f'(x)\).
+2. **Solve** \(f'(x)=0\) to find potential stationary points.
+3. **Substitute** these \(x\) values back into \(f(x)\) to find their coordinates.
+4. **Classify** each point:
+   - Compute \(f''(x)\).  If \(f''(a)>0\), it is a local minimum; if \(f''(a)<0\), a local maximum; if \(f''(a)=0\), use the sign of \(f'(x)\) on either side to check whether the derivative changes sign【895737918508391†screenshot】.
+
+**Example – classifying stationary points using \(f''(x)\):**  Let \(y=x^3-3x\).  Then \(f'(x)=3x^2-3=3(x^2-1)\).  Setting \(f'(x)=0\) gives \(x=\pm1\).  The second derivative is \(f''(x)=6x\).  At \(x=-1\), \(f''(-1)=-6<0\), so \((-1,2)\) is a local maximum.  At \(x=1\), \(f''(1)=6>0\), so \((1,-2)\) is a local minimum.  A TikZ graph (TIKZ‑002) illustrates these points.
+
+**Example – using a sign table:**  Consider \(y=x^4-2x^2\).  The derivative is \(f'(x)=4x^3-4x=4x(x^2-1)\), which is zero at \(x=-1,0,1\).  The second derivative is \(f''(x)=12x^2-4\), which gives \(f''(-1)=8>0\) and \(f''(1)=8>0\), but \(f''(0)=-4<0\).  However, because the second derivative test is inconclusive when \(f''(x)=0\), we construct a sign table for \(f'(x)\) and see that the derivative changes from positive to negative at \(x=0\); hence \((0,0)\) is a local maximum.  It changes from negative to positive at \(x=-1\) and again at \(x=1\), so \((-1,-1)\) and \((1,-1)\) are local minima【895737918508391†screenshot】.
+
+### 6.7 Increasing, Decreasing and Points of Inflection
+
+The sign of the first derivative tells you whether a function is rising or falling.  If \(f'(x)>0\) on an interval, the function is **strictly increasing** on that interval.  If \(f'(x)<0\), it is **strictly decreasing**.  If \(f'(x)\ge 0\) (allowing zeros), the function is non‑decreasing; similarly \(f'(x)\le 0\) for non‑increasing【741919382461431†screenshot】.  A summary table and sketch are provided as an SVG diagram (SVG‑001).  Proofs often involve showing that the derivative is positive for all \(x\).  For example, \(f(x)=x^3+6x^2+21x+7\) has derivative \(f'(x)=3x^2+12x+21=3[(x+2)^2+3]\), which is always positive; hence \(f(x)\) is strictly increasing for all real \(x\)【741919382461431†screenshot】.
+
+The **concavity** of a function is determined by the second derivative:
+
+- If \(f''(x)>0\), the curve is concave up (cup shape).  Think of it as curving upwards.
+- If \(f''(x)<0\), the curve is concave down (cap shape).
+- If \(f''(x)\) changes sign at a point, the curve has a **point of inflection** there.  If \(f'(x)\ne 0\) at the same point, it is a non‑stationary point of inflection; if \(f'(x)=0\), it is a stationary point of inflection.
+
+**Method for finding points of inflection:**
+
+1. Differentiate twice to find \(f''(x)\).
+2. Solve \(f''(x)=0\) (and consider where \(f''(x)\) is undefined) to get candidates.
+3. Test the sign of \(f''(x)\) on either side of each candidate; if it changes sign, that point is a point of inflection【657145149551224†screenshot】.
+4. Optionally check \(f'(x)\) to see whether it is also a stationary point.
+
+**Example – point of inflection for \(y=x^4-4x^2\):**
+
+* \(f'(x)=4x^3-8x\), \(f''(x)=12x^2-8\).
+* Solve \(12x^2-8=0\) to obtain \(x=\pm\sqrt{\tfrac{2}{3}}\).
+* Testing values on either side shows that \(f''(x)\) changes from positive to negative at \(-\sqrt{2/3}\) and from negative to positive at \(+\sqrt{2/3}\).  Thus both points are points of inflection.
+* Substituting into \(f(x)\) gives the coordinates: \(\Bigl(-\sqrt{\tfrac{2}{3}},\; \tfrac{20}{9}\Bigr)\) and \(\Bigl(\sqrt{\tfrac{2}{3}},\; \tfrac{20}{9}\Bigr)\).  These points are labelled on the TikZ graph (TIKZ‑003).
+
+### 6.8 Sketching Curves Using Derivatives
+
+Calculus is an essential tool for sketching accurate graphs.  A general method is as follows【777840937077672†screenshot】:
+
+1. **Differentiate** to find \(f'(x)\).
+2. **Solve \(f'(x)=0\)** to locate stationary points and determine their nature using the second derivative or a sign table.
+3. **Find intercepts:** set \(x=0\) for \(y\)-intercepts and \(y=0\) for \(x\)-intercepts【814989714953450†screenshot】.
+4. **Check asymptotes** if the function involves ratios.  Vertical asymptotes occur where the denominator is zero but the numerator is non‑zero; horizontal asymptotes are found by taking the limit as \(x\to \pm\infty\); oblique asymptotes occur when the degree of the numerator exceeds that of the denominator by exactly one【814989714953450†screenshot】.
+5. **Determine behaviour as \(x\to\pm\infty\)** using the highest‑degree term (for polynomials) or by considering limits【814989714953450†screenshot】.
+6. **Combine all information**—stationary points, intercepts, asymptotes, end behaviour, concavity and any points of inflection—to sketch the curve.  Label axes and key points clearly.
+
+A TikZ diagram (TIKZ‑002) shows how to use a sign table to sketch \(y=x^3-3x\).  The SVG diagrams summarise derivative sign conditions (SVG‑001) and concavity (SVG‑003).
+
+### 6.9 Optimisation and Modelling
+
+Differentiation is a powerful tool for optimisation problems.  A typical process involves:
+
+1. **Formulate** a function \(f(x)\) representing the quantity to be optimised (e.g. area, volume, cost).
+2. **Differentiate** \(f(x)\) to find \(f'(x)\).
+3. **Solve \(f'(x)=0\)** to locate critical points and use the second derivative to decide whether they correspond to maxima or minima.
+4. **Check boundaries** of the domain because maximum or minimum values may occur at the endpoints【734237103456447†screenshot】.
+5. **Interpret** the solution in the context of the problem.
+
+**Example – open box problem:** A rectangular piece of metal measuring 30 cm by 20 cm is turned into an open box by cutting out squares of side \(x\) from each corner and folding up the sides.  The volume is
+
+\[
+V(x) = x(30-2x)(20-2x) = 4x^3 - 100x^2 + 600x.
+\]
+
+Differentiating gives \(V'(x) = 12x^2 - 200x + 600\).  Solving \(V'(x)=0\) yields critical values (details in the worked examples).  Testing the second derivative and considering physical constraints (e.g. \(0<x<10\) because the cuts cannot exceed half the shorter side) shows that \(x=\tfrac{10}{3}\) cm gives the maximum volume【734237103456447†screenshot】.
+
+Similar techniques apply to finding maximum or minimum values of functions defined on an interval; always check the endpoints as well as critical points【734237103456447†screenshot】.
+
+### 6.10 Brief Note on Integration
+
+The CCEA AS1 unit also introduces **integration** as the reverse of differentiation【694213144107686†L624-L632】.  Integrating \(x^n\) (for \(n\neq -1\)) produces a new function whose derivative is \(x^n\).  Definite integrals calculate the area under a curve between two points and are closely connected to the applications of differentiation discussed here.  A detailed study of integration will follow in a separate lesson; this lesson only provides a brief preview.
+
+## 7. Visual Asset Integration
+
+To aid understanding, this lesson uses several diagrams and flowcharts.  Each placeholder below corresponds to a diagram defined in the accompanying diagram files.
+
+### 7.1 First Principles Flowchart
+
+[VISUAL PLACEHOLDER: MMD-001 | Source: lesson PDF p.1 | Insert from AS1_differentiation_mermaid.md | Purpose: illustrate the step‑by‑step process of differentiating from first principles]
+
+### 7.2 Special Cases and Sign Tables
+
+[VISUAL PLACEHOLDER: SVG-002 | Source: lesson PDF p.2 | Insert from AS1_differentiation_svg.md | Purpose: summarise the power rule and special cases]
+
+[VISUAL PLACEHOLDER: SVG-001 | Source: AI-proposed teaching enhancement, not present in lesson PDF | Insert from AS1_differentiation_svg.md | Purpose: show how the sign of the derivative relates to increasing/decreasing behaviour]
+
+[VISUAL PLACEHOLDER: SVG-003 | Source: AI-proposed teaching enhancement, not present in lesson PDF | Insert from AS1_differentiation_svg.md | Purpose: summarise concavity and points of inflection]
+
+### 7.3 Tangents and Normals Diagram
+
+[VISUAL PLACEHOLDER: TIKZ-001 | Source: lesson PDF p.4 | Insert from AS1_differentiation_tikz.md | Purpose: show secant approaching tangent on a curve]
+
+[VISUAL PLACEHOLDER: TIKZ-002 | Source: lesson PDF p.5 | Insert from AS1_differentiation_tikz.md | Purpose: graph of \(y=x^3-3x\) illustrating local maxima, minima and point of inflection]
+
+[VISUAL PLACEHOLDER: TIKZ-003 | Source: lesson PDF p.7 | Insert from AS1_differentiation_tikz.md | Purpose: graph of \(y=x^4-4x^2\) showing points of inflection]
+
+## 8. Interactive Learning Widgets
+
+Three interactive widgets accompany this lesson.  Each allows you to vary parameters and immediately see the effect.
+
+### 8.1 Power Rule Explorer
+
+[INTERACTIVE PLACEHOLDER: WIDGET-001 | Source: AI-proposed teaching enhancement, not present in lesson PDF | Insert from AS1_differentiation_widgets.md | Purpose: explore how changing the exponent and coefficient affects the derivative of \(a x^n\)]
+
+### 8.2 Tangent and Normal Explorer
+
+[INTERACTIVE PLACEHOLDER: WIDGET-002 | Source: AI-proposed teaching enhancement, not present in lesson PDF | Insert from AS1_differentiation_widgets.md | Purpose: pick a function and see the tangent and normal at any point]
+
+### 8.3 Stationary Points Explorer
+
+[INTERACTIVE PLACEHOLDER: WIDGET-003 | Source: AI-proposed teaching enhancement, not present in lesson PDF | Insert from AS1_differentiation_widgets.md | Purpose: adjust coefficients of a cubic function and watch how its stationary points and classifications change]
+
+## 9. Worked Examples
+
+The following examples are drawn from the lesson PDF【571736936791037†screenshot】【766485541006900†screenshot】.  They demonstrate common techniques and include detailed solutions.
+
+### 9.1 Differentiation from First Principles
+
+**Example 1:** Use first principles to find the derivative of \(f(x)=x^3\).
+
+**Solution:**
+
+1. Write \(f(x)=x^3\) and compute \(f(x+h)=(x+h)^3=x^3+3x^2h+3xh^2+h^3\).
+2. Form \(f(x+h)-f(x)=3x^2h+3xh^2+h^3\).
+3. Divide by \(h\): \(\dfrac{f(x+h)-f(x)}{h} = 3x^2 + 3xh + h^2\).
+4. Take the limit as \(h\to 0\): the terms containing \(h\) vanish, leaving \(3x^2\).
+
+Therefore \(f'(x)=3x^2\).  This result agrees with the power rule.
+
+### 9.2 Applying the Power Rule
+
+**Example 2:** Differentiate the following functions.
+
+1. \(y = 7x^8\).  
+   \(\dfrac{dy}{dx} = 7\times 8\,x^{7} = 56x^7\).
+
+2. \(y = x^{-2}\).  
+   \(\dfrac{dy}{dx} = -2x^{-3} = -\tfrac{2}{x^3}\).
+
+3. \(y = \sqrt{x}\).  
+   Write \(\sqrt{x}=x^{1/2}\).  Then \(\dfrac{dy}{dx} = \tfrac{1}{2}x^{-1/2} = \tfrac{1}{2\sqrt{x}}\).
+
+4. \(y = 3/x^2 - 7x^{3/2} + x^{-1}\).  
+   Rewrite as \(y = 3x^{-2} - 7x^{3/2} + x^{-1}\).  Differentiating term by term gives
+   \(
+   \dfrac{dy}{dx} = 3(-2)x^{-3} - 7 \cdot \tfrac{3}{2} x^{1/2} + (-1)x^{-2} = -6x^{-3} - \tfrac{21}{2} x^{1/2} - \dfrac{1}{x^2}.
+   \)
+
+### 9.3 Tangents and Normals
+
+**Example 3:** Find the equations of the tangent and normal to the curve \(y=x^3-4x\) at the point where \(x=2\).
+
+**Solution:**
+
+* First, find \(f'(x)\).  For \(f(x)=x^3-4x\), the derivative is \(f'(x)=3x^2-4\).
+* Evaluate \(f'(2)=3\times 2^2-4=3\times 4-4=12-4=8\).  This is the gradient of the tangent.
+* The point on the curve is \((2,f(2))=(2,2^3-4\times 2)=(2,8-8)=(2,0)\).
+* **Tangent line:** Using \(y - y_1 = m(x - x_1)\) with \(m=8\), \((x_1,y_1)=(2,0)\):
+  \[y - 0 = 8(x - 2) \quad \Rightarrow \quad y = 8x - 16.\]
+* **Normal line:** The gradient of the normal is \(-\tfrac{1}{8}\).  Using the same point:
+  \[y - 0 = -\tfrac{1}{8}(x - 2) \quad \Rightarrow \quad y = -\tfrac{1}{8}x + \tfrac{1}{4}.\]
+
+### 9.4 Classifying Stationary Points
+
+**Example 4:** Find and classify the stationary points of \(y = x^3 - 6x^2 + 9x + 1\).
+
+**Solution:**
+
+1. Differentiate: \(f'(x) = 3x^2 - 12x + 9\).
+2. Solve \(f'(x)=0\): \(3x^2 - 12x + 9 = 0 \Rightarrow x^2 - 4x + 3 = 0\), whose roots are \(x=1\) and \(x=3\).
+3. Find coordinates: \(f(1) = 1 - 6 + 9 + 1 = 5\); \(f(3) = 27 - 54 + 27 + 1 = 1\).
+4. Compute the second derivative: \(f''(x) = 6x - 12\).  Evaluate \(f''(1) = -6\) and \(f''(3) = 6\).
+5. Since \(f''(1) < 0\), \((1,5)\) is a **local maximum**.  Since \(f''(3) > 0\), \((3,1)\) is a **local minimum**【895737918508391†screenshot】.
+
+### 9.5 Using a Sign Table
+
+**Example 5:** Find and classify the stationary points of \(y = x^4 - 2x^2\) using a sign table.
+
+**Solution:**
+
+1. Differentiate: \(f'(x)=4x^3-4x=4x(x^2-1)\).  Stationary points occur at \(x=-1,0,1\).
+2. Second derivative: \(f''(x)=12x^2-4\).  Evaluating gives \(f''(-1)=8>0\), \(f''(0)=-4<0\), \(f''(1)=8>0\).  When the second derivative is zero or inconclusive, a sign table for \(f'(x)\) is used【895737918508391†screenshot】.
+3. Construct a sign table for \(f'(x)\) over the intervals \((-∞,-1),(-1,0),(0,1),(1,∞)\).  Substitute test values (e.g. \(x=-2,-0.5,0.5,2\)) into \(f'(x)=4x(x^2-1)\) to determine whether the derivative is positive or negative.  The derivative changes from positive to negative at \(x=0\), so \((0,0)\) is a local maximum.  It changes from negative to positive at \(x=-1\) and again at \(x=1\), so \((-1,-1)\) and \((1,-1)\) are local minima.
+
+### 9.6 Finding Points of Inflection
+
+**Example 6:** Find the points of inflection of \(y = x^4 - 4x^2\).
+
+**Solution:**
+
+1. Differentiate: \(f'(x) = 4x^3 - 8x\).  Second derivative: \(f''(x) = 12x^2 - 8\).
+2. Solve \(f''(x) = 0\): \(12x^2 - 8 = 0 \Rightarrow x^2 = \tfrac{2}{3} \Rightarrow x = \pm\sqrt{\tfrac{2}{3}}\).
+3. Test the sign of \(f''(x)\) on either side of each root.  For example, choose \(x=-1\) (left), \(x=0\) (middle) and \(x=1\) (right).  The second derivative changes from positive to negative at \(-\sqrt{2/3}\) and from negative to positive at \(+\sqrt{2/3}\).  Therefore both points are points of inflection【657145149551224†screenshot】.
+4. Find the coordinates: substitute into \(f(x)=x^4-4x^2\) to get \(f\bigl(\pm\sqrt{\tfrac{2}{3}}\bigr) = \frac{20}{9}\).  Thus the points of inflection are \(\Bigl(-\sqrt{\tfrac{2}{3}},\,\tfrac{20}{9}\Bigr)\) and \(\Bigl(\sqrt{\tfrac{2}{3}},\,\tfrac{20}{9}\Bigr)\).  These are shown in the TikZ diagram (TIKZ‑003).
+
+## 10. Common Mistakes and Exam Traps
+
+* **Forgetting to multiply by the coefficient:** For \(y = 5x^2\), the derivative is \(10x\), not \(2x\).  Keep track of constant factors.
+* **Not reducing the power by one:** For \(y = x^3\), \(\frac{dy}{dx} = 3x^2\), not \(3x^3\).
+* **Treating a sum as a single term:** Do not apply the power rule to an entire bracket such as \((x+1)^3\) without using the chain rule (covered in a later lesson).
+* **Dropping negative signs:** Differentiating \(x^{-3}\) gives \(-3x^{-4}\), not \(3x^{-4}\).
+* **Assuming \(f''(a)=0\) implies a point of inflection:** Always test the sign of \(f''(x)\) either side of the point; \(f''(a)=0\) is necessary but not sufficient【895737918508391†screenshot】.
+* **Not checking endpoints:** In optimisation on a closed interval, local maxima or minima may occur at the boundaries; always evaluate \(f(x)\) at the endpoints as well as the stationary points【734237103456447†screenshot】.
+
+## 11. Practice Questions
+
+Try these questions yourself before looking at the solutions.  They cover basic differentiation, tangents/normals, stationary points, sketching and optimisation.
+
+### 11.1 Basic Differentiation
+
+1. Find \(\tfrac{d}{dx}(4x^7)\).
+2. Differentiate \(y = 5x^{-3} + 2x^{1/2} - 6\).
+3. Write \(y = \sqrt{x} + \tfrac{3}{x}\) in index form and find \(\tfrac{dy}{dx}\).
+
+### 11.2 Tangents and Normals
+
+4. The curve \(y=\tfrac{1}{3}x^3 - 2x\) passes through the point where \(x=3\).  Find the equation of the tangent and the normal at this point.
+5. For the curve \(y = 2x^2 - 3x + 4\), find the gradient of the tangent at the point where \(y\)-coordinate is 7.
+
+### 11.3 Stationary Points and Classification
+
+6. Find and classify the stationary points of \(y = x^4 - 4x^3 + 4x + 1\).
+7. Show that the function \(g(x) = x^3 + px\) has exactly one stationary point and determine its nature in terms of the parameter \(p\).
+
+### 11.4 Points of Inflection and Concavity
+
+8. Identify all points of inflection on the curve \(y = x^5 - 5x\) and determine whether they are stationary or non‑stationary.
+
+### 11.5 Sketching and Optimisation
+
+9. Sketch the function \(y = \dfrac{2x^2}{x^2 - 1}\).  Show all asymptotes, intercepts, turning points and points of inflection.
+10. A manufacturer needs to design a cylindrical can that holds 500 cm³ of liquid.  Find the dimensions (radius and height) of the can that minimise the surface area.  (*Hint:* Surface area of a cylinder is \(2\pi r^2 + 2\pi r h\) and volume is \(\pi r^2 h\).)
+
+## 12. Worked Solutions to Practice Questions
+
+### 12.1 Solutions – Basic Differentiation
+
+1. \(\tfrac{d}{dx}(4x^7) = 4\times 7 x^{6} = 28x^6\).
+2. Let \(y = 5x^{-3} + 2x^{1/2} - 6\).  Then \(\dfrac{dy}{dx} = 5(-3)x^{-4} + 2 \times \tfrac{1}{2} x^{-1/2} - 0 = -15x^{-4} + x^{-1/2}\).
+3. Write \(y = x^{1/2} + 3x^{-1}\).  Differentiating gives \(\dfrac{dy}{dx} = \tfrac{1}{2}x^{-1/2} - 3x^{-2}\).
+
+### 12.2 Solutions – Tangents and Normals
+
+4. **Curve:** \(y=\tfrac{1}{3}x^3 - 2x\).  Derivative: \(f'(x)=x^2-2\).  At \(x=3\), \(f'(3)=7\).  The point is \((3,f(3))=(3,\tfrac{1}{3}\times 27 - 6)=(3,3)\).  **Tangent:** \(y-3=7(x-3)\Rightarrow y=7x-18\).  **Normal:** gradient is \(-\tfrac{1}{7}\).  Equation: \(y-3=-\tfrac{1}{7}(x-3)\Rightarrow y=-\tfrac{1}{7}x + \tfrac{24}{7}\).
+
+5. The curve is \(y=2x^2-3x+4\).  The derivative is \(4x-3\).  We need the point where \(y=7\).  Set \(2x^2-3x+4=7\Rightarrow 2x^2-3x-3=0\).  Solve: discriminant \(9+24=33\), so \(x=\frac{3\pm\sqrt{33}}{4}\).  There are two points.  The gradients are \(4x-3\) evaluated at each solution; use exact values or approximate numerical values.
+
+### 12.3 Solutions – Stationary Points
+
+6. For \(y=x^4 -4x^3+4x+1\):
+   * \(f'(x)=4x^3 -12x^2 +4\).
+   * Solve \(f'(x)=0\).  Factor out 4: \(4(x^3 -3x^2 +1)=0\), so \(x^3 -3x^2 +1=0\).  This cubic has roots at \(x=1\) and \(x=...\).  Use the factor theorem or a calculator to factorise as \((x-1)(x^2 -2x -1)=0\).  The quadratic gives \(x=1\pm\sqrt{2}\).  Thus the stationary points occur at \(x=1,1\pm\sqrt{2}\).  Evaluate \(f(x)\) at each and use \(f''(x)=12x^2 -24x\) to classify.
+
+7. For \(g(x)=x^3 + p x\):
+   * \(g'(x)=3x^2 + p\).  Setting \(g'(x)=0\) gives \(x^2=-\tfrac{p}{3}\).  If \(p>0\) there are no real stationary points; if \(p=0\) the only stationary point is at the origin (a point of inflection); if \(p<0\) there are two stationary points at \(x=\pm\sqrt{-\tfrac{p}{3}}\).  The second derivative is \(g''(x)=6x\).  At the negative root the second derivative is negative (local maximum); at the positive root it is positive (local minimum).
+
+### 12.4 Solutions – Points of Inflection
+
+8. For \(y=x^5 - 5x\),
+   * \(f'(x)=5x^4 -5\) and \(f''(x)=20x^3\).
+   * Solve \(f''(x)=0\): \(20x^3=0\) gives \(x=0\).  Test signs on either side: \(f''(-1)=-20<0\) and \(f''(1)=20>0\).  The second derivative changes from negative to positive, so \((0,0)\) is a **point of inflection**.
+   * Since \(f'(0)= -5\), the curve is decreasing at the point of inflection; it is therefore a non‑stationary inflection point.
+
+### 12.5 Solutions – Sketching and Optimisation
+
+9. **Sketching** \(y = \dfrac{2x^2}{x^2 - 1}\):
+   * **Domain:** exclude \(x=\pm1\) because the denominator is zero; vertical asymptotes at these values.
+   * **Intercepts:** set \(x=0\): \(y=0\); set \(y=0\): numerator zero gives \(x=0\).  The only intercept is the origin.
+   * **Asymptotes:** as \(x\to \pm\infty\), the leading terms give \(y \approx 2\).  Thus there is a horizontal asymptote \(y=2\).  No oblique asymptote because the degrees of numerator and denominator are equal.
+   * **Derivative:** use the quotient rule (covered in a later lesson) or rewrite \(y=2 + \tfrac{2}{x^2-1}\) to analyse behaviour.  The function decreases on \((-\infty,-1)\), has a minimum, increases on \((-1,1)\), has a maximum, and decreases again on \((1,\infty)\).  Draw the curve with appropriate branches and asymptotes.
+
+10. **Optimising a cylinder’s surface area:**
+   * Volume constraint: \(\pi r^2 h = 500\Rightarrow h=\tfrac{500}{\pi r^2}\).
+   * Surface area: \(S(r)=2\pi r^2 + 2\pi r h = 2\pi r^2 + 2\pi r \tfrac{500}{\pi r^2} = 2\pi r^2 + \frac{1000}{r}\).
+   * Differentiate: \(S'(r) = 4\pi r - \frac{1000}{r^2}\).  Set \(S'(r)=0\): \(4\pi r^3 - 1000 = 0 \Rightarrow r^3 = \frac{250}{\pi}\).  So \(r = \sqrt[3]{\tfrac{250}{\pi}}\) cm.
+   * Use the second derivative or sign analysis to confirm it is a minimum.  Compute \(h=500/(\pi r^2)\).  The result gives the can with the smallest surface area.
+
+## 13. Exam Technique Notes
+
+* **Show each step clearly.** Examiners award marks for showing differentiation steps, solving \(f'(x)=0\) and substituting into \(f(x)\).
+* **Use correct notation.** Write \(\frac{dy}{dx}\) or \(f'(x)\) and avoid ambiguous symbols like “.” for multiplication.
+* **Label stationary points.** When sketching, mark each turning point and classify it as a maximum, minimum or point of inflection.
+* **Check endpoints in optimisation.** Do not assume that turning points give global maxima or minima; evaluate the function at the boundaries of the domain【734237103456447†screenshot】.
+* **Interpret answers.** In modelling questions, write your final answer with appropriate units and in the context of the problem.
+* **Sign tables help avoid errors.** Construct a table showing the sign of \(f'(x)\) and \(f''(x)\) across intervals; this reduces mistakes when classifying stationary points【777840937077672†screenshot】.
+
+## 14. Syllabus Gap Check
+
+This lesson covers all differentiation content required for CCEA AS1:
+
+- **Definition and interpretation:** The derivative as the gradient of the tangent and as a rate of change, with first principles explained【694213144107686†L590-L616】.
+- **Notation:** Use of \(dy/dx\), \(f'(x)\) and \(\frac{d}{dx}[f(x)]\)【122875883974921†screenshot】.
+- **Differentiation of \(x^n\):** Power rule for all rational exponents and constant multiples【694213144107686†L610-L616】, including special cases and negatives【908776178076130†screenshot】.
+- **Tangents and normals:** Finding gradients and equations of tangents and normals【694213144107686†L613-L616】.
+- **Maxima, minima and stationary points:** Locating and classifying stationary points using the second derivative or sign table【794346718818743†L461-L496】.
+- **Increasing/decreasing functions and concavity:** Using the sign of \(f'(x)\) and \(f''(x)\)【741919382461431†screenshot】【657145149551224†screenshot】.
+- **Optimisation and simple modelling:** Using calculus to maximise or minimise quantities in context【734237103456447†screenshot】.
+
+Parts of the PDF relating to integration, intercepts, asymptotes and long‑term behaviour of rational functions go beyond the strict differentiation specification.  A brief preview of integration has been included in Section 6.10 and the worked example of sketching a rational function in Practice Question 9 is provided as enrichment.  These topics will be covered fully in later lessons.  Content on exponential growth models and cooling laws presented in the PDF【734237103456447†screenshot】 belongs to the A2 modules and is not included in this lesson.
+
+## 15. Off‑Spec or Extension Content Found but Excluded
+
+The lesson PDF includes material that goes beyond the AS1 differentiation specification.  The following topics are summarised briefly or omitted:
+
+- **Intercepts and asymptotes:** Methods for finding intercepts with coordinate axes and asymptotic behaviour of rational functions【814989714953450†screenshot】 are off‑spec for AS1 and will be handled in the integration and rational functions lessons.
+- **Graph sketching using end behaviour and degree of polynomials:** Although useful, the degree–shape correspondence is extension content not required explicitly by the AS specification【814989714953450†screenshot】.
+- **Applications of integration and average value:** Integration is covered in AS1 but deserves its own lesson.  Only a short preview has been given here; the PDF’s full integration examples are deferred to that lesson.
+- **Modelling of exponential growth/decay and differential equations:** The cooling‑law and population‑growth models presented in the PDF【734237103456447†screenshot】 belong to the A2 modules and are not included in this lesson.
+
+## 16. Recommended Enhancements Not in the PDF
+
+To support independent study, several additional visuals and widgets have been created:
+
+| Asset ID | Type | Why it was added | Spec point supported | Essential/Optional |
+| --- | --- | --- | --- | --- |
+| **SVG‑001** | SVG table | Summarises how the sign of \(f'(x)\) relates to increasing/decreasing behaviour.  The PDF hints at this but a clear visual aids understanding. | Increasing/decreasing functions【694213144107686†L616-L616】 | Essential |
+| **SVG‑003** | SVG table | Provides a concise summary of concavity and points of inflection, linking \(f''(x)\) to curve shape.  Useful when studying stationary points and concavity. | Second derivative and classification【794346718818743†L461-L496】 | Essential |
+| **TIKZ‑001** | TikZ diagram | Illustrates the secant–to–tangent process from the first principles definition.  Helps visualise the limit process. | Derivative as gradient and limit【694213144107686†L590-L616】 | Essential |
+| **TIKZ‑002** | TikZ diagram | Plots \(y=x^3-3x\) with its local maximum, local minimum and point of inflection.  Reinforces classification of stationary points. | Classification of stationary points【794346718818743†L461-L496】 | Essential |
+| **TIKZ‑003** | TikZ diagram | Shows \(y=x^4-4x^2\) and its points of inflection at \(\pm\sqrt{2/3}\).  Demonstrates concavity changes. | Points of inflection【657145149551224†screenshot】 | Optional but helpful |
+| **MMD‑001** | Mermaid flowchart | Summarises the first‑principles differentiation process in a clear, stepwise format. | Derivative definition【122875883974921†screenshot】 | Essential |
+| **MMD‑002** | Mermaid decision tree | Guides students through classifying stationary points using second derivative or sign table. | Stationary point classification【895737918508391†screenshot】 | Essential |
+| **WIDGET‑001** | Interactive widget | Lets students vary \(a\) and \(n\) in \(a x^n\), see the derivative formula update and evaluate \(f(x)\) and \(f'(x)\) at a chosen point. | Power rule【908776178076130†screenshot】 | Essential |
+| **WIDGET‑002** | Interactive widget | Allows exploration of tangents and normals on a chosen function by moving a slider.  Shows slopes, equations and a simple graph. | Tangents and normals【766485541006900†screenshot】 | Essential |
+| **WIDGET‑003** | Interactive widget | Lets students adjust coefficients of a cubic function and automatically finds and classifies its stationary points.  Reinforces the second derivative test and sign tables. | Classification of stationary points【895737918508391†screenshot】 | Essential |
+
+## 17. Supplementary Sources Used
+
+No external sources beyond the CCEA specification【694213144107686†L590-L616】, elaboration document【794346718818743†L461-L497】 and the provided lesson PDF were required for this lesson.  All additional material and diagrams were generated to enhance understanding and remain within the scope of the AS1 unit.
+
+## 18. Final Student Checklist
+
+Use this checklist to test your mastery of differentiation.  You should be able to:
+
+* Explain what the derivative measures and interpret \(dy/dx\) as a rate of change.
+* Use various notations for the derivative correctly.
+* Apply the power rule to differentiate \(a x^n\) for any rational \(n\) and recognise when constants disappear.
+* Differentiate sums, differences and constant multiples term by term.
+* Derive the equation of a tangent and a normal line to a curve at a specified point.
+* Solve \(f'(x)=0\) to find stationary points and classify them using the second derivative or a sign table.
+* Determine where a function is increasing or decreasing and where it is concave up, concave down or has points of inflection.
+* Sketch simple functions using calculus: include turning points, points of inflection, intercepts, asymptotes and end behaviour.
+* Apply differentiation techniques to basic optimisation problems and interpret solutions within the given context.
+
+Once you can tick every item on this checklist, you have a solid grasp of AS1 differentiation and are ready to progress to integration and more advanced calculus.

@@ -3,10 +3,12 @@ export interface LearningOutcome {
   text: string;
 }
 
+export type ModuleType = "Mechanics" | "Statistics" | "Pure";
+
 export interface CourseModule {
   id: string;
   title: string;
-  type: "Mechanics" | "Statistics";
+  type: ModuleType;
   content: string;
   visualId?: string;
   loIds?: string[];
@@ -15,7 +17,7 @@ export interface CourseModule {
 export interface Module {
   id: string;
   title: string;
-  type: "Mechanics" | "Statistics";
+  type: ModuleType;
   overview: string;
   learningOutcomes: LearningOutcome[];
   lessons: CourseModule[];

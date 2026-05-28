@@ -1,0 +1,229 @@
+{
+  "module": "P1",
+  "generatedAt": "2026-05-27T13:29:47.885Z",
+  "lessonSourcesImported": 3,
+  "sourceLessonFolders": [
+    "01. Indices & Surds",
+    "02. Quadratics",
+    "03 Transformations"
+  ],
+  "importedLessonFiles": [
+    "01. Indices & Surds/AS1_indices_and_surds_lesson.md",
+    "02. Quadratics/AS1_quadratic_functions_lesson.md",
+    "03 Transformations/AS1_transformations_lesson.md"
+  ],
+  "sourceFileToSubsection": {
+    "01. Indices & Surds/AS1_indices_and_surds_lesson.md": "Indices, Rational Exponents, Surds and Rationalising Denominators",
+    "02. Quadratics/AS1_quadratic_functions_lesson.md": "Quadratic Functions, Equations, Inequalities, Polynomials and Curve Sketching",
+    "03 Transformations/AS1_transformations_lesson.md": "Graph Transformations"
+  },
+  "lessonVisualWidgetBlocksImported": 25,
+  "markdownTableLinesPreserved": 80,
+  "placeholderMappings": [
+    {
+      "sourceFolder": "01. Indices & Surds",
+      "rawId": "SVG-001",
+      "visualId": "AS1-Indices-Surds-Lesson-SVG-001",
+      "componentName": "AS1IndicesSurdsLessonSVG001",
+      "title": "Summary of Index and Surd Rules",
+      "kind": "svg"
+    },
+    {
+      "sourceFolder": "01. Indices & Surds",
+      "rawId": "MMD-001",
+      "visualId": "AS1-Indices-Surds-Lesson-MMD-001",
+      "componentName": "AS1IndicesSurdsLessonMMD001",
+      "title": "Surd Simplification Flowchart",
+      "kind": "mermaid"
+    },
+    {
+      "sourceFolder": "01. Indices & Surds",
+      "rawId": "MMD-002",
+      "visualId": "AS1-Indices-Surds-Lesson-MMD-002",
+      "componentName": "AS1IndicesSurdsLessonMMD002",
+      "title": "Index and Surd Laws Concept Map",
+      "kind": "mermaid"
+    },
+    {
+      "sourceFolder": "01. Indices & Surds",
+      "rawId": "TIKZ-001",
+      "visualId": "AS1-Indices-Surds-Lesson-TIKZ-001",
+      "componentName": "AS1IndicesSurdsLessonTIKZ001",
+      "title": "Graph of $y=x^2$, $y=\\sqrt{x}$ and $y=x^{-1}$",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "01. Indices & Surds",
+      "rawId": "WIDGET-001",
+      "visualId": "AS1-Indices-Surds-Lesson-WIDGET-001",
+      "componentName": "AS1IndicesSurdsLessonWIDGET001",
+      "title": "Fractional Exponent Explorer",
+      "kind": "html"
+    },
+    {
+      "sourceFolder": "01. Indices & Surds",
+      "rawId": "WIDGET-002",
+      "visualId": "AS1-Indices-Surds-Lesson-WIDGET-002",
+      "componentName": "AS1IndicesSurdsLessonWIDGET002",
+      "title": "Surd Simplifier",
+      "kind": "html"
+    },
+    {
+      "sourceFolder": "01. Indices & Surds",
+      "rawId": "WIDGET-003",
+      "visualId": "AS1-Indices-Surds-Lesson-WIDGET-003",
+      "componentName": "AS1IndicesSurdsLessonWIDGET003",
+      "title": "Rationalising Surd Denominators",
+      "kind": "html"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "TIKZ-001",
+      "visualId": "AS1-Quadratics-Lesson-TIKZ-001",
+      "componentName": "AS1QuadraticsLessonTIKZ001",
+      "title": "Parabola shapes, turning points and axes of symmetry",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "MMD-002",
+      "visualId": "AS1-Quadratics-Lesson-MMD-002",
+      "componentName": "AS1QuadraticsLessonMMD002",
+      "title": "Concept map linking quadratic features",
+      "kind": "mermaid"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "MMD-001",
+      "visualId": "AS1-Quadratics-Lesson-MMD-001",
+      "componentName": "AS1QuadraticsLessonMMD001",
+      "title": "Decision tree for choosing a solution method",
+      "kind": "mermaid"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "TIKZ-002",
+      "visualId": "AS1-Quadratics-Lesson-TIKZ-002",
+      "componentName": "AS1QuadraticsLessonTIKZ002",
+      "title": "Discriminant and number of real roots",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "WIDGET-002",
+      "visualId": "AS1-Quadratics-Lesson-WIDGET-002",
+      "componentName": "AS1QuadraticsLessonWIDGET002",
+      "title": "Discriminant classification tool",
+      "kind": "html"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "SVG-001",
+      "visualId": "AS1-Quadratics-Lesson-SVG-001",
+      "componentName": "AS1QuadraticsLessonSVG001",
+      "title": "Quadratic inequality solution patterns",
+      "kind": "svg"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "WIDGET-001",
+      "visualId": "AS1-Quadratics-Lesson-WIDGET-001",
+      "componentName": "AS1QuadraticsLessonWIDGET001",
+      "title": "Quadratic graph explorer",
+      "kind": "html"
+    },
+    {
+      "sourceFolder": "02. Quadratics",
+      "rawId": "WIDGET-003",
+      "visualId": "AS1-Quadratics-Lesson-WIDGET-003",
+      "componentName": "AS1QuadraticsLessonWIDGET003",
+      "title": "Factor theorem and remainder calculator",
+      "kind": "html"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "TIKZ-001",
+      "visualId": "AS1-P1-Transformations-Lesson-TIKZ-001",
+      "componentName": "AS1P1TransformationsLessonTIKZ001",
+      "title": "Parent sine and cosine graphs",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "MMD-001",
+      "visualId": "AS1-P1-Transformations-Lesson-MMD-001",
+      "componentName": "AS1P1TransformationsLessonMMD001",
+      "title": "Effect of parameters on \\(y = a\\,f(bx + c) + d\\)",
+      "kind": "mermaid"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "SVG-001",
+      "visualId": "AS1-P1-Transformations-Lesson-SVG-001",
+      "componentName": "AS1P1TransformationsLessonSVG001",
+      "title": "Summary of amplitude and period formulas",
+      "kind": "svg"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "TIKZ-002",
+      "visualId": "AS1-P1-Transformations-Lesson-TIKZ-002",
+      "componentName": "AS1P1TransformationsLessonTIKZ002",
+      "title": "Vertical stretch example \\(y = 4\\sin x\\)",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "TIKZ-003",
+      "visualId": "AS1-P1-Transformations-Lesson-TIKZ-003",
+      "componentName": "AS1P1TransformationsLessonTIKZ003",
+      "title": "Horizontal compression \\(y = \\sin 2x\\)",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "TIKZ-004",
+      "visualId": "AS1-P1-Transformations-Lesson-TIKZ-004",
+      "componentName": "AS1P1TransformationsLessonTIKZ004",
+      "title": "Horizontal stretch \\(y = \\sin\\tfrac{x}{2}\\)",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "TIKZ-005",
+      "visualId": "AS1-P1-Transformations-Lesson-TIKZ-005",
+      "componentName": "AS1P1TransformationsLessonTIKZ005",
+      "title": "Phase shift and reflection example",
+      "kind": "latex"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "MMD-002",
+      "visualId": "AS1-P1-Transformations-Lesson-MMD-002",
+      "componentName": "AS1P1TransformationsLessonMMD002",
+      "title": "Coordinate mapping for \\(y = a\\,f(bx + c) + d\\)",
+      "kind": "mermaid"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "WIDGET-001",
+      "visualId": "AS1-P1-Transformations-Lesson-WIDGET-001",
+      "componentName": "AS1P1TransformationsLessonWIDGET001",
+      "title": "Trigonometric graph transformation explorer",
+      "kind": "html"
+    },
+    {
+      "sourceFolder": "03 Transformations",
+      "rawId": "WIDGET-002",
+      "visualId": "AS1-P1-Transformations-Lesson-WIDGET-002",
+      "componentName": "AS1P1TransformationsLessonWIDGET002",
+      "title": "Coordinate mapping calculator",
+      "kind": "html"
+    }
+  ],
+  "unresolvedPlaceholders": [],
+  "unresolvedReferences": [],
+  "practiceEvidenceSectionsPresent": false,
+  "runtimeEvidencePathReferences": [],
+  "runtimeSelfContained": true
+}
