@@ -27,17 +27,17 @@ function AppLayout() {
   const currentLessons = activeQualification === 'AS1' ? AS1_LESSONS : activeQualification === 'AS2' ? AS2_LESSONS : [];
 
   return (
-    <div className="flex flex-col h-screen bg-background text-zinc-100 font-sans overflow-hidden select-none">
+    <div className="flex flex-col h-screen bg-background text-foreground font-sans overflow-hidden select-none">
       <GlobalNav />
       {/* Header Navigation */}
-      <nav className="h-16 border-b border-zinc-800 flex items-center justify-between px-8 bg-background z-10 shrink-0 shadow-sm">
+      <nav className="h-16 border-b border-border flex items-center justify-between px-8 bg-background z-10 shrink-0 shadow-sm">
         <div className="flex items-center gap-8">
-          <span className="font-serif italic text-2xl font-bold tracking-tighter text-zinc-100 flex items-center gap-3">
-            <GraduationCap className="h-6 w-6 text-zinc-400" />
+          <span className="font-serif italic text-2xl font-bold tracking-tighter text-foreground flex items-center gap-3">
+            <GraduationCap className="h-6 w-6 text-primary" />
             {activeQualification} Mathematics
           </span>
-          <div className="h-4 w-px bg-zinc-700"></div>
-          <span className="text-2.5 uppercase tracking-widest font-semibold text-zinc-400">
+          <div className="h-4 w-px bg-border"></div>
+          <span className="text-2.5 uppercase tracking-widest font-semibold text-muted-foreground">
             CCEA Specification / Revision Portal
           </span>
         </div>
@@ -45,7 +45,7 @@ function AppLayout() {
 
       <div className="flex-1 flex overflow-hidden">
         {/* Main Sidebar Layout */}
-        <aside className="w-64 border-r border-zinc-800 flex flex-col bg-zinc-850 shrink-0 shadow-xl z-20 h-full overflow-y-auto">
+        <aside className="w-64 border-r border-border flex flex-col bg-card shrink-0 shadow-xl z-20 h-full overflow-y-auto">
           <nav className="flex-1 px-4 py-8 space-y-2">
             {mainLinks.map((link) => {
               const Icon = link.icon;
@@ -58,15 +58,15 @@ function AppLayout() {
                     <summary className={cn(
                       "flex items-center gap-3 px-4 py-3 rounded-lg text-2.75 uppercase tracking-widest font-bold border transition-all duration-200 cursor-pointer list-none",
                       isActive 
-                        ? "bg-zinc-800 text-zinc-400 border-zinc-700 shadow-md" 
-                        : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
+                        ? "bg-accent text-accent-foreground border-border shadow-md" 
+                        : "bg-transparent text-muted-foreground border-transparent hover:bg-muted/50 hover:text-foreground hover:border-border/50"
                     )}>
                       <Icon className="h-4 w-4 shrink-0" />
                       <span>{link.name}</span>
                     </summary>
-                    <div className="pl-5 pt-2 space-y-1 border-l-2 border-zinc-800 ml-6">
+                    <div className="pl-5 pt-2 space-y-1 border-l-2 border-border ml-6">
                       {currentLessons.length === 0 ? (
-                         <div className="px-4 py-2 text-2.5 text-zinc-500 italic">No modules available</div>
+                         <div className="px-4 py-2 text-2.5 text-muted-foreground italic">No modules available</div>
                       ) : (
                         currentLessons.map(lesson => {
                           const lessonIsActive = location.pathname === `/lessons/${lesson.id}`;
@@ -77,13 +77,13 @@ function AppLayout() {
                               className={cn(
                                 "flex items-center gap-3 px-4 py-2 rounded-xl text-xs font-mono transition-all",
                                 lessonIsActive
-                                  ? "bg-zinc-800 text-zinc-200 border border-zinc-700 shadow-inner font-bold"
-                                  : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 border border-transparent"
+                                  ? "bg-primary/10 text-primary border border-primary/20 shadow-inner font-bold"
+                                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-transparent"
                               )}
                             >
                               <span className={cn(
                                 "w-8 text-center px-1.5 py-0.5 rounded text-2.25 font-bold",
-                                lessonIsActive ? "bg-zinc-950 text-zinc-200" : "bg-zinc-800 text-zinc-400"
+                                lessonIsActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                               )}>
                                 {getModuleCode(lesson.id)}
                               </span>
@@ -104,8 +104,8 @@ function AppLayout() {
                   className={cn(
                     "flex items-center gap-3 px-4 py-3 rounded-lg text-2.75 uppercase tracking-widest font-bold border transition-all duration-200",
                     isActive 
-                      ? "bg-zinc-800 text-zinc-400 border-zinc-700 shadow-md" 
-                      : "bg-transparent text-zinc-400 border-transparent hover:bg-zinc-800/50 hover:text-zinc-200 hover:border-zinc-700/50"
+                      ? "bg-accent text-accent-foreground border-border shadow-md" 
+                      : "bg-transparent text-muted-foreground border-transparent hover:bg-muted/50 hover:text-foreground hover:border-border/50"
                   )}
                 >
                   <Icon className="h-4 w-4 shrink-0" />
@@ -116,12 +116,12 @@ function AppLayout() {
           </nav>
 
           {/* User / Session Footer Area */}
-          <div className="p-4 border-t border-zinc-800 bg-zinc-925/50">
-            <div className="p-4 bg-background border border-zinc-800 rounded-lg flex flex-col items-center justify-center gap-2 shadow-inner">
-              <span className="text-2.25 uppercase tracking-widest font-mono text-zinc-400 font-bold">
+          <div className="p-4 border-t border-border bg-muted/30">
+            <div className="p-4 bg-background border border-border rounded-lg flex flex-col items-center justify-center gap-2 shadow-inner">
+              <span className="text-2.25 uppercase tracking-widest font-mono text-primary font-bold">
                 System Active
               </span>
-              <span className="text-2.5 text-zinc-500 font-medium text-center">
+              <span className="text-2.5 text-muted-foreground font-medium text-center">
                 {activeQualification} Modules Loaded
               </span>
             </div>
