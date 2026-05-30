@@ -34,22 +34,22 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
       title="Fig. CF to Box Plot Projection"
       analysis={
         <div className="grid gap-4 md:grid-cols-2 w-full max-w-5xl mx-auto">
-          <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-xl">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider text-center">Quartile Positions</h4>
+          <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl">
+            <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider text-center">Quartile Positions</h4>
             <div className="flex flex-col items-center gap-1">
-              <MathInline content={`Q_1 = ${q1Pos}`} className="text-sm text-zinc-300" />
-              <MathInline content={`\\text{Median} = ${q2Pos}`} className="text-sm text-zinc-300" />
-              <MathInline content={`Q_3 = ${q3Pos}`} className="text-sm text-zinc-300" />
+              <MathInline content={`Q_1 = ${q1Pos}`} className="text-sm text-foreground" />
+              <MathInline content={`\\text{Median} = ${q2Pos}`} className="text-sm text-foreground" />
+              <MathInline content={`Q_3 = ${q3Pos}`} className="text-sm text-foreground" />
             </div>
           </div>
-          <div className="rounded-xl border border-zinc-800 bg-zinc-800/30 p-4 text-base text-zinc-300 leading-relaxed">
-            Project horizontally from the <span className="text-amber-400 font-semibold">Cumulative Frequency</span> axis to the curve, then vertically down to the <span className="text-emerald-400 font-semibold">Box Plot</span> axis.
+          <div className="rounded-xl border border-primary/20 bg-muted/30 p-4 text-base text-foreground leading-relaxed">
+            Project horizontally from the <span className="text-primary font-semibold">Cumulative Frequency</span> axis to the curve, then vertically down to the <span className="text-primary font-semibold">Box Plot</span> axis.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="relative w-full aspect-[56/44] max-w-2xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-850 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+        <div className="relative w-full aspect-[56/44] max-w-2xl mx-auto rounded-xl overflow-hidden border border-primary/20 bg-zinc-850 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
           <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="absolute inset-0 w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision">
             {/* Grid */}
             <path d={`M ${padding} ${cfMinY} V ${cfBaseY} H ${svgWidth - padding}`} stroke="#3f3f46" strokeWidth="2" />
@@ -68,7 +68,7 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
             })}
 
             {/* Curve Sketch */}
-            <path d={`M ${padding} ${cfBaseY} Q ${q2X} ${cfYScale(n * 0.1)}, ${svgWidth - padding} ${cfMinY}`} stroke="#a1a1aa" strokeWidth="2" fill="none" opacity="0.4" />
+            <path d={`M ${padding} ${cfBaseY} Q ${q2X} ${cfYScale(n * 0.1)}, ${svgWidth - padding} ${cfMinY}`} stroke="var(--muted-foreground)" strokeWidth="2" fill="none" opacity="0.4" />
 
             {/* Box Plot Elements */}
             <rect x={q1X} y={boxPlotYCenter - 20} width={q3X - q1X} height={40} fill="#10b981" fillOpacity="0.1" stroke="#10b981" strokeWidth="1.5" />
@@ -76,25 +76,25 @@ export const S2CumulativeBoxPlotProjector: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${padding / svgWidth * 100}%`} y={`${(cfMinY - 20) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="\\text{CF}" className="text-zinc-500 text-xs font-bold" />
+            <MathInline content="\\text{CF}" className="text-muted-foreground text-xs font-bold" />
           </DiagramLabel>
 
           <DiagramLabel x={`${padding / svgWidth * 100}%`} y={`${cfYScale(n) / svgHeight * 100}%`} anchor="end" offsetX="-8px">
-            <span className="text-zinc-400 text-2.5 font-mono">{n}</span>
+            <span className="text-muted-foreground text-2.5 font-mono">{n}</span>
           </DiagramLabel>
 
           <DiagramLabel x={`${(svgWidth - padding) / svgWidth * 100}%`} y={`${(boxPlotYCenter + 15) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="x" className="text-zinc-500 text-xs font-bold" />
+            <MathInline content="x" className="text-muted-foreground text-xs font-bold" />
           </DiagramLabel>
 
           <DiagramLabel x={`${q1X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="Q_1" className="text-zinc-500 text-2.5 font-bold" />
+            <MathInline content="Q_1" className="text-muted-foreground text-2.5 font-bold" />
           </DiagramLabel>
           <DiagramLabel x={`${q2X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="\\text{Med}" className="text-zinc-500 text-2.5 font-bold" />
+            <MathInline content="\\text{Med}" className="text-muted-foreground text-2.5 font-bold" />
           </DiagramLabel>
           <DiagramLabel x={`${q3X / svgWidth * 100}%`} y={`${(boxPlotYCenter + 35) / svgHeight * 100}%`} anchor="center">
-            <MathInline content="Q_3" className="text-zinc-500 text-2.5 font-bold" />
+            <MathInline content="Q_3" className="text-muted-foreground text-2.5 font-bold" />
           </DiagramLabel>
         </div>
       </div>

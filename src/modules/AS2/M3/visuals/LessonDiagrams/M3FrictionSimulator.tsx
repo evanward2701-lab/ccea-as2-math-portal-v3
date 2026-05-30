@@ -32,52 +32,52 @@ export const M3FrictionSimulator: React.FC = () => {
       title="Fig. Limiting Friction Simulator"
       analysis={
         <div className="space-y-4">
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Limiting Friction</h4>
-            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Limiting Friction</h4>
+            <div className="text-center bg-card p-2 rounded border border-primary/20">
               <MathText content={`F_{max} = \\mu R = ${limitingFriction.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
           </div>
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-rose-400 mb-2 text-sm uppercase tracking-wider">Actual Friction</h4>
-            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-destructive mb-2 text-sm uppercase tracking-wider">Actual Friction</h4>
+            <div className="text-center bg-card p-2 rounded border border-primary/20">
               <MathText content={`F = ${actualFriction.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
           </div>
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Resultant Force & Acceleration</h4>
-            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">Resultant Force & Acceleration</h4>
+            <div className="text-center bg-card p-2 rounded border border-primary/20">
               <MathText content={`F_{res} = ${resultantForce.toFixed(1)}\\operatorname{N} \\implies a = ${acceleration.toFixed(2)}\\operatorname{m s^{-2}}`} noMargin />
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not automatically set friction equal to <MathText content="\\mu R" className="inline [&_p]:inline" />. This is only true when the object is on the point of moving (limiting equilibrium) or is already sliding.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Do not automatically set friction equal to <MathText content="\\mu R" className="inline [&_p]:inline" />. This is only true when the object is on the point of moving (limiting equilibrium) or is already sliding.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-lg grid grid-cols-1 gap-4 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
+        <div className="w-full max-w-lg grid grid-cols-1 gap-4 mb-6 rounded-lg border border-primary/20 bg-primary/5 p-3">
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-zinc-300 w-32">Applied Force P</label>
-            <input type="range" min="0" max="80" value={appliedForce} onChange={(e) => setAppliedForce(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
-            <span className="text-sm font-mono text-zinc-400 w-16 text-right">{appliedForce.toFixed(1)} N</span>
+            <label className="text-sm font-medium text-foreground w-32">Applied Force P</label>
+            <input type="range" min="0" max="80" value={appliedForce} onChange={(e) => setAppliedForce(Number(e.target.value))} className="w-full h-2 bg-muted/50 rounded-lg appearance-none cursor-pointer" />
+            <span className="text-sm font-mono text-muted-foreground w-16 text-right">{appliedForce.toFixed(1)} N</span>
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-zinc-300 w-32">Friction Coeff. <MathText content="\\mu" className="inline [&_p]:inline" /></label>
-            <input type="range" min="0.1" max="0.8" step="0.05" value={mu} onChange={(e) => setMu(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
-            <span className="text-sm font-mono text-amber-400 w-16 text-right">{mu.toFixed(2)}</span>
+            <label className="text-sm font-medium text-foreground w-32">Friction Coeff. <MathText content="\\mu" className="inline [&_p]:inline" /></label>
+            <input type="range" min="0.1" max="0.8" step="0.05" value={mu} onChange={(e) => setMu(Number(e.target.value))} className="w-full h-2 bg-muted/50 rounded-lg appearance-none cursor-pointer" />
+            <span className="text-sm font-mono text-primary w-16 text-right">{mu.toFixed(2)}</span>
           </div>
         </div>
 
         <div className={cn(
           "px-4 py-1 mb-4 text-sm font-bold rounded-full border",
-          isSliding ? "bg-rose-500/10 border-rose-500/30 text-rose-300" : "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
+          isSliding ? "bg-destructive/10 border-destructive/30 text-destructive" : "bg-primary/10 border-primary/30 text-primary"
         )}>
           {isSliding ? 'Sliding: F = μR' : 'Static Equilibrium: F ≤ μR'}
         </div>
 
-        <div className="relative w-full max-w-3xl aspect-60/30 rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner overflow-hidden">
+        <div className="relative w-full max-w-3xl aspect-60/30 rounded-xl border border-primary/20 bg-card shadow-inner overflow-hidden">
           <SVGLibrary />
           <svg viewBox="0 0 600 300" className="absolute inset-0 h-full w-full" overflow="visible" shapeRendering="geometricPrecision">
 
@@ -100,37 +100,37 @@ export const M3FrictionSimulator: React.FC = () => {
           </svg>
 
           <DiagramLabel x="49%" y="56%">
-            <div className="text-xl font-serif font-bold text-zinc-100">m</div>
+            <div className="text-xl font-serif font-bold text-foreground">m</div>
           </DiagramLabel>
 
           <DiagramLabel x="47%" y="10%">
-            <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
+            <div className="rounded-md border border-primary/20 bg-card px-3 py-1 text-primary shadow-xl">
               <MathText content="R" noMargin />
             </div>
           </DiagramLabel>
 
           <DiagramLabel x="53%" y="85%">
-            <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
+            <div className="rounded-md border border-destructive/20 bg-card px-3 py-1 text-destructive shadow-xl">
               <MathText content="W = mg" noMargin />
             </div>
           </DiagramLabel>
 
           <DiagramLabel x={`${Math.min(92, (pEndX / 600) * 100 + 3)}%`} y="53%">
-            <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
+            <div className="rounded-md border border-primary/20 bg-card px-3 py-1 text-primary shadow-xl">
               <MathText content="P" noMargin />
             </div>
           </DiagramLabel>
 
           {actualFriction > 0.1 && (
             <DiagramLabel x={`${Math.max(8, (fEndX / 600) * 100 - 7)}%`} y="53%">
-              <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
+              <div className="rounded-md border border-destructive/20 bg-card px-3 py-1 text-destructive shadow-xl">
                 <MathText content="F" noMargin />
               </div>
             </DiagramLabel>
           )}
 
           <DiagramLabel x="66%" y="11%">
-            <div className="rounded-md border border-zinc-600/40 bg-zinc-950/70 px-3 py-1 text-zinc-300 shadow-xl">
+            <div className="rounded-md border border-border bg-card px-3 py-1 text-foreground shadow-xl">
               <MathText content="a" noMargin />
             </div>
           </DiagramLabel>

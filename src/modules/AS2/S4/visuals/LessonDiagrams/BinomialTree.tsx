@@ -17,25 +17,25 @@ const outcomeCards = [
   {
     title: 'Success, Success',
     probability: 'p^2',
-    className: 'border-emerald-500/35 bg-emerald-950/15 text-emerald-300',
+    className: 'border-primary/35 bg-primary/15 text-primary',
     style: { left: '73%', top: '18%' },
   },
   {
     title: 'Success, Failure',
     probability: 'p(1-p)',
-    className: 'border-zinc-700 bg-zinc-950/55 text-zinc-200',
+    className: 'border-primary/10 bg-card text-foreground',
     style: { left: '73%', top: '39%' },
   },
   {
     title: 'Failure, Success',
     probability: '(1-p)p',
-    className: 'border-zinc-700 bg-zinc-950/55 text-zinc-200',
+    className: 'border-primary/10 bg-card text-foreground',
     style: { left: '73%', top: '61%' },
   },
   {
     title: 'Failure, Failure',
     probability: '(1-p)^2',
-    className: 'border-rose-500/35 bg-rose-950/15 text-rose-300',
+    className: 'border-destructive/35 bg-destructive/15 text-destructive',
     style: { left: '73%', top: '82%' },
   },
 ];
@@ -62,13 +62,13 @@ export const BinomialTree: React.FC = () => {
       title="Binomial Logic Tree (n=2)"
       analysis={
         <div className="mx-auto w-full max-w-5xl space-y-4">
-          <p className="text-center text-sm italic leading-relaxed text-zinc-400 md:text-base">
+          <p className="text-center text-sm italic leading-relaxed text-muted-foreground md:text-base">
             Each trial keeps the same probability <MathInline content="p" /> of success, regardless of the previous outcome.
           </p>
 
           <div className="grid gap-4 md:grid-cols-[1fr_1fr]">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-950/45 p-4 shadow-xl">
-              <h4 className="mb-2 text-center text-2.5 font-black uppercase tracking-[0.28em] text-zinc-500">
+            <div className="rounded-xl border border-primary/20 bg-card p-4 shadow-xl">
+              <h4 className="mb-2 text-center text-2.5 font-black uppercase tracking-[0.28em] text-muted-foreground">
                 Model Notation
               </h4>
               <MathText
@@ -79,15 +79,15 @@ export const BinomialTree: React.FC = () => {
               />
             </div>
 
-            <div className="rounded-xl border border-emerald-500/25 bg-emerald-950/10 p-4 text-sm leading-relaxed text-zinc-300 shadow-xl md:text-base">
-              <strong className="font-bold text-emerald-300">Independence check:</strong> the second branch still uses <MathInline content="p" /> and <MathInline content="1-p" /> after either first result.
+            <div className="rounded-xl border border-primary/25 bg-primary/10 p-4 text-sm leading-relaxed text-foreground shadow-xl md:text-base">
+              <strong className="font-bold text-primary">Independence check:</strong> the second branch still uses <MathInline content="p" /> and <MathInline content="1-p" /> after either first result.
             </div>
           </div>
         </div>
       }
     >
-      <div className="mx-auto w-full max-w-6xl space-y-4 rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-4 shadow-2xl md:p-6">
-        <div className="relative h-[560px] overflow-hidden rounded-xl bg-zinc-950/45">
+      <div className="mx-auto w-full max-w-6xl space-y-4 rounded-2xl border border-primary/20 bg-card p-4 shadow-2xl md:p-6">
+        <div className="relative h-[560px] overflow-hidden rounded-xl bg-card">
           <div className="absolute inset-0 -translate-x-[5%]">
           <svg
             className="absolute inset-0 h-full w-full"
@@ -100,27 +100,27 @@ export const BinomialTree: React.FC = () => {
           >
             <ArrowLibrary />
 
-            <path d="M158 320 C248 244 330 224 418 218" stroke="#71717a" strokeWidth="2.8" markerEnd="url(#arrow-structural)" opacity="0.86" />
-            <path d="M158 320 C248 396 330 416 418 422" stroke="#71717a" strokeWidth="2.8" markerEnd="url(#arrow-structural)" opacity="0.86" />
-            <path d="M548 218 C626 138 690 118 760 116" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
-            <path d="M548 218 C626 250 690 260 760 252" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
-            <path d="M548 422 C626 390 690 380 760 388" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
-            <path d="M548 422 C626 502 690 522 760 524" stroke="#71717a" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
+            <path d="M158 320 C248 244 330 224 418 218" stroke="var(--muted-foreground)" strokeWidth="2.8" markerEnd="url(#arrow-structural)" opacity="0.86" />
+            <path d="M158 320 C248 396 330 416 418 422" stroke="var(--muted-foreground)" strokeWidth="2.8" markerEnd="url(#arrow-structural)" opacity="0.86" />
+            <path d="M548 218 C626 138 690 118 760 116" stroke="var(--muted-foreground)" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
+            <path d="M548 218 C626 250 690 260 760 252" stroke="var(--muted-foreground)" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
+            <path d="M548 422 C626 390 690 380 760 388" stroke="var(--muted-foreground)" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
+            <path d="M548 422 C626 502 690 522 760 524" stroke="var(--muted-foreground)" strokeWidth="2.6" markerEnd="url(#arrow-structural)" opacity="0.8" />
           </svg>
 
-          <div className="absolute left-[7%] top-1/2 z-10 flex size-24 -translate-y-1/2 items-center justify-center rounded-full border-2 border-blue-500 bg-blue-950/15 text-lg font-black text-zinc-100 shadow-2xl shadow-blue-950/30 md:size-28 md:text-xl">
+          <div className="absolute left-[7%] top-1/2 z-10 flex size-24 -translate-y-1/2 items-center justify-center rounded-full border-2 border-primary bg-primary/15 text-lg font-black text-foreground shadow-2xl shadow-blue-950/30 md:size-28 md:text-xl">
             Start
           </div>
 
           <Card
-            className="min-h-12 w-[128px] py-2 border-emerald-500/80 bg-emerald-950/35 text-emerald-200"
+            className="min-h-12 w-[128px] py-2 border-primary/80 bg-primary/35 text-primary"
             style={{ left: '39%', top: '34%' }}
           >
             <span className="text-xl font-black">Success</span>
           </Card>
 
           <Card
-            className="min-h-12 w-[128px] py-2 border-rose-500/80 bg-rose-950/30 text-rose-200"
+            className="min-h-12 w-[128px] py-2 border-destructive/80 bg-destructive/30 text-destructive"
             style={{ left: '39%', top: '66%' }}
           >
             <span className="text-xl font-black">Failure</span>
@@ -136,7 +136,7 @@ export const BinomialTree: React.FC = () => {
           {branchLabels.map((branch) => (
             <div
               key={`${branch.label}-${branch.x}-${branch.y}`}
-              className="absolute z-20 flex min-h-10 min-w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-zinc-700/90 bg-zinc-950/95 px-2 text-zinc-200 shadow-xl backdrop-blur-sm"
+              className="absolute z-20 flex min-h-10 min-w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-primary/10 bg-card px-2 text-foreground shadow-xl backdrop-blur-sm"
               style={{ left: branch.x, top: branch.y }}
             >
               <MathText content={`{\\large ${branch.label}}`} noMargin center className="[&_p]:m-0" />
@@ -145,7 +145,7 @@ export const BinomialTree: React.FC = () => {
           </div>
         </div>
 
-        <div className="rounded-xl border border-zinc-800 bg-zinc-950/65 px-5 py-4 text-center text-base text-zinc-400 shadow-xl">
+        <div className="rounded-xl border border-primary/20 bg-card px-5 py-4 text-center text-base text-muted-foreground shadow-xl">
           Terminal probabilities: <MathInline content="p^2" />, <MathInline content="p(1-p)" />, <MathInline content="(1-p)p" />, <MathInline content="(1-p)^2" />. Together they add to <MathInline content="1" />.
         </div>
       </div>

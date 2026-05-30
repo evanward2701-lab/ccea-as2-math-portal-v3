@@ -1,8 +1,7 @@
 import { Module } from '@/core/types';
 
 const M3_CONTENT = `
-## 1. Lesson Title
-**M3: Forces, Newton's Laws and Connected Particles**
+
 
 ## 2. Specification Focus
 * Understand and use Newton's First Law and the concept of force.

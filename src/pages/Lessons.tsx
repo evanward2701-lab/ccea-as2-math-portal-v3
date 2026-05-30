@@ -48,7 +48,7 @@ export function Lessons() {
       <div className="flex-1 overflow-y-auto relative scroll-smooth">
         <div className="max-w-5xl mx-auto px-8 py-16 md:px-16 w-full">
           {/* Main Title Section */}
-          <header className="mb-16 border-b border-border pb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <header className="mb-6 border-b border-border pb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="flex items-center gap-4 mb-8">
               <span className="text-2.5 uppercase tracking-[0.2em] font-mono font-bold bg-primary/10 text-primary px-3 py-1 rounded-md shadow-sm border border-primary/20">
                 {currentLesson.type}

@@ -1,8 +1,7 @@
 import { Module } from '@/core/types';
 
 const M2_CONTENT = `
-## 1. Lesson Title
-**M2: Kinematics - Constant Acceleration, Graphs and SUVAT**
+
 
 ## 2. Specification Focus
 * Demonstrate understanding of and use the language of kinematics: position, displacement, distance travelled, velocity, speed, and acceleration.

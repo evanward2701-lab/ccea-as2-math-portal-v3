@@ -43,33 +43,33 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
       title="Fig. Dynamic Outlier Threshold Sandbox"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 italic">
+          <p className="text-sm text-muted-foreground italic">
             Explore how the 1.5 IQR rule defines outlier boundaries and how box plot whiskers adapt to the highest/lowest non-outlier values.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">IQR</h4>
-              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">IQR</h4>
+              <div className="text-center bg-card p-2 rounded border border-primary/20">
                 <MathText content={`\\text{IQR} = Q_3 - Q_1 = ${iqr}`} />
               </div>
             </div>
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Outlier Fences</h4>
-              <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Outlier Fences</h4>
+              <div className="text-center bg-card p-2 rounded border border-primary/20">
                 <MathText content={`Q_1 - 1.5\\text{IQR} = ${lowerFence}`} />
                 <MathText content={`Q_3 + 1.5\\text{IQR} = ${upperFence}`} />
               </div>
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The outlier <strong>fence</strong> is a theoretical boundary. The box plot whisker extends only to the most extreme <strong>valid data value</strong> within that fence, not necessarily to the fence itself.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> The outlier <strong>fence</strong> is a theoretical boundary. The box plot whisker extends only to the most extreme <strong>valid data value</strong> within that fence, not necessarily to the fence itself.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-lg flex items-center gap-3 mb-8 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
-          <label htmlFor="candidate-slider" className="text-sm font-medium text-zinc-300 whitespace-nowrap">
+        <div className="w-full max-w-lg flex items-center gap-3 mb-8 rounded-lg border border-primary/20 bg-primary/5 p-3">
+          <label htmlFor="candidate-slider" className="text-sm font-medium text-foreground whitespace-nowrap">
             Candidate Value
           </label>
           <input
@@ -80,9 +80,9 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
             step="1"
             value={candidateValue}
             onChange={(e) => setCandidateValue(Number(e.target.value))}
-            className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer"
+            className="w-full h-2 bg-muted/50 rounded-lg appearance-none cursor-pointer"
           />
-          <span className="text-sm font-mono text-zinc-400 w-12 text-right">{candidateValue}</span>
+          <span className="text-sm font-mono text-muted-foreground w-12 text-right">{candidateValue}</span>
         </div>
 
         <div className="relative w-full aspect-60/20 max-w-3xl mx-auto">
@@ -124,13 +124,13 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${xScale(q1) / svgWidth * 100}%`} y={`${(yAxisCenter + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <span className="text-zinc-400 text-2.5">{q1}</span>
+            <span className="text-muted-foreground text-2.5">{q1}</span>
           </DiagramLabel>
           <DiagramLabel x={`${xScale(median) / svgWidth * 100}%`} y={`${(yAxisCenter + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <span className="text-zinc-400 text-2.5">{median}</span>
+            <span className="text-muted-foreground text-2.5">{median}</span>
           </DiagramLabel>
           <DiagramLabel x={`${xScale(q3) / svgWidth * 100}%`} y={`${(yAxisCenter + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <span className="text-zinc-400 text-2.5">{q3}</span>
+            <span className="text-muted-foreground text-2.5">{q3}</span>
           </DiagramLabel>
 
           <DiagramLabel x={`${xScale(q1) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="Q_1" />
@@ -138,14 +138,14 @@ export const S2OutlierThresholdSandbox: React.FC = () => {
           <DiagramLabel x={`${xScale(q3) / svgWidth * 100}%`} y={`${(yAxisCenter + 35) / svgHeight * 100}%`} className="-translate-x-1/2" text="Q_3" />
 
           <DiagramLabel x={`${xScale(lowerFence) / svgWidth * 100}%`} y={`${(yAxisCenter - 35) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <div className="text-rose-500 text-2.5">Lower Fence</div>
+            <div className="text-destructive text-2.5">Lower Fence</div>
           </DiagramLabel>
           <DiagramLabel x={`${xScale(upperFence) / svgWidth * 100}%`} y={`${(yAxisCenter - 35) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <div className="text-rose-500 text-2.5">Upper Fence</div>
+            <div className="text-destructive text-2.5">Upper Fence</div>
           </DiagramLabel>
 
           <DiagramLabel x={`${candidateDotX / svgWidth * 100}%`} y={`${(yAxisCenter - 40) / svgHeight * 100}%`} className="-translate-x-1/2 transition-all duration-300">
-            <div className={cn("text-xs font-bold", isOutlier ? "text-rose-500" : "text-[#10b981]")}>{candidateValue}</div>
+            <div className={cn("text-xs font-bold", isOutlier ? "text-destructive" : "text-[#10b981]")}>{candidateValue}</div>
           </DiagramLabel>
         </div>
       </div>

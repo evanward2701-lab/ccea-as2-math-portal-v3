@@ -27,14 +27,14 @@ const rows = [
 
 const accentClasses = {
   emerald: {
-    row: 'border-emerald-500/25 bg-emerald-950/10',
-    title: 'text-emerald-300',
-    chip: 'border-emerald-500/25 bg-emerald-950/20 text-emerald-300',
+    row: 'border-primary/25 bg-primary/10',
+    title: 'text-primary',
+    chip: 'border-primary/25 bg-primary/20 text-primary',
   },
   amber: {
-    row: 'border-amber-500/25 bg-amber-950/10',
-    title: 'text-amber-300',
-    chip: 'border-amber-500/25 bg-amber-950/20 text-amber-300',
+    row: 'border-primary/25 bg-primary/10',
+    title: 'text-primary',
+    chip: 'border-primary/25 bg-primary/20 text-primary',
   },
   purple: {
     row: 'border-purple-500/25 bg-purple-950/10',
@@ -47,7 +47,7 @@ export const SamplingTableSVG: React.FC = () => (
   <DiagramPanel
     title="Fig 2. S1 Sampling Methodologies"
     analysis={
-      <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 px-4 py-3 text-center text-sm leading-relaxed text-zinc-300">
+      <div className="rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-center text-sm leading-relaxed text-foreground">
         Selecting a sampling technique means balancing accuracy, cost, practicality, and representation.
       </div>
     }
@@ -55,7 +55,7 @@ export const SamplingTableSVG: React.FC = () => (
     <div className="w-full max-w-5xl">
       <div className="overflow-x-auto">
         <div className="min-w-[820px] space-y-3">
-          <div className="grid grid-cols-[1.05fr_1.35fr_1.55fr] gap-3 rounded-lg border border-zinc-800/70 bg-zinc-950/45 px-4 py-3 text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">
+          <div className="grid grid-cols-[1.05fr_1.35fr_1.55fr] gap-3 rounded-lg border border-primary/20 bg-card px-4 py-3 text-2.5 font-black uppercase tracking-[0.24em] text-muted-foreground">
             <div>Method</div>
             <div>Advantage</div>
             <div>Disadvantage</div>
@@ -69,18 +69,18 @@ export const SamplingTableSVG: React.FC = () => (
                 key={method}
                 className={`grid min-h-28 grid-cols-[1.05fr_1.35fr_1.55fr] items-stretch gap-3 rounded-lg border ${colors.row} p-3 shadow-xl`}
               >
-                <div className="flex min-w-0 flex-col justify-center rounded-md border border-zinc-800/70 bg-zinc-950/45 px-4 py-3">
+                <div className="flex min-w-0 flex-col justify-center rounded-md border border-primary/20 bg-card px-4 py-3">
                   <div className={`text-base font-black leading-tight ${colors.title}`}>{method}</div>
                   <div className={`mt-2 w-full rounded-md border px-2.5 py-1 text-center text-[0.62rem] font-bold uppercase tracking-[0.08em] whitespace-nowrap ${colors.chip}`}>
                     {cue}
                   </div>
                 </div>
 
-                <div className="flex min-w-0 items-center rounded-md border border-zinc-800/70 bg-zinc-950/35 px-4 py-3 text-sm leading-relaxed text-zinc-200">
+                <div className="flex min-w-0 items-center rounded-md border border-primary/20 bg-card px-4 py-3 text-sm leading-relaxed text-foreground">
                   {advantage}
                 </div>
 
-                <div className="flex min-w-0 items-center rounded-md border border-zinc-800/70 bg-zinc-950/35 px-4 py-3 text-sm leading-relaxed text-zinc-300">
+                <div className="flex min-w-0 items-center rounded-md border border-primary/20 bg-card px-4 py-3 text-sm leading-relaxed text-foreground">
                   {disadvantage}
                 </div>
               </div>

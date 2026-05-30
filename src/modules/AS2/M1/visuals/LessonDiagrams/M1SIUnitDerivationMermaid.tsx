@@ -52,14 +52,14 @@ export const M1SIUnitDerivationMermaid: React.FC = () => (
     title="Fig 2. SI Unit Derivation Tree"
     analysis={
       <div className="grid gap-4 sm:grid-cols-3 w-full max-w-4xl">
-        <div className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4 text-center text-sm text-zinc-300">
-          <span className="font-medium text-zinc-400">Base units:</span> kg, m, s
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-center text-sm text-foreground">
+          <span className="font-medium text-muted-foreground">Base units:</span> kg, m, s
         </div>
-        <div className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4 text-center text-sm text-zinc-300">
-          <span className="font-medium text-amber-400">Derived units:</span> m s<sup className="text-2.5 opacity-75">-1</sup>, m s<sup className="text-2.5 opacity-75">-2</sup>
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-center text-sm text-foreground">
+          <span className="font-medium text-primary">Derived units:</span> m s<sup className="text-2.5 opacity-75">-1</sup>, m s<sup className="text-2.5 opacity-75">-2</sup>
         </div>
-        <div className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4 text-center text-sm text-zinc-300">
-          <span className="font-medium text-emerald-400">Force units:</span> N = kg m s<sup className="text-2.5 opacity-75">-2</sup>
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-center text-sm text-foreground">
+          <span className="font-medium text-primary">Force units:</span> N = kg m s<sup className="text-2.5 opacity-75">-2</sup>
         </div>
       </div>
     }

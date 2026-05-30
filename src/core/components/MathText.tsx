@@ -5,6 +5,8 @@ import rehypeKatex from "rehype-katex";
 import { cn } from "@/core/utils/cn";
 import { LessonVisual, VisualRenderer } from "@/core/components/VisualRenderer";
 import { MermaidDiagram } from "@/core/diagram-engine/MermaidDiagram";
+import { CalculatorMastery } from "@/core/components/CalculatorMastery";
+import { CALCULATOR_GUIDES } from "@/core/data/calculatorGuides";
 import type { Components } from "react-markdown";
 
 interface MathTextProps {
@@ -36,7 +38,7 @@ export function MathInline({ content, className }: { content: string; className?
 }
 
 const visualTagPattern = /!\[visual:([^\]]+)\]\([^)]*\)/g;
-const placeholderPattern = /\[(VISUAL|INTERACTIVE) (?:PLACEHOLDER|REFERENCE):\s*([^\]|]+)(?:\|([^\]]*))?\]/gi;
+const placeholderPattern = /(?<!\!)\[(VISUAL|INTERACTIVE|CALCULATOR_GUIDE)(?: PLACEHOLDER:| REFERENCE:|:)\s*([^\]|]+)(?:\|([^\]]*))?\]/gi;
 const protectedMarkdownPattern = /(```[\s\S]*?```|`[^`\n]*`|\$\$[\s\S]*?\$\$|\$[^$\n]*\$|!\[[^\]]*\]\([^)]*\)|\[[^\]]*\]\([^)]*\))/g;
 const katexPlugin = [rehypeKatex, { strict: false }] as any;
 
@@ -145,19 +147,18 @@ function LessonSectionHeading({ children }: { children: React.ReactNode }) {
   const sectionNumber = numberedHeading?.[1];
   const sectionTitle = numberedHeading?.[2] ?? headingText;
 
+  // Suppress the auto-generated "Lesson Title" section — the title is already shown in the page header
+  if (sectionTitle.trim().toLowerCase() === 'lesson title') return null;
+
   return (
-    <div className="not-prose mt-24 mb-8 border-t border-zinc-800/70 pt-10">
+    <div className="not-prose mt-12 mb-8 border-t border-border/70 pt-10">
       <div className="relative pl-6">
-        <div className="pointer-events-none absolute left-0 top-1 h-[calc(100%-0.25rem)] w-px bg-linear-to-b from-emerald-400/60 via-zinc-700/80 to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-1 h-[calc(100%-0.25rem)] w-px bg-linear-to-b from-primary/60 via-accent/80 to-transparent" />
         <div className="mb-3 flex items-center gap-3">
-          {sectionNumber && (
-            <span className="rounded-md border border-zinc-700/80 bg-zinc-950/60 px-3 py-1 text-2.5 font-mono font-bold uppercase tracking-[0.24em] text-zinc-400 shadow-sm">
-              Section {sectionNumber}
-            </span>
-          )}
-          <span className="h-px flex-1 bg-zinc-800/70" />
+          <span className="h-px w-12 bg-primary/40" />
+          <span className="h-px flex-1 bg-border/70" />
         </div>
-        <h2 className="text-2xl font-serif font-light leading-tight tracking-wide text-zinc-100 md:text-3xl">
+        <h2 className="text-2xl font-serif font-light leading-tight tracking-wide text-foreground md:text-3xl">
           {sectionTitle}
         </h2>
       </div>
@@ -174,12 +175,12 @@ function LessonSubheading({ children }: { children: React.ReactNode }) {
     const title = exampleHeading[2];
 
     return (
-      <div className="not-prose mt-14 mb-6 flex flex-col gap-2 border-l border-amber-500/40 pl-5">
-        <span className="text-2.5 font-mono font-bold uppercase tracking-[0.24em] text-amber-400">
+      <div className="not-prose mt-14 mb-6 flex flex-col gap-2 border-l border-primary/40 pl-5">
+        <span className="text-2.5 font-mono font-bold uppercase tracking-[0.24em] text-primary">
           {label}
         </span>
         {title && (
-          <h3 className="text-xl font-serif font-light leading-tight tracking-wide text-zinc-100 md:text-2xl">
+          <h3 className="text-xl font-serif font-light leading-tight tracking-wide text-foreground md:text-2xl">
             {title}
           </h3>
         )}
@@ -188,7 +189,7 @@ function LessonSubheading({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <h3 className="not-prose mt-14 mb-5 text-2.5 font-bold uppercase tracking-[0.24em] text-zinc-400">
+    <h3 className="not-prose mt-14 mb-5 text-2.5 font-bold uppercase tracking-[0.24em] text-muted-foreground">
       {children}
     </h3>
   );
@@ -201,15 +202,22 @@ export function MathText({ content, className, center, noMargin, variant = "defa
 
   if (!content) return null;
 
+  // Strip the entire "## N. Lesson Title" section (heading + its body) before rendering
+  // since the page header already displays the lesson title above the content.
+  const contentWithoutLessonTitle = content.replace(
+    /^##\s+\d+\.\s*Lesson Title\b[\s\S]*?(?=\n##\s|\n###\s|$)/im,
+    ''
+  );
+
   if (shouldRenderInline) {
-    return <MathInline content={content} className={className} />;
+    return <MathInline content={contentWithoutLessonTitle} className={className} />;
   }
 
   const markdownComponents: Components = {
     p: ({ node, ...props }) => (
       <p
         className={cn(
-          "text-lg md:text-xl leading-relaxed text-zinc-300 font-serif tracking-normal antialiased whitespace-pre-wrap font-normal",
+          "text-base md:text-lg leading-relaxed text-foreground font-sans tracking-normal antialiased whitespace-pre-wrap font-normal",
           !noMargin && "mb-6",
           center && "text-center"
         )}
@@ -220,7 +228,7 @@ export function MathText({ content, className, center, noMargin, variant = "defa
       isLesson ? (
         <LessonSectionHeading>{children}</LessonSectionHeading>
       ) : (
-        <h2 className="mt-12 mb-6 text-xl font-serif font-light text-zinc-100 tracking-wide border-l border-zinc-700 pl-6" {...props}>
+        <h2 className="mt-12 mb-6 text-xl font-serif font-light text-foreground tracking-wide border-l border-border pl-6" {...props}>
           {children}
         </h2>
       )
@@ -229,33 +237,33 @@ export function MathText({ content, className, center, noMargin, variant = "defa
       isLesson ? (
         <LessonSubheading>{children}</LessonSubheading>
       ) : (
-        <h3 className="mt-8 mb-4 text-2.5 font-bold text-zinc-500 uppercase tracking-[0.3em]" {...props}>
+        <h3 className="mt-8 mb-4 text-2.5 font-bold text-muted-foreground uppercase tracking-[0.3em]" {...props}>
           {children}
         </h3>
       )
     ),
     li: ({ node, ...props }) => (
-      <li className={cn("relative pl-8 text-lg md:text-xl leading-relaxed font-serif text-zinc-300 font-normal before:content-[''] before:absolute before:left-0 before:top-3.5 before:w-4 before:h-px before:bg-zinc-800", isLesson ? "mb-5" : "mb-4")} {...props} />
+      <li className={cn("relative pl-8 text-base md:text-lg leading-relaxed font-sans text-foreground font-normal before:content-[''] before:absolute before:left-0 before:top-3 before:w-4 before:h-px before:bg-primary/50", isLesson ? "mb-5" : "mb-4")} {...props} />
     ),
     blockquote: ({ node, ...props }) => (
-      <blockquote className="my-10 p-8 border border-zinc-800 bg-zinc-900/10 rounded-2xl shadow-sm backdrop-blur-xs italic text-zinc-400 font-serif leading-relaxed" {...props} />
+      <blockquote className="my-10 p-8 border border-primary/20 bg-primary/5 rounded-2xl shadow-sm backdrop-blur-xs italic text-muted-foreground font-serif leading-relaxed" {...props} />
     ),
-    strong: ({ node, ...props }) => <strong className="font-bold text-zinc-100 decoration-zinc-800 underline-offset-4" {...props} />,
-    code: ({ node, ...props }) => <code className="font-mono text-2.75 bg-zinc-900/40 text-zinc-400 px-2 py-0.5 rounded border border-zinc-800/50 shadow-xs" {...props} />,
+    strong: ({ node, ...props }) => <strong className="font-bold text-foreground decoration-primary/50 underline-offset-4" {...props} />,
+    code: ({ node, ...props }) => <code className="font-mono text-2.75 bg-muted text-muted-foreground px-2 py-0.5 rounded border border-border/50 shadow-xs" {...props} />,
     table: ({ node, ...props }) => (
       <div className={cn(
-        "my-10 w-full overflow-x-auto rounded-lg border bg-zinc-950/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
-        isLesson ? "border-zinc-800/70" : "border-zinc-800"
+        "my-10 w-full overflow-x-auto rounded-lg border bg-card shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+        isLesson ? "border-border/70" : "border-border"
       )}>
-        <table className={cn("w-full min-w-[760px] border-collapse", isLesson ? "text-base text-zinc-300" : "text-sm text-zinc-300")} {...props} />
+        <table className={cn("w-full min-w-[760px] border-collapse", isLesson ? "text-base text-muted-foreground" : "text-sm text-muted-foreground")} {...props} />
       </div>
     ),
-    thead: ({ node, ...props }) => <thead className="border-b border-zinc-800/80 bg-zinc-900/45" {...props} />,
-    tr: ({ node, ...props }) => <tr className="border-b border-zinc-800/35 last:border-b-0 transition-colors hover:bg-zinc-900/20" {...props} />,
+    thead: ({ node, ...props }) => <thead className="border-b border-border/80 bg-muted/45" {...props} />,
+    tr: ({ node, ...props }) => <tr className="border-b border-border/35 last:border-b-0 transition-colors hover:bg-muted/20" {...props} />,
     th: ({ node, ...props }) => (
       <th
         className={cn(
-          "px-5 py-4 text-left align-bottom font-bold uppercase tracking-[0.22em] text-zinc-500",
+          "px-5 py-4 text-left align-bottom font-bold uppercase tracking-[0.22em] text-muted-foreground",
           isLesson ? "text-2.5" : "text-xs"
         )}
         {...props}
@@ -264,8 +272,8 @@ export function MathText({ content, className, center, noMargin, variant = "defa
     td: ({ node, ...props }) => (
       <td
         className={cn(
-          "px-5 py-5 text-left align-top leading-relaxed text-zinc-300",
-          isLesson ? "font-serif text-lg" : "text-sm"
+          "px-5 py-5 text-left align-top leading-relaxed text-foreground",
+          isLesson ? "font-sans text-base" : "text-sm"
         )}
         {...props}
       />
@@ -279,7 +287,7 @@ export function MathText({ content, className, center, noMargin, variant = "defa
           </div>
         );
       }
-      return <img src={src} alt={alt} className="my-10 border border-zinc-800/50 shadow-sm max-w-full h-auto rounded-2xl" {...props} />;
+      return <img src={src} alt={alt} className="my-10 border border-border/50 shadow-sm max-w-full h-auto rounded-2xl" {...props} />;
     },
   };
 
@@ -287,7 +295,7 @@ export function MathText({ content, className, center, noMargin, variant = "defa
   // We'll replace them with a special format that ReactMarkdown can recognize or we can split on.
   // For now, let's just split the content manually to handle placeholders.
 
-  const formattedContent = formatUnitsAsMath(prepareMathContent(content));
+  const formattedContent = formatUnitsAsMath(prepareMathContent(contentWithoutLessonTitle));
   const segments = formattedContent.split(placeholderPattern);
   // Pattern has 3 capture groups: (VISUAL|INTERACTIVE), (ID), (Metadata)
   // Split results: [text, type, id, meta, text, type, id, meta, ...]
@@ -323,14 +331,31 @@ export function MathText({ content, className, center, noMargin, variant = "defa
     }
 
     if (i + 1 < segments.length) {
-      const type = segments[i + 1];
+      const type = segments[i + 1]?.toUpperCase();
       const id = segments[i + 2]?.trim();
 
-      finalElements.push(
-        <div key={`placeholder-${id}-${i}`} className={cn(visualSpacingClass, "w-full flex justify-center")}>
-          <VisualRenderer visualId={id} />
-        </div>
-      );
+      if (type === "CALCULATOR_GUIDE") {
+        const guide = CALCULATOR_GUIDES[id];
+        if (guide) {
+          finalElements.push(
+            <div key={`calc-${id}-${i}`} className="w-full">
+              <CalculatorMastery model={guide.model} steps={guide.steps} />
+            </div>
+          );
+        } else {
+          finalElements.push(
+            <div key={`calc-${id}-${i}`} className="w-full p-4 border border-red-500/50 bg-red-500/10 text-red-500 rounded text-center font-mono text-sm">
+              [Missing Calculator Guide: {id}]
+            </div>
+          );
+        }
+      } else {
+        finalElements.push(
+          <div key={`placeholder-${id}-${i}`} className={cn(visualSpacingClass, "w-full flex justify-center")}>
+            <VisualRenderer visualId={id} />
+          </div>
+        );
+      }
     }
   }
 

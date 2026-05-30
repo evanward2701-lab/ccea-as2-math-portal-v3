@@ -14,10 +14,10 @@ type FlowNodeProps = {
 };
 
 const toneClasses: Record<FlowNodeTone, string> = {
-  neutral: 'border-zinc-700/80 bg-zinc-900/70 text-zinc-200',
-  amber: 'border-amber-500/35 bg-amber-950/15 text-amber-200',
-  blue: 'border-blue-500/35 bg-blue-950/25 text-blue-100',
-  emerald: 'border-emerald-500/35 bg-emerald-950/25 text-emerald-100',
+  neutral: 'border-primary/10 bg-primary/5 text-foreground',
+  amber: 'border-primary/35 bg-primary/15 text-primary',
+  blue: 'border-primary/35 bg-primary/25 text-primary',
+  emerald: 'border-primary/35 bg-primary/25 text-primary',
 };
 
 const FlowNode: React.FC<FlowNodeProps> = ({ x, y, width, tone = 'neutral', children }) => (
@@ -42,24 +42,24 @@ export const StdDevDecisionTree: React.FC = () => (
     title="Standard Deviation Workflow"
     analysis={
       <div className="space-y-4">
-        <div className="rounded-lg border border-zinc-800 bg-zinc-900/45 p-4">
-          <p className="text-sm leading-relaxed text-zinc-300">
+        <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+          <p className="text-sm leading-relaxed text-foreground">
             The workflow is the same for discrete frequency tables and grouped data. For grouped data, use class midpoints as the working values of{' '}
-            <MathInline content="x" className="text-zinc-100" />.
+            <MathInline content="x" className="text-foreground" />.
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-lg border border-blue-500/25 bg-blue-950/10 p-4">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-blue-300">Variance First</h4>
-            <div className="rounded-md border border-zinc-800/70 bg-zinc-950/55 px-4 py-3 text-center">
+          <div className="rounded-lg border border-primary/25 bg-primary/10 p-4">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-primary">Variance First</h4>
+            <div className="rounded-md border border-primary/20 bg-card px-4 py-3 text-center">
               <MathText content="{\\large \\sigma^2=\\frac{\\sum fx^2}{\\sum f}-\\left(\\frac{\\sum fx}{\\sum f}\\right)^2}" noMargin />
             </div>
           </div>
 
-          <div className="rounded-lg border border-emerald-500/25 bg-emerald-950/10 p-4">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-emerald-400">Then Square Root</h4>
-            <div className="rounded-md border border-zinc-800/70 bg-zinc-950/55 px-4 py-3 text-center">
+          <div className="rounded-lg border border-primary/25 bg-primary/10 p-4">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-primary">Then Square Root</h4>
+            <div className="rounded-md border border-primary/20 bg-card px-4 py-3 text-center">
               <MathText content="{\\large \\sigma=\\sqrt{\\sigma^2}}" noMargin />
             </div>
           </div>
@@ -68,7 +68,7 @@ export const StdDevDecisionTree: React.FC = () => (
     }
   >
     <div className="mx-auto w-full max-w-5xl">
-      <div className="relative mx-auto aspect-16/9 w-full overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+      <div className="relative mx-auto aspect-16/9 w-full overflow-hidden rounded-xl border border-primary/20 bg-card shadow-inner">
         <svg
           viewBox="0 0 1000 620"
           className="absolute inset-0 h-full w-full"
@@ -80,10 +80,10 @@ export const StdDevDecisionTree: React.FC = () => (
         >
           <defs>
             <marker id="stddev-flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-              <path d="M 1 1 L 9 5 L 1 9 Z" fill="#71717a" />
+              <path d="M 1 1 L 9 5 L 1 9 Z" fill="var(--muted-foreground)" />
             </marker>
             <linearGradient id="stddev-flow-line" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stopColor="#71717a" stopOpacity="0.9" />
+              <stop offset="0" stopColor="var(--muted-foreground)" stopOpacity="0.9" />
               <stop offset="1" stopColor="#3f3f46" stopOpacity="0.7" />
             </linearGradient>
           </defs>
@@ -115,12 +115,12 @@ export const StdDevDecisionTree: React.FC = () => (
         </FlowNode>
 
         <FlowNode x={170} y={340} width={210}>
-          Calculate midpoints <MathInline content="x" className="ml-1 text-zinc-100" />
+          Calculate midpoints <MathInline content="x" className="ml-1 text-foreground" />
         </FlowNode>
         <FlowNode x={390} y={340} width={220}>
           <span>
-            Sum <MathInline content="\\sum fx" className="mx-1 text-zinc-100" /> and{' '}
-            <MathInline content="\\sum fx^2" className="text-zinc-100" />
+            Sum <MathInline content="\\sum fx" className="mx-1 text-foreground" /> and{' '}
+            <MathInline content="\\sum fx^2" className="text-foreground" />
           </span>
         </FlowNode>
         <FlowNode x={610} y={340} width={210}>
@@ -128,8 +128,8 @@ export const StdDevDecisionTree: React.FC = () => (
         </FlowNode>
         <FlowNode x={830} y={340} width={220}>
           <span>
-            Sum <MathInline content="\\sum fx" className="mx-1 text-zinc-100" /> and{' '}
-            <MathInline content="\\sum fx^2" className="text-zinc-100" />
+            Sum <MathInline content="\\sum fx" className="mx-1 text-foreground" /> and{' '}
+            <MathInline content="\\sum fx^2" className="text-foreground" />
           </span>
         </FlowNode>
 

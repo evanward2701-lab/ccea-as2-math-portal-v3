@@ -8,20 +8,20 @@ export const BayesResolutionSVG: React.FC = () => (
     title="Fig 4. Conditional Partition Asset"
     analysis={
       <div className="space-y-4">
-        <p className="text-sm text-zinc-400 italic">
+        <p className="text-sm text-muted-foreground italic">
           The sample space is divided into mutually exclusive partitions (<MathText content="A_1, A_2, A_3" className="inline"/>).
         </p>
-        <div className="p-4 bg-zinc-925 rounded-lg border border-zinc-800">
-          <span className="text-zinc-400 font-bold uppercase tracking-wider block mb-2 text-2.5">Total Probability Law:</span>
-          <div className="font-mono text-zinc-300 text-sm">
+        <div className="p-4 bg-card rounded-lg border border-primary/20">
+          <span className="text-muted-foreground font-bold uppercase tracking-wider block mb-2 text-2.5">Total Probability Law:</span>
+          <div className="font-mono text-foreground text-sm">
             <MathText content="P(B) = P(A_1 \\cap B) + P(A_2 \\cap B) + P(A_3 \\cap B)" />
           </div>
         </div>
-        <p className="text-sm text-zinc-400 italic">
+        <p className="text-sm text-muted-foreground italic">
           To isolate a conditional reverse path (Bayes' Theorem), compute the path ratio:
         </p>
-        <div className="p-4 bg-zinc-925 rounded-lg border border-emerald-900">
-          <div className="font-mono text-emerald-400 text-base">
+        <div className="p-4 bg-card rounded-lg border border-primary">
+          <div className="font-mono text-primary text-base">
             <MathText content="P(A_1 | B) = \\frac{P(A_1 \\cap B)}{P(B)}" />
           </div>
         </div>

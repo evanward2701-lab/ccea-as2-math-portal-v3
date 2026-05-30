@@ -1,17 +1,14 @@
 import { Module } from '@/core/types';
 
 const M1_CONTENT = `
-## 1. Lesson Title
-**M1: Quantities, Units and Modelling Foundations**
-
-## 2. Specification Focus
+## 1. Specification Focus
 * Demonstrate understanding of and use fundamental quantities and units in the SI system: length, time, and mass.
 * Demonstrate understanding of and use derived quantities and units: velocity, acceleration, force, and weight.
 * Demonstrate understanding of and use the language of kinematics: position, displacement, distance travelled, velocity, speed, and acceleration.
 * Understand and use modelling assumptions to simplify real-world mechanics problems.
 * Use vectors and scalar magnitudes correctly in the mechanics context.
 
-## 3. Learning Outcomes
+## 2. Learning Outcomes
 By the end of this lesson, you should be able to:
 * Identify and convert quantities into standard SI units.
 * Distinguish clearly between mass as a scalar and weight as a force.
@@ -20,25 +17,28 @@ By the end of this lesson, you should be able to:
 * Define and apply standard modelling assumptions such as particle, smooth surface, rough surface, light string, inextensible string, smooth pulley, and rigid rod.
 * Explain why modelling assumptions make a real situation easier to handle mathematically.
 
-## 4. Key Vocabulary
-* **Fundamental Quantity:** A base physical measurement, such as mass, time, or length.
-* **Derived Quantity:** A measurement built from base units, such as velocity, acceleration, or force.
-* **Scalar:** A quantity with magnitude only.
-* **Vector:** A quantity with both magnitude and direction.
-* **Particle:** A modelling assumption where an object's dimensions are negligible and its mass is concentrated at a single point.
-* **Light:** A modelling assumption meaning the object has negligible mass.
-* **Inextensible:** A string or cable that does not stretch under load.
-* **Tension:** A pulling force transmitted through a string, cable, or light towbar.
-* **Normal Reaction:** A contact force acting perpendicular to a surface.
-* **Weight:** The force due to gravity acting vertically downwards.
+## 3. Key Vocabulary
 
-## 5. Prior Knowledge
+| Term | Definition |
+| :--- | :--- |
+| **Fundamental Quantity** | A base physical measurement, such as mass, time, or length. |
+| **Derived Quantity** | A measurement built from base units, such as velocity, acceleration, or force. |
+| **Scalar** | A quantity with magnitude only. |
+| **Vector** | A quantity with both magnitude and direction. |
+| **Particle** | A modelling assumption where an object's dimensions are negligible. |
+| **Light** | A modelling assumption meaning the object has negligible mass. |
+| **Inextensible** | A string or cable that does not stretch under load. |
+| **Tension** | A pulling force transmitted through a string or cable. |
+| **Normal Reaction** | A contact force acting perpendicular to a surface. |
+| **Weight** | The force due to gravity acting vertically downwards. |
+
+## 4. Prior Knowledge
 * Rearranging basic algebraic equations.
 * Right-angled trigonometry and Pythagoras' theorem.
 * Basic 2D vector notation, such as column vectors or $\\mathbf{i}, \\mathbf{j}$ notation.
 * GCSE-level understanding of forces and motion.
 
-## 6. Full Theory Explanation
+## 5. Full Theory Explanation
 
 ### MECHANICS OVERVIEW
 Mechanics links forces and motion. Kinematics describes motion without investigating its cause. Dynamics connects motion to forces using Newton's laws, especially Newton's Second Law, $F=ma$.
@@ -101,15 +101,27 @@ When objects are connected by a light towbar or inextensible string, the connect
 
 ![visual:M1-Towing]()
 
-## 7. Formulae and Notation
-* **Weight:** $W=mg$.
+## 6. Formulae and Notation
+
+**Weight:**
+
+$$W=mg$$
 
 ![visual:M1-Notation]()
-* **Force unit:** $1\\text{ N}=1\\text{ kg}\\,\\text{m}\\,\\text{s}^{-2}$.
-* **Magnitude of a 2D vector:** If $\\mathbf{v}=x\\mathbf{i}+y\\mathbf{j}$, then $|\\mathbf{v}|=\\sqrt{x^2+y^2}$.
-* **Tonnes to kilograms:** $1\\text{ tonne}=1000\\text{ kg}$.
 
-## 8. Step-by-Step Methods
+**Force unit:**
+
+$$1\\text{ N}=1\\text{ kg}\\,\\text{m}\\,\\text{s}^{-2}$$
+
+**Magnitude of a 2D vector:**
+
+$$\\text{If }\\mathbf{v}=x\\mathbf{i}+y\\mathbf{j},\\text{ then }|\\mathbf{v}|=\\sqrt{x^2+y^2}$$
+
+**Tonnes to kilograms:**
+
+$$1\\text{ tonne}=1000\\text{ kg}$$
+
+## 7. Step-by-Step Methods
 
 ### Method: Converting Units
 
@@ -137,7 +149,7 @@ When objects are connected by a light towbar or inextensible string, the connect
 3. Label weight, reaction, friction, tension, or applied force only when they are present.
 4. Use the diagram to decide which forces enter the equation of motion.
 
-## 9. Worked Examples
+## 8. Worked Examples
 
 ### Example 1: Unit Conversion and Weight
 
@@ -148,11 +160,16 @@ A machine has a mass of $3.5$ tonnes. Calculate its weight.
 
 Convert the mass into kg:
 $$
-3.5\\times1000=3500\\text{ kg}
+\\begin{aligned}
+3.5\\times1000 &= 3500\\text{ kg}
+\\end{aligned}
 $$
 Then use $W=mg$:
 $$
-W=3500\\times9.8=34300\\text{ N}
+\\begin{aligned}
+W &= 3500\\times9.8 \\\\
+  &= 34300\\text{ N}
+\\end{aligned}
 $$
 
 > **Final Answer:** The weight of the machine is $34300\\text{ N}$.
@@ -164,25 +181,29 @@ A particle has velocity $\\mathbf{v}=6\\mathbf{i}-8\\mathbf{j}\\text{ m}\\,\\tex
 
 **Solution:**
 $$
-|\\mathbf{v}|=\\sqrt{6^2+(-8)^2}=\\sqrt{100}=10
+\\begin{aligned}
+|\\mathbf{v}| &= \\sqrt{6^2+(-8)^2} \\\\
+             &= \\sqrt{100} \\\\
+             &= 10\\text{ m}\\,\\text{s}^{-1}
+\\end{aligned}
 $$
 
 > **Final Answer:** The speed is $10\\text{ m}\\,\\text{s}^{-1}$.
 
-## 10. Common Traps
+## 9. Common Traps
 * **Forgetting to convert tonnes to kg:** Always convert before using $W=mg$ or $F=ma$.
 * **Confusing mass and weight:** Mass is measured in kg. Weight is a force measured in N.
 * **Calling velocity a speed:** Speed is scalar. Velocity includes direction.
 * **Missing the direction of a vector:** A vector answer without direction may lose marks.
 * **Treating modelling words as decoration:** Words like light, smooth, rigid, and inextensible are mathematical instructions.
 
-## 11. Exam Technique
+## 10. Exam Technique
 * Mechanics final answers usually need units.
 * Unless told otherwise, give decimal answers to 3 significant figures where appropriate.
 * If you restart a solution, clearly cross out the version you do not want marked.
 * For explanation questions, link each modelling assumption to the specific context.
 
-## 12. Quick Recall Checklist
+## 11. Quick Recall Checklist
 * Can I state the SI units for mass, length, and time?
 * Can I convert tonnes to kilograms?
 * Can I explain the difference between mass and weight?
@@ -190,10 +211,10 @@ $$
 * Can I find the magnitude of a 2D vector?
 * Can I define particle, light, smooth, rough, inextensible, and rigid?
 
-## 13. End-of-Lesson Summary
+## 12. End-of-Lesson Summary
 This foundation lesson establishes the language of AS2 mechanics. Before applying SUVAT or Newton's laws, values must be in the correct units, vectors and scalars must be distinguished, and modelling assumptions must be interpreted accurately.
 
-## 14. Source Gaps or Caution Notes
+## 13. Source Gaps or Caution Notes
 > **Caution - Variable acceleration:** The evidence base mentions calculus-based motion in some places, but AS2 constant acceleration questions should not use differentiation or integration.
 
 > **Caution - Modelling:** Do not over-explain real-world complications unless the question asks for limitations of a model.

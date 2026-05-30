@@ -1,50 +1,50 @@
 import React from 'react';
 
 export const M1ExamTrapSVG: React.FC = () => (
-  <div className="w-full border border-zinc-800/60 bg-zinc-925 p-6 rounded-xl my-8 relative overflow-hidden shadow-inner">
-    <div className="absolute top-0 right-0 bg-rose-600 text-zinc-50 text-2.25 uppercase tracking-widest font-black px-3 py-1 font-sans">
+  <div className="w-full border border-primary/20 bg-card p-6 rounded-xl my-8 relative overflow-hidden shadow-inner">
+    <div className="absolute top-0 right-0 bg-destructive text-foreground text-2.25 uppercase tracking-widest font-black px-3 py-1 font-sans">
       CCEA Examiner Warning
     </div>
-    <h4 className="text-rose-400 font-bold text-sm mb-2 uppercase tracking-wider mt-2">
+    <h4 className="text-destructive font-bold text-sm mb-2 uppercase tracking-wider mt-2">
       The Multiple Responses Penalty Rule
     </h4>
-    <p className="text-xs text-zinc-300 leading-relaxed mb-6">
+    <p className="text-xs text-foreground leading-relaxed mb-6">
       If you are unsure of a sign convention or mathematical method and present two competing solutions on your sheet without clearly crossing one out, 
-      <strong className="text-rose-300"> CCEA examiners are required to mark all attempts and award marks based on the POOREST solution.</strong>
+      <strong className="text-destructive"> CCEA examiners are required to mark all attempts and award marks based on the POOREST solution.</strong>
     </p>
     
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
       {/* Penalized Choice Column */}
-      <div className="border border-rose-950/60 bg-rose-950/20 p-4 rounded-lg relative opacity-60">
-        <div className="absolute top-2 right-2 text-rose-500 font-bold text-2.25 uppercase tracking-wider">Penalized</div>
-        <span className="block font-bold text-zinc-400 mb-2">Attempt 1: Upwards Positive</span>
-        <code className="text-zinc-400 block font-mono text-2.5 bg-zinc-925 p-2 rounded tracking-wide mb-3 border border-zinc-800">
+      <div className="border border-destructive/60 bg-destructive/20 p-4 rounded-lg relative opacity-60">
+        <div className="absolute top-2 right-2 text-destructive font-bold text-2.25 uppercase tracking-wider">Penalized</div>
+        <span className="block font-bold text-muted-foreground mb-2">Attempt 1: Upwards Positive</span>
+        <code className="text-muted-foreground block font-mono text-2.5 bg-card p-2 rounded tracking-wide mb-3 border border-primary/20">
           0 = 21 - 9.8t ⇒ t = 2.14s
         </code>
-        <span className="block font-bold text-zinc-400 mb-2">Attempt 2: Downwards Positive</span>
-        <code className="text-zinc-400 block font-mono text-2.5 bg-zinc-925 p-2 rounded tracking-wide border border-zinc-800">
+        <span className="block font-bold text-muted-foreground mb-2">Attempt 2: Downwards Positive</span>
+        <code className="text-muted-foreground block font-mono text-2.5 bg-card p-2 rounded tracking-wide border border-primary/20">
           0 = 21 + 9.8t ⇒ t = -2.14s
         </code>
-        <p className="text-2.5 text-rose-400/80 italic mt-3 leading-tight">
+        <p className="text-2.5 text-destructive/80 italic mt-3 leading-tight">
           Result: Both versions are scanned. Marks are restricted exclusively to the flawed calculation.
         </p>
       </div>
 
       {/* Correct Practice Column */}
-      <div className="border border-emerald-900/60 bg-emerald-950/20 p-4 rounded-lg relative">
-        <div className="absolute top-2 right-2 text-emerald-400 font-bold text-2.25 uppercase tracking-wider">Correct Practice</div>
-        <span className="block font-bold text-zinc-200 mb-2">Discarded Attempt</span>
+      <div className="border border-primary/60 bg-primary/20 p-4 rounded-lg relative">
+        <div className="absolute top-2 right-2 text-primary font-bold text-2.25 uppercase tracking-wider">Correct Practice</div>
+        <span className="block font-bold text-foreground mb-2">Discarded Attempt</span>
         <div className="relative inline-block w-full mb-3">
           <div className="absolute inset-0 bg-linear-to-tr from-transparent via-rose-500/50 to-transparent h-0.5 top-1/2 transform -rotate-2" />
-          <code className="text-zinc-500 block font-mono text-2.5 bg-zinc-925 p-2 rounded tracking-wide line-through decoration-rose-500/80 border border-zinc-800">
+          <code className="text-muted-foreground block font-mono text-2.5 bg-card p-2 rounded tracking-wide line-through decoration-rose-500/80 border border-primary/20">
             0 = 21 + 9.8t ⇒ t = -2.14s
           </code>
         </div>
-        <span className="block font-bold text-zinc-200 mb-2">Active Clean Solution</span>
-        <code className="text-emerald-400 block font-mono text-2.5 bg-zinc-925 p-2 rounded tracking-wide font-bold border border-emerald-900">
+        <span className="block font-bold text-foreground mb-2">Active Clean Solution</span>
+        <code className="text-primary block font-mono text-2.5 bg-card p-2 rounded tracking-wide font-bold border border-primary">
           0 = 21 - 9.8t ⇒ t = 2.14s ✓
         </code>
-        <p className="text-2.5 text-emerald-400/80 italic mt-3 leading-tight">
+        <p className="text-2.5 text-primary/80 italic mt-3 leading-tight">
           Result: Cross out flawed models with a single line to ensure only your intended work remains active.
         </p>
       </div>

@@ -53,29 +53,29 @@ export const S3ProbabilityTreeEngine: React.FC = () => {
       title="Fig. Auto-Calculating Probability Tree"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 italic">
+          <p className="text-sm text-muted-foreground italic">
             Tree diagrams visualize multi-stage experiments. Observe how probabilities change when events are dependent (without replacement).
           </p>
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Key Rules</h4>
-            <ul className="list-disc list-inside text-sm text-zinc-300 space-y-1">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">Key Rules</h4>
+            <ul className="list-disc list-inside text-sm text-foreground space-y-1">
               <li>Multiply probabilities along branches (AND).</li>
               <li>Add probabilities of separate final paths (OR).</li>
             </ul>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> For "without replacement" scenarios, the denominator (total items remaining) and numerator (items of a specific type remaining) change for the second stage.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> For "without replacement" scenarios, the denominator (total items remaining) and numerator (items of a specific type remaining) change for the second stage.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="flex space-x-2 mb-8 p-1 bg-zinc-900 border border-zinc-800 rounded-lg">
+        <div className="flex space-x-2 mb-8 p-1 bg-primary/5 border border-primary/20 rounded-lg">
           <button
             onClick={() => setIndependent(true)}
             className={cn(
               "px-4 py-1.5 text-xs font-bold rounded-md transition-colors",
-              independent ? 'bg-emerald-500 text-zinc-950' : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
+              independent ? 'bg-primary text-zinc-950' : 'bg-transparent text-muted-foreground hover:bg-muted/30'
             )}
           >
             Independent (With Replacement)
@@ -84,7 +84,7 @@ export const S3ProbabilityTreeEngine: React.FC = () => {
             onClick={() => setIndependent(false)}
             className={cn(
               "px-4 py-1.5 text-xs font-bold rounded-md transition-colors",
-              !independent ? 'bg-amber-500 text-zinc-950' : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
+              !independent ? 'bg-primary text-zinc-950' : 'bg-transparent text-muted-foreground hover:bg-muted/30'
             )}
           >
             Dependent (Without Replacement)
@@ -94,41 +94,41 @@ export const S3ProbabilityTreeEngine: React.FC = () => {
         <div className="relative w-full aspect-62/36 max-w-3xl mx-auto">
           <svg viewBox="0 0 620 360" className="absolute inset-0 w-full h-full" overflow="visible" shapeRendering="geometricPrecision">
             {/* Start Node */}
-            <circle cx="100" cy="180" r="15" fill="#141417" stroke="#a1a1aa" strokeWidth="2" />
+            <circle cx="100" cy="180" r="15" fill="#141417" stroke="var(--muted-foreground)" strokeWidth="2" />
             <text x="100" y="185" textAnchor="middle" fill="#e2e8f0" fontSize="14">Start</text>
 
             {/* First Stage Branches */}
             <line x1="100" y1="180" x2="250" y2="100" stroke="#64748b" strokeWidth="2" />
             <text x="175" y="130" textAnchor="middle" fill="#f59e0b" fontSize="14"><MathText content={`${initialRed}/${initialTotal}`} /></text>
             <line x1="100" y1="180" x2="250" y2="260" stroke="#64748b" strokeWidth="2" />
-            <text x="175" y="230" textAnchor="middle" fill="#a1a1aa" fontSize="14"><MathText content={`${initialBlue}/${initialTotal}`} /></text>
+            <text x="175" y="230" textAnchor="middle" fill="var(--muted-foreground)" fontSize="14"><MathText content={`${initialBlue}/${initialTotal}`} /></text>
 
             {/* First Stage Nodes */}
             <circle cx="250" cy="100" r="10" fill="#141417" stroke="#f59e0b" strokeWidth="1.5" />
             <text x="250" y="105" textAnchor="middle" fill="#e2e8f0" fontSize="12">R</text>
-            <circle cx="250" cy="260" r="10" fill="#141417" stroke="#a1a1aa" strokeWidth="1.5" />
+            <circle cx="250" cy="260" r="10" fill="#141417" stroke="var(--muted-foreground)" strokeWidth="1.5" />
             <text x="250" y="265" textAnchor="middle" fill="#e2e8f0" fontSize="12">B</text>
 
             {/* Second Stage Branches (after Red) */}
             <line x1="250" y1="100" x2="400" y2="60" stroke="#64748b" strokeWidth="2" />
             <text x="325" y="75" textAnchor="middle" fill="#f59e0b" fontSize="14"><MathText content={formatProb(pR2_afterR)} /></text>
             <line x1="250" y1="100" x2="400" y2="140" stroke="#64748b" strokeWidth="2" />
-            <text x="325" y="125" textAnchor="middle" fill="#a1a1aa" fontSize="14"><MathText content={formatProb(pB2_afterR)} /></text>
+            <text x="325" y="125" textAnchor="middle" fill="var(--muted-foreground)" fontSize="14"><MathText content={formatProb(pB2_afterR)} /></text>
 
             {/* Second Stage Branches (after Blue) */}
             <line x1="250" y1="260" x2="400" y2="220" stroke="#64748b" strokeWidth="2" />
             <text x="325" y="235" textAnchor="middle" fill="#f59e0b" fontSize="14"><MathText content={formatProb(pR2_afterB)} /></text>
             <line x1="250" y1="260" x2="400" y2="300" stroke="#64748b" strokeWidth="2" />
-            <text x="325" y="285" textAnchor="middle" fill="#a1a1aa" fontSize="14"><MathText content={formatProb(pB2_afterB)} /></text>
+            <text x="325" y="285" textAnchor="middle" fill="var(--muted-foreground)" fontSize="14"><MathText content={formatProb(pB2_afterB)} /></text>
 
             {/* End Nodes */}
             <circle cx="400" cy="60" r="10" fill="#141417" stroke="#f59e0b" strokeWidth="1.5" />
             <text x="400" y="65" textAnchor="middle" fill="#e2e8f0" fontSize="12">R</text>
-            <circle cx="400" cy="140" r="10" fill="#141417" stroke="#a1a1aa" strokeWidth="1.5" />
+            <circle cx="400" cy="140" r="10" fill="#141417" stroke="var(--muted-foreground)" strokeWidth="1.5" />
             <text x="400" y="145" textAnchor="middle" fill="#e2e8f0" fontSize="12">B</text>
             <circle cx="400" cy="220" r="10" fill="#141417" stroke="#f59e0b" strokeWidth="1.5" />
             <text x="400" y="225" textAnchor="middle" fill="#e2e8f0" fontSize="12">R</text>
-            <circle cx="400" cy="300" r="10" fill="#141417" stroke="#a1a1aa" strokeWidth="1.5" />
+            <circle cx="400" cy="300" r="10" fill="#141417" stroke="var(--muted-foreground)" strokeWidth="1.5" />
             <text x="400" y="305" textAnchor="middle" fill="#e2e8f0" fontSize="12">B</text>
 
             {/* Highlighted Path */}
@@ -139,22 +139,22 @@ export const S3ProbabilityTreeEngine: React.FC = () => {
           </svg>
 
           <DiagramLabel x="67.7%" y="13.9%">
-            <div className={cn("text-xs cursor-pointer", selectedPath === 'RR' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('RR')}>
+            <div className={cn("text-xs cursor-pointer", selectedPath === 'RR' ? 'text-primary font-bold' : 'text-muted-foreground')} onClick={() => setSelectedPath('RR')}>
               P(R then R) = {calculatePathProb('RR')}
             </div>
           </DiagramLabel>
           <DiagramLabel x="67.7%" y="36.1%">
-            <div className={cn("text-xs cursor-pointer", selectedPath === 'RB' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('RB')}>
+            <div className={cn("text-xs cursor-pointer", selectedPath === 'RB' ? 'text-primary font-bold' : 'text-muted-foreground')} onClick={() => setSelectedPath('RB')}>
               P(R then B) = {calculatePathProb('RB')}
             </div>
           </DiagramLabel>
           <DiagramLabel x="67.7%" y="58.3%">
-            <div className={cn("text-xs cursor-pointer", selectedPath === 'BR' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('BR')}>
+            <div className={cn("text-xs cursor-pointer", selectedPath === 'BR' ? 'text-primary font-bold' : 'text-muted-foreground')} onClick={() => setSelectedPath('BR')}>
               P(B then R) = {calculatePathProb('BR')}
             </div>
           </DiagramLabel>
           <DiagramLabel x="67.7%" y="80.6%">
-            <div className={cn("text-xs cursor-pointer", selectedPath === 'BB' ? 'text-emerald-400 font-bold' : 'text-zinc-400')} onClick={() => setSelectedPath('BB')}>
+            <div className={cn("text-xs cursor-pointer", selectedPath === 'BB' ? 'text-primary font-bold' : 'text-muted-foreground')} onClick={() => setSelectedPath('BB')}>
               P(B then B) = {calculatePathProb('BB')}
             </div>
           </DiagramLabel>

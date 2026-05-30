@@ -18,6 +18,7 @@ const getInitialQualification = (): Qualification => {
   const path = window.location.pathname;
   if (/^\/(?:lessons\/P\d-Lesson|practice\/P\d(?:\/|$))/.test(path)) return 'AS1';
   if (/^\/(?:lessons\/[MS]\d-Lesson|practice\/[MS]\d(?:\/|$))/.test(path)) return 'AS2';
+  if (/^\/(?:lessons\/A21-\d+-Lesson|practice\/A21-\d+(?:\/|$))/.test(path)) return 'A2';
 
   const savedQualification = window.localStorage.getItem('activeQualification');
   return isQualification(savedQualification) ? savedQualification : 'AS2';

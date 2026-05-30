@@ -7,9 +7,9 @@ mermaid.initialize({
   theme: "dark",
   themeVariables: {
     background: "transparent",
-    primaryColor: "#27272a",     // zinc-800
-    primaryTextColor: "#f4f4f5", // zinc-100
-    lineColor: "#52525b",        // zinc-600
+    primaryColor: "#FFFFFF",
+    primaryTextColor: "#2D2B2A",
+    lineColor: "#E8E4DB",
   }
 });
 
@@ -65,7 +65,7 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
 
   if (fallbackChart) {
     return (
-      <pre className="w-full whitespace-pre-wrap rounded-xl border border-zinc-800 bg-zinc-950/70 p-5 text-left font-mono text-xs leading-relaxed text-zinc-300">
+      <pre className="w-full whitespace-pre-wrap rounded-xl border border-primary/20 bg-card p-5 text-left font-mono text-xs leading-relaxed text-foreground">
         {fallbackChart}
       </pre>
     );

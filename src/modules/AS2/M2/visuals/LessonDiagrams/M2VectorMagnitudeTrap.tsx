@@ -10,14 +10,14 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
       analysis={
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div className="flex flex-col items-center gap-y-4">
-            <div className="p-2 bg-zinc-925 rounded-lg border border-zinc-800 font-mono text-indigo-400 text-sm">
+            <div className="p-2 bg-card rounded-lg border border-primary/20 font-mono text-indigo-400 text-sm">
               <MathText content="$\\mathbf{s} = x\\mathbf{i} + y\\mathbf{j}$" />
             </div>
-            <div className="p-3 bg-zinc-925 rounded-lg border border-zinc-800 font-mono text-emerald-400 text-sm">
+            <div className="p-3 bg-card rounded-lg border border-primary/20 font-mono text-primary text-sm">
               <MathText content="$\\text{Distance} = |\\mathbf{s}| = \\sqrt{x^2 + y^2}$" />
             </div>
           </div>
-          <div className="text-sm text-zinc-400 leading-relaxed md:text-left">
+          <div className="text-sm text-muted-foreground leading-relaxed md:text-left">
             <p>
               If a 2D vector kinematics question requests the scalar <strong>distance</strong>, you must first calculate the displacement vector, then find its modulus.
             </p>
@@ -46,7 +46,7 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
         </svg>
 
         <DiagramLabel x="50%" y="95%">
-          <div className="text-zinc-400 font-bold text-center text-xs">
+          <div className="text-muted-foreground font-bold text-center text-xs">
             <MathText content="$x\\mathbf{i}$" />
           </div>
         </DiagramLabel>
@@ -57,7 +57,7 @@ export const M2VectorMagnitudeTrap: React.FC = () => {
         </DiagramLabel>
         
         <DiagramLabel x="35%" y="22%">
-          <div className="text-emerald-400 font-bold text-xs">
+          <div className="text-primary font-bold text-xs">
             <MathText content="$|\\mathbf{s}| = \\sqrt{x^2+y^2}$" noMargin />
           </div>
         </DiagramLabel>

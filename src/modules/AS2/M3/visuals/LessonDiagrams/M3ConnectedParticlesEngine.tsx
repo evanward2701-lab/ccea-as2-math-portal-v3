@@ -49,40 +49,40 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
       title="Fig. Connected Particles Pulley Engine"
       analysis={
         <div className="space-y-4">
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Whole System Equation</h4>
-            <p className="text-xs text-zinc-400 italic mb-3">Tension is an internal force and cancels out when considering the whole system, allowing for calculation of acceleration.</p>
-            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">Whole System Equation</h4>
+            <p className="text-xs text-muted-foreground italic mb-3">Tension is an internal force and cancels out when considering the whole system, allowing for calculation of acceleration.</p>
+            <div className="text-center bg-card p-2 rounded border border-primary/20">
               <MathText content={`a = \\frac{|m_A - m_B|g}{m_A + m_B} = ${acceleration.toFixed(2)}\\operatorname{m s^{-2}}`} noMargin />
             </div>
           </div>
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Tension</h4>
-             <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Tension</h4>
+             <div className="text-center bg-card p-2 rounded border border-primary/20">
               <MathText content={`T = ${tension.toFixed(1)}\\operatorname{N}`} noMargin />
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Tension is not the same as weight. It must usually be found by isolating one particle <em>after</em> finding the system&apos;s acceleration.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Tension is not the same as weight. It must usually be found by isolating one particle <em>after</em> finding the system&apos;s acceleration.
           </div>
         </div>
       }
     >
       <div className="flex w-full flex-col items-center">
-        <div className="mb-6 grid w-full max-w-3xl grid-cols-1 gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 md:grid-cols-2">
+        <div className="mb-6 grid w-full max-w-3xl grid-cols-1 gap-4 rounded-xl border border-primary/20 bg-primary/5 p-4 md:grid-cols-2">
           <div className="flex items-center gap-3">
-            <label htmlFor="massA-slider" className="whitespace-nowrap text-sm font-medium text-zinc-300">Mass A</label>
-            <input id="massA-slider" type="range" min="1" max="10" step="0.5" value={massA} onChange={(e) => setMassA(Number(e.target.value))} className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-700 accent-pink-500" />
-            <span className="w-16 text-right font-mono text-sm text-amber-400">{massA.toFixed(1)} kg</span>
+            <label htmlFor="massA-slider" className="whitespace-nowrap text-sm font-medium text-foreground">Mass A</label>
+            <input id="massA-slider" type="range" min="1" max="10" step="0.5" value={massA} onChange={(e) => setMassA(Number(e.target.value))} className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-muted/50 accent-pink-500" />
+            <span className="w-16 text-right font-mono text-sm text-primary">{massA.toFixed(1)} kg</span>
           </div>
           <div className="flex items-center gap-3">
-            <label htmlFor="massB-slider" className="whitespace-nowrap text-sm font-medium text-zinc-300">Mass B</label>
-            <input id="massB-slider" type="range" min="1" max="10" step="0.5" value={massB} onChange={(e) => setMassB(Number(e.target.value))} className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-700 accent-pink-500" />
-            <span className="w-16 text-right font-mono text-sm text-amber-400">{massB.toFixed(1)} kg</span>
+            <label htmlFor="massB-slider" className="whitespace-nowrap text-sm font-medium text-foreground">Mass B</label>
+            <input id="massB-slider" type="range" min="1" max="10" step="0.5" value={massB} onChange={(e) => setMassB(Number(e.target.value))} className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-muted/50 accent-pink-500" />
+            <span className="w-16 text-right font-mono text-sm text-primary">{massB.toFixed(1)} kg</span>
           </div>
         </div>
 
-        <div className="relative aspect-80/44 w-full max-w-4xl overflow-hidden rounded-2xl border border-zinc-800/70 bg-zinc-925 shadow-inner">
+        <div className="relative aspect-80/44 w-full max-w-4xl overflow-hidden rounded-2xl border border-primary/20 bg-card shadow-inner">
           <SVGLibrary />
           <svg
             viewBox="0 0 760 420"
@@ -138,20 +138,20 @@ export const M3ConnectedParticlesEngine: React.FC = () => {
             )}
           </svg>
 
-          <DiagramLabel x="38.5%" y={`${((blockAY - 48) / 420) * 100}%`} text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
-          <DiagramLabel x="58.5%" y={`${((blockBY - 48) / 420) * 100}%`} text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
-          <DiagramLabel x="39.5%" y={`${((blockABottom + 67.2) / 420) * 100}%`} text="m_Ag" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-amber-300" />
-          <DiagramLabel x="53.5%" y={`${((blockBBottom + 75.6) / 420) * 100}%`} text="m_Bg" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-amber-300" />
+          <DiagramLabel x="38.5%" y={`${((blockAY - 48) / 420) * 100}%`} text="T" className="rounded-md bg-card/90 px-2 py-1 text-lg text-primary" />
+          <DiagramLabel x="58.5%" y={`${((blockBY - 48) / 420) * 100}%`} text="T" className="rounded-md bg-card/90 px-2 py-1 text-lg text-primary" />
+          <DiagramLabel x="39.5%" y={`${((blockABottom + 67.2) / 420) * 100}%`} text="m_Ag" className="rounded-md bg-card/90 px-2 py-1 text-base text-primary" />
+          <DiagramLabel x="53.5%" y={`${((blockBBottom + 75.6) / 420) * 100}%`} text="m_Bg" className="rounded-md bg-card/90 px-2 py-1 text-base text-primary" />
 
           {direction !== 'equilibrium' && (
             <>
-              <DiagramLabel x="27%" y={`${((blockAY + blockAHeight / 2 + 18) / 420) * 100}%`} text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-zinc-300" />
-              <DiagramLabel x="70%" y={`${((blockBY + blockBHeight / 2 + 18) / 420) * 100}%`} text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-zinc-300" />
+              <DiagramLabel x="27%" y={`${((blockAY + blockAHeight / 2 + 18) / 420) * 100}%`} text="a" className="rounded-md bg-card/90 px-2 py-1 text-lg text-foreground" />
+              <DiagramLabel x="70%" y={`${((blockBY + blockBHeight / 2 + 18) / 420) * 100}%`} text="a" className="rounded-md bg-card/90 px-2 py-1 text-lg text-foreground" />
             </>
           )}
 
           {direction === 'equilibrium' && (
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 rounded-lg border border-zinc-800 bg-zinc-950/45 px-5 py-3 text-sm font-bold uppercase tracking-[0.24em] text-zinc-400">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 rounded-lg border border-primary/20 bg-card px-5 py-3 text-sm font-bold uppercase tracking-[0.24em] text-muted-foreground">
               Equilibrium: a = 0
             </div>
           )}

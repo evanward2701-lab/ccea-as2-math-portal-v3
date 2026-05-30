@@ -9,7 +9,7 @@ export const AS1GraphTransformationsQuestionsAS1GraphTransformationsSupportWidge
       title={"AS1-Graph-Transformations-Questions-AS1GraphTransformationsSupportWidget-001"}
       srcDoc={htmlSource}
       sandbox="allow-scripts"
-      className="min-h-[540px] w-full rounded-xl border border-zinc-800 bg-white"
+      className="min-h-[540px] w-full rounded-xl border border-primary/20 bg-white"
     />
   </DiagramPanel>
 );

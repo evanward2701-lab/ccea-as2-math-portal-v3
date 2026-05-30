@@ -12,31 +12,31 @@ export const InclinedPlaneSVG: React.FC = () => (
     analysis={(
       <div className="space-y-3">
         <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-lg border border-amber-500/20 bg-amber-950/10 p-3 text-center">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.18em] text-amber-400">Down Plane</h4>
+          <div className="rounded-lg border border-primary/20 bg-primary/10 p-3 text-center">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.18em] text-primary">Down Plane</h4>
             <MathText content="mg\\sin\\theta" noMargin />
           </div>
-          <div className="rounded-lg border border-amber-500/20 bg-amber-950/10 p-3 text-center">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.18em] text-amber-400">Into Plane</h4>
+          <div className="rounded-lg border border-primary/20 bg-primary/10 p-3 text-center">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.18em] text-primary">Into Plane</h4>
             <MathText content="mg\\cos\\theta" noMargin />
           </div>
-          <div className="rounded-lg border border-emerald-500/20 bg-emerald-950/10 p-3 text-center">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.18em] text-emerald-400">Reaction</h4>
+          <div className="rounded-lg border border-primary/20 bg-primary/10 p-3 text-center">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.18em] text-primary">Reaction</h4>
             <MathText content="R = mg\\cos\\theta" noMargin />
           </div>
         </div>
-        <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
-          <p className="text-sm leading-relaxed text-zinc-300">
+        <div className="rounded-lg border border-primary/20 bg-primary/5 p-3">
+          <p className="text-sm leading-relaxed text-foreground">
             Weight <MathText content="mg" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" /> always acts vertically downwards. Resolve it parallel and perpendicular to the plane of motion.
           </p>
         </div>
-        <div className="rounded-lg border border-rose-900/40 bg-rose-950/30 p-3 text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Never draw the weight vector acting diagonally down the slope. It is always vertical.
+        <div className="rounded-lg border border-destructive/40 bg-destructive/30 p-3 text-sm text-destructive">
+          <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Never draw the weight vector acting diagonally down the slope. It is always vertical.
         </div>
       </div>
     )}
   >
-    <div className="relative mx-auto aspect-42/30 w-full max-w-3xl overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+    <div className="relative mx-auto aspect-42/30 w-full max-w-3xl overflow-hidden rounded-xl border border-primary/20 bg-card shadow-inner">
       <SVGLibrary />
       <svg
         className="absolute inset-0 h-full w-full"
@@ -64,11 +64,11 @@ export const InclinedPlaneSVG: React.FC = () => (
           <line x1="490" y1="230" x2="466" y2="254" />
         </g>
 
-        <path d="M 150 400 A 58 58 0 0 0 145 376" stroke="#a1a1aa" strokeWidth="2" />
+        <path d="M 150 400 A 58 58 0 0 0 145 376" stroke="var(--muted-foreground)" strokeWidth="2" />
 
         <g transform="translate(360 278) rotate(-24.3)">
-          <rect x="-44" y="-48" width="88" height="48" rx="6" fill="#18181b" stroke="#71717a" strokeWidth="2" />
-          <line x1="-54" y1="0" x2="54" y2="0" stroke="#a1a1aa" strokeWidth="2" opacity="0.55" />
+          <rect x="-44" y="-48" width="88" height="48" rx="6" fill="var(--card)" stroke="var(--muted-foreground)" strokeWidth="2" />
+          <line x1="-54" y1="0" x2="54" y2="0" stroke="var(--muted-foreground)" strokeWidth="2" opacity="0.55" />
 
           <VectorArrow x1={0} y1={-48} x2={0} y2={-132} type="reaction" strokeWidth={3.2} marker="default" />
           <VectorArrow x1={0} y1={-18} x2={-122} y2={-18} type="friction" dashed strokeWidth={2.8} marker="default" />
@@ -78,34 +78,34 @@ export const InclinedPlaneSVG: React.FC = () => (
         <VectorArrow x1={360} y1={278} x2={360} y2={424} type="weight" strokeWidth={3.4} marker="default" />
       </svg>
 
-      <DiagramLabel x="19%" y="77%" text="\\theta" className="text-zinc-300" />
+      <DiagramLabel x="19%" y="77%" text="\\theta" className="text-foreground" />
 
       <DiagramLabel x="40%" y="22%">
-        <div className="rounded-md border border-emerald-500/20 bg-zinc-950/70 px-3 py-1 text-emerald-300 shadow-xl">
+        <div className="rounded-md border border-primary/20 bg-card px-3 py-1 text-primary shadow-xl">
           <MathText content="R" noMargin />
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="18%" y="59%">
-        <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
+        <div className="rounded-md border border-primary/20 bg-card px-3 py-1 text-primary shadow-xl">
           <MathText content="mg\\sin\\theta" noMargin />
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="54%" y="69%">
-        <div className="rounded-md border border-amber-500/20 bg-zinc-950/70 px-3 py-1 text-amber-300 shadow-xl">
+        <div className="rounded-md border border-primary/20 bg-card px-3 py-1 text-primary shadow-xl">
           <MathText content="mg\\cos\\theta" noMargin />
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="48%" y="86%">
-        <div className="rounded-md border border-rose-500/20 bg-zinc-950/70 px-3 py-1 text-rose-300 shadow-xl">
+        <div className="rounded-md border border-destructive/20 bg-card px-3 py-1 text-destructive shadow-xl">
           <MathText content="mg" noMargin />
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="75%" y="20%">
-        <div className="max-w-44 text-center text-2.5 font-black uppercase tracking-[0.22em] text-zinc-500">
+        <div className="max-w-44 text-center text-2.5 font-black uppercase tracking-[0.22em] text-muted-foreground">
           components are resolved from vertical weight
         </div>
       </DiagramLabel>

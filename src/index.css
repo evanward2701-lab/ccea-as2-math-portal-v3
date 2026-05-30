@@ -134,3 +134,13 @@
   height: auto;
   display: block;
 }
+
+/* LaTeX Equation Styling */
+.katex {
+  @apply text-foreground;
+}
+
+.katex-display {
+  @apply bg-card border border-border/60 rounded-xl p-6 my-8 shadow-sm overflow-x-auto;
+  text-align: center;
+}

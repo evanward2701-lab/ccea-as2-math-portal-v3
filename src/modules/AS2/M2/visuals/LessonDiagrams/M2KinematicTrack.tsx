@@ -19,21 +19,21 @@ export const M2KinematicTrack: React.FC = () => {
       analysis={
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Constant Velocity</h4>
-              <p className="text-sm text-zinc-300 leading-relaxed">
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Constant Velocity</h4>
+              <p className="text-sm text-foreground leading-relaxed">
                 Equal spacing between position marks indicates constant velocity (zero acceleration).
               </p>
             </div>
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Constant Acceleration</h4>
-              <p className="text-sm text-zinc-300 leading-relaxed">
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Constant Acceleration</h4>
+              <p className="text-sm text-foreground leading-relaxed">
                 Increasing spacing between position marks indicates constant positive acceleration.
               </p>
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Large velocity does not necessarily mean large acceleration. Acceleration depends on how velocity <em>changes</em>, not its current magnitude.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Large velocity does not necessarily mean large acceleration. Acceleration depends on how velocity <em>changes</em>, not its current magnitude.
           </div>
         </div>
       }
@@ -69,7 +69,7 @@ export const M2KinematicTrack: React.FC = () => {
 
         <DiagramLabel x="5%" y="60%" text="O" />
         <DiagramLabel x="90%" y="60%">
-          <p className="text-zinc-400 text-2.5 w-16">Positive Direction</p>
+          <p className="text-muted-foreground text-2.5 w-16">Positive Direction</p>
         </DiagramLabel>
       </div>
     </DiagramPanel>

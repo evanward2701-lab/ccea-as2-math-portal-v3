@@ -14,26 +14,26 @@ export const HistogramDensitySVG: React.FC = () => (
     title="Fig 1. Histogram Geometry"
     analysis={
       <div className="space-y-4">
-        <div className="rounded-lg border border-zinc-800 bg-zinc-900/45 p-4">
-          <p className="text-sm leading-relaxed text-zinc-300">
-            In a histogram, the <strong className="font-semibold text-emerald-400">area</strong> of each bar represents the{' '}
-            <strong className="font-semibold text-emerald-400">frequency</strong>, not the height.
+        <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+          <p className="text-sm leading-relaxed text-foreground">
+            In a histogram, the <strong className="font-semibold text-primary">area</strong> of each bar represents the{' '}
+            <strong className="font-semibold text-primary">frequency</strong>, not the height.
           </p>
         </div>
 
-        <div className="rounded-lg border border-rose-900/40 bg-rose-950/30 p-4">
-          <h4 className="mb-3 text-2.5 font-black uppercase tracking-[0.22em] text-rose-400">CCEA Exam Pitfall</h4>
-          <p className="mb-4 text-sm leading-relaxed text-rose-300">
+        <div className="rounded-lg border border-destructive/40 bg-destructive/30 p-4">
+          <h4 className="mb-3 text-2.5 font-black uppercase tracking-[0.22em] text-destructive">CCEA Exam Pitfall</h4>
+          <p className="mb-4 text-sm leading-relaxed text-destructive">
             Do not read the bar height as the frequency when class widths are unequal.
           </p>
-          <div className="rounded-md border border-zinc-800/70 bg-zinc-950/55 px-4 py-3 text-center text-zinc-100">
+          <div className="rounded-md border border-primary/20 bg-card px-4 py-3 text-center text-foreground">
             <MathText content="{\\Large \\mathit{Area}=\\mathit{Width}\\times\\mathit{Height}}" noMargin />
           </div>
         </div>
       </div>
     }
   >
-    <div className="relative mx-auto aspect-16/8 w-full max-w-4xl overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+    <div className="relative mx-auto aspect-16/8 w-full max-w-4xl overflow-hidden rounded-xl border border-primary/20 bg-card shadow-inner">
       <svg
         viewBox="0 0 760 380"
         className="absolute inset-0 h-full w-full"
@@ -85,14 +85,14 @@ export const HistogramDensitySVG: React.FC = () => (
       ))}
 
       <DiagramLabel x="52.5%" y="90%">
-        <div className="flex items-baseline justify-center gap-1 whitespace-nowrap text-zinc-200">
+        <div className="flex items-baseline justify-center gap-1 whitespace-nowrap text-foreground">
           <span className="font-serif text-lg italic leading-none">Time</span>
           <MathInline content="t" className="[&_.katex]:text-lg" />
         </div>
       </DiagramLabel>
 
       <DiagramLabel x="67%" y="60%">
-        <div className="flex w-36 flex-col items-center justify-center rounded-md border border-emerald-500/25 bg-emerald-950/45 px-2 py-2 text-center text-emerald-200 shadow-xl">
+        <div className="flex w-36 flex-col items-center justify-center rounded-md border border-primary/25 bg-primary/45 px-2 py-2 text-center text-primary shadow-xl">
           <MathInline content="\\mathit{Area}" className="[&_.katex]:text-lg [&_.katex]:leading-none" />
           <MathInline content="=\\mathit{Frequency}" className="[&_.katex]:text-base [&_.katex]:leading-none" />
         </div>

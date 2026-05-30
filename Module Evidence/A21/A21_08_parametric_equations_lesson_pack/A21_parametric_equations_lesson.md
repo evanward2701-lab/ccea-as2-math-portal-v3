@@ -1,0 +1,388 @@
+```markdown
+# A21_parametric_equations_lesson.md PART 1A
+
+## 1. Lesson Title
+
+**Parametric Equations**  
+**Unit:** A2 1 Pure Mathematics (A21)  
+**Source Evidence:** Transcript (`08 Parametric Equations.md`), PowerPoint PDF extraction, CCEA Specification Map  
+**Date Generated:** 2026-05-30  
+**Relevant LO IDs:** A21-CG-LO001, A21-CG-LO002  
+**Suggested Tags:** `#A21`, `#CoordinateGeometry`, `#ParametricEquations`, `#EliminateParameter`, `#Modelling`, `#LessonNotes`
+
+---
+
+## 2. Evidence Map
+
+| Evidence Type | Filename / Source | Role in this lesson | Pages/Slides/Images Used | Notes on Quality or Uncertainty |
+|---|---|---|---|---|
+| Specification Map | `CCEA_GCE_Mathematics_Specification_Map copy.md` | Curriculum authority | A21-CG-LO001, A21-CG-LO002 | Clearly defines the boundary: conversion to Cartesian and modelling contexts. |
+| Transcript | `08 Parametric Equations.md` | Primary teaching narrative | Full file | Excellent detail on domains/ranges, trig identities, intersections, and modelling (plane and skater). |
+| PowerPoint Text | `PDF Slides Extraction` | Visual sequencing and examples | Slides 1-23 | Confirms the structure of the transcript. Provides the exact equations and coordinates for the examples. |
+
+---
+
+## 3. Specification Alignment
+
+| LO ID | CCEA Specification Point | Elaboration Guidance | Covered in this lesson? | Where it appears | Gap or Action Needed | Suggested Visual/Widget |
+|---|---|---|---|---|---|---|
+| A21-CG-LO001 | Demonstrate understanding of and use the parametric equations of curves and conversion between Cartesian and parametric forms | No additional elaboration guidance found. | Yes | Sections 7, 8, 11 | None | Desmos-style parametric plotter widget. |
+| A21-CG-LO002 | Use parametric equations in modelling in a variety of contexts | For example, use parametric equations with time as a parameter to model motion in two dimensions. | Yes | Sections 8, 11 | None | 2D trajectory diagram (TikZ) for the plane and skater models. |
+
+---
+
+## 4. Learning Objectives
+
+By the end of this lesson, you should be able to:
+* Understand the difference between Cartesian and parametric equations.
+* Convert parametric equations into a single Cartesian equation using algebraic substitution, logarithms, or trigonometric identities.
+* Determine the domain and range of a Cartesian function based on the restrictions placed on the parameter.
+* Find the coordinates of points where a parametric curve intersects the coordinate axes or a given straight line.
+* Use parametric equations to model real-world scenarios, such as 2D motion over time, and critique the limitations of these models.
+
+---
+
+## 5. Compact Prerequisite Recap
+
+To succeed in this topic, you need to be confident with the following prior knowledge:
+* **AS1 Coordinate Geometry:** Finding intersections of lines and curves using simultaneous equations.
+* **AS1 & A21 Trigonometry:** Exact values, solving trig equations, and crucial identities:
+  * $\sin^2 t + \cos^2 t \equiv 1$
+  * $1 + \tan^2 t \equiv \sec^2 t$
+  * $1 + \cot^2 t \equiv \operatorname{cosec}^2 t$
+  * Double angle formulae, e.g., $\cos(2t) \equiv 1 - 2\sin^2 t$ and $\sin(2t) \equiv 2\sin t \cos t$.
+* **AS1 Exponentials and Logarithms:** The inverse relationship between $e^x$ and $\ln x$.
+* **A21 Functions:** Understanding domain (valid inputs) and range (possible outputs).
+
+---
+
+## 6. Big Picture Explanation
+
+Typically, we describe a curve using a **Cartesian equation**—a single equation connecting the $x$-coordinate directly to the $y$-coordinate (for example, $x^2 + y^2 = 25$). 
+
+However, in many real-world situations, especially in mechanics, it is much more useful to describe the $x$ and $y$ coordinates separately as they change over time. Imagine a plane taking off or a figure skater moving across the ice. Their horizontal position ($x$) and vertical position ($y$) are both dependent on a third, hidden variable: **time**. 
+
+By defining $x$ and $y$ separately in terms of this third variable (called a **parameter**), we create **parametric equations**. This allows us to easily model complex paths, such as spirals or figures-of-eight, which would be incredibly difficult or impossible to write as a single $y = f(x)$ Cartesian equation. Parametric equations are the mathematical language of 2D motion.
+
+---
+
+## 7. Key Definitions and Notation
+
+* **Parameter:** A third variable (usually $t$ for time, or $\theta$ for an angle) used to define the $x$ and $y$ coordinates of a curve. It operates "behind the scenes".
+* **Parametric Equations:** A pair of equations that express the coordinates of the points on a curve as functions of a parameter. 
+  * Example: $x = 2t$, $y = t^2$
+* **Cartesian Equation:** An equation relating $x$ and $y$ directly, with the parameter eliminated.
+  * Example: $y = \frac{1}{4}x^2$
+* **Domain of a Parametric Curve:** The set of all possible $x$-values generated by the allowed values of the parameter.
+* **Range of a Parametric Curve:** The set of all possible $y$-values generated by the allowed values of the parameter.
+
+---
+
+## 8. Core Theory
+
+### 8.1 Converting Parametric to Cartesian (Algebraic)
+To convert parametric equations into a Cartesian equation, your goal is to **eliminate the parameter**. 
+**The Rule:** Make the parameter (e.g., $t$) the subject of one equation, and substitute it into the other.
+
+**Example:** 
+Given $x = 2t$ and $y = t^2$.
+1. Make $t$ the subject of the $x$ equation: $t = \frac{x}{2}$.
+2. Substitute this into the $y$ equation: $y = \left(\frac{x}{2}\right)^2 = \frac{x^2}{4}$.
+3. The Cartesian equation is $y = \frac{1}{4}x^2$.
+
+*Visual Support:* [VISUAL PLACEHOLDER: A21ParametricEquationsSVG-001 | Source: PowerPoint slide 5 | Insert from A21_parametric_equations_svg.md | Purpose: Show the parabola $y = 0.25x^2$ with specific $t$ values labelled at points on the curve.]
+
+### 8.2 Domains and Ranges in Parametric Equations
+When a parameter is restricted (e.g., $-3 < t < 3$), it restricts the Cartesian graph. 
+* The **domain** of the Cartesian function is the range of possible $x$-values.
+* The **range** of the Cartesian function is the range of possible $y$-values.
+
+**Warning:** Do not just substitute the extreme limits of $t$ to find the range. If $y = t^2$ and $-3 < t < 3$, the maximum $y$ is $9$, but the minimum $y$ is $0$ (because $t$ passes through $0$), not $9$. Therefore, the range is $0 \le y < 9$. The resulting graph is not a full parabola, but a truncated segment.
+
+### 8.3 Converting with Exponentials and Logarithms
+When dealing with $e$ and $\ln$, use their inverse relationship to eliminate the parameter. It is often easiest to make $t$ the subject of the equation that contains the logarithm.
+
+**Example:** $x = \ln(t+3)$ and $y = \frac{1}{t+5}$.
+1. Eliminate the natural log by raising $e$ to the power of both sides: $e^x = t + 3$.
+2. Rearrange for $t$: $t = e^x - 3$.
+3. Substitute into $y$: $y = \frac{1}{(e^x - 3) + 5} = \frac{1}{e^x + 2}$.
+
+### 8.4 Converting with Trigonometric Identities
+When parametric equations involve trigonometric functions, making $t$ or $\theta$ the subject using inverse trig functions (like $\arcsin$) creates a mess. 
+**The Rule:** Use trigonometric identities to link the $x$ and $y$ equations together.
+
+* **If you have $\sin t$ and $\cos t$:** Use $\sin^2 t + \cos^2 t \equiv 1$.
+* **If you have $\sec t$ and $\tan t$:** Use $1 + \tan^2 t \equiv \sec^2 t$.
+* **If you have $\operatorname{cosec} t$ and $\cot t$:** Use $1 + \cot^2 t \equiv \operatorname{cosec}^2 t$.
+* **If you have double angles (e.g., $\cos 2t$ and $\sin t$):** Use double angle formulae like $\cos 2t \equiv 1 - 2\sin^2 t$.
+
+**Example:** $x = \sin t + 2$ and $y = \cos t - 3$.
+1. Rearrange both to isolate the trig functions: $\sin t = x - 2$ and $\cos t = y + 3$.
+2. Substitute into the identity $\sin^2 t + \cos^2 t \equiv 1$.
+3. $(x - 2)^2 + (y + 3)^2 = 1$. (This is a circle with centre $(2, -3)$ and radius $1$).
+
+### 8.5 Intersections with Axes and Lines
+To find where a parametric curve crosses an axis or a line, **stay in the parametric world**. Do not convert to Cartesian unless explicitly asked to.
+
+* **Crossing the $x$-axis:** Set $y = 0$, solve for $t$, then substitute $t$ into $x$.
+* **Crossing the $y$-axis:** Set $x = 0$, solve for $t$, then substitute $t$ into $y$.
+* **Intersecting a line (e.g., $x + y + 4 = 0$):** Substitute the parametric expressions for $x$ and $y$ directly into the line's equation. Solve the resulting equation for $t$, then find the coordinates.
+
+*Visual Support:* [VISUAL PLACEHOLDER: A21ParametricEquationsMMD-001 | Source: AI-proposed teaching enhancement | Insert from A21_parametric_equations_mermaid.md | Purpose: Flowchart showing the decision process for finding intersections (Stay in Parametric vs Convert to Cartesian).]
+
+### 8.6 Modelling with Parametric Equations
+Parametric equations are perfect for modelling 2D motion. The parameter $t$ represents time. 
+* $x(t)$ models horizontal distance.
+* $y(t)$ models vertical distance.
+When evaluating these models, always check the domain of $t$. A model might suggest a plane climbs forever if $t > 0$ has no upper limit, which is physically unrealistic.
+
+---
+
+## 9. Visual Asset Integration
+
+* **[VISUAL PLACEHOLDER: A21ParametricEquationsSVG-001 | Source: PowerPoint slide 5 | Insert from A21_parametric_equations_svg.md | Purpose: Show the parabola $y = 0.25x^2$ with specific $t$ values labelled at points on the curve.]**
+  * *Explanation:* This visual demonstrates how the parameter $t$ acts as a "time stamp" for points along the Cartesian curve.
+* **[VISUAL PLACEHOLDER: A21ParametricEquationsMMD-001 | Source: AI-proposed teaching enhancement | Insert from A21_parametric_equations_mermaid.md | Purpose: Flowchart showing the decision process for finding intersections (Stay in Parametric vs Convert to Cartesian).]**
+  * *Explanation:* A strategic guide to remind you that substituting parametric equations directly into a line equation is much faster than finding the Cartesian curve equation first.
+* **[VISUAL PLACEHOLDER: A21ParametricEquationsTikZ-001 | Source: PowerPoint slide 21 | Insert from A21_parametric_equations_tikz.md | Purpose: Recreate the figure-of-eight curve for the ice skater model.]**
+  * *Explanation:* This diagram shows the complex path of the ice skater, proving why parametric equations are necessary (this curve fails the vertical line test and cannot be written as a simple $y=f(x)$ function).
+
+---
+
+## 10. Interactive Learning Widgets
+
+* **[INTERACTIVE PLACEHOLDER: A21ParametricEquationsWidget-001 | Source: AI-proposed teaching enhancement | Insert from A21_parametric_equations_widgets.md | Purpose: Interactive parametric curve plotter.]**
+  * *What it lets you change:* You can input different functions for $x(t)$ and $y(t)$, and adjust the minimum and maximum values of $t$.
+  * *What updates:* The curve draws dynamically on a Cartesian grid.
+  * *What to notice:* Notice how restricting the domain of $t$ cuts off sections of the graph. Notice how swapping $\sin t$ and $\cos t$ changes the starting point and direction of a circle.
+  * *Exam connection:* Helps build intuition for domain/range restrictions and why certain points are excluded from the Cartesian graph.
+
+---
+
+## 11. Worked Examples
+
+### Example 1: Algebraic Conversion and Domain/Range
+**Source:** Transcript & Slide 6
+**Question:** A curve has parametric equations $x = \ln(t + 3)$ and $y = \frac{1}{t + 5}$ for $t > -2$. 
+a) Find a Cartesian equation of the curve in the form $y = f(x)$.
+b) State the domain and range of $f(x)$.
+
+**Method & Working:**
+**a) Find the Cartesian equation:**
+*Step 1: Make $t$ the subject of the $x$ equation.*
+$$x = \ln(t + 3)$$
+$$e^x = t + 3$$
+$$t = e^x - 3$$
+*Step 2: Substitute this into the $y$ equation.*
+$$y = \frac{1}{(e^x - 3) + 5}$$
+$$y = \frac{1}{e^x + 2}$$
+
+**b) Find the domain and range:**
+*Step 1: Find the domain (possible $x$ values) using $t > -2$.*
+Substitute the boundary value $t = -2$ into $x$:
+$$x = \ln(-2 + 3) = \ln(1) = 0$$
+As $t$ increases beyond $-2$, $\ln(t+3)$ increases. Therefore, the domain is **$x > 0$**.
+
+*Step 2: Find the range (possible $y$ values) using $t > -2$.*
+Substitute the boundary value $t = -2$ into $y$:
+$$y = \frac{1}{-2 + 5} = \frac{1}{3}$$
+As $t$ gets infinitely large ($t \to \infty$), the denominator gets infinitely large, so $y \to 0$. 
+Therefore, the range is **$0 < y < \frac{1}{3}$**.
+
+*Commentary:* Always test the boundary value of $t$ and then consider what happens as $t$ gets very large to establish your inequalities.
+
+### Example 2: Trigonometric Conversion using Double Angles
+**Source:** Transcript & Slide 10
+**Question:** A curve has parametric equations $x = 2\sin t$ and $y = 1 - \cos 2t$, for $-\frac{\pi}{2} \le t \le \frac{\pi}{2}$. Find a Cartesian equation for the curve in the form $y = f(x)$, stating the domain.
+
+**Method & Working:**
+*Step 1: Identify the linking identity.*
+We have $\sin t$ and $\cos 2t$. The double angle formula linking these is:
+$$\cos 2t \equiv 1 - 2\sin^2 t$$
+
+*Step 2: Substitute the identity into the $y$ equation.*
+$$y = 1 - (1 - 2\sin^2 t)$$
+$$y = 2\sin^2 t$$
+
+*Step 3: Express $\sin t$ in terms of $x$ and substitute.*
+From $x = 2\sin t$, we get $\sin t = \frac{x}{2}$.
+$$y = 2\left(\frac{x}{2}\right)^2$$
+$$y = 2\left(\frac{x^2}{4}\right)$$
+$$y = \frac{1}{2}x^2$$
+
+*Step 4: Find the domain.*
+The parameter is restricted to $-\frac{\pi}{2} \le t \le \frac{\pi}{2}$.
+The minimum value of $\sin t$ in this interval is $-1$, and the maximum is $1$.
+Therefore, $x = 2\sin t$ varies between $2(-1)$ and $2(1)$.
+Domain: **$-2 \le x \le 2$**.
+
+*Commentary:* Knowing your double angle formulae off by heart is essential. It turns a complex substitution into a simple algebraic step.
+
+```
+
+```markdown
+# A21_parametric_equations_lesson.md PART 1B
+
+### Example 3: Intersections with Coordinate Axes
+**Source:** Transcript & Slide 16
+**Question:** A curve $C$ has parametric equations $x = at^2 + t$ and $y = a(t^3 + 8)$, where $a$ is a non-zero constant. Given that $C$ passes through the point $(-4, 0)$, find the value of $a$. Then find the coordinates of the points $A$ and $B$ where the curve crosses the $y$-axis.
+
+**Method & Working:**
+**a) Find the value of $a$.**
+*Step 1: Use the given coordinate to find $t$.*
+At $(-4, 0)$, we know $y = 0$.
+$$a(t^3 + 8) = 0$$
+Since the question states $a \neq 0$, we can divide by $a$:
+$$t^3 + 8 = 0$$
+$$t^3 = -8 \implies t = -2$$
+
+*Step 2: Substitute $t = -2$ and $x = -4$ into the $x$ equation.*
+$$-4 = a(-2)^2 + (-2)$$
+$$-4 = 4a - 2$$
+$$-2 = 4a \implies a = -\frac{1}{2}$$
+
+**b) Find where it crosses the $y$-axis.**
+*Step 1: Set $x = 0$ and solve for $t$.*
+$$0 = -\frac{1}{2}t^2 + t$$
+Factorise:
+$$0 = t\left(-\frac{1}{2}t + 1\right)$$
+So, $t = 0$ or $t = 2$.
+
+*Step 2: Substitute these $t$ values into the $y$ equation to find the coordinates.*
+When $t = 0$: $y = -\frac{1}{2}(0^3 + 8) = -4$. Point $A$ is $(0, -4)$.
+When $t = 2$: $y = -\frac{1}{2}(2^3 + 8) = -\frac{1}{2}(16) = -8$. Point $B$ is $(0, -8)$.
+
+*Commentary:* Notice how we stepped "out" of the $x,y$ world, found the hidden parameter $t$, and then used $t$ to find the missing information. This is the core strategy for parametric coordinate geometry.
+
+### Example 4: Intersecting a Straight Line
+**Source:** Transcript & Slide 17
+**Question:** A curve is given parametrically by $x = t^2$ and $y = 4t$. The line $x + y + 4 = 0$ meets the curve at $A$. Find the coordinates of $A$.
+
+**Method & Working:**
+*Step 1: Substitute the parametric equations directly into the Cartesian line equation.*
+$$(t^2) + (4t) + 4 = 0$$
+$$t^2 + 4t + 4 = 0$$
+
+*Step 2: Solve the resulting quadratic for $t$.*
+$$(t + 2)^2 = 0 \implies t = -2$$
+
+*Step 3: Substitute $t$ back into the parametric equations to find $x$ and $y$.*
+$$x = (-2)^2 = 4$$
+$$y = 4(-2) = -8$$
+The coordinate of $A$ is $(4, -8)$.
+
+*Commentary:* Because there is only one repeated root for $t$, the line is actually a tangent to the curve at this point! Also, notice how much faster this is than trying to find the Cartesian equation of the curve first.
+
+### Example 5: Modelling with Parametric Equations (The Plane)
+**Source:** Transcript & Slide 20
+**Question:** A plane's position at time $t$ seconds after take-off is modelled by $x = v\cos(\theta)t$ and $y = v\sin(\theta)t$ for $t > 0$. $v$ is the speed, and $\theta$ is the angle of elevation. When the plane has travelled 600m horizontally, it has climbed 120m. Find the angle of elevation $\theta$.
+
+**Method & Working:**
+*Step 1: Set up the equations using the given information.*
+We are given $x = 600$ and $y = 120$.
+$$600 = v\cos(\theta)t \quad \text{(Equation 1)}$$
+$$120 = v\sin(\theta)t \quad \text{(Equation 2)}$$
+
+*Step 2: Eliminate $v$ and $t$ by dividing Equation 2 by Equation 1.*
+$$\frac{120}{600} = \frac{v\sin(\theta)t}{v\cos(\theta)t}$$
+The $v$ and $t$ terms cancel out:
+$$\frac{1}{5} = \frac{\sin(\theta)}{\cos(\theta)}$$
+$$\tan(\theta) = 0.2$$
+
+*Step 3: Solve for $\theta$.*
+$$\theta = \tan^{-1}(0.2) = 11.3^\circ \text{ (to 1 d.p.)}$$
+
+*Commentary:* In mechanics contexts, degrees are often preferred over radians. Always check the context of the question. Also, note the limitation of this model: $t > 0$ implies the plane climbs forever, which is physically unrealistic.
+
+---
+
+## 12. Common Mistakes and Exam Traps
+
+* **Converting to Cartesian unnecessarily:** If a question asks for points of intersection, stay in parametric form. Substituting $x(t)$ and $y(t)$ into a line equation is much less prone to algebraic errors than rearranging to find $y = f(x)$.
+* **Ignoring domain restrictions:** When converting to Cartesian, the domain of $x$ is strictly dictated by the allowed values of $t$. A full parabola equation might only represent a small arc in reality.
+* **Forgetting that trigonometric functions repeat:** When solving $y = 0$ for a curve like $y = \sin(10t)$, there will be multiple solutions for $t$ (e.g., $t = 0, \frac{\pi}{10}, \frac{2\pi}{10} \dots$). This means the curve crosses the axis multiple times.
+* **Squaring negative bounds incorrectly:** If $-3 < t < 3$, then $t^2$ is bounded by $0 \le t^2 < 9$, not $9 < t^2 < 9$ (which makes no sense). Always sketch the parameter's function if unsure.
+
+---
+
+## 13. Practice Questions
+
+**Skill Level: Core Algebraic**
+1. A curve has parametric equations $x = 3t - 1$ and $y = t^2 + 2$. Find the Cartesian equation of the curve in the form $y = f(x)$.
+
+**Skill Level: Trigonometric Conversion**
+2. A curve has parametric equations $x = 3\cos \theta$ and $y = 3\sin \theta$ for $0 \le \theta \le 2\pi$. Find the Cartesian equation of the curve and describe its shape.
+
+**Skill Level: Intersections**
+3. A curve is defined by $x = t - 2$ and $y = t^2 - 4t$. Find the coordinates of the points where the curve intersects the $x$-axis.
+
+*(Generated practice questions, not present in supplied lesson evidence, added to ensure comprehensive coverage of the LOs).*
+
+---
+
+## 14. Worked Solutions
+
+**Solution 1:**
+* Make $t$ the subject of $x$: $x = 3t - 1 \implies 3t = x + 1 \implies t = \frac{x + 1}{3}$.
+* Substitute into $y$: $y = \left(\frac{x + 1}{3}\right)^2 + 2$.
+* Expand and simplify: $y = \frac{(x + 1)^2}{9} + 2$.
+*(Generated solution, not present in supplied lesson evidence.)*
+
+**Solution 2:**
+* Isolate the trig functions: $\cos \theta = \frac{x}{3}$ and $\sin \theta = \frac{y}{3}$.
+* Use the identity $\sin^2 \theta + \cos^2 \theta \equiv 1$.
+* $\left(\frac{y}{3}\right)^2 + \left(\frac{x}{3}\right)^2 = 1 \implies \frac{y^2}{9} + \frac{x^2}{9} = 1$.
+* Multiply by 9: $x^2 + y^2 = 9$.
+* This is a circle with centre $(0,0)$ and radius $3$.
+*(Generated solution, not present in supplied lesson evidence.)*
+
+**Solution 3:**
+* Intersects the $x$-axis when $y = 0$.
+* $t^2 - 4t = 0 \implies t(t - 4) = 0$.
+* So $t = 0$ or $t = 4$.
+* Substitute $t$ values into $x$:
+  * When $t = 0$, $x = 0 - 2 = -2$. Point is $(-2, 0)$.
+  * When $t = 4$, $x = 4 - 2 = 2$. Point is $(2, 0)$.
+*(Generated solution, not present in supplied lesson evidence.)*
+
+---
+
+## 15. Exam Technique Notes
+
+* **Use your calculator:** If you end up with a complex quadratic or cubic in $t$ when finding intersections, use your calculator's equation solver to find the roots quickly and accurately.
+* **Check your domains:** CCEA examiners love to test whether you realise a Cartesian curve is restricted. Always explicitly state the domain $x$ when asked for a Cartesian equation.
+* **Show the substitution step:** Even if you can do the algebra in your head, write down the unsimplified substitution step (e.g., $y = 2(\frac{x}{2})^2$) to secure method marks.
+
+---
+
+## 16. Syllabus Gap Check
+
+* **A21-CG-LO001 (Parametric to Cartesian conversion):** Fully covered. Algebraic, logarithmic, and trigonometric conversions are all detailed.
+* **A21-CG-LO002 (Modelling in a variety of contexts):** Fully covered. The plane take-off and figure skater examples directly address 2D motion modelling.
+
+*No missing LO IDs. No off-spec content was included.*
+
+---
+
+## 17. Recommended Enhancements Not in the Evidence
+
+* **A21ParametricEquationsMMD-001:** Flowchart added to visually reinforce the decision-making process for finding intersections (staying in parametric form vs converting). Supports A21-CG-LO001. Essential for exam technique.
+* **A21ParametricEquationsWidget-001:** Interactive widget added to allow students to plot $x(t)$ and $y(t)$ dynamically. Supports A21-CG-LO001 and A21-CG-LO002 by building intuition for how the parameter drives the 2D coordinate. Optional but highly recommended for independent study.
+
+---
+
+## 18. Supplementary Sources Used
+
+No external sources were required. The provided transcript and slides contained sufficient depth and examples to cover the CCEA specification points.
+
+---
+
+## 19. Final Student Checklist
+
+- [ ] I can explain what a parameter is and how it defines a 2D curve.
+- [ ] I can convert algebraic parametric equations into a Cartesian equation by substitution.
+- [ ] I can convert trigonometric parametric equations into a Cartesian equation using identities like $\sin^2 t + \cos^2 t \equiv 1$.
+- [ ] I can determine the domain and range of a Cartesian equation based on the limits of the parameter $t$.
+- [ ] I can find the points of intersection between a parametric curve and a line without converting to Cartesian form.
+- [ ] I can interpret parametric equations in a real-world modelling context (e.g., 2D motion) and critique the model's limitations.
+```

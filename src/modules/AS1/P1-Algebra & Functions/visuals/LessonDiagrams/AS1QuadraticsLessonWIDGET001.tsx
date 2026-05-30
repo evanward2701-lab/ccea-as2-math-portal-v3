@@ -29,24 +29,24 @@ export const AS1QuadraticsLessonWIDGET001: React.FC = () => {
 
   return (
     <DiagramPanel title={"Quadratic graph explorer"} analysis={<p>Move the coefficients to connect the algebraic form y = ax^2 + bx + c with shape, turning point and roots.</p>} wide>
-      <div className="w-full rounded-2xl border border-zinc-800 bg-zinc-950/70 p-6 text-zinc-100">
+      <div className="w-full rounded-2xl border border-primary/20 bg-card p-6 text-foreground">
         <div className="grid gap-4 md:grid-cols-3">
           {[['a', a, setA, -5, 5], ['b', b, setB, -10, 10], ['c', c, setC, -10, 10]].map(([label, value, setter, min, max]) => (
-            <label key={String(label)} className="flex flex-col gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500">
+            <label key={String(label)} className="flex flex-col gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
               Coefficient {String(label)}
               <input className="accent-zinc-200" type="range" min={Number(min)} max={Number(max)} step={0.1} value={Number(value)} onChange={(event) => (setter as React.Dispatch<React.SetStateAction<number>>)(Number(event.target.value))} />
-              <span className="text-lg font-mono text-zinc-100">{fmt(Number(value))}</span>
+              <span className="text-lg font-mono text-foreground">{fmt(Number(value))}</span>
             </label>
           ))}
         </div>
-        <svg viewBox="0 0 600 320" className="mt-6 h-auto w-full rounded-xl border border-zinc-800 bg-zinc-900">
-          <line x1="0" y1="160" x2="600" y2="160" stroke="#71717a" strokeWidth="1" />
-          <line x1="300" y1="0" x2="300" y2="320" stroke="#71717a" strokeWidth="1" />
+        <svg viewBox="0 0 600 320" className="mt-6 h-auto w-full rounded-xl border border-primary/20 bg-primary/5">
+          <line x1="0" y1="160" x2="600" y2="160" stroke="var(--muted-foreground)" strokeWidth="1" />
+          <line x1="300" y1="0" x2="300" y2="320" stroke="var(--muted-foreground)" strokeWidth="1" />
           <polyline points={points} fill="none" stroke="#f4f4f5" strokeWidth="3" />
         </svg>
-        <div className="mt-4 grid gap-2 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 font-mono text-sm text-zinc-400">
-          <div>D = <span className="text-zinc-100">{fmt(discriminant)}</span></div>
-          <div>Turning point = <span className="text-zinc-100">({fmt(vertexX)}, {fmt(vertexY)})</span></div>
+        <div className="mt-4 grid gap-2 rounded-xl border border-primary/20 bg-primary/5 p-4 font-mono text-sm text-muted-foreground">
+          <div>D = <span className="text-foreground">{fmt(discriminant)}</span></div>
+          <div>Turning point = <span className="text-foreground">({fmt(vertexX)}, {fmt(vertexY)})</span></div>
           <div>{rootSummary}</div>
         </div>
       </div>

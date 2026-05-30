@@ -7,43 +7,43 @@ export const TwoWayTableSVG: React.FC = () => (
     title="Fig 2. Two-Way Probability Table"
     analysis={
       <>
-        <p className="text-sm text-zinc-400 text-center italic mb-4 max-w-md mx-auto">
+        <p className="text-sm text-muted-foreground text-center italic mb-4 max-w-md mx-auto">
           Margin totals give single-event probabilities. Interior cells give intersection (AND) probabilities.
         </p>
-        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded text-sm text-rose-300 text-center">
-          <strong className="block text-rose-400 not-italic uppercase text-2.5 mb-1">CCEA Exam Pitfall:</strong> Interior cross-cells ensure you do not use wrong row/column totals as conditional numerators.
+        <div className="p-3 bg-destructive/30 border border-destructive/40 rounded text-sm text-destructive text-center">
+          <strong className="block text-destructive not-italic uppercase text-2.5 mb-1">CCEA Exam Pitfall:</strong> Interior cross-cells ensure you do not use wrong row/column totals as conditional numerators.
         </div>
       </>
     }
   >
     <div className="w-full overflow-x-auto">
-      <table className="w-full border-collapse border border-zinc-800 text-sm font-sans bg-zinc-900 text-zinc-300 text-center">
+      <table className="w-full border-collapse border border-primary/20 text-sm font-sans bg-primary/5 text-foreground text-center">
         <thead>
-          <tr className="bg-zinc-925 text-zinc-400 border-b border-zinc-800">
-            <th className="p-3 border-r border-zinc-800"></th>
-            <th className="p-3 border-r border-zinc-800 font-bold text-emerald-400">Event <MathText content="A" className="inline" /></th>
-            <th className="p-3 border-r border-zinc-800 font-bold text-amber-500">Event <MathText content="A'" className="inline" /> (Not A)</th>
-            <th className="p-3 font-bold bg-zinc-800/40 text-zinc-200">Marginal Total</th>
+          <tr className="bg-card text-muted-foreground border-b border-primary/20">
+            <th className="p-3 border-r border-primary/20"></th>
+            <th className="p-3 border-r border-primary/20 font-bold text-primary">Event <MathText content="A" className="inline" /></th>
+            <th className="p-3 border-r border-primary/20 font-bold text-primary">Event <MathText content="A'" className="inline" /> (Not A)</th>
+            <th className="p-3 font-bold bg-muted/30 text-foreground">Marginal Total</th>
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-zinc-800/60">
-            <th className="p-3 border-r border-zinc-800 font-bold bg-zinc-925 text-zinc-400 text-left pl-4">Event <MathText content="B" className="inline" /></th>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A \\cap B)" /></td>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A' \\cap B)" /></td>
-            <td className="p-3 font-semibold bg-zinc-800/20 text-zinc-300"><MathText content="P(B)" /></td>
+          <tr className="border-b border-primary/20">
+            <th className="p-3 border-r border-primary/20 font-bold bg-card text-muted-foreground text-left pl-4">Event <MathText content="B" className="inline" /></th>
+            <td className="p-3 border-r border-primary/20 italic bg-primary/5 hover:bg-muted/30 transition-colors"><MathText content="P(A \\cap B)" /></td>
+            <td className="p-3 border-r border-primary/20 italic bg-primary/5 hover:bg-muted/30 transition-colors"><MathText content="P(A' \\cap B)" /></td>
+            <td className="p-3 font-semibold bg-muted/30 text-foreground"><MathText content="P(B)" /></td>
           </tr>
-          <tr className="border-b border-zinc-800">
-            <th className="p-3 border-r border-zinc-800 font-bold bg-zinc-925 text-purple-400 text-left pl-4">Event <MathText content="B'" className="inline" /></th>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A \\cap B')" /></td>
-            <td className="p-3 border-r border-zinc-800/60 italic bg-zinc-900/20 hover:bg-zinc-800/30 transition-colors"><MathText content="P(A' \\cap B')" /></td>
-            <td className="p-3 font-semibold bg-zinc-800/20 text-zinc-300"><MathText content="P(B')" /></td>
+          <tr className="border-b border-primary/20">
+            <th className="p-3 border-r border-primary/20 font-bold bg-card text-purple-400 text-left pl-4">Event <MathText content="B'" className="inline" /></th>
+            <td className="p-3 border-r border-primary/20 italic bg-primary/5 hover:bg-muted/30 transition-colors"><MathText content="P(A \\cap B')" /></td>
+            <td className="p-3 border-r border-primary/20 italic bg-primary/5 hover:bg-muted/30 transition-colors"><MathText content="P(A' \\cap B')" /></td>
+            <td className="p-3 font-semibold bg-muted/30 text-foreground"><MathText content="P(B')" /></td>
           </tr>
-          <tr className="bg-zinc-925/60">
-            <th className="p-3 border-r border-zinc-800 font-bold text-zinc-400 text-left pl-4">Marginal Total</th>
-            <td className="p-3 border-r border-zinc-800/60 font-semibold bg-zinc-800/10 text-zinc-300"><MathText content="P(A)" /></td>
-            <td className="p-3 border-r border-zinc-800/60 font-semibold bg-zinc-800/10 text-zinc-300"><MathText content="P(A')" /></td>
-            <td className="p-3 bg-emerald-500 text-zinc-950 shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]">
+          <tr className="bg-card/60">
+            <th className="p-3 border-r border-primary/20 font-bold text-muted-foreground text-left pl-4">Marginal Total</th>
+            <td className="p-3 border-r border-primary/20 font-semibold bg-muted/30 text-foreground"><MathText content="P(A)" /></td>
+            <td className="p-3 border-r border-primary/20 font-semibold bg-muted/30 text-foreground"><MathText content="P(A')" /></td>
+            <td className="p-3 bg-primary text-zinc-950 shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]">
               <MathText content="{\\Huge \\mathbf{1}}" className="[&_p]:m-0" />
             </td>
           </tr>

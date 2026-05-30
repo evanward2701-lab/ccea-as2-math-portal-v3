@@ -1,8 +1,7 @@
 import { Module } from '@/core/types';
 
 const S3_CONTENT = `
-## 1. Lesson Title
-**S3: Probability Laws, Venn Diagrams, Two-Way Tables and Trees**
+
 
 ## 2. Specification Focus
 * Use the language of probability, including event, complement, union, and intersection.

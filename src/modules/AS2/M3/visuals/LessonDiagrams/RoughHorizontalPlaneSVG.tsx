@@ -12,18 +12,18 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
     title="Fig 1. Single Particle Resolving"
     analysis={
       <div className="space-y-3">
-        <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <p className="text-sm text-zinc-300 leading-relaxed text-center italic">
+        <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+          <p className="text-sm text-foreground leading-relaxed text-center italic">
             Always draw a comprehensive force diagram before resolving. Acceleration dictates the positive direction.
           </p>
         </div>
-        <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-          <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Never confuse mass (<MathText content="m" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" />) with weight (<MathText content="mg" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" />) in your diagrams or equations.
+        <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+          <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Never confuse mass (<MathText content="m" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" />) with weight (<MathText content="mg" className="inline not-italic align-baseline [&_p]:inline [&_p]:m-0" />) in your diagrams or equations.
         </div>
       </div>
     }
   >
-    <div className="relative w-full aspect-45/23 max-w-xl mx-auto rounded-xl overflow-hidden border border-zinc-800/60 bg-zinc-925 shadow-inner">
+    <div className="relative w-full aspect-45/23 max-w-xl mx-auto rounded-xl overflow-hidden border border-primary/20 bg-card shadow-inner">
       <SVGLibrary />
       <svg className="absolute inset-0 w-full h-full" viewBox="100 20 450 230" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" overflow="visible">
         {/* Ground Plane & Roughness */}
@@ -55,11 +55,11 @@ export const RoughHorizontalPlaneSVG: React.FC = () => (
       <DiagramLabel x="44.4%" y="84.8%" text="mg" />
 
       <DiagramLabel x="77.8%" y="34.8%">
-        <div className="text-emerald-400 text-xs font-semibold whitespace-nowrap">Driving Force (<MathText content="P" className="inline [&_p]:inline"/>)</div>
+        <div className="text-primary text-xs font-semibold whitespace-nowrap">Driving Force (<MathText content="P" className="inline [&_p]:inline"/>)</div>
       </DiagramLabel>
 
       <DiagramLabel x="0%" y="39.1%">
-        <div className="text-rose-400 text-xs font-semibold whitespace-nowrap">Friction (<MathText content="F" className="inline [&_p]:inline"/>)</div>
+        <div className="text-destructive text-xs font-semibold whitespace-nowrap">Friction (<MathText content="F" className="inline [&_p]:inline"/>)</div>
       </DiagramLabel>
 
       <DiagramLabel x="75.6%" y="19.6%" text="a" />

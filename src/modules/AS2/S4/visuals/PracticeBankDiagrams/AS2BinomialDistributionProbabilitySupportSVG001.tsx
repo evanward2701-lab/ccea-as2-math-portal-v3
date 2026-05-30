@@ -3,7 +3,7 @@ import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 
 export const AS2BinomialDistributionProbabilitySupportSVG001: React.FC = () => (
   <DiagramPanel title="AS2BinomialDistributionProbabilitySupportSVG-001" analysis={null}>
-    <div className="text-zinc-500 w-full flex justify-center py-4">
+    <div className="text-muted-foreground w-full flex justify-center py-4">
       <div className="max-w-full max-h-[400px] flex justify-center items-center overflow-hidden">
         <svg width="920" height="430" viewBox="0 0 920 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Binomial Tail Language Guide</title>

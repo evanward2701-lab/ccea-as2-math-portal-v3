@@ -5,9 +5,9 @@ const sourceContent = "\\begin{tikzpicture}[scale=0.62]\n\\draw[->] (-1,0)--(5.2
 
 export const AS1GraphTransformationsQuestionsAS1GraphTransformationsQ012TikZ001: React.FC = () => (
   <DiagramPanel title={"Source sketch for C1 June 2016 Question 2"} analysis={null}>
-    <div className="w-full max-h-[520px] overflow-auto rounded-xl border border-zinc-800 bg-zinc-950/70 p-5 text-left">
-      <div className="mb-3 text-2.5 font-bold uppercase tracking-widest text-zinc-500">TikZ / LaTeX Source</div>
-      <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-zinc-300">{sourceContent}</pre>
+    <div className="w-full max-h-[520px] overflow-auto rounded-xl border border-primary/20 bg-card p-5 text-left">
+      <div className="mb-3 text-2.5 font-bold uppercase tracking-widest text-muted-foreground">TikZ / LaTeX Source</div>
+      <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-foreground">{sourceContent}</pre>
     </div>
   </DiagramPanel>
 );

@@ -5,11 +5,11 @@ import { DiagramLabel } from '@/core/diagram-engine/primitives/DiagramLabel';
 
 const VelocityAxisLabels: React.FC = () => (
   <>
-    <div className="absolute left-[15%] top-[15%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-serif text-xs leading-none text-zinc-300">
-      v <span className="text-zinc-400">(m s<sup>-1</sup>)</span>
+    <div className="absolute left-[15%] top-[15%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-serif text-xs leading-none text-foreground">
+      v <span className="text-muted-foreground">(m s<sup>-1</sup>)</span>
     </div>
-    <div className="absolute left-[95%] top-[85%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-serif text-xs leading-none text-zinc-300">
-      t <span className="text-zinc-400">(s)</span>
+    <div className="absolute left-[95%] top-[85%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-serif text-xs leading-none text-foreground">
+      t <span className="text-muted-foreground">(s)</span>
     </div>
   </>
 );
@@ -20,7 +20,7 @@ export const M2KinematicsMaster: React.FC = () => {
       <DiagramPanel 
         title="Fig 1. Velocity-Time Graph Shapes"
         analysis={
-          <p className="text-sm text-zinc-400 italic text-center">
+          <p className="text-sm text-muted-foreground italic text-center">
             Gradient represents acceleration. Horizontal lines mean zero acceleration.
           </p>
         }
@@ -43,8 +43,8 @@ export const M2KinematicsMaster: React.FC = () => {
             </svg>
             <VelocityAxisLabels />
           </div>
-          <div className="text-center mt-2 text-sm text-zinc-300">
-            <p className="font-bold text-rose-400">Stationary, <MathText content="v = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
+          <div className="text-center mt-2 text-sm text-foreground">
+            <p className="font-bold text-destructive">Stationary, <MathText content="v = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
           </div>
         </div>
 
@@ -65,8 +65,8 @@ export const M2KinematicsMaster: React.FC = () => {
             </svg>
             <VelocityAxisLabels />
           </div>
-          <div className="text-center mt-2 text-sm text-zinc-300">
-            <p className="font-bold text-amber-400">Constant velocity, <MathText content="a = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
+          <div className="text-center mt-2 text-sm text-foreground">
+            <p className="font-bold text-primary">Constant velocity, <MathText content="a = 0" className="inline [&_p]:inline [&_p]:m-0" /></p>
           </div>
         </div>
 
@@ -87,8 +87,8 @@ export const M2KinematicsMaster: React.FC = () => {
             </svg>
             <VelocityAxisLabels />
           </div>
-          <div className="text-center mt-2 text-sm text-zinc-300">
-            <p className="font-bold text-emerald-400">Constant positive acceleration</p>
+          <div className="text-center mt-2 text-sm text-foreground">
+            <p className="font-bold text-primary">Constant positive acceleration</p>
           </div>
         </div>
       </div>
@@ -98,18 +98,18 @@ export const M2KinematicsMaster: React.FC = () => {
         title="Fig 2. Traffic Lights Triangular Model"
         analysis={
           <div className="space-y-3">
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Symmetry Alert</h4>
-              <p className="text-sm text-zinc-300 leading-relaxed">The peak time <MathText content="T" className="inline [&_p]:inline [&_p]:m-0" /> does not have to be halfway through the journey.</p>
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Symmetry Alert</h4>
+              <p className="text-sm text-foreground leading-relaxed">The peak time <MathText content="T" className="inline [&_p]:inline [&_p]:m-0" /> does not have to be halfway through the journey.</p>
             </div>
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-center">
-              <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Formula</h4>
-              <div className="font-serif text-lg text-zinc-200">
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg text-center">
+              <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">Formula</h4>
+              <div className="font-serif text-lg text-foreground">
                 Area = <span className="inline-block align-middle">1/2</span> &times; base &times; height
               </div>
             </div>
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <p className="text-sm text-zinc-300 leading-relaxed">The triangle area gives the total distance.</p>
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <p className="text-sm text-foreground leading-relaxed">The triangle area gives the total distance.</p>
             </div>
           </div>
         }
@@ -139,7 +139,7 @@ export const M2KinematicsMaster: React.FC = () => {
           <DiagramLabel x="88.5%" y="92%" text="120" />
 
           <DiagramLabel x="37%" y="55%">
-            <div className="min-w-44 text-center text-base font-bold leading-snug text-amber-300 bg-zinc-925/90 py-2.5 px-4 border border-amber-500/20 rounded shadow-lg group-hover:border-amber-500/50 transition-colors">
+            <div className="min-w-44 text-center text-base font-bold leading-snug text-primary bg-card/90 py-2.5 px-4 border border-primary/20 rounded shadow-lg group-hover:border-primary/50 transition-colors">
               Area = displacement<br/>
               = 1500 m
             </div>

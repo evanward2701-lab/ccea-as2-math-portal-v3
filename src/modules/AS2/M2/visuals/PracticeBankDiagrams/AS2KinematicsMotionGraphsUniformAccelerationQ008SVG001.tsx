@@ -3,7 +3,7 @@ import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 
 export const AS2KinematicsMotionGraphsUniformAccelerationQ008SVG001: React.FC = () => (
   <DiagramPanel title="AS2KinematicsMotionGraphsUniformAccelerationQ008SVG-001" analysis={null}>
-    <div className="text-zinc-500 w-full flex justify-center py-4">
+    <div className="text-muted-foreground w-full flex justify-center py-4">
       <div className="max-w-full max-h-[400px] flex justify-center items-center overflow-hidden">
         <svg xmlns="http://www.w3.org/2000/svg" width="820" height="230" viewBox="0 0 820 230" role="img" aria-label="Timeline A to B to C showing 20 metres then 15 metres">
   <rect width="100%" height="100%" fill="transparent"/>

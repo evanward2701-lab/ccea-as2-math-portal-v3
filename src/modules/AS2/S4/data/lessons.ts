@@ -1,8 +1,7 @@
 import { Module } from '@/core/types';
 
 const S4_CONTENT = `
-## 1. Lesson Title
-**S4: Statistical Distributions - Discrete Probability and the Binomial Model**
+
 
 ## 2. Specification Focus
 * Understand discrete probability distributions.
@@ -70,6 +69,8 @@ $$
 P(X=x)=\\binom{n}{x}p^x(1-p)^{n-x}
 $$
 
+[CALCULATOR_GUIDE: binomial-pd]
+
 ### CUMULATIVE PROBABILITIES AND INEQUALITIES
 Translate wording carefully:
 
@@ -83,6 +84,8 @@ Translate wording carefully:
 ![visual:S4-InequalityTranslator]()
 
 For cumulative probabilities, add the relevant exact probabilities.
+
+[CALCULATOR_GUIDE: binomial-cd]
 
 ### MODEL SUITABILITY
 Before using the binomial distribution, check the context. If trials affect one another, if $p$ changes, or if there are more than two outcomes, the binomial model may not be appropriate.

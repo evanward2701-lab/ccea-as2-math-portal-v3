@@ -34,11 +34,11 @@ const forceLabels: Record<Force, string> = {
 };
 
 const forceDetails: Record<Force, { label: string; symbol: string; tone: string; dot: string }> = {
-  weight: { label: 'Weight', symbol: 'W = mg', tone: 'text-rose-300 border-rose-500/20 bg-rose-950/10', dot: 'bg-rose-400' },
-  reaction: { label: 'Reaction', symbol: 'R', tone: 'text-emerald-300 border-emerald-500/20 bg-emerald-950/10', dot: 'bg-emerald-400' },
-  friction: { label: 'Friction', symbol: 'F', tone: 'text-amber-300 border-amber-500/20 bg-amber-950/10', dot: 'bg-amber-400' },
-  tension: { label: 'Tension', symbol: 'T', tone: 'text-blue-300 border-blue-500/20 bg-blue-950/10', dot: 'bg-blue-400' },
-  applied: { label: 'Applied', symbol: 'P', tone: 'text-zinc-300 border-zinc-700/70 bg-zinc-900/20', dot: 'bg-zinc-300' },
+  weight: { label: 'Weight', symbol: 'W = mg', tone: 'text-destructive border-destructive/20 bg-destructive/10', dot: 'bg-destructive' },
+  reaction: { label: 'Reaction', symbol: 'R', tone: 'text-primary border-primary/20 bg-primary/10', dot: 'bg-primary' },
+  friction: { label: 'Friction', symbol: 'F', tone: 'text-primary border-primary/20 bg-primary/10', dot: 'bg-primary' },
+  tension: { label: 'Tension', symbol: 'T', tone: 'text-primary border-primary/20 bg-primary/10', dot: 'bg-primary' },
+  applied: { label: 'Applied', symbol: 'P', tone: 'text-foreground border-primary/10 bg-primary/5', dot: 'bg-zinc-300' },
 };
 
 const scenarioOrder = Object.keys(scenarioLabels) as FreeBodyScenario[];
@@ -51,12 +51,12 @@ const ForceStatusChip: React.FC<{ force: Force; active: boolean; disabled?: bool
     <div
       className={cn(
         'flex min-h-11 items-center justify-between gap-3 rounded-xl border px-3 py-2 text-sm font-bold transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.035)]',
-        active ? detail.tone : 'border-zinc-800 bg-zinc-940/60 text-zinc-600',
+        active ? detail.tone : 'border-primary/20 bg-zinc-940/60 text-zinc-600',
         disabled && 'opacity-45'
       )}
     >
       <span className="flex items-center gap-2">
-        <span className={cn('size-2 rounded-full', active ? detail.dot : 'bg-zinc-700')} />
+        <span className={cn('size-2 rounded-full', active ? detail.dot : 'bg-muted/50')} />
         {detail.label}
       </span>
       <span className="whitespace-nowrap font-serif text-xs">{detail.symbol}</span>
@@ -86,33 +86,33 @@ export const M1FreeBodyDiagram: React.FC = () => {
       analysis={
         <div className="mx-auto w-full max-w-5xl space-y-4">
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
-              <strong className="font-bold text-zinc-100">Smooth surface</strong> means no friction.
+            <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-muted-foreground">
+              <strong className="font-bold text-foreground">Smooth surface</strong> means no friction.
             </div>
-            <div className="rounded-xl border border-amber-500/20 bg-amber-950/10 p-4 text-sm leading-relaxed text-zinc-400">
-              <strong className="font-bold text-amber-400">Rough surface</strong> means friction opposes motion.
+            <div className="rounded-xl border border-primary/20 bg-primary/10 p-4 text-sm leading-relaxed text-muted-foreground">
+              <strong className="font-bold text-primary">Rough surface</strong> means friction opposes motion.
             </div>
-            <div className="rounded-xl border border-rose-500/20 bg-rose-950/10 p-4 text-sm leading-relaxed text-zinc-400">
-              <strong className="font-bold text-rose-400">Object only:</strong> include forces acting on this object, not forces it exerts.
+            <div className="rounded-xl border border-destructive/20 bg-destructive/10 p-4 text-sm leading-relaxed text-muted-foreground">
+              <strong className="font-bold text-destructive">Object only:</strong> include forces acting on this object, not forces it exerts.
             </div>
           </div>
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
-            <span className="font-bold text-zinc-100">A free-body diagram</span> shows only external forces acting on the selected object. Weight{' '}
-            <MathInline content="$mg$" className="text-rose-400" /> acts vertically downwards; reaction{' '}
-            <MathInline content="$R$" className="text-emerald-400" /> is perpendicular to the surface.
+          <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-muted-foreground">
+            <span className="font-bold text-foreground">A free-body diagram</span> shows only external forces acting on the selected object. Weight{' '}
+            <MathInline content="$mg$" className="text-destructive" /> acts vertically downwards; reaction{' '}
+            <MathInline content="$R$" className="text-primary" /> is perpendicular to the surface.
           </div>
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
-            Tension <MathInline content="$T$" className="text-blue-400" /> appears if a string, towbar, or cable pulls on the object. Applied force{' '}
-            <MathInline content="$P$" className="text-zinc-200" /> appears only when a direct force is given.
+          <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-muted-foreground">
+            Tension <MathInline content="$T$" className="text-primary" /> appears if a string, towbar, or cable pulls on the object. Applied force{' '}
+            <MathInline content="$P$" className="text-foreground" /> appears only when a direct force is given.
           </div>
         </div>
       }
     >
-      <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-925 p-5 shadow-2xl">
+      <div className="mx-auto w-full max-w-5xl rounded-2xl border border-primary/20 bg-card p-5 shadow-2xl">
         <div className="grid w-full gap-5 xl:grid-cols-[280px_1fr]">
-          <aside className="rounded-xl border border-zinc-800/70 bg-zinc-950/35 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
+          <aside className="rounded-xl border border-primary/20 bg-card p-4 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
             <div>
-              <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-zinc-500">Preset scenario</h4>
+              <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground">Preset scenario</h4>
               <div className="grid grid-cols-2 gap-2 xl:grid-cols-1">
                 {scenarioOrder.map(option => (
                   <button
@@ -123,8 +123,8 @@ export const M1FreeBodyDiagram: React.FC = () => {
                     className={cn(
                       'rounded-xl border px-3 py-2.5 text-left text-sm font-bold transition-all duration-200',
                       scenario === option
-                        ? 'border-zinc-500/80 bg-zinc-800/80 text-zinc-100 shadow-sm'
-                        : 'border-zinc-800 bg-zinc-950/45 text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900/70 hover:text-zinc-300'
+                        ? 'border-zinc-500/80 bg-muted/30 text-foreground shadow-sm'
+                        : 'border-primary/20 bg-card text-muted-foreground hover:border-primary/10 hover:bg-primary/5 hover:text-foreground'
                     )}
                   >
                     {scenarioLabels[option]}
@@ -134,7 +134,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </div>
 
             <div className="mt-6">
-              <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-zinc-500">Forces on object</h4>
+              <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground">Forces on object</h4>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-1">
                 {forceOrder.map(force => {
                   const disabled = scenario === 'smooth' && force === 'friction';
@@ -145,8 +145,8 @@ export const M1FreeBodyDiagram: React.FC = () => {
                       className={cn(
                         'flex items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-sm font-semibold transition-all duration-200',
                         disabled
-                          ? 'cursor-not-allowed border-zinc-900/60 bg-zinc-950/25 text-zinc-600'
-                          : 'cursor-pointer border-zinc-800 bg-zinc-950/45 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900/70'
+                          ? 'cursor-not-allowed border-zinc-900/60 bg-card text-zinc-600'
+                          : 'cursor-pointer border-primary/20 bg-card text-foreground hover:border-primary/10 hover:bg-primary/5'
                       )}
                     >
                       <span>{forceLabels[force]}</span>
@@ -155,7 +155,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
                         checked={forces[force]}
                         disabled={disabled}
                         onChange={() => toggleForce(force)}
-                        className="size-4 rounded border-zinc-700 bg-zinc-900 accent-zinc-300 disabled:opacity-30"
+                        className="size-4 rounded border-primary/10 bg-primary/5 accent-zinc-300 disabled:opacity-30"
                       />
                     </label>
                   );
@@ -164,8 +164,8 @@ export const M1FreeBodyDiagram: React.FC = () => {
             </div>
           </aside>
 
-          <section className="flex min-w-0 flex-col gap-3 rounded-xl border border-zinc-800/70 bg-zinc-950/30 p-3 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
-            <div className="relative aspect-16/10 min-h-80 overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+          <section className="flex min-w-0 flex-col gap-3 rounded-xl border border-primary/20 bg-card p-3 shadow-[0_18px_60px_rgba(0,0,0,0.24)]">
+            <div className="relative aspect-16/10 min-h-80 overflow-hidden rounded-xl border border-primary/20 bg-card shadow-inner">
               <SVGLibrary />
               <svg
                 className="absolute inset-0 h-full w-full"
@@ -182,7 +182,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
                 <text
                   x="400"
                   y="255"
-                  fill="#71717a"
+                  fill="var(--muted-foreground)"
                   textAnchor="middle"
                   dominantBaseline="central"
                   fontSize="14"
@@ -198,7 +198,7 @@ export const M1FreeBodyDiagram: React.FC = () => {
                   <text
                     x="410"
                     y="42"
-                    fill="#a1a1aa"
+                    fill="var(--muted-foreground)"
                     textAnchor="middle"
                     fontSize="11"
                     fontWeight="700"
@@ -230,29 +230,29 @@ export const M1FreeBodyDiagram: React.FC = () => {
                 </g>
               </svg>
 
-              <DiagramLabel x="96%" y="89%" anchor="end" className="w-36 whitespace-normal break-normal text-right font-sans text-[9px] font-black uppercase leading-tight tracking-[0.06em] text-zinc-500">
+              <DiagramLabel x="96%" y="89%" anchor="end" className="w-36 whitespace-normal break-normal text-right font-sans text-[9px] font-black uppercase leading-tight tracking-[0.06em] text-muted-foreground">
                 <span className="block">block on table</span>
                 <span className="block">object forces only</span>
               </DiagramLabel>
 
               <div className={cn('transition-opacity duration-300', forces.reaction ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x="52.25%" y="22.5%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-emerald-400">R</DiagramLabel>
+                <DiagramLabel x="52.25%" y="22.5%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-primary">R</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.weight ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x="52.5%" y="76%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-rose-400">W</DiagramLabel>
+                <DiagramLabel x="52.5%" y="76%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-destructive">W</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.friction ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x="25%" y="39.5%" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-amber-400">F</DiagramLabel>
+                <DiagramLabel x="25%" y="39.5%" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-primary">F</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.tension ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x="76%" y="40%" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-blue-400">T</DiagramLabel>
+                <DiagramLabel x="76%" y="40%" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-primary">T</DiagramLabel>
               </div>
 
               <div className={cn('transition-opacity duration-300', forces.applied ? 'opacity-100' : 'opacity-0')}>
-                <DiagramLabel x="83%" y="15.5%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-zinc-200">P</DiagramLabel>
+                <DiagramLabel x="83%" y="15.5%" anchor="start" className="whitespace-nowrap break-normal text-[18px] font-black font-serif text-foreground">P</DiagramLabel>
               </div>
             </div>
 

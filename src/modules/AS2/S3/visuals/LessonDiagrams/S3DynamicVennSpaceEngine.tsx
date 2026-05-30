@@ -33,27 +33,27 @@ export const S3DynamicVennSpaceEngine: React.FC = () => {
       title="Fig. Dynamic Venn Space Engine"
       analysis={
         <div className="mx-auto space-y-5">
-          <p className="mx-auto max-w-5xl text-center text-base italic leading-relaxed text-zinc-400">
+          <p className="mx-auto max-w-5xl text-center text-base italic leading-relaxed text-muted-foreground">
             The Addition Law accounts for the overlap between events. Adjust the separation to see how the intersection changes the union.
           </p>
 
-          <div className="mx-auto w-full max-w-5xl rounded-xl border border-zinc-800 bg-zinc-900/45 p-4 shadow-sm">
-            <h4 className="mb-3 text-center text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">Addition Law</h4>
-            <div className="flex min-h-28 items-center justify-center rounded-lg border border-zinc-800/70 bg-zinc-950/50 p-4 text-center">
+          <div className="mx-auto w-full max-w-5xl rounded-xl border border-primary/20 bg-primary/5 p-4 shadow-sm">
+            <h4 className="mb-3 text-center text-2.5 font-black uppercase tracking-[0.24em] text-muted-foreground">Addition Law</h4>
+            <div className="flex min-h-28 items-center justify-center rounded-lg border border-primary/20 bg-card p-4 text-center">
               <MathText content="P(A \\cup B) = P(A) + P(B) - P(A \\cap B)" noMargin />
             </div>
           </div>
 
-          <div className="mx-auto max-w-5xl rounded-xl border border-rose-500/30 bg-rose-950/20 p-4 text-sm leading-relaxed text-rose-200 shadow-sm">
-            <span className="font-bold text-rose-300">CCEA Exam Pitfall:</span> never use <MathInline content="P(A \\cup B) = P(A) + P(B)" /> unless the events are explicitly stated to be mutually exclusive.
+          <div className="mx-auto max-w-5xl rounded-xl border border-destructive/30 bg-destructive/20 p-4 text-sm leading-relaxed text-destructive shadow-sm">
+            <span className="font-bold text-destructive">CCEA Exam Pitfall:</span> never use <MathInline content="P(A \\cup B) = P(A) + P(B)" /> unless the events are explicitly stated to be mutually exclusive.
           </div>
         </div>
       }
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-6">
-        <div className="w-full max-w-2xl rounded-xl border border-zinc-800 bg-zinc-900/45 p-4 shadow-sm">
+        <div className="w-full max-w-2xl rounded-xl border border-primary/20 bg-primary/5 p-4 shadow-sm">
           <div className="grid grid-cols-[112px_1fr_48px] items-center gap-4">
-            <label htmlFor="separation-slider" className="text-sm font-semibold text-zinc-300">
+            <label htmlFor="separation-slider" className="text-sm font-semibold text-foreground">
               Separation
             </label>
             <input
@@ -64,14 +64,14 @@ export const S3DynamicVennSpaceEngine: React.FC = () => {
               step="1"
               value={separation}
               onChange={(e) => setSeparation(Number(e.target.value))}
-              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-700 accent-pink-500"
+              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-muted/50 accent-pink-500"
             />
-            <span className="text-right font-mono text-sm text-zinc-400">{separation}</span>
+            <span className="text-right font-mono text-sm text-muted-foreground">{separation}</span>
           </div>
         </div>
 
-        <div className="w-full rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5 shadow-2xl">
-          <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-inner">
+        <div className="w-full rounded-2xl border border-primary/20 bg-card p-5 shadow-2xl">
+          <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-card p-5 shadow-inner">
             <div className="relative aspect-16/9">
               <svg
                 viewBox={`0 0 ${svgWidth} ${svgHeight}`}
@@ -88,22 +88,22 @@ export const S3DynamicVennSpaceEngine: React.FC = () => {
                 <circle cx={circleBX} cy={centerY} r={radiusB} fill="#10b981" fillOpacity="0.18" stroke="#10b981" strokeWidth="3" />
               </svg>
 
-              <DiagramLabel x={toPercent(circleAX - 12, svgWidth)} y={toPercent(centerY - radiusA - 50, svgHeight)} text="A" className="text-3xl font-black text-amber-200" />
-              <DiagramLabel x={toPercent(circleBX - 12, svgWidth)} y={toPercent(centerY - radiusB - 50, svgHeight)} text="B" className="text-3xl font-black text-emerald-200" />
+              <DiagramLabel x={toPercent(circleAX - 12, svgWidth)} y={toPercent(centerY - radiusA - 50, svgHeight)} text="A" className="text-3xl font-black text-primary" />
+              <DiagramLabel x={toPercent(circleBX - 12, svgWidth)} y={toPercent(centerY - radiusB - 50, svgHeight)} text="B" className="text-3xl font-black text-primary" />
               <DiagramLabel x="72%" y="82%" anchor="start">
-                <div className="min-w-40 rounded-lg border border-zinc-600/50 bg-zinc-950/80 px-3 py-2 text-center shadow-lg">
-                  <MathInline content={`P((A \\cup B)') = ${formatProbability(outside)}`} className="justify-center whitespace-nowrap text-xs text-zinc-300" />
+                <div className="min-w-40 rounded-lg border border-border bg-card px-3 py-2 text-center shadow-lg">
+                  <MathInline content={`P((A \\cup B)') = ${formatProbability(outside)}`} className="justify-center whitespace-nowrap text-xs text-foreground" />
                 </div>
               </DiagramLabel>
             </div>
 
-            <div className="mt-3 w-full rounded-xl border border-emerald-500/25 bg-emerald-950/10 p-4 shadow-sm">
-              <h4 className="mb-3 text-center text-2.5 font-black uppercase tracking-[0.24em] text-emerald-400">Probabilities</h4>
-              <div className="grid gap-3 rounded-lg border border-zinc-800/70 bg-zinc-950/50 p-4 text-sm text-zinc-300 sm:grid-cols-4">
+            <div className="mt-3 w-full rounded-xl border border-primary/25 bg-primary/10 p-4 shadow-sm">
+              <h4 className="mb-3 text-center text-2.5 font-black uppercase tracking-[0.24em] text-primary">Probabilities</h4>
+              <div className="grid gap-3 rounded-lg border border-primary/20 bg-card p-4 text-sm text-foreground sm:grid-cols-4">
                 <MathInline content={`P(A) = ${formatProbability(pA)}`} className="justify-center" />
                 <MathInline content={`P(B) = ${formatProbability(pB)}`} className="justify-center" />
-                <MathInline content={`P(A \\cap B) = ${formatProbability(currentIntersection)}`} className="justify-center text-emerald-300" />
-                <MathInline content={`P(A \\cup B) = ${formatProbability(union)}`} className="justify-center text-amber-300" />
+                <MathInline content={`P(A \\cap B) = ${formatProbability(currentIntersection)}`} className="justify-center text-primary" />
+                <MathInline content={`P(A \\cup B) = ${formatProbability(union)}`} className="justify-center text-primary" />
               </div>
             </div>
           </div>

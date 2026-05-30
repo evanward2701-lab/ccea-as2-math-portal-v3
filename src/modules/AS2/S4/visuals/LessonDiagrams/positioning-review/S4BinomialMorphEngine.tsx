@@ -32,42 +32,42 @@ export const S4BinomialMorphEngine: React.FC = () => {
       title="Fig. Binomial Distribution Engine"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 italic">
+          <p className="text-sm text-muted-foreground italic">
             Adjust the number of trials (n) and the probability of success (p) to see how the shape of the binomial distribution changes.
           </p>
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Binomial Formula</h4>
-            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">Binomial Formula</h4>
+            <div className="text-center bg-card p-2 rounded border border-primary/20">
               <MathText content="P(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}" />
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Do not use the binomial model unless all four conditions are met.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Do not use the binomial model unless all four conditions are met.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="w-full max-w-lg grid grid-cols-1 gap-4 mb-6 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
+        <div className="w-full max-w-lg grid grid-cols-1 gap-4 mb-6 rounded-lg border border-primary/20 bg-primary/5 p-3">
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-zinc-300 w-24">Trials (n)</label>
-            <input type="range" min="3" max="20" value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
-            <span className="text-sm font-mono text-zinc-400 w-12 text-right">{n}</span>
+            <label className="text-sm font-medium text-foreground w-24">Trials (n)</label>
+            <input type="range" min="3" max="20" value={n} onChange={(e) => setN(Number(e.target.value))} className="w-full h-2 bg-muted/50 rounded-lg appearance-none cursor-pointer" />
+            <span className="text-sm font-mono text-muted-foreground w-12 text-right">{n}</span>
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-sm font-medium text-zinc-300 w-24">Prob (p)</label>
-            <input type="range" min="0.1" max="0.9" step="0.05" value={p} onChange={(e) => setP(Number(e.target.value))} className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer" />
-            <span className="text-sm font-mono text-zinc-400 w-12 text-right">{p.toFixed(2)}</span>
+            <label className="text-sm font-medium text-foreground w-24">Prob (p)</label>
+            <input type="range" min="0.1" max="0.9" step="0.05" value={p} onChange={(e) => setP(Number(e.target.value))} className="w-full h-2 bg-muted/50 rounded-lg appearance-none cursor-pointer" />
+            <span className="text-sm font-mono text-muted-foreground w-12 text-right">{p.toFixed(2)}</span>
           </div>
         </div>
 
         <div className="relative w-full aspect-62/36 max-w-3xl mx-auto">
-          <div className="absolute top-2 left-2 px-3 py-1 text-sm font-bold rounded-full border bg-zinc-900 border-zinc-800 text-zinc-300 z-10">
+          <div className="absolute top-2 left-2 px-3 py-1 text-sm font-bold rounded-full border bg-primary/5 border-primary/20 text-foreground z-10">
             <MathText content={`X \\sim B(${n}, ${p.toFixed(2)})`} />
           </div>
           <div className={cn(
             "absolute top-2 right-2 px-3 py-1 text-xs font-bold rounded-full border z-10",
-            isSymmetric ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300" : "bg-amber-500/10 border-amber-500/30 text-amber-300"
+            isSymmetric ? "bg-primary/10 border-primary/30 text-primary" : "bg-primary/10 border-primary/30 text-primary"
           )}>
             {isSymmetric ? 'Approx. Symmetric' : 'Skewed'}
           </div>
@@ -107,7 +107,7 @@ export const S4BinomialMorphEngine: React.FC = () => {
           </svg>
 
           <DiagramLabel x="0%" y="50%" className="-translate-y-1/2">
-            <div className="text-center text-xs text-zinc-400 -rotate-90 origin-center w-32">
+            <div className="text-center text-xs text-muted-foreground -rotate-90 origin-center w-32">
               <MathText content="P(X=x)" />
             </div>
           </DiagramLabel>

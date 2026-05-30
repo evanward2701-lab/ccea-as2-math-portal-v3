@@ -3,7 +3,7 @@ import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 
 export const AS2MeanStandardDeviationQ009SVG001: React.FC = () => (
   <DiagramPanel title="AS2MeanStandardDeviationQ009SVG-001" analysis={null}>
-    <div className="text-zinc-500 w-full flex justify-center py-4">
+    <div className="text-muted-foreground w-full flex justify-center py-4">
       <div className="max-w-full max-h-[400px] flex justify-center items-center overflow-hidden">
         <svg xmlns="http://www.w3.org/2000/svg" width="760" height="430" viewBox="0 0 760 430" role="img" aria-label="Histogram of mass in kilograms against frequency density">
   <defs>

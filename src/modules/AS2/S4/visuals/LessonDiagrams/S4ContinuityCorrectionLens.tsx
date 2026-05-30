@@ -37,29 +37,29 @@ export const S4ContinuityCorrectionLens: React.FC = () => {
       title="Fig. Continuity Correction Lens"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 italic">
+          <p className="text-sm text-muted-foreground italic">
             When approximating a discrete binomial distribution with a continuous normal distribution, a continuity correction is needed to account for the area of the bars.
           </p>
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Correction Rule</h4>
-            <p className="text-sm text-zinc-300 leading-relaxed">To include a bar, the boundary moves 0.5 to include it. To exclude a bar, the boundary moves 0.5 to exclude it.</p>
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">Correction Rule</h4>
+            <p className="text-sm text-foreground leading-relaxed">To include a bar, the boundary moves 0.5 to include it. To exclude a bar, the boundary moves 0.5 to exclude it.</p>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> Draw the bar first. The correction moves to the edge of the bar, not randomly left or right.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Draw the bar first. The correction moves to the edge of the bar, not randomly left or right.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="flex flex-wrap justify-center gap-2 mb-8 p-1 bg-zinc-900 border border-zinc-800 rounded-lg">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 p-1 bg-primary/5 border border-primary/20 rounded-lg">
           {(['gte', 'gt', 'lte', 'lt'] as Inequality[]).map(op => (
-            <button key={op} onClick={() => setInequality(op)} className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", inequality === op ? 'bg-zinc-500 text-zinc-950' : 'bg-transparent text-zinc-400 hover:bg-zinc-800')}>
+            <button key={op} onClick={() => setInequality(op)} className={cn("px-4 py-1.5 text-xs font-bold rounded-md transition-colors", inequality === op ? 'bg-zinc-500 text-zinc-950' : 'bg-transparent text-muted-foreground hover:bg-muted/30')}>
               <MathText content={`P(X ${op === 'gte' ? '\\ge' : op === 'gt' ? '>' : op === 'lte' ? '\\le' : '<'} 6)`} />
             </button>
           ))}
         </div>
 
-        <div className="p-3 mb-4 bg-emerald-950/30 border border-emerald-800 rounded-lg text-emerald-300 font-mono text-sm">
+        <div className="p-3 mb-4 bg-primary/30 border border-primary rounded-lg text-primary font-mono text-sm">
           {correction.text}
         </div>
 
@@ -84,7 +84,7 @@ export const S4ContinuityCorrectionLens: React.FC = () => {
             ))}
 
             {/* Normal Curve */}
-            <path d="M 100 280 C 180 100, 440 100, 520 280" fill="none" stroke="#a1a1aa" strokeWidth="2" opacity="0.5" />
+            <path d="M 100 280 C 180 100, 440 100, 520 280" fill="none" stroke="var(--muted-foreground)" strokeWidth="2" opacity="0.5" />
 
             {/* Shaded Area */}
             <defs>
@@ -114,7 +114,7 @@ export const S4ContinuityCorrectionLens: React.FC = () => {
           </svg>
 
           <DiagramLabel x={`${boundaryX / svgWidth * 100}%`} y={`${(baseY + 20) / svgHeight * 100}%`} className="-translate-x-1/2">
-            <div className="text-rose-500 text-xs font-bold">{correction.boundary}</div>
+            <div className="text-destructive text-xs font-bold">{correction.boundary}</div>
           </DiagramLabel>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import { Module } from '@/core/types';
 
 const S1_CONTENT = `
-## 1. Lesson Title
-**S1: Statistical Sampling, Data Types and Inference**
+
 
 ## 2. Specification Focus
 * Understand and use the terms population and sample.

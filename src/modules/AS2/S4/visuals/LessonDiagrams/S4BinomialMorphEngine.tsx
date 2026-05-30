@@ -29,27 +29,27 @@ export const S4BinomialMorphEngine: React.FC = () => {
   const mean = n * p;
   const variance = n * p * (1 - p);
   const statusTone = isSymmetric
-    ? 'border-emerald-500/35 bg-emerald-950/20 text-emerald-300'
-    : 'border-amber-500/35 bg-amber-950/20 text-amber-300';
+    ? 'border-primary/30 bg-primary/10 text-primary'
+    : 'border-destructive/30 bg-destructive/10 text-destructive';
   const barTone = isSymmetric
-    ? { fill: '#064e3b', stroke: '#10b981' }
-    : { fill: '#451a03', stroke: '#f59e0b' };
+    ? { fill: 'var(--primary)', stroke: 'var(--primary)' }
+    : { fill: 'var(--destructive)', stroke: 'var(--destructive)' };
 
   return (
     <DiagramPanel
       title="Fig. Binomial Distribution Engine"
       analysis={
         <div className="mx-auto w-full max-w-5xl space-y-5">
-          <p className="text-center text-sm italic leading-relaxed text-zinc-400 md:text-base">
+          <p className="text-center text-sm italic leading-relaxed text-muted-foreground md:text-base">
             Adjust the number of trials <MathInline content="n" /> and the probability of success <MathInline content="p" /> to see how the
             binomial shape moves, skews, and concentrates.
           </p>
 
-          <div className="rounded-xl border border-zinc-800 bg-zinc-950/45 p-4 shadow-xl">
-            <h4 className="mb-3 text-center text-2.5 font-black uppercase tracking-[0.28em] text-zinc-500">
+          <div className="rounded-xl border border-primary/20 bg-card p-4 shadow-xl">
+            <h4 className="mb-3 text-center text-2.5 font-black uppercase tracking-[0.28em] text-primary">
               Binomial Formula
             </h4>
-            <div className="rounded-lg border border-zinc-800/80 bg-zinc-950/70 px-4 py-5 text-center shadow-inner">
+            <div className="rounded-lg border border-primary/10 bg-primary/5 px-4 py-5 text-center shadow-inner">
               <MathText
                 content="\\displaystyle P(X=x)=\\binom{n}{x}p^x(1-p)^{n-x}"
                 center
@@ -59,18 +59,18 @@ export const S4BinomialMorphEngine: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-xl border border-rose-500/30 bg-rose-950/25 p-4 text-sm leading-relaxed text-rose-200 md:text-base">
-            <strong className="font-bold text-rose-300">CCEA Exam Pitfall:</strong> Do not use the binomial model unless the number of trials is fixed,
-            each trial has two outcomes, <MathInline content="p" className="text-rose-100" /> is constant, and trials are independent.
+          <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm leading-relaxed text-destructive/90 md:text-base">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> Do not use the binomial model unless the number of trials is fixed,
+            each trial has two outcomes, <MathInline content="p" className="text-destructive font-semibold" /> is constant, and trials are independent.
           </div>
         </div>
       }
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-5">
-        <div className="mx-auto grid w-full max-w-3xl gap-4 rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-xl">
+        <div className="mx-auto grid w-full max-w-3xl gap-4 rounded-xl border border-primary/20 bg-card p-4 shadow-xl">
           <div className="grid items-center gap-3 sm:grid-cols-[120px_1fr_72px]">
-            <label className="text-sm font-semibold text-zinc-300">
-              Trials <MathInline content="n" className="text-zinc-100" />
+            <label className="text-sm font-semibold text-foreground">
+              Trials <MathInline content="n" className="text-foreground" />
             </label>
             <input
               type="range"
@@ -78,16 +78,16 @@ export const S4BinomialMorphEngine: React.FC = () => {
               max="20"
               value={n}
               onChange={(e) => setN(Number(e.target.value))}
-              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-700 accent-pink-500"
+              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-primary/20 accent-primary"
             />
-            <span className="rounded-lg border border-zinc-800 bg-zinc-950/70 px-3 py-1.5 text-right font-mono text-sm text-zinc-300">
+            <span className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-1.5 text-right font-mono text-sm text-foreground">
               {n}
             </span>
           </div>
 
           <div className="grid items-center gap-3 sm:grid-cols-[120px_1fr_72px]">
-            <label className="text-sm font-semibold text-zinc-300">
-              Prob <MathInline content="p" className="text-zinc-100" />
+            <label className="text-sm font-semibold text-foreground">
+              Prob <MathInline content="p" className="text-foreground" />
             </label>
             <input
               type="range"
@@ -96,21 +96,21 @@ export const S4BinomialMorphEngine: React.FC = () => {
               step="0.05"
               value={p}
               onChange={(e) => setP(Number(e.target.value))}
-              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-700 accent-pink-500"
+              className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-primary/20 accent-primary"
             />
-            <span className="rounded-lg border border-zinc-800 bg-zinc-950/70 px-3 py-1.5 text-right font-mono text-sm text-zinc-300">
+            <span className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-1.5 text-right font-mono text-sm text-foreground">
               {p.toFixed(2)}
             </span>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-950/35 p-5 shadow-2xl">
-          <div className="relative mx-auto aspect-16/9 w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/70 shadow-inner">
-            <div className="absolute left-5 top-5 z-10 rounded-xl border border-zinc-700/70 bg-zinc-950/90 px-5 py-3 shadow-2xl">
+        <div className="rounded-2xl border border-primary/20 bg-card p-5 shadow-2xl">
+          <div className="relative mx-auto aspect-16/9 w-full overflow-hidden rounded-xl border border-primary/10 bg-background shadow-inner">
+            <div className="absolute left-5 top-5 z-10 rounded-xl border border-primary/20 bg-card/90 px-5 py-3 shadow-2xl backdrop-blur-sm">
               <MathText
                 content={`X \\sim B(${n}, ${p.toFixed(2)})`}
                 noMargin
-                className="text-xl md:text-2xl"
+                className="text-xl md:text-2xl text-foreground"
               />
             </div>
             <div className={cn('absolute right-5 top-5 z-10 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-wider shadow-xl', statusTone)}>
@@ -135,7 +135,7 @@ export const S4BinomialMorphEngine: React.FC = () => {
                 </filter>
               </defs>
 
-              <rect x={36} y={54} width={688} height={322} rx={22} fill="#09090b" stroke="#27272a" strokeWidth={1.4} />
+              <rect x={36} y={54} width={688} height={322} rx={22} fill="var(--background)" stroke="var(--border)" strokeWidth={1.4} />
 
               {[0.25, 0.5, 0.75].map((tick) => {
                 const y = svgHeight - padding.bottom - graphHeight * tick;
@@ -147,15 +147,15 @@ export const S4BinomialMorphEngine: React.FC = () => {
                     y1={y}
                     x2={svgWidth - padding.right}
                     y2={y}
-                    stroke="#27272a"
-                    strokeWidth={1}
+                    stroke="var(--border)"
+                    strokeWidth={1.5}
                     strokeDasharray="5 8"
                   />
                 );
               })}
 
-              <line x1={padding.left} y1={svgHeight - padding.bottom} x2={svgWidth - padding.right + 10} y2={svgHeight - padding.bottom} stroke="#64748b" strokeWidth="2.4" />
-              <line x1={padding.left} y1={padding.top - 8} x2={padding.left} y2={svgHeight - padding.bottom} stroke="#64748b" strokeWidth="2.4" />
+              <line x1={padding.left} y1={svgHeight - padding.bottom} x2={svgWidth - padding.right + 10} y2={svgHeight - padding.bottom} stroke="var(--muted-foreground)" strokeWidth="2.4" />
+              <line x1={padding.left} y1={padding.top - 8} x2={padding.left} y2={svgHeight - padding.bottom} stroke="var(--muted-foreground)" strokeWidth="2.4" />
 
               {probabilities.map((prob, i) => {
                 const barHeight = (prob / maxProb) * graphHeight;
@@ -179,7 +179,7 @@ export const S4BinomialMorphEngine: React.FC = () => {
                       className="transition-all duration-300"
                     />
                     {(n <= 15 || i % 2 === 0 || i === n) && (
-                      <text x={x + barWidth / 2} y={svgHeight - padding.bottom + 25} textAnchor="middle" fill="#a1a1aa" fontSize="13" fontWeight={600}>
+                      <text x={x + barWidth / 2} y={svgHeight - padding.bottom + 25} textAnchor="middle" fill="var(--muted-foreground)" fontSize="13" fontWeight={600}>
                         {i}
                       </text>
                     )}
@@ -187,19 +187,19 @@ export const S4BinomialMorphEngine: React.FC = () => {
                 );
               })}
 
-              <text x={svgWidth - padding.right + 24} y={svgHeight - padding.bottom + 5} textAnchor="middle" fill="#d4d4d8" fontFamily="serif" fontSize="22" fontStyle="italic">
+              <text x={svgWidth - padding.right + 24} y={svgHeight - padding.bottom + 5} textAnchor="middle" fill="var(--foreground)" fontFamily="serif" fontSize="22" fontStyle="italic">
                 x
               </text>
-              <text x={padding.left - 6} y={padding.top - 26} textAnchor="middle" fill="#d4d4d8" fontFamily="serif" fontSize="18" fontStyle="italic">
+              <text x={padding.left - 6} y={padding.top - 26} textAnchor="middle" fill="var(--foreground)" fontFamily="serif" fontSize="18" fontStyle="italic">
                 P(X=x)
               </text>
-              <text x={padding.left - 12} y={svgHeight - padding.bottom + 5} textAnchor="end" fill="#a1a1aa" fontSize="12">
+              <text x={padding.left - 12} y={svgHeight - padding.bottom + 5} textAnchor="end" fill="var(--muted-foreground)" fontSize="12">
                 0
               </text>
             </svg>
 
             <DiagramLabel x="50%" y={74} className="-translate-x-1/2">
-              <div className="rounded-lg border border-zinc-800 bg-zinc-950/90 px-3 py-1.5 text-center text-2.5 font-bold uppercase tracking-[0.22em] text-zinc-500 shadow-lg">
+              <div className="rounded-lg border border-primary/20 bg-card/90 px-3 py-1.5 text-center text-2.5 font-bold uppercase tracking-[0.22em] text-primary shadow-lg backdrop-blur-sm">
                 mode x = {modeIndex}
               </div>
             </DiagramLabel>
@@ -207,16 +207,16 @@ export const S4BinomialMorphEngine: React.FC = () => {
         </div>
 
         <div className="grid gap-3 md:grid-cols-3">
-          <div className="rounded-xl border border-zinc-800 bg-zinc-950/45 p-4 text-center shadow-xl">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">Distribution</h4>
+          <div className="rounded-xl border border-primary/20 bg-card p-4 text-center shadow-xl">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-primary">Distribution</h4>
             <MathText content={`X \\sim B(${n}, ${p.toFixed(2)})`} center noMargin className="text-xl" />
           </div>
-          <div className="rounded-xl border border-emerald-500/25 bg-emerald-950/10 p-4 text-center shadow-xl">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-emerald-400">Mean</h4>
+          <div className="rounded-xl border border-primary/40 bg-primary/5 p-4 text-center shadow-xl">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-primary">Mean</h4>
             <MathText content={`E(X)=np=${mean.toFixed(2)}`} center noMargin className="text-xl" />
           </div>
-          <div className="rounded-xl border border-amber-500/25 bg-amber-950/10 p-4 text-center shadow-xl">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-amber-400">Variance</h4>
+          <div className="rounded-xl border border-primary/20 bg-card p-4 text-center shadow-xl">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-primary">Variance</h4>
             <MathText content={`\\operatorname{Var}(X)=npq=${variance.toFixed(2)}`} center noMargin className="text-xl" />
           </div>
         </div>

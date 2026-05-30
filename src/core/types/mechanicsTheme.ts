@@ -20,7 +20,7 @@ export type ArrowMarker = 'default' | 'none' | 'dot' | 'reverse';
 export const themeColors: Record<SemanticColor, string> = {
   force: '#71717a',      // zinc-500
   velocity: '#10b981',   // emerald-500
-  accel: '#ffffff',      // white
+  accel: 'var(--foreground)',      // dynamic foreground
   weight: '#fb7185',     // rose-400
   structural: '#52525b', // zinc-600
   connector: '#d4d4d8',  // zinc-300

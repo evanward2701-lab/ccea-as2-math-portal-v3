@@ -21,8 +21,8 @@ const StickFigure: React.FC<{ x: number; y: number; scale?: number; tone?: 'mute
   scale = 1,
   tone = 'muted',
 }) => {
-  const stroke = tone === 'active' ? '#e4e4e7' : '#8b8794';
-  const fill = tone === 'active' ? '#141417' : '#1c1c1f';
+  const stroke = tone === 'active' ? 'var(--foreground)' : 'var(--muted-foreground)';
+  const fill = tone === 'active' ? 'var(--background)' : 'var(--muted)';
 
   return (
     <g transform={`translate(${x}, ${y}) scale(${scale})`} fill="none" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -37,22 +37,22 @@ const StickFigure: React.FC<{ x: number; y: number; scale?: number; tone?: 'mute
 };
 
 const LiftStudyPanel: React.FC<LiftStudyPanelProps> = ({ title, note, equationTitle, equation, children }) => (
-  <div className="flex flex-col gap-4 rounded-xl border border-zinc-800/70 bg-zinc-930/70 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.28)]">
+  <div className="flex flex-col gap-4 rounded-xl border border-primary/20 bg-card p-4 shadow-sm">
     <div className="flex min-h-12 items-start justify-between gap-4">
       <div>
-        <h3 className="font-serif text-2xl font-light leading-none tracking-wide text-zinc-100">{title}</h3>
-        <p className="mt-2 max-w-sm text-xs leading-relaxed text-zinc-500">{note}</p>
+        <h3 className="font-serif text-2xl font-light leading-none tracking-wide text-foreground">{title}</h3>
+        <p className="mt-2 max-w-sm text-xs leading-relaxed text-muted-foreground">{note}</p>
       </div>
     </div>
 
-    <div className="relative aspect-[14/9] w-full overflow-hidden rounded-xl border border-zinc-800/70 bg-zinc-950 shadow-inner">
+    <div className="relative aspect-[14/9] w-full overflow-hidden rounded-xl border border-primary/20 bg-card shadow-inner">
       <SVGLibrary />
       {children}
     </div>
 
-    <div className="rounded-xl border border-zinc-800/80 bg-zinc-925/60 px-5 py-4 text-center shadow-inner">
-      <div className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">{equationTitle}</div>
-      <div className="text-xl font-semibold text-zinc-100">
+    <div className="rounded-xl border border-primary/20 bg-muted/40 px-5 py-4 text-center shadow-sm">
+      <div className="mb-2 text-2.5 font-black uppercase tracking-[0.24em] text-muted-foreground">{equationTitle}</div>
+      <div className="text-xl font-semibold text-foreground">
         <MathInline content={equation} />
       </div>
     </div>
@@ -64,17 +64,17 @@ export const LiftPhysicsSVG: React.FC = () => (
     title="Lift Physics Isolation"
     analysis={
       <div className="grid gap-4 md:grid-cols-2 w-full max-w-5xl mx-auto px-2">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
-          <strong className="text-zinc-100">Whole system:</strong> model the lift and passenger together to find the cable tension.
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-muted-foreground">
+          <strong className="text-foreground">Whole system:</strong> model the lift and passenger together to find the cable tension.
         </div>
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 text-sm leading-relaxed text-zinc-400">
-          <strong className="text-zinc-100">Isolated passenger:</strong> model the passenger alone to find the floor reaction.
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-muted-foreground">
+          <strong className="text-foreground">Isolated passenger:</strong> model the passenger alone to find the floor reaction.
         </div>
-        <div className="rounded-xl border border-rose-500/20 bg-rose-950/10 p-4 text-sm leading-relaxed text-rose-300">
-          <strong className="text-rose-400">Exam trap:</strong> the passenger reaction is internal to the whole system and must not appear in the whole-system equation.
+        <div className="rounded-xl border border-destructive/20 bg-destructive/10 p-4 text-sm leading-relaxed text-destructive">
+          <strong className="text-destructive">Exam trap:</strong> the passenger reaction is internal to the whole system and must not appear in the whole-system equation.
         </div>
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/10 p-4 text-sm leading-relaxed text-emerald-300">
-          <strong className="text-emerald-400">Direction rule:</strong> upward acceleration makes the upward force side larger than the weight side.
+        <div className="rounded-xl border border-primary/20 bg-primary/10 p-4 text-sm leading-relaxed text-primary">
+          <strong className="text-primary">Direction rule:</strong> upward acceleration makes the upward force side larger than the weight side.
         </div>
       </div>
     }
@@ -87,12 +87,11 @@ export const LiftPhysicsSVG: React.FC = () => (
         equation="$T - (m + M)g = (m + M)a$"
       >
         <svg className="absolute inset-0 h-full w-full" viewBox="0 0 420 270" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Whole lift system force diagram">
-          <rect x="22" y="24" width="376" height="222" rx="18" fill="#0f0f12" stroke="#27272a" strokeWidth="1" opacity="0.88" />
-          <SupportSurface x1={116} y1={54} x2={304} y2={54} rough stroke="#52525b" strokeWidth={3} />
-          <line x1="210" y1="54" x2="210" y2="100" stroke="#d4d4d8" strokeWidth="2.5" strokeLinecap="round" />
+          <rect x="22" y="24" width="376" height="222" rx="18" fill="var(--muted)" fillOpacity="0.4" stroke="var(--border)" strokeWidth="1" />
+          <SupportSurface x1={116} y1={54} x2={304} y2={54} rough stroke="var(--muted-foreground)" strokeOpacity="0.5" strokeWidth={3} />
+          <line x1="210" y1="54" x2="210" y2="100" stroke="var(--muted-foreground)" strokeOpacity="0.6" strokeWidth="2.5" strokeLinecap="round" />
 
-          <rect x="144" y="100" width="132" height="100" rx="12" fill="#141417" stroke="#52525b" strokeWidth="2" />
-          <ObjectBlock x={160} y={120} width={100} height={62} isParticle={false} />
+          <rect x="144" y="100" width="132" height="100" rx="12" fill="var(--card)" stroke="var(--primary)" strokeOpacity="0.3" strokeWidth="2" />
           <StickFigure x={210} y={154} scale={0.62} />
 
           <VectorArrow x1={210} y1={102} x2={210} y2={64} type="tension" />
@@ -100,9 +99,9 @@ export const LiftPhysicsSVG: React.FC = () => (
           <VectorArrow x1={82} y1={210} x2={82} y2={148} type="accel" marker="acceleration" />
         </svg>
 
-        <DiagramLabel x="53.5%" y="24%" text="$T$" className="text-base font-black text-blue-400" />
-        <DiagramLabel x="57.5%" y="82%" text="$(m + M)g$" className="text-base font-black text-rose-400" />
-        <DiagramLabel x="23.5%" y="64%" text="$a$" className="text-base font-black text-zinc-100" />
+        <DiagramLabel x="53.5%" y="24%" text="$T$" className="text-base font-black text-primary" />
+        <DiagramLabel x="57.5%" y="82%" text="$(m + M)g$" className="text-base font-black text-destructive" />
+        <DiagramLabel x="23.5%" y="64%" text="$a$" className="text-base font-black text-foreground" />
       </LiftStudyPanel>
 
       <LiftStudyPanel
@@ -112,8 +111,8 @@ export const LiftPhysicsSVG: React.FC = () => (
         equation="$R - mg = ma$"
       >
         <svg className="absolute inset-0 h-full w-full" viewBox="0 0 420 270" fill="none" xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" role="img" aria-label="Isolated passenger force diagram">
-          <rect x="22" y="24" width="376" height="222" rx="18" fill="#0f0f12" stroke="#27272a" strokeWidth="1" opacity="0.88" />
-          <SupportSurface x1={122} y1={188} x2={298} y2={188} stroke="#52525b" strokeWidth={3} />
+          <rect x="22" y="24" width="376" height="222" rx="18" fill="var(--muted)" fillOpacity="0.4" stroke="var(--border)" strokeWidth="1" />
+          <SupportSurface x1={122} y1={188} x2={298} y2={188} stroke="var(--primary)" strokeOpacity="0.4" strokeWidth={3} />
           <StickFigure x={210} y={118} scale={0.88} tone="active" />
 
           <VectorArrow x1={210} y1={84} x2={210} y2={42} type="reaction" />
@@ -121,9 +120,9 @@ export const LiftPhysicsSVG: React.FC = () => (
           <VectorArrow x1={86} y1={178} x2={86} y2={118} type="accel" marker="acceleration" />
         </svg>
 
-        <DiagramLabel x="55.5%" y="22%" text="$R$" className="text-base font-black text-emerald-400" />
-        <DiagramLabel x="55.5%" y="80.5%" text="$mg$" className="text-base font-black text-rose-400" />
-        <DiagramLabel x="23.5%" y="56%" text="$a$" className="text-base font-black text-zinc-100" />
+        <DiagramLabel x="55.5%" y="22%" text="$R$" className="text-base font-black text-primary" />
+        <DiagramLabel x="55.5%" y="80.5%" text="$mg$" className="text-base font-black text-destructive" />
+        <DiagramLabel x="23.5%" y="56%" text="$a$" className="text-base font-black text-foreground" />
       </LiftStudyPanel>
     </div>
   </DiagramPanel>

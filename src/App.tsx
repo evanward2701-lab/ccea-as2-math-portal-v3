@@ -8,6 +8,7 @@ import CompareDerivationDiagramsPage from "./pages/CompareDerivationDiagramsPage
 import { cn } from "@/core/utils/cn";
 import { LESSONS as AS2_LESSONS } from "@/modules/AS2/data/lessons";
 import { LESSONS as AS1_LESSONS } from "@/modules/AS1/data/lessons";
+import { LESSONS as A21_LESSONS } from "@/modules/A21/data/lessons";
 import { QualificationProvider, useQualification } from "@/core/context/QualificationContext";
 import { GlobalNav } from "@/core/components/GlobalNav";
 
@@ -24,7 +25,7 @@ function AppLayout() {
     { name: "Compare Diagrams", path: "/compare", icon: BrainCircuit },
   ];
 
-  const currentLessons = activeQualification === 'AS1' ? AS1_LESSONS : activeQualification === 'AS2' ? AS2_LESSONS : [];
+  const currentLessons = activeQualification === 'AS1' ? AS1_LESSONS : activeQualification === 'AS2' ? AS2_LESSONS : activeQualification === 'A2' ? A21_LESSONS : [];
 
   return (
     <div className="flex flex-col h-screen bg-background text-foreground font-sans overflow-hidden select-none">

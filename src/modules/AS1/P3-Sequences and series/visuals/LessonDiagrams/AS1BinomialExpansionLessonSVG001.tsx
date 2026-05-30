@@ -1,13 +1,11 @@
 import React from 'react';
 import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
+import { LuxurySVGWrapper } from '@/core/diagram-engine/LuxurySVGWrapper';
 
 const svgSource = "<svg width=\"650\" height=\"220\" viewBox=\"0 0 650 220\" xmlns=\"http://www.w3.org/2000/svg\">\n  <style>\n    text { font-family: sans-serif; font-size: 14px; }\n  </style>\n  <!-- Row 0 -->\n  <text x=\"325\" y=\"20\">1</text>\n  <!-- Row 1 -->\n  <text x=\"300\" y=\"40\">1</text>\n  <text x=\"350\" y=\"40\">1</text>\n  <!-- Row 2 -->\n  <text x=\"280\" y=\"60\">1</text>\n  <text x=\"350\" y=\"60\">2</text>\n  <text x=\"420\" y=\"60\">1</text>\n  <!-- Row 3 -->\n  <text x=\"240\" y=\"80\">1</text>\n  <text x=\"310\" y=\"80\">3</text>\n  <text x=\"380\" y=\"80\">3</text>\n  <text x=\"450\" y=\"80\">1</text>\n  <!-- Row 4 -->\n  <text x=\"200\" y=\"100\">1</text>\n  <text x=\"270\" y=\"100\">4</text>\n  <text x=\"340\" y=\"100\">6</text>\n  <text x=\"410\" y=\"100\">4</text>\n  <text x=\"480\" y=\"100\">1</text>\n  <!-- Row 5 -->\n  <text x=\"160\" y=\"120\">1</text>\n  <text x=\"230\" y=\"120\">5</text>\n  <text x=\"300\" y=\"120\">10</text>\n  <text x=\"370\" y=\"120\">10</text>\n  <text x=\"440\" y=\"120\">5</text>\n  <text x=\"510\" y=\"120\">1</text>\n  <!-- Row 6 -->\n  <text x=\"120\" y=\"140\">1</text>\n  <text x=\"190\" y=\"140\">6</text>\n  <text x=\"260\" y=\"140\">15</text>\n  <text x=\"330\" y=\"140\">20</text>\n  <text x=\"400\" y=\"140\">15</text>\n  <text x=\"470\" y=\"140\">6</text>\n  <text x=\"540\" y=\"140\">1</text>\n  <!-- Row 7 -->\n  <text x=\"80\" y=\"160\">1</text>\n  <text x=\"150\" y=\"160\">7</text>\n  <text x=\"220\" y=\"160\">21</text>\n  <text x=\"290\" y=\"160\">35</text>\n  <text x=\"360\" y=\"160\">35</text>\n  <text x=\"430\" y=\"160\">21</text>\n  <text x=\"500\" y=\"160\">7</text>\n  <text x=\"570\" y=\"160\">1</text>\n  <!-- Row 8 -->\n  <text x=\"40\" y=\"180\">1</text>\n  <text x=\"110\" y=\"180\">8</text>\n  <text x=\"180\" y=\"180\">28</text>\n  <text x=\"250\" y=\"180\">56</text>\n  <text x=\"320\" y=\"180\">70</text>\n  <text x=\"390\" y=\"180\">56</text>\n  <text x=\"460\" y=\"180\">28</text>\n  <text x=\"530\" y=\"180\">8</text>\n  <text x=\"600\" y=\"180\">1</text>\n</svg>";
 
 export const AS1BinomialExpansionLessonSVG001: React.FC = () => (
   <DiagramPanel title={"Pascal’s Triangle up to $n=8$"} analysis={null}>
-    <div
-      className="w-full max-h-[560px] overflow-auto text-zinc-100 [&_svg]:max-w-full [&_svg]:h-auto"
-      dangerouslySetInnerHTML={{ __html: svgSource }}
-    />
+    <LuxurySVGWrapper svgSource={svgSource} className="w-full max-h-[560px] overflow-auto text-foreground [&_svg]:max-w-full [&_svg]:h-auto" />
   </DiagramPanel>
 );

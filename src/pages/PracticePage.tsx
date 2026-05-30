@@ -22,24 +22,24 @@ export function PracticePage() {
   const title = currentLesson ? currentLesson.title : moduleId;
 
   return (
-    <div className="p-8 max-w-7xl mx-auto w-full flex flex-col gap-8 bg-background text-zinc-100 min-h-screen">
+    <div className="p-8 max-w-7xl mx-auto w-full flex flex-col gap-8 bg-background text-foreground min-h-screen">
       <header className="mb-6">
         <Link 
           to="/practice"
-          className="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-200 text-2.5 font-mono font-bold uppercase tracking-widest transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary text-2.5 font-mono font-bold uppercase tracking-widest transition-colors mb-8"
         >
           <ArrowLeft className="w-3 h-3" />
           Back to Practice Matrix
         </Link>
-        <div className="flex items-end gap-6 border-b border-zinc-800 pb-8">
-          <div className="bg-zinc-800 border border-zinc-700 text-zinc-400 px-4 py-2 rounded-lg font-mono font-bold text-sm tracking-widest shadow-sm">
+        <div className="flex items-end gap-6 border-b border-primary/10 pb-8">
+          <div className="bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-lg font-mono font-bold text-sm tracking-widest shadow-sm">
             {moduleId}
           </div>
           <div className="flex flex-col gap-2">
-            <h1 className="text-4xl font-serif text-zinc-100 tracking-wide">
+            <h1 className="text-4xl font-serif text-foreground tracking-wide">
               {title}
             </h1>
-            <h2 className="text-2.75 uppercase tracking-widest font-mono text-zinc-400 font-bold">
+            <h2 className="text-2.75 uppercase tracking-widest font-mono text-muted-foreground font-bold">
               {topic === "General" ? "Full Module Practice Bank" : `Topic Focus: ${topic}`}
             </h2>
           </div>
@@ -48,9 +48,9 @@ export function PracticePage() {
 
       <main className="flex flex-col gap-8 max-w-5xl mx-auto w-full">
         {moduleQuestions.length === 0 ? (
-          <div className="p-16 text-center border border-dashed border-zinc-800 rounded-3xl bg-zinc-900/20">
-            <p className="text-zinc-500 font-serif italic mb-2">No practice questions active for this sector.</p>
-            <p className="text-zinc-600 font-mono text-2.5 uppercase tracking-widest">Select another module or topic.</p>
+          <div className="p-16 text-center border border-dashed border-primary/20 rounded-3xl bg-muted/30">
+            <p className="text-muted-foreground font-serif italic mb-2">No practice questions active for this sector.</p>
+            <p className="text-primary font-mono text-2.5 uppercase tracking-widest">Select another module or topic.</p>
           </div>
         ) : (
           moduleQuestions.map((q, index) => (

@@ -12,18 +12,18 @@ const strata = [
 
 const accentClasses = {
   emerald: {
-    border: 'border-emerald-400',
-    softBorder: 'border-emerald-500/25',
-    text: 'text-emerald-300',
-    muted: 'text-emerald-400',
-    bg: 'bg-emerald-950/10',
+    border: 'border-primary',
+    softBorder: 'border-primary/25',
+    text: 'text-primary',
+    muted: 'text-primary',
+    bg: 'bg-primary/10',
   },
   amber: {
-    border: 'border-amber-400',
-    softBorder: 'border-amber-500/25',
-    text: 'text-amber-300',
-    muted: 'text-amber-400',
-    bg: 'bg-amber-950/10',
+    border: 'border-primary',
+    softBorder: 'border-primary/25',
+    text: 'text-primary',
+    muted: 'text-primary',
+    bg: 'bg-primary/10',
   },
   purple: {
     border: 'border-purple-400',
@@ -40,13 +40,13 @@ export const StratifiedProportionVisual: React.FC = () => (
     analysis={
       <div className="space-y-5">
         <div className="space-y-2">
-          <h4 className="text-2.5 font-black uppercase tracking-[0.22em] text-zinc-500">
+          <h4 className="text-2.5 font-black uppercase tracking-[0.22em] text-muted-foreground">
             Mathematical Allocation Pipeline
           </h4>
-          <p className="text-sm leading-relaxed text-zinc-400">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             To keep the sample proportional, each stratum receives the same fraction of the target sample as it has in the population.
           </p>
-          <div className="rounded-lg border border-emerald-500/20 bg-zinc-925 px-4 py-3 text-center text-emerald-300">
+          <div className="rounded-lg border border-primary/20 bg-card px-4 py-3 text-center text-primary">
             <MathText
               content="\\text{Stratum sample}=\\frac{\\text{Stratum population}}{\\text{Total population}}\\times\\text{Sample size}"
               noMargin
@@ -65,12 +65,12 @@ export const StratifiedProportionVisual: React.FC = () => (
               >
                 <div>
                   <div className={`text-sm font-black ${colors.text}`}>{year}</div>
-                  <div className="text-2.5 uppercase tracking-[0.18em] text-zinc-500">Sample</div>
+                  <div className="text-2.5 uppercase tracking-[0.18em] text-muted-foreground">Sample</div>
                 </div>
-                <div className="rounded-md border border-zinc-800/70 bg-zinc-950/55 px-3 py-2 text-center">
+                <div className="rounded-md border border-primary/20 bg-card px-3 py-2 text-center">
                   <MathText content={`\\frac{${population}}{300}\\times 60=${sample}`} noMargin />
                 </div>
-                <div className={`rounded-md border ${colors.softBorder} bg-zinc-950/55 px-3 py-2 text-center text-sm font-black ${colors.text}`}>
+                <div className={`rounded-md border ${colors.softBorder} bg-card px-3 py-2 text-center text-sm font-black ${colors.text}`}>
                   {sample}
                 </div>
               </div>
@@ -78,14 +78,14 @@ export const StratifiedProportionVisual: React.FC = () => (
           })}
         </div>
 
-        <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 px-4 py-3 text-center font-mono text-sm text-zinc-400">
-          Verification: <span className="text-zinc-100">24 + 20 + 16 = 60</span>
+        <div className="rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-center font-mono text-sm text-muted-foreground">
+          Verification: <span className="text-foreground">24 + 20 + 16 = 60</span>
         </div>
       </div>
     }
   >
     <div className="w-full max-w-5xl space-y-6">
-      <div className="overflow-x-auto rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+      <div className="overflow-x-auto rounded-xl border border-primary/20 bg-card shadow-inner">
         <div className="relative mx-auto aspect-16/7 min-h-[360px] w-full min-w-[860px] overflow-hidden">
           <SVGLibrary />
           <svg
@@ -105,9 +105,9 @@ export const StratifiedProportionVisual: React.FC = () => (
             <VectorArrow x1={503} y1={316} x2={685} y2={210} type="structural" marker="default" strokeWidth={2.2} dashed />
           </svg>
 
-          <div className="absolute left-[2%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-zinc-400 bg-zinc-950/70 px-5 text-center shadow-xl">
-            <div className="text-sm font-black uppercase tracking-[0.18em] text-zinc-100">Total Population</div>
-            <div className="mt-1 font-mono text-sm text-zinc-400">N = 300</div>
+          <div className="absolute left-[2%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-zinc-400 bg-card px-5 text-center shadow-xl">
+            <div className="text-sm font-black uppercase tracking-[0.18em] text-foreground">Total Population</div>
+            <div className="mt-1 font-mono text-sm text-muted-foreground">N = 300</div>
           </div>
 
           <div className="absolute left-[33%] top-1/2 grid w-60 -translate-y-1/2 gap-5">
@@ -123,10 +123,10 @@ export const StratifiedProportionVisual: React.FC = () => (
                     <div className={`truncate text-sm font-black uppercase tracking-[0.12em] ${colors.text}`}>
                       {year} Strata
                     </div>
-                    <div className="mt-1 font-mono text-xs text-zinc-400">Population {population}</div>
+                    <div className="mt-1 font-mono text-xs text-muted-foreground">Population {population}</div>
                   </div>
-                  <div className={`shrink-0 rounded-md border ${colors.softBorder} bg-zinc-950/55 px-3 py-2 text-center ${colors.muted}`}>
-                    <div className="text-2.5 uppercase tracking-[0.14em] text-zinc-500">Sample</div>
+                  <div className={`shrink-0 rounded-md border ${colors.softBorder} bg-card px-3 py-2 text-center ${colors.muted}`}>
+                    <div className="text-2.5 uppercase tracking-[0.14em] text-muted-foreground">Sample</div>
                     <div className="font-mono text-sm font-black">{sample}</div>
                   </div>
                 </div>
@@ -134,9 +134,9 @@ export const StratifiedProportionVisual: React.FC = () => (
             })}
           </div>
 
-          <div className="absolute right-[6%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-dashed border-rose-500 bg-rose-950/10 px-5 text-center shadow-xl">
-            <div className="text-sm font-black uppercase tracking-[0.16em] text-zinc-100">Target Sample</div>
-            <div className="mt-1 font-mono text-sm text-rose-300">n = 60</div>
+          <div className="absolute right-[6%] top-1/2 flex h-28 w-52 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-dashed border-destructive bg-destructive/10 px-5 text-center shadow-xl">
+            <div className="text-sm font-black uppercase tracking-[0.16em] text-foreground">Target Sample</div>
+            <div className="mt-1 font-mono text-sm text-destructive">n = 60</div>
           </div>
         </div>
       </div>

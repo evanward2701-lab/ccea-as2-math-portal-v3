@@ -25,7 +25,7 @@ export const M3ConnectedParticlesMermaid: React.FC = () => {
     <DiagramPanel
       title="Connected Particles Logic"
       analysis={
-        <p className="text-sm text-zinc-400 italic text-center">
+        <p className="text-sm text-muted-foreground italic text-center">
           The internal tension cancels out when modelling the system as a whole.
         </p>
       }

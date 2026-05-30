@@ -23,27 +23,27 @@ export const S1HistogramBoundaryMorph: React.FC = () => {
       title="Fig. Histogram Class Boundaries"
       analysis={
         <div className="space-y-4">
-          <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-            <h4 className="font-bold text-zinc-400 mb-2 text-sm uppercase tracking-wider">Class Width</h4>
-            <p className="text-sm text-zinc-300 leading-relaxed mb-2">For continuous data, the class width is the difference between the upper and lower boundaries.</p>
-            <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+          <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+            <h4 className="font-bold text-muted-foreground mb-2 text-sm uppercase tracking-wider">Class Width</h4>
+            <p className="text-sm text-foreground leading-relaxed mb-2">For continuous data, the class width is the difference between the upper and lower boundaries.</p>
+            <div className="text-center bg-card p-2 rounded border border-primary/20">
               <MathText content="\\text{Width} = \\text{Upper Boundary} - \\text{Lower Boundary}" />
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> For continuous grouped data, class limits like '10-14' and '15-19' must be converted to true boundaries '9.5-14.5' and '14.5-19.5'. The class width for '10-14' is 5, not 4.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> For continuous grouped data, class limits like '10-14' and '15-19' must be converted to true boundaries '9.5-14.5' and '14.5-19.5'. The class width for '10-14' is 5, not 4.
           </div>
         </div>
       }
     >
       <div className="w-full flex flex-col items-center">
-        <div className="flex space-x-2 mb-8 p-1 bg-zinc-900 border border-zinc-800 rounded-lg">
+        <div className="flex space-x-2 mb-8 p-1 bg-primary/5 border border-primary/20 rounded-lg">
           <button
             onClick={() => setIsContinuous(false)}
             className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors ${
               !isContinuous
-                ? 'bg-amber-500 text-zinc-950'
-                : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
+                ? 'bg-primary text-zinc-950'
+                : 'bg-transparent text-muted-foreground hover:bg-muted/30'
             }`}
           >
             Class Limits
@@ -52,8 +52,8 @@ export const S1HistogramBoundaryMorph: React.FC = () => {
             onClick={() => setIsContinuous(true)}
             className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors ${
               isContinuous
-                ? 'bg-emerald-500 text-zinc-950'
-                : 'bg-transparent text-zinc-400 hover:bg-zinc-800'
+                ? 'bg-primary text-zinc-950'
+                : 'bg-transparent text-muted-foreground hover:bg-muted/30'
             }`}
           >
             Class Boundaries

@@ -28,7 +28,7 @@ export const M2KinematicsMermaid: React.FC = () => {
     <DiagramPanel
       title="Kinematics Conceptual Map"
       analysis={
-        <p className="text-sm text-zinc-400 italic text-center">
+        <p className="text-sm text-muted-foreground italic text-center">
           In 2D motion, we treat horizontal and vertical components as independent 1D problems.
         </p>
       }

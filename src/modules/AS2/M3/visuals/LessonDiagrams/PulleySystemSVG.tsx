@@ -10,23 +10,23 @@ export const PulleySystemSVG: React.FC = () => (
     title="Fig 2. Connected Particles"
     analysis={
       <div className="space-y-3">
-        <p className="text-sm text-zinc-400 italic text-center">
+        <p className="text-sm text-muted-foreground italic text-center">
           A smooth pulley ensures tension T is equal on both sides. The inextensible string ensures acceleration a is equal in magnitude.
         </p>
-        <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <h4 className="font-bold text-emerald-400 mb-2 text-sm">Smooth Pulley</h4>
-          <p className="text-sm text-zinc-300 leading-relaxed mb-2">Tension is equal on both sides of the string.</p>
-          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">T is equal on both sides</div>
+        <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+          <h4 className="font-bold text-primary mb-2 text-sm">Smooth Pulley</h4>
+          <p className="text-sm text-foreground leading-relaxed mb-2">Tension is equal on both sides of the string.</p>
+          <div className="text-center bg-card p-2 rounded border border-primary/20 text-sm text-foreground">T is equal on both sides</div>
         </div>
-        <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-          <h4 className="font-bold text-amber-400 mb-2 text-sm">Inextensible String</h4>
-          <p className="text-sm text-zinc-300 leading-relaxed mb-2">Both connected masses share the same acceleration magnitude.</p>
-          <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60 text-sm text-zinc-300">a is common to both masses</div>
+        <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+          <h4 className="font-bold text-primary mb-2 text-sm">Inextensible String</h4>
+          <p className="text-sm text-foreground leading-relaxed mb-2">Both connected masses share the same acceleration magnitude.</p>
+          <div className="text-center bg-card p-2 rounded border border-primary/20 text-sm text-foreground">a is common to both masses</div>
         </div>
       </div>
     }
   >
-    <div className="relative mx-auto aspect-80/46 w-full max-w-4xl overflow-hidden rounded-2xl border border-zinc-800/70 bg-zinc-925 shadow-inner">
+    <div className="relative mx-auto aspect-80/46 w-full max-w-4xl overflow-hidden rounded-2xl border border-primary/20 bg-card shadow-inner">
       <SVGLibrary />
       <svg
         className="absolute inset-0 h-full w-full"
@@ -67,18 +67,18 @@ export const PulleySystemSVG: React.FC = () => (
         <VectorArrow x1={540} y1={305} x2={540} y2={217} type="velocity" marker="acceleration" strokeWidth={2.7} />
       </svg>
 
-      <DiagramLabel x="37%" y="50%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
-      <DiagramLabel x="54.5%" y="39%" text="T" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-blue-300" />
+      <DiagramLabel x="37%" y="50%" text="T" className="rounded-md bg-card/90 px-2 py-1 text-lg text-primary" />
+      <DiagramLabel x="54.5%" y="39%" text="T" className="rounded-md bg-card/90 px-2 py-1 text-lg text-primary" />
 
-      <DiagramLabel x="39.25%" y="91%" text="m_1g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
-      <DiagramLabel x="49.75%" y="76.5%" text="m_2g" className="rounded-md bg-zinc-925/90 px-2 py-1 text-base text-rose-300" />
+      <DiagramLabel x="39.25%" y="91%" text="m_1g" className="rounded-md bg-card/90 px-2 py-1 text-base text-destructive" />
+      <DiagramLabel x="49.75%" y="76.5%" text="m_2g" className="rounded-md bg-card/90 px-2 py-1 text-base text-destructive" />
 
-      <DiagramLabel x="25%" y="70%" text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
-      <DiagramLabel x="69%" y="55%" text="a" className="rounded-md bg-zinc-925/90 px-2 py-1 text-lg text-emerald-300" />
+      <DiagramLabel x="25%" y="70%" text="a" className="rounded-md bg-card/90 px-2 py-1 text-lg text-primary" />
+      <DiagramLabel x="69%" y="55%" text="a" className="rounded-md bg-card/90 px-2 py-1 text-lg text-primary" />
 
-      <div className="absolute left-[7%] top-[8%] rounded-lg border border-zinc-800/80 bg-zinc-950/35 px-4 py-3 shadow-xl">
-        <p className="font-serif text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">smooth pulley</p>
-        <p className="mt-1 text-xs font-semibold text-zinc-400">equal tension, common acceleration</p>
+      <div className="absolute left-[7%] top-[8%] rounded-lg border border-primary/20 bg-card px-4 py-3 shadow-xl">
+        <p className="font-serif text-2.5 font-black uppercase tracking-[0.24em] text-muted-foreground">smooth pulley</p>
+        <p className="mt-1 text-xs font-semibold text-muted-foreground">equal tension, common acceleration</p>
       </div>
     </div>
   </DiagramPanel>

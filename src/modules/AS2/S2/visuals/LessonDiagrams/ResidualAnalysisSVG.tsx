@@ -21,17 +21,17 @@ export const ResidualAnalysisSVG: React.FC = () => (
     title="Fig 6. Diagnostic Residual Analysis"
     analysis={
       <div className="mx-auto grid w-full max-w-5xl gap-4 md:grid-cols-[1fr_1fr]">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/45 p-4 text-sm leading-relaxed text-zinc-300 shadow-sm">
-          <span className="font-bold text-zinc-100">Residual check:</span> a random spread around zero supports a linear model.
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-relaxed text-foreground shadow-sm">
+          <span className="font-bold text-foreground">Residual check:</span> a random spread around zero supports a linear model.
         </div>
-        <div className="rounded-xl border border-rose-500/30 bg-rose-950/20 p-4 text-sm leading-relaxed text-rose-200 shadow-sm">
-          <span className="font-bold text-rose-300">CCEA Exam Pitfall:</span> a clear pattern in residuals invalidates a linear regression model, even when PMCC is strong.
+        <div className="rounded-xl border border-destructive/30 bg-destructive/20 p-4 text-sm leading-relaxed text-destructive shadow-sm">
+          <span className="font-bold text-destructive">CCEA Exam Pitfall:</span> a clear pattern in residuals invalidates a linear regression model, even when PMCC is strong.
         </div>
       </div>
     }
   >
-    <div className="mx-auto w-full max-w-5xl rounded-2xl border border-zinc-800/80 bg-zinc-950/40 p-5 shadow-2xl">
-      <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/60 shadow-inner">
+    <div className="mx-auto w-full max-w-5xl rounded-2xl border border-primary/20 bg-card p-5 shadow-2xl">
+      <div className="relative aspect-16/9 overflow-hidden rounded-xl border border-primary/20 bg-card shadow-inner">
         <svg
           viewBox="0 0 960 540"
           className="absolute inset-0 h-full w-full"
@@ -43,13 +43,13 @@ export const ResidualAnalysisSVG: React.FC = () => (
         >
           <ArrowLibrary />
 
-          <rect x="92" y="66" width="792" height="408" rx="26" fill="#09090b" fillOpacity="0.42" stroke="#27272a" strokeWidth="1.2" />
+          <rect x="92" y="66" width="792" height="408" rx="26" fill="var(--background)" fillOpacity="0.42" stroke="var(--border)" strokeWidth="1.2" />
 
           <g opacity="0.2">
-            <path d="M154 146 H820" stroke="#27272a" strokeWidth="1" />
-            <path d="M154 222 H820" stroke="#27272a" strokeWidth="1" />
-            <path d="M154 374 H820" stroke="#27272a" strokeWidth="1" />
-            <path d="M154 450 H820" stroke="#27272a" strokeWidth="1" />
+            <path d="M154 146 H820" stroke="var(--border)" strokeWidth="1" />
+            <path d="M154 222 H820" stroke="var(--border)" strokeWidth="1" />
+            <path d="M154 374 H820" stroke="var(--border)" strokeWidth="1" />
+            <path d="M154 450 H820" stroke="var(--border)" strokeWidth="1" />
           </g>
 
           <VectorArrow x1={154} y1={438} x2={154} y2={96} type="structural" strokeWidth={2.2} />
@@ -77,25 +77,25 @@ export const ResidualAnalysisSVG: React.FC = () => (
           />
 
           {residualPoints.map(([cx, cy], index) => (
-            <circle key={`residual-point-${index}`} cx={cx} cy={cy} r="10.5" fill="#fb7185" stroke="#09090b" strokeWidth="2.2" />
+            <circle key={`residual-point-${index}`} cx={cx} cy={cy} r="10.5" fill="#fb7185" stroke="var(--background)" strokeWidth="2.2" />
           ))}
 
-          <circle cx="154" cy="298" r="3.5" fill="#71717a" />
+          <circle cx="154" cy="298" r="3.5" fill="var(--muted-foreground)" />
         </svg>
 
-        <DiagramLabel x="14.5%" y="14%" text="e" className="text-lg text-zinc-300" />
-        <DiagramLabel x="91.5%" y="54.5%" text="x" className="text-lg text-zinc-300" />
+        <DiagramLabel x="14.5%" y="14%" text="e" className="text-lg text-foreground" />
+        <DiagramLabel x="91.5%" y="54.5%" text="x" className="text-lg text-foreground" />
 
         <DiagramLabel x="80%" y="46%" className="text-center">
-          <div className="rounded-lg border border-emerald-500/25 bg-emerald-950/15 px-3 py-1.5 text-2.5 font-bold uppercase tracking-[0.22em] text-emerald-300 shadow-lg backdrop-blur-sm">
+          <div className="rounded-lg border border-primary/25 bg-primary/15 px-3 py-1.5 text-2.5 font-bold uppercase tracking-[0.22em] text-primary shadow-lg backdrop-blur-sm">
             residual = 0
           </div>
         </DiagramLabel>
 
         <DiagramLabel x="70%" y="22%" className="text-center">
-          <div className="max-w-72 rounded-xl border border-rose-500/30 bg-rose-950/20 px-4 py-3 text-left shadow-2xl backdrop-blur-sm">
-            <div className="mb-1 text-2.5 font-black uppercase tracking-[0.24em] text-rose-400">Curved Pattern</div>
-            <div className="text-xs font-semibold leading-snug text-zinc-300">
+          <div className="max-w-72 rounded-xl border border-destructive/30 bg-destructive/20 px-4 py-3 text-left shadow-2xl backdrop-blur-sm">
+            <div className="mb-1 text-2.5 font-black uppercase tracking-[0.24em] text-destructive">Curved Pattern</div>
+            <div className="text-xs font-semibold leading-snug text-foreground">
               Structure in the residuals points away from a linear model.
             </div>
           </div>
@@ -103,17 +103,17 @@ export const ResidualAnalysisSVG: React.FC = () => (
       </div>
 
       <div className="mt-4 grid gap-3 md:grid-cols-3">
-        <div className="rounded-xl border border-emerald-500/25 bg-emerald-950/10 p-4 shadow-sm">
-          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-emerald-300">Target</div>
-          <p className="text-sm leading-relaxed text-zinc-300">Residuals should scatter randomly above and below zero.</p>
+        <div className="rounded-xl border border-primary/25 bg-primary/10 p-4 shadow-sm">
+          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-primary">Target</div>
+          <p className="text-sm leading-relaxed text-foreground">Residuals should scatter randomly above and below zero.</p>
         </div>
-        <div className="rounded-xl border border-rose-500/25 bg-rose-950/15 p-4 shadow-sm">
-          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-rose-300">Warning</div>
-          <p className="text-sm leading-relaxed text-zinc-300">A visible curve suggests the relationship is non-linear.</p>
+        <div className="rounded-xl border border-destructive/25 bg-destructive/15 p-4 shadow-sm">
+          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-destructive">Warning</div>
+          <p className="text-sm leading-relaxed text-foreground">A visible curve suggests the relationship is non-linear.</p>
         </div>
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/45 p-4 shadow-sm">
-          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-zinc-500">Decision</div>
-          <p className="text-sm leading-relaxed text-zinc-300">Use the residual plot as a model check after fitting the regression line.</p>
+        <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 shadow-sm">
+          <div className="mb-1 text-2.5 font-black uppercase tracking-[0.22em] text-muted-foreground">Decision</div>
+          <p className="text-sm leading-relaxed text-foreground">Use the residual plot as a model check after fitting the regression line.</p>
         </div>
       </div>
     </div>

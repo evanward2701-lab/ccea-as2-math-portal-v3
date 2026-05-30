@@ -12,29 +12,29 @@ export const InterpolationLineSVG: React.FC = () => (
     title="Fig 5. Linear Interpolation Setup"
     analysis={
       <div className="space-y-4">
-        <div className="rounded-lg border border-zinc-800 bg-zinc-900/45 p-4">
-          <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-zinc-500">Assumption</h4>
-          <p className="text-sm text-zinc-300 leading-relaxed">
+        <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+          <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-muted-foreground">Assumption</h4>
+          <p className="text-sm text-foreground leading-relaxed">
             Interpolation assumes values are evenly distributed across the class interval. It maps the fraction of the cumulative-frequency gap directly onto the same fraction of the class width.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-lg border border-amber-500/25 bg-amber-950/10 p-4">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-amber-400">Frequency Fraction</h4>
-            <p className="mb-3 text-sm leading-relaxed text-zinc-300">
+          <div className="rounded-lg border border-primary/25 bg-primary/10 p-4">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-primary">Frequency Fraction</h4>
+            <p className="mb-3 text-sm leading-relaxed text-foreground">
             Move 5 out of the total 12 cumulative-frequency gap.
             </p>
-            <div className="flex min-h-16 items-center justify-center rounded-md border border-zinc-800/70 bg-zinc-950/55 px-4 pb-3 pt-4 text-center text-zinc-100">
+            <div className="flex min-h-16 items-center justify-center rounded-md border border-primary/20 bg-card px-4 pb-3 pt-4 text-center text-foreground">
               <MathText content="{\\large \\frac{10-5}{17-5}=\\frac{5}{12}}" className="translate-y-1 [&_p]:leading-none" noMargin />
             </div>
           </div>
 
-          <div className="rounded-lg border border-emerald-500/25 bg-emerald-950/10 p-4">
-            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-emerald-400">Class-width Fraction</h4>
-            <p className="mb-3 text-sm leading-relaxed text-zinc-300">
+          <div className="rounded-lg border border-primary/25 bg-primary/10 p-4">
+            <h4 className="mb-2 text-2.5 font-black uppercase tracking-[0.22em] text-primary">Class-width Fraction</h4>
+            <p className="mb-3 text-sm leading-relaxed text-foreground">
             Apply the same fraction across the class width from 10 to 20.
             </p>
-            <div className="flex min-h-16 items-center justify-center rounded-md border border-zinc-800/70 bg-zinc-950/55 px-4 pb-3 pt-4 text-center text-zinc-100">
+            <div className="flex min-h-16 items-center justify-center rounded-md border border-primary/20 bg-card px-4 pb-3 pt-4 text-center text-foreground">
               <MathText content="{\\large Q_2=10+\\frac{5}{12}(20-10)}" className="translate-y-1 [&_p]:leading-none" noMargin />
             </div>
           </div>
@@ -43,7 +43,7 @@ export const InterpolationLineSVG: React.FC = () => (
     }
   >
     <div className="mx-auto w-full max-w-5xl space-y-4">
-      <div className="relative aspect-16/8 w-full overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-925 shadow-inner">
+      <div className="relative aspect-16/8 w-full overflow-hidden rounded-xl border border-primary/20 bg-card shadow-inner">
         <svg
           viewBox="0 0 900 450"
           className="absolute inset-0 h-full w-full"
@@ -92,64 +92,64 @@ export const InterpolationLineSVG: React.FC = () => (
         </svg>
 
         <DiagramLabel x="13%" y="26%">
-          <div className="w-32 text-right text-2.5 font-bold uppercase leading-tight tracking-[0.14em] text-zinc-500">
+          <div className="w-32 text-right text-2.5 font-bold uppercase leading-tight tracking-[0.14em] text-muted-foreground">
             Cumulative<br />Frequency
           </div>
         </DiagramLabel>
 
         <DiagramLabel x="25.6%" y="16%">
-          <MathInline content="5" className="text-zinc-200 [&_.katex]:text-lg" />
+          <MathInline content="5" className="text-foreground [&_.katex]:text-lg" />
         </DiagramLabel>
         <DiagramLabel x="49.2%" y="16%">
-          <MathInline content="10" className="text-zinc-200 [&_.katex]:text-lg" />
+          <MathInline content="10" className="text-foreground [&_.katex]:text-lg" />
         </DiagramLabel>
         <DiagramLabel x="82.2%" y="16%">
-          <MathInline content="17" className="text-zinc-200 [&_.katex]:text-lg" />
+          <MathInline content="17" className="text-foreground [&_.katex]:text-lg" />
         </DiagramLabel>
 
         <DiagramLabel x="37.4%" y="36%">
-          <div className="rounded-md border border-slate-700/60 bg-zinc-950/55 px-3 py-1 font-serif text-sm italic text-slate-300">
+          <div className="rounded-md border border-slate-700/60 bg-card px-3 py-1 font-serif text-sm italic text-slate-300">
             gap = 5
           </div>
         </DiagramLabel>
         <DiagramLabel x="54%" y="43%">
-          <div className="rounded-md border border-slate-700/60 bg-zinc-950/55 px-3 py-1 font-serif text-sm italic text-slate-300">
+          <div className="rounded-md border border-slate-700/60 bg-card px-3 py-1 font-serif text-sm italic text-slate-300">
             total = 12
           </div>
         </DiagramLabel>
 
         <DiagramLabel x="13%" y="55%">
-          <div className="w-32 text-right text-2.5 font-bold uppercase leading-tight tracking-[0.14em] text-zinc-500">
+          <div className="w-32 text-right text-2.5 font-bold uppercase leading-tight tracking-[0.14em] text-muted-foreground">
             Class<br />Width
           </div>
         </DiagramLabel>
 
         <DiagramLabel x="25.6%" y="63.5%">
-          <MathInline content="10" className="text-zinc-200 [&_.katex]:text-lg" />
+          <MathInline content="10" className="text-foreground [&_.katex]:text-lg" />
         </DiagramLabel>
         <DiagramLabel x="49.2%" y="63.5%">
-          <div className="rounded-md border border-emerald-500/25 bg-emerald-950/45 px-2 py-1 text-emerald-200 shadow-xl">
+          <div className="rounded-md border border-primary/25 bg-primary/45 px-2 py-1 text-primary shadow-xl">
             <MathInline content="Q_2" className="[&_.katex]:text-xl" />
           </div>
         </DiagramLabel>
         <DiagramLabel x="82.2%" y="63.5%">
-          <MathInline content="20" className="text-zinc-200 [&_.katex]:text-lg" />
+          <MathInline content="20" className="text-foreground [&_.katex]:text-lg" />
         </DiagramLabel>
 
         <DiagramLabel x="54%" y="73%">
-          <div className="rounded-md border border-emerald-500/25 bg-emerald-950/20 px-3 py-1 font-serif text-sm italic text-emerald-300">
+          <div className="rounded-md border border-primary/25 bg-primary/20 px-3 py-1 font-serif text-sm italic text-primary">
             class width = 10
           </div>
         </DiagramLabel>
       </div>
 
-      <div className="rounded-xl border border-zinc-800/70 bg-zinc-925/80 p-5 text-center shadow-xl">
-        <h5 className="mb-4 text-2.5 font-black uppercase tracking-[0.24em] text-zinc-500">Interpolation Ratio</h5>
+      <div className="rounded-xl border border-primary/20 bg-card/80 p-5 text-center shadow-xl">
+        <h5 className="mb-4 text-2.5 font-black uppercase tracking-[0.24em] text-muted-foreground">Interpolation Ratio</h5>
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="flex min-h-20 items-center justify-center rounded-md border border-zinc-800/70 bg-zinc-950/50 px-4 pb-4 pt-5">
+          <div className="flex min-h-20 items-center justify-center rounded-md border border-primary/20 bg-card px-4 pb-4 pt-5">
             <MathText content="{\\Large \\frac{Q_2-10}{20-10}=\\frac{10-5}{17-5}}" className="translate-y-1 [&_p]:leading-none" noMargin />
           </div>
-          <div className="flex min-h-20 items-center justify-center rounded-md border border-emerald-500/20 bg-emerald-950/10 px-4 pb-4 pt-5 text-emerald-100">
+          <div className="flex min-h-20 items-center justify-center rounded-md border border-primary/20 bg-primary/10 px-4 pb-4 pt-5 text-primary">
             <MathText content="{\\Large \\frac{Q_2-10}{10}=\\frac{5}{12}}" className="translate-y-1 [&_p]:leading-none" noMargin />
           </div>
         </div>

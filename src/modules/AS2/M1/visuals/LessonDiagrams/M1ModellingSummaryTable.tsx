@@ -19,27 +19,27 @@ interface Assumption {
 
 const toneStyles: Record<Tone, { title: string; border: string; bg: string; accent: string }> = {
   zinc: {
-    title: 'text-zinc-300',
-    border: 'border-zinc-800/70',
-    bg: 'bg-zinc-950/20',
+    title: 'text-foreground',
+    border: 'border-primary/20',
+    bg: 'bg-card',
     accent: '#a1a1aa',
   },
   amber: {
-    title: 'text-amber-300',
-    border: 'border-amber-500/25',
-    bg: 'bg-amber-950/15',
+    title: 'text-primary',
+    border: 'border-primary/25',
+    bg: 'bg-primary/15',
     accent: '#fbbf24',
   },
   emerald: {
-    title: 'text-emerald-300',
-    border: 'border-emerald-500/25',
-    bg: 'bg-emerald-950/15',
+    title: 'text-primary',
+    border: 'border-primary/25',
+    bg: 'bg-primary/15',
     accent: '#10b981',
   },
   rose: {
-    title: 'text-rose-300',
-    border: 'border-rose-500/30',
-    bg: 'bg-rose-950/20',
+    title: 'text-destructive',
+    border: 'border-destructive/30',
+    bg: 'bg-destructive/20',
     accent: '#f43f5e',
   },
 };
@@ -111,9 +111,9 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
   if (icon === 'particle') {
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
-        <rect x="48" y="22" width="124" height="44" rx="6" stroke="#27272a" strokeWidth="1.5" strokeDasharray="5 5" />
-        <line x1="72" y1="44" x2="148" y2="44" stroke="#52525b" strokeWidth="1.5" />
-        <Particle cx={110} cy={44} r={6} fill="#e4e4e7" />
+        <rect x="48" y="22" width="124" height="44" rx="6" stroke="var(--border)" strokeWidth="1.5" strokeDasharray="5 5" />
+        <line x1="72" y1="44" x2="148" y2="44" stroke="var(--muted-foreground)" strokeWidth="1.5" />
+        <Particle cx={110} cy={44} r={6} fill="var(--foreground)" />
       </svg>
     );
   }
@@ -121,8 +121,8 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
   if (icon === 'smooth') {
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
-        <SupportSurface x1={42} y1={62} x2={178} y2={62} rough={false} stroke="#3f3f46" strokeWidth={2.4} />
-        <rect x="88" y="28" width="44" height="34" rx="4" fill="#141417" stroke={accent} strokeWidth="1.8" />
+        <SupportSurface x1={42} y1={62} x2={178} y2={62} rough={false} stroke="var(--muted-foreground)" strokeWidth="2.4" />
+        <rect x="88" y="28" width="44" height="34" rx="4" fill="var(--card)" stroke={accent} strokeWidth="1.8" />
       </svg>
     );
   }
@@ -130,8 +130,8 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
   if (icon === 'rough') {
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
-        <SupportSurface x1={42} y1={62} x2={178} y2={62} rough={true} stroke="#3f3f46" strokeWidth={2.4} />
-        <rect x="92" y="28" width="44" height="34" rx="4" fill="#141417" stroke="#e4e4e7" strokeWidth="1.6" />
+        <SupportSurface x1={42} y1={62} x2={178} y2={62} rough={true} stroke="var(--muted-foreground)" strokeWidth="2.4" />
+        <rect x="92" y="28" width="44" height="34" rx="4" fill="var(--card)" stroke="var(--foreground)" strokeWidth="1.6" />
         <line x1="92" y1="45" x2="58" y2="45" stroke={accent} strokeWidth="1.8" strokeLinecap="round" />
         <path d="M 58 45 L 66 41 L 66 49 Z" fill={accent} />
       </svg>
@@ -143,9 +143,9 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
       <div className="relative h-full w-full">
         <svg viewBox="0 0 220 88" className="absolute inset-0 h-full w-full" fill="none" aria-hidden="true">
           <line x1="42" y1="44" x2="178" y2="44" stroke={accent} strokeWidth="1.8" strokeLinecap="round" />
-          <circle cx="110" cy="44" r="15" fill="#141417" stroke="#3f3f46" strokeWidth="1.5" />
+          <circle cx="110" cy="44" r="15" fill="var(--card)" stroke="var(--muted-foreground)" strokeWidth="1.5" />
         </svg>
-        <DiagramLabel x="50%" y="50%" text="0\text{ kg}" className="text-2.25 font-black tracking-wide text-zinc-500" />
+        <DiagramLabel x="50%" y="50%" text="0\text{ kg}" className="text-2.25 font-black tracking-wide text-muted-foreground" />
       </div>
     );
   }
@@ -153,7 +153,7 @@ const AssumptionIcon: React.FC<{ icon: Assumption['icon']; accent: string }> = (
   if (icon === 'inextensible') {
     return (
       <svg viewBox="0 0 220 88" className="h-full w-full" fill="none" aria-hidden="true">
-        <line x1="60" y1="44" x2="160" y2="44" stroke="#3b82f6" strokeWidth="2.2" strokeLinecap="round" />
+        <line x1="60" y1="44" x2="160" y2="44" stroke="var(--primary)" strokeWidth="2.2" strokeLinecap="round" />
         <ObjectBlock x={42} y={34} width={22} height={20} />
         <ObjectBlock x={156} y={34} width={22} height={20} />
         <line x1="52" y1="20" x2="168" y2="20" stroke={accent} strokeWidth="1.4" strokeDasharray="4 4" />
@@ -193,10 +193,10 @@ const AssumptionCard: React.FC<Assumption> = ({ word, meaning, effect, tone, ico
     >
       <div>
         <div className={cn('mb-3.5 text-2.75 font-bold uppercase tracking-[0.18em]', styles.title)}>{word}</div>
-        <div className="mb-4 flex h-20 items-center justify-center overflow-hidden rounded-xl border border-zinc-900 bg-zinc-940 shadow-inner">
+        <div className="mb-4 flex h-20 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-muted/40 shadow-inner">
           <AssumptionIcon icon={icon} accent={styles.accent} />
         </div>
-        <div className="space-y-2 text-xs leading-relaxed text-zinc-400">
+        <div className="space-y-2 text-xs leading-relaxed text-muted-foreground">
           <p>
             <strong className={cn('mb-0.5 block font-semibold', styles.title)}>Physical Meaning:</strong>
             {meaning}
@@ -208,7 +208,7 @@ const AssumptionCard: React.FC<Assumption> = ({ word, meaning, effect, tone, ico
         </div>
       </div>
       {formula && (
-        <div className={cn('mt-4 rounded-lg border border-zinc-900 bg-zinc-940 py-2 text-center text-xs font-bold shadow-inner', styles.title)}>
+        <div className={cn('mt-4 rounded-lg border border-primary/20 bg-muted/40 py-2 text-center text-xs font-bold shadow-inner', styles.title)}>
           <MathInline content={formula} />
         </div>
       )}
@@ -220,16 +220,16 @@ export const M1ModellingSummaryTable: React.FC = () => (
   <DiagramPanel
     title="Fig 5. CCEA Modelling Assumptions Matrix"
     analysis={
-      <div className="mx-auto w-full max-w-5xl px-4 py-1 text-center text-sm font-medium leading-relaxed text-zinc-400">
+      <div className="mx-auto w-full max-w-5xl px-4 py-1 text-center text-sm font-medium leading-relaxed text-muted-foreground">
         CCEA examiners often award marks for translating modelling words into their{' '}
-        <span className="font-bold text-emerald-300">mathematical effects</span> before equations are written.
+        <span className="font-bold text-primary">mathematical effects</span> before equations are written.
       </div>
     }
   >
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-925 p-6 text-center shadow-xl">
-        <div className="text-2.5 font-black uppercase tracking-[0.35em] text-zinc-500">Exam Strategy Index</div>
-        <div className="mt-1 text-xl font-bold tracking-tight text-zinc-100">
+      <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-card p-6 text-center shadow-xl">
+        <div className="text-2.5 font-black uppercase tracking-[0.35em] text-muted-foreground">Exam Strategy Index</div>
+        <div className="mt-1 text-xl font-bold tracking-tight text-foreground">
           Translating Modelling Words to Mathematical Effects
         </div>
       </div>

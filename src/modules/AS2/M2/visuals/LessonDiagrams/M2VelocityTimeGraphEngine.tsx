@@ -37,8 +37,8 @@ const VTGraph: React.FC<VTGraphProps> = ({ u, v, t, showArea = true, showGradien
   const clampedYV = Math.max(padding, Math.min(yBase, yV));
 
   return (
-    <div className="flex flex-col items-center p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg shadow-inner relative">
-      <h4 className="font-bold text-zinc-400 mb-3 text-sm">{title}</h4>
+    <div className="flex flex-col items-center p-4 bg-primary/5 border border-primary/20 rounded-lg shadow-inner relative">
+      <h4 className="font-bold text-muted-foreground mb-3 text-sm">{title}</h4>
       <div className="relative w-full max-w-2xl aspect-52/30">
         <svg viewBox={`0 0 ${width} ${height}`} className="absolute inset-0 w-full h-full" overflow="visible" shapeRendering="geometricPrecision">
           {/* Axes */}
@@ -98,47 +98,47 @@ export const M2VelocityTimeGraphEngine: React.FC = () => {
       title="Fig. Dynamic Velocity-Time Graph"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 italic">
+          <p className="text-sm text-muted-foreground italic">
             Velocity-time graphs are powerful tools for analyzing motion with constant acceleration.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-emerald-400 mb-2 text-sm uppercase tracking-wider">Example 1 Working</h4>
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Example 1 Working</h4>
               <div className="space-y-2">
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content="s = \\frac{1}{2}(4+7.5)(40)" noMargin />
                 </div>
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content={`= ${exampleOneDisplacement}\\mathrm{m}`} noMargin />
                 </div>
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content="a = \\frac{7.5-4}{40}" noMargin />
                 </div>
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content={`= ${exampleOneAcceleration.toFixed(4)}\\mathrm{m\\,s^{-2}}`} noMargin />
                 </div>
               </div>
             </div>
-            <div className="p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg">
-              <h4 className="font-bold text-amber-400 mb-2 text-sm uppercase tracking-wider">Example 2 Working</h4>
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <h4 className="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Example 2 Working</h4>
               <div className="space-y-2">
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content="s = \\frac{1}{2}(0+25)(120)" noMargin />
                 </div>
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content={`= ${exampleTwoDisplacement}\\mathrm{m}`} noMargin />
                 </div>
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content="a = \\frac{25-0}{120}" noMargin />
                 </div>
-                <div className="text-center bg-zinc-925 p-2 rounded border border-zinc-800/60">
+                <div className="text-center bg-card p-2 rounded border border-primary/20">
                   <MathText content={`= ${exampleTwoAcceleration.toFixed(3)}\\mathrm{m\\,s^{-2}}`} noMargin />
                 </div>
               </div>
             </div>
           </div>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> The area under a v-t graph gives <strong>displacement</strong>. If the velocity line crosses below the t-axis, calculating <strong>distance travelled</strong> requires summing the magnitudes of separate areas.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> The area under a v-t graph gives <strong>displacement</strong>. If the velocity line crosses below the t-axis, calculating <strong>distance travelled</strong> requires summing the magnitudes of separate areas.
           </div>
         </div>
       }

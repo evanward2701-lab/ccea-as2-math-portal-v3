@@ -1,8 +1,7 @@
 import { Module } from '@/core/types';
 
 const S2_CONTENT = `
-## 1. Lesson Title
-**S2: Data Presentation and Interpretation**
+
 
 ## 2. Specification Focus
 * Interpret diagrams for single-variable data, including histograms where area represents frequency.

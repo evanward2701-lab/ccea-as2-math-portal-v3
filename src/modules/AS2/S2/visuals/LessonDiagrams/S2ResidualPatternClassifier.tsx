@@ -45,8 +45,8 @@ const ResidualPlot: React.FC<{ title: string; pattern: 'random' | 'curved' | 'fa
   const trendColor = status === 'suitable' ? '#10b981' : '#f43f5e';
 
   return (
-    <div className="flex flex-col items-center p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg shadow-inner relative">
-      <h5 className={`font-bold text-sm mb-3 ${status === 'suitable' ? 'text-emerald-400' : 'text-rose-400'}`}>{title}</h5>
+    <div className="flex flex-col items-center p-4 bg-primary/5 border border-primary/20 rounded-lg shadow-inner relative">
+      <h5 className={`font-bold text-sm mb-3 ${status === 'suitable' ? 'text-primary' : 'text-destructive'}`}>{title}</h5>
       <div className="relative w-full aspect-50/15">
         <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="absolute inset-0 w-full h-full" overflow="visible" shapeRendering="geometricPrecision">
           <line x1={padding} y1={zeroLineY} x2={svgWidth - padding} y2={zeroLineY} stroke="#475569" strokeWidth="1" strokeDasharray="4 2" />
@@ -58,7 +58,7 @@ const ResidualPlot: React.FC<{ title: string; pattern: 'random' | 'curved' | 'fa
         <DiagramLabel x={`${(svgWidth - padding) / svgWidth * 100}%`} y={`${(zeroLineY + 10) / svgHeight * 100}%`} text="x" />
         <DiagramLabel x={`${(padding - 20) / svgWidth * 100}%`} y={`${(zeroLineY - 15) / svgHeight * 100}%`} text="e" />
       </div>
-      <p className={`text-xs mt-2 ${status === 'suitable' ? 'text-emerald-300' : 'text-rose-300'}`}>
+      <p className={`text-xs mt-2 ${status === 'suitable' ? 'text-primary' : 'text-destructive'}`}>
         {status === 'suitable' ? 'Linear model is suitable.' : 'Linear model is unsuitable.'}
       </p>
     </div>
@@ -71,11 +71,11 @@ export const S2ResidualPatternClassifier: React.FC = () => {
       title="Fig. Residual Pattern Classifier"
       analysis={
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 italic">
+          <p className="text-sm text-muted-foreground italic">
             Residual plots help assess the appropriateness of a linear regression model. A random scatter indicates a good fit, while patterns suggest issues.
           </p>
-          <div className="p-3 bg-rose-950/30 border border-rose-900/40 rounded-lg text-sm text-rose-300">
-            <strong className="font-bold text-rose-400">CCEA Exam Pitfall:</strong> A high PMCC does not guarantee a linear model is appropriate. Always inspect the residual plot for patterns.
+          <div className="p-3 bg-destructive/30 border border-destructive/40 rounded-lg text-sm text-destructive">
+            <strong className="font-bold text-destructive">CCEA Exam Pitfall:</strong> A high PMCC does not guarantee a linear model is appropriate. Always inspect the residual plot for patterns.
           </div>
         </div>
       }

@@ -3,7 +3,7 @@ import { DiagramPanel } from '@/core/diagram-engine/DiagramPanel';
 
 export const AS2KinematicsMotionGraphsUniformAccelerationQ016SVG001: React.FC = () => (
   <DiagramPanel title="AS2KinematicsMotionGraphsUniformAccelerationQ016SVG-001" analysis={null}>
-    <div className="text-zinc-500 w-full flex justify-center py-4">
+    <div className="text-muted-foreground w-full flex justify-center py-4">
       <div className="max-w-full max-h-[400px] flex justify-center items-center overflow-hidden">
         <svg xmlns="http://www.w3.org/2000/svg" width="420" height="440" viewBox="0 0 420 440" role="img" aria-label="Force diagram for falling stone with air resistance">
   <rect width="100%" height="100%" fill="transparent"/>
